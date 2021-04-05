@@ -1,8 +1,21 @@
-#ifndef _JPN_MSG_MACROS_H_ // Maybe something like _Z64_JPN_MSG_H_ // and rename file accordingly
+#ifndef _JPN_MSG_MACROS_H_ // Maybe something like _Z64_MM_JPN_MSG_H_ // and rename file accordingly
 #define _JPN_MSG_MACROS_H_
 
-// Majora's mask codes
+#include "ultra64.h"
 
+// The size should be correct, but the signedness may not be
+typedef struct {
+    /* 0x00 */  u8 boxType;
+    /* 0x01 */  u8 yPos;
+    /* 0x02 */  u16 itemIcon;
+    /* 0x04 */  u16 nextMsgId;
+    /* 0x06 */  u16 itemPrice;
+    /* 0x08 */  u16 itemPrice;
+    /* 0x0A */  u16 itemPrice;
+} MessageHeaderJpn; // size = 0x0C
+
+
+// Majora's mask codes
 
 #define MSGCODE_COLOR_DEFAULT                   "\x20\x00"
 #define MSGCODE_COLOR_RED                       "\x20\x01"

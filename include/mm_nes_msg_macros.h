@@ -1,8 +1,21 @@
-#ifndef _NES_MSG_MACROS_H_ // Maybe something like _Z64_NES_MSG_H_ // and rename file accordingly
+#ifndef _NES_MSG_MACROS_H_ // Maybe something like _Z64_MM_NES_MSG_H_ // and rename file accordingly
 #define _NES_MSG_MACROS_H_
 
-// Majora's mask codes
+#include "ultra64.h"
 
+// The size should be correct, but the signedness may not be
+typedef struct {
+    /* 0x00 */  u8 boxType;
+    /* 0x01 */  u8 yPos;
+    /* 0x02 */  u8 itemIcon;
+    /* 0x03 */  u16 nextMsgId;
+    /* 0x05 */  u16 itemPrice;
+    /* 0x07 */  u16 itemPrice;
+    /* 0x09 */  u16 itemPrice;
+} MessageHeader; // size = 0x0B
+
+
+// Majora's mask codes
 
 #define MSGCODE_COLOR_DEFAULT                   "\x00"
 #define MSGCODE_COLOR_RED                       "\x01"
