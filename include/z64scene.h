@@ -4,6 +4,7 @@
 #include <ultra64.h>
 #include <z64dma.h>
 #include <unk.h>
+#include "command_macros_base.h"
 
 typedef struct {
 /* 0x0 */ u32 vromStart;
