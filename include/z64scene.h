@@ -589,8 +589,8 @@ typedef enum {
 #define SCENE_CMD_TIME_SETTINGS(hour, min, speed) \
     { SCENE_CMD_ID_TIME_SETTINGS, 0, CMD_BBBB(hour, min, speed, 0) }
 
-#define SCENE_CMD_SKYBOX_SETTINGS(externalTextureFileId, skyboxId, weather, lightMode) \
-    { SCENE_CMD_ID_SKYBOX_SETTINGS, externalTextureFileId, CMD_BBBB(skyboxId, weather, lightMode, 0) }
+#define SCENE_CMD_SKYBOX_SETTINGS(externalTextureFileId, skyboxId, weather, isIndoors) \
+    { SCENE_CMD_ID_SKYBOX_SETTINGS, externalTextureFileId, CMD_BBBB(skyboxId, weather, isIndoors, 0) }
 
 #define SCENE_CMD_SKYBOX_DISABLES(disableSky, disableSunMoon) \
     { SCENE_CMD_ID_SKYBOX_DISABLES, 0, CMD_BBBB(disableSky, disableSunMoon, 0, 0) }
