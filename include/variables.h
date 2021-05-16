@@ -45,7 +45,7 @@ extern StackEntry* sStackInfoListEnd;
 // extern UNK_TYPE1 sGfxPrintUnkTLUT;
 // extern UNK_TYPE1 sGfxPrintUnkData;
 // extern UNK_TYPE1 sGfxPrintFontData;
-// extern UNK_TYPE4 D_80097524;
+extern f32 D_80097524;
 extern u32 sRandInt;
 extern OSViMode osViModeNtscHpf1;
 extern OSViMode osViModePalLan1;
