@@ -58,7 +58,7 @@ SECTIONS
         build/src/boot_O2/mtxuty-cvt.o(.text)
         build/src/boot_O2/boot_0x80086280.o(.text)
         build/src/boot_O2/boot_0x800862E0.o(.text)
-        build/asm/boot/boot_0x80086760.o(.text)
+        build/src/boot_O2/boot_0x80086760.o(.text)
         build/asm/boot/boot_0x80086DD0.o(.text)
         build/src/boot_O2/boot_0x80086FA0.o(.text)
         build/src/boot_O2/__osMalloc.o(.text)
