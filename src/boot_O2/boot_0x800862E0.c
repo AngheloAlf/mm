@@ -1,6 +1,16 @@
 #include <ultra64.h>
 #include <global.h>
 
+typedef void (*arg3_8008633C)(void*);
+typedef void (*arg3_800863AC)(void*, u32);
+typedef void (*arg3_8008641C)(void*, u32, u32, u32, u32, u32, u32, u32, u32);
+typedef void (*arg3_800864EC)(void*, u32);
+
+typedef struct InitFunc {
+    s32 nextOffset;
+    void (*func)(void);
+} InitFunc;
+
 void *StartHeap_AllocMin1(u32 size) {
     u32 phi_a1;
 
@@ -18,117 +28,99 @@ void StartHeap_FreeNull(void *pvParm1) {
 }
 
 
-/*
-void func_8008633C(u32 param_1, s32 param_2, s32 param_3, void (*param_4)(u32)) {
-    u32 phi_s0;
 
-    for (phi_s0 = param_1; phi_s0 < param_1 + (param_2 * param_3); phi_s0 += param_3) {
-        param_4(phi_s0);
+void func_8008633C(void* blk, s32 nBlk, s32 blkSize, arg3_8008633C arg3) {
+    u32 pos;
+
+    for (pos = (u32)blk; pos < (u32)blk + (nBlk * blkSize); pos += (blkSize) & ~0) {
+        arg3((void*)pos);
     }
 }
-*/
-#pragma GLOBAL_ASM("./asm/non_matchings/boot/boot_0x800862E0/func_8008633C.asm")
 
-/*
-void func_800863AC(u32 param_1, s32 param_2, s32 param_3, void *param_4) {
-    u32 temp_s0;
-    u32 temp_s1;
-    u32 phi_s0;
+void func_800863AC(void* blk, s32 nBlk, s32 blkSize, arg3_800863AC arg3) {
+    u32 pos;
 
-    temp_s1 = param_1 + (param_2 * param_3);
-    phi_s0 = param_1;
-    if (param_1 < temp_s1) {
-loop_1:
-        param_4(phi_s0, 2);
-        temp_s0 = phi_s0 + param_3;
-        phi_s0 = temp_s0;
-        if (temp_s0 < temp_s1) {
-            goto loop_1;
+    for (pos = (u32)blk; pos < (u32)blk + (nBlk * blkSize); pos += (blkSize) & ~0) {
+        arg3((void*)pos, 2);
+    }
+}
+
+void* func_8008641C(void* blk, u32 nBlk, u32 blkSize, arg3_8008641C arg3) {
+    u32 pos;
+
+    if (blk == NULL) {
+        blk = StartHeap_AllocMin1(nBlk * blkSize);
+    }
+
+    if (blk != NULL && arg3 != NULL) {
+        pos = (u32)blk;
+        while (pos < (u32)blk + (nBlk * blkSize)) {
+            arg3((void*)pos, 0, 0, 0, 0, 0, 0, 0, 0);
+            pos = (u32)pos + (blkSize & ~0);
         }
     }
+    return blk;
 }
-*/
-#pragma GLOBAL_ASM("./asm/non_matchings/boot/boot_0x800862E0/func_800863AC.asm")
 
-/*
-u32 func_8008641C(u32 arg0, s32 arg1, s32 arg2, void *arg3) {
-    u32 temp_s0;
-    u32 temp_s1;
-    u32 phi_s4;
-    u32 phi_s0;
+void func_800864EC(void* blk, u32 nBlk, u32 blkSize, arg3_800864EC arg3, s32 arg4) {
+    u32 pos;
+    u32 end;
+    s32 masked_arg2;
 
-    phi_s4 = arg0;
-    if (arg0 == 0) {
-        phi_s4 = (u32) StartHeap_AllocMin1(arg1 * arg2);
+    if (blk == 0) {
+        return;
     }
-    if ((phi_s4 != 0) && (arg3 != 0)) {
-        temp_s1 = phi_s4 + (arg1 * arg2);
-        phi_s0 = phi_s4;
-        if (phi_s4 < temp_s1) {
-loop_5:
-            arg3(phi_s0, 0, 0, 0, 0, 0, 0, 0, 0);
-            temp_s0 = phi_s0 + arg2;
-            phi_s0 = temp_s0;
-            if (temp_s0 < temp_s1) {
-                goto loop_5;
-            }
+    if (arg3 != 0) {
+        end = (u32)blk;
+        masked_arg2 = (s32)(blkSize & ~0);
+        pos = (u32)end + (nBlk * blkSize);
+
+        if (masked_arg2) {}
+
+        while (pos > end) {
+            do {
+                pos -= masked_arg2;
+                arg3((void*)pos, 2);
+            } while (0);
         }
+
+        if (!masked_arg2) {}
     }
-    return phi_s4;
+
+    if (arg4 != 0) {
+        StartHeap_FreeNull(blk);
+    }
 }
-*/
-#pragma GLOBAL_ASM("./asm/non_matchings/boot/boot_0x800862E0/func_8008641C.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/boot/boot_0x800862E0/func_800864EC.asm")
+// D_80097500;
+extern void* sInitFuncs;
 
-/*
 void *func_80086588(void) {
-    void *temp_s0;
-    void *temp_v0;
-    void *temp_v0_2;
-    void *temp_v1;
-    void *phi_s0;
-    void *phi_v0;
-    void *phi_s1;
-    void *phi_s1_2;
-    void *phi_return;
+    InitFunc* initFunc = (InitFunc*)&sInitFuncs;
+    u32 nextOffset = initFunc->nextOffset;
+    InitFunc* prev = NULL;
 
-    temp_v0 = D_80097500;
-    phi_s0 = &D_80097500;
-    phi_v0 = temp_v0;
-    phi_s1 = NULL;
-    phi_s1_2 = NULL;
-    phi_return = temp_v0;
-    if (temp_v0 != 0) {
-loop_1:
-        temp_s0 = phi_s0 + phi_v0;
-        temp_v1 = temp_s0->unk4;
-        if (temp_v1 != 0) {
-            temp_v1();
+    while (nextOffset != 0) {
+        initFunc = (InitFunc*)((s32)initFunc + nextOffset);
+
+        if (initFunc->func != NULL) {
+            (*initFunc->func)();
         }
-        temp_v0_2 = temp_s0->unk0;
-        temp_s0->unk0 = phi_s1;
-        phi_s0 = temp_s0;
-        phi_v0 = temp_v0_2;
-        phi_s1 = temp_s0;
-        phi_s1_2 = temp_s0;
-        phi_return = temp_v0_2;
-        if (temp_v0_2 != 0) {
-            goto loop_1;
-        }
+
+        nextOffset = initFunc->nextOffset;
+        initFunc->nextOffset = (s32)prev;
+        prev = initFunc;
     }
-    D_80097500 = phi_s1_2;
-    return phi_return;
+
+    sInitFuncs = prev;
 }
-*/
-#pragma GLOBAL_ASM("./asm/non_matchings/boot/boot_0x800862E0/func_80086588.asm")
 
 void StartHeap_Init(u32 base, u32 size) {
     StartHeap_InitArena(base, size);
     func_80086588();
 }
-//#pragma GLOBAL_ASM("./asm/non_matchings/boot/boot_0x800862E0/StartHeap_Init.asm")
 
+// PadSetup_Init
 s32 func_80086620(OSMesgQueue *mq, u8 *outMask, OSContStatus *status) {
     s32 ret;
     s32 i;
