@@ -11,6 +11,17 @@ typedef struct InitFunc {
     void (*func)(void);
 } InitFunc;
 
+// D_80097500;
+extern void* sInitFuncs;
+//static void* sInitFuncs = NULL;
+
+/*
+static s32 D_80097504[] = {
+    0x00000000, 0x00000000, 0x00000000, 0x7F800000,
+    0xFF800000, 0x00000000, 0x80000000, 0x7FBFFFFF,
+};
+*/
+
 void *StartHeap_AllocMin1(u32 size) {
     u32 phi_a1;
 
@@ -92,9 +103,6 @@ void func_800864EC(void* blk, u32 nBlk, u32 blkSize, arg3_800864EC arg3, s32 arg
     }
 }
 
-// D_80097500;
-extern void* sInitFuncs;
-
 void *func_80086588(void) {
     InitFunc* initFunc = (InitFunc*)&sInitFuncs;
     u32 nextOffset = initFunc->nextOffset;
@@ -121,7 +129,7 @@ void StartHeap_Init(u32 base, u32 size) {
 }
 
 // PadSetup_Init
-s32 func_80086620(OSMesgQueue *mq, u8 *outMask, OSContStatus *status) {
+s32 PadSetup_Init(OSMesgQueue *mq, u8 *outMask, OSContStatus *status) {
     s32 ret;
     s32 i;
 

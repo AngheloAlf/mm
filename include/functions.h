@@ -174,7 +174,7 @@ void StartHeap_FreeNull(void* pvParm1);
 // void func_800864EC(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5);
 // void func_80086588(void);
 void StartHeap_Init(u32 base, u32 size);
-s32 func_80086620(OSMesgQueue* mq, u8* outMask, OSContStatus* status);
+s32 PadSetup_Init(OSMesgQueue* mq, u8* outMask, OSContStatus* status);
 // void func_80086760(void);
 // void func_80086794(void);
 // void func_800867B4(void);

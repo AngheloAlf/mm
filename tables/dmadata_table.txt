@@ -1,7 +1,7 @@
 # Follows the format of (File Path (blank if it's a null entry), Compressed File Path (if compressed), Alignment, Size (for a null entry))
 [
     ('build/baserom/makerom', '', 0x10, 0),
-    ('build/baserom/boot', '', 0x10, 0),
+    ('build/binary/boot', '', 0x10, 0),
     ('build/uncompressed_dmadata', 'build/dmadata', 0x10, 0),
     ('build/baserom/assets/audio/Audiobank', '', 0x10, 0),
     ('build/baserom/assets/audio/Audioseq', '', 0x10, 0),

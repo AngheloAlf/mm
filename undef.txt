@@ -1170,4 +1170,3 @@ D_80C1392C = ovl_En_Thiefbird_bss_start + 0x0000000C;
 D_80C16470 = ovl_Obj_Yado_bss_start + 0x00000000;
 D_80C1AD40 = ovl_En_Invadepoh_Demo_bss_start + 0x00000000;
 D_80C1AD80 = ovl_En_Invadepoh_Demo_bss_start + 0x00000040;
-sInitFuncs = D_80097500;
