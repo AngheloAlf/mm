@@ -182,11 +182,11 @@ s32 PadSetup_Init(OSMesgQueue* mq, u8* outMask, OSContStatus* status);
 // void func_800867F4(void);
 // void func_80086814(void);
 // void func_80086834(void);
-// void func_80086880(void);
-// void func_800869A4(void);
+f32 func_80086880(f32); // Math_FAtanTaylorF
+f32 func_800869A4(f32); // func_800869A4
 // void func_80086AF0(void);
-// void func_80086B30(void);
-// void func_80086C18(void);
+f32 func_80086B30(f32, f32); // Math_FAtan2F
+f32 func_80086C18(f32); // Math_FAsinF
 // void func_80086C48(void);
 f32 func_80086C70(f32);
 f64 func_80086C7C(f64 param_1);

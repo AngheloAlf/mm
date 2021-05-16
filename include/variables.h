@@ -323,7 +323,6 @@ extern u8 sFaultStack[1536];
 extern StackEntry sFaultThreadInfo;
 extern FaultThreadStruct gFaultStruct;
 extern FaultDrawer sFaultDrawerStruct;
-// extern UNK_TYPE4 D_8009CD10;
 extern Arena startHeap;
 extern u32 sRandFloat;
 // extern UNK_TYPE4 sArenaLockMsg;
