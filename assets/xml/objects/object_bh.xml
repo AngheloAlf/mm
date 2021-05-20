@@ -1,0 +1,18 @@
+﻿<Root>
+    <File Name="object_bh" Segment="6">
+        <Animation Name="object_bh_Anim_000074" Offset="0x74" />
+        <DList Name="object_bh_DL_0002B0" Offset="0x2B0" />
+        <DList Name="object_bh_DL_0003A0" Offset="0x3A0" />
+        <DList Name="object_bh_DL_000450" Offset="0x450" />
+        <DList Name="object_bh_DL_0004D8" Offset="0x4D8" />
+        <DList Name="object_bh_DL_000588" Offset="0x588" />
+        <Texture Name="object_bh_Tex_000610" OutName="tex_000610" Format="rgb5a1" Width="32" Height="32" Offset="0x610" />
+        <Texture Name="object_bh_Tex_000E10" OutName="tex_000E10" Format="rgb5a1" Width="64" Height="32" Offset="0xE10" />
+        <Limb Name="object_bh_Limb_001E10" LimbType="Standard" Offset="0x1E10" />
+        <Limb Name="object_bh_Limb_001E1C" LimbType="Standard" Offset="0x1E1C" />
+        <Limb Name="object_bh_Limb_001E28" LimbType="Standard" Offset="0x1E28" />
+        <Limb Name="object_bh_Limb_001E34" LimbType="Standard" Offset="0x1E34" />
+        <Limb Name="object_bh_Limb_001E40" LimbType="Standard" Offset="0x1E40" />
+        <Skeleton Name="object_bh_Skel_001E60" Type="Flex" LimbType="Standard" Offset="0x1E60" />
+    </File>
+</Root>

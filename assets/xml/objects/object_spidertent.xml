@@ -1,0 +1,12 @@
+﻿<Root>
+    <File Name="object_spidertent" Segment="6">
+        <DList Name="object_spidertent_DL_000070" Offset="0x70" />
+        <DList Name="object_spidertent_DL_000108" Offset="0x108" />
+        <Texture Name="object_spidertent_Tex_000110" OutName="tex_000110" Format="ia8" Width="64" Height="64" Offset="0x110" />
+        <Blob Name="object_spidertent_Blob_001110" Size="0xD0" Offset="0x1110" />
+        <DList Name="object_spidertent_DL_001250" Offset="0x1250" />
+        <DList Name="object_spidertent_DL_0012E8" Offset="0x12E8" />
+        <Texture Name="object_spidertent_Tex_0012F0" OutName="tex_0012F0" Format="ia8" Width="64" Height="64" Offset="0x12F0" />
+        <Blob Name="object_spidertent_Blob_0022F0" Size="0xD0" Offset="0x22F0" />
+    </File>
+</Root>

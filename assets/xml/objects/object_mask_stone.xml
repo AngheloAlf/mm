@@ -1,0 +1,7 @@
+﻿<Root>
+    <File Name="object_mask_stone" Segment="6">
+        <Blob Name="object_mask_stone_Blob_000000" Size="0x820" Offset="0x0" />
+        <DList Name="object_mask_stone_DL_000820" Offset="0x820" />
+        <Blob Name="object_mask_stone_Blob_000B40" Size="0x500" Offset="0xB40" />
+    </File>
+</Root>

@@ -1,0 +1,27 @@
+﻿<Root>
+    <File Name="object_keikoku_obj" Segment="6">
+        <DList Name="object_keikoku_obj_DL_000100" Offset="0x100" />
+        <Blob Name="object_keikoku_obj_Blob_0001F0" Size="0x10" Offset="0x1F0" />
+        <DList Name="object_keikoku_obj_DL_000300" Offset="0x300" />
+        <Blob Name="object_keikoku_obj_Blob_0003F0" Size="0x10" Offset="0x3F0" />
+        <DList Name="object_keikoku_obj_DL_000500" Offset="0x500" />
+        <Blob Name="object_keikoku_obj_Blob_0005F0" Size="0x10" Offset="0x5F0" />
+        <Texture Name="object_keikoku_obj_Tex_000600" OutName="tex_000600" Format="i4" Width="64" Height="64" Offset="0x600" />
+        <Texture Name="object_keikoku_obj_Tex_000E00" OutName="tex_000E00" Format="i4" Width="64" Height="64" Offset="0xE00" />
+        <DList Name="object_keikoku_obj_DL_001640" Offset="0x1640" />
+        <Texture Name="object_keikoku_obj_Tex_001780" OutName="tex_001780" Format="ia4" Width="32" Height="128" Offset="0x1780" />
+        <Texture Name="object_keikoku_obj_Tex_001F80" OutName="tex_001F80" Format="ia4" Width="16" Height="64" Offset="0x1F80" />
+        <Texture Name="object_keikoku_obj_Tex_002180" OutName="tex_002180" Format="ia8" Width="8" Height="32" Offset="0x2180" />
+        <Blob Name="object_keikoku_obj_Blob_002280" Size="0xB0" Offset="0x2280" />
+        <DList Name="object_keikoku_obj_DL_0027D0" Offset="0x27D0" />
+        <DList Name="object_keikoku_obj_DL_0027D8" Offset="0x27D8" />
+        <Texture Name="object_keikoku_obj_Tex_002A78" OutName="tex_002A78" Format="rgb5a1" Width="16" Height="64" Offset="0x2A78" />
+        <Texture Name="object_keikoku_obj_Tex_003278" OutName="tex_003278" Format="rgb5a1" Width="32" Height="32" Offset="0x3278" />
+        <Texture Name="object_keikoku_obj_Tex_003A78" OutName="tex_003A78" Format="i4" Width="64" Height="64" Offset="0x3A78" />
+        <Blob Name="object_keikoku_obj_Blob_004278" Size="0x28" Offset="0x4278" />
+        <DList Name="object_keikoku_obj_DL_0044A0" Offset="0x44A0" />
+        <DList Name="object_keikoku_obj_DL_0044A8" Offset="0x44A8" />
+        <Texture Name="object_keikoku_obj_Tex_004618" OutName="tex_004618" Format="rgb5a1" Width="16" Height="32" Offset="0x4618" />
+        <Texture Name="object_keikoku_obj_Tex_004A18" OutName="tex_004A18" Format="rgb5a1" Width="32" Height="32" Offset="0x4A18" />
+    </File>
+</Root>

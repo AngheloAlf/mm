@@ -1,0 +1,54 @@
+﻿<Root>
+    <File Name="object_dog" Segment="6">
+        <!--<Mtx Name="object_dog_Mtx_000130" Offset="0x130" />-->
+        <DList Name="object_dog_DL_000170" Offset="0x170" />
+        <DList Name="object_dog_DL_000250" Offset="0x250" />
+        <Blob Name="object_dog_Blob_000258" Size="0x144" Offset="0x258" />
+        <Animation Name="object_dog_Anim_0003B4" Offset="0x3B4" />
+        <Blob Name="object_dog_Blob_0003C4" Size="0x1C" Offset="0x3C4" />
+        <!--<Mtx Name="object_dog_Mtx_000510" Offset="0x510" />-->
+        <DList Name="object_dog_DL_000550" Offset="0x550" />
+        <DList Name="object_dog_DL_000618" Offset="0x618" />
+        <Texture Name="object_dog_Tex_000620" OutName="tex_000620" Format="i4" Width="16" Height="32" Offset="0x620" />
+        <Animation Name="object_dog_Anim_000998" Offset="0x998" />
+        <Animation Name="object_dog_Anim_001048" Offset="0x1048" />
+        <Animation Name="object_dog_Anim_001348" Offset="0x1348" />
+        <Animation Name="object_dog_Anim_001560" Offset="0x1560" />
+        <Animation Name="object_dog_Anim_0017C0" Offset="0x17C0" />
+        <Animation Name="object_dog_Anim_001A84" Offset="0x1A84" />
+        <Animation Name="object_dog_Anim_001BD8" Offset="0x1BD8" />
+        <Animation Name="object_dog_Anim_001FB0" Offset="0x1FB0" />
+        <Animation Name="object_dog_Anim_0021C8" Offset="0x21C8" />
+        <Texture Name="object_dog_Tex_0021E0" OutName="tex_0021E0" Format="rgb5a1" Width="32" Height="32" Offset="0x21E0" />
+        <Texture Name="object_dog_Tex_0029E0" OutName="tex_0029E0" Format="rgb5a1" Width="32" Height="32" Offset="0x29E0" />
+        <Texture Name="object_dog_Tex_0031E0" OutName="tex_0031E0" Format="rgb5a1" Width="32" Height="32" Offset="0x31E0" />
+        <Texture Name="object_dog_Tex_0039E0" OutName="tex_0039E0" Format="rgb5a1" Width="32" Height="32" Offset="0x39E0" />
+        <Texture Name="object_dog_Tex_0041E0" OutName="tex_0041E0" Format="rgb5a1" Width="32" Height="32" Offset="0x41E0" />
+        <Texture Name="object_dog_Tex_0049E0" OutName="tex_0049E0" Format="rgb5a1" Width="32" Height="32" Offset="0x49E0" />
+        <Texture Name="object_dog_Tex_0051E0" OutName="tex_0051E0" Format="rgb5a1" Width="16" Height="16" Offset="0x51E0" />
+        <Texture Name="object_dog_Tex_0053E0" OutName="tex_0053E0" Format="rgb5a1" Width="32" Height="32" Offset="0x53E0" />
+        <DList Name="object_dog_DL_006F40" Offset="0x6F40" />
+        <DList Name="object_dog_DL_0072A8" Offset="0x72A8" />
+        <DList Name="object_dog_DL_007348" Offset="0x7348" />
+        <DList Name="object_dog_DL_0073E8" Offset="0x73E8" />
+        <DList Name="object_dog_DL_007600" Offset="0x7600" />
+        <DList Name="object_dog_DL_0077B0" Offset="0x77B0" />
+        <DList Name="object_dog_DL_007960" Offset="0x7960" />
+        <DList Name="object_dog_DL_007B00" Offset="0x7B00" />
+        <DList Name="object_dog_DL_007CB0" Offset="0x7CB0" />
+        <DList Name="object_dog_DL_007E60" Offset="0x7E60" />
+        <Limb Name="object_dog_Limb_008030" LimbType="Standard" Offset="0x8030" />
+        <Limb Name="object_dog_Limb_00803C" LimbType="Standard" Offset="0x803C" />
+        <Limb Name="object_dog_Limb_008048" LimbType="Standard" Offset="0x8048" />
+        <Limb Name="object_dog_Limb_008054" LimbType="Standard" Offset="0x8054" />
+        <Limb Name="object_dog_Limb_008060" LimbType="Standard" Offset="0x8060" />
+        <Limb Name="object_dog_Limb_00806C" LimbType="Standard" Offset="0x806C" />
+        <Limb Name="object_dog_Limb_008078" LimbType="Standard" Offset="0x8078" />
+        <Limb Name="object_dog_Limb_008084" LimbType="Standard" Offset="0x8084" />
+        <Limb Name="object_dog_Limb_008090" LimbType="Standard" Offset="0x8090" />
+        <Limb Name="object_dog_Limb_00809C" LimbType="Standard" Offset="0x809C" />
+        <Limb Name="object_dog_Limb_0080A8" LimbType="Standard" Offset="0x80A8" />
+        <Limb Name="object_dog_Limb_0080B4" LimbType="Standard" Offset="0x80B4" />
+        <Skeleton Name="object_dog_Skel_0080F0" Type="Flex" LimbType="Standard" Offset="0x80F0" />
+    </File>
+</Root>

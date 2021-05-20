@@ -1,0 +1,7 @@
+﻿<Root>
+    <File Name="object_mask_json" Segment="6">
+        <Blob Name="object_mask_json_Blob_000000" Size="0x4B8" Offset="0x0" />
+        <DList Name="object_mask_json_DL_0004B8" Offset="0x4B8" />
+        <Blob Name="object_mask_json_Blob_0008A0" Size="0xAC0" Offset="0x8A0" />
+    </File>
+</Root>

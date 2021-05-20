@@ -1,0 +1,8 @@
+﻿<Root>
+    <File Name="object_smtower" Segment="6">
+        <DList Name="object_smtower_DL_000520" Offset="0x520" />
+        <Texture Name="object_smtower_Tex_000778" OutName="tex_000778" Format="i8" Width="64" Height="32" Offset="0x778" />
+        <Texture Name="object_smtower_Tex_000F78" OutName="tex_000F78" Format="i4" Width="64" Height="64" Offset="0xF78" />
+        <Blob Name="object_smtower_Blob_001778" Size="0x18" Offset="0x1778" />
+    </File>
+</Root>

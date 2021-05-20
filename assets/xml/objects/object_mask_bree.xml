@@ -1,0 +1,7 @@
+﻿<Root>
+    <File Name="object_mask_bree" Segment="6">
+        <Blob Name="object_mask_bree_Blob_000000" Size="0x3B0" Offset="0x0" />
+        <DList Name="object_mask_bree_DL_0003B0" Offset="0x3B0" />
+        <Blob Name="object_mask_bree_Blob_000658" Size="0x1748" Offset="0x658" />
+    </File>
+</Root>

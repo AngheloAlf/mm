@@ -1,0 +1,19 @@
+﻿<Root>
+    <File Name="object_bee" Segment="6">
+        <Animation Name="object_bee_Anim_00005C" Offset="0x5C" />
+        <DList Name="object_bee_DL_000550" Offset="0x550" />
+        <DList Name="object_bee_DL_000780" Offset="0x780" />
+        <DList Name="object_bee_DL_000848" Offset="0x848" />
+        <DList Name="object_bee_DL_000918" Offset="0x918" />
+        <DList Name="object_bee_DL_0009D0" Offset="0x9D0" />
+        <Texture Name="object_bee_TLUT_000A88" OutName="tlut_000A88" Format="rgb5a1" Width="4" Height="4" Offset="0xA88" />
+        <Texture Name="object_bee_TLUT_000AA8" OutName="tlut_000AA8" Format="rgb5a1" Width="4" Height="4" Offset="0xAA8" />
+        <Texture Name="object_bee_TLUT_000AC8" OutName="tlut_000AC8" Format="rgb5a1" Width="4" Height="4" Offset="0xAC8" />
+        <Texture Name="object_bee_TLUT_000AE8" OutName="tlut_000AE8" Format="rgb5a1" Width="4" Height="4" Offset="0xAE8" />
+        <Texture Name="object_bee_Tex_000B08" OutName="tex_000B08" Format="ci4" Width="32" Height="32" Offset="0xB08" />
+        <Texture Name="object_bee_Tex_000D08" OutName="tex_000D08" Format="ci4" Width="32" Height="32" Offset="0xD08" />
+        <Texture Name="object_bee_Tex_000F08" OutName="tex_000F08" Format="ci4" Width="32" Height="32" Offset="0xF08" />
+        <Texture Name="object_bee_Tex_001108" OutName="tex_001108" Format="ci4" Width="32" Height="32" Offset="0x1108" />
+        <Blob Name="object_bee_Blob_001308" Size="0x98" Offset="0x1308" />
+    </File>
+</Root>

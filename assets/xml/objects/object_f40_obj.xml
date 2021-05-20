@@ -1,0 +1,17 @@
+﻿<Root>
+    <File Name="object_f40_obj" Segment="6">
+        <Texture Name="object_f40_obj_Tex_000000" OutName="tex_000000" Format="i8" Width="64" Height="64" Offset="0x0" />
+        <Texture Name="object_f40_obj_Tex_001000" OutName="tex_001000" Format="rgb5a1" Width="32" Height="64" Offset="0x1000" />
+        <Texture Name="object_f40_obj_Tex_002000" OutName="tex_002000" Format="rgb5a1" Width="32" Height="32" Offset="0x2000" />
+        <Texture Name="object_f40_obj_Tex_002800" OutName="tex_002800" Format="i4" Width="32" Height="128" Offset="0x2800" />
+        <Texture Name="object_f40_obj_Tex_003000" OutName="tex_003000" Format="i4" Width="64" Height="64" Offset="0x3000" />
+        <DList Name="object_f40_obj_DL_003B00" Offset="0x3B00" />
+        <DList Name="object_f40_obj_DL_003B08" Offset="0x3B08" />
+        <Blob Name="object_f40_obj_Blob_003C48" Size="0x268" Offset="0x3C48" />
+        <DList Name="object_f40_obj_DL_004030" Offset="0x4030" />
+        <DList Name="object_f40_obj_DL_004038" Offset="0x4038" />
+        <Blob Name="object_f40_obj_Blob_004138" Size="0x138" Offset="0x4138" />
+        <DList Name="object_f40_obj_DL_0043D0" Offset="0x43D0" />
+        <Blob Name="object_f40_obj_Blob_004538" Size="0x138" Offset="0x4538" />
+    </File>
+</Root>

@@ -1,0 +1,73 @@
+﻿<Root>
+    <File Name="object_zob" Segment="6">
+        <Animation Name="object_zob_Anim_001FD4" Offset="0x1FD4" />
+        <Animation Name="object_zob_Anim_0027D0" Offset="0x27D0" />
+        <Animation Name="object_zob_Anim_002B38" Offset="0x2B38" />
+        <Animation Name="object_zob_Anim_0037A0" Offset="0x37A0" />
+        <Animation Name="object_zob_Anim_0043C4" Offset="0x43C4" />
+        <Animation Name="object_zob_Anim_005224" Offset="0x5224" />
+        <Animation Name="object_zob_Anim_005E90" Offset="0x5E90" />
+        <Animation Name="object_zob_Anim_006998" Offset="0x6998" />
+        <DList Name="object_zob_DL_00A700" Offset="0xA700" />
+        <DList Name="object_zob_DL_00A880" Offset="0xA880" />
+        <DList Name="object_zob_DL_00AA58" Offset="0xAA58" />
+        <DList Name="object_zob_DL_00AB80" Offset="0xAB80" />
+        <DList Name="object_zob_DL_00AE08" Offset="0xAE08" />
+        <DList Name="object_zob_DL_00AF90" Offset="0xAF90" />
+        <DList Name="object_zob_DL_00B150" Offset="0xB150" />
+        <DList Name="object_zob_DL_00B3B8" Offset="0xB3B8" />
+        <DList Name="object_zob_DL_00B4E0" Offset="0xB4E0" />
+        <DList Name="object_zob_DL_00B768" Offset="0xB768" />
+        <DList Name="object_zob_DL_00B8F0" Offset="0xB8F0" />
+        <DList Name="object_zob_DL_00BC48" Offset="0xBC48" />
+        <DList Name="object_zob_DL_00BD10" Offset="0xBD10" />
+        <DList Name="object_zob_DL_00BDC8" Offset="0xBDC8" />
+        <DList Name="object_zob_DL_00BE90" Offset="0xBE90" />
+        <DList Name="object_zob_DL_00BF48" Offset="0xBF48" />
+        <DList Name="object_zob_DL_00C140" Offset="0xC140" />
+        <DList Name="object_zob_DL_00C370" Offset="0xC370" />
+        <DList Name="object_zob_DL_00C528" Offset="0xC528" />
+        <DList Name="object_zob_DL_00C7B0" Offset="0xC7B0" />
+        <DList Name="object_zob_DL_00C9E0" Offset="0xC9E0" />
+        <DList Name="object_zob_DL_00CB98" Offset="0xCB98" />
+        <Texture Name="object_zob_TLUT_00CE20" OutName="tlut_00CE20" Format="rgb5a1" Width="16" Height="16" Offset="0xCE20" />
+        <Texture Name="object_zob_TLUT_00D020" OutName="tlut_00D020" Format="rgb5a1" Width="16" Height="16" Offset="0xD020" />
+        <Texture Name="object_zob_Tex_00D220" OutName="tex_00D220" Format="ci8" Width="8" Height="8" Offset="0xD220" />
+        <Texture Name="object_zob_Tex_00D260" OutName="tex_00D260" Format="ci8" Width="32" Height="32" Offset="0xD260" />
+        <Texture Name="object_zob_Tex_00D660" OutName="tex_00D660" Format="rgb5a1" Width="16" Height="16" Offset="0xD660" />
+        <Texture Name="object_zob_Tex_00D860" OutName="tex_00D860" Format="rgb5a1" Width="16" Height="16" Offset="0xD860" />
+        <Texture Name="object_zob_Tex_00DA60" OutName="tex_00DA60" Format="rgb5a1" Width="32" Height="32" Offset="0xDA60" />
+        <Texture Name="object_zob_Tex_00E260" OutName="tex_00E260" Format="ci8" Width="8" Height="8" Offset="0xE260" />
+        <Texture Name="object_zob_Tex_00E2A0" OutName="tex_00E2A0" Format="rgb5a1" Width="32" Height="32" Offset="0xE2A0" />
+        <Texture Name="object_zob_Tex_00EAA0" OutName="tex_00EAA0" Format="rgb5a1" Width="32" Height="32" Offset="0xEAA0" />
+        <Texture Name="object_zob_Tex_00F2A0" OutName="tex_00F2A0" Format="rgb5a1" Width="32" Height="32" Offset="0xF2A0" />
+        <Texture Name="object_zob_Tex_00FAA0" OutName="tex_00FAA0" Format="rgb5a1" Width="16" Height="16" Offset="0xFAA0" />
+        <Texture Name="object_zob_Tex_00FCA0" OutName="tex_00FCA0" Format="rgb5a1" Width="16" Height="16" Offset="0xFCA0" />
+        <Texture Name="object_zob_Tex_00FEA0" OutName="tex_00FEA0" Format="rgb5a1" Width="32" Height="32" Offset="0xFEA0" />
+        <Limb Name="object_zob_Limb_0106A0" LimbType="Standard" Offset="0x106A0" />
+        <Limb Name="object_zob_Limb_0106AC" LimbType="Standard" Offset="0x106AC" />
+        <Limb Name="object_zob_Limb_0106B8" LimbType="Standard" Offset="0x106B8" />
+        <Limb Name="object_zob_Limb_0106C4" LimbType="Standard" Offset="0x106C4" />
+        <Limb Name="object_zob_Limb_0106D0" LimbType="Standard" Offset="0x106D0" />
+        <Limb Name="object_zob_Limb_0106DC" LimbType="Standard" Offset="0x106DC" />
+        <Limb Name="object_zob_Limb_0106E8" LimbType="Standard" Offset="0x106E8" />
+        <Limb Name="object_zob_Limb_0106F4" LimbType="Standard" Offset="0x106F4" />
+        <Limb Name="object_zob_Limb_010700" LimbType="Standard" Offset="0x10700" />
+        <Limb Name="object_zob_Limb_01070C" LimbType="Standard" Offset="0x1070C" />
+        <Limb Name="object_zob_Limb_010718" LimbType="Standard" Offset="0x10718" />
+        <Limb Name="object_zob_Limb_010724" LimbType="Standard" Offset="0x10724" />
+        <Limb Name="object_zob_Limb_010730" LimbType="Standard" Offset="0x10730" />
+        <Limb Name="object_zob_Limb_01073C" LimbType="Standard" Offset="0x1073C" />
+        <Limb Name="object_zob_Limb_010748" LimbType="Standard" Offset="0x10748" />
+        <Limb Name="object_zob_Limb_010754" LimbType="Standard" Offset="0x10754" />
+        <Limb Name="object_zob_Limb_010760" LimbType="Standard" Offset="0x10760" />
+        <Limb Name="object_zob_Limb_01076C" LimbType="Standard" Offset="0x1076C" />
+        <Limb Name="object_zob_Limb_010778" LimbType="Standard" Offset="0x10778" />
+        <Limb Name="object_zob_Limb_010784" LimbType="Standard" Offset="0x10784" />
+        <Limb Name="object_zob_Limb_010790" LimbType="Standard" Offset="0x10790" />
+        <Limb Name="object_zob_Limb_01079C" LimbType="Standard" Offset="0x1079C" />
+        <Limb Name="object_zob_Limb_0107A8" LimbType="Standard" Offset="0x107A8" />
+        <Skeleton Name="object_zob_Skel_010810" Type="Flex" LimbType="Standard" Offset="0x10810" />
+        <Animation Name="object_zob_Anim_011144" Offset="0x11144" />
+    </File>
+</Root>
