@@ -18,7 +18,7 @@
         <Texture Name="object_zod_Tex_0053D0" OutName="tex_0053D0" Format="rgb5a1" Width="16" Height="16" Offset="0x53D0" />
         <Texture Name="object_zod_Tex_0055D0" OutName="tex_0055D0" Format="rgb5a1" Width="8" Height="8" Offset="0x55D0" />
         <Texture Name="object_zod_Tex_005650" OutName="tex_005650" Format="rgb5a1" Width="32" Height="32" Offset="0x5650" />
-        <Blob Name="object_zod_Blob_005E50" Size="0x2800" Offset="0x5E50" />
+        <!--Blob Name="object_zod_Blob_005E50" Size="0x2800" Offset="0x5E50" /-->
         <DList Name="object_zod_DL_00A460" Offset="0xA460" />
         <DList Name="object_zod_DL_00A550" Offset="0xA550" />
         <DList Name="object_zod_DL_00A5E0" Offset="0xA5E0" />
@@ -45,6 +45,6 @@
         <Limb Name="object_zod_Limb_00D61C" LimbType="Standard" Offset="0xD61C" />
         <Limb Name="object_zod_Limb_00D628" LimbType="Standard" Offset="0xD628" />
         <Skeleton Name="object_zod_Skel_00D658" Type="Flex" LimbType="Standard" Offset="0xD658" />
-        <Blob Name="object_zod_Blob_00D664" Size="0x35C" Offset="0xD664" />
+        <!--Blob Name="object_zod_Blob_00D664" Size="0x35C" Offset="0xD664" /-->
     </File>
 </Root>

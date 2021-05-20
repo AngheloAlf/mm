@@ -37,6 +37,6 @@
         <Animation Name="object_dekunuts_Anim_003180" Offset="0x3180" />
         <Animation Name="object_dekunuts_Anim_00326C" Offset="0x326C" />
         <Animation Name="object_dekunuts_Anim_0033E4" Offset="0x33E4" />
-        <Blob Name="object_dekunuts_Blob_0033F4" Size="0x39C" Offset="0x33F4" />
+        <!--Blob Name="object_dekunuts_Blob_0033F4" Size="0x39C" Offset="0x33F4" /-->
     </File>
 </Root>

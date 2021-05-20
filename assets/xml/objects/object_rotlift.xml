@@ -4,11 +4,11 @@
         <Texture Name="object_rotlift_TLUT_000590" OutName="tlut_000590" Format="rgb5a1" Width="16" Height="16" Offset="0x590" />
         <Texture Name="object_rotlift_Tex_000790" OutName="tex_000790" Format="ci8" Width="32" Height="64" Offset="0x790" />
         <Texture Name="object_rotlift_Tex_000F90" OutName="tex_000F90" Format="rgb5a1" Width="32" Height="64" Offset="0xF90" />
-        <Blob Name="object_rotlift_Blob_001F90" Size="0x230" Offset="0x1F90" />
+        <!--Blob Name="object_rotlift_Blob_001F90" Size="0x230" Offset="0x1F90" /-->
         <DList Name="object_rotlift_DL_002CE0" Offset="0x2CE0" />
         <Texture Name="object_rotlift_TLUT_002FF8" OutName="tlut_002FF8" Format="rgb5a1" Width="16" Height="16" Offset="0x2FF8" />
         <Texture Name="object_rotlift_Tex_0031F8" OutName="tex_0031F8" Format="ci8" Width="32" Height="64" Offset="0x31F8" />
         <Texture Name="object_rotlift_Tex_0039F8" OutName="tex_0039F8" Format="rgb5a1" Width="32" Height="64" Offset="0x39F8" />
-        <Blob Name="object_rotlift_Blob_0049F8" Size="0x428" Offset="0x49F8" />
+        <!--Blob Name="object_rotlift_Blob_0049F8" Size="0x428" Offset="0x49F8" /-->
     </File>
 </Root>

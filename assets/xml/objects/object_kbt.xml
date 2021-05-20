@@ -42,7 +42,7 @@
         <Texture Name="object_kbt_Tex_00A2F8" OutName="tex_00A2F8" Format="ci8" Width="8" Height="8" Offset="0xA2F8" />
         <Texture Name="object_kbt_Tex_00A338" OutName="tex_00A338" Format="rgb5a1" Width="8" Height="8" Offset="0xA338" />
         <Texture Name="object_kbt_Tex_00A3B8" OutName="tex_00A3B8" Format="ci8" Width="16" Height="32" Offset="0xA3B8" />
-        <Blob Name="object_kbt_Blob_00A5B8" Size="0x3800" Offset="0xA5B8" />
+        <!--Blob Name="object_kbt_Blob_00A5B8" Size="0x3800" Offset="0xA5B8" /-->
         <Limb Name="object_kbt_Limb_00DDB8" LimbType="Standard" Offset="0xDDB8" />
         <Limb Name="object_kbt_Limb_00DDC4" LimbType="Standard" Offset="0xDDC4" />
         <Limb Name="object_kbt_Limb_00DDD0" LimbType="Standard" Offset="0xDDD0" />

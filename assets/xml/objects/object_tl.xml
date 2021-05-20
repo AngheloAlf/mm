@@ -18,7 +18,7 @@
         <Animation Name="object_tl_Anim_0031DC" Offset="0x31DC" />
         <Animation Name="object_tl_Anim_0035EC" Offset="0x35EC" />
         <Animation Name="object_tl_Anim_003614" Offset="0x3614" />
-        <Blob Name="object_tl_Blob_003624" Size="0xC" Offset="0x3624" />
+        <!--Blob Name="object_tl_Blob_003624" Size="0xC" Offset="0x3624" /-->
         <Animation Name="object_tl_Anim_0039C0" Offset="0x39C0" />
         <Animation Name="object_tl_Anim_004210" Offset="0x4210" />
         <Texture Name="object_tl_Tex_004220" OutName="tex_004220" Format="rgb5a1" Width="16" Height="32" Offset="0x4220" />
@@ -30,7 +30,7 @@
         <Texture Name="object_tl_Tex_0052A0" OutName="tex_0052A0" Format="rgb5a1" Width="16" Height="8" Offset="0x52A0" />
         <Texture Name="object_tl_Tex_0053A0" OutName="tex_0053A0" Format="rgb5a1" Width="16" Height="16" Offset="0x53A0" />
         <Texture Name="object_tl_Tex_0055A0" OutName="tex_0055A0" Format="rgb5a1" Width="16" Height="16" Offset="0x55A0" />
-        <Blob Name="object_tl_Blob_0057A0" Size="0x400" Offset="0x57A0" />
+        <!--Blob Name="object_tl_Blob_0057A0" Size="0x400" Offset="0x57A0" /-->
         <DList Name="object_tl_DL_006C50" Offset="0x6C50" />
         <DList Name="object_tl_DL_006DE8" Offset="0x6DE8" />
         <DList Name="object_tl_DL_006F30" Offset="0x6F30" />

@@ -1,13 +1,13 @@
 ﻿<Root>
     <File Name="object_haka_obj" Segment="6">
         <DList Name="object_haka_obj_DL_000040" Offset="0x40" />
-        <Blob Name="object_haka_obj_Blob_000100" Size="0x80" Offset="0x100" />
+        <!--Blob Name="object_haka_obj_Blob_000100" Size="0x80" Offset="0x100" /-->
         <DList Name="object_haka_obj_DL_0007B0" Offset="0x7B0" />
-        <Blob Name="object_haka_obj_Blob_000DA8" Size="0x178" Offset="0xDA8" />
+        <!--Blob Name="object_haka_obj_Blob_000DA8" Size="0x178" Offset="0xDA8" /-->
         <DList Name="object_haka_obj_DL_000F70" Offset="0xF70" />
         <DList Name="object_haka_obj_DL_001200" Offset="0x1200" />
         <DList Name="object_haka_obj_DL_001410" Offset="0x1410" />
-        <Blob Name="object_haka_obj_Blob_001540" Size="0x80" Offset="0x1540" />
+        <!--Blob Name="object_haka_obj_Blob_001540" Size="0x80" Offset="0x1540" /-->
         <DList Name="object_haka_obj_DL_001680" Offset="0x1680" />
         <Texture Name="object_haka_obj_TLUT_001800" OutName="tlut_001800" Format="rgb5a1" Width="16" Height="16" Offset="0x1800" />
         <Texture Name="object_haka_obj_TLUT_001A00" OutName="tlut_001A00" Format="rgb5a1" Width="4" Height="4" Offset="0x1A00" />

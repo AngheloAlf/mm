@@ -48,7 +48,7 @@
         <Texture Name="object_ma2_Tex_0113D8" OutName="tex_0113D8" Format="ci8" Width="16" Height="16" Offset="0x113D8" />
         <Texture Name="object_ma2_Tex_0114D8" OutName="tex_0114D8" Format="rgb5a1" Width="16" Height="32" Offset="0x114D8" />
         <Texture Name="object_ma2_Tex_0118D8" OutName="tex_0118D8" Format="rgb5a1" Width="16" Height="16" Offset="0x118D8" />
-        <Blob Name="object_ma2_Blob_011AD8" Size="0x4000" Offset="0x11AD8" />
+        <!--Blob Name="object_ma2_Blob_011AD8" Size="0x4000" Offset="0x11AD8" /-->
         <Limb Name="object_ma2_Limb_015AD8" LimbType="Standard" Offset="0x15AD8" />
         <Limb Name="object_ma2_Limb_015AE4" LimbType="Standard" Offset="0x15AE4" />
         <Limb Name="object_ma2_Limb_015AF0" LimbType="Standard" Offset="0x15AF0" />
@@ -71,6 +71,6 @@
         <Limb Name="object_ma2_Limb_015BBC" LimbType="Standard" Offset="0x15BBC" />
         <Limb Name="object_ma2_Limb_015BC8" LimbType="Standard" Offset="0x15BC8" />
         <Skeleton Name="object_ma2_Skel_015C28" Type="Flex" LimbType="Standard" Offset="0x15C28" />
-        <Blob Name="object_ma2_Blob_015C34" Size="0xAFC" Offset="0x15C34" />
+        <!--Blob Name="object_ma2_Blob_015C34" Size="0xAFC" Offset="0x15C34" /-->
     </File>
 </Root>

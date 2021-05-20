@@ -17,7 +17,7 @@
         <Texture Name="object_numa_obj_Tex_0072B0" OutName="tex_0072B0" Format="rgb5a1" Width="32" Height="64" Offset="0x72B0" />
         <DList Name="object_numa_obj_DL_008440" Offset="0x8440" />
         <Texture Name="object_numa_obj_Tex_0085A0" OutName="tex_0085A0" Format="rgb5a1" Width="32" Height="64" Offset="0x85A0" />
-        <Blob Name="object_numa_obj_Blob_0095A0" Size="0x11D0" Offset="0x95A0" />
+        <!--Blob Name="object_numa_obj_Blob_0095A0" Size="0x11D0" Offset="0x95A0" /-->
         <DList Name="object_numa_obj_DL_00AB80" Offset="0xAB80" />
         <DList Name="object_numa_obj_DL_00AB88" Offset="0xAB88" />
         <DList Name="object_numa_obj_DL_00B920" Offset="0xB920" />
@@ -31,23 +31,23 @@
         <Texture Name="object_numa_obj_Tex_00F7D0" OutName="tex_00F7D0" Format="rgb5a1" Width="32" Height="64" Offset="0xF7D0" />
         <Texture Name="object_numa_obj_Tex_0107D0" OutName="tex_0107D0" Format="rgb5a1" Width="32" Height="64" Offset="0x107D0" />
         <Texture Name="object_numa_obj_Tex_0117D0" OutName="tex_0117D0" Format="rgb5a1" Width="32" Height="64" Offset="0x117D0" />
-        <Blob Name="object_numa_obj_Blob_0127D0" Size="0x80" Offset="0x127D0" />
+        <!--Blob Name="object_numa_obj_Blob_0127D0" Size="0x80" Offset="0x127D0" /-->
         <DList Name="object_numa_obj_DL_0128E0" Offset="0x128E0" />
         <DList Name="object_numa_obj_DL_0129C0" Offset="0x129C0" />
         <DList Name="object_numa_obj_DL_012A60" Offset="0x12A60" />
         <DList Name="object_numa_obj_DL_012B40" Offset="0x12B40" />
-        <Blob Name="object_numa_obj_Blob_012B48" Size="0x18" Offset="0x12B48" />
+        <!--Blob Name="object_numa_obj_Blob_012B48" Size="0x18" Offset="0x12B48" /-->
         <DList Name="object_numa_obj_DL_012BF0" Offset="0x12BF0" />
         <DList Name="object_numa_obj_DL_012CD0" Offset="0x12CD0" />
-        <Blob Name="object_numa_obj_Blob_012CD8" Size="0x28" Offset="0x12CD8" />
+        <!--Blob Name="object_numa_obj_Blob_012CD8" Size="0x28" Offset="0x12CD8" /-->
         <DList Name="object_numa_obj_DL_012D90" Offset="0x12D90" />
         <DList Name="object_numa_obj_DL_012E70" Offset="0x12E70" />
         <DList Name="object_numa_obj_DL_012F10" Offset="0x12F10" />
         <DList Name="object_numa_obj_DL_012FF0" Offset="0x12FF0" />
-        <Blob Name="object_numa_obj_Blob_012FF8" Size="0x18" Offset="0x12FF8" />
+        <!--Blob Name="object_numa_obj_Blob_012FF8" Size="0x18" Offset="0x12FF8" /-->
         <DList Name="object_numa_obj_DL_0130A0" Offset="0x130A0" />
         <DList Name="object_numa_obj_DL_013180" Offset="0x13180" />
-        <Blob Name="object_numa_obj_Blob_013188" Size="0x28" Offset="0x13188" />
+        <!--Blob Name="object_numa_obj_Blob_013188" Size="0x28" Offset="0x13188" /-->
         <Texture Name="object_numa_obj_Tex_0131B0" OutName="tex_0131B0" Format="rgb5a1" Width="32" Height="32" Offset="0x131B0" />
         <Texture Name="object_numa_obj_Tex_0139B0" OutName="tex_0139B0" Format="rgb5a1" Width="32" Height="32" Offset="0x139B0" />
     </File>

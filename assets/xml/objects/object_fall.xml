@@ -15,7 +15,7 @@
         <DList Name="object_fall_DL_003C30" Offset="0x3C30" />
         <Texture Name="object_fall_Tex_003E28" OutName="tex_003E28" Format="i8" Width="32" Height="64" Offset="0x3E28" />
         <Texture Name="object_fall_Tex_004628" OutName="tex_004628" Format="i8" Width="32" Height="64" Offset="0x4628" />
-        <Blob Name="object_fall_Blob_004E28" Size="0x48" Offset="0x4E28" />
+        <!--Blob Name="object_fall_Blob_004E28" Size="0x48" Offset="0x4E28" /-->
         <DList Name="object_fall_DL_0077F0" Offset="0x77F0" />
         <Texture Name="object_fall_TLUT_0082F8" OutName="tlut_0082F8" Format="rgb5a1" Width="4" Height="4" Offset="0x82F8" />
         <Texture Name="object_fall_TLUT_008318" OutName="tlut_008318" Format="rgb5a1" Width="4" Height="4" Offset="0x8318" />

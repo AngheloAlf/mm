@@ -5,12 +5,12 @@
         <DList Name="object_sekihig_DL_0004B8" Offset="0x4B8" />
         <DList Name="object_sekihig_DL_0005C8" Offset="0x5C8" />
         <Texture Name="object_sekihig_TLUT_0005E0" OutName="tlut_0005E0" Format="rgb5a1" Width="4" Height="4" Offset="0x5E0" />
-        <Blob Name="object_sekihig_Blob_000600" Size="0x60" Offset="0x600" />
+        <!--Blob Name="object_sekihig_Blob_000600" Size="0x60" Offset="0x600" /-->
         <Texture Name="object_sekihig_Tex_000660" OutName="tex_000660" Format="rgb5a1" Width="32" Height="32" Offset="0x660" />
         <Texture Name="object_sekihig_Tex_000E60" OutName="tex_000E60" Format="rgb5a1" Width="32" Height="64" Offset="0xE60" />
         <Texture Name="object_sekihig_Tex_001E60" OutName="tex_001E60" Format="ci4" Width="64" Height="64" Offset="0x1E60" />
         <Texture Name="object_sekihig_Tex_002660" OutName="tex_002660" Format="ia4" Width="128" Height="16" Offset="0x2660" />
         <Texture Name="object_sekihig_Tex_002A60" OutName="tex_002A60" Format="ia4" Width="128" Height="32" Offset="0x2A60" />
-        <Blob Name="object_sekihig_Blob_003260" Size="0x1B0" Offset="0x3260" />
+        <!--Blob Name="object_sekihig_Blob_003260" Size="0x1B0" Offset="0x3260" /-->
     </File>
 </Root>

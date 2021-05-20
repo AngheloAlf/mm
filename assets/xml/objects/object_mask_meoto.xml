@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_meoto" Segment="6">
-        <Blob Name="object_mask_meoto_Blob_000000" Size="0x580" Offset="0x0" />
+        <!--Blob Name="object_mask_meoto_Blob_000000" Size="0x580" Offset="0x0" /-->
         <DList Name="object_mask_meoto_DL_000580" Offset="0x580" />
-        <Blob Name="object_mask_meoto_Blob_0008C8" Size="0x1418" Offset="0x8C8" />
+        <!--Blob Name="object_mask_meoto_Blob_0008C8" Size="0x1418" Offset="0x8C8" /-->
     </File>
 </Root>

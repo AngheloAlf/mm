@@ -1,6 +1,6 @@
 ﻿<Root>
     <File Name="object_jso" Segment="6">
-        <Blob Name="object_jso_Blob_000000" Size="0x20" Offset="0x0" />
+        <!--Blob Name="object_jso_Blob_000000" Size="0x20" Offset="0x0" /-->
         <DList Name="object_jso_DL_001210" Offset="0x1210" />
         <DList Name="object_jso_DL_001348" Offset="0x1348" />
         <DList Name="object_jso_DL_0013F8" Offset="0x13F8" />
@@ -18,10 +18,10 @@
         <DList Name="object_jso_DL_001FF8" Offset="0x1FF8" />
         <DList Name="object_jso_DL_0020B0" Offset="0x20B0" />
         <DList Name="object_jso_DL_002100" Offset="0x2100" />
-        <Blob Name="object_jso_Blob_0021B8" Size="0x100" Offset="0x21B8" />
+        <!--Blob Name="object_jso_Blob_0021B8" Size="0x100" Offset="0x21B8" /-->
         <Texture Name="object_jso_Tex_0022B8" OutName="tex_0022B8" Format="rgb5a1" Width="16" Height="16" Offset="0x22B8" />
         <Texture Name="object_jso_Tex_0024B8" OutName="tex_0024B8" Format="rgb5a1" Width="8" Height="16" Offset="0x24B8" />
-        <Blob Name="object_jso_Blob_0025B8" Size="0x80" Offset="0x25B8" />
+        <!--Blob Name="object_jso_Blob_0025B8" Size="0x80" Offset="0x25B8" /-->
         <Texture Name="object_jso_Tex_002638" OutName="tex_002638" Format="rgb5a1" Width="4" Height="4" Offset="0x2638" />
         <Texture Name="object_jso_Tex_002658" OutName="tex_002658" Format="rgb5a1" Width="8" Height="32" Offset="0x2658" />
         <Texture Name="object_jso_TLUT_002858" OutName="tlut_002858" Format="rgb5a1" Width="16" Height="16" Offset="0x2858" />
@@ -117,6 +117,6 @@
         <Skeleton Name="object_jso_Skel_00AA00" Type="Flex" LimbType="Standard" Offset="0xAA00" />
         <Animation Name="object_jso_Anim_00AE80" Offset="0xAE80" />
         <Animation Name="object_jso_Anim_00B1DC" Offset="0xB1DC" />
-        <Blob Name="object_jso_Blob_00B1EC" Size="0x414" Offset="0xB1EC" />
+        <!--Blob Name="object_jso_Blob_00B1EC" Size="0x414" Offset="0xB1EC" /-->
     </File>
 </Root>

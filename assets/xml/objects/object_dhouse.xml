@@ -26,7 +26,7 @@
         <DList Name="object_dhouse_DL_007A00" Offset="0x7A00" />
         <DList Name="object_dhouse_DL_007AE8" Offset="0x7AE8" />
         <DList Name="object_dhouse_DL_007C98" Offset="0x7C98" />
-        <Blob Name="object_dhouse_Blob_007D80" Size="0x2F0" Offset="0x7D80" />
+        <!--Blob Name="object_dhouse_Blob_007D80" Size="0x2F0" Offset="0x7D80" /-->
         <DList Name="object_dhouse_DL_0081D0" Offset="0x81D0" />
         <DList Name="object_dhouse_DL_0081D8" Offset="0x81D8" />
     </File>

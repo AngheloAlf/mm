@@ -37,7 +37,7 @@
         <DList Name="object_boss_hakugin_DL_011208" Offset="0x11208" />
         <DList Name="object_boss_hakugin_DL_011278" Offset="0x11278" />
         <Texture Name="object_boss_hakugin_Tex_011290" OutName="tex_011290" Format="i4" Width="32" Height="96" Offset="0x11290" />
-        <Blob Name="object_boss_hakugin_zeroes_unk_00011890" Size="0x600" Offset="0x11890" />
+        <!--Blob Name="object_boss_hakugin_zeroes_unk_00011890" Size="0x600" Offset="0x11890" /-->
         <Texture Name="object_boss_hakugin_Tex_011E90" OutName="tex_011E90" Format="i8" Width="64" Height="64" Offset="0x11E90" />
         <DList Name="object_boss_hakugin_DL_012ED0" Offset="0x12ED0" />
         <DList Name="object_boss_hakugin_DL_012F40" Offset="0x12F40" />
@@ -77,6 +77,6 @@
         <Animation Name="object_boss_hakugin_Anim_0134D0" Offset="0x134D0" />
         <Animation Name="object_boss_hakugin_Anim_013828" Offset="0x13828" />
         <Animation Name="object_boss_hakugin_Anim_014024" Offset="0x14024" />
-        <Blob Name="object_boss_hakugin_Blob_014034" Size="0x140C" Offset="0x14034" />
+        <!--Blob Name="object_boss_hakugin_Blob_014034" Size="0x140C" Offset="0x14034" /-->
     </File>
 </Root>

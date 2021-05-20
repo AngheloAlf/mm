@@ -70,6 +70,6 @@
         <Animation Name="object_al_Anim_00ACA0" Offset="0xACA0" />
         <Animation Name="object_al_Anim_00BCA4" Offset="0xBCA4" />
         <Animation Name="object_al_Anim_00CA28" Offset="0xCA28" />
-        <Blob Name="object_al_Blob_00CA38" Size="0x11B8" Offset="0xCA38" />
+        <!--Blob Name="object_al_Blob_00CA38" Size="0x11B8" Offset="0xCA38" /-->
     </File>
 </Root>

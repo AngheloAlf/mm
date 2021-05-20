@@ -29,7 +29,7 @@
         <Texture Name="object_ge1_Tex_002EB8" OutName="tex_002EB8" Format="ci8" Width="8" Height="8" Offset="0x2EB8" />
         <Texture Name="object_ge1_Tex_002EF8" OutName="tex_002EF8" Format="ci8" Width="16" Height="16" Offset="0x2EF8" />
         <Texture Name="object_ge1_Tex_002FF8" OutName="tex_002FF8" Format="ci8" Width="8" Height="16" Offset="0x2FF8" />
-        <Blob Name="object_ge1_Blob_003078" Size="0x1800" Offset="0x3078" />
+        <!--Blob Name="object_ge1_Blob_003078" Size="0x1800" Offset="0x3078" /-->
         <Texture Name="object_ge1_Tex_004878" OutName="tex_004878" Format="ci8" Width="32" Height="32" Offset="0x4878" />
         <Texture Name="object_ge1_Tex_004C78" OutName="tex_004C78" Format="ci8" Width="8" Height="16" Offset="0x4C78" />
         <Texture Name="object_ge1_Tex_004CF8" OutName="tex_004CF8" Format="ci8" Width="16" Height="16" Offset="0x4CF8" />

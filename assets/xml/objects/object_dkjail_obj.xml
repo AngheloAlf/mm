@@ -4,6 +4,6 @@
         <DList Name="object_dkjail_obj_DL_000150" Offset="0x150" />
         <Texture Name="object_dkjail_obj_Tex_000158" OutName="tex_000158" Format="rgb5a1" Width="32" Height="32" Offset="0x158" />
         <Texture Name="object_dkjail_obj_Tex_000958" OutName="tex_000958" Format="ia8" Width="32" Height="64" Offset="0x958" />
-        <Blob Name="object_dkjail_obj_Blob_001158" Size="0x88" Offset="0x1158" />
+        <!--Blob Name="object_dkjail_obj_Blob_001158" Size="0x88" Offset="0x1158" /-->
     </File>
 </Root>

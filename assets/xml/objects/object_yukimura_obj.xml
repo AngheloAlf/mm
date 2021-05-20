@@ -11,6 +11,6 @@
         <DList Name="object_yukimura_obj_DL_000F98" Offset="0xF98" />
         <Texture Name="object_yukimura_obj_Tex_001078" OutName="tex_001078" Format="rgb5a1" Width="32" Height="32" Offset="0x1078" />
         <Texture Name="object_yukimura_obj_Tex_001878" OutName="tex_001878" Format="i4" Width="64" Height="64" Offset="0x1878" />
-        <Blob Name="object_yukimura_obj_Blob_002078" Size="0x28" Offset="0x2078" />
+        <!--Blob Name="object_yukimura_obj_Blob_002078" Size="0x28" Offset="0x2078" /-->
     </File>
 </Root>

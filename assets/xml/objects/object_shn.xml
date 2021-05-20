@@ -18,7 +18,7 @@
         <Texture Name="object_shn_TLUT_005688" OutName="tlut_005688" Format="rgb5a1" Width="16" Height="16" Offset="0x5688" />
         <Texture Name="object_shn_TLUT_005888" OutName="tlut_005888" Format="rgb5a1" Width="16" Height="16" Offset="0x5888" />
         <Texture Name="object_shn_Tex_005A88" OutName="tex_005A88" Format="ci8" Width="8" Height="8" Offset="0x5A88" />
-        <Blob Name="object_shn_Blob_005AC8" Size="0x1800" Offset="0x5AC8" />
+        <!--Blob Name="object_shn_Blob_005AC8" Size="0x1800" Offset="0x5AC8" /-->
         <Texture Name="object_shn_Tex_0072C8" OutName="tex_0072C8" Format="ci8" Width="16" Height="16" Offset="0x72C8" />
         <Texture Name="object_shn_Tex_0073C8" OutName="tex_0073C8" Format="ci8" Width="8" Height="8" Offset="0x73C8" />
         <Texture Name="object_shn_Tex_007408" OutName="tex_007408" Format="ci8" Width="32" Height="32" Offset="0x7408" />
@@ -28,7 +28,7 @@
         <Texture Name="object_shn_Tex_007E08" OutName="tex_007E08" Format="ci8" Width="16" Height="16" Offset="0x7E08" />
         <Texture Name="object_shn_Tex_007F08" OutName="tex_007F08" Format="ci8" Width="8" Height="8" Offset="0x7F08" />
         <Texture Name="object_shn_Tex_007F48" OutName="tex_007F48" Format="ci8" Width="16" Height="16" Offset="0x7F48" />
-        <Blob Name="object_shn_Blob_008048" Size="0x18" Offset="0x8048" />
+        <!--Blob Name="object_shn_Blob_008048" Size="0x18" Offset="0x8048" /-->
         <DList Name="object_shn_DL_008BA0" Offset="0x8BA0" />
         <DList Name="object_shn_DL_008C70" Offset="0x8C70" />
         <DList Name="object_shn_DL_008D90" Offset="0x8D90" />
@@ -83,12 +83,12 @@
         <DList Name="object_shn_DL_00F2D0" Offset="0xF2D0" />
         <Texture Name="object_shn_TLUT_00F790" OutName="tlut_00F790" Format="rgb5a1" Width="16" Height="16" Offset="0xF790" />
         <Texture Name="object_shn_TLUT_00F990" OutName="tlut_00F990" Format="rgb5a1" Width="16" Height="16" Offset="0xF990" />
-        <Blob Name="object_shn_Blob_00FB90" Size="0x1000" Offset="0xFB90" />
+        <!--Blob Name="object_shn_Blob_00FB90" Size="0x1000" Offset="0xFB90" /-->
         <Texture Name="object_shn_Tex_010B90" OutName="tex_010B90" Format="ci8" Width="32" Height="32" Offset="0x10B90" />
         <Texture Name="object_shn_Tex_010F90" OutName="tex_010F90" Format="ci8" Width="8" Height="8" Offset="0x10F90" />
         <Texture Name="object_shn_Tex_010FD0" OutName="tex_010FD0" Format="ci8" Width="16" Height="16" Offset="0x10FD0" />
         <Texture Name="object_shn_Tex_0110D0" OutName="tex_0110D0" Format="ci8" Width="16" Height="16" Offset="0x110D0" />
         <Texture Name="object_shn_Tex_0111D0" OutName="tex_0111D0" Format="ci8" Width="8" Height="8" Offset="0x111D0" />
-        <Blob Name="object_shn_Blob_011210" Size="0x10" Offset="0x11210" />
+        <!--Blob Name="object_shn_Blob_011210" Size="0x10" Offset="0x11210" /-->
     </File>
 </Root>

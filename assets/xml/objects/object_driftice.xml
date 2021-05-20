@@ -6,6 +6,6 @@
         <Texture Name="object_driftice_Tex_000440" OutName="tex_000440" Format="ci4" Width="64" Height="64" Offset="0x440" />
         <Texture Name="object_driftice_Tex_000C40" OutName="tex_000C40" Format="ci4" Width="64" Height="64" Offset="0xC40" />
         <DList Name="object_driftice_DL_0016A0" Offset="0x16A0" />
-        <Blob Name="object_driftice_Blob_0018D8" Size="0x208" Offset="0x18D8" />
+        <!--Blob Name="object_driftice_Blob_0018D8" Size="0x208" Offset="0x18D8" /-->
     </File>
 </Root>

@@ -1,6 +1,6 @@
 ﻿<Root>
     <File Name="object_link_child" Segment="6">
-        <Blob Name="object_link_child_Blob_000000" Size="0x5000" Offset="0x0" />
+        <!--Blob Name="object_link_child_Blob_000000" Size="0x5000" Offset="0x0" /-->
         <Texture Name="object_link_child_TLUT_005000" OutName="tlut_005000" Format="rgb5a1" Width="16" Height="16" Offset="0x5000" />
         <Texture Name="object_link_child_Tex_005200" OutName="tex_005200" Format="rgb5a1" Width="16" Height="16" Offset="0x5200" />
         <Texture Name="object_link_child_Tex_005400" OutName="tex_005400" Format="rgb5a1" Width="8" Height="16" Offset="0x5400" />
@@ -16,7 +16,7 @@
         <Texture Name="object_link_child_Tex_006200" OutName="tex_006200" Format="rgb5a1" Width="32" Height="32" Offset="0x6200" />
         <Texture Name="object_link_child_Tex_006A00" OutName="tex_006A00" Format="ci8" Width="16" Height="16" Offset="0x6A00" />
         <Texture Name="object_link_child_Tex_006B00" OutName="tex_006B00" Format="rgb5a1" Width="16" Height="16" Offset="0x6B00" />
-        <Blob Name="object_link_child_Blob_006D00" Size="0xA00" Offset="0x6D00" />
+        <!--Blob Name="object_link_child_Blob_006D00" Size="0xA00" Offset="0x6D00" /-->
         <Texture Name="object_link_child_Tex_007700" OutName="tex_007700" Format="rgb5a1" Width="16" Height="16" Offset="0x7700" />
         <DList Name="object_link_child_DL_00B360" Offset="0xB360" />
         <DList Name="object_link_child_DL_00B538" Offset="0xB538" />
@@ -37,11 +37,11 @@
         <DList Name="object_link_child_DL_00D3D8" Offset="0xD3D8" />
         <DList Name="object_link_child_DL_00D528" Offset="0xD528" />
         <Texture Name="object_link_child_Tex_00D680" OutName="tex_00D680" Format="rgb5a1" Width="32" Height="16" Offset="0xD680" />
-        <Blob Name="object_link_child_Blob_00DA80" Size="0x88" Offset="0xDA80" />
+        <!--Blob Name="object_link_child_Blob_00DA80" Size="0x88" Offset="0xDA80" /-->
         <Texture Name="object_link_child_Tex_00DB08" OutName="tex_00DB08" Format="ci8" Width="16" Height="16" Offset="0xDB08" />
-        <Blob Name="object_link_child_Blob_00DC08" Size="0x360" Offset="0xDC08" />
+        <!--Blob Name="object_link_child_Blob_00DC08" Size="0x360" Offset="0xDC08" /-->
         <DList Name="object_link_child_DL_00E1C8" Offset="0xE1C8" />
-        <Blob Name="object_link_child_Blob_00E2E8" Size="0x1F0" Offset="0xE2E8" />
+        <!--Blob Name="object_link_child_Blob_00E2E8" Size="0x1F0" Offset="0xE2E8" /-->
         <DList Name="object_link_child_DL_00E738" Offset="0xE738" />
         <DList Name="object_link_child_DL_00ED18" Offset="0xED18" />
         <DList Name="object_link_child_DL_00F1D8" Offset="0xF1D8" />
@@ -116,8 +116,8 @@
         <DList Name="object_link_child_DL_01DAD8" Offset="0x1DAD8" />
         <!--<Mtx Name="object_link_child_Mtx_01DB00" Offset="0x1DB00" />-->
         <DList Name="object_link_child_DL_01DB40" Offset="0x1DB40" />
-        <Blob Name="object_link_child_Blob_01DB88" Size="0x1B0" Offset="0x1DB88" />
+        <!--Blob Name="object_link_child_Blob_01DB88" Size="0x1B0" Offset="0x1DB88" /-->
         <DList Name="object_link_child_DL_01DFA8" Offset="0x1DFA8" />
-        <Blob Name="object_link_child_Blob_01E0A0" Size="0x1B0" Offset="0x1E0A0" />
+        <!--Blob Name="object_link_child_Blob_01E0A0" Size="0x1B0" Offset="0x1E0A0" /-->
     </File>
 </Root>

@@ -2,25 +2,25 @@
     <File Name="object_inibs_object" Segment="6">
         <DList Name="object_inibs_object_DL_001C10" Offset="0x1C10" />
         <DList Name="object_inibs_object_DL_001DC0" Offset="0x1DC0" />
-        <Blob Name="object_inibs_object_Blob_002590" Size="0x2640" Offset="0x2590" />
+        <!--Blob Name="object_inibs_object_Blob_002590" Size="0x2640" Offset="0x2590" /-->
         <DList Name="object_inibs_object_DL_006140" Offset="0x6140" />
         <DList Name="object_inibs_object_DL_0062D8" Offset="0x62D8" />
-        <Blob Name="object_inibs_object_Blob_006850" Size="0x26D0" Offset="0x6850" />
+        <!--Blob Name="object_inibs_object_Blob_006850" Size="0x26D0" Offset="0x6850" /-->
         <DList Name="object_inibs_object_DL_0090A0" Offset="0x90A0" />
         <DList Name="object_inibs_object_DL_0090A8" Offset="0x90A8" />
-        <Blob Name="object_inibs_object_Blob_0091C8" Size="0x178" Offset="0x91C8" />
+        <!--Blob Name="object_inibs_object_Blob_0091C8" Size="0x178" Offset="0x91C8" /-->
         <DList Name="object_inibs_object_DL_009460" Offset="0x9460" />
         <DList Name="object_inibs_object_DL_009468" Offset="0x9468" />
-        <Blob Name="object_inibs_object_Blob_009518" Size="0x118" Offset="0x9518" />
+        <!--Blob Name="object_inibs_object_Blob_009518" Size="0x118" Offset="0x9518" /-->
         <DList Name="object_inibs_object_DL_009A90" Offset="0x9A90" />
         <DList Name="object_inibs_object_DL_009A98" Offset="0x9A98" />
-        <Blob Name="object_inibs_object_Blob_009C00" Size="0x2E0" Offset="0x9C00" />
+        <!--Blob Name="object_inibs_object_Blob_009C00" Size="0x2E0" Offset="0x9C00" /-->
         <DList Name="object_inibs_object_DL_00A020" Offset="0xA020" />
         <DList Name="object_inibs_object_DL_00A028" Offset="0xA028" />
-        <Blob Name="object_inibs_object_Blob_00A120" Size="0x110" Offset="0xA120" />
+        <!--Blob Name="object_inibs_object_Blob_00A120" Size="0x110" Offset="0xA120" /-->
         <DList Name="object_inibs_object_DL_00A430" Offset="0xA430" />
         <DList Name="object_inibs_object_DL_00A438" Offset="0xA438" />
-        <Blob Name="object_inibs_object_Blob_00A548" Size="0x198" Offset="0xA548" />
+        <!--Blob Name="object_inibs_object_Blob_00A548" Size="0x198" Offset="0xA548" /-->
         <Texture Name="object_inibs_object_Tex_00A6E0" OutName="tex_00A6E0" Format="rgb5a1" Width="32" Height="32" Offset="0xA6E0" />
         <Texture Name="object_inibs_object_Tex_00AEE0" OutName="tex_00AEE0" Format="rgb5a1" Width="32" Height="32" Offset="0xAEE0" />
         <Texture Name="object_inibs_object_Tex_00B6E0" OutName="tex_00B6E0" Format="rgb5a1" Width="32" Height="64" Offset="0xB6E0" />

@@ -11,6 +11,6 @@
         <Texture Name="object_yukiyama_Tex_005060" OutName="tex_005060" Format="rgb5a1" Width="32" Height="32" Offset="0x5060" />
         <Texture Name="object_yukiyama_Tex_005860" OutName="tex_005860" Format="rgb5a1" Width="32" Height="32" Offset="0x5860" />
         <Texture Name="object_yukiyama_Tex_006060" OutName="tex_006060" Format="rgb5a1" Width="32" Height="32" Offset="0x6060" />
-        <Blob Name="object_yukiyama_Blob_006860" Size="0x10" Offset="0x6860" />
+        <!--Blob Name="object_yukiyama_Blob_006860" Size="0x10" Offset="0x6860" /-->
     </File>
 </Root>

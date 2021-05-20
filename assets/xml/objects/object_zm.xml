@@ -28,7 +28,7 @@
         <Texture Name="object_zm_Tex_0082A8" OutName="tex_0082A8" Format="ci8" Width="8" Height="8" Offset="0x82A8" />
         <Texture Name="object_zm_Tex_0082E8" OutName="tex_0082E8" Format="ci8" Width="32" Height="32" Offset="0x82E8" />
         <Texture Name="object_zm_Tex_0086E8" OutName="tex_0086E8" Format="ci8" Width="32" Height="32" Offset="0x86E8" />
-        <Blob Name="object_zm_Blob_008AE8" Size="0x400" Offset="0x8AE8" />
+        <!--Blob Name="object_zm_Blob_008AE8" Size="0x400" Offset="0x8AE8" /-->
         <Texture Name="object_zm_Tex_008EE8" OutName="tex_008EE8" Format="ci8" Width="16" Height="16" Offset="0x8EE8" />
         <Texture Name="object_zm_Tex_008FE8" OutName="tex_008FE8" Format="rgb5a1" Width="32" Height="32" Offset="0x8FE8" />
         <Texture Name="object_zm_Tex_0097E8" OutName="tex_0097E8" Format="rgb5a1" Width="8" Height="8" Offset="0x97E8" />
@@ -36,7 +36,7 @@
         <Texture Name="object_zm_Tex_009968" OutName="tex_009968" Format="ci8" Width="16" Height="16" Offset="0x9968" />
         <Texture Name="object_zm_Tex_009A68" OutName="tex_009A68" Format="rgb5a1" Width="16" Height="16" Offset="0x9A68" />
         <Texture Name="object_zm_Tex_009C68" OutName="tex_009C68" Format="ci8" Width="32" Height="32" Offset="0x9C68" />
-        <Blob Name="object_zm_Blob_00A068" Size="0x800" Offset="0xA068" />
+        <!--Blob Name="object_zm_Blob_00A068" Size="0x800" Offset="0xA068" /-->
         <Limb Name="object_zm_Limb_00A868" LimbType="Standard" Offset="0xA868" />
         <Limb Name="object_zm_Limb_00A874" LimbType="Standard" Offset="0xA874" />
         <Limb Name="object_zm_Limb_00A880" LimbType="Standard" Offset="0xA880" />
@@ -58,6 +58,6 @@
         <Animation Name="object_zm_Anim_00B3E0" Offset="0xB3E0" />
         <Animation Name="object_zm_Anim_00B894" Offset="0xB894" />
         <Animation Name="object_zm_Anim_00BC08" Offset="0xBC08" />
-        <Blob Name="object_zm_Blob_00BC18" Size="0xC78" Offset="0xBC18" />
+        <!--Blob Name="object_zm_Blob_00BC18" Size="0xC78" Offset="0xBC18" /-->
     </File>
 </Root>

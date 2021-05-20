@@ -62,7 +62,7 @@
         <Animation Name="object_dodongo_Anim_008B1C" Offset="0x8B1C" />
         <Animation Name="object_dodongo_Anim_008DE0" Offset="0x8DE0" />
         <Animation Name="object_dodongo_Anim_009088" Offset="0x9088" />
-        <Blob Name="object_dodongo_Blob_009098" Size="0x808" Offset="0x9098" />
+        <!--Blob Name="object_dodongo_Blob_009098" Size="0x808" Offset="0x9098" /-->
         <DList Name="object_dodongo_DL_0098A0" Offset="0x98A0" />
     </File>
 </Root>

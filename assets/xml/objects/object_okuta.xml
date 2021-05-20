@@ -29,7 +29,7 @@
         <Texture Name="object_okuta_Tex_002620" OutName="tex_002620" Format="rgb5a1" Width="16" Height="16" Offset="0x2620" />
         <Texture Name="object_okuta_Tex_002820" OutName="tex_002820" Format="rgb5a1" Width="8" Height="16" Offset="0x2820" />
         <Texture Name="object_okuta_Tex_002920" OutName="tex_002920" Format="rgba32" Width="16" Height="16" Offset="0x2920" />
-        <Blob Name="object_okuta_Blob_002D20" Size="0x200" Offset="0x2D20" />
+        <!--Blob Name="object_okuta_Blob_002D20" Size="0x200" Offset="0x2D20" /-->
         <Texture Name="object_okuta_Tex_002F20" OutName="tex_002F20" Format="rgb5a1" Width="8" Height="8" Offset="0x2F20" />
         <Texture Name="object_okuta_Tex_002FA0" OutName="tex_002FA0" Format="rgb5a1" Width="8" Height="8" Offset="0x2FA0" />
         <Texture Name="object_okuta_Tex_003020" OutName="tex_003020" Format="rgb5a1" Width="16" Height="16" Offset="0x3020" />

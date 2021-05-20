@@ -4,6 +4,6 @@
         <DList Name="object_lbfshot_DL_000228" Offset="0x228" />
         <Texture Name="object_lbfshot_Tex_000340" OutName="tex_000340" Format="rgb5a1" Width="16" Height="64" Offset="0x340" />
         <Texture Name="object_lbfshot_Tex_000B40" OutName="tex_000B40" Format="rgb5a1" Width="32" Height="32" Offset="0xB40" />
-        <Blob Name="object_lbfshot_Blob_001340" Size="0x1D0" Offset="0x1340" />
+        <!--Blob Name="object_lbfshot_Blob_001340" Size="0x1D0" Offset="0x1340" /-->
     </File>
 </Root>

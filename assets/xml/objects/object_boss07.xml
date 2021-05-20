@@ -156,7 +156,7 @@
         <DList Name="object_boss07_DL_02EF88" Offset="0x2EF88" />
         <DList Name="object_boss07_DL_02EFE8" Offset="0x2EFE8" />
         <DList Name="object_boss07_DL_02F640" Offset="0x2F640" />
-        <Blob Name="object_boss07_Blob_02F840" Size="0x3C00" Offset="0x2F840" />
+        <!--Blob Name="object_boss07_Blob_02F840" Size="0x3C00" Offset="0x2F840" /-->
         <Limb Name="object_boss07_Limb_033440" LimbType="Standard" Offset="0x33440" />
         <Limb Name="object_boss07_Limb_03344C" LimbType="Standard" Offset="0x3344C" />
         <Limb Name="object_boss07_Limb_033458" LimbType="Standard" Offset="0x33458" />
@@ -211,6 +211,6 @@
         <Texture Name="object_boss07_Tex_045530" OutName="tex_045530" Format="rgb5a1" Width="16" Height="16" Offset="0x45530" />
         <Texture Name="object_boss07_Tex_045730" OutName="tex_045730" Format="rgb5a1" Width="16" Height="16" Offset="0x45730" />
         <Texture Name="object_boss07_Tex_045930" OutName="tex_045930" Format="rgb5a1" Width="16" Height="16" Offset="0x45930" />
-        <Blob Name="object_boss07_Blob_045B30" Size="0x1000" Offset="0x45B30" />
+        <!--Blob Name="object_boss07_Blob_045B30" Size="0x1000" Offset="0x45B30" /-->
     </File>
 </Root>

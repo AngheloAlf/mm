@@ -13,6 +13,6 @@
         <Texture Name="object_kepn_koya_Tex_006E18" OutName="tex_006E18" Format="ci8" Width="32" Height="32" Offset="0x6E18" />
         <Texture Name="object_kepn_koya_Tex_007218" OutName="tex_007218" Format="rgb5a1" Width="8" Height="8" Offset="0x7218" />
         <Texture Name="object_kepn_koya_Tex_007298" OutName="tex_007298" Format="ci8" Width="8" Height="8" Offset="0x7298" />
-        <Blob Name="object_kepn_koya_Blob_0072D8" Size="0xDB8" Offset="0x72D8" />
+        <!--Blob Name="object_kepn_koya_Blob_0072D8" Size="0xDB8" Offset="0x72D8" /-->
     </File>
 </Root>

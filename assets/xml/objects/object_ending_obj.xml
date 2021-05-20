@@ -5,7 +5,7 @@
         <Texture Name="object_ending_obj_Tex_0005E8" OutName="tex_0005E8" Format="i8" Width="32" Height="64" Offset="0x5E8" />
         <Texture Name="object_ending_obj_Tex_000DE8" OutName="tex_000DE8" Format="i8" Width="8" Height="64" Offset="0xDE8" />
         <Texture Name="object_ending_obj_Tex_000FE8" OutName="tex_000FE8" Format="ia8" Width="64" Height="64" Offset="0xFE8" />
-        <Blob Name="object_ending_obj_Blob_001FE8" Size="0x18" Offset="0x1FE8" />
+        <!--Blob Name="object_ending_obj_Blob_001FE8" Size="0x18" Offset="0x1FE8" /-->
         <DList Name="object_ending_obj_DL_0031A0" Offset="0x31A0" />
         <DList Name="object_ending_obj_DL_003440" Offset="0x3440" />
         <Texture Name="object_ending_obj_Tex_003958" OutName="tex_003958" Format="ia4" Width="128" Height="64" Offset="0x3958" />

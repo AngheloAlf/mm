@@ -31,12 +31,12 @@
         <Texture Name="object_bji_Tex_004870" OutName="tex_004870" Format="ci8" Width="8" Height="8" Offset="0x4870" />
         <Texture Name="object_bji_Tex_0048B0" OutName="tex_0048B0" Format="ci8" Width="16" Height="16" Offset="0x48B0" />
         <Texture Name="object_bji_Tex_0049B0" OutName="tex_0049B0" Format="ci8" Width="8" Height="8" Offset="0x49B0" />
-        <Blob Name="object_bji_Blob_0049F0" Size="0x400" Offset="0x49F0" />
+        <!--Blob Name="object_bji_Blob_0049F0" Size="0x400" Offset="0x49F0" /-->
         <Texture Name="object_bji_Tex_004DF0" OutName="tex_004DF0" Format="ci8" Width="8" Height="8" Offset="0x4DF0" />
         <Texture Name="object_bji_Tex_004E30" OutName="tex_004E30" Format="ci8" Width="8" Height="8" Offset="0x4E30" />
-        <Blob Name="object_bji_Blob_004E70" Size="0x800" Offset="0x4E70" />
+        <!--Blob Name="object_bji_Blob_004E70" Size="0x800" Offset="0x4E70" /-->
         <Animation Name="object_bji_Anim_005684" Offset="0x5684" />
-        <Blob Name="object_bji_Blob_005694" Size="0x8" Offset="0x5694" />
+        <!--Blob Name="object_bji_Blob_005694" Size="0x8" Offset="0x5694" /-->
         <Limb Name="object_bji_Limb_00569C" LimbType="Standard" Offset="0x569C" />
         <Limb Name="object_bji_Limb_0056A8" LimbType="Standard" Offset="0x56A8" />
         <Limb Name="object_bji_Limb_0056B4" LimbType="Standard" Offset="0x56B4" />

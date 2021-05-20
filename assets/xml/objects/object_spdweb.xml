@@ -4,10 +4,10 @@
         <DList Name="object_spdweb_DL_000130" Offset="0x130" />
         <Texture Name="object_spdweb_Tex_000138" OutName="tex_000138" Format="rgb5a1" Width="32" Height="32" Offset="0x138" />
         <Texture Name="object_spdweb_Tex_000938" OutName="tex_000938" Format="ia8" Width="32" Height="64" Offset="0x938" />
-        <Blob Name="object_spdweb_Blob_001138" Size="0xB8" Offset="0x1138" />
+        <!--Blob Name="object_spdweb_Blob_001138" Size="0xB8" Offset="0x1138" /-->
         <DList Name="object_spdweb_DL_0012F0" Offset="0x12F0" />
         <DList Name="object_spdweb_DL_001400" Offset="0x1400" />
         <Texture Name="object_spdweb_Tex_001408" OutName="tex_001408" Format="ia8" Width="64" Height="64" Offset="0x1408" />
-        <Blob Name="object_spdweb_Blob_002408" Size="0x2A8" Offset="0x2408" />
+        <!--Blob Name="object_spdweb_Blob_002408" Size="0x2A8" Offset="0x2408" /-->
     </File>
 </Root>

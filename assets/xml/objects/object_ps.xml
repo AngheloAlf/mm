@@ -12,9 +12,9 @@
         <DList Name="object_ps_DL_002A60" Offset="0x2A60" />
         <DList Name="object_ps_DL_002B68" Offset="0x2B68" />
         <Texture Name="object_ps_TLUT_002C80" OutName="tlut_002C80" Format="rgb5a1" Width="16" Height="16" Offset="0x2C80" />
-        <Blob Name="object_ps_Blob_002E80" Size="0x1080" Offset="0x2E80" />
+        <!--Blob Name="object_ps_Blob_002E80" Size="0x1080" Offset="0x2E80" /-->
         <Texture Name="object_ps_Tex_003F00" OutName="tex_003F00" Format="rgb5a1" Width="16" Height="16" Offset="0x3F00" />
-        <Blob Name="object_ps_Blob_004100" Size="0x21C0" Offset="0x4100" />
+        <!--Blob Name="object_ps_Blob_004100" Size="0x21C0" Offset="0x4100" /-->
         <Texture Name="object_ps_Tex_0062C0" OutName="tex_0062C0" Format="ci8" Width="8" Height="8" Offset="0x62C0" />
         <Texture Name="object_ps_Tex_006300" OutName="tex_006300" Format="ci8" Width="32" Height="32" Offset="0x6300" />
         <Texture Name="object_ps_Tex_006700" OutName="tex_006700" Format="ci8" Width="8" Height="8" Offset="0x6700" />
@@ -34,7 +34,7 @@
         <Limb Name="object_ps_Limb_0071EC" LimbType="Standard" Offset="0x71EC" />
         <Limb Name="object_ps_Limb_0071F8" LimbType="Standard" Offset="0x71F8" />
         <Skeleton Name="object_ps_Skel_007230" Type="Flex" LimbType="Standard" Offset="0x7230" />
-        <Blob Name="object_ps_Blob_00723C" Size="0xD4" Offset="0x723C" />
+        <!--Blob Name="object_ps_Blob_00723C" Size="0xD4" Offset="0x723C" /-->
         <Animation Name="object_ps_Anim_0078FC" Offset="0x78FC" />
     </File>
 </Root>

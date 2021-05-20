@@ -34,16 +34,16 @@
         <Texture Name="object_rz_Tex_00B9D0" OutName="tex_00B9D0" Format="ci8" Width="16" Height="16" Offset="0xB9D0" />
         <Texture Name="object_rz_Tex_00BAD0" OutName="tex_00BAD0" Format="ci8" Width="16" Height="16" Offset="0xBAD0" />
         <Texture Name="object_rz_Tex_00BBD0" OutName="tex_00BBD0" Format="ci8" Width="8" Height="16" Offset="0xBBD0" />
-        <Blob Name="object_rz_Blob_00BC50" Size="0x400" Offset="0xBC50" />
+        <!--Blob Name="object_rz_Blob_00BC50" Size="0x400" Offset="0xBC50" /-->
         <Texture Name="object_rz_Tex_00C050" OutName="tex_00C050" Format="ci8" Width="16" Height="16" Offset="0xC050" />
         <Texture Name="object_rz_Tex_00C150" OutName="tex_00C150" Format="i8" Width="8" Height="8" Offset="0xC150" />
-        <Blob Name="object_rz_Blob_00C190" Size="0x1000" Offset="0xC190" />
+        <!--Blob Name="object_rz_Blob_00C190" Size="0x1000" Offset="0xC190" /-->
         <Texture Name="object_rz_Tex_00D190" OutName="tex_00D190" Format="i8" Width="8" Height="8" Offset="0xD190" />
         <Texture Name="object_rz_Tex_00D1D0" OutName="tex_00D1D0" Format="i8" Width="16" Height="16" Offset="0xD1D0" />
         <Texture Name="object_rz_Tex_00D2D0" OutName="tex_00D2D0" Format="i8" Width="32" Height="32" Offset="0xD2D0" />
-        <Blob Name="object_rz_Blob_00D6D0" Size="0x24" Offset="0xD6D0" />
+        <!--Blob Name="object_rz_Blob_00D6D0" Size="0x24" Offset="0xD6D0" /-->
         <Animation Name="object_rz_Anim_00D710" Offset="0xD710" />
-        <Blob Name="object_rz_Blob_00D720" Size="0x68" Offset="0xD720" />
+        <!--Blob Name="object_rz_Blob_00D720" Size="0x68" Offset="0xD720" /-->
         <Limb Name="object_rz_Limb_00D788" LimbType="Standard" Offset="0xD788" />
         <Limb Name="object_rz_Limb_00D794" LimbType="Standard" Offset="0xD794" />
         <Limb Name="object_rz_Limb_00D7A0" LimbType="Standard" Offset="0xD7A0" />

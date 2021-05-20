@@ -40,6 +40,6 @@
         <Limb Name="object_js_Limb_006948" LimbType="Standard" Offset="0x6948" />
         <Limb Name="object_js_Limb_006954" LimbType="Standard" Offset="0x6954" />
         <Skeleton Name="object_js_Skel_006990" Type="Flex" LimbType="Standard" Offset="0x6990" />
-        <Blob Name="object_js_Blob_00699C" Size="0x84" Offset="0x699C" />
+        <!--Blob Name="object_js_Blob_00699C" Size="0x84" Offset="0x699C" /-->
     </File>
 </Root>

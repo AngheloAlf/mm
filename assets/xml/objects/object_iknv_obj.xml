@@ -26,16 +26,16 @@
         <Texture Name="object_iknv_obj_Tex_008360" OutName="tex_008360" Format="i8" Width="32" Height="128" Offset="0x8360" />
         <DList Name="object_iknv_obj_DL_00DB60" Offset="0xDB60" />
         <DList Name="object_iknv_obj_DL_00DDD8" Offset="0xDDD8" />
-        <Blob Name="object_iknv_obj_Blob_00F1A8" Size="0x28" Offset="0xF1A8" />
+        <!--Blob Name="object_iknv_obj_Blob_00F1A8" Size="0x28" Offset="0xF1A8" /-->
         <DList Name="object_iknv_obj_DL_010D90" Offset="0x10D90" />
         <DList Name="object_iknv_obj_DL_010D98" Offset="0x10D98" />
-        <Blob Name="object_iknv_obj_Blob_0113E0" Size="0x10" Offset="0x113E0" />
+        <!--Blob Name="object_iknv_obj_Blob_0113E0" Size="0x10" Offset="0x113E0" /-->
         <DList Name="object_iknv_obj_DL_0115E0" Offset="0x115E0" />
         <DList Name="object_iknv_obj_DL_011788" Offset="0x11788" />
-        <Blob Name="object_iknv_obj_Blob_011790" Size="0x70" Offset="0x11790" />
+        <!--Blob Name="object_iknv_obj_Blob_011790" Size="0x70" Offset="0x11790" /-->
         <DList Name="object_iknv_obj_DL_011880" Offset="0x11880" />
         <DList Name="object_iknv_obj_DL_011950" Offset="0x11950" />
-        <Blob Name="object_iknv_obj_Blob_011958" Size="0xA8" Offset="0x11958" />
+        <!--Blob Name="object_iknv_obj_Blob_011958" Size="0xA8" Offset="0x11958" /-->
         <DList Name="object_iknv_obj_DL_011E70" Offset="0x11E70" />
         <DList Name="object_iknv_obj_DL_011F40" Offset="0x11F40" />
         <DList Name="object_iknv_obj_DL_012020" Offset="0x12020" />
@@ -57,11 +57,11 @@
         <DList Name="object_iknv_obj_DL_0125E0" Offset="0x125E0" />
         <DList Name="object_iknv_obj_DL_0126D0" Offset="0x126D0" />
         <DList Name="object_iknv_obj_DL_012700" Offset="0x12700" />
-        <Blob Name="object_iknv_obj_Blob_012710" Size="0xB0" Offset="0x12710" />
+        <!--Blob Name="object_iknv_obj_Blob_012710" Size="0xB0" Offset="0x12710" /-->
         <DList Name="object_iknv_obj_DL_012880" Offset="0x12880" />
         <DList Name="object_iknv_obj_DL_0129C0" Offset="0x129C0" />
         <DList Name="object_iknv_obj_DL_0129C8" Offset="0x129C8" />
-        <Blob Name="object_iknv_obj_Blob_012B28" Size="0x1A8" Offset="0x12B28" />
+        <!--Blob Name="object_iknv_obj_Blob_012B28" Size="0x1A8" Offset="0x12B28" /-->
         <DList Name="object_iknv_obj_DL_013050" Offset="0x13050" />
         <DList Name="object_iknv_obj_DL_013058" Offset="0x13058" />
     </File>

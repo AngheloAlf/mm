@@ -27,18 +27,18 @@
         <DList Name="object_geldb_DL_005D60" Offset="0x5D60" />
         <DList Name="object_geldb_DL_005E60" Offset="0x5E60" />
         <Texture Name="object_geldb_TLUT_0060E0" OutName="tlut_0060E0" Format="rgb5a1" Width="16" Height="16" Offset="0x60E0" />
-        <Blob Name="object_geldb_Blob_0062E0" Size="0x38" Offset="0x62E0" />
+        <!--Blob Name="object_geldb_Blob_0062E0" Size="0x38" Offset="0x62E0" /-->
         <Texture Name="object_geldb_Tex_006318" OutName="tex_006318" Format="ci8" Width="8" Height="16" Offset="0x6318" />
-        <Blob Name="object_geldb_Blob_006398" Size="0x400" Offset="0x6398" />
+        <!--Blob Name="object_geldb_Blob_006398" Size="0x400" Offset="0x6398" /-->
         <Texture Name="object_geldb_Tex_006798" OutName="tex_006798" Format="i8" Width="16" Height="16" Offset="0x6798" />
         <Texture Name="object_geldb_Tex_006898" OutName="tex_006898" Format="ci8" Width="8" Height="16" Offset="0x6898" />
         <Texture Name="object_geldb_Tex_006918" OutName="tex_006918" Format="ci8" Width="8" Height="8" Offset="0x6918" />
-        <Blob Name="object_geldb_Blob_006958" Size="0x400" Offset="0x6958" />
+        <!--Blob Name="object_geldb_Blob_006958" Size="0x400" Offset="0x6958" /-->
         <Texture Name="object_geldb_Tex_006D58" OutName="tex_006D58" Format="i8" Width="8" Height="16" Offset="0x6D58" />
         <Texture Name="object_geldb_Tex_006DD8" OutName="tex_006DD8" Format="ci8" Width="16" Height="16" Offset="0x6DD8" />
         <Texture Name="object_geldb_Tex_006ED8" OutName="tex_006ED8" Format="ci8" Width="16" Height="16" Offset="0x6ED8" />
         <Texture Name="object_geldb_Tex_006FD8" OutName="tex_006FD8" Format="ci8" Width="16" Height="16" Offset="0x6FD8" />
-        <Blob Name="object_geldb_Blob_0070D8" Size="0x400" Offset="0x70D8" />
+        <!--Blob Name="object_geldb_Blob_0070D8" Size="0x400" Offset="0x70D8" /-->
         <DList Name="object_geldb_DL_0092F8" Offset="0x92F8" />
         <DList Name="object_geldb_DL_0094B8" Offset="0x94B8" />
         <DList Name="object_geldb_DL_009678" Offset="0x9678" />

@@ -90,18 +90,18 @@
         <DList Name="object_bigslime_DL_00F9D0" Offset="0xF9D0" />
         <DList Name="object_bigslime_DL_00FB40" Offset="0xFB40" />
         <Texture Name="object_bigslime_Tex_00FC28" OutName="tex_00FC28" Format="i4" Width="32" Height="64" Offset="0xFC28" />
-        <Blob Name="object_bigslime_zeroes_unk_00010028" Size="0x400" Offset="0x10028" />
+        <!--Blob Name="object_bigslime_zeroes_unk_00010028" Size="0x400" Offset="0x10028" /-->
         <Texture Name="object_bigslime_Tex_010428" OutName="tex_010428" Format="i4" Width="16" Height="16" Offset="0x10428" />
-        <Blob Name="object_bigslime_zeroes_unk_000104A8" Size="0x88" Offset="0x104A8" />
+        <!--Blob Name="object_bigslime_zeroes_unk_000104A8" Size="0x88" Offset="0x104A8" /-->
         <DList Name="object_bigslime_DL_010530" Offset="0x10530" />
         <DList Name="object_bigslime_DL_0105E8" Offset="0x105E8" />
         <DList Name="object_bigslime_DL_010B80" Offset="0x10B80" />
-        <Blob Name="object_bigslime_Blob_010C40" Size="0x10" Offset="0x10C40" />
+        <!--Blob Name="object_bigslime_Blob_010C40" Size="0x10" Offset="0x10C40" /-->
         <DList Name="object_bigslime_DL_010DB0" Offset="0x10DB0" />
-        <Blob Name="object_bigslime_Blob_010EB8" Size="0x18" Offset="0x10EB8" />
+        <!--Blob Name="object_bigslime_Blob_010EB8" Size="0x18" Offset="0x10EB8" /-->
         <DList Name="object_bigslime_DL_010F20" Offset="0x10F20" />
         <DList Name="object_bigslime_DL_010FE0" Offset="0x10FE0" />
-        <Blob Name="object_bigslime_Blob_011000" Size="0x10" Offset="0x11000" />
+        <!--Blob Name="object_bigslime_Blob_011000" Size="0x10" Offset="0x11000" /-->
         <DList Name="object_bigslime_DL_011050" Offset="0x11050" />
         <DList Name="object_bigslime_DL_0113B0" Offset="0x113B0" />
         <Texture Name="object_bigslime_Tex_011580" OutName="tex_011580" Format="i4" Width="16" Height="16" Offset="0x11580" />

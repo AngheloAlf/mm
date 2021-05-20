@@ -54,7 +54,7 @@
         <Texture Name="object_ma1_Tex_00FA48" OutName="tex_00FA48" Format="ci8" Width="16" Height="16" Offset="0xFA48" />
         <Texture Name="object_ma1_Tex_00FB48" OutName="tex_00FB48" Format="ci8" Width="64" Height="16" Offset="0xFB48" />
         <Texture Name="object_ma1_Tex_00FF48" OutName="tex_00FF48" Format="ci8" Width="8" Height="16" Offset="0xFF48" />
-        <Blob Name="object_ma1_Blob_00FFC8" Size="0x3800" Offset="0xFFC8" />
+        <!--Blob Name="object_ma1_Blob_00FFC8" Size="0x3800" Offset="0xFFC8" /-->
         <Limb Name="object_ma1_Limb_0137C8" LimbType="Standard" Offset="0x137C8" />
         <Limb Name="object_ma1_Limb_0137D4" LimbType="Standard" Offset="0x137D4" />
         <Limb Name="object_ma1_Limb_0137E0" LimbType="Standard" Offset="0x137E0" />

@@ -21,6 +21,6 @@
         <Animation Name="object_os_anime_Anim_0020F8" Offset="0x20F8" />
         <Animation Name="object_os_anime_Anim_0021B8" Offset="0x21B8" />
         <Animation Name="object_os_anime_Anim_0025E4" Offset="0x25E4" />
-        <Blob Name="object_os_anime_Blob_0025F4" Size="0x69C" Offset="0x25F4" />
+        <!--Blob Name="object_os_anime_Blob_0025F4" Size="0x69C" Offset="0x25F4" /-->
     </File>
 </Root>

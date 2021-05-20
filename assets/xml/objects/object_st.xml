@@ -22,7 +22,7 @@
         <Texture Name="object_st_Tex_0024D0" OutName="tex_0024D0" Format="rgb5a1" Width="16" Height="8" Offset="0x24D0" />
         <Texture Name="object_st_Tex_0025D0" OutName="tex_0025D0" Format="i4" Width="16" Height="16" Offset="0x25D0" />
         <Texture Name="object_st_Tex_002650" OutName="tex_002650" Format="rgb5a1" Width="8" Height="8" Offset="0x2650" />
-        <Blob Name="object_st_Blob_003C50" Size="0x358" Offset="0x3C50" />
+        <!--Blob Name="object_st_Blob_003C50" Size="0x358" Offset="0x3C50" /-->
         <DList Name="object_st_DL_003FA8" Offset="0x3FA8" />
         <DList Name="object_st_DL_0043D8" Offset="0x43D8" />
         <DList Name="object_st_DL_0045C0" Offset="0x45C0" />

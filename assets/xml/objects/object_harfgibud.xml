@@ -57,7 +57,7 @@
         <Animation Name="object_harfgibud_Anim_009D44" Offset="0x9D44" />
         <Animation Name="object_harfgibud_Anim_00A164" Offset="0xA164" />
         <Animation Name="object_harfgibud_Anim_00AE1C" Offset="0xAE1C" />
-        <Blob Name="object_harfgibud_Blob_00AE2C" Size="0x34" Offset="0xAE2C" />
+        <!--Blob Name="object_harfgibud_Blob_00AE2C" Size="0x34" Offset="0xAE2C" /-->
         <Animation Name="object_harfgibud_Anim_00B644" Offset="0xB644" />
         <DList Name="object_harfgibud_DL_00E860" Offset="0xE860" />
         <DList Name="object_harfgibud_DL_00E9E0" Offset="0xE9E0" />
@@ -88,7 +88,7 @@
         <Texture Name="object_harfgibud_Tex_010EB8" OutName="tex_010EB8" Format="i8" Width="8" Height="8" Offset="0x10EB8" />
         <Texture Name="object_harfgibud_Tex_010EF8" OutName="tex_010EF8" Format="rgb5a1" Width="16" Height="16" Offset="0x10EF8" />
         <Texture Name="object_harfgibud_Tex_0110F8" OutName="tex_0110F8" Format="i8" Width="8" Height="8" Offset="0x110F8" />
-        <Blob Name="object_harfgibud_Blob_011138" Size="0x1800" Offset="0x11138" />
+        <!--Blob Name="object_harfgibud_Blob_011138" Size="0x1800" Offset="0x11138" /-->
         <Limb Name="object_harfgibud_Limb_012938" LimbType="Standard" Offset="0x12938" />
         <Limb Name="object_harfgibud_Limb_012944" LimbType="Standard" Offset="0x12944" />
         <Limb Name="object_harfgibud_Limb_012950" LimbType="Standard" Offset="0x12950" />
@@ -113,6 +113,6 @@
         <Animation Name="object_harfgibud_Anim_014A9C" Offset="0x14A9C" />
         <Animation Name="object_harfgibud_Anim_0152EC" Offset="0x152EC" />
         <Animation Name="object_harfgibud_Anim_015C70" Offset="0x15C70" />
-        <Blob Name="object_harfgibud_Blob_015C80" Size="0x980" Offset="0x15C80" />
+        <!--Blob Name="object_harfgibud_Blob_015C80" Size="0x980" Offset="0x15C80" /-->
     </File>
 </Root>

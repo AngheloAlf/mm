@@ -40,10 +40,10 @@
         <Texture Name="object_kgy_Tex_00E628" OutName="tex_00E628" Format="ci8" Width="16" Height="16" Offset="0xE628" />
         <DList Name="object_kgy_DL_00E8E8" Offset="0xE8E8" />
         <DList Name="object_kgy_DL_00E8F0" Offset="0xE8F0" />
-        <Blob Name="object_kgy_Blob_00EE28" Size="0x40" Offset="0xEE28" />
+        <!--Blob Name="object_kgy_Blob_00EE28" Size="0x40" Offset="0xEE28" /-->
         <DList Name="object_kgy_DL_00F178" Offset="0xF178" />
         <DList Name="object_kgy_DL_00F180" Offset="0xF180" />
-        <Blob Name="object_kgy_Blob_00F670" Size="0x40" Offset="0xF670" />
+        <!--Blob Name="object_kgy_Blob_00F670" Size="0x40" Offset="0xF670" /-->
         <Texture Name="object_kgy_Tex_00F6B0" OutName="tex_00F6B0" Format="i8" Width="16" Height="16" Offset="0xF6B0" />
         <Limb Name="object_kgy_Limb_00F7B0" LimbType="Standard" Offset="0xF7B0" />
         <Limb Name="object_kgy_Limb_00F7BC" LimbType="Standard" Offset="0xF7BC" />

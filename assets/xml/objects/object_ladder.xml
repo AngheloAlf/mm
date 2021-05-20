@@ -1,13 +1,13 @@
 ﻿<Root>
     <File Name="object_ladder" Segment="6">
         <DList Name="object_ladder_DL_0000A0" Offset="0xA0" />
-        <Blob Name="object_ladder_Blob_000148" Size="0xC8" Offset="0x148" />
+        <!--Blob Name="object_ladder_Blob_000148" Size="0xC8" Offset="0x148" /-->
         <DList Name="object_ladder_DL_0002D0" Offset="0x2D0" />
-        <Blob Name="object_ladder_Blob_000378" Size="0xC8" Offset="0x378" />
+        <!--Blob Name="object_ladder_Blob_000378" Size="0xC8" Offset="0x378" /-->
         <DList Name="object_ladder_DL_000500" Offset="0x500" />
-        <Blob Name="object_ladder_Blob_0005A8" Size="0xC8" Offset="0x5A8" />
+        <!--Blob Name="object_ladder_Blob_0005A8" Size="0xC8" Offset="0x5A8" /-->
         <DList Name="object_ladder_DL_000730" Offset="0x730" />
-        <Blob Name="object_ladder_Blob_0007D8" Size="0xC8" Offset="0x7D8" />
+        <!--Blob Name="object_ladder_Blob_0007D8" Size="0xC8" Offset="0x7D8" /-->
         <Texture Name="object_ladder_Tex_0008A0" OutName="tex_0008A0" Format="rgb5a1" Width="32" Height="32" Offset="0x8A0" />
     </File>
 </Root>

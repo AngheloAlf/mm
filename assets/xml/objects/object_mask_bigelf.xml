@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_bigelf" Segment="6">
-        <Blob Name="object_mask_bigelf_Blob_000000" Size="0x16F0" Offset="0x0" />
+        <!--Blob Name="object_mask_bigelf_Blob_000000" Size="0x16F0" Offset="0x0" /-->
         <DList Name="object_mask_bigelf_DL_0016F0" Offset="0x16F0" />
-        <Blob Name="object_mask_bigelf_Blob_002130" Size="0x1380" Offset="0x2130" />
+        <!--Blob Name="object_mask_bigelf_Blob_002130" Size="0x1380" Offset="0x2130" /-->
     </File>
 </Root>

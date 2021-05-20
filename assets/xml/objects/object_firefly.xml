@@ -22,6 +22,6 @@
         <DList Name="object_firefly_DL_0014E8" Offset="0x14E8" />
         <DList Name="object_firefly_DL_0015B0" Offset="0x15B0" />
         <DList Name="object_firefly_DL_001678" Offset="0x1678" />
-        <Blob Name="object_firefly_Blob_001708" Size="0x1B8" Offset="0x1708" />
+        <!--Blob Name="object_firefly_Blob_001708" Size="0x1B8" Offset="0x1708" /-->
     </File>
 </Root>

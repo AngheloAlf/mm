@@ -5,7 +5,7 @@
         <DList Name="object_water_effect_DL_000730" Offset="0x730" />
         <DList Name="object_water_effect_DL_000A48" Offset="0xA48" />
         <DList Name="object_water_effect_DL_000CD8" Offset="0xCD8" />
-        <Blob Name="object_water_effect_Blob_000DC8" Size="0x98" Offset="0xDC8" />
+        <!--Blob Name="object_water_effect_Blob_000DC8" Size="0x98" Offset="0xDC8" /-->
         <Texture Name="object_water_effect_Tex_000E60" OutName="tex_000E60" Format="i4" Width="32" Height="64" Offset="0xE60" />
         <Texture Name="object_water_effect_Tex_001260" OutName="tex_001260" Format="i4" Width="64" Height="64" Offset="0x1260" />
         <Texture Name="object_water_effect_Tex_001A60" OutName="tex_001A60" Format="i8" Width="32" Height="64" Offset="0x1A60" />

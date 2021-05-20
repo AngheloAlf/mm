@@ -53,6 +53,6 @@
         <Texture Name="object_link_boy_Tex_00B108" OutName="tex_00B108" Format="ci4" Width="16" Height="16" Offset="0xB108" />
         <Texture Name="object_link_boy_Tex_00B188" OutName="tex_00B188" Format="ci4" Width="64" Height="64" Offset="0xB188" />
         <Texture Name="object_link_boy_Tex_00B988" OutName="tex_00B988" Format="rgb5a1" Width="50" Height="75" Offset="0xB988" />
-        <Blob Name="object_link_boy_Blob_00D6D4" Size="0x1BC" Offset="0xD6D4" />
+        <!--Blob Name="object_link_boy_Blob_00D6D4" Size="0x1BC" Offset="0xD6D4" /-->
     </File>
 </Root>

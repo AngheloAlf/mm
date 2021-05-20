@@ -16,8 +16,8 @@
         <Texture Name="object_bigpo_Tex_002AF0" OutName="tex_002AF0" Format="rgb5a1" Width="16" Height="8" Offset="0x2AF0" />
         <Texture Name="object_bigpo_Tex_002BF0" OutName="tex_002BF0" Format="rgb5a1" Width="16" Height="16" Offset="0x2BF0" />
         <Texture Name="object_bigpo_Tex_002DF0" OutName="tex_002DF0" Format="rgb5a1" Width="16" Height="16" Offset="0x2DF0" />
-        <Blob Name="object_bigpo_Blob_003200" Size="0x350" Offset="0x3200" />
-        <Blob Name="object_bigpo_Blob_003790" Size="0x370" Offset="0x3790" />
+        <!--Blob Name="object_bigpo_Blob_003200" Size="0x350" Offset="0x3200" /-->
+        <!--Blob Name="object_bigpo_Blob_003790" Size="0x370" Offset="0x3790" /-->
         <DList Name="object_bigpo_DL_0041A0" Offset="0x41A0" />
         <DList Name="object_bigpo_DL_0042C8" Offset="0x42C8" />
         <DList Name="object_bigpo_DL_0043F8" Offset="0x43F8" />
@@ -32,6 +32,6 @@
         <Texture Name="object_bigpo_Tex_004C98" OutName="tex_004C98" Format="rgb5a1" Width="16" Height="16" Offset="0x4C98" />
         <Texture Name="object_bigpo_Tex_004E98" OutName="tex_004E98" Format="rgb5a1" Width="8" Height="8" Offset="0x4E98" />
         <DList Name="object_bigpo_DL_0058B8" Offset="0x58B8" />
-        <Blob Name="object_bigpo_Blob_005B88" Size="0x98" Offset="0x5B88" />
+        <!--Blob Name="object_bigpo_Blob_005B88" Size="0x98" Offset="0x5B88" /-->
     </File>
 </Root>

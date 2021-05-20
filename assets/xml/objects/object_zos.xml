@@ -35,7 +35,7 @@
         <Texture Name="object_zos_Tex_00FC98" OutName="tex_00FC98" Format="rgb5a1" Width="32" Height="32" Offset="0xFC98" />
         <Texture Name="object_zos_Tex_010498" OutName="tex_010498" Format="rgb5a1" Width="16" Height="32" Offset="0x10498" />
         <Texture Name="object_zos_Tex_010898" OutName="tex_010898" Format="rgb5a1" Width="8" Height="8" Offset="0x10898" />
-        <Blob Name="object_zos_Blob_010918" Size="0x1800" Offset="0x10918" />
+        <!--Blob Name="object_zos_Blob_010918" Size="0x1800" Offset="0x10918" /-->
         <DList Name="object_zos_DL_013088" Offset="0x13088" />
         <DList Name="object_zos_DL_0136E0" Offset="0x136E0" />
         <Texture Name="object_zos_Tex_013728" OutName="tex_013728" Format="rgb5a1" Width="32" Height="32" Offset="0x13728" />
@@ -61,6 +61,6 @@
         <Limb Name="object_zos_Limb_0151E8" LimbType="Standard" Offset="0x151E8" />
         <Skeleton Name="object_zos_Skel_015238" Type="Flex" LimbType="Standard" Offset="0x15238" />
         <Animation Name="object_zos_Anim_01621C" Offset="0x1621C" />
-        <Blob Name="object_zos_Blob_01622C" Size="0x764" Offset="0x1622C" />
+        <!--Blob Name="object_zos_Blob_01622C" Size="0x764" Offset="0x1622C" /-->
     </File>
 </Root>

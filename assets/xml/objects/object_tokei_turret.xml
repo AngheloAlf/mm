@@ -7,10 +7,10 @@
         <Texture Name="object_tokei_turret_Tex_001420" OutName="tex_001420" Format="rgb5a1" Width="128" Height="16" Offset="0x1420" />
         <DList Name="object_tokei_turret_DL_002500" Offset="0x2500" />
         <DList Name="object_tokei_turret_DL_002508" Offset="0x2508" />
-        <Blob Name="object_tokei_turret_Blob_0025E0" Size="0xF0" Offset="0x25E0" />
+        <!--Blob Name="object_tokei_turret_Blob_0025E0" Size="0xF0" Offset="0x25E0" /-->
         <DList Name="object_tokei_turret_DL_002A80" Offset="0x2A80" />
         <DList Name="object_tokei_turret_DL_002A88" Offset="0x2A88" />
-        <Blob Name="object_tokei_turret_Blob_002C98" Size="0x118" Offset="0x2C98" />
+        <!--Blob Name="object_tokei_turret_Blob_002C98" Size="0x118" Offset="0x2C98" /-->
         <DList Name="object_tokei_turret_DL_003030" Offset="0x3030" />
         <DList Name="object_tokei_turret_DL_003038" Offset="0x3038" />
     </File>

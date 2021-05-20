@@ -2,6 +2,6 @@
     <File Name="object_obj_danpeilift" Segment="6">
         <DList Name="object_obj_danpeilift_DL_000180" Offset="0x180" />
         <Texture Name="object_obj_danpeilift_Tex_000298" OutName="tex_000298" Format="rgb5a1" Width="32" Height="32" Offset="0x298" />
-        <Blob Name="object_obj_danpeilift_Blob_000A98" Size="0x138" Offset="0xA98" />
+        <!--Blob Name="object_obj_danpeilift_Blob_000A98" Size="0x138" Offset="0xA98" /-->
     </File>
 </Root>

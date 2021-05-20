@@ -22,6 +22,6 @@
         <Limb Name="object_famos_Limb_003D18" LimbType="Standard" Offset="0x3D18" />
         <Skeleton Name="object_famos_Skel_003D38" Type="Normal" LimbType="Standard" Offset="0x3D38" />
         <Animation Name="object_famos_Anim_003DC8" Offset="0x3DC8" />
-        <Blob Name="object_famos_Blob_003DD8" Size="0x68" Offset="0x3DD8" />
+        <!--Blob Name="object_famos_Blob_003DD8" Size="0x68" Offset="0x3DD8" /-->
     </File>
 </Root>

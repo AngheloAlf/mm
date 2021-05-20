@@ -14,6 +14,6 @@
         <Texture Name="object_bee_Tex_000D08" OutName="tex_000D08" Format="ci4" Width="32" Height="32" Offset="0xD08" />
         <Texture Name="object_bee_Tex_000F08" OutName="tex_000F08" Format="ci4" Width="32" Height="32" Offset="0xF08" />
         <Texture Name="object_bee_Tex_001108" OutName="tex_001108" Format="ci4" Width="32" Height="32" Offset="0x1108" />
-        <Blob Name="object_bee_Blob_001308" Size="0x98" Offset="0x1308" />
+        <!--Blob Name="object_bee_Blob_001308" Size="0x98" Offset="0x1308" /-->
     </File>
 </Root>

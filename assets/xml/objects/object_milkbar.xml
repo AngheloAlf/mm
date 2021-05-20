@@ -33,7 +33,7 @@
         <Texture Name="object_milkbar_Tex_005D60" OutName="tex_005D60" Format="i4" Width="16" Height="32" Offset="0x5D60" />
         <Texture Name="object_milkbar_Tex_005E60" OutName="tex_005E60" Format="i8" Width="32" Height="32" Offset="0x5E60" />
         <Texture Name="object_milkbar_Tex_006260" OutName="tex_006260" Format="i4" Width="32" Height="32" Offset="0x6260" />
-        <Blob Name="object_milkbar_Blob_006460" Size="0x260" Offset="0x6460" />
+        <!--Blob Name="object_milkbar_Blob_006460" Size="0x260" Offset="0x6460" /-->
         <!--<Mtx Name="object_milkbar_Mtx_0075E0" Offset="0x75E0" />
         <Mtx Name="object_milkbar_Mtx_007620" Offset="0x7620" />
         <Mtx Name="object_milkbar_Mtx_007660" Offset="0x7660" />-->
@@ -55,7 +55,7 @@
         <Texture Name="object_milkbar_Tex_00F1E0" OutName="tex_00F1E0" Format="ia16" Width="32" Height="32" Offset="0xF1E0" />
         <Texture Name="object_milkbar_Tex_00F9E0" OutName="tex_00F9E0" Format="i4" Width="64" Height="64" Offset="0xF9E0" />
         <Texture Name="object_milkbar_Tex_0101E0" OutName="tex_0101E0" Format="i8" Width="32" Height="32" Offset="0x101E0" />
-        <Blob Name="object_milkbar_Blob_0105E0" Size="0x30" Offset="0x105E0" />
+        <!--Blob Name="object_milkbar_Blob_0105E0" Size="0x30" Offset="0x105E0" /-->
         <DList Name="object_milkbar_DL_010D60" Offset="0x10D60" />
         <DList Name="object_milkbar_DL_010D68" Offset="0x10D68" />
         <Texture Name="object_milkbar_Tex_0110A8" OutName="tex_0110A8" Format="i8" Width="32" Height="32" Offset="0x110A8" />

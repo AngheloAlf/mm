@@ -20,7 +20,7 @@
         <Texture Name="object_ds2n_Tex_0040D8" OutName="tex_0040D8" Format="rgb5a1" Width="16" Height="16" Offset="0x40D8" />
         <Texture Name="object_ds2n_Tex_0042D8" OutName="tex_0042D8" Format="rgb5a1" Width="16" Height="16" Offset="0x42D8" />
         <Texture Name="object_ds2n_Tex_0044D8" OutName="tex_0044D8" Format="rgb5a1" Width="16" Height="32" Offset="0x44D8" />
-        <Blob Name="object_ds2n_Blob_0048D8" Size="0xC00" Offset="0x48D8" />
+        <!--Blob Name="object_ds2n_Blob_0048D8" Size="0xC00" Offset="0x48D8" /-->
         <Texture Name="object_ds2n_Tex_0054D8" OutName="tex_0054D8" Format="ci8" Width="16" Height="16" Offset="0x54D8" />
         <Texture Name="object_ds2n_Tex_0055D8" OutName="tex_0055D8" Format="ci8" Width="8" Height="8" Offset="0x55D8" />
         <Texture Name="object_ds2n_Tex_005618" OutName="tex_005618" Format="rgb5a1" Width="16" Height="16" Offset="0x5618" />
@@ -28,10 +28,10 @@
         <Texture Name="object_ds2n_Tex_005918" OutName="tex_005918" Format="ci8" Width="16" Height="32" Offset="0x5918" />
         <Texture Name="object_ds2n_Tex_005B18" OutName="tex_005B18" Format="rgb5a1" Width="16" Height="16" Offset="0x5B18" />
         <Texture Name="object_ds2n_Tex_005D18" OutName="tex_005D18" Format="ci8" Width="16" Height="16" Offset="0x5D18" />
-        <Blob Name="object_ds2n_Blob_005E18" Size="0x400" Offset="0x5E18" />
+        <!--Blob Name="object_ds2n_Blob_005E18" Size="0x400" Offset="0x5E18" /-->
         <Texture Name="object_ds2n_Tex_006218" OutName="tex_006218" Format="ci8" Width="32" Height="16" Offset="0x6218" />
         <Animation Name="object_ds2n_Anim_006434" Offset="0x6434" />
-        <Blob Name="object_ds2n_Blob_006444" Size="0x1B4C" Offset="0x6444" />
+        <!--Blob Name="object_ds2n_Blob_006444" Size="0x1B4C" Offset="0x6444" /-->
         <Animation Name="object_ds2n_Anim_008038" Offset="0x8038" />
         <Limb Name="object_ds2n_Limb_008050" LimbType="Standard" Offset="0x8050" />
         <Limb Name="object_ds2n_Limb_00805C" LimbType="Standard" Offset="0x805C" />
@@ -52,6 +52,6 @@
         <Limb Name="object_ds2n_Limb_008110" LimbType="Standard" Offset="0x8110" />
         <Limb Name="object_ds2n_Limb_00811C" LimbType="Standard" Offset="0x811C" />
         <Skeleton Name="object_ds2n_Skel_008170" Type="Normal" LimbType="Standard" Offset="0x8170" />
-        <Blob Name="object_ds2n_Blob_008178" Size="0x8" Offset="0x8178" />
+        <!--Blob Name="object_ds2n_Blob_008178" Size="0x8" Offset="0x8178" /-->
     </File>
 </Root>

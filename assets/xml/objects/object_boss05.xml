@@ -52,7 +52,7 @@
         <Texture Name="object_boss05_Tex_005B98" OutName="tex_005B98" Format="rgb5a1" Width="8" Height="8" Offset="0x5B98" />
         <Texture Name="object_boss05_Tex_005C18" OutName="tex_005C18" Format="rgb5a1" Width="16" Height="16" Offset="0x5C18" />
         <Texture Name="object_boss05_Tex_005E18" OutName="tex_005E18" Format="rgba32" Width="16" Height="16" Offset="0x5E18" />
-        <Blob Name="object_boss05_Blob_006218" Size="0x30" Offset="0x6218" />
+        <!--Blob Name="object_boss05_Blob_006218" Size="0x30" Offset="0x6218" /-->
         <Limb Name="object_boss05_Limb_006248" LimbType="Standard" Offset="0x6248" />
         <Limb Name="object_boss05_Limb_006254" LimbType="Standard" Offset="0x6254" />
         <Limb Name="object_boss05_Limb_006260" LimbType="Standard" Offset="0x6260" />

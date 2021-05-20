@@ -53,6 +53,6 @@
         <Texture Name="object_link_nuts_Tex_00A4E0" OutName="tex_00A4E0" Format="rgb5a1" Width="32" Height="64" Offset="0xA4E0" />
         <DList Name="object_link_nuts_DL_00B690" Offset="0xB690" />
         <Texture Name="object_link_nuts_Tex_00B780" OutName="tex_00B780" Format="ci8" Width="16" Height="16" Offset="0xB780" />
-        <Blob Name="object_link_nuts_Blob_00B880" Size="0x1B0" Offset="0xB880" />
+        <!--Blob Name="object_link_nuts_Blob_00B880" Size="0x1B0" Offset="0xB880" /-->
     </File>
 </Root>

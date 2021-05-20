@@ -37,6 +37,6 @@
         <Texture Name="object_po_sisters_Tex_006278" OutName="tex_006278" Format="rgb5a1" Width="8" Height="8" Offset="0x6278" />
         <Texture Name="object_po_sisters_Tex_0062F8" OutName="tex_0062F8" Format="rgb5a1" Width="4" Height="4" Offset="0x62F8" />
         <Texture Name="object_po_sisters_Tex_006318" OutName="tex_006318" Format="rgb5a1" Width="16" Height="16" Offset="0x6318" />
-        <Blob Name="object_po_sisters_Blob_006518" Size="0xB8" Offset="0x6518" />
+        <!--Blob Name="object_po_sisters_Blob_006518" Size="0xB8" Offset="0x6518" /-->
     </File>
 </Root>

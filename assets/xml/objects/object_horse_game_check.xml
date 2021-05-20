@@ -7,10 +7,10 @@
         <Texture Name="object_horse_game_check_Tex_001590" OutName="tex_001590" Format="ia4" Width="64" Height="64" Offset="0x1590" />
         <Texture Name="object_horse_game_check_Tex_001D90" OutName="tex_001D90" Format="rgb5a1" Width="32" Height="32" Offset="0x1D90" />
         <Texture Name="object_horse_game_check_Tex_002590" OutName="tex_002590" Format="i8" Width="64" Height="32" Offset="0x2590" />
-        <Blob Name="object_horse_game_check_Blob_002D90" Size="0x260" Offset="0x2D90" />
+        <!--Blob Name="object_horse_game_check_Blob_002D90" Size="0x260" Offset="0x2D90" /-->
         <DList Name="object_horse_game_check_DL_003030" Offset="0x3030" />
         <DList Name="object_horse_game_check_DL_0030C0" Offset="0x30C0" />
         <Texture Name="object_horse_game_check_Tex_0030C8" OutName="tex_0030C8" Format="rgb5a1" Width="32" Height="32" Offset="0x30C8" />
-        <Blob Name="object_horse_game_check_Blob_0038C8" Size="0x88" Offset="0x38C8" />
+        <!--Blob Name="object_horse_game_check_Blob_0038C8" Size="0x88" Offset="0x38C8" /-->
     </File>
 </Root>

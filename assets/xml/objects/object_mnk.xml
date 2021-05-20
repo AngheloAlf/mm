@@ -8,7 +8,7 @@
         <Texture Name="object_mnk_Tex_001D20" OutName="tex_001D20" Format="ci8" Width="16" Height="16" Offset="0x1D20" />
         <Texture Name="object_mnk_Tex_001E20" OutName="tex_001E20" Format="ci8" Width="16" Height="128" Offset="0x1E20" />
         <Texture Name="object_mnk_Tex_002620" OutName="tex_002620" Format="rgb5a1" Width="32" Height="32" Offset="0x2620" />
-        <Blob Name="object_mnk_Blob_002E20" Size="0x600" Offset="0x2E20" />
+        <!--Blob Name="object_mnk_Blob_002E20" Size="0x600" Offset="0x2E20" /-->
         <Animation Name="object_mnk_Anim_003504" Offset="0x3504" />
         <Animation Name="object_mnk_Anim_003584" Offset="0x3584" />
         <Animation Name="object_mnk_Anim_0037E8" Offset="0x37E8" />
@@ -72,7 +72,7 @@
         <Texture Name="object_mnk_Tex_014C20" OutName="tex_014C20" Format="ci8" Width="32" Height="32" Offset="0x14C20" />
         <Texture Name="object_mnk_Tex_015020" OutName="tex_015020" Format="ci8" Width="32" Height="64" Offset="0x15020" />
         <Texture Name="object_mnk_Tex_015820" OutName="tex_015820" Format="ci8" Width="16" Height="16" Offset="0x15820" />
-        <Blob Name="object_mnk_Blob_015920" Size="0x3000" Offset="0x15920" />
+        <!--Blob Name="object_mnk_Blob_015920" Size="0x3000" Offset="0x15920" /-->
         <Texture Name="object_mnk_Tex_018920" OutName="tex_018920" Format="ci8" Width="16" Height="16" Offset="0x18920" />
         <Texture Name="object_mnk_Tex_018A20" OutName="tex_018A20" Format="ci8" Width="32" Height="32" Offset="0x18A20" />
         <Texture Name="object_mnk_Tex_018E20" OutName="tex_018E20" Format="ci8" Width="16" Height="16" Offset="0x18E20" />
@@ -80,7 +80,7 @@
         <Texture Name="object_mnk_Tex_019720" OutName="tex_019720" Format="ci8" Width="16" Height="16" Offset="0x19720" />
         <Texture Name="object_mnk_Tex_019820" OutName="tex_019820" Format="ci8" Width="16" Height="16" Offset="0x19820" />
         <Texture Name="object_mnk_Tex_019920" OutName="tex_019920" Format="ci8" Width="16" Height="16" Offset="0x19920" />
-        <Blob Name="object_mnk_Blob_019A20" Size="0x8" Offset="0x19A20" />
+        <!--Blob Name="object_mnk_Blob_019A20" Size="0x8" Offset="0x19A20" /-->
         <Limb Name="object_mnk_Limb_019A28" LimbType="Standard" Offset="0x19A28" />
         <Limb Name="object_mnk_Limb_019A34" LimbType="Standard" Offset="0x19A34" />
         <Limb Name="object_mnk_Limb_019A40" LimbType="Standard" Offset="0x19A40" />

@@ -1,6 +1,6 @@
 ﻿<Root>
     <File Name="object_link_goron" Segment="6">
-        <Blob Name="object_link_goron_Blob_000000" Size="0x2000" Offset="0x0" />
+        <!--Blob Name="object_link_goron_Blob_000000" Size="0x2000" Offset="0x0" /-->
         <Texture Name="object_link_goron_TLUT_002000" OutName="tlut_002000" Format="rgb5a1" Width="16" Height="16" Offset="0x2000" />
         <Texture Name="object_link_goron_Tex_002200" OutName="tex_002200" Format="rgb5a1" Width="16" Height="16" Offset="0x2200" />
         <Texture Name="object_link_goron_Tex_002400" OutName="tex_002400" Format="rgb5a1" Width="8" Height="32" Offset="0x2400" />
@@ -67,11 +67,11 @@
         <Texture Name="object_link_goron_Tex_011E10" OutName="tex_011E10" Format="i4" Width="64" Height="64" Offset="0x11E10" />
         <DList Name="object_link_goron_DL_0127B0" Offset="0x127B0" />
         <Texture Name="object_link_goron_Tex_012930" OutName="tex_012930" Format="i4" Width="64" Height="64" Offset="0x12930" />
-        <Blob Name="object_link_goron_Blob_013130" Size="0x10" Offset="0x13130" />
+        <!--Blob Name="object_link_goron_Blob_013130" Size="0x10" Offset="0x13130" /-->
         <DList Name="object_link_goron_DL_0134D0" Offset="0x134D0" />
         <Texture Name="object_link_goron_Tex_013660" OutName="tex_013660" Format="i4" Width="64" Height="64" Offset="0x13660" />
         <Texture Name="object_link_goron_Tex_013E60" OutName="tex_013E60" Format="i4" Width="64" Height="64" Offset="0x13E60" />
-        <Blob Name="object_link_goron_Blob_014660" Size="0x28" Offset="0x14660" />
+        <!--Blob Name="object_link_goron_Blob_014660" Size="0x28" Offset="0x14660" /-->
 
         <!-- ZAPD issue -->
         <!-- <DList Name="object_link_goron_DL_014688" Offset="0x14688" /> -->
@@ -85,6 +85,6 @@
         <Limb Name="object_link_goron_Limb_01779C" LimbType="Standard" Offset="0x1779C" />
         <Skeleton Name="object_link_goron_Skel_0177B8" Type="Flex" LimbType="Standard" Offset="0x177B8" />
         <Animation Name="object_link_goron_Anim_0178D0" Offset="0x178D0" />
-        <Blob Name="object_link_goron_Blob_0178E0" Size="0x1B0" Offset="0x178E0" />
+        <!--Blob Name="object_link_goron_Blob_0178E0" Size="0x1B0" Offset="0x178E0" /-->
     </File>
 </Root>

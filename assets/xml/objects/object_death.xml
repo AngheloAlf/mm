@@ -79,6 +79,6 @@
         <Animation Name="object_death_Anim_00B284" Offset="0xB284" />
         <Animation Name="object_death_Anim_00B508" Offset="0xB508" />
         <Animation Name="object_death_Anim_00CB2C" Offset="0xCB2C" />
-        <Blob Name="object_death_Blob_00CB3C" Size="0x94" Offset="0xCB3C" />
+        <!--Blob Name="object_death_Blob_00CB3C" Size="0x94" Offset="0xCB3C" /-->
     </File>
 </Root>

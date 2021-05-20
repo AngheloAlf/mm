@@ -12,7 +12,7 @@
         <Texture Name="object_mm_Tex_002510" OutName="tex_002510" Format="ci8" Width="8" Height="8" Offset="0x2510" />
         <Texture Name="object_mm_Tex_002550" OutName="tex_002550" Format="ci8" Width="16" Height="16" Offset="0x2550" />
         <Texture Name="object_mm_Tex_002650" OutName="tex_002650" Format="ci8" Width="16" Height="16" Offset="0x2650" />
-        <Blob Name="object_mm_Blob_002750" Size="0x400" Offset="0x2750" />
+        <!--Blob Name="object_mm_Blob_002750" Size="0x400" Offset="0x2750" /-->
         <Texture Name="object_mm_Tex_002B50" OutName="tex_002B50" Format="ci8" Width="16" Height="16" Offset="0x2B50" />
         <Texture Name="object_mm_Tex_002C50" OutName="tex_002C50" Format="ci8" Width="32" Height="16" Offset="0x2C50" />
         <Texture Name="object_mm_Tex_002E50" OutName="tex_002E50" Format="ci8" Width="16" Height="16" Offset="0x2E50" />
@@ -62,6 +62,6 @@
         <Animation Name="object_mm_Anim_00C32C" Offset="0xC32C" />
         <Animation Name="object_mm_Anim_00C640" Offset="0xC640" />
         <Animation Name="object_mm_Anim_00CD90" Offset="0xCD90" />
-        <Blob Name="object_mm_Blob_00CDA0" Size="0xCC0" Offset="0xCDA0" />
+        <!--Blob Name="object_mm_Blob_00CDA0" Size="0xCC0" Offset="0xCDA0" /-->
     </File>
 </Root>

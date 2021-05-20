@@ -23,7 +23,7 @@
         <Texture Name="object_aob_Tex_0004D8" OutName="tex_0004D8" Format="ci8" Width="16" Height="16" Offset="0x4D8" />
         <Texture Name="object_aob_Tex_0005D8" OutName="tex_0005D8" Format="ci8" Width="8" Height="8" Offset="0x5D8" />
         <Texture Name="object_aob_Tex_000618" OutName="tex_000618" Format="ci8" Width="8" Height="8" Offset="0x618" />
-        <Blob Name="object_aob_Blob_000658" Size="0x1800" Offset="0x658" />
+        <!--Blob Name="object_aob_Blob_000658" Size="0x1800" Offset="0x658" /-->
         <Texture Name="object_aob_Tex_001E58" OutName="tex_001E58" Format="ci8" Width="16" Height="16" Offset="0x1E58" />
         <Texture Name="object_aob_Tex_001F58" OutName="tex_001F58" Format="ci8" Width="8" Height="8" Offset="0x1F58" />
         <Texture Name="object_aob_Tex_001F98" OutName="tex_001F98" Format="ci8" Width="8" Height="8" Offset="0x1F98" />

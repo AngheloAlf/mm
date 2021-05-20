@@ -38,7 +38,7 @@
         <Texture Name="object_dinofos_Tex_008BB0" OutName="tex_008BB0" Format="rgb5a1" Width="8" Height="16" Offset="0x8BB0" />
         <Texture Name="object_dinofos_Tex_008CB0" OutName="tex_008CB0" Format="rgb5a1" Width="16" Height="8" Offset="0x8CB0" />
         <Texture Name="object_dinofos_Tex_008DB0" OutName="tex_008DB0" Format="rgb5a1" Width="8" Height="8" Offset="0x8DB0" />
-        <Blob Name="object_dinofos_Blob_008E30" Size="0x600" Offset="0x8E30" />
+        <!--Blob Name="object_dinofos_Blob_008E30" Size="0x600" Offset="0x8E30" /-->
         <Limb Name="object_dinofos_Limb_009430" LimbType="Standard" Offset="0x9430" />
         <Limb Name="object_dinofos_Limb_00943C" LimbType="Standard" Offset="0x943C" />
         <Limb Name="object_dinofos_Limb_009448" LimbType="Standard" Offset="0x9448" />

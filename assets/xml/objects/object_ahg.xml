@@ -5,7 +5,7 @@
         <Texture Name="object_ahg_Tex_000300" OutName="tex_000300" Format="ci8" Width="16" Height="16" Offset="0x300" />
         <Texture Name="object_ahg_Tex_000400" OutName="tex_000400" Format="ci8" Width="8" Height="8" Offset="0x400" />
         <Texture Name="object_ahg_Tex_000440" OutName="tex_000440" Format="ci8" Width="8" Height="8" Offset="0x440" />
-        <Blob Name="object_ahg_Blob_000480" Size="0x300" Offset="0x480" />
+        <!--Blob Name="object_ahg_Blob_000480" Size="0x300" Offset="0x480" /-->
         <Texture Name="object_ahg_Tex_000780" OutName="tex_000780" Format="ci8" Width="16" Height="16" Offset="0x780" />
         <Texture Name="object_ahg_Tex_000880" OutName="tex_000880" Format="i8" Width="8" Height="8" Offset="0x880" />
         <Texture Name="object_ahg_Tex_0008C0" OutName="tex_0008C0" Format="i8" Width="8" Height="8" Offset="0x8C0" />
@@ -26,7 +26,7 @@
         <DList Name="object_ahg_DL_0042C0" Offset="0x42C0" />
         <DList Name="object_ahg_DL_0043F0" Offset="0x43F0" />
         <DList Name="object_ahg_DL_004528" Offset="0x4528" />
-        <Blob Name="object_ahg_Blob_0046C8" Size="0x180" Offset="0x46C8" />
+        <!--Blob Name="object_ahg_Blob_0046C8" Size="0x180" Offset="0x46C8" /-->
         <Texture Name="object_ahg_Tex_004848" OutName="tex_004848" Format="ci8" Width="8" Height="8" Offset="0x4848" />
         <Texture Name="object_ahg_Tex_004888" OutName="tex_004888" Format="ci8" Width="32" Height="16" Offset="0x4888" />
         <Texture Name="object_ahg_Tex_004A88" OutName="tex_004A88" Format="ci8" Width="16" Height="16" Offset="0x4A88" />

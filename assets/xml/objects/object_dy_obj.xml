@@ -52,10 +52,10 @@
         <Texture Name="object_dy_obj_Tex_017488" OutName="tex_017488" Format="ci8" Width="32" Height="32" Offset="0x17488" />
         <Texture Name="object_dy_obj_Tex_017888" OutName="tex_017888" Format="ci8" Width="16" Height="16" Offset="0x17888" />
         <Texture Name="object_dy_obj_Tex_017988" OutName="tex_017988" Format="rgb5a1" Width="32" Height="16" Offset="0x17988" />
-        <Blob Name="object_dy_obj_Blob_017D88" Size="0x4800" Offset="0x17D88" />
+        <!--Blob Name="object_dy_obj_Blob_017D88" Size="0x4800" Offset="0x17D88" /-->
         <Texture Name="object_dy_obj_Tex_01C588" OutName="tex_01C588" Format="i8" Width="16" Height="16" Offset="0x1C588" />
         <Animation Name="object_dy_obj_Anim_01C6A4" Offset="0x1C6A4" />
-        <Blob Name="object_dy_obj_Blob_01C6B4" Size="0x50" Offset="0x1C6B4" />
+        <!--Blob Name="object_dy_obj_Blob_01C6B4" Size="0x50" Offset="0x1C6B4" /-->
         <Limb Name="object_dy_obj_Limb_01C704" LimbType="Standard" Offset="0x1C704" />
         <Limb Name="object_dy_obj_Limb_01C710" LimbType="Standard" Offset="0x1C710" />
         <Limb Name="object_dy_obj_Limb_01C71C" LimbType="Standard" Offset="0x1C71C" />
@@ -84,6 +84,6 @@
         <Limb Name="object_dy_obj_Limb_01C830" LimbType="Standard" Offset="0x1C830" />
         <Limb Name="object_dy_obj_Limb_01C83C" LimbType="Standard" Offset="0x1C83C" />
         <Skeleton Name="object_dy_obj_Skel_01C8B4" Type="Normal" LimbType="Standard" Offset="0x1C8B4" />
-        <Blob Name="object_dy_obj_Blob_01C8BC" Size="0x4" Offset="0x1C8BC" />
+        <!--Blob Name="object_dy_obj_Blob_01C8BC" Size="0x4" Offset="0x1C8BC" /-->
     </File>
 </Root>

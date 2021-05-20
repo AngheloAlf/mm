@@ -34,7 +34,7 @@
         <Texture Name="object_and_Tex_0075F0" OutName="tex_0075F0" Format="rgb5a1" Width="16" Height="16" Offset="0x75F0" />
         <Texture Name="object_and_Tex_0077F0" OutName="tex_0077F0" Format="rgb5a1" Width="32" Height="16" Offset="0x77F0" />
         <Texture Name="object_and_Tex_007BF0" OutName="tex_007BF0" Format="rgb5a1" Width="16" Height="16" Offset="0x7BF0" />
-        <Blob Name="object_and_Blob_007DF0" Size="0x2800" Offset="0x7DF0" />
+        <!--Blob Name="object_and_Blob_007DF0" Size="0x2800" Offset="0x7DF0" /-->
         <Texture Name="object_and_Tex_00A5F0" OutName="tex_00A5F0" Format="i8" Width="32" Height="64" Offset="0xA5F0" />
         <Texture Name="object_and_Tex_00ADF0" OutName="tex_00ADF0" Format="i8" Width="32" Height="32" Offset="0xADF0" />
         <Limb Name="object_and_Limb_00B1F0" LimbType="Standard" Offset="0xB1F0" />
@@ -69,6 +69,6 @@
         <Animation Name="object_and_Anim_00FE64" Offset="0xFE64" />
         <Animation Name="object_and_Anim_01067C" Offset="0x1067C" />
         <Animation Name="object_and_Anim_011AFC" Offset="0x11AFC" />
-        <Blob Name="object_and_Blob_011B0C" Size="0x7D4" Offset="0x11B0C" />
+        <!--Blob Name="object_and_Blob_011B0C" Size="0x7D4" Offset="0x11B0C" /-->
     </File>
 </Root>

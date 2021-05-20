@@ -6,6 +6,6 @@
         <Texture Name="object_obj_yasi_Tex_000E50" OutName="tex_000E50" Format="rgb5a1" Width="16" Height="16" Offset="0xE50" />
         <Texture Name="object_obj_yasi_Tex_001050" OutName="tex_001050" Format="rgb5a1" Width="16" Height="16" Offset="0x1050" />
         <Texture Name="object_obj_yasi_Tex_001250" OutName="tex_001250" Format="rgb5a1" Width="8" Height="8" Offset="0x1250" />
-        <Blob Name="object_obj_yasi_Blob_0012D0" Size="0x190" Offset="0x12D0" />
+        <!--Blob Name="object_obj_yasi_Blob_0012D0" Size="0x190" Offset="0x12D0" /-->
     </File>
 </Root>

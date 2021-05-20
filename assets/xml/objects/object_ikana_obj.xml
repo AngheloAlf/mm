@@ -2,38 +2,38 @@
     <File Name="object_ikana_obj" Segment="6">
         <DList Name="object_ikana_obj_DL_000040" Offset="0x40" />
         <DList Name="object_ikana_obj_DL_000048" Offset="0x48" />
-        <Blob Name="object_ikana_obj_Blob_0000D8" Size="0x88" Offset="0xD8" />
+        <!--Blob Name="object_ikana_obj_Blob_0000D8" Size="0x88" Offset="0xD8" /-->
         <DList Name="object_ikana_obj_DL_000280" Offset="0x280" />
         <DList Name="object_ikana_obj_DL_000288" Offset="0x288" />
         <DList Name="object_ikana_obj_DL_000370" Offset="0x370" />
         <DList Name="object_ikana_obj_DL_000378" Offset="0x378" />
-        <Blob Name="object_ikana_obj_Blob_000438" Size="0x88" Offset="0x438" />
+        <!--Blob Name="object_ikana_obj_Blob_000438" Size="0x88" Offset="0x438" /-->
         <DList Name="object_ikana_obj_DL_0008C0" Offset="0x8C0" />
         <DList Name="object_ikana_obj_DL_0008C8" Offset="0x8C8" />
-        <Blob Name="object_ikana_obj_Blob_000A78" Size="0x208" Offset="0xA78" />
+        <!--Blob Name="object_ikana_obj_Blob_000A78" Size="0x208" Offset="0xA78" /-->
         <DList Name="object_ikana_obj_DL_000CE0" Offset="0xCE0" />
         <DList Name="object_ikana_obj_DL_000CE8" Offset="0xCE8" />
-        <Blob Name="object_ikana_obj_Blob_000DB0" Size="0x1B0" Offset="0xDB0" />
+        <!--Blob Name="object_ikana_obj_Blob_000DB0" Size="0x1B0" Offset="0xDB0" /-->
         <DList Name="object_ikana_obj_DL_001100" Offset="0x1100" />
         <DList Name="object_ikana_obj_DL_001210" Offset="0x1210" />
-        <Blob Name="object_ikana_obj_Blob_001218" Size="0x18" Offset="0x1218" />
+        <!--Blob Name="object_ikana_obj_Blob_001218" Size="0x18" Offset="0x1218" /-->
         <DList Name="object_ikana_obj_DL_0014B0" Offset="0x14B0" />
         <DList Name="object_ikana_obj_DL_001660" Offset="0x1660" />
-        <Blob Name="object_ikana_obj_Blob_001668" Size="0x18" Offset="0x1668" />
+        <!--Blob Name="object_ikana_obj_Blob_001668" Size="0x18" Offset="0x1668" /-->
         <DList Name="object_ikana_obj_DL_001880" Offset="0x1880" />
         <DList Name="object_ikana_obj_DL_001AC0" Offset="0x1AC0" />
-        <Blob Name="object_ikana_obj_Blob_001AC8" Size="0x18" Offset="0x1AC8" />
+        <!--Blob Name="object_ikana_obj_Blob_001AC8" Size="0x18" Offset="0x1AC8" /-->
         <DList Name="object_ikana_obj_DL_001E10" Offset="0x1E10" />
         <DList Name="object_ikana_obj_DL_001E18" Offset="0x1E18" />
-        <Blob Name="object_ikana_obj_Blob_0020E8" Size="0x2A8" Offset="0x20E8" />
+        <!--Blob Name="object_ikana_obj_Blob_0020E8" Size="0x2A8" Offset="0x20E8" /-->
         <DList Name="object_ikana_obj_DL_004710" Offset="0x4710" />
         <DList Name="object_ikana_obj_DL_0048A0" Offset="0x48A0" />
-        <Blob Name="object_ikana_obj_Blob_005598" Size="0xE08" Offset="0x5598" />
+        <!--Blob Name="object_ikana_obj_Blob_005598" Size="0xE08" Offset="0x5598" /-->
         <DList Name="object_ikana_obj_DL_007360" Offset="0x7360" />
         <DList Name="object_ikana_obj_DL_007448" Offset="0x7448" />
-        <Blob Name="object_ikana_obj_Blob_007B58" Size="0x9D8" Offset="0x7B58" />
+        <!--Blob Name="object_ikana_obj_Blob_007B58" Size="0x9D8" Offset="0x7B58" /-->
         <Texture Name="object_ikana_obj_TLUT_008530" OutName="tlut_008530" Format="rgb5a1" Width="4" Height="4" Offset="0x8530" />
-        <Blob Name="object_ikana_obj_Blob_008550" Size="0x40" Offset="0x8550" />
+        <!--Blob Name="object_ikana_obj_Blob_008550" Size="0x40" Offset="0x8550" /-->
         <Texture Name="object_ikana_obj_TLUT_008590" OutName="tlut_008590" Format="rgb5a1" Width="4" Height="4" Offset="0x8590" />
         <Texture Name="object_ikana_obj_Tex_0085B0" OutName="tex_0085B0" Format="rgb5a1" Width="16" Height="16" Offset="0x85B0" />
         <Texture Name="object_ikana_obj_Tex_0087B0" OutName="tex_0087B0" Format="ci4" Width="64" Height="64" Offset="0x87B0" />

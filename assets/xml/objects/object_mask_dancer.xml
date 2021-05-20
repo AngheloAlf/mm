@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_dancer" Segment="6">
-        <Blob Name="object_mask_dancer_Blob_000000" Size="0xED8" Offset="0x0" />
+        <!--Blob Name="object_mask_dancer_Blob_000000" Size="0xED8" Offset="0x0" /-->
         <DList Name="object_mask_dancer_DL_000ED8" Offset="0xED8" />
-        <Blob Name="object_mask_dancer_Blob_001548" Size="0x608" Offset="0x1548" />
+        <!--Blob Name="object_mask_dancer_Blob_001548" Size="0x608" Offset="0x1548" /-->
     </File>
 </Root>

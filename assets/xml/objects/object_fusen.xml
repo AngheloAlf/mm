@@ -3,6 +3,6 @@
         <DList Name="object_fusen_DL_000A00" Offset="0xA00" />
         <DList Name="object_fusen_DL_000D78" Offset="0xD78" />
         <Texture Name="object_fusen_Tex_000E08" OutName="tex_000E08" Format="rgb5a1" Width="32" Height="32" Offset="0xE08" />
-        <Blob Name="object_fusen_Blob_001608" Size="0xE48" Offset="0x1608" />
+        <!--Blob Name="object_fusen_Blob_001608" Size="0xE48" Offset="0x1608" /-->
     </File>
 </Root>

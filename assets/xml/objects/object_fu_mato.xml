@@ -7,14 +7,14 @@
         <DList Name="object_fu_mato_DL_000920" Offset="0x920" />
         <DList Name="object_fu_mato_DL_0009C0" Offset="0x9C0" />
         <Texture Name="object_fu_mato_Tex_000A60" OutName="tex_000A60" Format="rgb5a1" Width="32" Height="32" Offset="0xA60" />
-        <Blob Name="object_fu_mato_Blob_001260" Size="0x390" Offset="0x1260" />
+        <!--Blob Name="object_fu_mato_Blob_001260" Size="0x390" Offset="0x1260" /-->
         <DList Name="object_fu_mato_DL_001C80" Offset="0x1C80" />
         <DList Name="object_fu_mato_DL_001D68" Offset="0x1D68" />
         <DList Name="object_fu_mato_DL_001E50" Offset="0x1E50" />
         <DList Name="object_fu_mato_DL_001F38" Offset="0x1F38" />
         <DList Name="object_fu_mato_DL_002020" Offset="0x2020" />
         <DList Name="object_fu_mato_DL_002108" Offset="0x2108" />
-        <Blob Name="object_fu_mato_Blob_0021F0" Size="0x210" Offset="0x21F0" />
+        <!--Blob Name="object_fu_mato_Blob_0021F0" Size="0x210" Offset="0x21F0" /-->
         <DList Name="object_fu_mato_DL_002720" Offset="0x2720" />
         <Texture Name="object_fu_mato_Tex_002850" OutName="tex_002850" Format="rgb5a1" Width="16" Height="16" Offset="0x2850" />
         <Texture Name="object_fu_mato_Tex_002A50" OutName="tex_002A50" Format="rgb5a1" Width="16" Height="64" Offset="0x2A50" />

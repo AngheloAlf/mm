@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_giant" Segment="6">
         <Animation Name="object_giant_Anim_002168" Offset="0x2168" />
-        <Blob Name="object_giant_Blob_003D40" Size="0x90" Offset="0x3D40" />
+        <!--Blob Name="object_giant_Blob_003D40" Size="0x90" Offset="0x3D40" /-->
         <DList Name="object_giant_DL_003DD0" Offset="0x3DD0" />
         <DList Name="object_giant_DL_0040C0" Offset="0x40C0" />
         <DList Name="object_giant_DL_004200" Offset="0x4200" />
@@ -23,7 +23,7 @@
         <Texture Name="object_giant_Tex_005780" OutName="tex_005780" Format="ci8" Width="16" Height="16" Offset="0x5780" />
         <Texture Name="object_giant_Tex_005880" OutName="tex_005880" Format="ci8" Width="16" Height="16" Offset="0x5880" />
         <Texture Name="object_giant_Tex_005980" OutName="tex_005980" Format="ci8" Width="16" Height="16" Offset="0x5980" />
-        <Blob Name="object_giant_Blob_005A80" Size="0x1800" Offset="0x5A80" />
+        <!--Blob Name="object_giant_Blob_005A80" Size="0x1800" Offset="0x5A80" /-->
         <Texture Name="object_giant_Tex_007280" OutName="tex_007280" Format="ci8" Width="16" Height="16" Offset="0x7280" />
         <Texture Name="object_giant_Tex_007380" OutName="tex_007380" Format="ci8" Width="16" Height="32" Offset="0x7380" />
         <DList Name="object_giant_DL_007610" Offset="0x7610" />

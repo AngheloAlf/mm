@@ -3,7 +3,7 @@
         <DList Name="object_kamejima_DL_000140" Offset="0x140" />
         <Texture Name="object_kamejima_Tex_0002D8" OutName="tex_0002D8" Format="i8" Width="32" Height="64" Offset="0x2D8" />
         <Texture Name="object_kamejima_Tex_000AD8" OutName="tex_000AD8" Format="i8" Width="64" Height="64" Offset="0xAD8" />
-        <Blob Name="object_kamejima_Blob_001AD8" Size="0x1358" Offset="0x1AD8" />
+        <!--Blob Name="object_kamejima_Blob_001AD8" Size="0x1358" Offset="0x1AD8" /-->
         <Animation Name="object_kamejima_Anim_003980" Offset="0x3980" />
         <Animation Name="object_kamejima_Anim_0047B8" Offset="0x47B8" />
         <Animation Name="object_kamejima_Anim_0048B0" Offset="0x48B0" />
@@ -11,7 +11,7 @@
         <Texture Name="object_kamejima_TLUT_005248" OutName="tlut_005248" Format="rgb5a1" Width="16" Height="16" Offset="0x5248" />
         <Texture Name="object_kamejima_Tex_005448" OutName="tex_005448" Format="ci8" Width="32" Height="32" Offset="0x5448" />
         <Texture Name="object_kamejima_Tex_005848" OutName="tex_005848" Format="ci8" Width="64" Height="32" Offset="0x5848" />
-        <Blob Name="object_kamejima_Blob_006048" Size="0x18" Offset="0x6048" />
+        <!--Blob Name="object_kamejima_Blob_006048" Size="0x18" Offset="0x6048" /-->
         <Animation Name="object_kamejima_Anim_006980" Offset="0x6980" />
         <DList Name="object_kamejima_DL_008760" Offset="0x8760" />
         <DList Name="object_kamejima_DL_008E18" Offset="0x8E18" />
@@ -34,7 +34,7 @@
         <Texture Name="object_kamejima_Tex_00B3D8" OutName="tex_00B3D8" Format="ci8" Width="16" Height="32" Offset="0xB3D8" />
         <Texture Name="object_kamejima_Tex_00B5D8" OutName="tex_00B5D8" Format="ci8" Width="64" Height="32" Offset="0xB5D8" />
         <Texture Name="object_kamejima_Tex_00BDD8" OutName="tex_00BDD8" Format="ci8" Width="16" Height="16" Offset="0xBDD8" />
-        <Blob Name="object_kamejima_Blob_00BED8" Size="0x1800" Offset="0xBED8" />
+        <!--Blob Name="object_kamejima_Blob_00BED8" Size="0x1800" Offset="0xBED8" /-->
         <Texture Name="object_kamejima_Tex_00D6D8" OutName="tex_00D6D8" Format="ci8" Width="16" Height="16" Offset="0xD6D8" />
         <Texture Name="object_kamejima_Tex_00D7D8" OutName="tex_00D7D8" Format="ci8" Width="32" Height="64" Offset="0xD7D8" />
         <Texture Name="object_kamejima_Tex_00DFD8" OutName="tex_00DFD8" Format="ci8" Width="32" Height="32" Offset="0xDFD8" />

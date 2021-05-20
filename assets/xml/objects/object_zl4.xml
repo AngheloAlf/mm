@@ -24,7 +24,7 @@
         <Texture Name="object_zl4_Tex_0028F0" OutName="tex_0028F0" Format="rgb5a1" Width="8" Height="8" Offset="0x28F0" />
         <Texture Name="object_zl4_Tex_002970" OutName="tex_002970" Format="rgb5a1" Width="8" Height="8" Offset="0x2970" />
         <Texture Name="object_zl4_Tex_0029F0" OutName="tex_0029F0" Format="rgb5a1" Width="16" Height="8" Offset="0x29F0" />
-        <Blob Name="object_zl4_Blob_002AF0" Size="0x2C00" Offset="0x2AF0" />
+        <!--Blob Name="object_zl4_Blob_002AF0" Size="0x2C00" Offset="0x2AF0" /-->
         <Texture Name="object_zl4_Tex_0056F0" OutName="tex_0056F0" Format="rgb5a1" Width="16" Height="16" Offset="0x56F0" />
         <Texture Name="object_zl4_Tex_0058F0" OutName="tex_0058F0" Format="ci8" Width="16" Height="16" Offset="0x58F0" />
         <Texture Name="object_zl4_Tex_0059F0" OutName="tex_0059F0" Format="rgb5a1" Width="8" Height="8" Offset="0x59F0" />
@@ -120,6 +120,6 @@
         <DList Name="object_zl4_DL_024D80" Offset="0x24D80" />
         <DList Name="object_zl4_DL_024E40" Offset="0x24E40" />
         <Texture Name="object_zl4_Tex_024E50" OutName="tex_024E50" Format="rgb5a1" Width="16" Height="8" Offset="0x24E50" />
-        <Blob Name="object_zl4_Blob_024F50" Size="0x10" Offset="0x24F50" />
+        <!--Blob Name="object_zl4_Blob_024F50" Size="0x10" Offset="0x24F50" /-->
     </File>
 </Root>

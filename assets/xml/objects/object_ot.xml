@@ -5,7 +5,7 @@
         <Animation Name="object_ot_Anim_000420" Offset="0x420" />
         <DList Name="object_ot_DL_0004A0" Offset="0x4A0" />
         <Texture Name="object_ot_Tex_000550" OutName="tex_000550" Format="ia16" Width="8" Height="8" Offset="0x550" />
-        <Blob Name="object_ot_Blob_0005D0" Size="0x30" Offset="0x5D0" />
+        <!--Blob Name="object_ot_Blob_0005D0" Size="0x30" Offset="0x5D0" /-->
         <Animation Name="object_ot_Anim_0008D8" Offset="0x8D8" />
         <DList Name="object_ot_DL_001800" Offset="0x1800" />
         <DList Name="object_ot_DL_0018D0" Offset="0x18D0" />
@@ -49,6 +49,6 @@
         <Limb Name="object_ot_Limb_0047A0" LimbType="Standard" Offset="0x47A0" />
         <Limb Name="object_ot_Limb_0047AC" LimbType="Standard" Offset="0x47AC" />
         <Skeleton Name="object_ot_Skel_004800" Type="Flex" LimbType="Standard" Offset="0x4800" />
-        <Blob Name="object_ot_Blob_00480C" Size="0x334" Offset="0x480C" />
+        <!--Blob Name="object_ot_Blob_00480C" Size="0x334" Offset="0x480C" /-->
     </File>
 </Root>

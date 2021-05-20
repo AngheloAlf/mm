@@ -1,6 +1,6 @@
 ﻿<Root>
     <File Name="object_sth" Segment="6">
-        <Blob Name="object_sth_Blob_000000" Size="0x530" Offset="0x0" />
+        <!--Blob Name="object_sth_Blob_000000" Size="0x530" Offset="0x0" /-->
         <DList Name="object_sth_DL_001C30" Offset="0x1C30" />
         <DList Name="object_sth_DL_001C38" Offset="0x1C38" />
         <DList Name="object_sth_DL_001D80" Offset="0x1D80" />

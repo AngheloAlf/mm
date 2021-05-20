@@ -15,7 +15,7 @@
         <Texture Name="object_pr_Tex_001908" OutName="tex_001908" Format="rgb5a1" Width="16" Height="16" Offset="0x1908" />
         <Texture Name="object_pr_Tex_001B08" OutName="tex_001B08" Format="rgb5a1" Width="16" Height="16" Offset="0x1B08" />
         <Texture Name="object_pr_Tex_001D08" OutName="tex_001D08" Format="rgb5a1" Width="8" Height="8" Offset="0x1D08" />
-        <Blob Name="object_pr_Blob_001D88" Size="0x38" Offset="0x1D88" />
+        <!--Blob Name="object_pr_Blob_001D88" Size="0x38" Offset="0x1D88" /-->
         <Animation Name="object_pr_Anim_001E10" Offset="0x1E10" />
         <Animation Name="object_pr_Anim_0021E8" Offset="0x21E8" />
         <DList Name="object_pr_DL_0029E0" Offset="0x29E0" />
@@ -57,6 +57,6 @@
         <Limb Name="object_pr_Limb_00416C" LimbType="Standard" Offset="0x416C" />
         <Skeleton Name="object_pr_Skel_004188" Type="Flex" LimbType="Standard" Offset="0x4188" />
         <Animation Name="object_pr_Anim_004274" Offset="0x4274" />
-        <Blob Name="object_pr_Blob_004284" Size="0xCC" Offset="0x4284" />
+        <!--Blob Name="object_pr_Blob_004284" Size="0xCC" Offset="0x4284" /-->
     </File>
 </Root>

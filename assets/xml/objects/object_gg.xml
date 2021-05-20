@@ -35,9 +35,9 @@
         <Texture Name="object_gg_Tex_007E20" OutName="tex_007E20" Format="rgb5a1" Width="32" Height="64" Offset="0x7E20" />
         <Texture Name="object_gg_Tex_008E20" OutName="tex_008E20" Format="i8" Width="8" Height="8" Offset="0x8E20" />
         <Texture Name="object_gg_Tex_008E60" OutName="tex_008E60" Format="i8" Width="32" Height="32" Offset="0x8E60" />
-        <Blob Name="object_gg_Blob_009260" Size="0x1000" Offset="0x9260" />
+        <!--Blob Name="object_gg_Blob_009260" Size="0x1000" Offset="0x9260" /-->
         <Animation Name="object_gg_Anim_00A4B4" Offset="0xA4B4" />
-        <Blob Name="object_gg_Blob_00A4C4" Size="0x3C" Offset="0xA4C4" />
+        <!--Blob Name="object_gg_Blob_00A4C4" Size="0x3C" Offset="0xA4C4" /-->
         <Animation Name="object_gg_Anim_00AF40" Offset="0xAF40" />
         <Animation Name="object_gg_Anim_00B560" Offset="0xB560" />
         <Animation Name="object_gg_Anim_00BAF0" Offset="0xBAF0" />

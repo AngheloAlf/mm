@@ -20,6 +20,6 @@
         <Texture Name="object_kujiya_Tex_005678" OutName="tex_005678" Format="rgb5a1" Width="16" Height="16" Offset="0x5678" />
         <Texture Name="object_kujiya_Tex_005878" OutName="tex_005878" Format="rgb5a1" Width="4" Height="32" Offset="0x5878" />
         <Texture Name="object_kujiya_Tex_005978" OutName="tex_005978" Format="rgb5a1" Width="32" Height="32" Offset="0x5978" />
-        <Blob Name="object_kujiya_Blob_006178" Size="0x38" Offset="0x6178" />
+        <!--Blob Name="object_kujiya_Blob_006178" Size="0x38" Offset="0x6178" /-->
     </File>
 </Root>

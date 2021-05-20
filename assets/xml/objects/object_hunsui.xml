@@ -2,9 +2,9 @@
     <File Name="object_hunsui" Segment="6">
         <DList Name="object_hunsui_DL_000220" Offset="0x220" />
         <Texture Name="object_hunsui_Tex_0003E0" OutName="tex_0003E0" Format="rgb5a1" Width="32" Height="32" Offset="0x3E0" />
-        <Blob Name="object_hunsui_Blob_000BE0" Size="0xC0" Offset="0xBE0" />
+        <!--Blob Name="object_hunsui_Blob_000BE0" Size="0xC0" Offset="0xBE0" /-->
         <DList Name="object_hunsui_DL_000EC0" Offset="0xEC0" />
         <Texture Name="object_hunsui_Tex_001078" OutName="tex_001078" Format="rgb5a1" Width="32" Height="32" Offset="0x1078" />
-        <Blob Name="object_hunsui_Blob_001878" Size="0xC8" Offset="0x1878" />
+        <!--Blob Name="object_hunsui_Blob_001878" Size="0xC8" Offset="0x1878" /-->
     </File>
 </Root>

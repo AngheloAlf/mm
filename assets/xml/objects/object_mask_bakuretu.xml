@@ -1,8 +1,8 @@
 ﻿<Root>
     <File Name="object_mask_bakuretu" Segment="6">
-        <Blob Name="object_mask_bakuretu_Blob_000000" Size="0x440" Offset="0x0" />
+        <!--Blob Name="object_mask_bakuretu_Blob_000000" Size="0x440" Offset="0x0" /-->
         <DList Name="object_mask_bakuretu_DL_000440" Offset="0x440" />
         <DList Name="object_mask_bakuretu_DL_0005C0" Offset="0x5C0" />
-        <Blob Name="object_mask_bakuretu_Blob_0007B0" Size="0xA50" Offset="0x7B0" />
+        <!--Blob Name="object_mask_bakuretu_Blob_0007B0" Size="0xA50" Offset="0x7B0" /-->
     </File>
 </Root>

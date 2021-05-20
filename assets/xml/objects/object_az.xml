@@ -80,7 +80,7 @@
         <DList Name="object_az_DL_00F4E8" Offset="0xF4E8" />
         <DList Name="object_az_DL_00F638" Offset="0xF638" />
         <DList Name="object_az_DL_00F788" Offset="0xF788" />
-        <Blob Name="object_az_Blob_00F918" Size="0x2000" Offset="0xF918" />
+        <!--Blob Name="object_az_Blob_00F918" Size="0x2000" Offset="0xF918" /-->
         <Texture Name="object_az_Tex_011918" OutName="tex_011918" Format="rgb5a1" Width="32" Height="32" Offset="0x11918" />
         <Texture Name="object_az_Tex_012118" OutName="tex_012118" Format="rgb5a1" Width="16" Height="32" Offset="0x12118" />
         <Texture Name="object_az_Tex_012518" OutName="tex_012518" Format="rgb5a1" Width="16" Height="16" Offset="0x12518" />
@@ -92,7 +92,7 @@
         <Texture Name="object_az_Tex_014818" OutName="tex_014818" Format="rgb5a1" Width="32" Height="32" Offset="0x14818" />
         <Texture Name="object_az_Tex_015018" OutName="tex_015018" Format="rgb5a1" Width="32" Height="32" Offset="0x15018" />
         <Texture Name="object_az_Tex_015818" OutName="tex_015818" Format="rgb5a1" Width="32" Height="32" Offset="0x15818" />
-        <Blob Name="object_az_Blob_016018" Size="0x1808" Offset="0x16018" />
+        <!--Blob Name="object_az_Blob_016018" Size="0x1808" Offset="0x16018" /-->
         <Limb Name="object_az_Limb_017820" LimbType="Standard" Offset="0x17820" />
         <Limb Name="object_az_Limb_01782C" LimbType="Standard" Offset="0x1782C" />
         <Limb Name="object_az_Limb_017838" LimbType="Standard" Offset="0x17838" />
@@ -117,7 +117,7 @@
         <Limb Name="object_az_Limb_01791C" LimbType="Standard" Offset="0x1791C" />
         <Limb Name="object_az_Limb_017928" LimbType="Standard" Offset="0x17928" />
         <Skeleton Name="object_az_Skel_017990" Type="Flex" LimbType="Standard" Offset="0x17990" />
-        <Blob Name="object_az_Blob_01799C" Size="0x24" Offset="0x1799C" />
+        <!--Blob Name="object_az_Blob_01799C" Size="0x24" Offset="0x1799C" /-->
         <Texture Name="object_az_Tex_0179C0" OutName="tex_0179C0" Format="i4" Width="32" Height="64" Offset="0x179C0" />
         <Texture Name="object_az_Tex_017DC0" OutName="tex_017DC0" Format="i4" Width="64" Height="64" Offset="0x17DC0" />
         <Texture Name="object_az_Tex_0185C0" OutName="tex_0185C0" Format="i4" Width="64" Height="64" Offset="0x185C0" />
@@ -125,15 +125,15 @@
         <Texture Name="object_az_Tex_0195C0" OutName="tex_0195C0" Format="i4" Width="64" Height="64" Offset="0x195C0" />
         <Texture Name="object_az_Tex_019DC0" OutName="tex_019DC0" Format="i4" Width="64" Height="64" Offset="0x19DC0" />
         <DList Name="object_az_DL_01A600" Offset="0x1A600" />
-        <Blob Name="object_az_Blob_01A6D8" Size="0x18" Offset="0x1A6D8" />
+        <!--Blob Name="object_az_Blob_01A6D8" Size="0x18" Offset="0x1A6D8" /-->
         <DList Name="object_az_DL_01A730" Offset="0x1A730" />
-        <Blob Name="object_az_Blob_01A808" Size="0x18" Offset="0x1A808" />
+        <!--Blob Name="object_az_Blob_01A808" Size="0x18" Offset="0x1A808" /-->
         <DList Name="object_az_DL_01A860" Offset="0x1A860" />
-        <Blob Name="object_az_Blob_01A938" Size="0x18" Offset="0x1A938" />
+        <!--Blob Name="object_az_Blob_01A938" Size="0x18" Offset="0x1A938" /-->
         <DList Name="object_az_DL_01A990" Offset="0x1A990" />
-        <Blob Name="object_az_Blob_01AA68" Size="0x18" Offset="0x1AA68" />
+        <!--Blob Name="object_az_Blob_01AA68" Size="0x18" Offset="0x1AA68" /-->
         <DList Name="object_az_DL_01AAC0" Offset="0x1AAC0" />
-        <Blob Name="object_az_Blob_01AB98" Size="0x18" Offset="0x1AB98" />
+        <!--Blob Name="object_az_Blob_01AB98" Size="0x18" Offset="0x1AB98" /-->
         <DList Name="object_az_DL_01ABF0" Offset="0x1ABF0" />
         <DList Name="object_az_DL_01AD00" Offset="0x1AD00" />
     </File>

@@ -3,6 +3,6 @@
         <DList Name="object_visiblock_DL_000140" Offset="0x140" />
         <DList Name="object_visiblock_DL_0001E8" Offset="0x1E8" />
         <Texture Name="object_visiblock_Tex_0001F0" OutName="tex_0001F0" Format="rgb5a1" Width="32" Height="32" Offset="0x1F0" />
-        <Blob Name="object_visiblock_Blob_0009F0" Size="0x110" Offset="0x9F0" />
+        <!--Blob Name="object_visiblock_Blob_0009F0" Size="0x110" Offset="0x9F0" /-->
     </File>
 </Root>

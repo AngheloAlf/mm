@@ -37,23 +37,23 @@
         <DList Name="object_warp1_DL_0034C8" Offset="0x34C8" />
         <Texture Name="object_warp1_Tex_0034D0" OutName="tex_0034D0" Format="i8" Width="32" Height="64" Offset="0x34D0" />
         <Texture Name="object_warp1_Tex_003CD0" OutName="tex_003CD0" Format="i8" Width="32" Height="64" Offset="0x3CD0" />
-        <Blob Name="object_warp1_Blob_0044D0" Size="0x10" Offset="0x44D0" />
+        <!--Blob Name="object_warp1_Blob_0044D0" Size="0x10" Offset="0x44D0" /-->
         <DList Name="object_warp1_DL_004690" Offset="0x4690" />
         <DList Name="object_warp1_DL_0047C8" Offset="0x47C8" />
         <Texture Name="object_warp1_Tex_0047D0" OutName="tex_0047D0" Format="i4" Width="64" Height="64" Offset="0x47D0" />
         <Texture Name="object_warp1_Tex_004FD0" OutName="tex_004FD0" Format="i4" Width="64" Height="64" Offset="0x4FD0" />
-        <Blob Name="object_warp1_Blob_0057D0" Size="0x10" Offset="0x57D0" />
+        <!--Blob Name="object_warp1_Blob_0057D0" Size="0x10" Offset="0x57D0" /-->
         <DList Name="object_warp1_DL_0058C0" Offset="0x58C0" />
         <DList Name="object_warp1_DL_0058C8" Offset="0x58C8" />
         <Texture Name="object_warp1_Tex_005A30" OutName="tex_005A30" Format="i4" Width="64" Height="64" Offset="0x5A30" />
         <Texture Name="object_warp1_Tex_006230" OutName="tex_006230" Format="i4" Width="64" Height="64" Offset="0x6230" />
         <Texture Name="object_warp1_Tex_006A30" OutName="tex_006A30" Format="i8" Width="32" Height="64" Offset="0x6A30" />
-        <Blob Name="object_warp1_Blob_007230" Size="0x10" Offset="0x7230" />
+        <!--Blob Name="object_warp1_Blob_007230" Size="0x10" Offset="0x7230" /-->
         <DList Name="object_warp1_DL_0076C0" Offset="0x76C0" />
         <Texture Name="object_warp1_TLUT_0078A0" OutName="tlut_0078A0" Format="rgb5a1" Width="4" Height="4" Offset="0x78A0" />
         <Texture Name="object_warp1_TLUT_0078C0" OutName="tlut_0078C0" Format="rgb5a1" Width="4" Height="4" Offset="0x78C0" />
         <Texture Name="object_warp1_Tex_0078E0" OutName="tex_0078E0" Format="ci4" Width="64" Height="64" Offset="0x78E0" />
         <Texture Name="object_warp1_Tex_0080E0" OutName="tex_0080E0" Format="ci4" Width="64" Height="64" Offset="0x80E0" />
-        <Blob Name="object_warp1_Blob_0088E0" Size="0x320" Offset="0x88E0" />
+        <!--Blob Name="object_warp1_Blob_0088E0" Size="0x320" Offset="0x88E0" /-->
     </File>
 </Root>

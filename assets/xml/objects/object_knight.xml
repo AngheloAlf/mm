@@ -97,17 +97,17 @@
         <DList Name="object_knight_DL_0188F8" Offset="0x188F8" />
         <DList Name="object_knight_DL_0189F0" Offset="0x189F0" />
         <DList Name="object_knight_DL_018AF0" Offset="0x18AF0" />
-        <Blob Name="object_knight_Blob_018BA0" Size="0x30" Offset="0x18BA0" />
+        <!--Blob Name="object_knight_Blob_018BA0" Size="0x30" Offset="0x18BA0" /-->
         <DList Name="object_knight_DL_018CF0" Offset="0x18CF0" />
         <DList Name="object_knight_DL_018DE0" Offset="0x18DE0" />
         <DList Name="object_knight_DL_018E50" Offset="0x18E50" />
         <Texture Name="object_knight_Tex_018E58" OutName="tex_018E58" Format="ia8" Width="16" Height="16" Offset="0x18E58" />
         <Texture Name="object_knight_Tex_018F58" OutName="tex_018F58" Format="ia16" Width="16" Height="32" Offset="0x18F58" />
-        <Blob Name="object_knight_Blob_019358" Size="0x10" Offset="0x19358" />
+        <!--Blob Name="object_knight_Blob_019358" Size="0x10" Offset="0x19358" /-->
         <DList Name="object_knight_DL_0193A8" Offset="0x193A8" />
         <DList Name="object_knight_DL_0193B0" Offset="0x193B0" />
         <Texture Name="object_knight_Tex_019470" OutName="tex_019470" Format="rgb5a1" Width="4" Height="4" Offset="0x19470" />
-        <Blob Name="object_knight_Blob_019490" Size="0x800" Offset="0x19490" />
+        <!--Blob Name="object_knight_Blob_019490" Size="0x800" Offset="0x19490" /-->
         <DList Name="object_knight_DL_01D380" Offset="0x1D380" />
         <DList Name="object_knight_DL_01D4C0" Offset="0x1D4C0" />
         <DList Name="object_knight_DL_01D650" Offset="0x1D650" />

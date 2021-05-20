@@ -8,6 +8,6 @@
         <Texture Name="object_obj_usiyane_TLUT_0009C8" OutName="tlut_0009C8" Format="rgb5a1" Width="4" Height="4" Offset="0x9C8" />
         <Texture Name="object_obj_usiyane_Tex_0009E8" OutName="tex_0009E8" Format="ci4" Width="64" Height="64" Offset="0x9E8" />
         <Texture Name="object_obj_usiyane_Tex_0011E8" OutName="tex_0011E8" Format="rgb5a1" Width="64" Height="32" Offset="0x11E8" />
-        <Blob Name="object_obj_usiyane_Blob_0021E8" Size="0xF8" Offset="0x21E8" />
+        <!--Blob Name="object_obj_usiyane_Blob_0021E8" Size="0xF8" Offset="0x21E8" /-->
     </File>
 </Root>

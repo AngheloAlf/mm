@@ -28,9 +28,9 @@
         <DList Name="object_zl1_DL_0069E0" Offset="0x69E0" />
         <DList Name="object_zl1_DL_006BA0" Offset="0x6BA0" />
         <Texture Name="object_zl1_Tex_006CD8" OutName="tex_006CD8" Format="rgb5a1" Width="16" Height="16" Offset="0x6CD8" />
-        <Blob Name="object_zl1_Blob_006ED8" Size="0x1F0" Offset="0x6ED8" />
+        <!--Blob Name="object_zl1_Blob_006ED8" Size="0x1F0" Offset="0x6ED8" /-->
         <Texture Name="object_zl1_TLUT_0070C8" OutName="tlut_0070C8" Format="rgb5a1" Width="16" Height="16" Offset="0x70C8" />
-        <Blob Name="object_zl1_Blob_0072C8" Size="0x740" Offset="0x72C8" />
+        <!--Blob Name="object_zl1_Blob_0072C8" Size="0x740" Offset="0x72C8" /-->
         <Texture Name="object_zl1_Tex_007A08" OutName="tex_007A08" Format="ci8" Width="8" Height="8" Offset="0x7A08" />
         <Texture Name="object_zl1_Tex_007A48" OutName="tex_007A48" Format="rgb5a1" Width="8" Height="8" Offset="0x7A48" />
         <Texture Name="object_zl1_Tex_007AC8" OutName="tex_007AC8" Format="rgb5a1" Width="16" Height="32" Offset="0x7AC8" />
@@ -44,11 +44,11 @@
         <Texture Name="object_zl1_Tex_008648" OutName="tex_008648" Format="rgb5a1" Width="8" Height="16" Offset="0x8648" />
         <Texture Name="object_zl1_Tex_008748" OutName="tex_008748" Format="rgb5a1" Width="8" Height="8" Offset="0x8748" />
         <Texture Name="object_zl1_Tex_0087C8" OutName="tex_0087C8" Format="rgb5a1" Width="8" Height="8" Offset="0x87C8" />
-        <Blob Name="object_zl1_Blob_008848" Size="0x2000" Offset="0x8848" />
+        <!--Blob Name="object_zl1_Blob_008848" Size="0x2000" Offset="0x8848" /-->
         <Texture Name="object_zl1_Tex_00A848" OutName="tex_00A848" Format="rgb5a1" Width="8" Height="8" Offset="0xA848" />
         <Texture Name="object_zl1_Tex_00A8C8" OutName="tex_00A8C8" Format="ci8" Width="8" Height="16" Offset="0xA8C8" />
         <Texture Name="object_zl1_Tex_00A948" OutName="tex_00A948" Format="ci8" Width="16" Height="32" Offset="0xA948" />
-        <Blob Name="object_zl1_Blob_00AB48" Size="0x400" Offset="0xAB48" />
+        <!--Blob Name="object_zl1_Blob_00AB48" Size="0x400" Offset="0xAB48" /-->
         <DList Name="object_zl1_DL_00CD98" Offset="0xCD98" />
         <DList Name="object_zl1_DL_00DEC8" Offset="0xDEC8" />
         <DList Name="object_zl1_DL_00E748" Offset="0xE748" />

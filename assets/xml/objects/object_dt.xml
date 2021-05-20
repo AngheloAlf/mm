@@ -28,7 +28,7 @@
         <Texture Name="object_dt_Tex_0071D0" OutName="tex_0071D0" Format="ci8" Width="8" Height="8" Offset="0x71D0" />
         <Texture Name="object_dt_Tex_007210" OutName="tex_007210" Format="rgb5a1" Width="8" Height="16" Offset="0x7210" />
         <Texture Name="object_dt_Tex_007310" OutName="tex_007310" Format="ci8" Width="8" Height="8" Offset="0x7310" />
-        <Blob Name="object_dt_Blob_007350" Size="0x500" Offset="0x7350" />
+        <!--Blob Name="object_dt_Blob_007350" Size="0x500" Offset="0x7350" /-->
         <Texture Name="object_dt_Tex_007850" OutName="tex_007850" Format="ci8" Width="32" Height="32" Offset="0x7850" />
         <Texture Name="object_dt_Tex_007C50" OutName="tex_007C50" Format="ci8" Width="16" Height="16" Offset="0x7C50" />
         <Texture Name="object_dt_Tex_007D50" OutName="tex_007D50" Format="ci8" Width="32" Height="32" Offset="0x7D50" />
@@ -36,14 +36,14 @@
         <Texture Name="object_dt_Tex_008190" OutName="tex_008190" Format="ci8" Width="32" Height="16" Offset="0x8190" />
         <Texture Name="object_dt_Tex_008390" OutName="tex_008390" Format="rgb5a1" Width="32" Height="64" Offset="0x8390" />
         <Texture Name="object_dt_Tex_009390" OutName="tex_009390" Format="rgb5a1" Width="16" Height="16" Offset="0x9390" />
-        <Blob Name="object_dt_Blob_009590" Size="0x400" Offset="0x9590" />
+        <!--Blob Name="object_dt_Blob_009590" Size="0x400" Offset="0x9590" /-->
         <Texture Name="object_dt_Tex_009990" OutName="tex_009990" Format="rgb5a1" Width="16" Height="32" Offset="0x9990" />
         <Texture Name="object_dt_Tex_009D90" OutName="tex_009D90" Format="rgb5a1" Width="16" Height="16" Offset="0x9D90" />
-        <Blob Name="object_dt_Blob_009F90" Size="0x600" Offset="0x9F90" />
+        <!--Blob Name="object_dt_Blob_009F90" Size="0x600" Offset="0x9F90" /-->
         <Texture Name="object_dt_Tex_00A590" OutName="tex_00A590" Format="rgb5a1" Width="16" Height="16" Offset="0xA590" />
-        <Blob Name="object_dt_Blob_00A790" Size="0x800" Offset="0xA790" />
+        <!--Blob Name="object_dt_Blob_00A790" Size="0x800" Offset="0xA790" /-->
         <Animation Name="object_dt_Anim_00AFAC" Offset="0xAFAC" />
-        <Blob Name="object_dt_Blob_00AFBC" Size="0x30" Offset="0xAFBC" />
+        <!--Blob Name="object_dt_Blob_00AFBC" Size="0x30" Offset="0xAFBC" /-->
         <Limb Name="object_dt_Limb_00AFEC" LimbType="Standard" Offset="0xAFEC" />
         <Limb Name="object_dt_Limb_00AFF8" LimbType="Standard" Offset="0xAFF8" />
         <Limb Name="object_dt_Limb_00B004" LimbType="Standard" Offset="0xB004" />
@@ -59,6 +59,6 @@
         <Limb Name="object_dt_Limb_00B07C" LimbType="Standard" Offset="0xB07C" />
         <Limb Name="object_dt_Limb_00B088" LimbType="Standard" Offset="0xB088" />
         <Skeleton Name="object_dt_Skel_00B0CC" Type="Flex" LimbType="Standard" Offset="0xB0CC" />
-        <Blob Name="object_dt_Blob_00B0D8" Size="0x438" Offset="0xB0D8" />
+        <!--Blob Name="object_dt_Blob_00B0D8" Size="0x438" Offset="0xB0D8" /-->
     </File>
 </Root>

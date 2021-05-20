@@ -4,11 +4,11 @@
         <Animation Name="object_skb_Anim_0015EC" Offset="0x15EC" />
         <Animation Name="object_skb_Anim_001D1C" Offset="0x1D1C" />
         <Animation Name="object_skb_Anim_002190" Offset="0x2190" />
-        <Blob Name="object_skb_zeroes_unk_000021A0" Size="0x20" Offset="0x21A0" />
+        <!--Blob Name="object_skb_zeroes_unk_000021A0" Size="0x20" Offset="0x21A0" /-->
         <Animation Name="object_skb_Anim_00270C" Offset="0x270C" />
-        <Blob Name="object_skb_zeroes_unk_0000271C" Size="0x24" Offset="0x271C" />
+        <!--Blob Name="object_skb_zeroes_unk_0000271C" Size="0x24" Offset="0x271C" /-->
         <Animation Name="object_skb_Anim_002AC8" Offset="0x2AC8" />
-        <Blob Name="object_skb_zeroes_unk_00002AD8" Size="0x18" Offset="0x2AD8" />
+        <!--Blob Name="object_skb_zeroes_unk_00002AD8" Size="0x18" Offset="0x2AD8" /-->
         <Animation Name="object_skb_Anim_003584" Offset="0x3584" />
         <Texture Name="object_skb_Tex_0035A0" OutName="tex_0035A0" Format="rgb5a1" Width="16" Height="16" Offset="0x35A0" />
         <Texture Name="object_skb_Tex_0037A0" OutName="tex_0037A0" Format="rgb5a1" Width="8" Height="16" Offset="0x37A0" />
@@ -57,8 +57,8 @@
         <Limb Name="object_skb_Limb_005EA0" LimbType="Standard" Offset="0x5EA0" />
         <Skeleton Name="object_skb_Skel_005EF8" Type="Normal" LimbType="Standard" Offset="0x5EF8" />
         <Animation Name="object_skb_Anim_0064E0" Offset="0x64E0" />
-        <Blob Name="object_skb_zeroes_unk_000064F0" Size="0x20" Offset="0x64F0" />
+        <!--Blob Name="object_skb_zeroes_unk_000064F0" Size="0x20" Offset="0x64F0" /-->
         <Animation Name="object_skb_Anim_00697C" Offset="0x697C" />
-        <Blob Name="object_skb_Blob_00698C" Size="0x414" Offset="0x698C" />
+        <!--Blob Name="object_skb_Blob_00698C" Size="0x414" Offset="0x698C" /-->
     </File>
 </Root>

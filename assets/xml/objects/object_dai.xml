@@ -58,7 +58,7 @@
         <Texture Name="object_dai_Tex_010130" OutName="tex_010130" Format="rgb5a1" Width="16" Height="16" Offset="0x10130" />
         <Texture Name="object_dai_Tex_010330" OutName="tex_010330" Format="rgb5a1" Width="8" Height="8" Offset="0x10330" />
         <Texture Name="object_dai_Tex_0103B0" OutName="tex_0103B0" Format="rgb5a1" Width="32" Height="16" Offset="0x103B0" />
-        <Blob Name="object_dai_Blob_0107B0" Size="0x2800" Offset="0x107B0" />
+        <!--Blob Name="object_dai_Blob_0107B0" Size="0x2800" Offset="0x107B0" /-->
         <Limb Name="object_dai_Limb_012FB0" LimbType="Standard" Offset="0x12FB0" />
         <Limb Name="object_dai_Limb_012FBC" LimbType="Standard" Offset="0x12FBC" />
         <Limb Name="object_dai_Limb_012FC8" LimbType="Standard" Offset="0x12FC8" />

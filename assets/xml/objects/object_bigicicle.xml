@@ -7,7 +7,7 @@
         <DList Name="object_bigicicle_DL_000D60" Offset="0xD60" />
         <DList Name="object_bigicicle_DL_000F40" Offset="0xF40" />
         <DList Name="object_bigicicle_DL_0014F0" Offset="0x14F0" />
-        <Blob Name="object_bigicicle_Blob_001670" Size="0x10" Offset="0x1670" />
+        <!--Blob Name="object_bigicicle_Blob_001670" Size="0x10" Offset="0x1670" /-->
         <DList Name="object_bigicicle_DL_001D10" Offset="0x1D10" />
         <DList Name="object_bigicicle_DL_002530" Offset="0x2530" />
         <DList Name="object_bigicicle_DL_002C20" Offset="0x2C20" />

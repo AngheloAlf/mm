@@ -3,10 +3,10 @@
         <DList Name="object_taru_DL_000420" Offset="0x420" />
         <Texture Name="object_taru_Tex_000670" OutName="tex_000670" Format="rgb5a1" Width="16" Height="32" Offset="0x670" />
         <Texture Name="object_taru_Tex_000A70" OutName="tex_000A70" Format="rgb5a1" Width="32" Height="16" Offset="0xA70" />
-        <Blob Name="object_taru_Blob_000E70" Size="0x190" Offset="0xE70" />
+        <!--Blob Name="object_taru_Blob_000E70" Size="0x190" Offset="0xE70" /-->
         <DList Name="object_taru_DL_001140" Offset="0x1140" />
         <Texture Name="object_taru_Tex_001230" OutName="tex_001230" Format="rgb5a1" Width="32" Height="32" Offset="0x1230" />
         <Texture Name="object_taru_Tex_001A30" OutName="tex_001A30" Format="i4" Width="32" Height="32" Offset="0x1A30" />
-        <Blob Name="object_taru_Blob_001C30" Size="0xB0" Offset="0x1C30" />
+        <!--Blob Name="object_taru_Blob_001C30" Size="0xB0" Offset="0x1C30" /-->
     </File>
 </Root>

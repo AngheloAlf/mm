@@ -6,6 +6,6 @@
         <Texture Name="object_posthouse_obj_Tex_001028" OutName="tex_001028" Format="rgb5a1" Width="32" Height="32" Offset="0x1028" />
         <DList Name="object_posthouse_obj_DL_001870" Offset="0x1870" />
         <Texture Name="object_posthouse_obj_Tex_001900" OutName="tex_001900" Format="rgb5a1" Width="64" Height="32" Offset="0x1900" />
-        <Blob Name="object_posthouse_obj_Blob_002900" Size="0x80" Offset="0x2900" />
+        <!--Blob Name="object_posthouse_obj_Blob_002900" Size="0x80" Offset="0x2900" /-->
     </File>
 </Root>

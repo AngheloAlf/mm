@@ -10,6 +10,6 @@
         <Animation Name="object_an4_Anim_0060B4" Offset="0x60B4" />
         <Animation Name="object_an4_Anim_006CC0" Offset="0x6CC0" />
         <Animation Name="object_an4_Anim_007E3C" Offset="0x7E3C" />
-        <Blob Name="object_an4_Blob_007E4C" Size="0xA84" Offset="0x7E4C" />
+        <!--Blob Name="object_an4_Blob_007E4C" Size="0xA84" Offset="0x7E4C" /-->
     </File>
 </Root>

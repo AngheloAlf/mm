@@ -51,7 +51,7 @@
         <Texture Name="object_bsb_Tex_00C060" OutName="tex_00C060" Format="rgb5a1" Width="8" Height="16" Offset="0xC060" />
         <Texture Name="object_bsb_Tex_00C160" OutName="tex_00C160" Format="rgb5a1" Width="8" Height="8" Offset="0xC160" />
         <Texture Name="object_bsb_Tex_00C1E0" OutName="tex_00C1E0" Format="rgb5a1" Width="8" Height="8" Offset="0xC1E0" />
-        <Blob Name="object_bsb_Blob_00C260" Size="0x40" Offset="0xC260" />
+        <!--Blob Name="object_bsb_Blob_00C260" Size="0x40" Offset="0xC260" /-->
         <Limb Name="object_bsb_Limb_00C2A0" LimbType="Standard" Offset="0xC2A0" />
         <Limb Name="object_bsb_Limb_00C2AC" LimbType="Standard" Offset="0xC2AC" />
         <Limb Name="object_bsb_Limb_00C2B8" LimbType="Standard" Offset="0xC2B8" />

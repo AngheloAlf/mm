@@ -23,19 +23,19 @@
         <Texture Name="object_gla_Tex_004E78" OutName="tex_004E78" Format="ci8" Width="16" Height="16" Offset="0x4E78" />
         <Texture Name="object_gla_Tex_004F78" OutName="tex_004F78" Format="ci8" Width="16" Height="16" Offset="0x4F78" />
         <Texture Name="object_gla_Tex_005078" OutName="tex_005078" Format="i8" Width="16" Height="16" Offset="0x5078" />
-        <Blob Name="object_gla_Blob_005178" Size="0x1B0" Offset="0x5178" />
+        <!--Blob Name="object_gla_Blob_005178" Size="0x1B0" Offset="0x5178" /-->
         <Texture Name="object_gla_Tex_005328" OutName="tex_005328" Format="ci8" Width="8" Height="8" Offset="0x5328" />
         <Texture Name="object_gla_Tex_005368" OutName="tex_005368" Format="ci8" Width="8" Height="16" Offset="0x5368" />
-        <Blob Name="object_gla_Blob_0053E8" Size="0x400" Offset="0x53E8" />
+        <!--Blob Name="object_gla_Blob_0053E8" Size="0x400" Offset="0x53E8" /-->
         <Texture Name="object_gla_Tex_0057E8" OutName="tex_0057E8" Format="ci8" Width="8" Height="8" Offset="0x57E8" />
         <Texture Name="object_gla_Tex_005828" OutName="tex_005828" Format="i8" Width="16" Height="16" Offset="0x5828" />
         <Texture Name="object_gla_Tex_005928" OutName="tex_005928" Format="ci8" Width="8" Height="16" Offset="0x5928" />
         <Texture Name="object_gla_Tex_0059A8" OutName="tex_0059A8" Format="ci8" Width="8" Height="8" Offset="0x59A8" />
-        <Blob Name="object_gla_Blob_0059E8" Size="0x400" Offset="0x59E8" />
+        <!--Blob Name="object_gla_Blob_0059E8" Size="0x400" Offset="0x59E8" /-->
         <Texture Name="object_gla_Tex_005DE8" OutName="tex_005DE8" Format="i8" Width="8" Height="16" Offset="0x5DE8" />
         <Texture Name="object_gla_Tex_005E68" OutName="tex_005E68" Format="ci8" Width="16" Height="16" Offset="0x5E68" />
         <Texture Name="object_gla_Tex_005F68" OutName="tex_005F68" Format="i8" Width="16" Height="16" Offset="0x5F68" />
-        <Blob Name="object_gla_Blob_006068" Size="0x400" Offset="0x6068" />
+        <!--Blob Name="object_gla_Blob_006068" Size="0x400" Offset="0x6068" /-->
         <DList Name="object_gla_DL_007DE8" Offset="0x7DE8" />
         <DList Name="object_gla_DL_007FA8" Offset="0x7FA8" />
         <DList Name="object_gla_DL_008168" Offset="0x8168" />

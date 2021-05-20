@@ -18,7 +18,7 @@
         <DList Name="object_gk_DL_004CB8" Offset="0x4CB8" />
         <DList Name="object_gk_DL_004DA0" Offset="0x4DA0" />
         <DList Name="object_gk_DL_004ED0" Offset="0x4ED0" />
-        <Blob Name="object_gk_Blob_005120" Size="0x30" Offset="0x5120" />
+        <!--Blob Name="object_gk_Blob_005120" Size="0x30" Offset="0x5120" /-->
         <Animation Name="object_gk_Anim_005EDC" Offset="0x5EDC" />
         <DList Name="object_gk_DL_006680" Offset="0x6680" />
         <DList Name="object_gk_DL_006688" Offset="0x6688" />
@@ -55,7 +55,7 @@
         <Animation Name="object_gk_Anim_00BD90" Offset="0xBD90" />
         <Animation Name="object_gk_Anim_00C308" Offset="0xC308" />
         <Texture Name="object_gk_TLUT_00C320" OutName="tlut_00C320" Format="rgb5a1" Width="16" Height="16" Offset="0xC320" />
-        <Blob Name="object_gk_Blob_00C520" Size="0x1900" Offset="0xC520" />
+        <!--Blob Name="object_gk_Blob_00C520" Size="0x1900" Offset="0xC520" /-->
         <Texture Name="object_gk_Tex_00DE20" OutName="tex_00DE20" Format="ci8" Width="8" Height="8" Offset="0xDE20" />
         <Texture Name="object_gk_Tex_00DE60" OutName="tex_00DE60" Format="ci8" Width="16" Height="16" Offset="0xDE60" />
         <Texture Name="object_gk_Tex_00DF60" OutName="tex_00DF60" Format="ci8" Width="16" Height="32" Offset="0xDF60" />
@@ -67,6 +67,6 @@
         <Texture Name="object_gk_Tex_00F0A0" OutName="tex_00F0A0" Format="ci8" Width="32" Height="32" Offset="0xF0A0" />
         <Texture Name="object_gk_Tex_00F4A0" OutName="tex_00F4A0" Format="rgb5a1" Width="8" Height="8" Offset="0xF4A0" />
         <Texture Name="object_gk_Tex_00F520" OutName="tex_00F520" Format="rgb5a1" Width="16" Height="16" Offset="0xF520" />
-        <Blob Name="object_gk_Blob_00F720" Size="0x2000" Offset="0xF720" />
+        <!--Blob Name="object_gk_Blob_00F720" Size="0x2000" Offset="0xF720" /-->
     </File>
 </Root>

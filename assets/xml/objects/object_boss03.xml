@@ -14,7 +14,7 @@
         <DList Name="object_boss03_DL_004768" Offset="0x4768" />
         <DList Name="object_boss03_DL_004AC0" Offset="0x4AC0" />
         <DList Name="object_boss03_DL_005010" Offset="0x5010" />
-        <Blob Name="object_boss03_Blob_005388" Size="0x8" Offset="0x5388" />
+        <!--Blob Name="object_boss03_Blob_005388" Size="0x8" Offset="0x5388" /-->
         <Texture Name="object_boss03_TLUT_005390" OutName="tlut_005390" Format="rgb5a1" Width="4" Height="4" Offset="0x5390" />
         <Texture Name="object_boss03_TLUT_0053B0" OutName="tlut_0053B0" Format="rgb5a1" Width="4" Height="4" Offset="0x53B0" />
         <Texture Name="object_boss03_TLUT_0053D0" OutName="tlut_0053D0" Format="rgb5a1" Width="4" Height="4" Offset="0x53D0" />
@@ -27,7 +27,7 @@
         <Texture Name="object_boss03_Tex_007C10" OutName="tex_007C10" Format="rgb5a1" Width="16" Height="16" Offset="0x7C10" />
         <DList Name="object_boss03_DL_007E50" Offset="0x7E50" />
         <DList Name="object_boss03_DL_007EB0" Offset="0x7EB0" />
-        <Blob Name="object_boss03_Blob_007EC8" Size="0x1400" Offset="0x7EC8" />
+        <!--Blob Name="object_boss03_Blob_007EC8" Size="0x1400" Offset="0x7EC8" /-->
         <Limb Name="object_boss03_Limb_0092C8" LimbType="Standard" Offset="0x92C8" />
         <Limb Name="object_boss03_Limb_0092D4" LimbType="Standard" Offset="0x92D4" />
         <Limb Name="object_boss03_Limb_0092E0" LimbType="Standard" Offset="0x92E0" />
@@ -61,7 +61,7 @@
         <Texture Name="object_boss03_TLUT_00AAE0" OutName="tlut_00AAE0" Format="rgb5a1" Width="4" Height="4" Offset="0xAAE0" />
         <Texture Name="object_boss03_Tex_00AB00" OutName="tex_00AB00" Format="ci4" Width="64" Height="64" Offset="0xAB00" />
         <Texture Name="object_boss03_Tex_00B300" OutName="tex_00B300" Format="ci4" Width="64" Height="64" Offset="0xB300" />
-        <Blob Name="object_boss03_Blob_00BB00" Size="0x10" Offset="0xBB00" />
+        <!--Blob Name="object_boss03_Blob_00BB00" Size="0x10" Offset="0xBB00" /-->
         <DList Name="object_boss03_DL_00BD80" Offset="0xBD80" />
         <DList Name="object_boss03_DL_00BE40" Offset="0xBE40" />
         <DList Name="object_boss03_DL_00BF20" Offset="0xBF20" />

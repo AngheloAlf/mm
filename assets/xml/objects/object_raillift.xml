@@ -11,9 +11,9 @@
         <Texture Name="object_raillift_Tex_0027C8" OutName="tex_0027C8" Format="rgb5a1" Width="32" Height="32" Offset="0x27C8" />
         <Texture Name="object_raillift_Tex_002FC8" OutName="tex_002FC8" Format="rgb5a1" Width="32" Height="32" Offset="0x2FC8" />
         <Texture Name="object_raillift_Tex_0037C8" OutName="tex_0037C8" Format="ia16" Width="32" Height="64" Offset="0x37C8" />
-        <Blob Name="object_raillift_Blob_0047C8" Size="0x138" Offset="0x47C8" />
+        <!--Blob Name="object_raillift_Blob_0047C8" Size="0x138" Offset="0x47C8" /-->
         <DList Name="object_raillift_DL_004BF0" Offset="0x4BF0" />
-        <Blob Name="object_raillift_Blob_004DF8" Size="0x238" Offset="0x4DF8" />
+        <!--Blob Name="object_raillift_Blob_004DF8" Size="0x238" Offset="0x4DF8" /-->
         <Texture Name="object_raillift_Tex_005030" OutName="tex_005030" Format="rgb5a1" Width="32" Height="32" Offset="0x5030" />
         <Texture Name="object_raillift_Tex_005830" OutName="tex_005830" Format="rgb5a1" Width="32" Height="32" Offset="0x5830" />
         <Texture Name="object_raillift_Tex_006030" OutName="tex_006030" Format="rgb5a1" Width="32" Height="32" Offset="0x6030" />

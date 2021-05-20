@@ -46,18 +46,18 @@
         <DList Name="object_ctower_rot_DL_010828" Offset="0x10828" />
         <DList Name="object_ctower_rot_DL_0129D0" Offset="0x129D0" />
         <DList Name="object_ctower_rot_DL_012DA0" Offset="0x12DA0" />
-        <Blob Name="object_ctower_rot_Blob_013668" Size="0xCB8" Offset="0x13668" />
+        <!--Blob Name="object_ctower_rot_Blob_013668" Size="0xCB8" Offset="0x13668" /-->
         <DList Name="object_ctower_rot_DL_015F30" Offset="0x15F30" />
         <DList Name="object_ctower_rot_DL_0160A0" Offset="0x160A0" />
-        <Blob Name="object_ctower_rot_Blob_016A70" Size="0x430" Offset="0x16A70" />
+        <!--Blob Name="object_ctower_rot_Blob_016A70" Size="0x430" Offset="0x16A70" /-->
         <DList Name="object_ctower_rot_DL_017010" Offset="0x17010" />
         <DList Name="object_ctower_rot_DL_017018" Offset="0x17018" />
         <DList Name="object_ctower_rot_DL_017220" Offset="0x17220" />
-        <Blob Name="object_ctower_rot_Blob_017370" Size="0xD0" Offset="0x17370" />
+        <!--Blob Name="object_ctower_rot_Blob_017370" Size="0xD0" Offset="0x17370" /-->
         <DList Name="object_ctower_rot_DL_0174E0" Offset="0x174E0" />
-        <Blob Name="object_ctower_rot_Blob_0175B0" Size="0xD0" Offset="0x175B0" />
+        <!--Blob Name="object_ctower_rot_Blob_0175B0" Size="0xD0" Offset="0x175B0" /-->
         <DList Name="object_ctower_rot_DL_018110" Offset="0x18110" />
         <DList Name="object_ctower_rot_DL_018118" Offset="0x18118" />
-        <Blob Name="object_ctower_rot_Blob_018390" Size="0x230" Offset="0x18390" />
+        <!--Blob Name="object_ctower_rot_Blob_018390" Size="0x230" Offset="0x18390" /-->
     </File>
 </Root>

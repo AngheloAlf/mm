@@ -4,6 +4,6 @@
         <DList Name="object_sekihiz_DL_000518" Offset="0x518" />
         <Texture Name="object_sekihiz_Tex_000728" OutName="tex_000728" Format="i8" Width="32" Height="32" Offset="0x728" />
         <Texture Name="object_sekihiz_Tex_000B28" OutName="tex_000B28" Format="i8" Width="32" Height="32" Offset="0xB28" />
-        <Blob Name="object_sekihiz_Blob_000F28" Size="0x118" Offset="0xF28" />
+        <!--Blob Name="object_sekihiz_Blob_000F28" Size="0x118" Offset="0xF28" /-->
     </File>
 </Root>

@@ -49,20 +49,20 @@
         <Texture Name="object_cs_Tex_00B9A0" OutName="tex_00B9A0" Format="ci8" Width="8" Height="8" Offset="0xB9A0" />
         <Texture Name="object_cs_Tex_00B9E0" OutName="tex_00B9E0" Format="ci8" Width="16" Height="16" Offset="0xB9E0" />
         <Texture Name="object_cs_Tex_00BAE0" OutName="tex_00BAE0" Format="ci8" Width="16" Height="16" Offset="0xBAE0" />
-        <Blob Name="object_cs_Blob_00BBE0" Size="0x400" Offset="0xBBE0" />
+        <!--Blob Name="object_cs_Blob_00BBE0" Size="0x400" Offset="0xBBE0" /-->
         <Texture Name="object_cs_Tex_00BFE0" OutName="tex_00BFE0" Format="ci8" Width="8" Height="8" Offset="0xBFE0" />
         <Texture Name="object_cs_Tex_00C020" OutName="tex_00C020" Format="ci8" Width="8" Height="8" Offset="0xC020" />
         <Texture Name="object_cs_Tex_00C060" OutName="tex_00C060" Format="ci8" Width="8" Height="8" Offset="0xC060" />
         <Texture Name="object_cs_Tex_00C0A0" OutName="tex_00C0A0" Format="ci8" Width="8" Height="16" Offset="0xC0A0" />
         <Texture Name="object_cs_Tex_00C120" OutName="tex_00C120" Format="i8" Width="16" Height="16" Offset="0xC120" />
         <Texture Name="object_cs_Tex_00C220" OutName="tex_00C220" Format="ci8" Width="16" Height="16" Offset="0xC220" />
-        <Blob Name="object_cs_Blob_00C320" Size="0x1E00" Offset="0xC320" />
+        <!--Blob Name="object_cs_Blob_00C320" Size="0x1E00" Offset="0xC320" /-->
         <Texture Name="object_cs_Tex_00E120" OutName="tex_00E120" Format="i8" Width="16" Height="16" Offset="0xE120" />
-        <Blob Name="object_cs_Blob_00E220" Size="0x1400" Offset="0xE220" />
+        <!--Blob Name="object_cs_Blob_00E220" Size="0x1400" Offset="0xE220" /-->
         <Texture Name="object_cs_Tex_00F620" OutName="tex_00F620" Format="i8" Width="8" Height="8" Offset="0xF620" />
         <Animation Name="object_cs_Anim_00F674" Offset="0xF674" />
         <Animation Name="object_cs_Anim_00F6A4" Offset="0xF6A4" />
-        <Blob Name="object_cs_Blob_00F6B4" Size="0x38" Offset="0xF6B4" />
+        <!--Blob Name="object_cs_Blob_00F6B4" Size="0x38" Offset="0xF6B4" /-->
         <Limb Name="object_cs_Limb_00F6EC" LimbType="Standard" Offset="0xF6EC" />
         <Limb Name="object_cs_Limb_00F6F8" LimbType="Standard" Offset="0xF6F8" />
         <Limb Name="object_cs_Limb_00F704" LimbType="Standard" Offset="0xF704" />

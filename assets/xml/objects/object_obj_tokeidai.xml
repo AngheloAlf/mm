@@ -21,7 +21,7 @@
         <Texture Name="object_obj_tokeidai_Tex_005240" OutName="tex_005240" Format="ci4" Width="64" Height="64" Offset="0x5240" />
         <Texture Name="object_obj_tokeidai_Tex_005A40" OutName="tex_005A40" Format="ci4" Width="64" Height="64" Offset="0x5A40" />
         <Texture Name="object_obj_tokeidai_Tex_006240" OutName="tex_006240" Format="rgb5a1" Width="8" Height="8" Offset="0x6240" />
-        <Blob Name="object_obj_tokeidai_Blob_0062C0" Size="0x1000" Offset="0x62C0" />
+        <!--Blob Name="object_obj_tokeidai_Blob_0062C0" Size="0x1000" Offset="0x62C0" /-->
         <Texture Name="object_obj_tokeidai_Tex_0072C0" OutName="tex_0072C0" Format="ia8" Width="32" Height="64" Offset="0x72C0" />
         <Texture Name="object_obj_tokeidai_Tex_007AC0" OutName="tex_007AC0" Format="i8" Width="32" Height="32" Offset="0x7AC0" />
         <Texture Name="object_obj_tokeidai_Tex_007EC0" OutName="tex_007EC0" Format="i4" Width="64" Height="64" Offset="0x7EC0" />
@@ -33,7 +33,7 @@
         <Texture Name="object_obj_tokeidai_Tex_00A348" OutName="tex_00A348" Format="i4" Width="64" Height="64" Offset="0xA348" />
         <DList Name="object_obj_tokeidai_DL_00B0C0" Offset="0xB0C0" />
         <DList Name="object_obj_tokeidai_DL_00B208" Offset="0xB208" />
-        <Blob Name="object_obj_tokeidai_Blob_00B4C0" Size="0x40" Offset="0xB4C0" />
+        <!--Blob Name="object_obj_tokeidai_Blob_00B4C0" Size="0x40" Offset="0xB4C0" /-->
         <DList Name="object_obj_tokeidai_DL_00BA70" Offset="0xBA70" />
         <DList Name="object_obj_tokeidai_DL_00BA78" Offset="0xBA78" />
         <DList Name="object_obj_tokeidai_DL_00BEE0" Offset="0xBEE0" />

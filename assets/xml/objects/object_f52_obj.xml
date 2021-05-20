@@ -11,6 +11,6 @@
         <Texture Name="object_f52_obj_Tex_001010" OutName="tex_001010" Format="rgb5a1" Width="32" Height="16" Offset="0x1010" />
         <Texture Name="object_f52_obj_Tex_001410" OutName="tex_001410" Format="rgb5a1" Width="16" Height="32" Offset="0x1410" />
         <Texture Name="object_f52_obj_Tex_001810" OutName="tex_001810" Format="rgb5a1" Width="8" Height="16" Offset="0x1810" />
-        <Blob Name="object_f52_obj_Blob_001910" Size="0x2D0" Offset="0x1910" />
+        <!--Blob Name="object_f52_obj_Blob_001910" Size="0x2D0" Offset="0x1910" /-->
     </File>
 </Root>

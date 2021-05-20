@@ -55,7 +55,7 @@
         <Texture Name="object_boss01_Tex_00C668" OutName="tex_00C668" Format="i8" Width="16" Height="16" Offset="0xC668" />
         <DList Name="object_boss01_DL_00C7A8" Offset="0xC7A8" />
         <DList Name="object_boss01_DL_00C7C8" Offset="0xC7C8" />
-        <Blob Name="object_boss01_Blob_00C7F8" Size="0x1400" Offset="0xC7F8" />
+        <!--Blob Name="object_boss01_Blob_00C7F8" Size="0x1400" Offset="0xC7F8" /-->
         <DList Name="object_boss01_DL_00DC58" Offset="0xDC58" />
         <DList Name="object_boss01_DL_00DCD0" Offset="0xDCD0" />
         <Texture Name="object_boss01_Tex_00DCE8" OutName="tex_00DCE8" Format="rgb5a1" Width="16" Height="32" Offset="0xDCE8" />
@@ -142,7 +142,7 @@
         <Animation Name="object_boss01_Anim_01F6A4" Offset="0x1F6A4" />
         <Animation Name="object_boss01_Anim_01FC10" Offset="0x1FC10" />
         <Animation Name="object_boss01_Anim_0204AC" Offset="0x204AC" />
-        <Blob Name="object_boss01_Blob_0206F0" Size="0x100" Offset="0x206F0" />
+        <!--Blob Name="object_boss01_Blob_0206F0" Size="0x100" Offset="0x206F0" /-->
         <DList Name="object_boss01_DL_021230" Offset="0x21230" />
         <DList Name="object_boss01_DL_0213A8" Offset="0x213A8" />
         <DList Name="object_boss01_DL_021518" Offset="0x21518" />
@@ -184,6 +184,6 @@
         <Limb Name="object_boss01_Limb_022268" LimbType="Standard" Offset="0x22268" />
         <Limb Name="object_boss01_Limb_022274" LimbType="Standard" Offset="0x22274" />
         <Skeleton Name="object_boss01_Skel_0222D0" Type="Flex" LimbType="Standard" Offset="0x222D0" />
-        <Blob Name="object_boss01_Blob_0222DC" Size="0x284" Offset="0x222DC" />
+        <!--Blob Name="object_boss01_Blob_0222DC" Size="0x284" Offset="0x222DC" /-->
     </File>
 </Root>

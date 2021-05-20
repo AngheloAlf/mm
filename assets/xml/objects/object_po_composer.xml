@@ -36,7 +36,7 @@
         <Texture Name="object_po_composer_Tex_008480" OutName="tex_008480" Format="rgb5a1" Width="16" Height="16" Offset="0x8480" />
         <Texture Name="object_po_composer_Tex_008680" OutName="tex_008680" Format="rgb5a1" Width="16" Height="32" Offset="0x8680" />
         <Texture Name="object_po_composer_Tex_008A80" OutName="tex_008A80" Format="rgb5a1" Width="8" Height="8" Offset="0x8A80" />
-        <Blob Name="object_po_composer_Blob_008B00" Size="0x180" Offset="0x8B00" />
+        <!--Blob Name="object_po_composer_Blob_008B00" Size="0x180" Offset="0x8B00" /-->
         <Texture Name="object_po_composer_Tex_008C80" OutName="tex_008C80" Format="rgb5a1" Width="16" Height="16" Offset="0x8C80" />
         <Texture Name="object_po_composer_Tex_008E80" OutName="tex_008E80" Format="rgb5a1" Width="16" Height="16" Offset="0x8E80" />
         <Texture Name="object_po_composer_Tex_009080" OutName="tex_009080" Format="rgb5a1" Width="16" Height="16" Offset="0x9080" />

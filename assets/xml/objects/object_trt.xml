@@ -54,11 +54,11 @@
         <Texture Name="object_trt_Tex_00AF38" OutName="tex_00AF38" Format="rgb5a1" Width="16" Height="8" Offset="0xAF38" />
         <Texture Name="object_trt_Tex_00B038" OutName="tex_00B038" Format="ci8" Width="8" Height="8" Offset="0xB038" />
         <Texture Name="object_trt_Tex_00B078" OutName="tex_00B078" Format="ci8" Width="8" Height="8" Offset="0xB078" />
-        <Blob Name="object_trt_Blob_00B0B8" Size="0x1800" Offset="0xB0B8" />
+        <!--Blob Name="object_trt_Blob_00B0B8" Size="0x1800" Offset="0xB0B8" /-->
         <Texture Name="object_trt_Tex_00C8B8" OutName="tex_00C8B8" Format="rgb5a1" Width="8" Height="8" Offset="0xC8B8" />
         <Animation Name="object_trt_Anim_00C954" Offset="0xC954" />
         <Animation Name="object_trt_Anim_00C978" Offset="0xC978" />
-        <Blob Name="object_trt_Blob_00C988" Size="0x18" Offset="0xC988" />
+        <!--Blob Name="object_trt_Blob_00C988" Size="0x18" Offset="0xC988" /-->
         <Animation Name="object_trt_Anim_00D52C" Offset="0xD52C" />
         <Animation Name="object_trt_Anim_00DE68" Offset="0xDE68" />
         <Animation Name="object_trt_Anim_00EE98" Offset="0xEE98" />

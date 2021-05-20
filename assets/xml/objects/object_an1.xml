@@ -35,15 +35,15 @@
         <Texture Name="object_an1_Tex_00DF20" OutName="tex_00DF20" Format="rgb5a1" Width="16" Height="16" Offset="0xDF20" />
         <Texture Name="object_an1_Tex_00E120" OutName="tex_00E120" Format="ci8" Width="8" Height="8" Offset="0xE120" />
         <Texture Name="object_an1_Tex_00E160" OutName="tex_00E160" Format="ci8" Width="8" Height="16" Offset="0xE160" />
-        <Blob Name="object_an1_Blob_00E1E0" Size="0x400" Offset="0xE1E0" />
+        <!--Blob Name="object_an1_Blob_00E1E0" Size="0x400" Offset="0xE1E0" /-->
         <Texture Name="object_an1_Tex_00E5E0" OutName="tex_00E5E0" Format="ci8" Width="16" Height="16" Offset="0xE5E0" />
-        <Blob Name="object_an1_Blob_00E6E0" Size="0x200" Offset="0xE6E0" />
+        <!--Blob Name="object_an1_Blob_00E6E0" Size="0x200" Offset="0xE6E0" /-->
         <Texture Name="object_an1_Tex_00E8E0" OutName="tex_00E8E0" Format="ci8" Width="8" Height="8" Offset="0xE8E0" />
         <Texture Name="object_an1_Tex_00E920" OutName="tex_00E920" Format="ci8" Width="16" Height="16" Offset="0xE920" />
         <Texture Name="object_an1_Tex_00EA20" OutName="tex_00EA20" Format="ci8" Width="32" Height="32" Offset="0xEA20" />
         <Texture Name="object_an1_Tex_00EE20" OutName="tex_00EE20" Format="ci8" Width="16" Height="16" Offset="0xEE20" />
         <Texture Name="object_an1_Tex_00EF20" OutName="tex_00EF20" Format="ci8" Width="8" Height="16" Offset="0xEF20" />
-        <Blob Name="object_an1_Blob_00EFA0" Size="0x1800" Offset="0xEFA0" />
+        <!--Blob Name="object_an1_Blob_00EFA0" Size="0x1800" Offset="0xEFA0" /-->
         <DList Name="object_an1_DL_0111E0" Offset="0x111E0" />
         <DList Name="object_an1_DL_0111E8" Offset="0x111E8" />
         <Texture Name="object_an1_Tex_011928" OutName="tex_011928" Format="i8" Width="32" Height="32" Offset="0x11928" />
@@ -52,7 +52,7 @@
         <Texture Name="object_an1_Tex_012128" OutName="tex_012128" Format="i8" Width="16" Height="16" Offset="0x12128" />
         <Texture Name="object_an1_Tex_012228" OutName="tex_012228" Format="i4" Width="16" Height="16" Offset="0x12228" />
         <Texture Name="object_an1_Tex_0122A8" OutName="tex_0122A8" Format="i8" Width="16" Height="16" Offset="0x122A8" />
-        <Blob Name="object_an1_Blob_0123A8" Size="0x10" Offset="0x123A8" />
+        <!--Blob Name="object_an1_Blob_0123A8" Size="0x10" Offset="0x123A8" /-->
         <DList Name="object_an1_DL_012478" Offset="0x12478" />
         <Limb Name="object_an1_Limb_0124D8" LimbType="Standard" Offset="0x124D8" />
         <Limb Name="object_an1_Limb_0124E4" LimbType="Standard" Offset="0x124E4" />
