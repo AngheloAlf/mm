@@ -107,11 +107,10 @@ s32 func_80A3E884(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
-#ifdef NON_EQUIVALENT
 s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx) {
     u16 textId = this->talkState->textId;
 
-    if ((this->talkState->unk_00 == 4) && (gSaveContext.weekEventReg[51])) {
+    if ((this->talkState->unk_00 == 4) && (gSaveContext.weekEventReg[0x33] & 0x08)) {
         func_80151BB4(globalCtx, 2);
     }
 
@@ -122,15 +121,12 @@ s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx) {
     }
 
     if (textId == 0x296B) {
+        // SkelAnime_ChangeLinkAnimPlaybackStop(globalCtx, &this->actor.skelAnime, &D_0400CF88, 2.0f/3.0f);
         SkelAnime_ChangeLinkAnimPlaybackStop(globalCtx, &this->actor.skelAnime, &D_0400CF88, 0.6666667f);
     }
 
     return 0;
 }
-#else
-s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3E898.asm")
-#endif
 
 s32 func_80A3E960(EnTest3* this, GlobalContext* globalCtx) {
     this->timer = this->talkState->unk_01;
@@ -156,7 +152,6 @@ s32 func_80A3E9DC(EnTest3* this, GlobalContext* globalCtx) {
     }
 }
 
-#ifdef NON_EQUIVALENT
 s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx) {
     if (this->talkState->textId == 0x145F) {
         Actor* actor = func_ActorCategoryIterateById(globalCtx, NULL, ACTORCAT_BG, ACTOR_BG_IKNV_OBJ);
@@ -167,17 +162,13 @@ s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx) {
     }
 
     if (this->talkState->unk_01 != 0) {
-        ActorCutscene_Stop(124);
+        ActorCutscene_Stop(0x7C);
         ActorCutscene_SetIntentToPlay(this->actorCutsceneId);
-        globalCtx->msgCtx.unk_11F23 = 0x44;
+        globalCtx->msgCtx.unk11F22 = 0x44;
     }
 
     return 0;
 }
-#else
-s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3EA30.asm")
-#endif
 
 s32 func_80A3EAC4(EnTest3* this, GlobalContext* game_play) {
     if (func_80152498(&game_play->msgCtx) == 6) {
@@ -193,7 +184,7 @@ s32 func_80A3EAF8(EnTest3* this, GlobalContext* globalCtx) {
             ActorCutscene_Stop(this->actorCutsceneId);
             this->actorCutsceneId = 0x7C;
             ActorCutscene_SetIntentToPlay(this->actorCutsceneId);
-            this->actor.unk_730 = (Actor*)PLAYER;
+            this->actor.unk_730 = &PLAYER->actor;
         }
         return 1;
     } else {
@@ -201,7 +192,6 @@ s32 func_80A3EAF8(EnTest3* this, GlobalContext* globalCtx) {
     }
 }
 
-#ifdef NON_EQUIVALENT
 s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx) {
     if (func_80A3EAF8(this, globalCtx) != 0) {
         Actor* actor = func_ActorCategoryIterateById(globalCtx, NULL, ACTORCAT_ITEMACTION, ACTOR_OBJ_NOZOKI);
@@ -210,16 +200,12 @@ s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx) {
             this->actor.unk_730 = actor;
         }
 
-        globalCtx->msgCtx.unk_11F23 = 0x44;
+        globalCtx->msgCtx.unk11F22 = 0x44;
         return 1;
     } else {
         return 0;
     }
 }
-#else
-s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3EB8C.asm")
-#endif
 
 s32 func_80A3EBFC(EnTest3* this, GlobalContext* globalCtx) {
     if (func_80152498(&globalCtx->msgCtx) == 2) {
@@ -604,13 +590,13 @@ s32 func_80A3F384(EnTest3* this, GlobalContext* globalCtx) {
         (EnDoor*)func_80A3F2BC(globalCtx, &this->actor.actor, ACTOR_EN_DOOR, ACTORCAT_DOOR, 55.0f, 20.0f);
     Vec3f dist;
 
-    if ((doorActor != NULL) && (!(doorActor->opening))) {
-        if ((player->doorType == 0) || ((Actor*)doorActor != player->doorActor)) {
-            if (Actor_IsActorFacingActor(&this->actor.actor, (Actor*)doorActor, 0x3000)) {
-                Actor_CalcOffsetOrientedToDrawRotation((Actor*)doorActor, &dist, &this->actor.actor.world.pos);
+    if (doorActor != NULL && doorActor->opening == 0) {
+        if (player->doorType == 0 || &doorActor->actor != player->doorActor) {
+            if (Actor_IsActorFacingActor(&this->actor.actor, &doorActor->actor, 0x3000)) {
+                Actor_CalcOffsetOrientedToDrawRotation(&doorActor->actor, &dist, &this->actor.actor.world.pos);
                 this->actor.doorType = 1;
                 this->actor.doorDirection = (dist.z >= 0.0f) ? 1.0f : -1.0f;
-                this->actor.doorActor = (Actor*)doorActor;
+                this->actor.doorActor = &doorActor->actor;
                 this->actor.unk_A86 = -1;
                 return 1;
             }
@@ -626,7 +612,7 @@ s32 func_80A3F4A4(GlobalContext* globalCtx);
 void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
     if (func_80A3F4A4(globalCtx) == 0) {
         this->talkState = D_80A4187C;
-    } else if (gSaveContext.weekEventReg[51] & 8) {
+    } else if (gSaveContext.weekEventReg[0x33] & 0x08) {
         this->talkState = D_80A41870;
     } else {
         this->talkState = D_80A41858;
@@ -676,25 +662,31 @@ s32 func_80A3FBCC(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
-#ifdef NON_EQUIVALENT
-s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
-    static TalkState D_80A418A4[] = {
-        { 4, 0, 0x1465 },
-    };
+extern TalkState D_80A418A4[];
+/*
+TalkState D_80A418A4[] = {
+    { 4, 0, 0x1465 },
+};
+*/
 
-    if ((D_80A41D20 == 0) && (func_801690CC(globalCtx) == 0)) {
-        D_80A41D20 = 1;
-        this->talkState = D_80A418A4;
-        this->actorCutsceneId = this->actor.actor.cutscene;
-        this->actor.actor.textId = D_80A418A4->textId;
+s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
+    if (D_80A41D20 == 0) {
+        if (func_801690CC(globalCtx) == 0) {
+            D_80A41D20 = 1;
+            this->talkState = D_80A418A4;
+            this->actorCutsceneId = this->actor.actor.cutscene;
+            this->actor.actor.textId = D_80A418A4->textId;
+        }
     } else if (D_80A41D20 == 1) {
-        if ((this->actorCutsceneId >= 0) && (func_80A3E9DC(this, globalCtx))) {
-            this->actorCutsceneId = -1;
-            func_800FE484();
+        if (this->actorCutsceneId >= 0) {
+            if (func_80A3E9DC(this, globalCtx)) {
+                this->actorCutsceneId = -1;
+                func_800FE484();
+            }
         } else {
             if ((globalCtx->actorCtx.unk5 & 0x40) || (globalCtx->actorCtx.unk5 & 0x20)) {
                 this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.actor.cutscene);
-                gSaveContext.weekEventReg[90] |= 2;
+                gSaveContext.weekEventReg[0x5A] |= 2;
 
                 if (globalCtx->actorCtx.unk5 & 0x20) {
                     this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actorCutsceneId);
@@ -707,33 +699,27 @@ s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
                 func_80A3F73C(this, globalCtx);
             }
         }
-    } else if ((D_80A41D20 == 2) && (func_80A3E9DC(this, globalCtx))) {
-        ActorCutscene_SetReturnCamera(0);
-        func_800FE498();
+    } else if (D_80A41D20 == 2) {
+        if (func_80A3E9DC(this, globalCtx)) {
+            ActorCutscene_SetReturnCamera(0);
+            func_800FE498();
 
-        if (gSaveContext.time > 0x4000) {
-            func_800FE658(fabsf((s16) - ((0, gSaveContext.time))) / 45.511112f);
+            if (gSaveContext.time > 0x4000) {
+                //func_800FE658(fabsf((f32) (s16) ((s32) (0, gSaveContext.time) * -1)) / (0x10000 / (f32)0x5a0));
+                func_800FE658(fabsf((s16)(-((void)0, gSaveContext.time))) / 45.511112f);
+            }
+
+            if (globalCtx->actorCtx.unk5 & 0x40) {
+                gSaveContext.weekEventReg[0x33] |= 0x20;
+                gSaveContext.weekEventReg[0x5A] &= 0xFD;
+            }
+
+            D_80A41D20 = 3;
         }
-
-        if ((globalCtx->actorCtx.unk5 & 0x40) != 0) {
-            gSaveContext.weekEventReg[51] |= 0x20;
-            gSaveContext.weekEventReg[90] &= 0xfd;
-        }
-
-        D_80A41D20 = 3;
     }
 
     return 0;
 }
-#else
-extern TalkState D_80A418A4[];
-/*
-TalkState D_80A418A4[] = {
-    { 4, 0, 0x1465 },
-};
-*/
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FBE8.asm")
-#endif
 
 s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
     this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.actor.cutscene);
@@ -752,15 +738,24 @@ extern Vec3f D_80A418BC[];
 #ifdef NON_MATCHING
 // reg alloc
 s32 func_80A40098(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
-    u16 curTime = gSaveContext.perm.time - 0x3FFC;
+    u16 curTime = gSaveContext.time - 0x3FFC;
     u16 nextTime;
     u16 new_var;
 
     func_80A3F15C(this, globalCtx, arg2);
     this->path = func_8013BB34(globalCtx, this->actor.actor.params & 0x1F, ABS_ALT(arg2->unk_01_0) - 1);
 
-    nextTime = ((this->schedule < 7) && (this->schedule != 0) && (this->unk_D80 >= 0)) ? (u32)curTime : arg3->unk_04;
-    this->unk_DA8 = (arg3->unk_08 < nextTime) ? (nextTime - arg3->unk_08) + 0xFFFF : arg3->unk_08 - nextTime;
+    if (this->schedule < 7 && this->schedule != 0 && this->unk_D80 >= 0) {
+        nextTime = curTime;
+    } else {
+        nextTime = arg3->unk_04;
+    }
+
+    if (arg3->unk_08 < nextTime) {
+        this->unk_DA8 = (nextTime - arg3->unk_08) + 0xFFFF;
+    } else {
+        this->unk_DA8 = arg3->unk_08 - nextTime;
+    }
 
     if (1) {}
 
