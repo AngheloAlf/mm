@@ -34,7 +34,7 @@ extern s32 D_80A41D20;
 extern s32 D_80A41D24;
 
 // Extenal
-extern LinkAnimetionEntry D_0400CF88;
+extern LinkAnimationHeader D_0400CF88;
 extern FlexSkeletonHeader D_0600F7EC;
 
 u32 D_80A41530[] = {
@@ -101,7 +101,7 @@ s32 func_80A3E884(EnTest3* this, GlobalContext* globalCtx) {
 s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx) {
     u16 textId = this->talkState->textId;
 
-    if ((this->talkState->unk_00 == 4) && (gSaveContext.perm.weekEventReg[51])) {
+    if ((this->talkState->unk_00 == 4) && (gSaveContext.weekEventReg[51])) {
         func_80151BB4(globalCtx, 2);
     }
 
@@ -134,7 +134,7 @@ s32 func_80A3E97C(EnTest3* this, GlobalContext* globalCtx) {
 
 s32 func_80A3E9DC(EnTest3* this, GlobalContext* globalCtx) {
     if (ActorCutscene_GetCanPlayNext(this->actorCutsceneId)) {
-        ActorCutscene_StartAndSetUnkLinkFields(this->actorCutsceneId, &this->actor.base);
+        ActorCutscene_StartAndSetUnkLinkFields(this->actorCutsceneId, &this->actor.actor);
         return 1;
     } else {
         ActorCutscene_SetIntentToPlay(this->actorCutsceneId);
@@ -321,18 +321,18 @@ void EnTest3_Init(Actor* thisx, GlobalContext* globalCtx) {
     Camera* camera;
 
     if (D_80A41D24) {
-        Actor_MarkForDeath(&this->actor.base);
+        Actor_MarkForDeath(&this->actor.actor);
         return;
     }
 
     D_80A41D24 = 1;
-    this->actor.base.room = -1;
+    this->actor.actor.room = -1;
     this->actor.unk_A86 = -1;
-    this->actor.linkForm = 4;
+    this->actor.transformation = 4;
     this->actor.ageProperties = &D_80A416E0;
     this->actor.itemActionParam = 0;
     this->actor.heldItemId = 0;
-    func_80123BD4(&this->actor.base, 3);
+    func_80123BD4(&this->actor.actor, 3);
 
     if (1) {}
 
@@ -350,8 +350,8 @@ void EnTest3_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actor.giObjectSegment = this->player->giObjectSegment;
     this->actor.naviActor = this->player->naviActor;
 
-    if (((gSaveContext.perm.day % 5) != 3) || (gSaveContext.perm.weekEventReg[33] & 8) ||
-        (!(gSaveContext.perm.weekEventReg[51] & 8))) {
+    if ((CURRENT_DAY != 3) || (gSaveContext.weekEventReg[0x21] & 8) ||
+        !(gSaveContext.weekEventReg[0x33] & 8)) {
         this->actor.currentMask = 5;
     }
 
@@ -360,16 +360,16 @@ void EnTest3_Init(Actor* thisx, GlobalContext* globalCtx) {
     if (globalCtx->sceneNum == SCENE_SECOM) {
         this->camId = func_801694DC(globalCtx);
         camera = Play_GetCamera(globalCtx, this->camId);
-        func_800DE0EC(camera, &this->actor.base);
+        func_800DE0EC(camera, &this->actor.actor);
         Camera_SetFlags(camera, 64 | 1);
         func_80169590(globalCtx, this->camId, 1);
     }
 
-    this->actor.base.colChkInfo.cylRadius = 20;
-    this->actor.base.colChkInfo.cylHeight = 60;
-    this->actor.base.colChkInfo.health = 0xFF;
+    this->actor.actor.colChkInfo.cylRadius = 20;
+    this->actor.actor.colChkInfo.cylHeight = 60;
+    this->actor.actor.colChkInfo.health = 0xFF;
 
-    if (((this->actor.base.params >> 5) & 0xF) == 0) {
+    if (((this->actor.actor.params >> 5) & 0xF) == 0) {
         func_80A3E7E0(this, func_80A40824);
     } else {
         func_80A3E7E0(this, func_80A40678);
@@ -450,20 +450,20 @@ s32 func_80A3F080(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 }
 
 s32 func_80A3F09C(EnTest3* this, GlobalContext* globalCtx) {
-    this->actor.base.draw = NULL;
+    this->actor.actor.draw = NULL;
     return 1;
 }
 
 void func_80A3F0B0(EnTest3* this, GlobalContext* globalCtx) {
     func_800BC154(globalCtx, &globalCtx->actorCtx, (Actor*)this->player, ACTORCAT_PLAYER);
-    func_800BC154(globalCtx, &globalCtx->actorCtx, &this->actor.base, ACTORCAT_NPC);
+    func_800BC154(globalCtx, &globalCtx->actorCtx, &this->actor.actor, ACTORCAT_NPC);
 
     this->player->stateFlags1 &= ~0x20;
 }
 
 void func_80A3F114(EnTest3* this, GlobalContext* globalCtx) {
     if (this->actor.unk_394 != 0) {
-        globalCtx->func_1877C(globalCtx, &this->actor, 6);
+        globalCtx->startPlayerCutscene(globalCtx, &this->actor, 6);
     }
 }
 
@@ -471,7 +471,7 @@ s32 func_80A3F15C(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     s32 pathIndex = ABS_ALT(arg2->unk_01_0) - 1;
 
     if (pathIndex >= 0) {
-        PathInfo* path = func_8013BB34(globalCtx, this->actor.base.params & 0x1F, pathIndex);
+        PathInfo* path = func_8013BB34(globalCtx, this->actor.actor.params & 0x1F, pathIndex);
         Vec3s* startPosP = Lib_SegmentedToVirtual(path->pos);
         Vec3s* nextPosP;
         Vec3f startPos;
@@ -487,17 +487,17 @@ s32 func_80A3F15C(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
         Math_Vec3s_ToVec3f(&startPos, startPosP);
         Math_Vec3s_ToVec3f(&nextPos, nextPosP);
 
-        if (Math_Vec3f_DistXZ(&this->actor.base.world.pos, &startPos) > 10.0f) {
-            Math_Vec3f_Copy(&this->actor.base.world.pos, &startPos);
-            Math_Vec3f_Copy(&this->actor.base.home.pos, &startPos);
-            Math_Vec3f_Copy(&this->actor.base.prevPos, &startPos);
-            this->actor.unk_AD4 = Math_Vec3f_Yaw(&this->actor.base.world.pos, &nextPos);
+        if (Math_Vec3f_DistXZ(&this->actor.actor.world.pos, &startPos) > 10.0f) {
+            Math_Vec3f_Copy(&this->actor.actor.world.pos, &startPos);
+            Math_Vec3f_Copy(&this->actor.actor.home.pos, &startPos);
+            Math_Vec3f_Copy(&this->actor.actor.prevPos, &startPos);
+            this->actor.currentYaw = Math_Vec3f_Yaw(&this->actor.actor.world.pos, &nextPos);
 
             if (arg2->unk_01_0 < 0) {
-                this->actor.unk_AD4 += 0x8000;
+                this->actor.currentYaw += 0x8000;
             }
 
-            this->actor.base.shape.rot.y = this->actor.unk_AD4;
+            this->actor.actor.shape.rot.y = this->actor.currentYaw;
 
             return 1;
         }
@@ -527,13 +527,13 @@ Actor* func_80A3F2BC(GlobalContext* globalCtx, Actor* thisx, s32 actorId, s32 ac
 s32 func_80A3F384(EnTest3* this, GlobalContext* globalCtx) {
     Player* player = PLAYER;
     EnDoor* doorActor =
-        (EnDoor*)func_80A3F2BC(globalCtx, &this->actor.base, ACTOR_EN_DOOR, ACTORCAT_DOOR, 55.0f, 20.0f);
+        (EnDoor*)func_80A3F2BC(globalCtx, &this->actor.actor, ACTOR_EN_DOOR, ACTORCAT_DOOR, 55.0f, 20.0f);
     Vec3f dist;
 
     if ((doorActor != NULL) && (!(doorActor->opening))) {
         if ((player->doorType == 0) || ((Actor*)doorActor != player->doorActor)) {
-            if (Actor_IsActorFacingActor(&this->actor.base, (Actor*)doorActor, 0x3000)) {
-                Actor_CalcOffsetOrientedToDrawRotation((Actor*)doorActor, &dist, &this->actor.base.world.pos);
+            if (Actor_IsActorFacingActor(&this->actor.actor, (Actor*)doorActor, 0x3000)) {
+                Actor_CalcOffsetOrientedToDrawRotation((Actor*)doorActor, &dist, &this->actor.actor.world.pos);
                 this->actor.doorType = 1;
                 this->actor.doorDirection = (dist.z >= 0.0f) ? 1.0f : -1.0f;
                 this->actor.doorActor = (Actor*)doorActor;
@@ -552,13 +552,13 @@ s32 func_80A3F4A4(GlobalContext* globalCtx);
 void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
     if (func_80A3F4A4(globalCtx) == 0) {
         this->talkState = D_80A4187C;
-    } else if (gSaveContext.perm.weekEventReg[51] & 8) {
+    } else if (gSaveContext.weekEventReg[51] & 8) {
         this->talkState = D_80A41870;
     } else {
         this->talkState = D_80A41858;
     }
 
-    this->actorCutsceneId = this->actor.base.cutscene;
+    this->actorCutsceneId = this->actor.actor.cutscene;
 }
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F5A4.asm")
@@ -574,17 +574,17 @@ TalkState* D_80A418A8[] = {
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F8D4.asm")
 
 s32 func_80A3F9A4(EnTest3* this, GlobalContext* globalCtx) {
-    Math_ScaledStepToS(&this->actor.base.shape.rot.y, this->actor.base.home.rot.y, 800);
-    this->actor.unk_AD4 = this->actor.base.shape.rot.y;
+    Math_ScaledStepToS(&this->actor.actor.shape.rot.y, this->actor.actor.home.rot.y, 800);
+    this->actor.currentYaw = this->actor.actor.shape.rot.y;
     return 0;
 }
 
 s32 func_80A3F9E4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
-    arg3->unk_04 = (gSaveContext.perm.time - 0x3FFC) & 0xFFFF;
+    arg3->unk_04 = (gSaveContext.time - 0x3FFC) & 0xFFFF;
     arg3->unk_08 = (arg3->unk_04 + 0x46) & 0xFFFF;
     func_80A40098(this, globalCtx, arg2, arg3);
 
-    if (this->actor.base.xzDistToPlayer < 300.0f) {
+    if (this->actor.actor.xzDistToPlayer < 300.0f) {
         this->unk_D8A = -1;
     } else {
         this->unk_D8A = 0x78;
@@ -607,16 +607,16 @@ s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
     if ((D_80A41D20 == 0) && (func_801690CC(globalCtx) == 0)) {
         D_80A41D20 = 1;
         this->talkState = D_80A418A4;
-        this->actorCutsceneId = this->actor.base.cutscene;
-        this->actor.base.textId = D_80A418A4->textId;
+        this->actorCutsceneId = this->actor.actor.cutscene;
+        this->actor.actor.textId = D_80A418A4->textId;
     } else if (D_80A41D20 == 1) {
         if ((this->actorCutsceneId >= 0) && (func_80A3E9DC(this, globalCtx))) {
             this->actorCutsceneId = -1;
             func_800FE484();
         } else {
             if ((globalCtx->actorCtx.unk5 & 0x40) || (globalCtx->actorCtx.unk5 & 0x20)) {
-                this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.base.cutscene);
-                gSaveContext.perm.weekEventReg[90] |= 2;
+                this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.actor.cutscene);
+                gSaveContext.weekEventReg[90] |= 2;
 
                 if (globalCtx->actorCtx.unk5 & 0x20) {
                     this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actorCutsceneId);
@@ -633,13 +633,13 @@ s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
         ActorCutscene_SetReturnCamera(0);
         func_800FE498();
 
-        if (gSaveContext.perm.time > 0x4000) {
-            func_800FE658(fabsf((s16) - ((0, gSaveContext.perm.time))) / 45.511112f);
+        if (gSaveContext.time > 0x4000) {
+            func_800FE658(fabsf((s16) - ((0, gSaveContext.time))) / 45.511112f);
         }
 
         if ((globalCtx->actorCtx.unk5 & 0x40) != 0) {
-            gSaveContext.perm.weekEventReg[51] |= 0x20;
-            gSaveContext.perm.weekEventReg[90] &= 0xfd;
+            gSaveContext.weekEventReg[51] |= 0x20;
+            gSaveContext.weekEventReg[90] &= 0xfd;
         }
 
         D_80A41D20 = 3;
@@ -649,7 +649,7 @@ s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
 }
 
 s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
-    this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.base.cutscene);
+    this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.actor.cutscene);
     return 1;
 }
 
@@ -669,7 +669,7 @@ s32 func_80A40098(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     u16 new_var;
 
     func_80A3F15C(this, globalCtx, arg2);
-    this->path = func_8013BB34(globalCtx, this->actor.base.params & 0x1F, ABS_ALT(arg2->unk_01_0) - 1);
+    this->path = func_8013BB34(globalCtx, this->actor.actor.params & 0x1F, ABS_ALT(arg2->unk_01_0) - 1);
 
     nextTime = ((this->schedule < 7) && (this->schedule != 0) && (this->unk_D80 >= 0)) ? (u32)curTime : arg3->unk_04;
     this->unk_DA8 = (arg3->unk_08 < nextTime) ? (nextTime - arg3->unk_08) + 0xFFFF : arg3->unk_08 - nextTime;
@@ -708,7 +708,7 @@ void func_80A40824(EnTest3* this, GlobalContext* globalCtx) {
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A409D4.asm")
 
 void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx) {
-    gSaveContext.perm.weekEventReg[64] |= 0x20;
+    gSaveContext.weekEventReg[64] |= 0x20;
 }
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_Update.asm")
@@ -747,10 +747,10 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
 
     func_8012C268(globalCtx);
 
-    if (this->actor.unk_D5C > 0) {
+    if (this->actor.invincibilityTimer > 0) {
         s32 lodFrac;
 
-        this->actor.unk_B5F += CLAMP(50 - this->actor.unk_D5C, 8, 40);
+        this->actor.unk_B5F += CLAMP(50 - this->actor.invincibilityTimer, 8, 40);
         lodFrac = 4000 - (s32)(Math_CosS(this->actor.unk_B5F << 8) * 2000.0f);
         POLY_OPA_DISP = Gfx_SetFog(POLY_OPA_DISP, 255, 0, 0, 0, 0, lodFrac);
     }
@@ -761,7 +761,7 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
     if (this->actor.stateFlags1 & 0x100000) {
         Vec3f cameraPos;
 
-        SkinMatrix_Vec3fMtxFMultXYZ(&globalCtx->unk187B0, &this->actor.base.focus.pos, &cameraPos);
+        SkinMatrix_Vec3fMtxFMultXYZ(&globalCtx->projectionMatrix, &this->actor.actor.focus.pos, &cameraPos);
 
         if (cameraPos.z < -4.0f) {
             D_80A418C8 = 1;
@@ -777,7 +777,7 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
     gSPSegment(&gfx[0], 0x08, Lib_SegmentedToVirtual(eyeTextures[eyeTexId]));
 
     if (mouthTexId < 0) {
-        mouthTexId = faceAnimInfo[this->actor.base.shape.face].mouthTexId;
+        mouthTexId = faceAnimInfo[this->actor.actor.shape.face].mouthTexId;
     }
 
     gSPSegment(&gfx[1], 0x09, Lib_SegmentedToVirtual(mouthTextures[mouthTexId]));
@@ -785,9 +785,9 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
     POLY_OPA_DISP = &gfx[2];
 
     SkelAnime_LodDrawSV(globalCtx, this->actor.skelAnime.skeleton, this->actor.skelAnime.limbDrawTbl,
-                        this->actor.skelAnime.dListCount, func_80A40CF0, func_80A40F34, &this->actor.base, 0);
+                        this->actor.skelAnime.dListCount, func_80A40CF0, func_80A40F34, &this->actor.actor, 0);
 
-    if (this->actor.unk_D5C > 0) {
+    if (this->actor.invincibilityTimer > 0) {
         POLY_OPA_DISP = func_801660B8(globalCtx, POLY_OPA_DISP);
     }
 
