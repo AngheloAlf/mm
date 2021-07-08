@@ -9,13 +9,8 @@ void EnTest3_Init(Actor* thisx, GlobalContext* globalCtx);
 void EnTest3_Destroy(Actor* thisx, GlobalContext* globalCtx);
 void EnTest3_Update(Actor* thisx, GlobalContext* globalCtx);
 
-void func_80A40678(EnTest3* this, GlobalContext* globalCtx);
-void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx);
-void func_80A40824(EnTest3* this, GlobalContext* globalCtx);
 s32 func_80A3F080(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3);
 s32 func_80A3F09C(EnTest3* this, GlobalContext* globalCtx);
-s32 func_80A40098(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3);
-s32 func_80A40230(EnTest3* this, GlobalContext* globalCtx);
 s32 func_80A3F62C(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3);
 s32 func_80A3F73C(EnTest3* this, GlobalContext* globalCtx);
 s32 func_80A3F8D4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3);
@@ -28,6 +23,13 @@ s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 s32 func_80A3FE20(EnTest3* this, GlobalContext* globalCtx);
 s32 func_80A3FF10(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3);
 s32 func_80A3FFD0(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A40098(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3);
+s32 func_80A40230(EnTest3* this, GlobalContext* globalCtx);
+
+void func_80A40678(EnTest3* this, GlobalContext* globalCtx);
+void func_80A40824(EnTest3* this, GlobalContext* globalCtx);
+void func_80A4084C(EnTest3* this, GlobalContext* globalCtx);
+void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx);
 
 // bss
 extern s32 D_80A41D20;
@@ -606,11 +608,13 @@ s32 func_80A3F384(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
-s32 func_80A3F4A4(GlobalContext* globalCtx);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F4A4.asm")
+
+s32 func_80A3F4A4(GlobalContext *globalCtx) {
+    return Player_GetMask(globalCtx) == PLAYER_MASK_NONE || Player_GetMask(globalCtx) == PLAYER_MASK_BUNNY_HOOD || Player_GetMask(globalCtx) == PLAYER_MASK_POSTMANS_HAT || Player_GetMask(globalCtx) == PLAYER_MASK_KEATON_MASK || Player_GetMask(globalCtx) == PLAYER_MASK_KAFEIS_MASK;
+}
 
 void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
-    if (func_80A3F4A4(globalCtx) == 0) {
+    if (!func_80A3F4A4(globalCtx)) {
         this->talkState = D_80A4187C;
     } else if (gSaveContext.weekEventReg[0x33] & 0x08) {
         this->talkState = D_80A41870;
@@ -621,7 +625,22 @@ void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
     this->actorCutsceneId = this->actor.actor.cutscene;
 }
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F5A4.asm")
+
+extern s32 D_80A41D5C;
+extern TalkState D_80A41898[];
+
+void func_80A3F5A4(EnTest3 *this, GlobalContext *globalCtx) {
+    if (!(gSaveContext.weekEventReg[0x33] & 8) || !func_80A3F4A4(globalCtx)) {
+        this->talkState = D_80A4189C;
+        D_80A41D5C = 0;
+    } else if (D_80A41D5C != 0) {
+        this->talkState = D_80A41898;
+    } else {
+        this->talkState = D_80A41884;
+    }
+    this->actorCutsceneId = this->actor.actor.cutscene;
+}
+
 
 extern TalkState* D_80A418A8[];
 /*
@@ -630,11 +649,67 @@ TalkState* D_80A418A8[] = {
 };
 */
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F62C.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F73C.asm")
+s32 func_80A3F62C(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
+    if (((func_80A3F15C(this, globalCtx, arg2) != 0 || this->schedule >= 8) && (arg2->unk_01_1 == 1 || arg2->unk_01_1 == 2)) || (arg2->unk_01_1 == 4)) {
+        if (arg2->unk_01_1 == 4) {
+            this->actor.actor.home.rot.y = 0x7FFF;
+        } else {
+            this->actor.actor.home.rot.y = this->actor.actor.shape.rot.y + 0x8000;
+        }
+        this->actor.stateFlags2 |= 0x40000;
+        globalCtx->startPlayerCutscene(globalCtx, &this->actor, -1);
+    }
+    this->talkState = D_80A418A8[arg2->unk_01_1];
+    return 1;
+}
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F8D4.asm")
+
+
+s32 func_80A3F73C(EnTest3 *this, GlobalContext *globalCtx) {
+    if (func_800B84D0(&this->actor.actor, globalCtx) != 0) {
+        func_80A3E7E0(this, func_80A4084C);
+        this->actor.unk_730 = &PLAYER->actor;
+        this->actor.stateFlags2 &= ~0x40000;
+        D_80A41D5C = 1;
+        if ((this->talkState->unk_00 == 4) && (gSaveContext.weekEventReg[0x33] & 8)) {
+            func_80151BB4(globalCtx, 2);
+        }
+    } else {
+        if ((globalCtx->actorCtx.unk5 & 0x10)) {
+            globalCtx->actorCtx.unk5 &= ~0x10;
+            this->actor.stateFlags2 &= ~0x40000;
+            this->player->stateFlags1 |= 0x20;
+            func_800BC154(globalCtx, &globalCtx->actorCtx, &this->player->actor, 4);
+            func_800BC154(globalCtx, &globalCtx->actorCtx, &this->actor.actor, 2);
+            ActorCutscene_SetReturnCamera(this->camId);
+            globalCtx->startPlayerCutscene(globalCtx, &this->actor, 7);
+        }
+        func_800B863C(&this->actor.actor, globalCtx);
+        if (this->schedule == 3) {
+            func_80A3F534(this, globalCtx);
+        } else if (this->schedule == 5) {
+            func_80A3F5A4(this, globalCtx);
+        }
+        this->actor.actor.textId = this->talkState->textId;
+        this->actor.actor.flags |= 9;
+    }
+    return 0;
+}
+
+
+s32 func_80A3F8D4(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
+    Actor *phi_a1;
+
+    func_80A3F15C(this, globalCtx, arg2);
+    phi_a1 = func_80A3F2BC(globalCtx, &this->actor.actor, 0x1F2, 6, 100.0f, 20.0f);
+    if ((phi_a1 != NULL) || (phi_a1 = func_80A3F2BC(globalCtx, &this->actor.actor, 0x1D5, 4, 100.0f, 20.0f)) != NULL) {
+        this->actor.actor.home.rot.y = Actor_YawBetweenActors(&this->actor.actor, phi_a1);
+    }
+    globalCtx->startPlayerCutscene(globalCtx, &this->actor, 0x61);
+    return 1;
+}
+
 
 s32 func_80A3F9A4(EnTest3* this, GlobalContext* globalCtx) {
     Math_ScaledStepToS(&this->actor.actor.shape.rot.y, this->actor.actor.home.rot.y, 800);
@@ -656,7 +731,58 @@ s32 func_80A3F9E4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
+#ifdef NON_MATCHING
+s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
+    s32 pad;
+    Player* player = PLAYER;
+    struct_80A417E8_arg2 sp40;
+    struct_80A417E8_arg3 sp30;
+    s32 temp_v0;
+    s32 phi_t0;
+    s32 phi_t0_2;
+
+    if ((player->stateFlags1 & 0x40) == 0) {
+        phi_t0 = func_80A40230(this, globalCtx) != 0;
+        if (this->unk_D8A > 0) {
+            this->unk_D8A--;
+            if (phi_t0) {
+                ///*phi_t0 = false;
+                if (this->actor.actor.xzDistToPlayer < 200.0f) {
+                    phi_t0 = true;
+                }
+                //*/
+                //phi_t0 = (this->actor.actor.xzDistToPlayer < 200.0f);
+            }
+            if (phi_t0 || ((this->unk_D8A <= 0))) {
+                func_80A3F114(this, globalCtx);
+                //sp41 = (sp41 & 0xFF0F) | 0x50;
+                sp40.unk_01_0 = (sp40.unk_01_0 & 0xF) | 0x50;
+                temp_v0 = (gSaveContext.time - 0x3FFC) & 0xFFFF;
+                if (phi_t0) {
+                    phi_t0_2 = 0x50;
+                } else {
+                    phi_t0_2 = 0x8C;
+                }
+                sp30.unk_08 = (phi_t0_2 + temp_v0) & 0xFFFF;
+                sp30.unk_04 = temp_v0;
+                func_80A40098(this, globalCtx, &sp40, &sp30);
+                this->unk_D8A = -0x28;
+            } else if (this->unk_D8A == 0x5A) {
+                globalCtx->startPlayerCutscene(globalCtx, &this->actor, 0x15);
+            }
+        } else {
+            this->unk_D8A++;
+            if (this->unk_D8A == 0) {
+                gSaveContext.weekEventReg[0x35] &= (u8)~0x04;
+                this->schedule = 0;
+            }
+        }
+    }
+    return 0;
+}
+#else
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FA58.asm")
+#endif
 
 s32 func_80A3FBCC(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
     return 1;
