@@ -37,6 +37,7 @@ extern s32 D_80A41D24;
 extern LinkAnimationHeader D_0400CF88;
 extern FlexSkeletonHeader D_0600F7EC;
 
+/*
 u32 D_80A41530[] = {
     0x0C000142, 0x0A007018, 0x02063207, 0x140C0F07, 0x1E070033, 0x04010509, 0x0A050E06, 0x3207140F, 0x0A006F21,
     0x02060006, 0x1E150206, 0x1E06230D, 0x02062306, 0x3201050E, 0x06230632, 0x0E09010E, 0x0600061E, 0x0D050C00,
@@ -48,7 +49,10 @@ u32 D_80A41530[] = {
     0x2E02040A, 0x041E2200, 0x33011502, 0x041E042D, 0x0902042D, 0x06000105, 0x09060E04, 0x1E042D13, 0x02041E06,
     0x00010509, 0x080E040A, 0x041E1205, 0x0A000D07, 0x00330801, 0x05090405, 0x05000000,
 };
+*/
+extern u32 D_80A41530[];
 
+/*
 const ActorInit En_Test3_InitVars = {
     ACTOR_EN_TEST3,
     ACTORCAT_NPC,
@@ -60,6 +64,7 @@ const ActorInit En_Test3_InitVars = {
     (ActorFunc)EnTest3_Update,
     (ActorFunc)NULL,
 };
+*/
 
 s32 func_80A3E7E0(EnTest3* this, EnTest3ActionFunc actionFunc) {
     if (actionFunc == this->actionFunc) {
@@ -72,12 +77,16 @@ s32 func_80A3E7E0(EnTest3* this, EnTest3ActionFunc actionFunc) {
     return 1;
 }
 
+extern KafeiActionSetupInfo D_80A4168C[];
+/*
+static KafeiActionSetupInfo actionSetupInfoList[] = {
+    { func_80A40A6C, NULL },
+    { NULL, NULL },
+};
+*/
+
 s32 func_80A3E80C(EnTest3* this, GlobalContext* globalCtx, s32 actionIndex) {
-    static KafeiActionSetupInfo actionSetupInfoList[] = {
-        { func_80A40A6C, NULL },
-        { NULL, NULL },
-    };
-    KafeiActionSetupInfo* actionSetup = &actionSetupInfoList[actionIndex];
+    KafeiActionSetupInfo* actionSetup = &D_80A4168C[actionIndex];
 
     actionSetup->init(this, globalCtx);
 
@@ -98,6 +107,7 @@ s32 func_80A3E884(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
+#ifdef NON_EQUIVALENT
 s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx) {
     u16 textId = this->talkState->textId;
 
@@ -117,6 +127,10 @@ s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx) {
 
     return 0;
 }
+#else
+s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx);
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3E898.asm")
+#endif
 
 s32 func_80A3E960(EnTest3* this, GlobalContext* globalCtx) {
     this->timer = this->talkState->unk_01;
@@ -142,6 +156,7 @@ s32 func_80A3E9DC(EnTest3* this, GlobalContext* globalCtx) {
     }
 }
 
+#ifdef NON_EQUIVALENT
 s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx) {
     if (this->talkState->textId == 0x145F) {
         Actor* actor = func_ActorCategoryIterateById(globalCtx, NULL, ACTORCAT_BG, ACTOR_BG_IKNV_OBJ);
@@ -159,6 +174,10 @@ s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx) {
 
     return 0;
 }
+#else
+s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx);
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3EA30.asm")
+#endif
 
 s32 func_80A3EAC4(EnTest3* this, GlobalContext* game_play) {
     if (func_80152498(&game_play->msgCtx) == 6) {
@@ -182,6 +201,7 @@ s32 func_80A3EAF8(EnTest3* this, GlobalContext* globalCtx) {
     }
 }
 
+#ifdef NON_EQUIVALENT
 s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx) {
     if (func_80A3EAF8(this, globalCtx) != 0) {
         Actor* actor = func_ActorCategoryIterateById(globalCtx, NULL, ACTORCAT_ITEMACTION, ACTOR_OBJ_NOZOKI);
@@ -196,6 +216,10 @@ s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx) {
         return 0;
     }
 }
+#else
+s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx);
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3EB8C.asm")
+#endif
 
 s32 func_80A3EBFC(EnTest3* this, GlobalContext* globalCtx) {
     if (func_80152498(&globalCtx->msgCtx) == 2) {
@@ -230,20 +254,28 @@ s32 func_80A3EC44(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
+/*
+static EnTest3_functions_80A4169C D_80A4169C[] = {
+    func_80A3E898, func_80A3E898, func_80A3E884, func_80A3E898, func_80A3E898,
+    func_80A3EA30, func_80A3E898, func_80A3E960, func_80A3E870,
+};
+*/
+extern EnTest3_functions_80A4169C D_80A4169C[];
+
 s32 func_80A3ECEC(EnTest3* this, GlobalContext* globalCtx) {
-    static EnTest3_functions_80A4169C D_80A4169C[] = {
-        func_80A3E898, func_80A3E898, func_80A3E884, func_80A3E898, func_80A3E898,
-        func_80A3EA30, func_80A3E898, func_80A3E960, func_80A3E870,
-    };
 
     return D_80A4169C[this->talkState->unk_00](this, globalCtx);
 }
 
+/*
+static EnTest3_functions_80A4169C D_80A416C0[] = {
+    func_80A3EAC4, func_80A3EAF8, func_80A3EBFC, func_80A3EC44,
+    func_80A3EC30, func_80A3E9DC, func_80A3EB8C, func_80A3E97C,
+};
+*/
+extern EnTest3_functions_80A4169C D_80A416C0[];
+
 s32 func_80A3ED24(EnTest3* this, GlobalContext* globalCtx) {
-    static EnTest3_functions_80A4169C D_80A416C0[] = {
-        func_80A3EAC4, func_80A3EAF8, func_80A3EBFC, func_80A3EC44,
-        func_80A3EC30, func_80A3E9DC, func_80A3EB8C, func_80A3E97C,
-    };
     s32 index = D_80A416C0[this->talkState->unk_00](this, globalCtx);
 
     if (index != 0) {
@@ -254,6 +286,8 @@ s32 func_80A3ED24(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
+extern PlayerAgeProperties D_80A416E0;
+/*
 PlayerAgeProperties D_80A416E0 = {
     40.0f,
     60.0f,
@@ -305,15 +339,22 @@ PlayerAgeProperties D_80A416E0 = {
     { 0x0400D1D8, 0x0400D1E0 },
     { 0x0400D1F0, 0x0400D1E8 },
 };
+*/
 
+extern u32 D_80A417BC[];
+/*
 u32 D_80A417BC[] = {
     0x00000000, 0x00080000, 0xFFFFFFFF, 0xFFFFFF40, 0xFFFFFF00, 0xFFFFFF00, 0x04000200, 0x00000000, 0x00000000,
 };
+*/
 
+extern u32 D_80A417E0[];
+/*
 u32 D_80A417E0[] = {
     0x0000003F,
     0x00000F64,
 };
+*/
 
 void EnTest3_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnTest3* this = THIS;
@@ -395,55 +436,88 @@ void EnTest3_Destroy(Actor* thisx, GlobalContext* globalCtx) {
     func_800FE498();
 }
 
+extern struct_80A417E8 D_80A417E8[];
+/*
 struct_80A417E8 D_80A417E8[] = {
     { func_80A3F080, func_80A3F09C }, { func_80A40098, func_80A40230 }, { func_80A3F62C, func_80A3F73C },
     { func_80A3F8D4, func_80A3F9A4 }, { func_80A3F9E4, func_80A3FA58 }, { func_80A3FBCC, func_80A3FBE8 },
     { func_80A3FDE4, func_80A3FE20 }, { func_80A3FF10, func_80A3FFD0 },
 };
+*/
 
+extern struct_80A417E8_arg2 D_80A41828[];
+/*
 struct_80A417E8_arg2 D_80A41828[] = {
     { 0, 0, 0 },  { 3, 14, 0 }, { 2, 15, 0 }, { 2, 15, 1 }, { 2, 15, 2 }, { 2, 1, 3 }, { 2, 14, 4 }, { 5, 1, 0 },
     { 7, 15, 0 }, { 6, 2, 0 },  { 4, 4, 0 },  { 1, 1, 0 },  { 1, 1, 0 },  { 1, 2, 0 }, { 1, 1, 0 },  { 1, 1, 0 },
     { 1, 2, 0 },  { 1, 3, 0 },  { 1, 1, 0 },  { 1, 2, 0 },  { 1, 1, 0 },  { 0, 0, 0 },
 };
+*/
 
+extern TalkState D_80A41854[];
+/*
 TalkState D_80A41854[] = {
     { 0x04, 0x00, 0x2B25 },
 };
+*/
 
+extern TalkState D_80A41858[];
+/*
 TalkState D_80A41858[] = {
     { 1, 0, 0x2969 }, { 3, 1, 0x296A }, { 1, 0, 0x296B }, { 5, 1, 0x0000 }, { 8, 0, 0x0000 },
 };
+*/
 
+extern TalkState D_80A4186C[];
+/*
 TalkState D_80A4186C[] = {
     { 4, 0, 0x2976 },
 };
+*/
 
+extern TalkState D_80A41870[];
+/*
 TalkState D_80A41870[] = {
     { 6, 0, 0x2977 },
     { 7, 10, 0x2978 },
     { 4, 1, 0x0000 },
 };
+*/
 
+extern TalkState D_80A4187C[];
+/*
 TalkState D_80A4187C[] = {
     { 4, 0, 0x2968 },
 };
+*/
 
+extern TalkState D_80A41880[];
+/*
 TalkState D_80A41880[] = {
     { 4, 0, 0x297A },
 };
+*/
 
+extern TalkState D_80A41884[];
+/*
 TalkState D_80A41884[] = {
     { 1, 0, 0x145D }, { 1, 0, 0x145E }, { 5, 1, 0x145F }, { 1, 0, 0x145F }, { 5, 0, 0x0000 }, { 4, 0, 0x1460 },
 };
+*/
 
+extern TalkState D_80A4189C[];
+/*
 TalkState D_80A4189C[] = {
     { 4, 0, 0x145C },
 };
+*/
 
+extern TalkState D_80A418A0[];
+/*
 TalkState D_80A418A0[] = {
     { 4, 0, 0x2913 },
 };
+*/
 
 s32 func_80A3F080(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
     return 1;
@@ -563,9 +637,12 @@ void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F5A4.asm")
 
+extern TalkState* D_80A418A8[];
+/*
 TalkState* D_80A418A8[] = {
     D_80A41854, D_80A41858, D_80A41880, D_80A41884, D_80A418A0,
 };
+*/
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3F62C.asm")
 
@@ -599,6 +676,7 @@ s32 func_80A3FBCC(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
+#ifdef NON_EQUIVALENT
 s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
     static TalkState D_80A418A4[] = {
         { 4, 0, 0x1465 },
@@ -647,6 +725,15 @@ s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
 
     return 0;
 }
+#else
+extern TalkState D_80A418A4[];
+/*
+TalkState D_80A418A4[] = {
+    { 4, 0, 0x1465 },
+};
+*/
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FBE8.asm")
+#endif
 
 s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
     this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actor.actor.cutscene);
@@ -655,7 +742,8 @@ s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FE20.asm")
 
-Vec3f D_80A418BC[] = { -420.0f, 210.0f, -162.0f };
+//Vec3f D_80A418BC[] = { -420.0f, 210.0f, -162.0f };
+extern Vec3f D_80A418BC[];
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FF10.asm")
 
@@ -708,35 +796,56 @@ void func_80A40824(EnTest3* this, GlobalContext* globalCtx) {
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A409D4.asm")
 
 void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx) {
-    gSaveContext.weekEventReg[64] |= 0x20;
+    gSaveContext.weekEventReg[0x40] |= 0x20;
 }
 
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_Update.asm")
 
+extern s32 D_80A418C8;
+/*
 s32 D_80A418C8 = 0;
+*/
 
-void func_80A40CF0();
+
+s32 func_80A40CF0(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* actor);
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40CF0.asm")
 
+extern Vec3f D_80A418CC[];
+/*
 Vec3f D_80A418CC[] = { 1100.0f, -700.0f, 0.0f };
+*/
 
 void func_80A40F34();
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40F34.asm")
 
+
+extern void* D_80A418D8[];
+/*
+static void* eyeTextures[] = {
+    0x06000DC0, 0x06003680, 0x06003E80, 0x06004680, 0x06004E80, 0x06005680, 0x06005E80, 0x06006680,
+};
+*/
+
+extern void* D_80A418F8[];
+/*
+static void* mouthTextures[] = {
+    0x060009C0,
+    0x06006E80,
+    0x06007280,
+    0x06007680,
+};
+*/
+
+extern FaceAnimKeyFrame D_80A41908[];
+/*
+static FaceAnimKeyFrame faceAnimInfo[] = {
+    { 0, 0 }, { 1, 0 }, { 2, 0 }, { 0, 0 }, { 1, 0 }, { 2, 0 }, { 4, 0 }, { 5, 1 }, { 7, 2 }, { 0, 2 },
+    { 3, 0 }, { 4, 0 }, { 2, 2 }, { 1, 1 }, { 0, 2 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 },
+};
+*/
+
+
 void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
-    static void* eyeTextures[] = {
-        0x06000DC0, 0x06003680, 0x06003E80, 0x06004680, 0x06004E80, 0x06005680, 0x06005E80, 0x06006680,
-    };
-    static void* mouthTextures[] = {
-        0x060009C0,
-        0x06006E80,
-        0x06007280,
-        0x06007680,
-    };
-    static FaceAnimKeyFrame faceAnimInfo[] = {
-        { 0, 0 }, { 1, 0 }, { 2, 0 }, { 0, 0 }, { 1, 0 }, { 2, 0 }, { 4, 0 }, { 5, 1 }, { 7, 2 }, { 0, 2 },
-        { 3, 0 }, { 4, 0 }, { 2, 2 }, { 1, 1 }, { 0, 2 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 },
-    };
     EnTest3* this = THIS;
     s32 pad;
     s32 eyeTexId = (this->actor.skelAnime.limbDrawTbl[22].x & 0xF) - 1;
@@ -771,16 +880,16 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
     gfx = POLY_OPA_DISP;
 
     if (eyeTexId < 0) {
-        eyeTexId = faceAnimInfo[thisx->shape.face].eyeTexId;
+        eyeTexId = D_80A41908[thisx->shape.face].eyeTexId;
     }
 
-    gSPSegment(&gfx[0], 0x08, Lib_SegmentedToVirtual(eyeTextures[eyeTexId]));
+    gSPSegment(&gfx[0], 0x08, Lib_SegmentedToVirtual(D_80A418D8[eyeTexId]));
 
     if (mouthTexId < 0) {
-        mouthTexId = faceAnimInfo[this->actor.actor.shape.face].mouthTexId;
+        mouthTexId = D_80A41908[this->actor.actor.shape.face].mouthTexId;
     }
 
-    gSPSegment(&gfx[1], 0x09, Lib_SegmentedToVirtual(mouthTextures[mouthTexId]));
+    gSPSegment(&gfx[1], 0x09, Lib_SegmentedToVirtual(D_80A418F8[mouthTexId]));
 
     POLY_OPA_DISP = &gfx[2];
 
