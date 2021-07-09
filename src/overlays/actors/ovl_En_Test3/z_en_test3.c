@@ -1172,29 +1172,18 @@ void func_80A40908(EnTest3 *this, GlobalContext *globalCtx) {
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40908.asm")
 #endif
 
+extern Input D_80A41D28;
 
-#ifdef NON_EQUIVALENT
-// I need to define D_80A41D28
-void func_80A409D4(EnTest3 *arg0, GlobalContext *arg1) {
-    u8 temp_v0;
-
-    temp_v0 = arg1->actorCtx.unk5;
-    if (((temp_v0 & 0x20) != 0) || ((temp_v0 & 0x10) != 0)) {
-        arg1->actorCtx.unk5 = temp_v0 & 0xFFEF;
-        func_80A3F0B0(arg0, arg1);
+// UpdateController?
+void func_80A409D4(EnTest3 *this, GlobalContext *globalCtx) {
+    if ((globalCtx->actorCtx.unk5 & 0x20) || (globalCtx->actorCtx.unk5 & 0x10)) {
+        globalCtx->actorCtx.unk5 &= ~0x10;
+        func_80A3F0B0(this, globalCtx);
         ActorCutscene_SetReturnCamera(0);
-        return;
+    } else {
+        D_80A41D28 = globalCtx->state.input[0];
     }
-    D_80A41D28.unk0 = (s32) (unaligned s32) arg1->state.input;
-    D_80A41D28.unk4 = (s32) (unaligned s32) arg1->state.input[0].cur.errno;
-    D_80A41D28.unk8 = (s32) (unaligned s32) arg1->state.input[0].prev.stick_x;
-    D_80A41D28.unkC = (s32) (unaligned s32) arg1->state.input[0].press.button;
-    D_80A41D28.unk10 = (s32) (unaligned s32) arg1->state.input[0].press.errno;
-    D_80A41D28.unk14 = (s32) (unaligned s32) arg1->state.input[0].rel.stick_x;
 }
-#else
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A409D4.asm")
-#endif
 
 void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx) {
     gSaveContext.weekEventReg[0x40] |= 0x20;
@@ -1202,37 +1191,32 @@ void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx) {
 
 #ifdef NON_EQUIVALENT
 void EnTest3_Update(Actor *thisx, GlobalContext *globalCtx) {
-    ? sp34;
-    PosRot *sp30;
-    DmaRequest *sp2C;
-    DmaRequest *temp_t2;
+    EnTest3* this = THIS;
+    //? sp34;
+    Vec3f *sp30;
     PosRot *temp_a1;
     u16 temp_t6;
     u16 temp_v0_2;
     u8 temp_v0;
 
-    temp_t6 = D_80A41D28.unk0;
-    D_80A41D28.unk0 = 0U;
-    D_80A41D28.unk14 = 0;
-    D_80A41D28.unk15 = 0;
-    D_80A41D28.unk12 = temp_t6;
+    temp_t6 = D_80A41D28.cur.button;
+    D_80A41D28.cur.button = 0;
+    D_80A41D28.rel.stick_x = 0;
+    D_80A41D28.rel.stick_y = 0;
+    D_80A41D28.rel.button = temp_t6;
     globalCtx->actorCtx.unk5 &= 0xFF7F;
     thisx->draw = func_80A4129C;
     D_80A41D48 = 0;
     thisx->flags &= -0xA;
     if ((func_800EE29C(globalCtx, 0x1FAU) != 0) && ((thisx->category != 2) || ((temp_v0 = globalCtx->actorCtx.unk5, ((temp_v0 & 0x20) == 0)) && ((temp_v0 & 0x10) == 0)))) {
-        if (thisx->unk394 != 5) {
+        if (this->actor.unk_394 != 5) {
             globalCtx->startPlayerCutscene(globalCtx, (Player *) thisx, 5);
         }
         globalCtx->actorCtx.unk5 &= 0xFFEF;
-        sp2C = &globalCtx->objectCtx.status[9].dmaReq;
     } else if (thisx->category == 2) {
         func_80A409D4((EnTest3 *) thisx, globalCtx);
-        sp2C = &globalCtx->objectCtx.status[9].dmaReq;
     } else {
-        temp_t2 = &globalCtx->objectCtx.status[9].dmaReq;
-        sp2C = temp_t2;
-        if (temp_t2->unk77C(globalCtx, thisx, 0) != 0) {
+        if (globalCtx->startPlayerCutscene(globalCtx, thisx, 0) != 0) {
             temp_a1 = &thisx->world;
             if ((s32) thisx->unkD88 >= 7) {
                 sp30 = temp_a1;
@@ -1245,14 +1229,14 @@ void EnTest3_Update(Actor *thisx, GlobalContext *globalCtx) {
             }
         } else {
             D_80A41D40 = 0.0f;
-            D_80A41D44 = (s16) thisx->shape.rot.y;
+            D_80A41D44 = thisx->shape.rot.y;
             thisx->unkD94(thisx, globalCtx);
-            temp_v0_2 = D_80A41D28.unk0;
-            D_80A41D28.unkC = (s16) ((D_80A41D28.unk12 ^ temp_v0_2) & temp_v0_2);
+            temp_v0_2 = D_80A41D28.cur.button;
+            D_80A41D28.press.button = (D_80A41D28.rel.button ^ temp_v0_2) & temp_v0_2;
             func_800B6F20(globalCtx, (s32) &D_80A41D28, D_80A41D40, D_80A41D44);
         }
     }
-    sp2C->unk76C(thisx, globalCtx, &D_80A41D28);
+    globalCtx->startPlayerCutscene(thisx, globalCtx, &D_80A41D28);
     if (D_80A41D48 != 0) {
         thisx->world.pos.x = D_80A41D50.x;
         thisx->unkAD0 = 0.0f;
@@ -1268,63 +1252,60 @@ extern s32 D_80A418C8;
 s32 D_80A418C8 = 0;
 */
 
+extern Vec3f* D_80A41D6C;
 
 #ifdef NON_EQUIVALENT
-s32 func_80A40CF0(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *actor) {
-    s16 temp_a0;
-    s16 temp_a0_2;
-    s16 temp_a0_3;
-    s32 temp_v1;
-    u8 temp_v0;
-    s32 phi_v1;
+s32 func_80A40CF0(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
+    EnTest3* this = THIS;
 
     if (limbIndex == 1) {
-        D_80A41D6C = (Vec3f *) (actor + 0xBE0);
-        temp_v0 = actor->unk275;
-        temp_v1 = temp_v0 & 4;
-        if ((temp_v1 == 0) || (phi_v1 = temp_v1, ((temp_v0 & 1) != 0))) {
-            pos->x *= actor->unkA68->unk8;
-            pos->z *= actor->unkA68->unk8;
-            phi_v1 = actor->unk275 & 4;
+        //D_80A41D6C = (Vec3f *) (actor + 0xBE0);
+        D_80A41D6C = &this->actor.swordInfo[2].base;
+        if (((this->actor.skelAnime.flags & 0x04) == 0) || (((this->actor.skelAnime.flags & 0x01) != 0))) {
+            pos->x *= this->actor.ageProperties->unk_08;
+            pos->z *= this->actor.ageProperties->unk_08;
         }
-        if ((phi_v1 == 0) || ((actor->unk275 & 2) != 0)) {
-            pos->y *= actor->unkA68->unk8;
+
+        if (((this->actor.skelAnime.flags & 0x04) == 0) || ((this->actor.skelAnime.flags & 0x02))) {
+            pos->y *= this->actor.ageProperties->unk_08;
         }
-        pos->y -= actor->unkAB8;
-        temp_a0 = actor->unkAAA;
-        if (temp_a0 != 0) {
-            SysMatrix_InsertTranslation(pos->x, ((Math_CosS(temp_a0) - 1.0f) * 200.0f) + pos->y, pos->z, 1);
-            SysMatrix_InsertXRotation_s(actor->unkAAA, 1);
+
+        pos->y -= this->actor.unk_AB8;
+        if (this->actor.unk_AAA != 0) {
+            SysMatrix_InsertTranslation(pos->x, ((Math_CosS(this->actor.unk_AAA) - 1.0f) * 200.0f) + pos->y, pos->z, 1);
+            SysMatrix_InsertXRotation_s(this->actor.unk_AAA, 1);
             SysMatrix_InsertRotation(rot->x, rot->y, rot->z, 1);
             func_80125318(pos, rot);
         }
     } else {
-        if (*dList != 0) {
-            D_80A41D6C = (Vec3f *) (D_80A41D6C + 0xC);
+        if (*dList != NULL) {
+            D_80A41D6C++;
         }
+
         if (D_80A418C8 != 0) {
             *dList = NULL;
         }
+
         if (limbIndex == 0xB) {
-            rot->x += actor->unkAB0;
-            rot->y -= actor->unkAAE;
-            rot->z += actor->unkAAC;
+            rot->x += this->actor.unk_AAC.z;
+            rot->y -= this->actor.unk_AAC.y;
+            rot->z += this->actor.unk_AAC.x;
         } else if (limbIndex == 0xA) {
-            if (actor->unkAA8 != 0) {
+            if (this->actor.unk_AA8 != 0) {
                 SysMatrix_InsertZRotation_s(0x44C, 1);
-                Matrix_RotateY(actor->unkAA8, 1U);
+                Matrix_RotateY(this->actor.unk_AA8, 1);
             }
-            temp_a0_2 = actor->unkAB4;
-            if (temp_a0_2 != 0) {
-                Matrix_RotateY(temp_a0_2, 1U);
+
+            if (this->actor.unk_AB2.y != 0) {
+                Matrix_RotateY(this->actor.unk_AB2.y, 1);
             }
-            SysMatrix_InsertXRotation_s(actor->unkAB2, 1);
-            temp_a0_3 = actor->unkAB6;
-            if (temp_a0_3 != 0) {
-                SysMatrix_InsertZRotation_s(temp_a0_3, 1);
+            SysMatrix_InsertXRotation_s(this->actor.unk_AB2.y, 1);
+
+            if (this->actor.unk_AB2.z != 0) {
+                SysMatrix_InsertZRotation_s(this->actor.unk_AB2.z, 1);
             }
         } else {
-            func_80125500(actor, limbIndex, pos, rot);
+            func_80125500(this, limbIndex, pos, rot);
         }
     }
     return 0;
@@ -1339,8 +1320,111 @@ extern Vec3f D_80A418CC[];
 Vec3f D_80A418CC[] = { 1100.0f, -700.0f, 0.0f };
 */
 
+#ifdef NON_EQUIVALENT
+void func_80A40F34(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **dList2, Vec3s *rot, Actor *actor) {
+    ? sp58;
+    void *sp54;
+    ? sp40;
+    s16 *sp38;
+    MtxF *sp1C;
+    Gfx *temp_a2;
+    Gfx *temp_v1;
+    Gfx *temp_v1_3;
+    Gfx *temp_v1_4;
+    GraphicsContext *temp_a0;
+    GraphicsContext *temp_a0_3;
+    GraphicsContext *temp_a0_4;
+    MtxF *temp_a0_2;
+    s32 temp_v0_3;
+    u8 temp_v1_2;
+    void *temp_v0;
+    void *temp_v0_2;
+
+    if (*dList2 != 0) {
+        SysMatrix_GetStateTranslation(D_80A41D6C);
+    }
+    if (limbIndex == 0x10) {
+        Math_Vec3f_Copy(actor + 0x350, D_80A41D6C);
+        temp_a2 = *dList1;
+        if (temp_a2 != 0) {
+            func_80128640(globalCtx, actor, temp_a2, actor);
+            if ((actor->unkA74 * 4) < 0) {
+                temp_a0 = globalCtx->state.gfxCtx;
+                temp_v1 = temp_a0->polyOpa.p;
+                temp_a0->polyOpa.p = temp_v1 + 8;
+                temp_v1->words.w1 = 0x600EDD0;
+                temp_v1->words.w0 = 0xDE000000;
+            }
+        }
+        temp_v0 = actor->unk34C;
+        temp_a0_2 = actor + 0xCC4;
+        if ((temp_v0 != 0) && ((actor->unkA6C & 0x800) != 0)) {
+            sp54 = temp_v0;
+            SysMatrix_CopyCurrentState((MtxF *) &sp58);
+            func_8018219C((MtxF *) &sp58, (Vec3s *) &sp40, 0);
+            temp_v0->unk32 = (s16) (actor->shape.rot.y + actor->unk35E);
+            temp_v0->unkBE = (s16) temp_v0->unk32;
+            return;
+        }
+        sp1C = temp_a0_2;
+        SysMatrix_CopyCurrentState(temp_a0_2);
+        func_8018219C(temp_a0_2, actor + 0x35C, 0);
+        func_80126B8C(globalCtx, actor);
+        return;
+    }
+    if (limbIndex == 0x13) {
+        temp_v0_2 = actor->unk34C;
+        if (temp_v0_2 != 0) {
+            temp_v0_2->unk24 = (f32) ((actor->unkCA0 + actor->unk350) * 0.5f);
+            temp_v0_2->unk28 = (f32) ((actor->unkCA4 + actor->unk354) * 0.5f);
+            temp_v0_2->unk2C = (f32) ((actor->unkCA8 + actor->unk358) * 0.5f);
+            return;
+        }
+        return;
+    }
+    if (limbIndex == 0xB) {
+        if (*dList1 != 0) {
+            temp_v1_2 = actor->unk153;
+            if ((temp_v1_2 != 0) && ((actor->unkA70 << 7) >= 0)) {
+                temp_v0_3 = actor->unk248;
+                if ((temp_v0_3 != 0x400D0A8) && ((temp_v0_3 != 0x400D0C8) || (actor->unk258 >= 12.0f))) {
+                    sp38 = actor->unk730;
+                    if (func_80127438(globalCtx, actor, temp_v1_2, actor) != 0) {
+                        temp_a0_3 = globalCtx->state.gfxCtx;
+                        temp_v1_3 = temp_a0_3->polyOpa.p;
+                        temp_a0_3->polyOpa.p = temp_v1_3 + 8;
+                        temp_v1_3->words.w1 = 0xA0004A0;
+                        temp_v1_3->words.w0 = 0xDE000000;
+                    }
+                }
+            }
+        }
+        if ((actor->unk730 != 0) && (*actor->unk730 == 0x25C)) {
+            Math_Vec3f_Copy(actor + 0x3C, actor->unk730 + 0x3C);
+            return;
+        }
+        SysMatrix_MultiplyVector3fByState(D_80A418CC, actor + 0x3C);
+        return;
+    }
+    if (limbIndex == 0x15) {
+        if ((D_80A41D60 != 0) || ((gSaveContext.unkF2A & 0x80) != 0) || (gSaveContext.inventory.items[*(u8 *)0x801C20A8] == 0x30) || (actor->unkB2A == 0x6F)) {
+            D_80A41D60 = 1;
+            return;
+        }
+        temp_a0_4 = globalCtx->state.gfxCtx;
+        temp_v1_4 = temp_a0_4->polyOpa.p;
+        temp_a0_4->polyOpa.p = temp_v1_4 + 8;
+        temp_v1_4->words.w1 = 0x600CB60;
+        temp_v1_4->words.w0 = 0xDE000000;
+        return;
+    }
+    func_80128B74(globalCtx, actor, limbIndex, actor);
+    // Duplicate return node #34. Try simplifying control flow for better match
+}
+#else
 void func_80A40F34(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40F34.asm")
+#endif
 
 
 extern void* D_80A418D8[];
