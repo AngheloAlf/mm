@@ -29,6 +29,7 @@ s32 func_80A40230(EnTest3* this, GlobalContext* globalCtx);
 void func_80A40678(EnTest3* this, GlobalContext* globalCtx);
 void func_80A40824(EnTest3* this, GlobalContext* globalCtx);
 void func_80A4084C(EnTest3* this, GlobalContext* globalCtx);
+void func_80A40908(EnTest3* this, GlobalContext* globalCtx);
 void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx);
 
 // bss
@@ -852,14 +853,75 @@ s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FE20.asm")
+extern s32 D_80A41D64;
+
+s32 func_80A3FE20(EnTest3 *this, GlobalContext *globalCtx) {
+    struct_80A417E8_arg2 sp2C;
+    struct_80A417E8_arg3 sp1C;
+
+    if (D_80A41D64 == 0) {
+        if (func_80A3E9DC(this, globalCtx) != 0) {
+            sp2C.unk_01_0 = 0x2;
+            sp1C.unk_08 = (u16)(((u16)(gSaveContext.time - 0x3FFC)) + 0x3E8);
+            sp1C.unk_04 = (u16)(gSaveContext.time - 0x3FFC);
+            func_80A40098(this, globalCtx, &sp2C, &sp1C);
+            D_80A41D64 = 1;
+
+            return 0;
+        }
+    } else if (D_80A41D64 == 1) {
+        func_80A40230(this, globalCtx);
+    } else if (D_80A41D64 == 2) {
+        ActorCutscene_Stop(this->actorCutsceneId);
+        gSaveContext.weekEventReg[0x5A] |= 2;
+        D_80A41D64 = 3;
+    }
+    return 0;
+}
 
 //Vec3f D_80A418BC[] = { -420.0f, 210.0f, -162.0f };
 extern Vec3f D_80A418BC[];
+extern s32 D_80A41D68;
 
+#ifdef NON_MATCHING
+s32 func_80A3FF10(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
+    if (gSaveContext.weekEventReg[0x33] & 0x40) {
+        D_80A41D68 = 2;
+        Math_Vec3f_Copy(&this->actor.actor.world.pos, D_80A418BC);
+        Math_Vec3f_Copy(&this->actor.actor.home.pos, D_80A418BC);
+        this->actor.actor.home.rot.y = -0x2AAB;
+        this->actor.actor.shape.rot.y = -0x2AAB;
+        this->actor.currentYaw = -0x2AAB;
+        return 1;
+    } else {
+        func_80A3F15C(this, globalCtx, arg2);
+        this->actorCutsceneId = this->actor.actor.cutscene;
+        if (globalCtx->roomCtx.currRoom.num == 2) {
+            this->actorCutsceneId = ActorCutscene_GetAdditionalCutscene(this->actorCutsceneId);
+        }
+    }
+    return 1;
+}
+#else
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FF10.asm")
+#endif
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FFD0.asm")
+
+s32 func_80A3FFD0(EnTest3 *this, GlobalContext *globalCtx) {
+    if (D_80A41D68 == 0) {
+        if ((func_801690CC(globalCtx) == 0) && (globalCtx->roomCtx.currRoom.num == 2)) {
+            D_80A41D68 = 1;
+        }
+    } else if (D_80A41D68 == 1) {
+        if (func_80A3E9DC(this, globalCtx) != 0) {
+            D_80A41D68 = 2;
+        }
+    } else {
+        gSaveContext.weekEventReg[0x33] |= 0x40;
+        globalCtx->startPlayerCutscene(globalCtx, &this->actor, 0x6E);
+    }
+    return 0;
+}
 
 #ifdef NON_MATCHING
 // reg alloc
@@ -901,26 +963,305 @@ s32 func_80A40098(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40098.asm")
 #endif
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40230.asm")
 
+extern f32 D_80A41934;
+extern f32 D_80A41D40;
+extern s16 D_80A41D44;
+extern s32 D_80A41D48;
+extern Vec3f D_80A41D50;
+
+#ifdef NON_MATCHING
+s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
+    Vec3f sp94;
+    Vec3f sp88;
+    Vec3f sp7C;
+    Vec3f sp70;
+    s32 sp6C;
+    s32 sp68;
+    s32 sp58;
+    f32 *sp4C;
+    s32 *sp48;
+    s32 *sp44;
+    f32 temp_f12;
+    f32 temp_f2;
+
+    sp6C = 0;
+    sp68 = 0;
+    sp58 = 0;
+    func_8013AF00(&sp94, 3, this->path->unk_00 + 3);
+
+    if ((this->actionId & 1) == 0) {
+        sp70 = D_801D15B0;
+        sp4C = &this->unk_DA4;
+        sp48 = &this->unk_DB4;
+        sp44 = &this->unk_DB0;
+        func_8013B6B0(this->path, sp4C, sp48, this->unk_DAC, this->unk_DA8, sp44, &sp94, &sp70, this->unk_D80);
+        func_8013B878(globalCtx, this->path, this->unk_DB0, &sp70);
+        Math_Vec3f_Copy(&this->actor.actor.home.pos, &sp70);
+        Math_Vec3f_Copy(&this->actor.actor.prevPos, &sp70);
+        this->actor.actor.world.pos.y = sp70.y;
+        this->actionId |= 1;
+    } else {
+        sp70 = this->unk_D98;
+        sp44 = &this->unk_DB0;
+        sp48 = &this->unk_DB4;
+        sp4C = &this->unk_DA4;
+    }
+
+    this->actor.actor.world.pos.x = sp70.x;
+    this->actor.actor.world.pos.z = sp70.z;
+
+    if (globalCtx->unk_18B4A != 0) {
+        sp6C = this->unk_DB4;
+        sp68 = this->unk_DB0;
+        sp70 = this->actor.actor.world.pos;
+    }
+
+    this->unk_D98 = D_801D15B0;
+
+    if (func_8013B6B0(this->path, sp4C, sp48, this->unk_DAC, this->unk_DA8, sp44, &sp94, (f32 *) &this->unk_D98, this->unk_D80) != 0) {
+        if (this->schedule == 0x14) {
+            gSaveContext.weekEventReg[0x30] &= (u8)~0x80;
+            this->actor.actor.draw = NULL;
+        } else if (this->schedule == 9) {
+            D_80A41D64 = 2;
+        }
+        sp58 = 1;
+    } else {
+        sp88 = this->actor.actor.world.pos;
+        sp7C = this->unk_D98;
+
+        this->actor.actor.world.rot.y = Math_Vec3f_Yaw(&sp88, &sp7C);
+    }
+
+    if (globalCtx->unk_18B4A != 0) {
+        this->unk_DB4 = sp6C;
+        this->unk_DB0 = sp68;
+
+        this->unk_D98 = sp70;
+    }
+
+    //if (!(&this->unk_D84)) { }
+
+    temp_f2 = this->actor.actor.world.pos.x - this->actor.actor.prevPos.x;
+    temp_f12 = this->actor.actor.world.pos.z - this->actor.actor.prevPos.z;
+
+    if (Math_StepToF(&this->unk_D84, 1.0f, 0.1f) == 0) {
+        this->actor.actor.world.pos.x = (this->unk_D84 * temp_f2) + this->actor.actor.prevPos.x;
+        this->actor.actor.world.pos.z = (this->unk_D84 * temp_f12) + this->actor.actor.prevPos.z;
+    }
+
+    Math_Vec3f_Copy(&D_80A41D50, &this->actor.actor.world.pos);
+    this->actor.linearVelocity = sqrtf(SQ(this->actor.actor.world.pos.x - this->actor.actor.prevPos.x) + SQ(this->actor.actor.world.pos.z - this->actor.actor.prevPos.z));
+    this->actor.linearVelocity *= 1.0f + (D_80A41934 * fabsf(Math_SinS(this->actor.unk_B6C)));
+
+    D_80A41D40 = (f32) ((this->actor.linearVelocity * 10.0f) + 20.0f);
+    D_80A41D40 = CLAMP_MAX(D_80A41D40, 60.0f);
+
+    D_80A41D44 = (s16) this->actor.actor.world.rot.y;
+    this->actor.actor.world.pos.x = this->actor.actor.prevPos.x;
+    this->actor.actor.world.pos.z = this->actor.actor.prevPos.z;
+
+    if (func_80A3F384(this, globalCtx) == 0) {
+        D_80A41D48 = 1;
+    }
+
+    return sp58;
+}
+#else
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40230.asm")
+#endif
+
+
+#ifdef NON_MATCHING
+void func_80A40678(EnTest3 *this, GlobalContext *globalCtx) {
+    struct_80A417E8_arg3 sp2C;
+    struct_80A417E8_arg2 *temp_a2;
+    struct_80A417E8_arg2 *temp_a2_2;
+    s32 phi_v0;
+    u8 phi_v1;
+
+    if ((this->schedule == 0x14) || (this->schedule == 0xA) || (this->schedule == 9)) {
+        this->unk_D80 = 3;
+    } else {
+        if (func_801690CC(globalCtx) != 0) {
+            phi_v0 = 0;
+        } else {
+            phi_v0 = *(s32*)(&gSaveContext.unk_14) + REG(15);
+        }
+        this->unk_D80 = phi_v0;
+    }
+    if (func_80133038(globalCtx, D_80A41530, &sp2C) != 0) {
+        phi_v1 = sp2C.unk_00;
+        if (sp2C.unk_00 != this->schedule) {
+            temp_a2 = &D_80A41828[sp2C.unk_00];
+            func_80A3F114(this, globalCtx);
+
+            if (temp_a2->unk_00 != 4) {
+                gSaveContext.weekEventReg[0x33] &= (u8)~0x04;
+            }
+
+            if (D_80A417E8[temp_a2->unk_00].unk_00(this, globalCtx, temp_a2, &sp2C) != 0) {
+                phi_v1 = sp2C.unk_00;
+                if (sp2C.unk_00 == 6) {
+                    this->actor.actor.home.rot.y = 0x7FFF;
+                    this->actor.stateFlags2 |= 0x40000;
+                    globalCtx->startPlayerCutscene(globalCtx, &this->actor, -1); 
+                    phi_v1 = sp2C.unk_00;
+                }
+block_16:
+                this->schedule = phi_v1;
+                temp_a2_2 = &D_80A41828[this->schedule];
+                D_80A417E8[temp_a2_2->unk_00].unk_04(this, globalCtx);
+            }
+        } else {
+            goto block_16;
+        }
+    } else {
+        sp2C.unk_00 = 0;
+        phi_v1 = 0;
+        goto block_16;
+    }
+}
+#else
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40678.asm")
+#endif
 
 void func_80A40824(EnTest3* this, GlobalContext* globalCtx) {
     this->talkState = D_80A41854;
     func_80A3F73C(this, globalCtx);
 }
 
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A4084C.asm")
 
+void func_80A4084C(EnTest3 *this, GlobalContext *globalCtx) {
+    if (func_800B867C(&this->actor.actor, globalCtx) != 0) {
+        if (this->talkState->unk_01 == 0 || func_80A3E80C(this, globalCtx, this->talkState->unk_01 - 1) == 0) {
+            if (!((this->actor.actor.params >> 5) & 0xF)) {
+                func_80A3E7E0(this, func_80A40824);
+            } else {
+                func_80A3E7E0(this, func_80A40678);
+            }
+            this->actor.unk_730 = NULL;
+        }
+    } else if (func_80A3ED24(this, globalCtx) != 0) {
+        func_80A3E7E0(this, func_80A40908);
+    }
+}
+
+extern f32 D_80A41938;
+#ifdef NON_MATCHING
+// rodata issues
+void func_80A40908(EnTest3 *this, GlobalContext *globalCtx) {
+    f32 temp_f0;
+
+    if (func_800B84D0(&this->actor.actor, globalCtx) != 0) {
+        func_80A3E7E0(this, func_80A4084C);
+        this->actor.unk_730 = &PLAYER->actor;
+        gSaveContext.weekEventReg[0x33] |= 8;
+        func_80151BB4(globalCtx, 0x19);
+        func_80151BB4(globalCtx, 2);
+    } else {
+        temp_f0 = D_80A41938;
+        func_800B8500(&this->actor.actor, globalCtx, temp_f0, temp_f0, -1);
+        this->talkState = D_80A4186C;
+        this->actor.actor.textId = D_80A4186C->textId;
+        this->actor.actor.flags |= 0x09;
+    }
+}
+#else
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40908.asm")
+#endif
 
+
+#ifdef NON_EQUIVALENT
+// I need to define D_80A41D28
+void func_80A409D4(EnTest3 *arg0, GlobalContext *arg1) {
+    u8 temp_v0;
+
+    temp_v0 = arg1->actorCtx.unk5;
+    if (((temp_v0 & 0x20) != 0) || ((temp_v0 & 0x10) != 0)) {
+        arg1->actorCtx.unk5 = temp_v0 & 0xFFEF;
+        func_80A3F0B0(arg0, arg1);
+        ActorCutscene_SetReturnCamera(0);
+        return;
+    }
+    D_80A41D28.unk0 = (s32) (unaligned s32) arg1->state.input;
+    D_80A41D28.unk4 = (s32) (unaligned s32) arg1->state.input[0].cur.errno;
+    D_80A41D28.unk8 = (s32) (unaligned s32) arg1->state.input[0].prev.stick_x;
+    D_80A41D28.unkC = (s32) (unaligned s32) arg1->state.input[0].press.button;
+    D_80A41D28.unk10 = (s32) (unaligned s32) arg1->state.input[0].press.errno;
+    D_80A41D28.unk14 = (s32) (unaligned s32) arg1->state.input[0].rel.stick_x;
+}
+#else
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A409D4.asm")
+#endif
 
 void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx) {
     gSaveContext.weekEventReg[0x40] |= 0x20;
 }
 
+#ifdef NON_EQUIVALENT
+void EnTest3_Update(Actor *thisx, GlobalContext *globalCtx) {
+    ? sp34;
+    PosRot *sp30;
+    DmaRequest *sp2C;
+    DmaRequest *temp_t2;
+    PosRot *temp_a1;
+    u16 temp_t6;
+    u16 temp_v0_2;
+    u8 temp_v0;
+
+    temp_t6 = D_80A41D28.unk0;
+    D_80A41D28.unk0 = 0U;
+    D_80A41D28.unk14 = 0;
+    D_80A41D28.unk15 = 0;
+    D_80A41D28.unk12 = temp_t6;
+    globalCtx->actorCtx.unk5 &= 0xFF7F;
+    thisx->draw = func_80A4129C;
+    D_80A41D48 = 0;
+    thisx->flags &= -0xA;
+    if ((func_800EE29C(globalCtx, 0x1FAU) != 0) && ((thisx->category != 2) || ((temp_v0 = globalCtx->actorCtx.unk5, ((temp_v0 & 0x20) == 0)) && ((temp_v0 & 0x10) == 0)))) {
+        if (thisx->unk394 != 5) {
+            globalCtx->startPlayerCutscene(globalCtx, (Player *) thisx, 5);
+        }
+        globalCtx->actorCtx.unk5 &= 0xFFEF;
+        sp2C = &globalCtx->objectCtx.status[9].dmaReq;
+    } else if (thisx->category == 2) {
+        func_80A409D4((EnTest3 *) thisx, globalCtx);
+        sp2C = &globalCtx->objectCtx.status[9].dmaReq;
+    } else {
+        temp_t2 = &globalCtx->objectCtx.status[9].dmaReq;
+        sp2C = temp_t2;
+        if (temp_t2->unk77C(globalCtx, thisx, 0) != 0) {
+            temp_a1 = &thisx->world;
+            if ((s32) thisx->unkD88 >= 7) {
+                sp30 = temp_a1;
+                Math_Vec3f_Copy((Vec3f *) &sp34, (Vec3f *) temp_a1);
+                thisx->unkD80 = 4;
+                func_80A40230((EnTest3 *) thisx, globalCtx);
+                Math_Vec3f_Copy((Vec3f *) sp30, (Vec3f *) &sp34);
+                D_80A41D48 = 0;
+                thisx->unkD84 = 0.0f;
+            }
+        } else {
+            D_80A41D40 = 0.0f;
+            D_80A41D44 = (s16) thisx->shape.rot.y;
+            thisx->unkD94(thisx, globalCtx);
+            temp_v0_2 = D_80A41D28.unk0;
+            D_80A41D28.unkC = (s16) ((D_80A41D28.unk12 ^ temp_v0_2) & temp_v0_2);
+            func_800B6F20(globalCtx, (s32) &D_80A41D28, D_80A41D40, D_80A41D44);
+        }
+    }
+    sp2C->unk76C(thisx, globalCtx, &D_80A41D28);
+    if (D_80A41D48 != 0) {
+        thisx->world.pos.x = D_80A41D50.x;
+        thisx->unkAD0 = 0.0f;
+        thisx->world.pos.z = D_80A41D50.z;
+    }
+}
+#else
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_Update.asm")
+#endif
 
 extern s32 D_80A418C8;
 /*
@@ -928,15 +1269,77 @@ s32 D_80A418C8 = 0;
 */
 
 
+#ifdef NON_EQUIVALENT
+s32 func_80A40CF0(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *actor) {
+    s16 temp_a0;
+    s16 temp_a0_2;
+    s16 temp_a0_3;
+    s32 temp_v1;
+    u8 temp_v0;
+    s32 phi_v1;
+
+    if (limbIndex == 1) {
+        D_80A41D6C = (Vec3f *) (actor + 0xBE0);
+        temp_v0 = actor->unk275;
+        temp_v1 = temp_v0 & 4;
+        if ((temp_v1 == 0) || (phi_v1 = temp_v1, ((temp_v0 & 1) != 0))) {
+            pos->x *= actor->unkA68->unk8;
+            pos->z *= actor->unkA68->unk8;
+            phi_v1 = actor->unk275 & 4;
+        }
+        if ((phi_v1 == 0) || ((actor->unk275 & 2) != 0)) {
+            pos->y *= actor->unkA68->unk8;
+        }
+        pos->y -= actor->unkAB8;
+        temp_a0 = actor->unkAAA;
+        if (temp_a0 != 0) {
+            SysMatrix_InsertTranslation(pos->x, ((Math_CosS(temp_a0) - 1.0f) * 200.0f) + pos->y, pos->z, 1);
+            SysMatrix_InsertXRotation_s(actor->unkAAA, 1);
+            SysMatrix_InsertRotation(rot->x, rot->y, rot->z, 1);
+            func_80125318(pos, rot);
+        }
+    } else {
+        if (*dList != 0) {
+            D_80A41D6C = (Vec3f *) (D_80A41D6C + 0xC);
+        }
+        if (D_80A418C8 != 0) {
+            *dList = NULL;
+        }
+        if (limbIndex == 0xB) {
+            rot->x += actor->unkAB0;
+            rot->y -= actor->unkAAE;
+            rot->z += actor->unkAAC;
+        } else if (limbIndex == 0xA) {
+            if (actor->unkAA8 != 0) {
+                SysMatrix_InsertZRotation_s(0x44C, 1);
+                Matrix_RotateY(actor->unkAA8, 1U);
+            }
+            temp_a0_2 = actor->unkAB4;
+            if (temp_a0_2 != 0) {
+                Matrix_RotateY(temp_a0_2, 1U);
+            }
+            SysMatrix_InsertXRotation_s(actor->unkAB2, 1);
+            temp_a0_3 = actor->unkAB6;
+            if (temp_a0_3 != 0) {
+                SysMatrix_InsertZRotation_s(temp_a0_3, 1);
+            }
+        } else {
+            func_80125500(actor, limbIndex, pos, rot);
+        }
+    }
+    return 0;
+}
+#else
 s32 func_80A40CF0(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* actor);
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40CF0.asm")
+#endif
 
 extern Vec3f D_80A418CC[];
 /*
 Vec3f D_80A418CC[] = { 1100.0f, -700.0f, 0.0f };
 */
 
-void func_80A40F34();
+void func_80A40F34(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40F34.asm")
 
 
