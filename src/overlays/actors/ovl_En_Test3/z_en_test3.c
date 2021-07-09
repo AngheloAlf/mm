@@ -737,46 +737,51 @@ s32 func_80A3F9E4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 #ifdef NON_MATCHING
 s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
     s32 pad;
+    //u16 temp_v0;
+    u32 temp_v0;
     Player* player = PLAYER;
     struct_80A417E8_arg2 sp40;
     struct_80A417E8_arg3 sp30;
-    s32 temp_v0;
-    s32 phi_t0;
-    s32 phi_t0_2;
+    //s32 phi_t0;
+    //s32 phi_t0_2;
 
-    if ((player->stateFlags1 & 0x40) == 0) {
-        phi_t0 = func_80A40230(this, globalCtx) != 0;
+    if ((player->stateFlags1 & 0x40) != 0) {
+        return 0;
+    } else {
+        s32 phi_t0 = func_80A40230(this, globalCtx) != 0;
+
         if (this->unk_D8A > 0) {
             this->unk_D8A--;
             if (phi_t0) {
-                ///*phi_t0 = false;
+                phi_t0 = false;
                 if (this->actor.actor.xzDistToPlayer < 200.0f) {
                     phi_t0 = true;
                 }
-                //*/
-                //phi_t0 = (this->actor.actor.xzDistToPlayer < 200.0f);
             }
-            if (phi_t0 || ((this->unk_D8A <= 0))) {
+            if (phi_t0 || this->unk_D8A <= 0) {
                 func_80A3F114(this, globalCtx);
                 //sp41 = (sp41 & 0xFF0F) | 0x50;
-                sp40.unk_01_0 = (sp40.unk_01_0 & 0xF) | 0x50;
-                temp_v0 = (gSaveContext.time - 0x3FFC) & 0xFFFF;
-                if (phi_t0) {
+                //sp40.unk_01_0 = (sp40.unk_01_0 & 0xF) | 0x50;
+                //sp40.unk_01_1 |=  0x5;
+                sp40.unk_01_0 = 0x5;
+                temp_v0 = (u16)(gSaveContext.time - 0x3FFC);
+                /*if (phi_t0) {
                     phi_t0_2 = 0x50;
                 } else {
                     phi_t0_2 = 0x8C;
-                }
-                sp30.unk_08 = (phi_t0_2 + temp_v0) & 0xFFFF;
+                }*/
+                sp30.unk_08 = (u16)(((phi_t0)? 0x50 : 0x8C) + temp_v0);
                 sp30.unk_04 = temp_v0;
                 func_80A40098(this, globalCtx, &sp40, &sp30);
                 this->unk_D8A = -0x28;
+                return 0;
             } else if (this->unk_D8A == 0x5A) {
                 globalCtx->startPlayerCutscene(globalCtx, &this->actor, 0x15);
             }
         } else {
             this->unk_D8A++;
             if (this->unk_D8A == 0) {
-                gSaveContext.weekEventReg[0x35] &= (u8)~0x04;
+                gSaveContext.weekEventReg[0x33] &= (u8)~0x04;
                 this->schedule = 0;
             }
         }
@@ -886,6 +891,7 @@ extern Vec3f D_80A418BC[];
 extern s32 D_80A41D68;
 
 #ifdef NON_MATCHING
+// v0/v1 problems
 s32 func_80A3FF10(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
     if (gSaveContext.weekEventReg[0x33] & 0x40) {
         D_80A41D68 = 2;
@@ -1310,115 +1316,161 @@ s32 func_80A40CF0(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *p
     return 0;
 }
 #else
-s32 func_80A40CF0(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* actor);
+s32 func_80A40CF0(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx);
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40CF0.asm")
 #endif
 
-extern Vec3f D_80A418CC[];
+extern Vec3f D_80A418CC;
 /*
-Vec3f D_80A418CC[] = { 1100.0f, -700.0f, 0.0f };
+static Vec3f D_80A418CC = { 1100.0f, -700.0f, 0.0f };
 */
 
-#ifdef NON_EQUIVALENT
-void func_80A40F34(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **dList2, Vec3s *rot, Actor *actor) {
-    ? sp58;
-    void *sp54;
-    ? sp40;
-    s16 *sp38;
-    MtxF *sp1C;
-    Gfx *temp_a2;
-    Gfx *temp_v1;
-    Gfx *temp_v1_3;
-    Gfx *temp_v1_4;
-    GraphicsContext *temp_a0;
-    GraphicsContext *temp_a0_3;
-    GraphicsContext *temp_a0_4;
-    MtxF *temp_a0_2;
-    s32 temp_v0_3;
-    u8 temp_v1_2;
-    void *temp_v0;
-    void *temp_v0_2;
+// I'm not sure about the type 
+extern LinkAnimationHeader D_0400D0A8;
+extern LinkAnimationHeader D_0400D0C8;
 
-    if (*dList2 != 0) {
+extern Gfx D_0600EDD0[];
+extern Gfx D_0600CB60[];
+extern Gfx D_0A0004A0[];
+
+extern s32 D_80A41D60;
+
+
+#ifdef NON_EQUIVALENT
+void func_80A40F34(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **dList2, Vec3s *rot, Actor *thisx) {
+    EnTest3* this = THIS;
+    MtxF sp58;
+    //void *sp54;
+    Vec3s sp40;
+    //s16 *sp38;
+    //MtxF *sp1C;
+    //Gfx *temp_a2;
+    //Gfx *temp_v1;
+    //Gfx *temp_v1_3;
+    //Gfx *temp_v1_4;
+    //GraphicsContext *temp_a0;
+    //GraphicsContext *temp_a0_3;
+    //GraphicsContext *temp_a0_4;
+    //MtxF *temp_a0_2;
+    //LinkAnimationHeader* temp_v0_3;
+    u8 temp_v1_2;
+    Actor *temp_v0;
+    //Actor *temp_v0_2;
+
+    //OPEN_DISPS(globalCtx->state.gfxCtx);
+
+    if (*dList2 != NULL) {
         SysMatrix_GetStateTranslation(D_80A41D6C);
     }
+
     if (limbIndex == 0x10) {
-        Math_Vec3f_Copy(actor + 0x350, D_80A41D6C);
-        temp_a2 = *dList1;
-        if (temp_a2 != 0) {
-            func_80128640(globalCtx, actor, temp_a2, actor);
-            if ((actor->unkA74 * 4) < 0) {
+        Math_Vec3f_Copy(&this->actor.leftHandWorld.pos, D_80A41D6C);
+        //temp_a2 = *dList1;
+        if (*dList1 != NULL) {
+            func_80128640(globalCtx, &this->actor, *dList1, &this->actor.actor);
+            //if ((this->actor.stateFlags3 * 4) < 0) {
+            if ((this->actor.stateFlags3 & 0x020000000)) {
+                OPEN_DISPS(globalCtx->state.gfxCtx);
+                /*
                 temp_a0 = globalCtx->state.gfxCtx;
                 temp_v1 = temp_a0->polyOpa.p;
                 temp_a0->polyOpa.p = temp_v1 + 8;
                 temp_v1->words.w1 = 0x600EDD0;
                 temp_v1->words.w0 = 0xDE000000;
+                */
+                gSPDisplayList(POLY_OPA_DISP++, D_0600EDD0);
+                CLOSE_DISPS(globalCtx->state.gfxCtx);
             }
         }
-        temp_v0 = actor->unk34C;
-        temp_a0_2 = actor + 0xCC4;
-        if ((temp_v0 != 0) && ((actor->unkA6C & 0x800) != 0)) {
-            sp54 = temp_v0;
+        //temp_v0 = actor->unk34C;
+        //temp_a0_2 = actor + 0xCC4;
+        //if ((temp_v0 != 0) && ((actor->unkA6C & 0x800) != 0)) {
+        temp_v0 = this->actor.leftHandActor;
+        //temp_a0_2 = &this->actor.mf_CC4;
+        if ((temp_v0 != NULL) && ((this->actor.stateFlags1 & 0x800) != 0)) {
+            //sp54 = temp_v0;
             SysMatrix_CopyCurrentState((MtxF *) &sp58);
             func_8018219C((MtxF *) &sp58, (Vec3s *) &sp40, 0);
-            temp_v0->unk32 = (s16) (actor->shape.rot.y + actor->unk35E);
-            temp_v0->unkBE = (s16) temp_v0->unk32;
-            return;
+            temp_v0->world.pos.y = (this->actor.actor.shape.rot.y + this->actor.leftHandWorld.rot.y);
+            //temp_v0->unkBE = (s16) temp_v0->unk32;
+            temp_v0->shape.rot.y = temp_v0->world.rot.y;
+            //return;
+        } else {
+            //sp1C = temp_a0_2;
+            SysMatrix_CopyCurrentState(&this->actor.mf_CC4);
+            //func_8018219C(temp_a0_2, actor + 0x35C, 0);
+            func_8018219C(&this->actor.mf_CC4, &this->actor.leftHandWorld.rot, 0);
+            func_80126B8C(globalCtx, &this->actor.actor);
+            //return;
         }
-        sp1C = temp_a0_2;
-        SysMatrix_CopyCurrentState(temp_a0_2);
-        func_8018219C(temp_a0_2, actor + 0x35C, 0);
-        func_80126B8C(globalCtx, actor);
-        return;
-    }
-    if (limbIndex == 0x13) {
-        temp_v0_2 = actor->unk34C;
-        if (temp_v0_2 != 0) {
-            temp_v0_2->unk24 = (f32) ((actor->unkCA0 + actor->unk350) * 0.5f);
-            temp_v0_2->unk28 = (f32) ((actor->unkCA4 + actor->unk354) * 0.5f);
-            temp_v0_2->unk2C = (f32) ((actor->unkCA8 + actor->unk358) * 0.5f);
-            return;
+        //return;
+    } else if (limbIndex == 0x13) {
+        //temp_v0_2 = actor->unk34C;
+        //temp_v0_2 = this->actor.leftHandActor;
+        if (this->actor.leftHandActor != NULL) {
+            this->actor.leftHandActor->world.pos.x = ((this->actor.bodyPartsPos[0xF].x + this->actor.leftHandWorld.pos.x) * 0.5f);
+            this->actor.leftHandActor->world.pos.y = ((this->actor.bodyPartsPos[0xF].y + this->actor.leftHandWorld.pos.y) * 0.5f);
+            this->actor.leftHandActor->world.pos.z = ((this->actor.bodyPartsPos[0xF].z + this->actor.leftHandWorld.pos.z) * 0.5f);
+            //return;
         }
-        return;
-    }
-    if (limbIndex == 0xB) {
-        if (*dList1 != 0) {
-            temp_v1_2 = actor->unk153;
-            if ((temp_v1_2 != 0) && ((actor->unkA70 << 7) >= 0)) {
-                temp_v0_3 = actor->unk248;
-                if ((temp_v0_3 != 0x400D0A8) && ((temp_v0_3 != 0x400D0C8) || (actor->unk258 >= 12.0f))) {
-                    sp38 = actor->unk730;
-                    if (func_80127438(globalCtx, actor, temp_v1_2, actor) != 0) {
+        //return;
+    } else if (limbIndex == 0xB) {
+        Vec3f* focusPos;
+
+        if (*dList1 != NULL) {
+            temp_v1_2 = this->actor.currentMask;
+            //if ((temp_v1_2 != 0) && ((this->actor.stateFlags2 << 7) >= 0)) {
+            if ((temp_v1_2 != 0) && !(this->actor.stateFlags2 & 0x01000000)) {
+                //temp_v0_3 = ;
+                if ((this->actor.skelAnime.linkAnimetionSeg != &D_0400D0A8) && ((this->actor.skelAnime.linkAnimetionSeg != &D_0400D0C8) || (this->actor.skelAnime.animCurrentFrame >= 12.0f))) {
+                    //sp38 = this->actor.unk_730;
+                    if (func_80127438(globalCtx, &this->actor.actor, temp_v1_2, &this->actor.actor) != 0) {
+                        OPEN_DISPS(globalCtx->state.gfxCtx);
+                        /*
                         temp_a0_3 = globalCtx->state.gfxCtx;
                         temp_v1_3 = temp_a0_3->polyOpa.p;
                         temp_a0_3->polyOpa.p = temp_v1_3 + 8;
                         temp_v1_3->words.w1 = 0xA0004A0;
                         temp_v1_3->words.w0 = 0xDE000000;
+                        */
+                        gSPDisplayList(POLY_OPA_DISP++, D_0A0004A0);
+                        CLOSE_DISPS(globalCtx->state.gfxCtx);
                     }
                 }
             }
         }
-        if ((actor->unk730 != 0) && (*actor->unk730 == 0x25C)) {
-            Math_Vec3f_Copy(actor + 0x3C, actor->unk730 + 0x3C);
-            return;
+
+        focusPos = &this->actor.actor.focus.pos;
+        if ((this->actor.unk_730 != NULL) && (this->actor.unk_730->id == ACTOR_BG_IKNV_OBJ)) {
+            Math_Vec3f_Copy(focusPos, &this->actor.unk_730->focus.pos);
+            //return;
+        } else {
+            SysMatrix_MultiplyVector3fByState(&D_80A418CC, focusPos);
         }
-        SysMatrix_MultiplyVector3fByState(D_80A418CC, actor + 0x3C);
-        return;
-    }
-    if (limbIndex == 0x15) {
-        if ((D_80A41D60 != 0) || ((gSaveContext.unkF2A & 0x80) != 0) || (gSaveContext.inventory.items[*(u8 *)0x801C20A8] == 0x30) || (actor->unkB2A == 0x6F)) {
+        //return;
+    } else if (limbIndex == 0x15) {
+        //if ((D_80A41D60 != 0) || ((gSaveContext.weekEventReg[0x30] & 0x80) != 0) || (gSaveContext.inventory.items[*(u8 *)0x801C20A8] == 0x30) || (this->actor.unk_B2A == 0x6F)) {
+        if ((D_80A41D60 != 0) || ((gSaveContext.weekEventReg[0x30] & 0x80) != 0) || (INV_CONTENT(0x30) == 0x30) || (this->actor.unk_B2A == 0x6F)) {
             D_80A41D60 = 1;
-            return;
+            //return;
+        } else {
+            OPEN_DISPS(globalCtx->state.gfxCtx);
+            /*
+            temp_a0_4 = globalCtx->state.gfxCtx;
+            temp_v1_4 = temp_a0_4->polyOpa.p;
+            temp_a0_4->polyOpa.p = temp_v1_4 + 8;
+            temp_v1_4->words.w1 = 0x600CB60;
+            temp_v1_4->words.w0 = 0xDE000000;
+            */
+            gSPDisplayList(POLY_OPA_DISP++, D_0600CB60);
+            CLOSE_DISPS(globalCtx->state.gfxCtx);
         }
-        temp_a0_4 = globalCtx->state.gfxCtx;
-        temp_v1_4 = temp_a0_4->polyOpa.p;
-        temp_a0_4->polyOpa.p = temp_v1_4 + 8;
-        temp_v1_4->words.w1 = 0x600CB60;
-        temp_v1_4->words.w0 = 0xDE000000;
-        return;
+        //return;
+    } else {
+        func_80128B74(globalCtx, &this->actor.actor, limbIndex, &this->actor.actor);
     }
-    func_80128B74(globalCtx, actor, limbIndex, actor);
-    // Duplicate return node #34. Try simplifying control flow for better match
+
+    //CLOSE_DISPS(globalCtx->state.gfxCtx);
 }
 #else
 void func_80A40F34(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);
