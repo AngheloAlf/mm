@@ -32,6 +32,8 @@ void func_80A4084C(EnTest3* this, GlobalContext* globalCtx);
 void func_80A40908(EnTest3* this, GlobalContext* globalCtx);
 void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx);
 
+void func_80A4129C(Actor* thisx, GlobalContext* globalCtx);
+
 // bss
 extern s32 D_80A41D20;
 extern s32 D_80A41D24;
@@ -1189,58 +1191,55 @@ void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx) {
     gSaveContext.weekEventReg[0x40] |= 0x20;
 }
 
-#ifdef NON_EQUIVALENT
+#ifdef NON_MATCHING
+// stack
 void EnTest3_Update(Actor *thisx, GlobalContext *globalCtx) {
+    s32 pad;
     EnTest3* this = THIS;
-    //? sp34;
-    Vec3f *sp30;
-    PosRot *temp_a1;
-    u16 temp_t6;
-    u16 temp_v0_2;
-    u8 temp_v0;
 
-    temp_t6 = D_80A41D28.cur.button;
+    D_80A41D28.rel.button = D_80A41D28.cur.button;
     D_80A41D28.cur.button = 0;
     D_80A41D28.rel.stick_x = 0;
     D_80A41D28.rel.stick_y = 0;
-    D_80A41D28.rel.button = temp_t6;
-    globalCtx->actorCtx.unk5 &= 0xFF7F;
-    thisx->draw = func_80A4129C;
+    globalCtx->actorCtx.unk5 &= ~0x80;
+    this->actor.actor.draw = func_80A4129C;
     D_80A41D48 = 0;
-    thisx->flags &= -0xA;
-    if ((func_800EE29C(globalCtx, 0x1FAU) != 0) && ((thisx->category != 2) || ((temp_v0 = globalCtx->actorCtx.unk5, ((temp_v0 & 0x20) == 0)) && ((temp_v0 & 0x10) == 0)))) {
+    this->actor.actor.flags &= ~0x09;
+
+    if ((func_800EE29C(globalCtx, 0x1FA) != 0) && (this->actor.actor.category != 2 || (!(globalCtx->actorCtx.unk5 & 0x20) && !(globalCtx->actorCtx.unk5 & 0x10)))) {
         if (this->actor.unk_394 != 5) {
-            globalCtx->startPlayerCutscene(globalCtx, (Player *) thisx, 5);
+            globalCtx->startPlayerCutscene(globalCtx, &this->actor, 5);
         }
-        globalCtx->actorCtx.unk5 &= 0xFFEF;
-    } else if (thisx->category == 2) {
-        func_80A409D4((EnTest3 *) thisx, globalCtx);
+        globalCtx->actorCtx.unk5 &= ~0x10;
+    } else if (this->actor.actor.category == 2) {
+        func_80A409D4(this, globalCtx);
     } else {
-        if (globalCtx->startPlayerCutscene(globalCtx, thisx, 0) != 0) {
-            temp_a1 = &thisx->world;
-            if ((s32) thisx->unkD88 >= 7) {
-                sp30 = temp_a1;
-                Math_Vec3f_Copy((Vec3f *) &sp34, (Vec3f *) temp_a1);
-                thisx->unkD80 = 4;
-                func_80A40230((EnTest3 *) thisx, globalCtx);
-                Math_Vec3f_Copy((Vec3f *) sp30, (Vec3f *) &sp34);
+        if (globalCtx->startPlayerCutscene(globalCtx, &this->actor, 0) != 0) {
+            if (this->schedule >= 7) {
+                Vec3f sp34;
+                s32 pad2;
+
+                Math_Vec3f_Copy(&sp34, &this->actor.actor.world.pos);
+                this->unk_D80 = 4;
+                func_80A40230(this, globalCtx);
+                Math_Vec3f_Copy(&this->actor.actor.world.pos, &sp34);
                 D_80A41D48 = 0;
-                thisx->unkD84 = 0.0f;
+                this->unk_D84 = 0.0f;
             }
         } else {
             D_80A41D40 = 0.0f;
-            D_80A41D44 = thisx->shape.rot.y;
-            thisx->unkD94(thisx, globalCtx);
-            temp_v0_2 = D_80A41D28.cur.button;
-            D_80A41D28.press.button = (D_80A41D28.rel.button ^ temp_v0_2) & temp_v0_2;
-            func_800B6F20(globalCtx, (s32) &D_80A41D28, D_80A41D40, D_80A41D44);
+            D_80A41D44 = this->actor.actor.shape.rot.y;
+            this->actionFunc(this, globalCtx);
+            D_80A41D28.press.button = (D_80A41D28.rel.button ^ D_80A41D28.cur.button) & D_80A41D28.cur.button;
+            func_800B6F20(globalCtx, &D_80A41D28, D_80A41D40, D_80A41D44);
         }
     }
-    globalCtx->startPlayerCutscene(thisx, globalCtx, &D_80A41D28);
+
+    globalCtx->playerUpdate(&this->actor, globalCtx, &D_80A41D28);
     if (D_80A41D48 != 0) {
-        thisx->world.pos.x = D_80A41D50.x;
-        thisx->unkAD0 = 0.0f;
-        thisx->world.pos.z = D_80A41D50.z;
+        this->actor.actor.world.pos.x = D_80A41D50.x;
+        this->actor.actor.world.pos.z = D_80A41D50.z;
+        this->actor.linearVelocity = 0.0f;
     }
 }
 #else

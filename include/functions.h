@@ -776,7 +776,7 @@ f32 Actor_XZDistanceBetweenActors(Actor* actor1, Actor* actor2);
 f32 Actor_XZDistanceToPoint(Actor* actor, Vec3f* point);
 void Actor_CalcOffsetOrientedToDrawRotation(Actor* actor, Vec3f* offset, Vec3f* point);
 f32 Actor_YDistance(Actor* actor1, Actor* actor2);
-void func_800B6F20(GlobalContext* globalCtx, s32 param_2, f32 param_3, s16 param_4);
+void func_800B6F20(GlobalContext* globalCtx, Input* param_2, f32 param_3, s16 param_4);
 float func_800B6FC8(Player* player);
 // void func_800B7090(void);
 // void func_800B7118(void);
