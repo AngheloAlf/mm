@@ -42,6 +42,7 @@ extern s32 D_80A41D24;
 extern LinkAnimationHeader D_0400CF88;
 extern FlexSkeletonHeader D_0600F7EC;
 
+extern u8 D_80A41530[];
 /*
 u32 D_80A41530[] = {
     0x0C000142, 0x0A007018, 0x02063207, 0x140C0F07, 0x1E070033, 0x04010509, 0x0A050E06, 0x3207140F, 0x0A006F21,
@@ -55,7 +56,6 @@ u32 D_80A41530[] = {
     0x00010509, 0x080E040A, 0x041E1205, 0x0A000D07, 0x00330801, 0x05090405, 0x05000000,
 };
 */
-extern u32 D_80A41530[];
 
 /*
 const ActorInit En_Test3_InitVars = {
@@ -1081,59 +1081,58 @@ s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
 #endif
 
 
-#ifdef NON_MATCHING
-void func_80A40678(EnTest3 *this, GlobalContext *globalCtx) {
+//#ifdef NON_MATCHING
+void func_80A40678(EnTest3* this, GlobalContext* globalCtx) {
+    struct_80A417E8_arg2* temp_a2;
     struct_80A417E8_arg3 sp2C;
-    struct_80A417E8_arg2 *temp_a2;
-    struct_80A417E8_arg2 *temp_a2_2;
-    s32 phi_v0;
     u8 phi_v1;
 
-    if ((this->schedule == 0x14) || (this->schedule == 0xA) || (this->schedule == 9)) {
+    if (this->schedule == 0x14 || this->schedule == 0xA || this->schedule == 9) {
         this->unk_D80 = 3;
     } else {
+        s32 phi_v0;
+
         if (func_801690CC(globalCtx) != 0) {
             phi_v0 = 0;
         } else {
-            phi_v0 = *(s32*)(&gSaveContext.unk_14) + REG(15);
+            // This does a lw on gSaveContext.unk_14. TODO: Consider an union.
+            phi_v0 = REG(15) + *(s32*)(&gSaveContext.unk_14);
         }
         this->unk_D80 = phi_v0;
     }
+
     if (func_80133038(globalCtx, D_80A41530, &sp2C) != 0) {
         phi_v1 = sp2C.unk_00;
-        if (sp2C.unk_00 != this->schedule) {
-            temp_a2 = &D_80A41828[sp2C.unk_00];
-            func_80A3F114(this, globalCtx);
 
+        if (this->schedule != sp2C.unk_00) {
+            temp_a2 = &D_80A41828[sp2C.unk_00];
+
+            func_80A3F114(this, globalCtx);
             if (temp_a2->unk_00 != 4) {
                 gSaveContext.weekEventReg[0x33] &= (u8)~0x04;
             }
 
-            if (D_80A417E8[temp_a2->unk_00].unk_00(this, globalCtx, temp_a2, &sp2C) != 0) {
-                phi_v1 = sp2C.unk_00;
-                if (sp2C.unk_00 == 6) {
-                    this->actor.actor.home.rot.y = 0x7FFF;
-                    this->actor.stateFlags2 |= 0x40000;
-                    globalCtx->startPlayerCutscene(globalCtx, &this->actor, -1); 
-                    phi_v1 = sp2C.unk_00;
-                }
-block_16:
-                this->schedule = phi_v1;
-                temp_a2_2 = &D_80A41828[this->schedule];
-                D_80A417E8[temp_a2_2->unk_00].unk_04(this, globalCtx);
+            if (D_80A417E8[temp_a2->unk_00].unk_00(this, globalCtx, temp_a2, &sp2C) == 0) {
+                return;
             }
-        } else {
-            goto block_16;
+
+            phi_v1 = sp2C.unk_00;
+            if (sp2C.unk_00 == 6) {
+                this->actor.actor.home.rot.y = 0x7FFF;
+                this->actor.stateFlags2 |= 0x40000;
+                globalCtx->startPlayerCutscene(globalCtx, (Player* ) this, -1);
+                phi_v1 = sp2C.unk_00;
+            }
         }
     } else {
         sp2C.unk_00 = 0;
         phi_v1 = 0;
-        goto block_16;
     }
+
+    this->schedule = phi_v1;
+    temp_a2 = &D_80A41828[this->schedule];
+    D_80A417E8[temp_a2->unk_00].unk_04(this, globalCtx);
 }
-#else
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40678.asm")
-#endif
 
 void func_80A40824(EnTest3* this, GlobalContext* globalCtx) {
     this->talkState = D_80A41854;
