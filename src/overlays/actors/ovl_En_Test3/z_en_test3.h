@@ -31,7 +31,14 @@ typedef struct {
 
 typedef struct {
     /* 0x0 */ u8 unk_00;
-    /* 0x4 */ s32 unk_04;
+    ///* 0x4 */ s32 unk_04;
+    /* 0x4 */ union {
+        s32 unk_04;
+        struct{
+            u16 unk_04_half;
+            u16 unk_06_half;
+        };
+    };
     /* 0x8 */ s32 unk_08;
     /* 0xC */ s32 unk_0C;
 } struct_80A417E8_arg3; // size = 0x10

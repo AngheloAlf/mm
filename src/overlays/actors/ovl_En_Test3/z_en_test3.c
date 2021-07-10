@@ -1,3 +1,9 @@
+/*
+ * File: z_en_test3.c
+ * Overlay: ovl_En_Test3
+ * Description: Kafei.
+ */
+
 #include "z_en_test3.h"
 #include "../ovl_En_Door/z_en_door.h"
 
@@ -736,42 +742,37 @@ s32 func_80A3F9E4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 
 #ifdef NON_MATCHING
 s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
-    s32 pad;
-    //u16 temp_v0;
-    u32 temp_v0;
     Player* player = PLAYER;
     struct_80A417E8_arg2 sp40;
     struct_80A417E8_arg3 sp30;
-    //s32 phi_t0;
-    //s32 phi_t0_2;
 
-    if ((player->stateFlags1 & 0x40) != 0) {
+    if (player->stateFlags1 & 0x40) {
         return 0;
     } else {
         s32 phi_t0 = func_80A40230(this, globalCtx) != 0;
 
         if (this->unk_D8A > 0) {
+            // This redundant seems to be neccesary
+            s32 phi_t0_2 = phi_t0;
+
             this->unk_D8A--;
-            if (phi_t0) {
-                phi_t0 = false;
+
+            if (phi_t0_2) {
+                phi_t0_2 = false;
                 if (this->actor.actor.xzDistToPlayer < 200.0f) {
-                    phi_t0 = true;
+                    phi_t0_2 = true;
                 }
             }
-            if (phi_t0 || this->unk_D8A <= 0) {
+
+            if (phi_t0_2 || this->unk_D8A <= 0) {
+
                 func_80A3F114(this, globalCtx);
-                //sp41 = (sp41 & 0xFF0F) | 0x50;
-                //sp40.unk_01_0 = (sp40.unk_01_0 & 0xF) | 0x50;
-                //sp40.unk_01_1 |=  0x5;
                 sp40.unk_01_0 = 0x5;
-                temp_v0 = (u16)(gSaveContext.time - 0x3FFC);
-                /*if (phi_t0) {
-                    phi_t0_2 = 0x50;
-                } else {
-                    phi_t0_2 = 0x8C;
-                }*/
-                sp30.unk_08 = (u16)(((phi_t0)? 0x50 : 0x8C) + temp_v0);
-                sp30.unk_04 = temp_v0;
+
+                sp30.unk_04 = (u16)(gSaveContext.time - 0x3FFC);
+                sp30.unk_04 = (sp30.unk_04 & 0xFFFF);
+                sp30.unk_08 = (u16)(((phi_t0_2) ? 0x50 : 0x8C) + (u16)(sp30.unk_04));
+
                 func_80A40098(this, globalCtx, &sp40, &sp30);
                 this->unk_D8A = -0x28;
                 return 0;
@@ -780,12 +781,14 @@ s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
             }
         } else {
             this->unk_D8A++;
+
             if (this->unk_D8A == 0) {
                 gSaveContext.weekEventReg[0x33] &= (u8)~0x04;
                 this->schedule = 0;
             }
         }
     }
+
     return 0;
 }
 #else
@@ -931,45 +934,36 @@ s32 func_80A3FFD0(EnTest3 *this, GlobalContext *globalCtx) {
     return 0;
 }
 
-#ifdef NON_MATCHING
-// reg alloc
-s32 func_80A40098(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
-    u16 curTime = gSaveContext.time - 0x3FFC;
-    u16 nextTime;
-    u16 new_var;
+s32 func_80A40098(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
+    u16 sp26 = gSaveContext.time - 0x3FFC;
+    u16 phi_a0;
 
     func_80A3F15C(this, globalCtx, arg2);
     this->path = func_8013BB34(globalCtx, this->actor.actor.params & 0x1F, ABS_ALT(arg2->unk_01_0) - 1);
 
     if (this->schedule < 7 && this->schedule != 0 && this->unk_D80 >= 0) {
-        nextTime = curTime;
+        phi_a0 = sp26;
     } else {
-        nextTime = arg3->unk_04;
+        phi_a0 = arg3->unk_06_half;
     }
 
-    if (arg3->unk_08 < nextTime) {
-        this->unk_DA8 = (nextTime - arg3->unk_08) + 0xFFFF;
+    if (arg3->unk_08 < phi_a0) {
+        this->unk_DA8 = (phi_a0 - arg3->unk_08) + 0xFFFF;
     } else {
-        this->unk_DA8 = arg3->unk_08 - nextTime;
+        this->unk_DA8 = arg3->unk_08 - phi_a0;
     }
 
-    if (1) {}
+    this->unk_DB4 = sp26 - phi_a0;
 
-    this->unk_DB4 = curTime - nextTime;
-
-    if (1) {}
-
-    new_var = this->path->unk_00 - 2;
-    this->unk_DAC = this->unk_DA8 / new_var;
+    phi_a0 = this->path->unk_00 - 2;
+    this->unk_DAC = this->unk_DA8 / phi_a0;
     this->unk_DB0 = (this->unk_DB4 / this->unk_DAC) + 2;
+
     this->actionId &= ~1;
     this->unk_D84 = 1.0f;
 
     return 1;
 }
-#else
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40098.asm")
-#endif
 
 
 extern f32 D_80A41934;
