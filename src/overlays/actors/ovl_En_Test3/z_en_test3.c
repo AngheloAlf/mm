@@ -43,6 +43,16 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx);
 // bss
 extern s32 D_80A41D20;
 extern s32 D_80A41D24;
+extern Input D_80A41D28;
+extern f32 D_80A41D40;
+extern s16 D_80A41D44;
+extern s32 D_80A41D48;
+extern Vec3f D_80A41D50;
+extern s32 D_80A41D5C;
+extern s32 D_80A41D60;
+extern s32 D_80A41D64;
+extern s32 D_80A41D68;
+extern Vec3f* D_80A41D6C;
 
 // Extenal
 extern LinkAnimationHeader D_0400CF88;
@@ -526,7 +536,7 @@ s32 func_80A3F09C(EnTest3* this, GlobalContext* globalCtx) {
 }
 
 void func_80A3F0B0(EnTest3* this, GlobalContext* globalCtx) {
-    func_800BC154(globalCtx, &globalCtx->actorCtx, (Actor*)this->player, ACTORCAT_PLAYER);
+    func_800BC154(globalCtx, &globalCtx->actorCtx, &this->player->actor, ACTORCAT_PLAYER);
     func_800BC154(globalCtx, &globalCtx->actorCtx, &this->actor.actor, ACTORCAT_NPC);
 
     this->player->stateFlags1 &= ~0x20;
@@ -635,7 +645,6 @@ void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
 }
 
 
-extern s32 D_80A41D5C;
 extern TalkState D_80A41898[];
 
 void func_80A3F5A4(EnTest3 *this, GlobalContext *globalCtx) {
@@ -752,7 +761,7 @@ s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
         s32 phi_t0 = func_80A40230(this, globalCtx) != 0;
 
         if (this->unk_D8A > 0) {
-            // This redundant seems to be neccesary
+            // This redundant variable seems to be neccesary
             s32 phi_t0_2 = phi_t0;
 
             this->unk_D8A--;
@@ -863,7 +872,6 @@ s32 func_80A3FDE4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
-extern s32 D_80A41D64;
 
 s32 func_80A3FE20(EnTest3 *this, GlobalContext *globalCtx) {
     struct_80A417E8_arg2 sp2C;
@@ -891,7 +899,6 @@ s32 func_80A3FE20(EnTest3 *this, GlobalContext *globalCtx) {
 
 //Vec3f D_80A418BC[] = { -420.0f, 210.0f, -162.0f };
 extern Vec3f D_80A418BC[];
-extern s32 D_80A41D68;
 
 #ifdef NON_MATCHING
 // v0/v1 problems
@@ -967,29 +974,34 @@ s32 func_80A40098(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 
 
 
 extern f32 D_80A41934;
-extern f32 D_80A41D40;
-extern s16 D_80A41D44;
-extern s32 D_80A41D48;
-extern Vec3f D_80A41D50;
 
 #ifdef NON_MATCHING
+// float regalloc
 s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
+    UNK_TYPE1 pad[0x408];
+
+    f32 *sp4C;
+    s32 *sp48;
+    s32 *sp44;
+
+    s32 pad2;
+
     Vec3f sp94;
     Vec3f sp88;
     Vec3f sp7C;
     Vec3f sp70;
+
     s32 sp6C;
     s32 sp68;
+    s32 pad3;
+    f32 sp60;
+    f32 sp5C;
     s32 sp58;
-    f32 *sp4C;
-    s32 *sp48;
-    s32 *sp44;
-    f32 temp_f12;
-    f32 temp_f2;
 
     sp6C = 0;
     sp68 = 0;
     sp58 = 0;
+
     func_8013AF00(&sp94, 3, this->path->unk_00 + 3);
 
     if ((this->actionId & 1) == 0) {
@@ -1021,9 +1033,9 @@ s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
 
     this->unk_D98 = D_801D15B0;
 
-    if (func_8013B6B0(this->path, sp4C, sp48, this->unk_DAC, this->unk_DA8, sp44, &sp94, (f32 *) &this->unk_D98, this->unk_D80) != 0) {
+    if (func_8013B6B0(this->path, sp4C, sp48, this->unk_DAC, this->unk_DA8, sp44, &sp94, &this->unk_D98, this->unk_D80) != 0) {
         if (this->schedule == 0x14) {
-            gSaveContext.weekEventReg[0x30] &= (u8)~0x80;
+            gSaveContext.weekEventReg[0x3A] &= (u8)~0x80;
             this->actor.actor.draw = NULL;
         } else if (this->schedule == 9) {
             D_80A41D64 = 2;
@@ -1043,21 +1055,22 @@ s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
         this->unk_D98 = sp70;
     }
 
-    //if (!(&this->unk_D84)) { }
+    sp60 = this->actor.actor.world.pos.x;
+    sp60 -= this->actor.actor.prevPos.x;
 
-    temp_f2 = this->actor.actor.world.pos.x - this->actor.actor.prevPos.x;
-    temp_f12 = this->actor.actor.world.pos.z - this->actor.actor.prevPos.z;
+    sp5C = this->actor.actor.world.pos.z;
+    sp5C -= this->actor.actor.prevPos.z;
 
     if (Math_StepToF(&this->unk_D84, 1.0f, 0.1f) == 0) {
-        this->actor.actor.world.pos.x = (this->unk_D84 * temp_f2) + this->actor.actor.prevPos.x;
-        this->actor.actor.world.pos.z = (this->unk_D84 * temp_f12) + this->actor.actor.prevPos.z;
+        this->actor.actor.world.pos.x = this->actor.actor.prevPos.x + (sp60 *  this->unk_D84);
+        this->actor.actor.world.pos.z = this->actor.actor.prevPos.z + (sp5C *  this->unk_D84);
     }
 
     Math_Vec3f_Copy(&D_80A41D50, &this->actor.actor.world.pos);
     this->actor.linearVelocity = sqrtf(SQ(this->actor.actor.world.pos.x - this->actor.actor.prevPos.x) + SQ(this->actor.actor.world.pos.z - this->actor.actor.prevPos.z));
     this->actor.linearVelocity *= 1.0f + (D_80A41934 * fabsf(Math_SinS(this->actor.unk_B6C)));
 
-    D_80A41D40 = (f32) ((this->actor.linearVelocity * 10.0f) + 20.0f);
+    D_80A41D40 = this->actor.linearVelocity * 10.0f + 20.0f;
     D_80A41D40 = CLAMP_MAX(D_80A41D40, 60.0f);
 
     D_80A41D44 = (s16) this->actor.actor.world.rot.y;
@@ -1075,7 +1088,6 @@ s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
 #endif
 
 
-//#ifdef NON_MATCHING
 void func_80A40678(EnTest3* this, GlobalContext* globalCtx) {
     struct_80A417E8_arg2* temp_a2;
     struct_80A417E8_arg3 sp2C;
@@ -1173,7 +1185,6 @@ void func_80A40908(EnTest3 *this, GlobalContext *globalCtx) {
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40908.asm")
 #endif
 
-extern Input D_80A41D28;
 
 // UpdateController?
 void func_80A409D4(EnTest3 *this, GlobalContext *globalCtx) {
@@ -1250,10 +1261,8 @@ extern s32 D_80A418C8;
 s32 D_80A418C8 = 0;
 */
 
-extern Vec3f* D_80A41D6C;
-
 #ifdef NON_EQUIVALENT
-s32 func_80A40CF0(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
+s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
     EnTest3* this = THIS;
 
     if (limbIndex == 1) {
@@ -1309,8 +1318,8 @@ s32 func_80A40CF0(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *p
     return 0;
 }
 #else
-s32 func_80A40CF0(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40CF0.asm")
+s32 EnTest3_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx);
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_OverrideLimbDraw.asm")
 #endif
 
 extern Vec3f D_80A418CC;
@@ -1326,11 +1335,10 @@ extern Gfx D_0600EDD0[];
 extern Gfx D_0600CB60[];
 extern Gfx D_0A0004A0[];
 
-extern s32 D_80A41D60;
 
 
 #ifdef NON_EQUIVALENT
-void func_80A40F34(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **dList2, Vec3s *rot, Actor *thisx) {
+void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **dList2, Vec3s *rot, Actor *thisx) {
     EnTest3* this = THIS;
     MtxF sp58;
     //void *sp54;
@@ -1466,8 +1474,8 @@ void func_80A40F34(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **
     //CLOSE_DISPS(globalCtx->state.gfxCtx);
 }
 #else
-void func_80A40F34(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A40F34.asm")
+void EnTest3_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);
+#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_PostLimbDraw.asm")
 #endif
 
 
@@ -1496,7 +1504,7 @@ static FaceAnimKeyFrame faceAnimInfo[] = {
 };
 */
 
-
+// Draw
 void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
     EnTest3* this = THIS;
     s32 pad;
@@ -1546,7 +1554,7 @@ void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
     POLY_OPA_DISP = &gfx[2];
 
     SkelAnime_LodDrawSV(globalCtx, this->actor.skelAnime.skeleton, this->actor.skelAnime.limbDrawTbl,
-                        this->actor.skelAnime.dListCount, func_80A40CF0, func_80A40F34, &this->actor.actor, 0);
+                        this->actor.skelAnime.dListCount, EnTest3_OverrideLimbDraw, EnTest3_PostLimbDraw, &this->actor.actor, 0);
 
     if (this->actor.invincibilityTimer > 0) {
         POLY_OPA_DISP = func_801660B8(globalCtx, POLY_OPA_DISP);
