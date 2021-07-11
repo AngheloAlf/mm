@@ -749,8 +749,6 @@ s32 func_80A3F9E4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
-#ifdef NON_MATCHING
-// regalloc
 s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
     s32 phi_t0;
     Player* player = PLAYER;
@@ -761,28 +759,18 @@ s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
     if (player->stateFlags1 & 0x40) {
         return 0;
     } else {
-        phi_t0 = func_80A40230(this, globalCtx) != 0;
+        phi_t0 = func_80A40230(this, globalCtx);
 
         if (this->unk_D8A > 0) {
-            // This redundant variable seems to be neccesary
-            s32 phi_t0_2 = phi_t0;
-
             this->unk_D8A--;
 
-            if (phi_t0_2) {
-                phi_t0_2 = false;
-                if (this->actor.actor.xzDistToPlayer < 200.0f) {
-                    phi_t0_2 = true;
-                }
-            }
-
-            if (phi_t0_2 || this->unk_D8A <= 0) {
+            if ((phi_t0 = phi_t0 && this->actor.actor.xzDistToPlayer < 200.0f) || this->unk_D8A <= 0) {
                 func_80A3F114(this, globalCtx);
                 sp40.unk_01_0 = 0x5;
 
                 sp30.unk_04 = (u16)(gSaveContext.time - 0x3FFC);
                 sp30.unk_04 = (sp30.unk_04 & 0xFFFF);
-                sp30.unk_08 = (u16)(((phi_t0_2) ? 0x50 : 0x8C) + (u16)(sp30.unk_04));
+                sp30.unk_08 = (u16)(((phi_t0) ? 0x50 : 0x8C) + sp30.unk_04);
 
                 func_80A40098(this, globalCtx, &sp40, &sp30);
                 this->unk_D8A = -0x28;
@@ -803,9 +791,6 @@ s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
 
     return 0;
 }
-#else
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/func_80A3FA58.asm")
-#endif
 
 s32 func_80A3FBCC(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
     return 1;
@@ -1060,23 +1045,21 @@ s32 func_80A40230(EnTest3 *this, GlobalContext *globalCtx) {
 
     sp60 = this->actor.actor.world.pos.x;
     sp60 -= this->actor.actor.prevPos.x;
-
     sp5C = this->actor.actor.world.pos.z;
     sp5C -= this->actor.actor.prevPos.z;
-
     if (Math_StepToF(&this->unk_D84, 1.0f, 0.1f) == 0) {
-        this->actor.actor.world.pos.x = this->actor.actor.prevPos.x + (sp60 *  this->unk_D84);
-        this->actor.actor.world.pos.z = this->actor.actor.prevPos.z + (sp5C *  this->unk_D84);
+        this->actor.actor.world.pos.x = this->actor.actor.prevPos.x + (sp60 * this->unk_D84);
+        this->actor.actor.world.pos.z = this->actor.actor.prevPos.z + (sp5C * this->unk_D84);
     }
 
     Math_Vec3f_Copy(&D_80A41D50, &this->actor.actor.world.pos);
     this->actor.linearVelocity = sqrtf(SQ(this->actor.actor.world.pos.x - this->actor.actor.prevPos.x) + SQ(this->actor.actor.world.pos.z - this->actor.actor.prevPos.z));
-    this->actor.linearVelocity *= 1.0f + (D_80A41934 * fabsf(Math_SinS(this->actor.unk_B6C)));
+    this->actor.linearVelocity *= 1.0f + (1.05f * fabsf(Math_SinS(this->actor.unk_B6C)));
 
     D_80A41D40 = this->actor.linearVelocity * 10.0f + 20.0f;
     D_80A41D40 = CLAMP_MAX(D_80A41D40, 60.0f);
 
-    D_80A41D44 = (s16) this->actor.actor.world.rot.y;
+    D_80A41D44 = this->actor.actor.world.rot.y;
     this->actor.actor.world.pos.x = this->actor.actor.prevPos.x;
     this->actor.actor.world.pos.z = this->actor.actor.prevPos.z;
 
@@ -1246,8 +1229,6 @@ extern s32 D_80A418C8;
 s32 D_80A418C8 = 0;
 */
 
-#ifdef NON_MATCHING
-// Two instructions are swapped
 s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
     EnTest3* this = THIS;
 
@@ -1285,8 +1266,10 @@ s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dLis
             rot->y -= this->actor.unk_AAC.y;
             rot->z += this->actor.unk_AAC.x;
         } else if (limbIndex == 0xA) {
+            s16 zRot = 0x44C;
+
             if (this->actor.unk_AA6.y != 0) {
-                SysMatrix_InsertZRotation_s(0x44C, 1);
+                SysMatrix_InsertZRotation_s(zRot, 1);
                 Matrix_RotateY(this->actor.unk_AA6.y, 1);
             }
 
@@ -1301,12 +1284,9 @@ s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dLis
             func_80125500(globalCtx, &this->actor, limbIndex, pos, rot);
         }
     }
+
     return 0;
 }
-#else
-s32 EnTest3_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx);
-#pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_OverrideLimbDraw.asm")
-#endif
 
 extern Vec3f D_80A418CC;
 /*
