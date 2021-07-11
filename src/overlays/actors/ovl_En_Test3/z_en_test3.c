@@ -750,15 +750,18 @@ s32 func_80A3F9E4(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
 }
 
 #ifdef NON_MATCHING
+// regalloc
 s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
+    s32 phi_t0;
     Player* player = PLAYER;
+    s32 pad;
     struct_80A417E8_arg2 sp40;
     struct_80A417E8_arg3 sp30;
 
     if (player->stateFlags1 & 0x40) {
         return 0;
     } else {
-        s32 phi_t0 = func_80A40230(this, globalCtx) != 0;
+        phi_t0 = func_80A40230(this, globalCtx) != 0;
 
         if (this->unk_D8A > 0) {
             // This redundant variable seems to be neccesary
@@ -774,7 +777,6 @@ s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
             }
 
             if (phi_t0_2 || this->unk_D8A <= 0) {
-
                 func_80A3F114(this, globalCtx);
                 sp40.unk_01_0 = 0x5;
 
@@ -784,6 +786,7 @@ s32 func_80A3FA58(EnTest3 *this, GlobalContext *globalCtx) {
 
                 func_80A40098(this, globalCtx, &sp40, &sp30);
                 this->unk_D8A = -0x28;
+
                 return 0;
             } else if (this->unk_D8A == 0x5A) {
                 globalCtx->startPlayerCutscene(globalCtx, &this->actor, 0x15);
@@ -1261,26 +1264,28 @@ extern s32 D_80A418C8;
 s32 D_80A418C8 = 0;
 */
 
-#ifdef NON_EQUIVALENT
+#ifdef NON_MATCHING
+// Two instructions are swapped
 s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
     EnTest3* this = THIS;
 
     if (limbIndex == 1) {
-        //D_80A41D6C = (Vec3f *) (actor + 0xBE0);
+        // D_80A41D6C = (Vec3f *) (actor + 0xBE0);
+        // This feels wrong
         D_80A41D6C = &this->actor.swordInfo[2].base;
-        if (((this->actor.skelAnime.flags & 0x04) == 0) || (((this->actor.skelAnime.flags & 0x01) != 0))) {
+        if (!(this->actor.skelAnime.flags & 0x04) || (this->actor.skelAnime.flags & 0x01)) {
             pos->x *= this->actor.ageProperties->unk_08;
             pos->z *= this->actor.ageProperties->unk_08;
         }
 
-        if (((this->actor.skelAnime.flags & 0x04) == 0) || ((this->actor.skelAnime.flags & 0x02))) {
+        if (!(this->actor.skelAnime.flags & 0x04) || (this->actor.skelAnime.flags & 0x02)) {
             pos->y *= this->actor.ageProperties->unk_08;
         }
 
         pos->y -= this->actor.unk_AB8;
-        if (this->actor.unk_AAA != 0) {
-            SysMatrix_InsertTranslation(pos->x, ((Math_CosS(this->actor.unk_AAA) - 1.0f) * 200.0f) + pos->y, pos->z, 1);
-            SysMatrix_InsertXRotation_s(this->actor.unk_AAA, 1);
+        if (this->actor.unk_AA6.z != 0) {
+            SysMatrix_InsertTranslation(pos->x, (Math_CosS(this->actor.unk_AA6.z) - 1.0f) * 200.0f + pos->y, pos->z, 1);
+            SysMatrix_InsertXRotation_s(this->actor.unk_AA6.z, 1);
             SysMatrix_InsertRotation(rot->x, rot->y, rot->z, 1);
             func_80125318(pos, rot);
         }
@@ -1289,7 +1294,7 @@ s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dLis
             D_80A41D6C++;
         }
 
-        if (D_80A418C8 != 0) {
+        if (D_80A418C8) {
             *dList = NULL;
         }
 
@@ -1298,21 +1303,20 @@ s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dLis
             rot->y -= this->actor.unk_AAC.y;
             rot->z += this->actor.unk_AAC.x;
         } else if (limbIndex == 0xA) {
-            if (this->actor.unk_AA8 != 0) {
+            if (this->actor.unk_AA6.y != 0) {
                 SysMatrix_InsertZRotation_s(0x44C, 1);
-                Matrix_RotateY(this->actor.unk_AA8, 1);
+                Matrix_RotateY(this->actor.unk_AA6.y, 1);
             }
 
             if (this->actor.unk_AB2.y != 0) {
                 Matrix_RotateY(this->actor.unk_AB2.y, 1);
             }
-            SysMatrix_InsertXRotation_s(this->actor.unk_AB2.y, 1);
-
+            SysMatrix_InsertXRotation_s(this->actor.unk_AB2.x, 1);
             if (this->actor.unk_AB2.z != 0) {
                 SysMatrix_InsertZRotation_s(this->actor.unk_AB2.z, 1);
             }
         } else {
-            func_80125500(this, limbIndex, pos, rot);
+            func_80125500(globalCtx, &this->actor, limbIndex, pos, rot);
         }
     }
     return 0;
@@ -1345,20 +1349,8 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
     Vec3s sp40;
     //s16 *sp38;
     //MtxF *sp1C;
-    //Gfx *temp_a2;
-    //Gfx *temp_v1;
-    //Gfx *temp_v1_3;
-    //Gfx *temp_v1_4;
-    //GraphicsContext *temp_a0;
-    //GraphicsContext *temp_a0_3;
-    //GraphicsContext *temp_a0_4;
     //MtxF *temp_a0_2;
-    //LinkAnimationHeader* temp_v0_3;
-    u8 temp_v1_2;
-    Actor *temp_v0;
-    //Actor *temp_v0_2;
-
-    //OPEN_DISPS(globalCtx->state.gfxCtx);
+    s32 pad;
 
     if (*dList2 != NULL) {
         SysMatrix_GetStateTranslation(D_80A41D6C);
@@ -1368,17 +1360,10 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
         Math_Vec3f_Copy(&this->actor.leftHandWorld.pos, D_80A41D6C);
         //temp_a2 = *dList1;
         if (*dList1 != NULL) {
-            func_80128640(globalCtx, &this->actor, *dList1, &this->actor.actor);
+            func_80128640(globalCtx, &this->actor, *dList1);
             //if ((this->actor.stateFlags3 * 4) < 0) {
             if ((this->actor.stateFlags3 & 0x020000000)) {
                 OPEN_DISPS(globalCtx->state.gfxCtx);
-                /*
-                temp_a0 = globalCtx->state.gfxCtx;
-                temp_v1 = temp_a0->polyOpa.p;
-                temp_a0->polyOpa.p = temp_v1 + 8;
-                temp_v1->words.w1 = 0x600EDD0;
-                temp_v1->words.w0 = 0xDE000000;
-                */
                 gSPDisplayList(POLY_OPA_DISP++, D_0600EDD0);
                 CLOSE_DISPS(globalCtx->state.gfxCtx);
             }
@@ -1386,13 +1371,14 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
         //temp_v0 = actor->unk34C;
         //temp_a0_2 = actor + 0xCC4;
         //if ((temp_v0 != 0) && ((actor->unkA6C & 0x800) != 0)) {
-        temp_v0 = this->actor.leftHandActor;
+        //temp_v0 = this->actor.leftHandActor;
         //temp_a0_2 = &this->actor.mf_CC4;
-        if ((temp_v0 != NULL) && ((this->actor.stateFlags1 & 0x800) != 0)) {
+        if ((this->actor.leftHandActor != NULL) && (this->actor.stateFlags1 & 0x800)) {
+            Actor *temp_v0 = this->actor.leftHandActor;
             //sp54 = temp_v0;
             SysMatrix_CopyCurrentState((MtxF *) &sp58);
             func_8018219C((MtxF *) &sp58, (Vec3s *) &sp40, 0);
-            temp_v0->world.pos.y = (this->actor.actor.shape.rot.y + this->actor.leftHandWorld.rot.y);
+            temp_v0->world.rot.y = (this->actor.actor.shape.rot.y + this->actor.leftHandWorld.rot.y);
             //temp_v0->unkBE = (s16) temp_v0->unk32;
             temp_v0->shape.rot.y = temp_v0->world.rot.y;
             //return;
@@ -1407,11 +1393,11 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
         //return;
     } else if (limbIndex == 0x13) {
         //temp_v0_2 = actor->unk34C;
-        //temp_v0_2 = this->actor.leftHandActor;
-        if (this->actor.leftHandActor != NULL) {
-            this->actor.leftHandActor->world.pos.x = ((this->actor.bodyPartsPos[0xF].x + this->actor.leftHandWorld.pos.x) * 0.5f);
-            this->actor.leftHandActor->world.pos.y = ((this->actor.bodyPartsPos[0xF].y + this->actor.leftHandWorld.pos.y) * 0.5f);
-            this->actor.leftHandActor->world.pos.z = ((this->actor.bodyPartsPos[0xF].z + this->actor.leftHandWorld.pos.z) * 0.5f);
+        Actor *temp_v0_2 = this->actor.leftHandActor;
+        if (temp_v0_2 != NULL) {
+            temp_v0_2->world.pos.x = ((this->actor.bodyPartsPos[0xF].x + this->actor.leftHandWorld.pos.x) * 0.5f);
+            temp_v0_2->world.pos.y = ((this->actor.bodyPartsPos[0xF].y + this->actor.leftHandWorld.pos.y) * 0.5f);
+            temp_v0_2->world.pos.z = ((this->actor.bodyPartsPos[0xF].z + this->actor.leftHandWorld.pos.z) * 0.5f);
             //return;
         }
         //return;
@@ -1419,24 +1405,16 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
         Vec3f* focusPos;
 
         if (*dList1 != NULL) {
-            temp_v1_2 = this->actor.currentMask;
-            //if ((temp_v1_2 != 0) && ((this->actor.stateFlags2 << 7) >= 0)) {
-            if ((temp_v1_2 != 0) && !(this->actor.stateFlags2 & 0x01000000)) {
-                //temp_v0_3 = ;
+            //u8 currentMask = this->actor.currentMask;
+            //if ((this->actor.currentMask != 0) && ((this->actor.stateFlags2 << 7) >= 0)) {
+            if ((this->actor.currentMask != PLAYER_MASK_NONE) && !(this->actor.stateFlags2 & 0x01000000)) {
                 if ((this->actor.skelAnime.linkAnimetionSeg != &D_0400D0A8) && ((this->actor.skelAnime.linkAnimetionSeg != &D_0400D0C8) || (this->actor.skelAnime.animCurrentFrame >= 12.0f))) {
-                    //sp38 = this->actor.unk_730;
-                    if (func_80127438(globalCtx, &this->actor.actor, temp_v1_2, &this->actor.actor) != 0) {
-                        OPEN_DISPS(globalCtx->state.gfxCtx);
-                        /*
-                        temp_a0_3 = globalCtx->state.gfxCtx;
-                        temp_v1_3 = temp_a0_3->polyOpa.p;
-                        temp_a0_3->polyOpa.p = temp_v1_3 + 8;
-                        temp_v1_3->words.w1 = 0xA0004A0;
-                        temp_v1_3->words.w0 = 0xDE000000;
-                        */
-                        gSPDisplayList(POLY_OPA_DISP++, D_0A0004A0);
-                        CLOSE_DISPS(globalCtx->state.gfxCtx);
+                    //s16 *sp38 = this->actor.unk_730;
+                    OPEN_DISPS(globalCtx->state.gfxCtx);
+                    if (func_80127438(globalCtx, &this->actor, this->actor.currentMask)) {
+                        gSPDisplayList(++POLY_OPA_DISP, D_0A0004A0);
                     }
+                    CLOSE_DISPS(globalCtx->state.gfxCtx);
                 }
             }
         }
@@ -1451,27 +1429,18 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
         //return;
     } else if (limbIndex == 0x15) {
         //if ((D_80A41D60 != 0) || ((gSaveContext.weekEventReg[0x30] & 0x80) != 0) || (gSaveContext.inventory.items[*(u8 *)0x801C20A8] == 0x30) || (this->actor.unk_B2A == 0x6F)) {
-        if ((D_80A41D60 != 0) || ((gSaveContext.weekEventReg[0x30] & 0x80) != 0) || (INV_CONTENT(0x30) == 0x30) || (this->actor.unk_B2A == 0x6F)) {
-            D_80A41D60 = 1;
+        if ((D_80A41D60) || (gSaveContext.weekEventReg[0x32] & 0x80) || (INV_CONTENT(0x30) == 0x30) || (this->actor.unk_B2A == 0x6F)) {
+            D_80A41D60 = true;
             //return;
         } else {
             OPEN_DISPS(globalCtx->state.gfxCtx);
-            /*
-            temp_a0_4 = globalCtx->state.gfxCtx;
-            temp_v1_4 = temp_a0_4->polyOpa.p;
-            temp_a0_4->polyOpa.p = temp_v1_4 + 8;
-            temp_v1_4->words.w1 = 0x600CB60;
-            temp_v1_4->words.w0 = 0xDE000000;
-            */
             gSPDisplayList(POLY_OPA_DISP++, D_0600CB60);
             CLOSE_DISPS(globalCtx->state.gfxCtx);
         }
         //return;
     } else {
-        func_80128B74(globalCtx, &this->actor.actor, limbIndex, &this->actor.actor);
+        func_80128B74(globalCtx, &this->actor, limbIndex);
     }
-
-    //CLOSE_DISPS(globalCtx->state.gfxCtx);
 }
 #else
 void EnTest3_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);

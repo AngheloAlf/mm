@@ -151,7 +151,7 @@ typedef struct Player {
     /* 0x1F4 */ OSMesg giObjectLoadMsg;
     /* 0x1F8 */ void* giObjectSegment;
     /* 0x1FC */ u8 maskObjectLoading;
-    /* 0x1FD */ s8 maskId;
+    /* 0x1FD */ u8 maskId;
     /* 0x200 */ DmaRequest maskDmaRequest;
     /* 0x220 */ OSMesgQueue maskObjectLoadQueue;
     /* 0x238 */ OSMesg maskObjectLoadMsg;
@@ -222,9 +222,7 @@ typedef struct Player {
     /* 0xAA0 */ f32 unk_AA0;
     /* 0xAA4 */ s8 unk_AA4;
     /* 0xAA5 */ u8 unk_AA5;
-    /* 0xAA6 */ u16 unk_AA6;
-    /* 0xAA8 */ s16 unk_AA8;
-    /* 0xAAA */ s16 unk_AAA;
+    /* 0xAA6 */ Vec3s unk_AA6;
     /* 0xAAC */ Vec3s unk_AAC;
     /* 0xAB2 */ Vec3s unk_AB2;
     /* 0xAB8 */ f32 unk_AB8;
