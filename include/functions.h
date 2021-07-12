@@ -2297,7 +2297,7 @@ void func_8012697C(GlobalContext* globalCtx, Player* player);
 void func_80126B8C(GlobalContext* globalCtx, UNK_PTR arg1);
 // void func_80126BD0(void);
 // void func_801271B0(void);
-s32 func_80127438(GlobalContext *globalCtx, Player* player, u8 currentMask);
+s32 func_80127438(GlobalContext *globalCtx, Player* player, s32 currentMask);
 // void func_80127488(void);
 // void func_8012754C(void);
 // void func_80127594(void);

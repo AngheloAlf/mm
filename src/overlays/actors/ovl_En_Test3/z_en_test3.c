@@ -40,6 +40,24 @@ void func_80A40A6C(EnTest3* this, GlobalContext* globalCtx);
 
 void func_80A4129C(Actor* thisx, GlobalContext* globalCtx);
 
+
+
+
+s32 func_80A3E898(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3E884(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3E960(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3E870(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EAF8(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EBFC(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EC44(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EC30(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3E9DC(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EB8C(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3E97C(EnTest3* this, GlobalContext* globalCtx);
+s32 func_80A3EAC4(EnTest3* this, GlobalContext* game_play);
+
+
 // bss
 extern s32 D_80A41D20;
 extern s32 D_80A41D24;
@@ -56,24 +74,31 @@ extern Vec3f* D_80A41D6C;
 
 // Extenal
 extern LinkAnimationHeader D_0400CF88;
+extern LinkAnimationHeader D_0400D0A8;
+extern LinkAnimationHeader D_0400D0C8;
+
 extern FlexSkeletonHeader D_0600F7EC;
+extern Gfx D_0600EDD0[];
+extern Gfx D_0600CB60[];
+extern Gfx D_0A0004A0[];
 
-extern u8 D_80A41530[];
-/*
-u32 D_80A41530[] = {
-    0x0C000142, 0x0A007018, 0x02063207, 0x140C0F07, 0x1E070033, 0x04010509, 0x0A050E06, 0x3207140F, 0x0A006F21,
-    0x02060006, 0x1E150206, 0x1E06230D, 0x02062306, 0x3201050E, 0x06230632, 0x0E09010E, 0x0600061E, 0x0D050C00,
-    0x02510033, 0x020A1100, 0x00330401, 0x0504000A, 0x0A007025, 0x0F0D00F0, 0x020F050F, 0x1915020F, 0x190F280D,
-    0x020F2810, 0x0001050E, 0x0F281000, 0x1109010E, 0x0F050F19, 0x100A000D, 0x15020F37, 0x100A0902, 0x100A160A,
-    0x01050903, 0x0E0F3710, 0x0A0C050D, 0x00030098, 0x01210800, 0x87014F40, 0x00820A00, 0x4F020907, 0x00332029,
-    0x0A001324, 0x00330802, 0x0905003D, 0x08180033, 0x10070F13, 0x00010509, 0x05021300, 0x130A0105, 0x0E130013,
-    0x0A140905, 0x050A0013, 0x07005A02, 0x02090905, 0x0A006C0D, 0x02040004, 0x0A01050E, 0x0400040A, 0x0B0A0061,
-    0x2E02040A, 0x041E2200, 0x33011502, 0x041E042D, 0x0902042D, 0x06000105, 0x09060E04, 0x1E042D13, 0x02041E06,
-    0x00010509, 0x080E040A, 0x041E1205, 0x0A000D07, 0x00330801, 0x05090405, 0x05000000,
+
+//extern u8 D_80A41530[];
+
+u8 D_80A41530[] = {
+    0x0C, 0x00, 0x01, 0x42, 0x0A, 0x00, 0x70, 0x18, 0x02, 0x06, 0x32, 0x07, 0x14, 0x0C, 0x0F, 0x07, 0x1E, 0x07, 0x00, 0x33, 0x04, 0x01, 0x05, 0x09, 0x0A, 0x05, 0x0E, 0x06, 0x32, 0x07, 0x14, 0x0F, 0x0A, 0x00, 0x6F, 0x21,
+    0x02, 0x06, 0x00, 0x06, 0x1E, 0x15, 0x02, 0x06, 0x1E, 0x06, 0x23, 0x0D, 0x02, 0x06, 0x23, 0x06, 0x32, 0x01, 0x05, 0x0E, 0x06, 0x23, 0x06, 0x32, 0x0E, 0x09, 0x01, 0x0E, 0x06, 0x00, 0x06, 0x1E, 0x0D, 0x05, 0x0C, 0x00,
+    0x02, 0x51, 0x00, 0x33, 0x02, 0x0A, 0x11, 0x00, 0x00, 0x33, 0x04, 0x01, 0x05, 0x04, 0x00, 0x0A, 0x0A, 0x00, 0x70, 0x25, 0x0F, 0x0D, 0x00, 0xF0, 0x02, 0x0F, 0x05, 0x0F, 0x19, 0x15, 0x02, 0x0F, 0x19, 0x0F, 0x28, 0x0D,
+    0x02, 0x0F, 0x28, 0x10, 0x00, 0x01, 0x05, 0x0E, 0x0F, 0x28, 0x10, 0x00, 0x11, 0x09, 0x01, 0x0E, 0x0F, 0x05, 0x0F, 0x19, 0x10, 0x0A, 0x00, 0x0D, 0x15, 0x02, 0x0F, 0x37, 0x10, 0x0A, 0x09, 0x02, 0x10, 0x0A, 0x16, 0x0A,
+    0x01, 0x05, 0x09, 0x03, 0x0E, 0x0F, 0x37, 0x10, 0x0A, 0x0C, 0x05, 0x0D, 0x00, 0x03, 0x00, 0x98, 0x01, 0x21, 0x08, 0x00, 0x87, 0x01, 0x4F, 0x40, 0x00, 0x82, 0x0A, 0x00, 0x4F, 0x02, 0x09, 0x07, 0x00, 0x33, 0x20, 0x29,
+    0x0A, 0x00, 0x13, 0x24, 0x00, 0x33, 0x08, 0x02, 0x09, 0x05, 0x00, 0x3D, 0x08, 0x18, 0x00, 0x33, 0x10, 0x07, 0x0F, 0x13, 0x00, 0x01, 0x05, 0x09, 0x05, 0x02, 0x13, 0x00, 0x13, 0x0A, 0x01, 0x05, 0x0E, 0x13, 0x00, 0x13,
+    0x0A, 0x14, 0x09, 0x05, 0x05, 0x0A, 0x00, 0x13, 0x07, 0x00, 0x5A, 0x02, 0x02, 0x09, 0x09, 0x05, 0x0A, 0x00, 0x6C, 0x0D, 0x02, 0x04, 0x00, 0x04, 0x0A, 0x01, 0x05, 0x0E, 0x04, 0x00, 0x04, 0x0A, 0x0B, 0x0A, 0x00, 0x61,
+    0x2E, 0x02, 0x04, 0x0A, 0x04, 0x1E, 0x22, 0x00, 0x33, 0x01, 0x15, 0x02, 0x04, 0x1E, 0x04, 0x2D, 0x09, 0x02, 0x04, 0x2D, 0x06, 0x00, 0x01, 0x05, 0x09, 0x06, 0x0E, 0x04, 0x1E, 0x04, 0x2D, 0x13, 0x02, 0x04, 0x1E, 0x06,
+    0x00, 0x01, 0x05, 0x09, 0x08, 0x0E, 0x04, 0x0A, 0x04, 0x1E, 0x12, 0x05, 0x0A, 0x00, 0x0D, 0x07, 0x00, 0x33, 0x08, 0x01, 0x05, 0x09, 0x04, 0x05, 0x05, 0x00, 0x00, 0x00,
 };
-*/
 
-/*
+
+
 const ActorInit En_Test3_InitVars = {
     ACTOR_EN_TEST3,
     ACTORCAT_NPC,
@@ -85,7 +110,251 @@ const ActorInit En_Test3_InitVars = {
     (ActorFunc)EnTest3_Update,
     (ActorFunc)NULL,
 };
-*/
+
+
+
+
+
+//extern KafeiActionSetupInfo D_80A4168C[];
+// sActionSetupInfoList
+/* static */ KafeiActionSetupInfo D_80A4168C[] = {
+    { func_80A40A6C, NULL },
+    { NULL, NULL },
+};
+
+
+
+//extern EnTest3_functions_80A4169C D_80A4169C[];
+
+/* static */ EnTest3_functions_80A4169C D_80A4169C[] = {
+    func_80A3E898, func_80A3E898, func_80A3E884, func_80A3E898, func_80A3E898,
+    func_80A3EA30, func_80A3E898, func_80A3E960, func_80A3E870,
+};
+
+
+//extern EnTest3_functions_80A4169C D_80A416C0[];
+
+/* static */ EnTest3_functions_80A4169C D_80A416C0[] = {
+    func_80A3EAC4, func_80A3EAF8, func_80A3EBFC, func_80A3EC44,
+    func_80A3EC30, func_80A3E9DC, func_80A3EB8C, func_80A3E97C,
+};
+//extern PlayerAgeProperties D_80A416E0;
+
+// sAgeProperties
+/* static */ PlayerAgeProperties D_80A416E0 = {
+    40.0f,
+    60.0f,
+    0.647058844566f,
+    71.0f,
+    50.0f,
+    49.0f,
+    39.0f,
+    27.0f,
+    19.0f,
+    22.0f,
+    32.4f,
+    32.0f,
+    48.0f,
+    45.2941207886f,
+    14.0f,
+    12.0f,
+    55.0f,
+    { -24, 3565, 876 },
+    {
+        { -24, 3474, 862 },
+        { -24, 4977, 937 },
+        { 8, 4694, 380 },
+        { 9, 6122, 359 },
+    },
+    {
+        { -24, 4977, 0x03A9 },
+        { -24, 6495, 0x03A9 },
+        { 9, 6122, 359 },
+        { 9, 7693, 380 },
+    },
+    {
+        { 8, 4694, 380 },
+        { 9, 6122, 359 },
+        { -1592, 4694, 380 },
+        { -1591, 6122, 359 },
+    },
+    0x20,
+    0,
+    22.0f,
+    29.4343f,
+    0x0400D128,
+    0x0400D170,
+    0x0400D1B8,
+    0x0400D1F8,
+    0x0400D200,
+    { 0x0400D208, 0x0400D210, 0x0400DAB0, 0x0400DAB8 },
+    { 0x0400DA90, 0x0400DA98 },
+    { 0x0400D1D8, 0x0400D1E0 },
+    { 0x0400D1F0, 0x0400D1E8 },
+};
+
+
+//extern u32 D_80A417BC[];
+
+u32 D_80A417BC[] = {
+    0x00000000, 0x00080000, 0xFFFFFFFF, 0xFFFFFF40, 0xFFFFFF00, 0xFFFFFF00, 0x04000200, 0x00000000, 0x00000000,
+};
+
+
+//extern u32 D_80A417E0[];
+
+u32 D_80A417E0[] = {
+    0x0000003F,
+    0x00000F64,
+};
+
+
+//extern struct_80A417E8 D_80A417E8[];
+
+struct_80A417E8 D_80A417E8[] = {
+    { func_80A3F080, func_80A3F09C }, { func_80A40098, func_80A40230 }, { func_80A3F62C, func_80A3F73C },
+    { func_80A3F8D4, func_80A3F9A4 }, { func_80A3F9E4, func_80A3FA58 }, { func_80A3FBCC, func_80A3FBE8 },
+    { func_80A3FDE4, func_80A3FE20 }, { func_80A3FF10, func_80A3FFD0 },
+};
+
+
+//extern struct_80A417E8_arg2 D_80A41828[];
+
+struct_80A417E8_arg2 D_80A41828[] = {
+    { 0, 0, 0 },  { 3, 14, 0 }, { 2, 15, 0 }, { 2, 15, 1 }, { 2, 15, 2 }, { 2, 1, 3 }, { 2, 14, 4 }, { 5, 1, 0 },
+    { 7, 15, 0 }, { 6, 2, 0 },  { 4, 4, 0 },  { 1, 1, 0 },  { 1, 1, 0 },  { 1, 2, 0 }, { 1, 1, 0 },  { 1, 1, 0 },
+    { 1, 2, 0 },  { 1, 3, 0 },  { 1, 1, 0 },  { 1, 2, 0 },  { 1, 1, 0 },  { 0, 0, 0 },
+};
+
+
+//extern TalkState D_80A41854[];
+
+/* static */ TalkState D_80A41854[] = {
+    { 0x04, 0x00, 0x2B25 },
+};
+
+
+//extern TalkState D_80A41858[];
+
+/* static */ TalkState D_80A41858[] = {
+    { 1, 0, 0x2969 }, { 3, 1, 0x296A }, { 1, 0, 0x296B }, { 5, 1, 0x0000 }, { 8, 0, 0x0000 },
+};
+
+
+//extern TalkState D_80A4186C[];
+
+/* static */ TalkState D_80A4186C[] = {
+    { 4, 0, 0x2976 },
+};
+
+
+//extern TalkState D_80A41870[];
+
+/* static */ TalkState D_80A41870[] = {
+    { 6, 0, 0x2977 },
+    { 7, 10, 0x2978 },
+    { 4, 1, 0x0000 },
+};
+
+
+//extern TalkState D_80A4187C[];
+
+/* static */ TalkState D_80A4187C[] = {
+    { 4, 0, 0x2968 },
+};
+
+
+//extern TalkState D_80A41880[];
+
+/* static */ TalkState D_80A41880[] = {
+    { 4, 0, 0x297A },
+};
+
+
+//extern TalkState D_80A41884[];
+
+/* static */ TalkState D_80A41884[] = {
+    { 1, 0, 0x145D }, { 1, 0, 0x145E }, { 5, 1, 0x145F }, { 1, 0, 0x145F }, { 5, 0, 0x0000 }, 
+    // { 4, 0, 0x1460 },
+};
+
+//extern TalkState D_80A41898[];
+
+/* static */ TalkState D_80A41898[] = {
+    {0x04, 0x00, 0x1460}
+};
+
+
+//extern TalkState D_80A4189C[];
+
+/* static */ TalkState D_80A4189C[] = {
+    { 4, 0, 0x145C },
+};
+
+
+//extern TalkState D_80A418A0[];
+
+/* static */ TalkState D_80A418A0[] = {
+    { 4, 0, 0x2913 },
+};
+
+
+//extern TalkState D_80A418A4[];
+
+/* static */ TalkState D_80A418A4[] = {
+    { 4, 0, 0x1465 },
+};
+
+//extern TalkState* D_80A418A8[];
+
+/* static */ TalkState* D_80A418A8[] = {
+    D_80A41854, D_80A41858, D_80A41880, D_80A41884, D_80A418A0,
+};
+
+
+//extern Vec3f D_80A418BC[];
+/* static */ Vec3f D_80A418BC[] = { -420.0f, 210.0f, -162.0f };
+
+
+//extern s32 D_80A418C8;
+
+s32 D_80A418C8 = 0;
+
+
+
+
+//extern Vec3f D_80A418CC;
+
+/* static */ Vec3f D_80A418CC = { 1100.0f, -700.0f, 0.0f };
+
+
+
+//extern void* D_80A418D8[];
+// sEyeTextures
+/* static */ void* D_80A418D8[] = {
+    0x06000DC0, 0x06003680, 0x06003E80, 0x06004680, 0x06004E80, 0x06005680, 0x06005E80, 0x06006680,
+};
+
+
+//extern void* D_80A418F8[];
+// sMouthTextures
+/* static */ void* D_80A418F8[] = {
+    0x060009C0,
+    0x06006E80,
+    0x06007280,
+    0x06007680,
+};
+
+
+//extern FaceAnimKeyFrame D_80A41908[];
+
+// faceAnimInfo
+/* static */ FaceAnimKeyFrame D_80A41908[] = {
+    { 0, 0 }, { 1, 0 }, { 2, 0 }, { 0, 0 }, { 1, 0 }, { 2, 0 }, { 4, 0 }, { 5, 1 }, { 7, 2 }, { 0, 2 },
+    { 3, 0 }, { 4, 0 }, { 2, 2 }, { 1, 1 }, { 0, 2 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 },
+};
+
+
 
 s32 func_80A3E7E0(EnTest3* this, EnTest3ActionFunc actionFunc) {
     if (actionFunc == this->actionFunc) {
@@ -98,13 +367,6 @@ s32 func_80A3E7E0(EnTest3* this, EnTest3ActionFunc actionFunc) {
     return 1;
 }
 
-extern KafeiActionSetupInfo D_80A4168C[];
-/*
-static KafeiActionSetupInfo actionSetupInfoList[] = {
-    { func_80A40A6C, NULL },
-    { NULL, NULL },
-};
-*/
 
 s32 func_80A3E80C(EnTest3* this, GlobalContext* globalCtx, s32 actionIndex) {
     KafeiActionSetupInfo* actionSetup = &D_80A4168C[actionIndex];
@@ -191,6 +453,7 @@ s32 func_80A3EA30(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
+// game_play?
 s32 func_80A3EAC4(EnTest3* this, GlobalContext* game_play) {
     if (func_80152498(&game_play->msgCtx) == 6) {
         return 1;
@@ -261,26 +524,9 @@ s32 func_80A3EC44(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
-/*
-static EnTest3_functions_80A4169C D_80A4169C[] = {
-    func_80A3E898, func_80A3E898, func_80A3E884, func_80A3E898, func_80A3E898,
-    func_80A3EA30, func_80A3E898, func_80A3E960, func_80A3E870,
-};
-*/
-extern EnTest3_functions_80A4169C D_80A4169C[];
-
 s32 func_80A3ECEC(EnTest3* this, GlobalContext* globalCtx) {
-
     return D_80A4169C[this->talkState->unk_00](this, globalCtx);
 }
-
-/*
-static EnTest3_functions_80A4169C D_80A416C0[] = {
-    func_80A3EAC4, func_80A3EAF8, func_80A3EBFC, func_80A3EC44,
-    func_80A3EC30, func_80A3E9DC, func_80A3EB8C, func_80A3E97C,
-};
-*/
-extern EnTest3_functions_80A4169C D_80A416C0[];
 
 s32 func_80A3ED24(EnTest3* this, GlobalContext* globalCtx) {
     s32 index = D_80A416C0[this->talkState->unk_00](this, globalCtx);
@@ -293,75 +539,6 @@ s32 func_80A3ED24(EnTest3* this, GlobalContext* globalCtx) {
     return 0;
 }
 
-extern PlayerAgeProperties D_80A416E0;
-/*
-PlayerAgeProperties D_80A416E0 = {
-    40.0f,
-    60.0f,
-    0.647059f,
-    71.0f,
-    50.0f,
-    49.0f,
-    39.0f,
-    27.0f,
-    19.0f,
-    22.0f,
-    32.4f,
-    32.0f,
-    48.0f,
-    45.2941f,
-    14.0f,
-    12.0f,
-    55.0f,
-    { -24, 3565, 876 },
-    {
-        { -24, 3474, 862 },
-        { -24, 4977, 937 },
-        { 8, 4694, 380 },
-        { 9, 6122, 359 },
-    },
-    {
-        { -24, 4977, 0x03A9 },
-        { -24, 6495, 0x03A9 },
-        { 9, 6122, 359 },
-        { 9, 7693, 380 },
-    },
-    {
-        { 8, 4694, 380 },
-        { 9, 6122, 359 },
-        { -1592, 4694, 380 },
-        { -1591, 6122, 359 },
-    },
-    0x20,
-    0,
-    22.0f,
-    29.4343f,
-    0x0400D128,
-    0x0400D170,
-    0x0400D1B8,
-    0x0400D1F8,
-    0x0400D200,
-    { 0x0400D208, 0x0400D210, 0x0400DAB0, 0x0400DAB8 },
-    { 0x0400DA90, 0x0400DA98 },
-    { 0x0400D1D8, 0x0400D1E0 },
-    { 0x0400D1F0, 0x0400D1E8 },
-};
-*/
-
-extern u32 D_80A417BC[];
-/*
-u32 D_80A417BC[] = {
-    0x00000000, 0x00080000, 0xFFFFFFFF, 0xFFFFFF40, 0xFFFFFF00, 0xFFFFFF00, 0x04000200, 0x00000000, 0x00000000,
-};
-*/
-
-extern u32 D_80A417E0[];
-/*
-u32 D_80A417E0[] = {
-    0x0000003F,
-    0x00000F64,
-};
-*/
 
 void EnTest3_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnTest3* this = THIS;
@@ -443,88 +620,6 @@ void EnTest3_Destroy(Actor* thisx, GlobalContext* globalCtx) {
     func_800FE498();
 }
 
-extern struct_80A417E8 D_80A417E8[];
-/*
-struct_80A417E8 D_80A417E8[] = {
-    { func_80A3F080, func_80A3F09C }, { func_80A40098, func_80A40230 }, { func_80A3F62C, func_80A3F73C },
-    { func_80A3F8D4, func_80A3F9A4 }, { func_80A3F9E4, func_80A3FA58 }, { func_80A3FBCC, func_80A3FBE8 },
-    { func_80A3FDE4, func_80A3FE20 }, { func_80A3FF10, func_80A3FFD0 },
-};
-*/
-
-extern struct_80A417E8_arg2 D_80A41828[];
-/*
-struct_80A417E8_arg2 D_80A41828[] = {
-    { 0, 0, 0 },  { 3, 14, 0 }, { 2, 15, 0 }, { 2, 15, 1 }, { 2, 15, 2 }, { 2, 1, 3 }, { 2, 14, 4 }, { 5, 1, 0 },
-    { 7, 15, 0 }, { 6, 2, 0 },  { 4, 4, 0 },  { 1, 1, 0 },  { 1, 1, 0 },  { 1, 2, 0 }, { 1, 1, 0 },  { 1, 1, 0 },
-    { 1, 2, 0 },  { 1, 3, 0 },  { 1, 1, 0 },  { 1, 2, 0 },  { 1, 1, 0 },  { 0, 0, 0 },
-};
-*/
-
-extern TalkState D_80A41854[];
-/*
-TalkState D_80A41854[] = {
-    { 0x04, 0x00, 0x2B25 },
-};
-*/
-
-extern TalkState D_80A41858[];
-/*
-TalkState D_80A41858[] = {
-    { 1, 0, 0x2969 }, { 3, 1, 0x296A }, { 1, 0, 0x296B }, { 5, 1, 0x0000 }, { 8, 0, 0x0000 },
-};
-*/
-
-extern TalkState D_80A4186C[];
-/*
-TalkState D_80A4186C[] = {
-    { 4, 0, 0x2976 },
-};
-*/
-
-extern TalkState D_80A41870[];
-/*
-TalkState D_80A41870[] = {
-    { 6, 0, 0x2977 },
-    { 7, 10, 0x2978 },
-    { 4, 1, 0x0000 },
-};
-*/
-
-extern TalkState D_80A4187C[];
-/*
-TalkState D_80A4187C[] = {
-    { 4, 0, 0x2968 },
-};
-*/
-
-extern TalkState D_80A41880[];
-/*
-TalkState D_80A41880[] = {
-    { 4, 0, 0x297A },
-};
-*/
-
-extern TalkState D_80A41884[];
-/*
-TalkState D_80A41884[] = {
-    { 1, 0, 0x145D }, { 1, 0, 0x145E }, { 5, 1, 0x145F }, { 1, 0, 0x145F }, { 5, 0, 0x0000 }, { 4, 0, 0x1460 },
-};
-*/
-
-extern TalkState D_80A4189C[];
-/*
-TalkState D_80A4189C[] = {
-    { 4, 0, 0x145C },
-};
-*/
-
-extern TalkState D_80A418A0[];
-/*
-TalkState D_80A418A0[] = {
-    { 4, 0, 0x2913 },
-};
-*/
 
 s32 func_80A3F080(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2* arg2, struct_80A417E8_arg3* arg3) {
     return 1;
@@ -645,8 +740,6 @@ void func_80A3F534(EnTest3* this, GlobalContext* globalCtx) {
 }
 
 
-extern TalkState D_80A41898[];
-
 void func_80A3F5A4(EnTest3 *this, GlobalContext *globalCtx) {
     if (!(gSaveContext.weekEventReg[0x33] & 8) || !func_80A3F4A4(globalCtx)) {
         this->talkState = D_80A4189C;
@@ -660,12 +753,7 @@ void func_80A3F5A4(EnTest3 *this, GlobalContext *globalCtx) {
 }
 
 
-extern TalkState* D_80A418A8[];
-/*
-TalkState* D_80A418A8[] = {
-    D_80A41854, D_80A41858, D_80A41880, D_80A41884, D_80A418A0,
-};
-*/
+
 
 
 s32 func_80A3F62C(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
@@ -796,13 +884,6 @@ s32 func_80A3FBCC(EnTest3* this, GlobalContext* globalCtx, struct_80A417E8_arg2*
     return 1;
 }
 
-extern TalkState D_80A418A4[];
-/*
-TalkState D_80A418A4[] = {
-    { 4, 0, 0x1465 },
-};
-*/
-
 s32 func_80A3FBE8(EnTest3* this, GlobalContext* globalCtx) {
     if (D_80A41D20 == 0) {
         if (func_801690CC(globalCtx) == 0) {
@@ -885,8 +966,6 @@ s32 func_80A3FE20(EnTest3 *this, GlobalContext *globalCtx) {
     return 0;
 }
 
-//Vec3f D_80A418BC[] = { -420.0f, 210.0f, -162.0f };
-extern Vec3f D_80A418BC[];
 
 s32 func_80A3FF10(EnTest3 *this, GlobalContext *globalCtx, struct_80A417E8_arg2 *arg2, struct_80A417E8_arg3 *arg3) {
     if (gSaveContext.weekEventReg[0x33] & 0x40) {
@@ -1224,11 +1303,6 @@ void EnTest3_Update(Actor *thisx, GlobalContext *globalCtx2) {
     }
 }
 
-extern s32 D_80A418C8;
-/*
-s32 D_80A418C8 = 0;
-*/
-
 s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList, Vec3f *pos, Vec3s *rot, Actor *thisx) {
     EnTest3* this = THIS;
 
@@ -1288,20 +1362,6 @@ s32 EnTest3_OverrideLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dLis
     return 0;
 }
 
-extern Vec3f D_80A418CC;
-/*
-static Vec3f D_80A418CC = { 1100.0f, -700.0f, 0.0f };
-*/
-
-// I'm not sure about the type 
-extern LinkAnimationHeader D_0400D0A8;
-extern LinkAnimationHeader D_0400D0C8;
-
-extern Gfx D_0600EDD0[];
-extern Gfx D_0600CB60[];
-extern Gfx D_0A0004A0[];
-
-
 
 #ifdef NON_EQUIVALENT
 void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1, Gfx **dList2, Vec3s *rot, Actor *thisx) {
@@ -1312,7 +1372,7 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
     //s16 *sp38;
     //MtxF *sp1C;
     //MtxF *temp_a0_2;
-    s32 pad;
+    //s32 pad;
 
     if (*dList2 != NULL) {
         SysMatrix_GetStateTranslation(D_80A41D6C);
@@ -1365,25 +1425,23 @@ void EnTest3_PostLimbDraw(GlobalContext *globalCtx, s32 limbIndex, Gfx **dList1,
         //return;
     } else if (limbIndex == 0xB) {
         Vec3f* focusPos;
+        Actor* unk_730 = this->actor.unk_730;
 
         if (*dList1 != NULL) {
-            //u8 currentMask = this->actor.currentMask;
-            //if ((this->actor.currentMask != 0) && ((this->actor.stateFlags2 << 7) >= 0)) {
             if ((this->actor.currentMask != PLAYER_MASK_NONE) && !(this->actor.stateFlags2 & 0x01000000)) {
                 if ((this->actor.skelAnime.linkAnimetionSeg != &D_0400D0A8) && ((this->actor.skelAnime.linkAnimetionSeg != &D_0400D0C8) || (this->actor.skelAnime.animCurrentFrame >= 12.0f))) {
-                    //s16 *sp38 = this->actor.unk_730;
-                    OPEN_DISPS(globalCtx->state.gfxCtx);
                     if (func_80127438(globalCtx, &this->actor, this->actor.currentMask)) {
-                        gSPDisplayList(++POLY_OPA_DISP, D_0A0004A0);
+                        OPEN_DISPS(globalCtx->state.gfxCtx);
+                        gSPDisplayList(POLY_OPA_DISP++, D_0A0004A0);
+                        CLOSE_DISPS(globalCtx->state.gfxCtx);
                     }
-                    CLOSE_DISPS(globalCtx->state.gfxCtx);
                 }
             }
         }
 
         focusPos = &this->actor.actor.focus.pos;
-        if ((this->actor.unk_730 != NULL) && (this->actor.unk_730->id == ACTOR_BG_IKNV_OBJ)) {
-            Math_Vec3f_Copy(focusPos, &this->actor.unk_730->focus.pos);
+        if ((unk_730 != NULL) && (unk_730->id == ACTOR_BG_IKNV_OBJ)) {
+            Math_Vec3f_Copy(focusPos, &unk_730->focus.pos);
             //return;
         } else {
             SysMatrix_MultiplyVector3fByState(&D_80A418CC, focusPos);
@@ -1409,31 +1467,6 @@ void EnTest3_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1,
 #pragma GLOBAL_ASM("./asm/non_matchings/overlays/ovl_En_Test3_0x80A3E7E0/EnTest3_PostLimbDraw.asm")
 #endif
 
-
-extern void* D_80A418D8[];
-/*
-static void* eyeTextures[] = {
-    0x06000DC0, 0x06003680, 0x06003E80, 0x06004680, 0x06004E80, 0x06005680, 0x06005E80, 0x06006680,
-};
-*/
-
-extern void* D_80A418F8[];
-/*
-static void* mouthTextures[] = {
-    0x060009C0,
-    0x06006E80,
-    0x06007280,
-    0x06007680,
-};
-*/
-
-extern FaceAnimKeyFrame D_80A41908[];
-/*
-static FaceAnimKeyFrame faceAnimInfo[] = {
-    { 0, 0 }, { 1, 0 }, { 2, 0 }, { 0, 0 }, { 1, 0 }, { 2, 0 }, { 4, 0 }, { 5, 1 }, { 7, 2 }, { 0, 2 },
-    { 3, 0 }, { 4, 0 }, { 2, 2 }, { 1, 1 }, { 0, 2 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 },
-};
-*/
 
 // Draw
 void func_80A4129C(Actor* thisx, GlobalContext* globalCtx) {
