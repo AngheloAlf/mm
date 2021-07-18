@@ -14483,7 +14483,7 @@
     0x80B78C18:("func_80B78C18",),
     0x80B78D08:("func_80B78D08",),
     0x80B78DF0:("func_80B78DF0",),
-    0x80B78E2C:("func_80B78E2C",),
+    0x80B78E2C:("ObjUm_SetupAction",),
     0x80B78E38:("func_80B78E38",),
     0x80B78E88:("func_80B78E88",),
     0x80B78EBC:("func_80B78EBC",),
