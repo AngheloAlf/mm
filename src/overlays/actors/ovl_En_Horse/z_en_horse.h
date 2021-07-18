@@ -8,7 +8,7 @@ struct EnHorse;
 typedef struct EnHorse {
     /* 0x000 */ Actor actor;
     /* 0x144 */ char unk_144[0xBC];
-    /* 0x200 */ UNK_TYPE unk_200;
+    /* 0x200 */ s32 unk_200;
     /* 0x204 */ char unk_204[0x33C];
     /* 0x540 */ Vec3f unk_540;
     /* 0x54C */ UNK_TYPE unk_54C;
@@ -17,7 +17,7 @@ typedef struct EnHorse {
     /* 0x558 */ UNK_TYPE unk_558;
     /* 0x55C */ UNK_TYPE unk_55C;
     /* 0x560 */ UNK_TYPE unk_560;
-    /* 0x564 */ char unk_564[0x4];
+    /* 0x564 */ UNK_TYPE unk_564;
     /* 0x568 */ f32 unk_568;
     /* 0x56C */ f32 unk_56C;
     /* 0x570 */ Vec3f unk_570;
