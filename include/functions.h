@@ -952,7 +952,7 @@ float func_800BFD84(CollisionPoly* polygon, f32 param_2, f32 param_3);
 s32 func_800BFDEC(CollisionPoly* param_1, CollisionPoly* param_2, u32* param_3, u32* param_4);
 s32 BgCheck_PolygonGetMinY(CollisionPoly* polygons, Vec3s* vertices);
 void BgCheck_PolygonGetNormal(CollisionPoly* polygon, f32* normalX, f32* normalY, f32* normalZ);
-void func_800C0094(struct CollisionPoly* param_1, f32 xOffset, f32 yOffset, f32 zOffset, MtxF* matrix);
+void func_800C0094(CollisionPoly* param_1, f32 xOffset, f32 yOffset, f32 zOffset, MtxF* matrix);
 f32 func_800C01B8(CollisionPoly* param_1, Vec3f* param_2);
 void BgCheck_CreateColTriParamsFromPolygon(CollisionPoly* polygon, Vec3s* vertices, TriNorm* tri);
 void func_800C02C0(CollisionPoly* poly, s32 index, CollisionContext* colCtx, TriNorm* tri);
@@ -994,7 +994,7 @@ CollisionHeader* BgCheck_GetActorMeshHeader(CollisionContext* colCtx, s32 index)
 f32 func_800C3D50(s32 arg0, CollisionContext* colCtx, s32 arg2, CollisionPoly** arg3, s32* arg4, Vec3f* pos, Actor* actor, s32 arg7, f32 arg8, s32 arg9);
 // void func_800C3F40(void);
 // void func_800C3FA0(void);
-// void func_800C4000(void);
+//f32 func_800C4000(GlobalContext* globalCtx, CollisionContext* colCtx, UNK_PTR, UNK_PTR);
 // void func_800C4058(void);
 // void func_800C40B4(void);
 f32 func_800C411C(CollisionContext* colCtx, CollisionPoly** arg1, s32* arg2, Actor* actor, Vec3f* pos);
