@@ -1,5 +1,42 @@
 #include "global.h"
 
+u16 D_801C5D10[] = { 0x40, 0x20, 0x10, 8, 4, 2, 1, 0 };
+
+Vtx D_801C5D20[] = {
+    { { { 0xFF9C, 0, 0xFF9C }, 0, { 0, 0x800 }, { 0xFF, 0xFF, 0xFF, 0xFF } } },
+    { { { 0x64, 0, 0xFF9C }, 0, { 0x800, 0x800 }, { 0xFF, 0xFF, 0xFF, 0xFF } } },
+    { { { 0x64, 0, 0x64 }, 0, { 0x800, 0 }, { 0xFF, 0xFF, 0xFF, 0xFF } } },
+    { { { 0xFF9C, 0, 0x64 }, 0, { 0, 0 }, { 0xFF, 0xFF, 0xFF, 0xFF } } },
+};
+
+Gfx D_801C5D60[] = {
+    gsDPPipeSync(),
+    gsDPSetTextureLUT(G_TT_NONE),
+    gsSPTexture(0xFFFF, 0xFFFF, 0, G_TX_RENDERTILE, G_ON),
+    gsSPEndDisplayList(),
+};
+
+Gfx D_801C5D80[] = {
+    gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, TEXEL0, 0, PRIMITIVE, 0, 0, 0, 0, COMBINED, 0, 0, 0,
+                       COMBINED),
+    gsDPSetRenderMode(G_RM_PASS, G_RM_ZB_OVL_SURF2),
+    gsSPClearGeometryMode(G_CULL_BACK | G_FOG | G_LIGHTING | G_TEXTURE_GEN | G_TEXTURE_GEN_LINEAR),
+    gsSPVertex(D_801C5D20, 4, 0),
+    gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
+    gsSPEndDisplayList(),
+};
+
+// Unused. Probably some kind of struct
+extern UNK_TYPE D_801C5DB0[] = {
+    0x3F800000, // 1.0f
+    0x3F800000, // 1.0f
+    0x3F800000, // 1.0f
+    0x00000000, 0x00000001,
+    // 0x00000000, // Padding probably
+    // 0x00000000, // Padding probably
+    // 0x00000000, // Padding probably
+};
+
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_sub_s/func_8013A7C0.s")
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_sub_s/func_8013A860.s")
@@ -100,7 +137,7 @@ typedef struct {
     /* 0x4C */ f32 unk_4C;
     /* 0x50 */ f32 unk_50;
     /* 0x54 */ Vec3s unk_54; // Not sure if it is a Vec3s
-} struct_8013DF3C_arg1; // size >= 0x5A
+} struct_8013DF3C_arg1;      // size >= 0x5A
 
 void func_8013DF3C(s32 arg0, struct_8013DF3C_arg1* arg1) {
     Vec3f sp2C;

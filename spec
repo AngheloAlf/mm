@@ -701,7 +701,6 @@ beginseg
     include "build/src/code/z_snap.o"
 
     include "build/src/code/z_sub_s.o"
-    include "build/data/code/z_sub_s.data.o"
 
     include "build/data/code/code_801DE890.rodata.o"
 
