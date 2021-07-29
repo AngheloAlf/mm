@@ -82,7 +82,41 @@
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_sub_s/func_8013DE04.s")
 
-#pragma GLOBAL_ASM("asm/non_matchings/code/z_sub_s/func_8013DF3C.s")
+typedef struct {
+    /* 0x00 */ Vec3f unk_00;
+} struct_8013DF3C_arg1_unk_44; // size >= 0x0C
+
+typedef struct {
+    /* 0x00 */ UNK_TYPE1 unk_00[0x08];
+    /* 0x08 */ Vec3s* unk_08;
+    /* 0x0C */ UNK_TYPE1 unk_0C[0x04];
+    /* 0x10 */ s32 unk_10;
+    /* 0x14 */ UNK_TYPE1 unk_14[0x0C];
+    /* 0x20 */ Vec3f unk_20;
+    /* 0x2C */ Vec3f unk_2C;
+    /* 0x38 */ UNK_TYPE1 unk_38[0xC];
+    /* 0x44 */ struct_8013DF3C_arg1_unk_44* unk_44; // another struct?
+    /* 0x48 */ UNK_TYPE1 unk_48[0x04];
+    /* 0x4C */ f32 unk_4C;
+    /* 0x50 */ f32 unk_50;
+    /* 0x54 */ Vec3s unk_54; // Not sure if it is a Vec3s
+} struct_8013DF3C_arg1; // size >= 0x5A
+
+void func_8013DF3C(s32 arg0, struct_8013DF3C_arg1* arg1) {
+    Vec3f sp2C;
+
+    arg1->unk_20.x = arg1->unk_08[arg1->unk_10].x + arg1->unk_2C.x;
+    arg1->unk_20.y = arg1->unk_08[arg1->unk_10].y + arg1->unk_2C.y;
+    arg1->unk_20.z = arg1->unk_08[arg1->unk_10].z + arg1->unk_2C.z;
+    sp2C.x = arg1->unk_20.x - arg1->unk_44->unk_00.x;
+    sp2C.y = arg1->unk_20.y - arg1->unk_44->unk_00.y;
+    sp2C.z = arg1->unk_20.z - arg1->unk_44->unk_00.z;
+    arg1->unk_4C = Math3D_XZLengthSquared(sp2C.x, sp2C.z);
+    arg1->unk_50 = Math3D_LengthSquared(&sp2C);
+    arg1->unk_54.y = Math_FAtan2F(sp2C.z, sp2C.x);
+    arg1->unk_54.x = Math_FAtan2F(sqrtf(arg1->unk_4C), -sp2C.y);
+    arg1->unk_54.z = 0;
+}
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_sub_s/func_8013E054.s")
 
