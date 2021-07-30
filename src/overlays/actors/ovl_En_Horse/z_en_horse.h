@@ -11,7 +11,9 @@ typedef struct EnHorse {
     /* 0x200 */ s32 unk_200;
     /* 0x204 */ char unk_204[0x188];
     /* 0x38C */ Actor* unk_38C;
-    /* 0x390 */ char unk_390[0x1B0];
+    /* 0x390 */ char unk_390[0x1A8];
+    /* 0x538 */ UNK_TYPE unk_538;
+    /* 0x53C */ char unk_53C[0x4];
     /* 0x540 */ Vec3f unk_540;
     /* 0x54C */ UNK_TYPE unk_54C;
     /* 0x550 */ UNK_TYPE unk_550;
