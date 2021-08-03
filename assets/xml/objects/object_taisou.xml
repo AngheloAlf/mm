@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_taisou" Segment="6">
+    <File Name="object_taisou" Segment="6" Game="MM">
         <Animation Name="object_taisou_Anim_0016C8" Offset="0x16C8" />
         <Animation Name="object_taisou_Anim_00283C" Offset="0x283C" />
         <Animation Name="object_taisou_Anim_002C48" Offset="0x2C48" />

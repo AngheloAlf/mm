@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_wdhand" Segment="6">
+    <File Name="object_wdhand" Segment="6" Game="MM">
         <Animation Name="object_wdhand_Anim_0000F4" Offset="0xF4" />
         <Animation Name="object_wdhand_Anim_000364" Offset="0x364" />
         <Animation Name="object_wdhand_Anim_000534" Offset="0x534" />

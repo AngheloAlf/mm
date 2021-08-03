@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_market_obj" Segment="6">
+    <File Name="object_market_obj" Segment="6" Game="MM">
         <Texture Name="object_market_obj_TLUT_000000" OutName="tlut_000000" Format="rgb5a1" Width="4" Height="4" Offset="0x0" />
         <Texture Name="object_market_obj_TLUT_000020" OutName="tlut_000020" Format="rgb5a1" Width="4" Height="4" Offset="0x20" />
         <Texture Name="object_market_obj_TLUT_000040" OutName="tlut_000040" Format="rgb5a1" Width="4" Height="4" Offset="0x40" />

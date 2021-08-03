@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_rupy" Segment="6">
+    <File Name="object_gi_rupy" Segment="6" Game="MM">
         <DList Name="object_gi_rupy_DL_0004A0" Offset="0x4A0" />
         <DList Name="object_gi_rupy_DL_0004C0" Offset="0x4C0" />
         <DList Name="object_gi_rupy_DL_0004E0" Offset="0x4E0" />

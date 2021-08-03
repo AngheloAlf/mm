@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_keikoku_demo" Segment="6">
+    <File Name="object_keikoku_demo" Segment="6" Game="MM">
         <DList Name="object_keikoku_demo_DL_000970" Offset="0x970" />
         <DList Name="object_keikoku_demo_DL_000978" Offset="0x978" />
         <Texture Name="object_keikoku_demo_Tex_000C50" OutName="tex_000C50" Format="rgb5a1" Width="32" Height="32" Offset="0xC50" />

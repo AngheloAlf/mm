@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_wiz" Segment="6">
+    <File Name="object_wiz" Segment="6" Game="MM">
         <Animation Name="object_wiz_Anim_0007B0" Offset="0x7B0" />
         <Texture Name="object_wiz_Tex_0007C0" OutName="tex_0007C0" Format="i4" Width="32" Height="64" Offset="0x7C0" />
         <Texture Name="object_wiz_Tex_000BC0" OutName="tex_000BC0" Format="i4" Width="32" Height="32" Offset="0xBC0" />

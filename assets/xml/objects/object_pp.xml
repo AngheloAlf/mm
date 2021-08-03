@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_pp" Segment="6">
+    <File Name="object_pp" Segment="6" Game="MM">
         <Animation Name="object_pp_Anim_000E14" Offset="0xE14" />
         <Animation Name="object_pp_Anim_001354" Offset="0x1354" />
         <Animation Name="object_pp_Anim_00178C" Offset="0x178C" />

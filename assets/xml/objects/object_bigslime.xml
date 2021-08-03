@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bigslime" Segment="6">
+    <File Name="object_bigslime" Segment="6" Game="MM">
         <Animation Name="object_bigslime_Anim_000994" Offset="0x994" />
         <Animation Name="object_bigslime_Anim_0010F4" Offset="0x10F4" />
         <Animation Name="object_bigslime_Anim_001B08" Offset="0x1B08" />

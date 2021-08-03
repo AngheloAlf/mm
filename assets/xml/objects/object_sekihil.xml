@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_sekihil" Segment="6">
+    <File Name="object_sekihil" Segment="6" Game="MM">
         <DList Name="object_sekihil_DL_000340" Offset="0x340" />
         <DList Name="object_sekihil_DL_0004C0" Offset="0x4C0" />
         <DList Name="object_sekihil_DL_0004D0" Offset="0x4D0" />

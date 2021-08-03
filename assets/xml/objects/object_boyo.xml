@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_boyo" Segment="6">
+    <File Name="object_boyo" Segment="6" Game="MM">
         <DList Name="object_boyo_DL_000300" Offset="0x300" />
         <Texture Name="object_boyo_Tex_000480" OutName="tex_000480" Format="rgb5a1" Width="32" Height="32" Offset="0x480" />
         <Texture Name="object_boyo_Tex_000C80" OutName="tex_000C80" Format="rgb5a1" Width="16" Height="16" Offset="0xC80" />

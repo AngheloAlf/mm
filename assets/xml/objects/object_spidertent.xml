@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_spidertent" Segment="6">
+    <File Name="object_spidertent" Segment="6" Game="MM">
         <DList Name="object_spidertent_DL_000070" Offset="0x70" />
         <DList Name="object_spidertent_DL_000108" Offset="0x108" />
         <Texture Name="object_spidertent_Tex_000110" OutName="tex_000110" Format="ia8" Width="64" Height="64" Offset="0x110" />

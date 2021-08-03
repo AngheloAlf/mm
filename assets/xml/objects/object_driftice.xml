@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_driftice" Segment="6">
+    <File Name="object_driftice" Segment="6" Game="MM">
         <Texture Name="object_driftice_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="64" Height="8" Offset="0x0" />
         <Texture Name="object_driftice_TLUT_000400" OutName="tlut_000400" Format="rgb5a1" Width="4" Height="4" Offset="0x400" />
         <Texture Name="object_driftice_TLUT_000420" OutName="tlut_000420" Format="rgb5a1" Width="4" Height="4" Offset="0x420" />

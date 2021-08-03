@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_tsn" Segment="6">
+    <File Name="object_tsn" Segment="6" Game="MM">
         <Animation Name="object_tsn_Anim_000964" Offset="0x964" />
         <Animation Name="object_tsn_Anim_001198" Offset="0x1198" />
         <DList Name="object_tsn_DL_0043A0" Offset="0x43A0" />

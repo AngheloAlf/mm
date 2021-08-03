@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bai" Segment="6">
+    <File Name="object_bai" Segment="6" Game="MM">
         <Animation Name="object_bai_Anim_0008B4" Offset="0x8B4" />
         <Animation Name="object_bai_Anim_0011C0" Offset="0x11C0" />
         <DList Name="object_bai_DL_0049C0" Offset="0x49C0" />

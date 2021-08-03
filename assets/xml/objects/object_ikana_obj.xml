@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ikana_obj" Segment="6">
+    <File Name="object_ikana_obj" Segment="6" Game="MM">
         <DList Name="object_ikana_obj_DL_000040" Offset="0x40" />
         <DList Name="object_ikana_obj_DL_000048" Offset="0x48" />
         <!--Blob Name="object_ikana_obj_Blob_0000D8" Size="0x88" Offset="0xD8" /-->

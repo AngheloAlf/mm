@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_js" Segment="6">
+    <File Name="object_js" Segment="6" Game="MM">
         <Animation Name="object_js_Anim_00016C" Offset="0x16C" />
         <Animation Name="object_js_Anim_0003DC" Offset="0x3DC" />
         <Animation Name="object_js_Anim_000AD4" Offset="0xAD4" />

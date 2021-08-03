@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dor02" Segment="6">
+    <File Name="object_dor02" Segment="6" Game="MM">
         <DList Name="object_dor02_DL_000420" Offset="0x420" />
         <DList Name="object_dor02_DL_000428" Offset="0x428" />
         <Texture Name="object_dor02_Tex_000610" OutName="tex_000610" Format="rgb5a1" Width="32" Height="64" Offset="0x610" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_rotlift" Segment="6">
+    <File Name="object_rotlift" Segment="6" Game="MM">
         <DList Name="object_rotlift_DL_000400" Offset="0x400" />
         <Texture Name="object_rotlift_TLUT_000590" OutName="tlut_000590" Format="rgb5a1" Width="16" Height="16" Offset="0x590" />
         <Texture Name="object_rotlift_Tex_000790" OutName="tex_000790" Format="ci8" Width="32" Height="64" Offset="0x790" />

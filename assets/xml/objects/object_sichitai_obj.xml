@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_sichitai_obj" Segment="6">
+    <File Name="object_sichitai_obj" Segment="6" Game="MM">
         <DList Name="object_sichitai_obj_DL_0006B0" Offset="0x6B0" />
         <Texture Name="object_sichitai_obj_Tex_000878" OutName="tex_000878" Format="rgb5a1" Width="16" Height="16" Offset="0x878" />
         <Texture Name="object_sichitai_obj_Tex_000A78" OutName="tex_000A78" Format="rgb5a1" Width="32" Height="32" Offset="0xA78" />

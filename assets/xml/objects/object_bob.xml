@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bob" Segment="6">
+    <File Name="object_bob" Segment="6" Game="MM">
         <Limb Name="object_bob_Limb_000000" LimbType="Standard" Offset="0x0" />
         <Limb Name="object_bob_Limb_00000C" LimbType="Standard" Offset="0xC" />
         <Limb Name="object_bob_Limb_000018" LimbType="Standard" Offset="0x18" />

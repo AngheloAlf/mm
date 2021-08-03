@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_fz" Segment="6">
+    <File Name="object_fz" Segment="6" Game="MM">
         <DList Name="object_fz_DL_001130" Offset="0x1130" />
         <DList Name="object_fz_DL_0021A0" Offset="0x21A0" />
         <DList Name="object_fz_DL_002CA0" Offset="0x2CA0" />

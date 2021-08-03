@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_goroiwa" Segment="6">
+    <File Name="object_goroiwa" Segment="6" Game="MM">
         <DList Name="object_goroiwa_DL_0003B0" Offset="0x3B0" />
         <Texture Name="object_goroiwa_Tex_000520" OutName="tex_000520" Format="rgb5a1" Width="32" Height="32" Offset="0x520" />
         <Texture Name="object_goroiwa_Tex_000D20" OutName="tex_000D20" Format="rgb5a1" Width="32" Height="32" Offset="0xD20" />

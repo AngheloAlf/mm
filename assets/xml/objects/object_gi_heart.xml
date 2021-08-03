@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_heart" Segment="6">
+    <File Name="object_gi_heart" Segment="6" Game="MM">
         <DList Name="object_gi_heart_DL_0000E0" Offset="0xE0" />
     </File>
 </Root>

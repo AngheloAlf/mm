@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bsb" Segment="6">
+    <File Name="object_bsb" Segment="6" Game="MM">
         <Animation Name="object_bsb_Anim_000400" Offset="0x400" />
         <Animation Name="object_bsb_Anim_000C50" Offset="0xC50" />
         <Animation Name="object_bsb_Anim_000FF0" Offset="0xFF0" />

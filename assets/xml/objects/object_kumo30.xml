@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kumo30" Segment="6">
+    <File Name="object_kumo30" Segment="6" Game="MM">
         <DList Name="object_kumo30_DL_000A50" Offset="0xA50" />
         <DList Name="object_kumo30_DL_000C98" Offset="0xC98" />
         <Texture Name="object_kumo30_Tex_000E80" OutName="tex_000E80" Format="i8" Width="64" Height="64" Offset="0xE80" />

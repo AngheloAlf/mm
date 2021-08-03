@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_fb" Segment="6">
+    <File Name="object_fb" Segment="6" Game="MM">
         <Animation Name="object_fb_Anim_0006D8" Offset="0x6D8" />
         <Animation Name="object_fb_Anim_0007D4" Offset="0x7D4" />
         <Animation Name="object_fb_Anim_000ACC" Offset="0xACC" />

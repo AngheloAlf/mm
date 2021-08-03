@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_keikoku_obj" Segment="6">
+    <File Name="object_keikoku_obj" Segment="6" Game="MM">
         <DList Name="object_keikoku_obj_DL_000100" Offset="0x100" />
         <!--Blob Name="object_keikoku_obj_Blob_0001F0" Size="0x10" Offset="0x1F0" /-->
         <DList Name="object_keikoku_obj_DL_000300" Offset="0x300" />

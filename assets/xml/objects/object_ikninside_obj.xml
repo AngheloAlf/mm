@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ikninside_obj" Segment="6">
+    <File Name="object_ikninside_obj" Segment="6" Game="MM">
         <DList Name="object_ikninside_obj_DL_000590" Offset="0x590" />
         <DList Name="object_ikninside_obj_DL_000EA0" Offset="0xEA0" />
         <Texture Name="object_ikninside_obj_Tex_001120" OutName="tex_001120" Format="rgb5a1" Width="32" Height="64" Offset="0x1120" />

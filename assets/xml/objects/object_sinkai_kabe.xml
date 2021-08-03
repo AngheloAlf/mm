@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_sinkai_kabe" Segment="6">
+    <File Name="object_sinkai_kabe" Segment="6" Game="MM">
         <Blob Name="object_sinkai_kabe_zeroes_unk_00000000" Size="0x5C" Offset="0x0" />
 
         <!-- ZAPD crashes -->

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_shn" Segment="6">
+    <File Name="object_shn" Segment="6" Game="MM">
         <DList Name="object_shn_DL_003510" Offset="0x3510" />
         <DList Name="object_shn_DL_003600" Offset="0x3600" />
         <DList Name="object_shn_DL_0039A0" Offset="0x39A0" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_syokudai" Segment="6">
+    <File Name="object_syokudai" Segment="6" Game="MM">
         <DList Name="object_syokudai_DL_0003A0" Offset="0x3A0" />
         <DList Name="object_syokudai_DL_000870" Offset="0x870" />
         <DList Name="object_syokudai_DL_000B90" Offset="0xB90" />

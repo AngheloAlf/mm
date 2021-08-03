@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_tab" Segment="6">
+    <File Name="object_tab" Segment="6" Game="MM">
         <Animation Name="object_tab_Anim_000758" Offset="0x758" />
         <DList Name="object_tab_DL_003E10" Offset="0x3E10" />
         <DList Name="object_tab_DL_003EF0" Offset="0x3EF0" />

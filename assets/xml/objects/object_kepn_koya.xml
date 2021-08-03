@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kepn_koya" Segment="6">
+    <File Name="object_kepn_koya" Segment="6" Game="MM">
         <DList Name="object_kepn_koya_DL_003470" Offset="0x3470" />
         <DList Name="object_kepn_koya_DL_003478" Offset="0x3478" />
         <Texture Name="object_kepn_koya_TLUT_005118" OutName="tlut_005118" Format="rgb5a1" Width="16" Height="16" Offset="0x5118" />

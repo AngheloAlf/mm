@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_msmo" Segment="6">
+    <File Name="object_msmo" Segment="6" Game="MM">
         <DList Name="object_msmo_DL_000E70" Offset="0xE70" />
         <Texture Name="object_msmo_Tex_001320" OutName="tex_001320" Format="i8" Width="16" Height="16" Offset="0x1320" />
         <Texture Name="object_msmo_Tex_001420" OutName="tex_001420" Format="i8" Width="16" Height="16" Offset="0x1420" />

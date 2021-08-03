@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_numa_obj" Segment="6">
+    <File Name="object_numa_obj" Segment="6" Game="MM">
         <DList Name="object_numa_obj_DL_0007A0" Offset="0x7A0" />
         <DList Name="object_numa_obj_DL_0007A8" Offset="0x7A8" />
         <DList Name="object_numa_obj_DL_0014C0" Offset="0x14C0" />

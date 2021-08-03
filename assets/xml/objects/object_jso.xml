@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_jso" Segment="6">
+    <File Name="object_jso" Segment="6" Game="MM">
         <!--Blob Name="object_jso_Blob_000000" Size="0x20" Offset="0x0" /-->
         <DList Name="object_jso_DL_001210" Offset="0x1210" />
         <DList Name="object_jso_DL_001348" Offset="0x1348" />

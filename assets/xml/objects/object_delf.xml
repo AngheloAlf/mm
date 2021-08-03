@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_delf" Segment="6">
+    <File Name="object_delf" Segment="6" Game="MM">
         <Animation Name="object_delf_Anim_00046C" Offset="0x46C" />
         <Animation Name="object_delf_Anim_00065C" Offset="0x65C" />
         <Animation Name="object_delf_Anim_0008E0" Offset="0x8E0" />

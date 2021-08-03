@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_wf" Segment="6">
+    <File Name="object_wf" Segment="6" Game="MM">
         <Texture Name="object_wf_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="8" Height="16" Offset="0x0" />
         <Texture Name="object_wf_Tex_000100" OutName="tex_000100" Format="rgb5a1" Width="8" Height="8" Offset="0x100" />
         <Texture Name="object_wf_Tex_000180" OutName="tex_000180" Format="rgb5a1" Width="8" Height="8" Offset="0x180" />

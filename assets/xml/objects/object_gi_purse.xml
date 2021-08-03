@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_purse" Segment="6">
+    <File Name="object_gi_purse" Segment="6" Game="MM">
         <Texture Name="object_gi_purse_Tex_000000" OutName="tex_000000" Format="i8" Width="64" Height="64" Offset="0x0" />
         <DList Name="object_gi_purse_DL_001750" Offset="0x1750" />
         <DList Name="object_gi_purse_DL_001770" Offset="0x1770" />

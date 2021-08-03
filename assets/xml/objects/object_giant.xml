@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_giant" Segment="6">
+    <File Name="object_giant" Segment="6" Game="MM">
         <Animation Name="object_giant_Anim_002168" Offset="0x2168" />
         <!--Blob Name="object_giant_Blob_003D40" Size="0x90" Offset="0x3D40" /-->
         <DList Name="object_giant_DL_003DD0" Offset="0x3DD0" />

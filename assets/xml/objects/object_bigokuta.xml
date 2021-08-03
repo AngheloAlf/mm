@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bigokuta" Segment="6">
+    <File Name="object_bigokuta" Segment="6" Game="MM">
         <Animation Name="object_bigokuta_Anim_000444" Offset="0x444" />
         <Animation Name="object_bigokuta_Anim_000A74" Offset="0xA74" />
         <Animation Name="object_bigokuta_Anim_000D1C" Offset="0xD1C" />

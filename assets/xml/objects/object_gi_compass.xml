@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_compass" Segment="6">
+    <File Name="object_gi_compass" Segment="6" Game="MM">
         <DList Name="object_gi_compass_DL_000960" Offset="0x960" />
         <DList Name="object_gi_compass_DL_000C50" Offset="0xC50" />
     </File>

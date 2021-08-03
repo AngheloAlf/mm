@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_milkbar" Segment="6">
+    <File Name="object_milkbar" Segment="6" Game="MM">
         <DList Name="object_milkbar_DL_000100" Offset="0x100" />
         <DList Name="object_milkbar_DL_000240" Offset="0x240" />
         <Texture Name="object_milkbar_Tex_000248" OutName="tex_000248" Format="ia16" Width="16" Height="16" Offset="0x248" />

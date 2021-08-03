@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ikn_demo" Segment="6">
+    <File Name="object_ikn_demo" Segment="6" Game="MM">
         <!--Blob Name="object_ikn_demo_Blob_000000" Size="0x10" Offset="0x0" /-->
         <Animation Name="object_ikn_demo_Anim_0000B8" Offset="0xB8" />
         <DList Name="object_ikn_demo_DL_001D20" Offset="0x1D20" />

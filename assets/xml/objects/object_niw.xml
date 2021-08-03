@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_niw" Segment="6">
+    <File Name="object_niw" Segment="6" Game="MM">
         <Animation Name="object_niw_Anim_0000E8" Offset="0xE8" />
         <DList Name="object_niw_DL_0009C0" Offset="0x9C0" />
         <DList Name="object_niw_DL_000A98" Offset="0xA98" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dekubaba" Segment="6">
+    <File Name="object_dekubaba" Segment="6" Game="MM">
         <Animation Name="object_dekubaba_Anim_000208" Offset="0x208" />
         <Animation Name="object_dekubaba_Anim_0002B8" Offset="0x2B8" />
         <DList Name="object_dekubaba_DL_000580" Offset="0x580" />

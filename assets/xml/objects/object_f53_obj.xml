@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_f53_obj" Segment="6">
+    <File Name="object_f53_obj" Segment="6" Game="MM">
         <DList Name="object_f53_obj_DL_000090" Offset="0x90" />
         <DList Name="object_f53_obj_DL_000148" Offset="0x148" />
         <DList Name="object_f53_obj_DL_000158" Offset="0x158" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_obj_yasi" Segment="6">
+    <File Name="object_obj_yasi" Segment="6" Game="MM">
         <DList Name="object_obj_yasi_DL_000360" Offset="0x360" />
         <Texture Name="object_obj_yasi_TLUT_000630" OutName="tlut_000630" Format="rgb5a1" Width="4" Height="4" Offset="0x630" />
         <Texture Name="object_obj_yasi_Tex_000650" OutName="tex_000650" Format="ci4" Width="32" Height="128" Offset="0x650" />

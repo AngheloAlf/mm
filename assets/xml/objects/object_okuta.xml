@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_okuta" Segment="6">
+    <File Name="object_okuta" Segment="6" Game="MM">
         <Animation Name="object_okuta_Anim_00044C" Offset="0x44C" />
         <DList Name="object_okuta_DL_000DC0" Offset="0xDC0" />
         <DList Name="object_okuta_DL_000E70" Offset="0xE70" />

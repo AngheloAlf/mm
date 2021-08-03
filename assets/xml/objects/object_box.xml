@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_box" Segment="6">
+    <File Name="object_box" Segment="6" Game="MM">
         <Animation Name="object_box_Anim_000128" Offset="0x128" />
         <Animation Name="object_box_Anim_00024C" Offset="0x24C" />
         <!--Blob Name="object_box_zeroes_unk_0000025C" Size="0xF4" Offset="0x25C" /-->

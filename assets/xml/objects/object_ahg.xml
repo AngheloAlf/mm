@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ahg" Segment="6">
+    <File Name="object_ahg" Segment="6" Game="MM">
         <Texture Name="object_ahg_TLUT_000000" OutName="tlut_000000" Format="rgb5a1" Width="16" Height="16" Offset="0x0" />
         <Texture Name="object_ahg_Tex_000200" OutName="tex_000200" Format="ci8" Width="16" Height="16" Offset="0x200" />
         <Texture Name="object_ahg_Tex_000300" OutName="tex_000300" Format="ci8" Width="16" Height="16" Offset="0x300" />

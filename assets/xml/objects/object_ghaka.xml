@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ghaka" Segment="6">
+    <File Name="object_ghaka" Segment="6" Game="MM">
         <!--Blob Name="object_ghaka_Blob_000000" Size="0x120" Offset="0x0" /-->
         <DList Name="object_ghaka_DL_001980" Offset="0x1980" />
         <DList Name="object_ghaka_DL_001A20" Offset="0x1A20" />

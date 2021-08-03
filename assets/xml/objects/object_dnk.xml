@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dnk" Segment="6">
+    <File Name="object_dnk" Segment="6" Game="MM">
         <Animation Name="object_dnk_Anim_00031C" Offset="0x31C" />
         <Animation Name="object_dnk_Anim_000430" Offset="0x430" />
         <Animation Name="object_dnk_Anim_0006CC" Offset="0x6CC" />

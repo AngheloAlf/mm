@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_um" Segment="6">
+    <File Name="object_um" Segment="6" Game="MM">
         <DList Name="object_um_DL_000040" Offset="0x40" />
         <Texture Name="object_um_Tex_0000C8" OutName="tex_0000C8" Format="rgb5a1" Width="32" Height="32" Offset="0xC8" />
         <DList Name="object_um_DL_000910" Offset="0x910" />

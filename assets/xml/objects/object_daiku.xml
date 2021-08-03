@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_daiku" Segment="6">
+    <File Name="object_daiku" Segment="6" Game="MM">
         <Animation Name="object_daiku_Anim_000600" Offset="0x600" />
         <Animation Name="object_daiku_Anim_000C44" Offset="0xC44" />
         <Animation Name="object_daiku_Anim_001114" Offset="0x1114" />

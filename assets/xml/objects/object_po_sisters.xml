@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_po_sisters" Segment="6">
+    <File Name="object_po_sisters" Segment="6" Game="MM">
         <Animation Name="object_po_sisters_Anim_000114" Offset="0x114" />
         <Animation Name="object_po_sisters_Anim_000680" Offset="0x680" />
         <Animation Name="object_po_sisters_Anim_0008C0" Offset="0x8C0" />

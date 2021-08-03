@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_zoraegg" Segment="6">
+    <File Name="object_zoraegg" Segment="6" Game="MM">
         <Animation Name="object_zoraegg_Anim_0005D4" Offset="0x5D4" />
         <Animation Name="object_zoraegg_Anim_001E08" Offset="0x1E08" />
         <DList Name="object_zoraegg_DL_002550" Offset="0x2550" />

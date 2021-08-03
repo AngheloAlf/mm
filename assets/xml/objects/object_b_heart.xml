@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_b_heart" Segment="6">
+    <File Name="object_b_heart" Segment="6" Game="MM">
         <DList Name="object_b_heart_DL_000240" Offset="0x240" />
         <DList Name="object_b_heart_DL_000348" Offset="0x348" />
         <Texture Name="object_b_heart_Tex_0003C0" OutName="tex_0003C0" Format="i4" Width="32" Height="32" Offset="0x3C0" />

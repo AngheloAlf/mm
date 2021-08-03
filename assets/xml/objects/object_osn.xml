@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_osn" Segment="6">
+    <File Name="object_osn" Segment="6" Game="MM">
         <!--Blob Name="object_osn_zeroes_unk_00000000" Size="0xAEB0" Offset="0x0" /-->
         <DList Name="object_osn_DL_00F5E0" Offset="0xF5E0" />
         <DList Name="object_osn_DL_00F830" Offset="0xF830" />

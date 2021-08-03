@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_link_goron" Segment="6">
+    <File Name="object_link_goron" Segment="6" Game="MM">
         <!--Blob Name="object_link_goron_Blob_000000" Size="0x2000" Offset="0x0" /-->
         <Texture Name="object_link_goron_TLUT_002000" OutName="tlut_002000" Format="rgb5a1" Width="16" Height="16" Offset="0x2000" />
         <Texture Name="object_link_goron_Tex_002200" OutName="tex_002200" Format="rgb5a1" Width="16" Height="16" Offset="0x2200" />

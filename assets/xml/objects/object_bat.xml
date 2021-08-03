@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bat" Segment="6">
+    <File Name="object_bat" Segment="6" Game="MM">
         <DList Name="object_bat_DL_0000A0" Offset="0xA0" />
         <DList Name="object_bat_DL_0000C8" Offset="0xC8" />
         <DList Name="object_bat_DL_0001B0" Offset="0x1B0" />

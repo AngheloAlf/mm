@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ladder" Segment="6">
+    <File Name="object_ladder" Segment="6" Game="MM">
         <DList Name="object_ladder_DL_0000A0" Offset="0xA0" />
         <!--Blob Name="object_ladder_Blob_000148" Size="0xC8" Offset="0x148" /-->
         <DList Name="object_ladder_DL_0002D0" Offset="0x2D0" />

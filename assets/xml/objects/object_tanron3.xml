@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_tanron3" Segment="6">
+    <File Name="object_tanron3" Segment="6" Game="MM">
         <DList Name="object_tanron3_DL_0004E0" Offset="0x4E0" />
         <DList Name="object_tanron3_DL_000710" Offset="0x710" />
         <DList Name="object_tanron3_DL_0007D8" Offset="0x7D8" />

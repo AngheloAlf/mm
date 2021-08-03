@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_mssa" Segment="6">
+    <File Name="object_gi_mssa" Segment="6" Game="MM">
         <DList Name="object_gi_mssa_DL_000C00" Offset="0xC00" />
         <DList Name="object_gi_mssa_DL_000DF0" Offset="0xDF0" />
         <Texture Name="object_gi_mssa_Tex_0010F0" OutName="tex_0010F0" Format="i4" Width="16" Height="16" Offset="0x10F0" />

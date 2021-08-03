@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_hakaisi" Segment="6">
+    <File Name="object_hakaisi" Segment="6" Game="MM">
         <Texture Name="object_hakaisi_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="16" Height="16" Offset="0x0" />
         <Texture Name="object_hakaisi_Tex_000200" OutName="tex_000200" Format="i8" Width="8" Height="32" Offset="0x200" />
         <Texture Name="object_hakaisi_Tex_000300" OutName="tex_000300" Format="rgb5a1" Width="16" Height="16" Offset="0x300" />

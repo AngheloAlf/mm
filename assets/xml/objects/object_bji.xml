@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bji" Segment="6">
+    <File Name="object_bji" Segment="6" Game="MM">
         <Animation Name="object_bji_Anim_00066C" Offset="0x66C" />
         <Animation Name="object_bji_Anim_000AB0" Offset="0xAB0" />
         <Animation Name="object_bji_Anim_000FDC" Offset="0xFDC" />

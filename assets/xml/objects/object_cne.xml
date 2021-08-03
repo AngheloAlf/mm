@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_cne" Segment="6">
+    <File Name="object_cne" Segment="6" Game="MM">
         <!-- Unaligned textures problem. Will probably need some work in ZAPD side -->
         <!--
         <Limb Name="object_cne_Limb_000000" LimbType="Standard" Offset="0x0" />

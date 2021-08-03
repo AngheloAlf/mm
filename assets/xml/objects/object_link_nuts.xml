@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_link_nuts" Segment="6">
+    <File Name="object_link_nuts" Segment="6" Game="MM">
         <DList Name="object_link_nuts_DL_0025D0" Offset="0x25D0" />
         <DList Name="object_link_nuts_DL_0026D8" Offset="0x26D8" />
         <DList Name="object_link_nuts_DL_0027E0" Offset="0x27E0" />

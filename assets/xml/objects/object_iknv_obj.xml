@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_iknv_obj" Segment="6">
+    <File Name="object_iknv_obj" Segment="6" Game="MM">
         <Texture Name="object_iknv_obj_TLUT_000000" OutName="tlut_000000" Format="rgb5a1" Width="4" Height="4" Offset="0x0" />
         <Texture Name="object_iknv_obj_Tex_000020" OutName="tex_000020" Format="rgb5a1" Width="32" Height="32" Offset="0x20" />
         <Texture Name="object_iknv_obj_Tex_000820" OutName="tex_000820" Format="ci4" Width="32" Height="128" Offset="0x820" />

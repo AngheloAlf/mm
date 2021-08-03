@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_pamera" Segment="6">
+    <File Name="object_pamera" Segment="6" Game="MM">
         <Animation Name="object_pamera_Anim_0005BC" Offset="0x5BC" />
         <DList Name="object_pamera_DL_002E50" Offset="0x2E50" />
         <DList Name="object_pamera_DL_002FB8" Offset="0x2FB8" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_liquid" Segment="6">
+    <File Name="object_gi_liquid" Segment="6" Game="MM">
         <Texture Name="object_gi_liquid_Tex_000000" OutName="tex_000000" Format="ia8" Width="16" Height="32" Offset="0x0" />
         <Texture Name="object_gi_liquid_Tex_000200" OutName="tex_000200" Format="ia8" Width="16" Height="32" Offset="0x200" />
         <Texture Name="object_gi_liquid_Tex_000400" OutName="tex_000400" Format="ia8" Width="16" Height="32" Offset="0x400" />

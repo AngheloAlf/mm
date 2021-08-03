@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_taru" Segment="6">
+    <File Name="object_taru" Segment="6" Game="MM">
         <DList Name="object_taru_DL_000420" Offset="0x420" />
         <Texture Name="object_taru_Tex_000670" OutName="tex_000670" Format="rgb5a1" Width="16" Height="32" Offset="0x670" />
         <Texture Name="object_taru_Tex_000A70" OutName="tex_000A70" Format="rgb5a1" Width="32" Height="16" Offset="0xA70" />

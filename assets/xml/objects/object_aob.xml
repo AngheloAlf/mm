@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_aob" Segment="6">
+    <File Name="object_aob" Segment="6" Game="MM">
         <Animation Name="object_aob_Anim_00007C" Offset="0x7C" />
         <Limb Name="object_aob_Limb_000090" LimbType="Standard" Offset="0x90" />
         <Limb Name="object_aob_Limb_00009C" LimbType="Standard" Offset="0x9C" />

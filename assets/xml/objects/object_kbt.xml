@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kbt" Segment="6">
+    <File Name="object_kbt" Segment="6" Game="MM">
         <Animation Name="object_kbt_Anim_000670" Offset="0x670" />
         <Animation Name="object_kbt_Anim_000FE8" Offset="0xFE8" />
         <Animation Name="object_kbt_Anim_001674" Offset="0x1674" />
