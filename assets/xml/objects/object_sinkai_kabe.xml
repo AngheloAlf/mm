@@ -1,7 +1,10 @@
 ﻿<Root>
     <File Name="object_sinkai_kabe" Segment="6">
-        <!--Blob Name="object_sinkai_kabe_zeroes_unk_00000000" Size="0x5C" Offset="0x0" /-->
-        <Animation Name="object_sinkai_kabe_Anim_00005C" Offset="0x5C" />
+        <Blob Name="object_sinkai_kabe_zeroes_unk_00000000" Size="0x5C" Offset="0x0" />
+
+        <!-- ZAPD crashes -->
+        <!--Animation Name="object_sinkai_kabe_Anim_00005C" Offset="0x5C" /-->
+
         <!--Blob Name="object_sinkai_kabe_zeroes_unk_0000006C" Size="0x14" Offset="0x6C" /-->
     </File>
 </Root>

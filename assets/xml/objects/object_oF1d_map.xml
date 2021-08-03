@@ -99,7 +99,10 @@
         <Animation Name="object_oF1d_map_Anim_013DB0" Offset="0x13DB0" />
         <Animation Name="object_oF1d_map_Anim_0143AC" Offset="0x143AC" />
         <!--Blob Name="object_oF1d_map_zeroes_unk_000143BC" Size="0x92C" Offset="0x143BC" /-->
-        <DList Name="object_oF1d_map_DL_014CE8" Offset="0x14CE8" />
+
+        <!-- ZAPD extracts empty -->
+        <!--DList Name="object_oF1d_map_DL_014CE8" Offset="0x14CE8" /-->
+
         <DList Name="object_oF1d_map_DL_014D00" Offset="0x14D00" />
     </File>
 </Root>
