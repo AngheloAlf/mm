@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_lastday" Segment="6">
+    <File Name="object_lastday" Segment="6" Game="MM">
         <DList Name="object_lastday_DL_000060" Offset="0x60" />
         <!--Blob Name="object_lastday_Blob_000138" Size="0x18" Offset="0x138" /-->
         <DList Name="object_lastday_DL_000210" Offset="0x210" />

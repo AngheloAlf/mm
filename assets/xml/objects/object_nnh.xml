@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_nnh" Segment="6">
+    <File Name="object_nnh" Segment="6" Game="MM">
         <DList Name="object_nnh_DL_001510" Offset="0x1510" />
         <Texture Name="object_nnh_TLUT_001AA0" OutName="tlut_001AA0" Format="rgb5a1" Width="16" Height="16" Offset="0x1AA0" />
         <Texture Name="object_nnh_Tex_001CA0" OutName="tex_001CA0" Format="ci8" Width="16" Height="16" Offset="0x1CA0" />

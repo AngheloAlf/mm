@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="gameplay_dangeon_keep" Segment="6">
+    <File Name="gameplay_dangeon_keep" Segment="6" Game="MM">
         <!--Blob Name="gameplay_dangeon_keep_Blob_000000" Size="0x140" Offset="0x0" /-->
         <DList Name="gameplay_dangeon_keep_DL_000140" Offset="0x140" />
         <!--Blob Name="gameplay_dangeon_keep_Blob_0001F0" Size="0x40" Offset="0x1F0" /-->

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_utubo" Segment="6">
+    <File Name="object_utubo" Segment="6" Game="MM">
         <Animation Name="object_utubo_Anim_00082C" Offset="0x82C" />
         <DList Name="object_utubo_DL_0020B0" Offset="0x20B0" />
         <DList Name="object_utubo_DL_002358" Offset="0x2358" />

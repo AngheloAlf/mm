@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_posthouse_obj" Segment="6">
+    <File Name="object_posthouse_obj" Segment="6" Game="MM">
         <DList Name="object_posthouse_obj_DL_000A50" Offset="0xA50" />
         <Texture Name="object_posthouse_obj_Tex_000DA8" OutName="tex_000DA8" Format="rgb5a1" Width="8" Height="8" Offset="0xDA8" />
         <Texture Name="object_posthouse_obj_Tex_000E28" OutName="tex_000E28" Format="rgb5a1" Width="16" Height="16" Offset="0xE28" />

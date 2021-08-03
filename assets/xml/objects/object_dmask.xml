@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dmask" Segment="6">
+    <File Name="object_dmask" Segment="6" Game="MM">
         <!--Blob Name="object_dmask_zeroes_unk_00000000" Size="0x1E0" Offset="0x0" /-->
         <DList Name="object_dmask_DL_000430" Offset="0x430" />
         <Texture Name="object_dmask_Tex_000578" OutName="tex_000578" Format="i8" Width="64" Height="32" Offset="0x578" />

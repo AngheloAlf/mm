@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_yukiyama" Segment="6">
+    <File Name="object_yukiyama" Segment="6" Game="MM">
         <DList Name="object_yukiyama_DL_001250" Offset="0x1250" />
         <DList Name="object_yukiyama_DL_0013A8" Offset="0x13A8" />
         <Texture Name="object_yukiyama_Tex_001A60" OutName="tex_001A60" Format="ia16" Width="32" Height="8" Offset="0x1A60" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dai" Segment="6">
+    <File Name="object_dai" Segment="6" Game="MM">
         <Texture Name="object_dai_Tex_000000" OutName="tex_000000" Format="i4" Width="32" Height="32" Offset="0x0" />
         <DList Name="object_dai_DL_000230" Offset="0x230" />
         <DList Name="object_dai_DL_0002E8" Offset="0x2E8" />

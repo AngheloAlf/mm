@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gg" Segment="6">
+    <File Name="object_gg" Segment="6" Game="MM">
         <DList Name="object_gg_DL_003BA0" Offset="0x3BA0" />
         <DList Name="object_gg_DL_003EC0" Offset="0x3EC0" />
         <DList Name="object_gg_DL_004578" Offset="0x4578" />

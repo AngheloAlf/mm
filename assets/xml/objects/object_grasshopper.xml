@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_grasshopper" Segment="6">
+    <File Name="object_grasshopper" Segment="6" Game="MM">
         <Animation Name="object_grasshopper_Anim_00066C" Offset="0x66C" />
         <Animation Name="object_grasshopper_Anim_0008D4" Offset="0x8D4" />
         <Animation Name="object_grasshopper_Anim_0009E0" Offset="0x9E0" />

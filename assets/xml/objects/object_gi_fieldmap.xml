@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_fieldmap" Segment="6">
+    <File Name="object_gi_fieldmap" Segment="6" Game="MM">
         <DList Name="object_gi_fieldmap_DL_0006E0" Offset="0x6E0" />
         <DList Name="object_gi_fieldmap_DL_0006E8" Offset="0x6E8" />
         <Texture Name="object_gi_fieldmap_Tex_000A20" OutName="tex_000A20" Format="i8" Width="32" Height="40" Offset="0xA20" />

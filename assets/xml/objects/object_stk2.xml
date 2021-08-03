@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_stk2" Segment="6">
+    <File Name="object_stk2" Segment="6" Game="MM">
         <!--Blob Name="object_stk2_zeroes_unk_00000000" Size="0x70F0" Offset="0x0" /-->
         <DList Name="object_stk2_DL_007840" Offset="0x7840" />
         <Texture Name="object_stk2_Tex_007A48" OutName="tex_007A48" Format="i8" Width="32" Height="32" Offset="0x7A48" />

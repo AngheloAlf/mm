@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ge1" Segment="6">
+    <File Name="object_ge1" Segment="6" Game="MM">
         <Animation Name="object_ge1_Anim_000594" Offset="0x594" />
         <Animation Name="object_ge1_Anim_000ABC" Offset="0xABC" />
         <Animation Name="object_ge1_Anim_000CF8" Offset="0xCF8" />

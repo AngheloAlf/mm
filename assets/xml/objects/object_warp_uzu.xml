@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_warp_uzu" Segment="6">
+    <File Name="object_warp_uzu" Segment="6" Game="MM">
         <DList Name="object_warp_uzu_DL_000EC0" Offset="0xEC0" />
         <Texture Name="object_warp_uzu_TLUT_0019D0" OutName="tlut_0019D0" Format="rgb5a1" Width="16" Height="16" Offset="0x19D0" />
         <Texture Name="object_warp_uzu_Tex_001BD0" OutName="tex_001BD0" Format="rgb5a1" Width="16" Height="32" Offset="0x1BD0" />

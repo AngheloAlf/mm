@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_omoya_obj" Segment="6">
+    <File Name="object_omoya_obj" Segment="6" Game="MM">
         <DList Name="object_omoya_obj_DL_0001A0" Offset="0x1A0" />
         <Texture Name="object_omoya_obj_TLUT_0002D8" OutName="tlut_0002D8" Format="rgb5a1" Width="4" Height="4" Offset="0x2D8" />
         <Texture Name="object_omoya_obj_Tex_0002F8" OutName="tex_0002F8" Format="rgb5a1" Width="64" Height="32" Offset="0x2F8" />

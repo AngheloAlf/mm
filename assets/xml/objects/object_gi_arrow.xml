@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_arrow" Segment="6">
+    <File Name="object_gi_arrow" Segment="6" Game="MM">
         <DList Name="object_gi_arrow_DL_000340" Offset="0x340" />
         <DList Name="object_gi_arrow_DL_000B90" Offset="0xB90" />
         <DList Name="object_gi_arrow_DL_001830" Offset="0x1830" />

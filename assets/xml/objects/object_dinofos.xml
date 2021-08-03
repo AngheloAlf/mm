@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dinofos" Segment="6">
+    <File Name="object_dinofos" Segment="6" Game="MM">
         <Animation Name="object_dinofos_Anim_000580" Offset="0x580" />
         <Animation Name="object_dinofos_Anim_000AF0" Offset="0xAF0" />
         <Animation Name="object_dinofos_Anim_001040" Offset="0x1040" />

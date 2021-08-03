@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_mamenoki" Segment="6">
+    <File Name="object_mamenoki" Segment="6" Game="MM">
         <DList Name="object_mamenoki_DL_000090" Offset="0x90" />
         <DList Name="object_mamenoki_DL_0002D0" Offset="0x2D0" />
         <!--Blob Name="object_mamenoki_Blob_000418" Size="0xD8" Offset="0x418" /-->

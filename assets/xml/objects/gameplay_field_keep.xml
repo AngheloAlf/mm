@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="gameplay_field_keep" Segment="6">
+    <File Name="gameplay_field_keep" Segment="6" Game="MM">
         <!--Blob Name="gameplay_field_keep_Blob_000000" Size="0xC40" Offset="0x0" /-->
         <DList Name="gameplay_field_keep_DL_000C40" Offset="0xC40" />
         <!--Blob Name="gameplay_field_keep_Blob_000CD0" Size="0x1058" Offset="0xCD0" /-->

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kinsta2_obj" Segment="6">
+    <File Name="object_kinsta2_obj" Segment="6" Game="MM">
         <DList Name="object_kinsta2_obj_DL_000310" Offset="0x310" />
         <Texture Name="object_kinsta2_obj_Tex_0004E8" OutName="tex_0004E8" Format="rgb5a1" Width="32" Height="64" Offset="0x4E8" />
     </File>

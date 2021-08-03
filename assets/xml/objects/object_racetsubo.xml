@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_racetsubo" Segment="6">
+    <File Name="object_racetsubo" Segment="6" Game="MM">
         <DList Name="object_racetsubo_DL_000270" Offset="0x270" />
         <DList Name="object_racetsubo_DL_000278" Offset="0x278" />
         <Texture Name="object_racetsubo_Tex_0003E0" OutName="tex_0003E0" Format="rgb5a1" Width="32" Height="64" Offset="0x3E0" />

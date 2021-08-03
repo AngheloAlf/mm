@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_mask_truth" Segment="6">
+    <File Name="object_mask_truth" Segment="6" Game="MM">
         <!--Blob Name="object_mask_truth_Blob_000000" Size="0x198" Offset="0x0" /-->
         <DList Name="object_mask_truth_DL_000198" Offset="0x198" />
         <!--Blob Name="object_mask_truth_Blob_000298" Size="0x1008" Offset="0x298" /-->

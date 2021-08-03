@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_mask_gero" Segment="6">
+    <File Name="object_mask_gero" Segment="6" Game="MM">
         <Blob Name="object_mask_gero_Blob_000000" Size="0xDB0" Offset="0x0" />
 
         <!-- ZAPD doesn't extract properly -->

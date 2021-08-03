@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_st" Segment="6">
+    <File Name="object_st" Segment="6" Game="MM">
         <Animation Name="object_st_Anim_000304" Offset="0x304" />
         <Texture Name="object_st_Tex_000320" OutName="tex_000320" Format="i4" Width="16" Height="8" Offset="0x320" />
         <Texture Name="object_st_Tex_000360" OutName="tex_000360" Format="rgb5a1" Width="16" Height="8" Offset="0x360" />

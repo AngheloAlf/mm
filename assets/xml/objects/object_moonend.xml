@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_moonend" Segment="6">
+    <File Name="object_moonend" Segment="6" Game="MM">
         <!--Blob Name="object_moonend_Blob_000000" Size="0x1230" Offset="0x0" /-->
         <DList Name="object_moonend_DL_0055F0" Offset="0x55F0" />
         <DList Name="object_moonend_DL_0061F8" Offset="0x61F8" />

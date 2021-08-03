@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_d_lift" Segment="6">
+    <File Name="object_d_lift" Segment="6" Game="MM">
         <DList Name="object_d_lift_DL_000180" Offset="0x180" />
         <Texture Name="object_d_lift_Tex_000298" OutName="tex_000298" Format="rgb5a1" Width="32" Height="32" Offset="0x298" />
         <!--Blob Name="object_d_lift_Blob_000A98" Size="0x138" Offset="0xA98" /-->

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_owl" Segment="6">
+    <File Name="object_owl" Segment="6" Game="MM">
         <Animation Name="object_owl_Anim_001168" Offset="0x1168" />
         <DList Name="object_owl_DL_001200" Offset="0x1200" />
         <Texture Name="object_owl_Tex_001290" OutName="tex_001290" Format="rgb5a1" Width="16" Height="32" Offset="0x1290" />

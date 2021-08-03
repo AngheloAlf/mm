@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_goronswitch" Segment="6">
+    <File Name="object_goronswitch" Segment="6" Game="MM">
         <DList Name="object_goronswitch_DL_000260" Offset="0x260" />
         <DList Name="object_goronswitch_DL_000268" Offset="0x268" />
         <!--Blob Name="object_goronswitch_Blob_0003D0" Size="0x230" Offset="0x3D0" /-->

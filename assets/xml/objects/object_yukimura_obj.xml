@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_yukimura_obj" Segment="6">
+    <File Name="object_yukimura_obj" Segment="6" Game="MM">
         <DList Name="object_yukimura_obj_DL_000640" Offset="0x640" />
         <DList Name="object_yukimura_obj_DL_000758" Offset="0x758" />
         <DList Name="object_yukimura_obj_DL_000870" Offset="0x870" />

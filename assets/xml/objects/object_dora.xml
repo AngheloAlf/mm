@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dora" Segment="6">
+    <File Name="object_dora" Segment="6" Game="MM">
         <DList Name="object_dora_DL_000180" Offset="0x180" />
         <Texture Name="object_dora_Tex_000280" OutName="tex_000280" Format="rgb5a1" Width="32" Height="64" Offset="0x280" />
         <Texture Name="object_dora_Tex_001280" OutName="tex_001280" Format="rgb5a1" Width="32" Height="32" Offset="0x1280" />

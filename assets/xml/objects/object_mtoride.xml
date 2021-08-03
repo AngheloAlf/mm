@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_mtoride" Segment="6">
+    <File Name="object_mtoride" Segment="6" Game="MM">
         <!--Blob Name="object_mtoride_Blob_000000" Size="0x200" Offset="0x0" /-->
         <Texture Name="object_mtoride_TLUT_000200" OutName="tlut_000200" Format="rgb5a1" Width="4" Height="4" Offset="0x200" />
         <Texture Name="object_mtoride_Tex_000220" OutName="tex_000220" Format="rgb5a1" Width="16" Height="16" Offset="0x220" />

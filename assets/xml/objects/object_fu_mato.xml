@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_fu_mato" Segment="6">
+    <File Name="object_fu_mato" Segment="6" Game="MM">
         <DList Name="object_fu_mato_DL_0006A0" Offset="0x6A0" />
         <DList Name="object_fu_mato_DL_000740" Offset="0x740" />
         <DList Name="object_fu_mato_DL_0007E0" Offset="0x7E0" />

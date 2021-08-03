@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_syoten" Segment="6">
+    <File Name="object_syoten" Segment="6" Game="MM">
         <!--Blob Name="object_syoten_Blob_000000" Size="0x250" Offset="0x0" /-->
         <DList Name="object_syoten_DL_000450" Offset="0x450" />
         <DList Name="object_syoten_DL_000518" Offset="0x518" />

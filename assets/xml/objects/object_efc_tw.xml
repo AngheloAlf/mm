@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_efc_tw" Segment="6">
+    <File Name="object_efc_tw" Segment="6" Game="MM">
         <!--Blob Name="object_efc_tw_Blob_000000" Size="0x60" Offset="0x0" /-->
         <DList Name="object_efc_tw_DL_0001B0" Offset="0x1B0" />
         <Texture Name="object_efc_tw_Tex_0002C8" OutName="tex_0002C8" Format="i8" Width="64" Height="64" Offset="0x2C8" />

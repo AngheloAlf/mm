@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_mask_romerny" Segment="6">
+    <File Name="object_mask_romerny" Segment="6" Game="MM">
         <!--Blob Name="object_mask_romerny_Blob_000000" Size="0x7A0" Offset="0x0" /-->
         <DList Name="object_mask_romerny_DL_0007A0" Offset="0x7A0" />
         <!--Blob Name="object_mask_romerny_Blob_000B88" Size="0xE88" Offset="0xB88" /-->

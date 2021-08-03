@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_harfgibud" Segment="6">
+    <File Name="object_harfgibud" Segment="6" Game="MM">
         <Animation Name="object_harfgibud_Anim_000370" Offset="0x370" />
         <Animation Name="object_harfgibud_Anim_001138" Offset="0x1138" />
         <Animation Name="object_harfgibud_Anim_0015D4" Offset="0x15D4" />

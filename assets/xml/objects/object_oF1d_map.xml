@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_oF1d_map" Segment="6">
+    <File Name="object_oF1d_map" Segment="6" Game="MM">
         <DList Name="object_oF1d_map_DL_0003D0" Offset="0x3D0" />
         <DList Name="object_oF1d_map_DL_000458" Offset="0x458" />
         <DList Name="object_oF1d_map_DL_0008C0" Offset="0x8C0" />

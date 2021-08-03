@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_open_obj" Segment="6">
+    <File Name="object_open_obj" Segment="6" Game="MM">
         <DList Name="object_open_obj_DL_0003E0" Offset="0x3E0" />
         <DList Name="object_open_obj_DL_0003E8" Offset="0x3E8" />
         <Texture Name="object_open_obj_Tex_000558" OutName="tex_000558" Format="rgb5a1" Width="32" Height="64" Offset="0x558" />

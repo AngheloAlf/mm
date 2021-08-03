@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_tsubo" Segment="6">
+    <File Name="object_tsubo" Segment="6" Game="MM">
         <Texture Name="object_tsubo_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="32" Height="64" Offset="0x0" />
         <Texture Name="object_tsubo_Tex_001000" OutName="tex_001000" Format="rgb5a1" Width="16" Height="16" Offset="0x1000" />
         <Texture Name="object_tsubo_Tex_001200" OutName="tex_001200" Format="rgb5a1" Width="16" Height="16" Offset="0x1200" />

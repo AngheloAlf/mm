@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_raf" Segment="6">
+    <File Name="object_raf" Segment="6" Game="MM">
         <!--Blob Name="object_raf_zeroes_unk_00000000" Size="0x11C" Offset="0x0" /-->
 
         <!-- ZAPD crashes -->

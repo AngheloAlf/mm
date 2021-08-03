@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_raillift" Segment="6">
+    <File Name="object_raillift" Segment="6" Game="MM">
         <DList Name="object_raillift_DL_000200" Offset="0x200" />
         <DList Name="object_raillift_DL_000208" Offset="0x208" />
         <Texture Name="object_raillift_Tex_000370" OutName="tex_000370" Format="rgb5a1" Width="32" Height="32" Offset="0x370" />

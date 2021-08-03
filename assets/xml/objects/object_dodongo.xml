@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dodongo" Segment="6">
+    <File Name="object_dodongo" Segment="6" Game="MM">
         <Animation Name="object_dodongo_Anim_0013C4" Offset="0x13C4" />
         <Animation Name="object_dodongo_Anim_0015F4" Offset="0x15F4" />
         <Animation Name="object_dodongo_Anim_001A44" Offset="0x1A44" />

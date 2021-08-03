@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_d_hsblock" Segment="6">
+    <File Name="object_d_hsblock" Segment="6" Game="MM">
         <DList Name="object_d_hsblock_DL_000210" Offset="0x210" />
         <DList Name="object_d_hsblock_DL_000470" Offset="0x470" />
         <!--Blob Name="object_d_hsblock_Blob_000528" Size="0x238" Offset="0x528" /-->

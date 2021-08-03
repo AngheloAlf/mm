@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_mask_zora" Segment="6">
+    <File Name="object_mask_zora" Segment="6" Game="MM">
         <!--Blob Name="object_mask_zora_Blob_000000" Size="0xDB0" Offset="0x0" /-->
         <DList Name="object_mask_zora_DL_000DB0" Offset="0xDB0" />
     </File>

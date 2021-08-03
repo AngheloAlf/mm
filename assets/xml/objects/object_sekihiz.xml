@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_sekihiz" Segment="6">
+    <File Name="object_sekihiz" Segment="6" Game="MM">
         <DList Name="object_sekihiz_DL_000510" Offset="0x510" />
         <DList Name="object_sekihiz_DL_000518" Offset="0x518" />
         <Texture Name="object_sekihiz_Tex_000728" OutName="tex_000728" Format="i8" Width="32" Height="32" Offset="0x728" />

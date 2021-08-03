@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_uch" Segment="6">
+    <File Name="object_uch" Segment="6" Game="MM">
         <DList Name="object_uch_DL_000080" Offset="0x80" />
         <!--Blob Name="object_uch_zeroes_unk_00000130" Size="0x400" Offset="0x130" /-->
 

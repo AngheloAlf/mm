@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_mask09" Segment="6">
+    <File Name="object_gi_mask09" Segment="6" Game="MM">
         <DList Name="object_gi_mask09_DL_0007A0" Offset="0x7A0" />
         <DList Name="object_gi_mask09_DL_0008F0" Offset="0x8F0" />
         <Texture Name="object_gi_mask09_TLUT_000DA0" OutName="tlut_000DA0" Format="rgb5a1" Width="16" Height="16" Offset="0xDA0" />

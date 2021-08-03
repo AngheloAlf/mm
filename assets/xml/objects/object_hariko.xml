@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_hariko" Segment="6">
+    <File Name="object_hariko" Segment="6" Game="MM">
         <DList Name="object_hariko_DL_000080" Offset="0x80" />
         <DList Name="object_hariko_DL_000110" Offset="0x110" />
         <Texture Name="object_hariko_Tex_0001A0" OutName="tex_0001A0" Format="rgb5a1" Width="8" Height="8" Offset="0x1A0" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_skb" Segment="6">
+    <File Name="object_skb" Segment="6" Game="MM">
         <Animation Name="object_skb_Anim_0009E4" Offset="0x9E4" />
         <Animation Name="object_skb_Anim_0015EC" Offset="0x15EC" />
         <Animation Name="object_skb_Anim_001D1C" Offset="0x1D1C" />

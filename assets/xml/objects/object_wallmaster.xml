@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_wallmaster" Segment="6">
+    <File Name="object_wallmaster" Segment="6" Game="MM">
         <Animation Name="object_wallmaster_Anim_000590" Offset="0x590" />
         <Animation Name="object_wallmaster_Anim_000EA4" Offset="0xEA4" />
         <Animation Name="object_wallmaster_Anim_0019CC" Offset="0x19CC" />

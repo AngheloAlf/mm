@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_sword_1" Segment="6">
+    <File Name="object_gi_sword_1" Segment="6" Game="MM">
         <DList Name="object_gi_sword_1_DL_000850" Offset="0x850" />
         <DList Name="object_gi_sword_1_DL_000998" Offset="0x998" />
         <Texture Name="object_gi_sword_1_Tex_000D58" OutName="tex_000D58" Format="i8" Width="8" Height="8" Offset="0xD58" />

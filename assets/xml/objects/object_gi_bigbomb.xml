@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_bigbomb" Segment="6">
+    <File Name="object_gi_bigbomb" Segment="6" Game="MM">
         <DList Name="object_gi_bigbomb_DL_000BC0" Offset="0xBC0" />
         <DList Name="object_gi_bigbomb_DL_000DA0" Offset="0xDA0" />
         <Texture Name="object_gi_bigbomb_TLUT_000F30" OutName="tlut_000F30" Format="rgb5a1" Width="16" Height="16" Offset="0xF30" />

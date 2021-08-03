@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_obj_tokeidai" Segment="6">
+    <File Name="object_obj_tokeidai" Segment="6" Game="MM">
         <Texture Name="object_obj_tokeidai_TLUT_000000" OutName="tlut_000000" Format="rgb5a1" Width="4" Height="4" Offset="0x0" />
         <Texture Name="object_obj_tokeidai_TLUT_000020" OutName="tlut_000020" Format="rgb5a1" Width="4" Height="4" Offset="0x20" />
         <Texture Name="object_obj_tokeidai_Tex_000040" OutName="tex_000040" Format="i8" Width="64" Height="64" Offset="0x40" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_nwc" Segment="6">
+    <File Name="object_nwc" Segment="6" Game="MM">
         <DList Name="object_nwc_DL_0002E0" Offset="0x2E0" />
         <DList Name="object_nwc_DL_0002E8" Offset="0x2E8" />
         <Texture Name="object_nwc_Tex_0004D0" OutName="tex_0004D0" Format="rgb5a1" Width="8" Height="8" Offset="0x4D0" />

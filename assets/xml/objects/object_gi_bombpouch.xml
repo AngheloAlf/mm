@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_bombpouch" Segment="6">
+    <File Name="object_gi_bombpouch" Segment="6" Game="MM">
         <DList Name="object_gi_bombpouch_DL_000AD0" Offset="0xAD0" />
         <DList Name="object_gi_bombpouch_DL_000AF0" Offset="0xAF0" />
         <DList Name="object_gi_bombpouch_DL_000B10" Offset="0xB10" />

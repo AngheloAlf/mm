@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gi_schedule" Segment="6">
+    <File Name="object_gi_schedule" Segment="6" Game="MM">
         <DList Name="object_gi_schedule_DL_0006C0" Offset="0x6C0" />
         <DList Name="object_gi_schedule_DL_000B78" Offset="0xB78" />
         <Texture Name="object_gi_schedule_Tex_000B80" OutName="tex_000B80" Format="i4" Width="16" Height="8" Offset="0xB80" />

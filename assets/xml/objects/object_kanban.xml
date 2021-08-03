@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kanban" Segment="6">
+    <File Name="object_kanban" Segment="6" Game="MM">
         <DList Name="object_kanban_DL_000C30" Offset="0xC30" />
         <DList Name="object_kanban_DL_000CB0" Offset="0xCB0" />
         <DList Name="object_kanban_DL_000DB8" Offset="0xDB8" />

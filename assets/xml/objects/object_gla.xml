@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_gla" Segment="6">
+    <File Name="object_gla" Segment="6" Game="MM">
         <Animation Name="object_gla_Anim_00030C" Offset="0x30C" />
         <Animation Name="object_gla_Anim_000460" Offset="0x460" />
         <Animation Name="object_gla_Anim_000794" Offset="0x794" />

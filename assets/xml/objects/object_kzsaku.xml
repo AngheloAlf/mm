@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kzsaku" Segment="6">
+    <File Name="object_kzsaku" Segment="6" Game="MM">
         <DList Name="object_kzsaku_DL_000040" Offset="0x40" />
         <Texture Name="object_kzsaku_Tex_0000D0" OutName="tex_0000D0" Format="ia8" Width="32" Height="128" Offset="0xD0" />
         <!--Blob Name="object_kzsaku_Blob_0010D0" Size="0x80" Offset="0x10D0" /-->

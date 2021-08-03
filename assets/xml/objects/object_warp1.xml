@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_warp1" Segment="6">
+    <File Name="object_warp1" Segment="6" Game="MM">
         <DList Name="object_warp1_DL_0001A0" Offset="0x1A0" />
         <Texture Name="object_warp1_Tex_0002C0" OutName="tex_0002C0" Format="i8" Width="64" Height="64" Offset="0x2C0" />
         <Animation Name="object_warp1_Anim_001374" Offset="0x1374" />

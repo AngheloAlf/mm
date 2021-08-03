@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_toryo" Segment="6">
+    <File Name="object_toryo" Segment="6" Game="MM">
         <Animation Name="object_toryo_Anim_000E50" Offset="0xE50" />
         <Texture Name="object_toryo_TLUT_000E60" OutName="tlut_000E60" Format="rgb5a1" Width="16" Height="16" Offset="0xE60" />
         <Texture Name="object_toryo_Tex_001060" OutName="tex_001060" Format="ci8" Width="16" Height="16" Offset="0x1060" />

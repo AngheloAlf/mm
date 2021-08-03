@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_link_zora" Segment="6">
+    <File Name="object_link_zora" Segment="6" Game="MM">
         <!--Blob Name="object_link_zora_Blob_000000" Size="0x5000" Offset="0x0" /-->
         <Texture Name="object_link_zora_TLUT_005000" OutName="tlut_005000" Format="rgb5a1" Width="16" Height="16" Offset="0x5000" />
         <Texture Name="object_link_zora_Tex_005200" OutName="tex_005200" Format="rgb5a1" Width="16" Height="16" Offset="0x5200" />

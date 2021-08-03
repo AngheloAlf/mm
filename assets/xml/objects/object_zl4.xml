@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_zl4" Segment="6">
+    <File Name="object_zl4" Segment="6" Game="MM">
         <Animation Name="object_zl4_Anim_000654" Offset="0x654" />
         <Texture Name="object_zl4_TLUT_000670" OutName="tlut_000670" Format="rgb5a1" Width="16" Height="16" Offset="0x670" />
         <Texture Name="object_zl4_Tex_000870" OutName="tex_000870" Format="rgb5a1" Width="16" Height="16" Offset="0x870" />

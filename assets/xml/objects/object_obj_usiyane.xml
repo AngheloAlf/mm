@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_obj_usiyane" Segment="6">
+    <File Name="object_obj_usiyane" Segment="6" Game="MM">
         <DList Name="object_obj_usiyane_DL_000090" Offset="0x90" />
         <DList Name="object_obj_usiyane_DL_000098" Offset="0x98" />
         <Texture Name="object_obj_usiyane_Tex_000130" OutName="tex_000130" Format="rgb5a1" Width="32" Height="16" Offset="0x130" />

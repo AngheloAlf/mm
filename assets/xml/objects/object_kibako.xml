@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_kibako" Segment="6">
+    <File Name="object_kibako" Segment="6" Game="MM">
         <Texture Name="object_kibako_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="32" Height="64" Offset="0x0" />
         <DList Name="object_kibako_DL_001180" Offset="0x1180" />
         <Texture Name="object_kibako_Tex_001240" OutName="tex_001240" Format="rgb5a1" Width="64" Height="16" Offset="0x1240" />

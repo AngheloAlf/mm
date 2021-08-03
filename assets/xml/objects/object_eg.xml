@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_eg" Segment="6">
+    <File Name="object_eg" Segment="6" Game="MM">
         <DList Name="object_eg_DL_000040" Offset="0x40" />
         <Texture Name="object_eg_Tex_0000C0" OutName="tex_0000C0" Format="ia8" Width="64" Height="64" Offset="0xC0" />
         <!--Blob Name="object_eg_Blob_0010C0" Size="0x10" Offset="0x10C0" /-->

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_bsmask" Segment="6">
+    <File Name="object_bsmask" Segment="6" Game="MM">
         <DList Name="object_bsmask_DL_000690" Offset="0x690" />
         <DList Name="object_bsmask_DL_001D80" Offset="0x1D80" />
         <DList Name="object_bsmask_DL_003AD0" Offset="0x3AD0" />

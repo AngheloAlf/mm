@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_famos" Segment="6">
+    <File Name="object_famos" Segment="6" Game="MM">
         <Animation Name="object_famos_Anim_0000F8" Offset="0xF8" />
         <DList Name="object_famos_DL_0012B0" Offset="0x12B0" />
         <DList Name="object_famos_DL_001528" Offset="0x1528" />

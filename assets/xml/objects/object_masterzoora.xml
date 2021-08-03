@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_masterzoora" Segment="6">
+    <File Name="object_masterzoora" Segment="6" Game="MM">
         <Animation Name="object_masterzoora_Anim_00078C" Offset="0x78C" />
     </File>
 </Root>

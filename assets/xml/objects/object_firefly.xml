@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_firefly" Segment="6">
+    <File Name="object_firefly" Segment="6" Game="MM">
         <Animation Name="object_firefly_Anim_00017C" Offset="0x17C" />
         <Texture Name="object_firefly_Tex_000190" OutName="tex_000190" Format="rgb5a1" Width="8" Height="8" Offset="0x190" />
         <Texture Name="object_firefly_Tex_000210" OutName="tex_000210" Format="rgb5a1" Width="8" Height="8" Offset="0x210" />

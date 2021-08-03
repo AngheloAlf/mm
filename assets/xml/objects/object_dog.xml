@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dog" Segment="6">
+    <File Name="object_dog" Segment="6" Game="MM">
         <Mtx Name="object_dog_Mtx_000130" Offset="0x130" />
         <DList Name="object_dog_DL_000170" Offset="0x170" />
         <DList Name="object_dog_DL_000250" Offset="0x250" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_lbfshot" Segment="6">
+    <File Name="object_lbfshot" Segment="6" Game="MM">
         <DList Name="object_lbfshot_DL_000220" Offset="0x220" />
         <DList Name="object_lbfshot_DL_000228" Offset="0x228" />
         <Texture Name="object_lbfshot_Tex_000340" OutName="tex_000340" Format="rgb5a1" Width="16" Height="64" Offset="0x340" />

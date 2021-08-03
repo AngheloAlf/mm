@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_dnq" Segment="6">
+    <File Name="object_dnq" Segment="6" Game="MM">
         <Animation Name="object_dnq_Anim_0006F0" Offset="0x6F0" />
         <Animation Name="object_dnq_Anim_000BF8" Offset="0xBF8" />
         <Animation Name="object_dnq_Anim_001100" Offset="0x1100" />

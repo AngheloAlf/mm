@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_lodmoon" Segment="6">
+    <File Name="object_lodmoon" Segment="6" Game="MM">
         <DList Name="object_lodmoon_DL_0010E0" Offset="0x10E0" />
         <DList Name="object_lodmoon_DL_001158" Offset="0x1158" />
         <Texture Name="object_lodmoon_TLUT_0015D8" OutName="tlut_0015D8" Format="rgb5a1" Width="4" Height="4" Offset="0x15D8" />

@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_fsn" Segment="6">
+    <File Name="object_fsn" Segment="6" Game="MM">
         <DList Name="object_fsn_DL_002A20" Offset="0x2A20" />
         <DList Name="object_fsn_DL_002D88" Offset="0x2D88" />
         <DList Name="object_fsn_DL_002EF0" Offset="0x2EF0" />

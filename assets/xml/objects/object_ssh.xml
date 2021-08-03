@@ -1,5 +1,5 @@
 ﻿<Root>
-    <File Name="object_ssh" Segment="6">
+    <File Name="object_ssh" Segment="6" Game="MM">
         <DList Name="object_ssh_DL_0000D0" Offset="0xD0" />
         <DList Name="object_ssh_DL_0000D8" Offset="0xD8" />
         <Texture Name="object_ssh_Tex_000190" OutName="tex_000190" Format="rgb5a1" Width="32" Height="64" Offset="0x190" />
