@@ -1,0 +1,368 @@
+﻿<Root>
+    <File Name="gameplay_keep" Segment="6">
+        <!--Blob Name="gameplay_keep_Blob_000000" Size="0x320" Offset="0x0" /-->
+        <DList Name="gameplay_keep_DL_000320" Offset="0x320" />
+        <DList Name="gameplay_keep_DL_0003E0" Offset="0x3E0" />
+        <!--Blob Name="gameplay_keep_Blob_000508" Size="0x3B8" Offset="0x508" /-->
+        <DList Name="gameplay_keep_DL_0008C0" Offset="0x8C0" />
+        <!--Blob Name="gameplay_keep_Blob_000988" Size="0xFC0" Offset="0x988" /-->
+        <DList Name="gameplay_keep_DL_001948" Offset="0x1948" />
+        <DList Name="gameplay_keep_DL_001B20" Offset="0x1B20" />
+        <DList Name="gameplay_keep_DL_001BC8" Offset="0x1BC8" />
+        <DList Name="gameplay_keep_DL_001C60" Offset="0x1C60" />
+        <DList Name="gameplay_keep_DL_001D00" Offset="0x1D00" />
+        <DList Name="gameplay_keep_DL_001D28" Offset="0x1D28" />
+        <DList Name="gameplay_keep_DL_001DC8" Offset="0x1DC8" />
+        <DList Name="gameplay_keep_DL_001E58" Offset="0x1E58" />
+        <DList Name="gameplay_keep_DL_001F08" Offset="0x1F08" />
+        <DList Name="gameplay_keep_DL_001FA8" Offset="0x1FA8" />
+        <DList Name="gameplay_keep_DL_002038" Offset="0x2038" />
+        <DList Name="gameplay_keep_DL_0020C8" Offset="0x20C8" />
+        <DList Name="gameplay_keep_DL_002168" Offset="0x2168" />
+        <DList Name="gameplay_keep_DL_0021A8" Offset="0x21A8" />
+        <DList Name="gameplay_keep_DL_002480" Offset="0x2480" />
+        <DList Name="gameplay_keep_DL_002508" Offset="0x2508" />
+        <DList Name="gameplay_keep_DL_002590" Offset="0x2590" />
+        <DList Name="gameplay_keep_DL_002618" Offset="0x2618" />
+        <DList Name="gameplay_keep_DL_0026A0" Offset="0x26A0" />
+        <DList Name="gameplay_keep_DL_002728" Offset="0x2728" />
+        <DList Name="gameplay_keep_DL_0027B0" Offset="0x27B0" />
+        <DList Name="gameplay_keep_DL_002838" Offset="0x2838" />
+        <DList Name="gameplay_keep_DL_0028C0" Offset="0x28C0" />
+        <!--Blob Name="gameplay_keep_Blob_002908" Size="0x9A8" Offset="0x2908" /-->
+        <DList Name="gameplay_keep_DL_0032B0" Offset="0x32B0" />
+        <!--Blob Name="gameplay_keep_Blob_0033F8" Size="0x1F60" Offset="0x33F8" /-->
+        <DList Name="gameplay_keep_DL_005358" Offset="0x5358" />
+        <DList Name="gameplay_keep_DL_0056C0" Offset="0x56C0" />
+        <DList Name="gameplay_keep_DL_005A10" Offset="0x5A10" />
+        <!--Blob Name="gameplay_keep_Blob_005DB8" Size="0x54A8" Offset="0x5DB8" /-->
+        <DList Name="gameplay_keep_DL_00B260" Offset="0xB260" />
+        <!--Blob Name="gameplay_keep_Blob_00B6B0" Size="0x2F10" Offset="0xB6B0" /-->
+        <DList Name="gameplay_keep_DL_00E5C0" Offset="0xE5C0" />
+        <!--Blob Name="gameplay_keep_Blob_00E5F0" Size="0x790" Offset="0xE5F0" /-->
+        <DList Name="gameplay_keep_DL_00ED80" Offset="0xED80" />
+        <!--Blob Name="gameplay_keep_Blob_00EEC8" Size="0x3F0" Offset="0xEEC8" /-->
+        <DList Name="gameplay_keep_DL_00F2B8" Offset="0xF2B8" />
+        <DList Name="gameplay_keep_DL_00F350" Offset="0xF350" />
+        <DList Name="gameplay_keep_DL_00F438" Offset="0xF438" />
+        <DList Name="gameplay_keep_DL_00F4C0" Offset="0xF4C0" />
+        <DList Name="gameplay_keep_DL_00F548" Offset="0xF548" />
+        <DList Name="gameplay_keep_DL_00F5D0" Offset="0xF5D0" />
+        <DList Name="gameplay_keep_DL_00F658" Offset="0xF658" />
+        <DList Name="gameplay_keep_DL_00F6E0" Offset="0xF6E0" />
+        <DList Name="gameplay_keep_DL_00F768" Offset="0xF768" />
+        <DList Name="gameplay_keep_DL_00F7F0" Offset="0xF7F0" />
+        <!--Blob Name="gameplay_keep_Blob_00F878" Size="0x2358" Offset="0xF878" /-->
+        <DList Name="gameplay_keep_DL_011BD0" Offset="0x11BD0" />
+        <!--Blob Name="gameplay_keep_Blob_011CF0" Size="0x4C0" Offset="0x11CF0" /-->
+        <DList Name="gameplay_keep_DL_0121B0" Offset="0x121B0" />
+        <DList Name="gameplay_keep_DL_012260" Offset="0x12260" />
+        <DList Name="gameplay_keep_DL_012308" Offset="0x12308" />
+        <DList Name="gameplay_keep_DL_012390" Offset="0x12390" />
+        <DList Name="gameplay_keep_DL_012418" Offset="0x12418" />
+        <DList Name="gameplay_keep_DL_0124A0" Offset="0x124A0" />
+        <DList Name="gameplay_keep_DL_012528" Offset="0x12528" />
+        <DList Name="gameplay_keep_DL_0125B0" Offset="0x125B0" />
+        <DList Name="gameplay_keep_DL_012638" Offset="0x12638" />
+        <DList Name="gameplay_keep_DL_0126C0" Offset="0x126C0" />
+        <!--Blob Name="gameplay_keep_Blob_012748" Size="0x1898" Offset="0x12748" /-->
+        <DList Name="gameplay_keep_DL_013FE0" Offset="0x13FE0" />
+        <!--Blob Name="gameplay_keep_Blob_0141D0" Size="0x180" Offset="0x141D0" /-->
+        <DList Name="gameplay_keep_DL_014350" Offset="0x14350" />
+        <!--Blob Name="gameplay_keep_Blob_014510" Size="0x18A0" Offset="0x14510" /-->
+        <DList Name="gameplay_keep_DL_015DB0" Offset="0x15DB0" />
+        <!--Blob Name="gameplay_keep_Blob_015E38" Size="0x168" Offset="0x15E38" /-->
+        <DList Name="gameplay_keep_DL_015FA0" Offset="0x15FA0" />
+        <!--Blob Name="gameplay_keep_Blob_016060" Size="0x300" Offset="0x16060" /-->
+        <DList Name="gameplay_keep_DL_016360" Offset="0x16360" />
+        <!--Blob Name="gameplay_keep_Blob_0164C8" Size="0x4008" Offset="0x164C8" /-->
+        <DList Name="gameplay_keep_DL_01A4D0" Offset="0x1A4D0" />
+        <DList Name="gameplay_keep_DL_01A538" Offset="0x1A538" />
+        <DList Name="gameplay_keep_DL_01A590" Offset="0x1A590" />
+        <!--Blob Name="gameplay_keep_Blob_01A5A8" Size="0x60" Offset="0x1A5A8" /-->
+        <DList Name="gameplay_keep_DL_01A608" Offset="0x1A608" />
+        <!--Blob Name="gameplay_keep_Blob_01A6B0" Size="0x630" Offset="0x1A6B0" /-->
+        <DList Name="gameplay_keep_DL_01ACE0" Offset="0x1ACE0" />
+        <!--Blob Name="gameplay_keep_Blob_01ADB0" Size="0x1678" Offset="0x1ADB0" /-->
+        <DList Name="gameplay_keep_DL_01C428" Offset="0x1C428" />
+        <!--Blob Name="gameplay_keep_Blob_01CAF8" Size="0x2208" Offset="0x1CAF8" /-->
+        <DList Name="gameplay_keep_DL_01ED00" Offset="0x1ED00" />
+        <!--Blob Name="gameplay_keep_Blob_01ED28" Size="0x60" Offset="0x1ED28" /-->
+        <DList Name="gameplay_keep_DL_01ED88" Offset="0x1ED88" />
+        <!--Blob Name="gameplay_keep_Blob_01EE00" Size="0x2F0" Offset="0x1EE00" /-->
+        <DList Name="gameplay_keep_DL_01F0F0" Offset="0x1F0F0" />
+        <!--Blob Name="gameplay_keep_Blob_01F200" Size="0x100" Offset="0x1F200" /-->
+        <DList Name="gameplay_keep_DL_01F300" Offset="0x1F300" />
+        <!--Blob Name="gameplay_keep_Blob_01F338" Size="0x708" Offset="0x1F338" /-->
+        <DList Name="gameplay_keep_DL_01FA40" Offset="0x1FA40" />
+        <!--Blob Name="gameplay_keep_Blob_01FB18" Size="0x1018" Offset="0x1FB18" /-->
+        <DList Name="gameplay_keep_DL_020B30" Offset="0x20B30" />
+        <DList Name="gameplay_keep_DL_020BB8" Offset="0x20BB8" />
+        <DList Name="gameplay_keep_DL_020D00" Offset="0x20D00" />
+        <!--Blob Name="gameplay_keep_Blob_020E38" Size="0x1380" Offset="0x20E38" /-->
+        <DList Name="gameplay_keep_DL_0221B8" Offset="0x221B8" />
+        <!--Blob Name="gameplay_keep_Blob_0222E8" Size="0xE48" Offset="0x222E8" /-->
+        <DList Name="gameplay_keep_DL_023130" Offset="0x23130" />
+        <!--Blob Name="gameplay_keep_Blob_023188" Size="0x88" Offset="0x23188" /-->
+        <DList Name="gameplay_keep_DL_023210" Offset="0x23210" />
+        <DList Name="gameplay_keep_DL_023288" Offset="0x23288" />
+        <!--Blob Name="gameplay_keep_Blob_023308" Size="0x40" Offset="0x23308" /-->
+        <DList Name="gameplay_keep_DL_023348" Offset="0x23348" />
+        <DList Name="gameplay_keep_DL_0233B8" Offset="0x233B8" />
+        <DList Name="gameplay_keep_DL_023428" Offset="0x23428" />
+        <!--Blob Name="gameplay_keep_Blob_023440" Size="0x40" Offset="0x23440" /-->
+        <DList Name="gameplay_keep_DL_023480" Offset="0x23480" />
+        <DList Name="gameplay_keep_DL_0234F0" Offset="0x234F0" />
+        <!--Blob Name="gameplay_keep_Blob_023508" Size="0x2340" Offset="0x23508" /-->
+        <DList Name="gameplay_keep_DL_025848" Offset="0x25848" />
+        <DList Name="gameplay_keep_DL_025970" Offset="0x25970" />
+        <!--Blob Name="gameplay_keep_Blob_025A90" Size="0x338" Offset="0x25A90" /-->
+        <DList Name="gameplay_keep_DL_025DC8" Offset="0x25DC8" />
+        <DList Name="gameplay_keep_DL_025EF0" Offset="0x25EF0" />
+        <!--Blob Name="gameplay_keep_Blob_026010" Size="0x8E0" Offset="0x26010" /-->
+        <DList Name="gameplay_keep_DL_0268F0" Offset="0x268F0" />
+        <!--Blob Name="gameplay_keep_Blob_0269D8" Size="0x12C8" Offset="0x269D8" /-->
+        <DList Name="gameplay_keep_DL_027CA0" Offset="0x27CA0" />
+        <!--Blob Name="gameplay_keep_Blob_027DC8" Size="0x508" Offset="0x27DC8" /-->
+        <DList Name="gameplay_keep_DL_0282D0" Offset="0x282D0" />
+        <!--Blob Name="gameplay_keep_Blob_0283B8" Size="0x15D8" Offset="0x283B8" /-->
+        <DList Name="gameplay_keep_DL_029990" Offset="0x29990" />
+        <!--Blob Name="gameplay_keep_Blob_029A18" Size="0x40" Offset="0x29A18" /-->
+        <DList Name="gameplay_keep_DL_029A58" Offset="0x29A58" />
+        <!--Blob Name="gameplay_keep_Blob_029AE0" Size="0x40" Offset="0x29AE0" /-->
+        <DList Name="gameplay_keep_DL_029B20" Offset="0x29B20" />
+        <!--Blob Name="gameplay_keep_Blob_029BA8" Size="0x40" Offset="0x29BA8" /-->
+        <DList Name="gameplay_keep_DL_029BE8" Offset="0x29BE8" />
+        <!--Blob Name="gameplay_keep_Blob_029C70" Size="0x40" Offset="0x29C70" /-->
+        <DList Name="gameplay_keep_DL_029CB0" Offset="0x29CB0" />
+        <DList Name="gameplay_keep_DL_029CF0" Offset="0x29CF0" />
+        <DList Name="gameplay_keep_DL_029D10" Offset="0x29D10" />
+        <!--Blob Name="gameplay_keep_Blob_029E78" Size="0x1838" Offset="0x29E78" /-->
+        <DList Name="gameplay_keep_DL_02B6B0" Offset="0x2B6B0" />
+        <DList Name="gameplay_keep_DL_02B748" Offset="0x2B748" />
+        <DList Name="gameplay_keep_DL_02B7E0" Offset="0x2B7E0" />
+        <DList Name="gameplay_keep_DL_02B888" Offset="0x2B888" />
+        <DList Name="gameplay_keep_DL_02B920" Offset="0x2B920" />
+        <DList Name="gameplay_keep_DL_02B9B8" Offset="0x2B9B8" />
+        <DList Name="gameplay_keep_DL_02BA68" Offset="0x2BA68" />
+        <DList Name="gameplay_keep_DL_02BB00" Offset="0x2BB00" />
+        <DList Name="gameplay_keep_DL_02BB98" Offset="0x2BB98" />
+        <!--Blob Name="gameplay_keep_Blob_02BC30" Size="0x28B8" Offset="0x2BC30" /-->
+        <DList Name="gameplay_keep_DL_02E4E8" Offset="0x2E4E8" />
+        <!--Blob Name="gameplay_keep_Blob_02E600" Size="0x310" Offset="0x2E600" /-->
+        <DList Name="gameplay_keep_DL_02E910" Offset="0x2E910" />
+        <DList Name="gameplay_keep_DL_02E9A8" Offset="0x2E9A8" />
+        <DList Name="gameplay_keep_DL_02EAB8" Offset="0x2EAB8" />
+        <!--Blob Name="gameplay_keep_Blob_02EBC8" Size="0x1538" Offset="0x2EBC8" /-->
+        <DList Name="gameplay_keep_DL_030100" Offset="0x30100" />
+        <!--Blob Name="gameplay_keep_Blob_030170" Size="0x40" Offset="0x30170" /-->
+        <DList Name="gameplay_keep_DL_0301B0" Offset="0x301B0" />
+        <!--Blob Name="gameplay_keep_Blob_030228" Size="0x2048" Offset="0x30228" /-->
+        <DList Name="gameplay_keep_DL_032270" Offset="0x32270" />
+        <!--Blob Name="gameplay_keep_Blob_0322D0" Size="0x3440" Offset="0x322D0" /-->
+        <DList Name="gameplay_keep_DL_035710" Offset="0x35710" />
+        <!--Blob Name="gameplay_keep_Blob_035768" Size="0x2048" Offset="0x35768" /-->
+        <DList Name="gameplay_keep_DL_0377B0" Offset="0x377B0" />
+        <!--Blob Name="gameplay_keep_Blob_037810" Size="0x40" Offset="0x37810" /-->
+        <DList Name="gameplay_keep_DL_037850" Offset="0x37850" />
+        <!--Blob Name="gameplay_keep_Blob_0378B0" Size="0x2840" Offset="0x378B0" /-->
+        <DList Name="gameplay_keep_DL_03A0F0" Offset="0x3A0F0" />
+        <!--Blob Name="gameplay_keep_Blob_03A150" Size="0x2040" Offset="0x3A150" /-->
+        <DList Name="gameplay_keep_DL_03C190" Offset="0x3C190" />
+        <!--Blob Name="gameplay_keep_Blob_03C1F0" Size="0x3040" Offset="0x3C1F0" /-->
+        <DList Name="gameplay_keep_DL_03F230" Offset="0x3F230" />
+        <!--Blob Name="gameplay_keep_Blob_03F2B8" Size="0x5048" Offset="0x3F2B8" /-->
+        <DList Name="gameplay_keep_DL_044300" Offset="0x44300" />
+        <!--Blob Name="gameplay_keep_Blob_044368" Size="0x4A88" Offset="0x44368" /-->
+        <DList Name="gameplay_keep_DL_048DF0" Offset="0x48DF0" />
+        <!--Blob Name="gameplay_keep_Blob_04A460" Size="0x4DF0" Offset="0x4A460" /-->
+        <DList Name="gameplay_keep_DL_04F250" Offset="0x4F250" />
+        <!--Blob Name="gameplay_keep_Blob_04F2B8" Size="0x1298" Offset="0x4F2B8" /-->
+        <DList Name="gameplay_keep_DL_050550" Offset="0x50550" />
+        <DList Name="gameplay_keep_DL_050648" Offset="0x50648" />
+        <DList Name="gameplay_keep_DL_0506E0" Offset="0x506E0" />
+        <!--Blob Name="gameplay_keep_Blob_050740" Size="0x558" Offset="0x50740" /-->
+        <DList Name="gameplay_keep_DL_050C98" Offset="0x50C98" />
+        <!--Blob Name="gameplay_keep_Blob_050E80" Size="0x228" Offset="0x50E80" /-->
+        <DList Name="gameplay_keep_DL_0510A8" Offset="0x510A8" />
+        <DList Name="gameplay_keep_DL_051180" Offset="0x51180" />
+        <DList Name="gameplay_keep_DL_051238" Offset="0x51238" />
+        <!--Blob Name="gameplay_keep_Blob_051258" Size="0x1C8" Offset="0x51258" /-->
+        <DList Name="gameplay_keep_DL_051420" Offset="0x51420" />
+        <DList Name="gameplay_keep_DL_0514C0" Offset="0x514C0" />
+        <DList Name="gameplay_keep_DL_0514D0" Offset="0x514D0" />
+        <!--Blob Name="gameplay_keep_Blob_0514E0" Size="0x30" Offset="0x514E0" /-->
+        <DList Name="gameplay_keep_DL_051510" Offset="0x51510" />
+        <DList Name="gameplay_keep_DL_0515B0" Offset="0x515B0" />
+        <DList Name="gameplay_keep_DL_0515C0" Offset="0x515C0" />
+        <!--Blob Name="gameplay_keep_Blob_0515D0" Size="0x30" Offset="0x515D0" /-->
+        <DList Name="gameplay_keep_DL_051600" Offset="0x51600" />
+        <DList Name="gameplay_keep_DL_0516A0" Offset="0x516A0" />
+        <DList Name="gameplay_keep_DL_0516B0" Offset="0x516B0" />
+        <!--Blob Name="gameplay_keep_Blob_0516C0" Size="0x30" Offset="0x516C0" /-->
+        <DList Name="gameplay_keep_DL_0516F0" Offset="0x516F0" />
+        <DList Name="gameplay_keep_DL_051790" Offset="0x51790" />
+        <DList Name="gameplay_keep_DL_0517A0" Offset="0x517A0" />
+        <!--Blob Name="gameplay_keep_Blob_0517B0" Size="0x30" Offset="0x517B0" /-->
+        <DList Name="gameplay_keep_DL_0517E0" Offset="0x517E0" />
+        <DList Name="gameplay_keep_DL_051880" Offset="0x51880" />
+        <DList Name="gameplay_keep_DL_051890" Offset="0x51890" />
+        <!--Blob Name="gameplay_keep_Blob_0518A0" Size="0x30" Offset="0x518A0" /-->
+        <DList Name="gameplay_keep_DL_0518D0" Offset="0x518D0" />
+        <DList Name="gameplay_keep_DL_051970" Offset="0x51970" />
+        <DList Name="gameplay_keep_DL_051980" Offset="0x51980" />
+        <!--Blob Name="gameplay_keep_Blob_051990" Size="0x30" Offset="0x51990" /-->
+        <DList Name="gameplay_keep_DL_0519C0" Offset="0x519C0" />
+        <DList Name="gameplay_keep_DL_051A60" Offset="0x51A60" />
+        <DList Name="gameplay_keep_DL_051A70" Offset="0x51A70" />
+        <!--Blob Name="gameplay_keep_Blob_051A80" Size="0x30" Offset="0x51A80" /-->
+        <DList Name="gameplay_keep_DL_051AB0" Offset="0x51AB0" />
+        <DList Name="gameplay_keep_DL_051B50" Offset="0x51B50" />
+        <DList Name="gameplay_keep_DL_051B60" Offset="0x51B60" />
+        <!--Blob Name="gameplay_keep_Blob_051B70" Size="0x30" Offset="0x51B70" /-->
+        <DList Name="gameplay_keep_DL_051BA0" Offset="0x51BA0" />
+        <DList Name="gameplay_keep_DL_051C50" Offset="0x51C50" />
+        <DList Name="gameplay_keep_DL_051C60" Offset="0x51C60" />
+        <!--Blob Name="gameplay_keep_Blob_051C70" Size="0xB70" Offset="0x51C70" /-->
+        <DList Name="gameplay_keep_DL_0527E0" Offset="0x527E0" />
+        <!--Blob Name="gameplay_keep_Blob_052880" Size="0x18" Offset="0x52880" /-->
+        <DList Name="gameplay_keep_DL_052898" Offset="0x52898" />
+        <!--Blob Name="gameplay_keep_Blob_052940" Size="0x2000" Offset="0x52940" /-->
+        <DList Name="gameplay_keep_DL_054940" Offset="0x54940" />
+        <DList Name="gameplay_keep_DL_0549A8" Offset="0x549A8" />
+        <!--Blob Name="gameplay_keep_Blob_054A10" Size="0x80" Offset="0x54A10" /-->
+        <DList Name="gameplay_keep_DL_054A90" Offset="0x54A90" />
+        <!--Blob Name="gameplay_keep_Blob_054AF0" Size="0x198" Offset="0x54AF0" /-->
+        <DList Name="gameplay_keep_DL_054C88" Offset="0x54C88" />
+        <!--Blob Name="gameplay_keep_Blob_054D90" Size="0x5D0" Offset="0x54D90" /-->
+        <DList Name="gameplay_keep_DL_055360" Offset="0x55360" />
+        <!--Blob Name="gameplay_keep_Blob_055438" Size="0x1E0" Offset="0x55438" /-->
+        <DList Name="gameplay_keep_DL_055618" Offset="0x55618" />
+        <DList Name="gameplay_keep_DL_055628" Offset="0x55628" />
+        <!--Blob Name="gameplay_keep_Blob_0557F0" Size="0x2318" Offset="0x557F0" /-->
+        <DList Name="gameplay_keep_DL_057B08" Offset="0x57B08" />
+        <!--Blob Name="gameplay_keep_Blob_057FE8" Size="0xBB0" Offset="0x57FE8" /-->
+        <DList Name="gameplay_keep_DL_058B98" Offset="0x58B98" />
+        <!--Blob Name="gameplay_keep_Blob_058C30" Size="0x4B0" Offset="0x58C30" /-->
+        <DList Name="gameplay_keep_DL_0590E0" Offset="0x590E0" />
+        <!--Blob Name="gameplay_keep_Blob_059190" Size="0x180" Offset="0x59190" /-->
+        <DList Name="gameplay_keep_DL_059310" Offset="0x59310" />
+        <!--Blob Name="gameplay_keep_Blob_0593C0" Size="0x2C0" Offset="0x593C0" /-->
+        <DList Name="gameplay_keep_DL_059680" Offset="0x59680" />
+        <!--Blob Name="gameplay_keep_Blob_059738" Size="0x298" Offset="0x59738" /-->
+        <DList Name="gameplay_keep_DL_0599D0" Offset="0x599D0" />
+        <!--Blob Name="gameplay_keep_Blob_059AA0" Size="0x2A8" Offset="0x59AA0" /-->
+        <DList Name="gameplay_keep_DL_059D48" Offset="0x59D48" />
+        <!--Blob Name="gameplay_keep_Blob_059E00" Size="0x2B0" Offset="0x59E00" /-->
+        <DList Name="gameplay_keep_DL_05A0B0" Offset="0x5A0B0" />
+        <!--Blob Name="gameplay_keep_Blob_05A168" Size="0x2A8" Offset="0x5A168" /-->
+        <DList Name="gameplay_keep_DL_05A410" Offset="0x5A410" />
+        <!--Blob Name="gameplay_keep_Blob_05A540" Size="0xC0" Offset="0x5A540" /-->
+        <DList Name="gameplay_keep_DL_05A600" Offset="0x5A600" />
+        <!--Blob Name="gameplay_keep_Blob_05A6A8" Size="0x3E8" Offset="0x5A6A8" /-->
+        <DList Name="gameplay_keep_DL_05AA90" Offset="0x5AA90" />
+        <!--Blob Name="gameplay_keep_Blob_05AC58" Size="0x278" Offset="0x5AC58" /-->
+        <DList Name="gameplay_keep_DL_05AED0" Offset="0x5AED0" />
+        <!--Blob Name="gameplay_keep_Blob_05B158" Size="0x2D8" Offset="0x5B158" /-->
+        <DList Name="gameplay_keep_DL_05B430" Offset="0x5B430" />
+        <!--Blob Name="gameplay_keep_Blob_05B6F0" Size="0x4000" Offset="0x5B6F0" /-->
+        <DList Name="gameplay_keep_DL_05F6F0" Offset="0x5F6F0" />
+        <!--Blob Name="gameplay_keep_Blob_05F778" Size="0x2B48" Offset="0x5F778" /-->
+        <DList Name="gameplay_keep_DL_0622C0" Offset="0x622C0" />
+        <!--Blob Name="gameplay_keep_Blob_062390" Size="0x8468" Offset="0x62390" /-->
+        <DList Name="gameplay_keep_DL_06A7F8" Offset="0x6A7F8" />
+        <!--Blob Name="gameplay_keep_Blob_06A880" Size="0x2B0" Offset="0x6A880" /-->
+        <DList Name="gameplay_keep_DL_06AB30" Offset="0x6AB30" />
+        <!--Blob Name="gameplay_keep_Blob_06ABF8" Size="0x13C8" Offset="0x6ABF8" /-->
+        <DList Name="gameplay_keep_DL_06BFC0" Offset="0x6BFC0" />
+        <DList Name="gameplay_keep_DL_06C098" Offset="0x6C098" />
+        <DList Name="gameplay_keep_DL_06C1E8" Offset="0x6C1E8" />
+        <!--Blob Name="gameplay_keep_Blob_06C350" Size="0x3030" Offset="0x6C350" /-->
+        <DList Name="gameplay_keep_DL_06F380" Offset="0x6F380" />
+        <!--Blob Name="gameplay_keep_Blob_06F428" Size="0x5C8" Offset="0x6F428" /-->
+        <DList Name="gameplay_keep_DL_06F9F0" Offset="0x6F9F0" />
+        <DList Name="gameplay_keep_DL_06FAE0" Offset="0x6FAE0" />
+        <!--Blob Name="gameplay_keep_Blob_06FB58" Size="0x2C8" Offset="0x6FB58" /-->
+        <DList Name="gameplay_keep_DL_06FE20" Offset="0x6FE20" />
+        <DList Name="gameplay_keep_DL_06FF68" Offset="0x6FF68" />
+        <!--Blob Name="gameplay_keep_Blob_0700B0" Size="0x620" Offset="0x700B0" /-->
+        <DList Name="gameplay_keep_DL_0706D0" Offset="0x706D0" />
+        <!--Blob Name="gameplay_keep_Blob_070700" Size="0x30" Offset="0x70700" /-->
+        <DList Name="gameplay_keep_DL_070730" Offset="0x70730" />
+        <!--Blob Name="gameplay_keep_Blob_0707F0" Size="0xA40" Offset="0x707F0" /-->
+        <DList Name="gameplay_keep_DL_071230" Offset="0x71230" />
+        <!--Blob Name="gameplay_keep_Blob_0712F0" Size="0x3040" Offset="0x712F0" /-->
+        <DList Name="gameplay_keep_DL_074330" Offset="0x74330" />
+        <!--Blob Name="gameplay_keep_Blob_0743F0" Size="0x1650" Offset="0x743F0" /-->
+        <DList Name="gameplay_keep_DL_075A40" Offset="0x75A40" />
+        <!--Blob Name="gameplay_keep_Blob_075AA8" Size="0x88" Offset="0x75AA8" /-->
+        <DList Name="gameplay_keep_DL_075B30" Offset="0x75B30" />
+        <!--Blob Name="gameplay_keep_Blob_075B90" Size="0x1030" Offset="0x75B90" /-->
+        <DList Name="gameplay_keep_DL_076BC0" Offset="0x76BC0" />
+        <!--Blob Name="gameplay_keep_Blob_076C10" Size="0x870" Offset="0x76C10" /-->
+        <DList Name="gameplay_keep_DL_077480" Offset="0x77480" />
+        <!--Blob Name="gameplay_keep_Blob_0774D0" Size="0x4C0" Offset="0x774D0" /-->
+        <DList Name="gameplay_keep_DL_077990" Offset="0x77990" />
+        <!--Blob Name="gameplay_keep_Blob_077A38" Size="0x1048" Offset="0x77A38" /-->
+        <DList Name="gameplay_keep_DL_078A80" Offset="0x78A80" />
+        <!--Blob Name="gameplay_keep_Blob_078B10" Size="0x2000" Offset="0x78B10" /-->
+        <DList Name="gameplay_keep_DL_07AB10" Offset="0x7AB10" />
+        <DList Name="gameplay_keep_DL_07AB58" Offset="0x7AB58" />
+        <DList Name="gameplay_keep_DL_07AB70" Offset="0x7AB70" />
+        <!--Blob Name="gameplay_keep_Blob_07ACF8" Size="0x108" Offset="0x7ACF8" /-->
+        <DList Name="gameplay_keep_DL_07AE00" Offset="0x7AE00" />
+        <!--Blob Name="gameplay_keep_Blob_07AE18" Size="0x198" Offset="0x7AE18" /-->
+        <DList Name="gameplay_keep_DL_07AFB0" Offset="0x7AFB0" />
+        <DList Name="gameplay_keep_DL_07B0B8" Offset="0x7B0B8" />
+        <!--Blob Name="gameplay_keep_Blob_07B0C0" Size="0x21A0" Offset="0x7B0C0" /-->
+        <DList Name="gameplay_keep_DL_07D260" Offset="0x7D260" />
+        <DList Name="gameplay_keep_DL_07D348" Offset="0x7D348" />
+        <!--Blob Name="gameplay_keep_Blob_07D350" Size="0x240" Offset="0x7D350" /-->
+        <DList Name="gameplay_keep_DL_07D590" Offset="0x7D590" />
+        <DList Name="gameplay_keep_DL_07D650" Offset="0x7D650" />
+        <!--Blob Name="gameplay_keep_Blob_07D710" Size="0x11A8" Offset="0x7D710" /-->
+        <DList Name="gameplay_keep_DL_07E8B8" Offset="0x7E8B8" />
+        <!--Blob Name="gameplay_keep_Blob_07EA08" Size="0x858" Offset="0x7EA08" /-->
+        <DList Name="gameplay_keep_DL_07F260" Offset="0x7F260" />
+        <!--Blob Name="gameplay_keep_Blob_07F2E8" Size="0x1CD8" Offset="0x7F2E8" /-->
+        <DList Name="gameplay_keep_DL_080FC0" Offset="0x80FC0" />
+        <DList Name="gameplay_keep_DL_080FC8" Offset="0x80FC8" />
+        <!--Blob Name="gameplay_keep_Blob_0813A0" Size="0x280" Offset="0x813A0" /-->
+        <DList Name="gameplay_keep_DL_081620" Offset="0x81620" />
+        <DList Name="gameplay_keep_DL_081628" Offset="0x81628" />
+        <!--Blob Name="gameplay_keep_Blob_0816C0" Size="0x30D0" Offset="0x816C0" /-->
+        <DList Name="gameplay_keep_DL_084790" Offset="0x84790" />
+        <DList Name="gameplay_keep_DL_0847E0" Offset="0x847E0" />
+        <DList Name="gameplay_keep_DL_084850" Offset="0x84850" />
+        <DList Name="gameplay_keep_DL_0848C0" Offset="0x848C0" />
+        <DList Name="gameplay_keep_DL_084930" Offset="0x84930" />
+        <DList Name="gameplay_keep_DL_0849A0" Offset="0x849A0" />
+        <DList Name="gameplay_keep_DL_084A10" Offset="0x84A10" />
+        <DList Name="gameplay_keep_DL_084A80" Offset="0x84A80" />
+        <DList Name="gameplay_keep_DL_084AF0" Offset="0x84AF0" />
+        <DList Name="gameplay_keep_DL_084B60" Offset="0x84B60" />
+        <DList Name="gameplay_keep_DL_084BD0" Offset="0x84BD0" />
+        <DList Name="gameplay_keep_DL_084C48" Offset="0x84C48" />
+        <DList Name="gameplay_keep_DL_084CF0" Offset="0x84CF0" />
+        <DList Name="gameplay_keep_DL_084D70" Offset="0x84D70" />
+        <DList Name="gameplay_keep_DL_084DD8" Offset="0x84DD8" />
+        <DList Name="gameplay_keep_DL_084E50" Offset="0x84E50" />
+        <DList Name="gameplay_keep_DL_084EA0" Offset="0x84EA0" />
+        <DList Name="gameplay_keep_DL_084F10" Offset="0x84F10" />
+        <DList Name="gameplay_keep_DL_084F80" Offset="0x84F80" />
+        <DList Name="gameplay_keep_DL_084FF0" Offset="0x84FF0" />
+        <DList Name="gameplay_keep_DL_085060" Offset="0x85060" />
+        <DList Name="gameplay_keep_DL_0850D0" Offset="0x850D0" />
+        <DList Name="gameplay_keep_DL_085140" Offset="0x85140" />
+        <DList Name="gameplay_keep_DL_0851B0" Offset="0x851B0" />
+        <DList Name="gameplay_keep_DL_085220" Offset="0x85220" />
+        <DList Name="gameplay_keep_DL_085290" Offset="0x85290" />
+        <DList Name="gameplay_keep_DL_085308" Offset="0x85308" />
+        <DList Name="gameplay_keep_DL_0853B0" Offset="0x853B0" />
+        <DList Name="gameplay_keep_DL_085418" Offset="0x85418" />
+        <DList Name="gameplay_keep_DL_085490" Offset="0x85490" />
+        <!--Blob Name="gameplay_keep_Blob_085510" Size="0x3B58" Offset="0x85510" /-->
+        <DList Name="gameplay_keep_DL_089068" Offset="0x89068" />
+        <!--Blob Name="gameplay_keep_Blob_08A420" Size="0x81C0" Offset="0x8A420" /-->
+    </File>
+</Root>

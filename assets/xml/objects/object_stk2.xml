@@ -1,0 +1,18 @@
+﻿<Root>
+    <File Name="object_stk2" Segment="6">
+        <!--Blob Name="object_stk2_zeroes_unk_00000000" Size="0x70F0" Offset="0x0" /-->
+        <DList Name="object_stk2_DL_007840" Offset="0x7840" />
+        <Texture Name="object_stk2_Tex_007A48" OutName="tex_007A48" Format="i8" Width="32" Height="32" Offset="0x7A48" />
+        <Texture Name="object_stk2_Tex_007E48" OutName="tex_007E48" Format="i8" Width="32" Height="64" Offset="0x7E48" />
+        <!--Blob Name="object_stk2_zeroes_unk_00008648" Size="0x18" Offset="0x8648" /-->
+        <DList Name="object_stk2_DL_008920" Offset="0x8920" />
+        <DList Name="object_stk2_DL_008A38" Offset="0x8A38" />
+        <Texture Name="object_stk2_Tex_008B50" OutName="tex_008B50" Format="i8" Width="32" Height="64" Offset="0x8B50" />
+        <Texture Name="object_stk2_Tex_009350" OutName="tex_009350" Format="i8" Width="32" Height="32" Offset="0x9350" />
+        <Texture Name="object_stk2_Tex_009750" OutName="tex_009750" Format="i8" Width="32" Height="64" Offset="0x9750" />
+        <!--Blob Name="object_stk2_zeroes_unk_00009F50" Size="0x7A0" Offset="0x9F50" /-->
+        <DList Name="object_stk2_DL_00A840" Offset="0xA840" />
+        <Texture Name="object_stk2_Tex_00A958" OutName="tex_00A958" Format="rgb5a1" Width="32" Height="16" Offset="0xA958" />
+        <!--Blob Name="object_stk2_zeroes_unk_0000AD58" Size="0x2FBB8" Offset="0xAD58" /-->
+    </File>
+</Root>

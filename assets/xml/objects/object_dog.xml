@@ -1,12 +1,12 @@
 ﻿<Root>
     <File Name="object_dog" Segment="6">
-        <!--<Mtx Name="object_dog_Mtx_000130" Offset="0x130" />-->
+        <Mtx Name="object_dog_Mtx_000130" Offset="0x130" />
         <DList Name="object_dog_DL_000170" Offset="0x170" />
         <DList Name="object_dog_DL_000250" Offset="0x250" />
         <!--Blob Name="object_dog_Blob_000258" Size="0x144" Offset="0x258" /-->
         <Animation Name="object_dog_Anim_0003B4" Offset="0x3B4" />
         <!--Blob Name="object_dog_Blob_0003C4" Size="0x1C" Offset="0x3C4" /-->
-        <!--<Mtx Name="object_dog_Mtx_000510" Offset="0x510" />-->
+        <Mtx Name="object_dog_Mtx_000510" Offset="0x510" />
         <DList Name="object_dog_DL_000550" Offset="0x550" />
         <DList Name="object_dog_DL_000618" Offset="0x618" />
         <Texture Name="object_dog_Tex_000620" OutName="tex_000620" Format="i4" Width="16" Height="32" Offset="0x620" />

@@ -1,6 +1,6 @@
 ﻿<Root>
     <File Name="object_kujiya" Segment="6">
-        <!--<Mtx Name="object_kujiya_Mtx_002A40" Offset="0x2A40" />-->
+        <Mtx Name="object_kujiya_Mtx_002A40" Offset="0x2A40" />
         <DList Name="object_kujiya_DL_002A80" Offset="0x2A80" />
         <DList Name="object_kujiya_DL_003030" Offset="0x3030" />
         <DList Name="object_kujiya_DL_003248" Offset="0x3248" />

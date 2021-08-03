@@ -1,0 +1,40 @@
+﻿<Root>
+    <File Name="object_raf" Segment="6">
+        <!--Blob Name="object_raf_zeroes_unk_00000000" Size="0x11C" Offset="0x0" /-->
+        <Animation Name="object_raf_Anim_00011C" Offset="0x11C" />
+        <!--Blob Name="object_raf_zeroes_unk_0000012C" Size="0x14" Offset="0x12C" /-->
+        <DList Name="object_raf_DL_0001C0" Offset="0x1C0" />
+        <!--Blob Name="object_raf_zeroes_unk_00000238" Size="0xA58" Offset="0x238" /-->
+        <DList Name="object_raf_DL_001630" Offset="0x1630" />
+        <DList Name="object_raf_DL_001790" Offset="0x1790" />
+        <DList Name="object_raf_DL_001838" Offset="0x1838" />
+        <DList Name="object_raf_DL_0018D0" Offset="0x18D0" />
+        <DList Name="object_raf_DL_001990" Offset="0x1990" />
+        <DList Name="object_raf_DL_001B90" Offset="0x1B90" />
+        <DList Name="object_raf_DL_001C28" Offset="0x1C28" />
+        <DList Name="object_raf_DL_001CE8" Offset="0x1CE8" />
+        <DList Name="object_raf_DL_001EE8" Offset="0x1EE8" />
+        <DList Name="object_raf_DL_001F80" Offset="0x1F80" />
+        <DList Name="object_raf_DL_002040" Offset="0x2040" />
+        <DList Name="object_raf_DL_002340" Offset="0x2340" />
+        <DList Name="object_raf_DL_002418" Offset="0x2418" />
+        <DList Name="object_raf_DL_0024E0" Offset="0x24E0" />
+        <Texture Name="object_raf_Tex_0024F8" OutName="tex_0024F8" Format="rgb5a1" Width="16" Height="32" Offset="0x24F8" />
+        <Texture Name="object_raf_Tex_0028F8" OutName="tex_0028F8" Format="rgb5a1" Width="16" Height="32" Offset="0x28F8" />
+        <Texture Name="object_raf_Tex_002CF8" OutName="tex_002CF8" Format="rgb5a1" Width="16" Height="16" Offset="0x2CF8" />
+        <Texture Name="object_raf_Tex_002EF8" OutName="tex_002EF8" Format="rgb5a1" Width="16" Height="32" Offset="0x2EF8" />
+        <Texture Name="object_raf_Tex_0032F8" OutName="tex_0032F8" Format="rgb5a1" Width="8" Height="8" Offset="0x32F8" />
+        <Limb Name="object_raf_Skel_003378" LimbType="Standard" Offset="0x3378" />
+        <Limb Name="object_raf_Skel_003384" LimbType="Standard" Offset="0x3384" />
+        <Limb Name="object_raf_Skel_003390" LimbType="Standard" Offset="0x3390" />
+        <Limb Name="object_raf_Skel_00339C" LimbType="Standard" Offset="0x339C" />
+        <Limb Name="object_raf_Skel_0033A8" LimbType="Standard" Offset="0x33A8" />
+        <Limb Name="object_raf_Skel_0033B4" LimbType="Standard" Offset="0x33B4" />
+        <Limb Name="object_raf_Skel_0033C0" LimbType="Standard" Offset="0x33C0" />
+        <Limb Name="object_raf_Skel_0033CC" LimbType="Standard" Offset="0x33CC" />
+        <Limb Name="object_raf_Skel_0033D8" LimbType="Standard" Offset="0x33D8" />
+        <Limb Name="object_raf_Skel_0033E4" LimbType="Standard" Offset="0x33E4" />
+        <Limb Name="object_raf_Skel_0033F0" LimbType="Standard" Offset="0x33F0" />
+        <Skeleton Name="object_raf_Skel_003428" Type="Flex" LimbType="Standard" Offset="0x3428" />
+    </File>
+</Root>

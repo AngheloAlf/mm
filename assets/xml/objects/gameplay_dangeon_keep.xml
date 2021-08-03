@@ -1,0 +1,60 @@
+﻿<Root>
+    <File Name="gameplay_dangeon_keep" Segment="6">
+        <!--Blob Name="gameplay_dangeon_keep_Blob_000000" Size="0x140" Offset="0x0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_000140" Offset="0x140" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_0001F0" Size="0x40" Offset="0x1F0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_000230" Offset="0x230" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_0002C0" Size="0x7040" Offset="0x2C0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007300" Offset="0x7300" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007390" Size="0x2C0" Offset="0x7390" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007650" Offset="0x7650" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007708" Size="0x188" Offset="0x7708" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007890" Offset="0x7890" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007948" Size="0x30" Offset="0x7948" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007978" Offset="0x7978" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007A10" Size="0x40" Offset="0x7A10" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007A50" Offset="0x7A50" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007AE0" Size="0x40" Offset="0x7AE0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007B20" Offset="0x7B20" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007BB0" Size="0x40" Offset="0x7BB0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007BF0" Offset="0x7BF0" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007C80" Size="0x180" Offset="0x7C80" /-->
+        <DList Name="gameplay_dangeon_keep_DL_007E00" Offset="0x7E00" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_007F00" Size="0x2D0" Offset="0x7F00" /-->
+        <DList Name="gameplay_dangeon_keep_DL_0081D0" Offset="0x81D0" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_0082D0" Size="0x120" Offset="0x82D0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_0083F0" Offset="0x83F0" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_0084C0" Size="0x130" Offset="0x84C0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_0085F0" Offset="0x85F0" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_0086C0" Size="0xF7D8" Offset="0x86C0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_017E98" Offset="0x17E98" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_018060" Size="0x28" Offset="0x18060" /-->
+        <DList Name="gameplay_dangeon_keep_DL_018088" Offset="0x18088" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_018120" Size="0x180" Offset="0x18120" /-->
+        <DList Name="gameplay_dangeon_keep_DL_0182A0" Offset="0x182A0" />
+        <DList Name="gameplay_dangeon_keep_DL_0182A8" Offset="0x182A8" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_018350" Size="0x31B0" Offset="0x18350" /-->
+        <DList Name="gameplay_dangeon_keep_DL_01B500" Offset="0x1B500" />
+        <DList Name="gameplay_dangeon_keep_DL_01B508" Offset="0x1B508" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_01B600" Size="0x180" Offset="0x1B600" /-->
+        <DList Name="gameplay_dangeon_keep_DL_01B780" Offset="0x1B780" />
+        <DList Name="gameplay_dangeon_keep_DL_01B788" Offset="0x1B788" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_01B888" Size="0x168" Offset="0x1B888" /-->
+        <DList Name="gameplay_dangeon_keep_DL_01B9F0" Offset="0x1B9F0" />
+        <DList Name="gameplay_dangeon_keep_DL_01B9F8" Offset="0x1B9F8" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_01BAF8" Size="0x3E8" Offset="0x1BAF8" /-->
+        <DList Name="gameplay_dangeon_keep_DL_01BEE0" Offset="0x1BEE0" />
+        <DList Name="gameplay_dangeon_keep_DL_01BFB8" Offset="0x1BFB8" />
+        <DList Name="gameplay_dangeon_keep_DL_01C058" Offset="0x1C058" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_01C108" Size="0x118" Offset="0x1C108" /-->
+        <DList Name="gameplay_dangeon_keep_DL_01C220" Offset="0x1C220" />
+        <DList Name="gameplay_dangeon_keep_DL_01C228" Offset="0x1C228" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_01C2D8" Size="0x16A8" Offset="0x1C2D8" /-->
+        <DList Name="gameplay_dangeon_keep_DL_01D980" Offset="0x1D980" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_01DC70" Size="0x3D60" Offset="0x1DC70" /-->
+        <DList Name="gameplay_dangeon_keep_DL_0219D0" Offset="0x219D0" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_021CF0" Size="0x200" Offset="0x21CF0" /-->
+        <DList Name="gameplay_dangeon_keep_DL_021EF0" Offset="0x21EF0" />
+        <!--Blob Name="gameplay_dangeon_keep_Blob_021FF8" Size="0x1288" Offset="0x21FF8" /-->
+    </File>
+</Root>

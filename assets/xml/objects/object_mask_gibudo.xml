@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_gibudo" Segment="6">
         <!--Blob Name="object_mask_gibudo_Blob_000000" Size="0x248" Offset="0x0" /-->
-        <DList Name="object_mask_gibudo_DL_000250" Offset="0x250" />
+        <DList Name="object_mask_gibudo_DL_000248" Offset="0x248" />
         <!--Blob Name="object_mask_gibudo_Blob_000398" Size="0xA08" Offset="0x398" /-->
     </File>
 </Root>
