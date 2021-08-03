@@ -5617,23 +5617,21 @@ beginseg
     name "gameplay_keep"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_keep.o"
-    //include "build/assets/objects/gameplay_keep/gameplay_keep.o"
-    //number 4
+    include "build/baserom/gameplay_keep.o" // problems
 endseg
 
 beginseg
     name "gameplay_field_keep"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_field_keep.o"
+    include "build/baserom/gameplay_field_keep.o" // problems
 endseg
 
 beginseg
     name "gameplay_dangeon_keep"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_dangeon_keep.o"
+    include "build/baserom/gameplay_dangeon_keep.o" // problems
 endseg
 
 beginseg
@@ -5647,182 +5645,195 @@ beginseg
     name "object_link_boy"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_boy.o"
+    include "build/baserom/object_link_boy.o" // problems
 endseg
 
 beginseg
     name "object_link_child"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_child.o"
+    include "build/baserom/object_link_child.o" // problems
 endseg
 
 beginseg
     name "object_link_goron"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_goron.o"
+    include "build/assets/objects/object_link_goron/object_link_goron.o"
+    number 6
 endseg
 
 beginseg
     name "object_link_zora"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_zora.o"
+    include "build/assets/objects/object_link_zora/object_link_zora.o"
+    number 6
 endseg
 
 beginseg
     name "object_link_nuts"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_nuts.o"
+    include "build/assets/objects/object_link_nuts/object_link_nuts.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_ki_tan"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_ki_tan.o"
+    include "build/assets/objects/object_mask_ki_tan/object_mask_ki_tan.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_rabit"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_rabit.o"
+    include "build/baserom/object_mask_rabit.o" // problems
 endseg
 
 beginseg
     name "object_mask_skj"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_skj.o"
+    include "build/baserom/object_mask_skj.o" // problems
 endseg
 
 beginseg
     name "object_mask_truth"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_truth.o"
+    include "build/baserom/object_mask_truth.o" // problems
 endseg
 
 beginseg
     name "object_mask_gibudo"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_gibudo.o"
+    include "build/baserom/object_mask_gibudo.o" // problems
 endseg
 
 beginseg
     name "object_mask_json"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_json.o"
+    include "build/assets/objects/object_mask_json/object_mask_json.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_kerfay"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_kerfay.o"
+    include "build/baserom/object_mask_kerfay.o" // problems
 endseg
 
 beginseg
     name "object_mask_bigelf"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_bigelf.o"
+    include "build/assets/objects/object_mask_bigelf/object_mask_bigelf.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_kyojin"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_kyojin.o"
+    include "build/assets/objects/object_mask_kyojin/object_mask_kyojin.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_romerny"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_romerny.o"
+    include "build/assets/objects/object_mask_romerny/object_mask_romerny.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_posthat"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_posthat.o"
+    include "build/baserom/object_mask_posthat.o" // problems
 endseg
 
 beginseg
     name "object_mask_zacho"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_zacho.o"
+    include "build/baserom/object_mask_zacho.o" // problems
 endseg
 
 beginseg
     name "object_mask_stone"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_stone.o"
+    include "build/assets/objects/object_mask_stone/object_mask_stone.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_bree"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_bree.o"
+    include "build/baserom/object_mask_bree.o" // problems
 endseg
 
 beginseg
     name "object_mask_gero"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_gero.o"
+    include "build/assets/objects/object_mask_gero/object_mask_gero.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_yofukasi"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_yofukasi.o"
+    include "build/baserom/object_mask_yofukasi.o" // Problems
 endseg
 
 beginseg
     name "object_mask_meoto"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_meoto.o"
+    include "build/baserom/object_mask_meoto.o" // Problems
 endseg
 
 beginseg
     name "object_mask_dancer"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_dancer.o"
+    include "build/baserom/object_mask_dancer.o" // problems
 endseg
 
 beginseg
     name "object_mask_bakuretu"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_bakuretu.o"
+    include "build/assets/objects/object_mask_bakuretu/object_mask_bakuretu.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_bu_san"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_bu_san.o"
+    include "build/assets/objects/object_mask_bu_san/object_mask_bu_san.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_goron"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_goron.o"
+    include "build/assets/objects/object_mask_goron/object_mask_goron.o"
+    number 6
 endseg
 
 beginseg
