@@ -1,5 +1,7 @@
 ﻿<Root>
     <File Name="object_cne" Segment="6">
+        <!-- Unaligned textures problem. Will probably need some work in ZAPD side -->
+        <!--
         <Limb Name="object_cne_Limb_000000" LimbType="Standard" Offset="0x0" />
         <Limb Name="object_cne_Limb_00000C" LimbType="Standard" Offset="0xC" />
         <Limb Name="object_cne_Limb_000018" LimbType="Standard" Offset="0x18" />
@@ -41,6 +43,7 @@
         <DList Name="object_cne_DL_002300" Offset="0x2300" />
         <Texture Name="object_cne_Tex_0023D0" OutName="tex_0023D0" Format="rgb5a1" Width="8" Height="16" Offset="0x23D0" />
         <Texture Name="object_cne_Tex_0024D0" OutName="tex_0024D0" Format="rgb5a1" Width="8" Height="8" Offset="0x24D0" />
+        -->
         <DList Name="object_cne_DL_002860" Offset="0x2860" />
     </File>
 </Root>
