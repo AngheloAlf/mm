@@ -63,7 +63,7 @@ ASFLAGS := -march=vr4300 -32
 MIPS_VERSION := -mips2
 
 # we support Microsoft extensions such as anonymous structs, which the compiler does support but warns for their usage. Surpress the warnings with -woff.
-CFLAGS += -G 0 -non_shared -Xfullwarn -Xcpluscomm -Iinclude -I./ -Isrc -Wab,-r4300_mul -woff 624,649,838,712
+CFLAGS += -G 0 -non_shared -Xfullwarn -Xcpluscomm -Iinclude -Isrc -Iassets -Ibuild -I./ -Isrc -Wab,-r4300_mul -woff 624,649,838,712
 
 #### Files ####
 
@@ -80,6 +80,8 @@ BASEROM_DIRS := $(shell find baserom -type d 2>/dev/null)
 COMP_DIRS := $(BASEROM_DIRS:baserom%=comp%)
 BINARY_DIRS := $(BASEROM_DIRS:baserom%=binary%)
 ASSET_C_FILES := $(shell find assets/ -type f -name "*.c")
+ASSET_FILES_BIN := $(foreach dir,$(ASSET_BIN_DIRS),$(wildcard $(dir)/*.bin))
+ASSET_FILES_OUT := $(foreach f,$(ASSET_FILES_BIN:.bin=.bin.inc.c),build/$f)
 
 # Because we may not have disassembled the code files yet, there might not be any assembly files.
 # Instead, generate a list of assembly files based on what's listed in the linker script.
@@ -137,7 +139,7 @@ CC := ./tools/preprocess.py $(CC) -- $(AS) $(ASFLAGS) --
 
 # just using build/baserom still probably has some race condiction/dependency bug, but since
 # it is first and should be completed relatively fast, it should not occur all that often.
-$(UNCOMPRESSED_ROM): build/baserom $(TEXTURE_FILES_OUT) $(UNCOMPRESSED_ROM_FILES)
+$(UNCOMPRESSED_ROM): build/baserom $(TEXTURE_FILES_OUT) $(ASSET_FILES_OUT) $(UNCOMPRESSED_ROM_FILES)
 	./tools/makerom.py ./tables/dmadata_table.txt $@
 ifeq ($(COMPARE),1)
 	@md5sum $(UNCOMPRESSED_ROM)
@@ -169,13 +171,13 @@ build/uncompressed_dmadata: $(UNCOMPRESSED_ROM_FILES:build/uncompressed_dmadata=
 	./tools/dmadata.py ./tables/dmadata_table.txt $@ -u
 
 build/binary/boot build/binary/code: build/code.elf
-	@$(OBJCOPY) --dump-section $(notdir $@)=$@ $< /dev/null
+	$(OBJCOPY) --dump-section $(notdir $@)=$@ $< /dev/null
 
 build/binary/assets/scenes/%: build/code.elf
-	@$(OBJCOPY) --dump-section $*=$@ $< /dev/null
+	$(OBJCOPY) --dump-section $*=$@ $< /dev/null
 
 build/binary/overlays/%: build/code.elf
-	@$(OBJCOPY) --dump-section $*=$@ $< /dev/null
+	$(OBJCOPY) --dump-section $*=$@ $< /dev/null
 
 
 #### ASM rules ####
@@ -213,11 +215,6 @@ distclean: assetclean clean
 
 ## Extraction step
 setup:
-	# Initialize submodules, fetching commit in case it is not on the default branch
-	-git submodule update --init --recursive
-	git submodule foreach --recursive 'git fetch origin $$sha1'
-	git submodule update --recursive
-	python3 -m pip install -r requirements.txt
 	$(MAKE) -C tools
 	./tools/extract_rom.py $(MM_BASEROM)
 	python3 extract_assets.py
@@ -252,8 +249,8 @@ build/asm/%.o: asm/%.asm | $(C_O_FILES)
 
 build/src/overlays/%.o: src/overlays/%.c
 	$(CC) -c $(CFLAGS) $(MIPS_VERSION) $(OPTFLAGS) -o $@ $<
-	@./tools/overlay.py $@ build/src/overlays/$*_overlay.s
-	@$(AS) $(ASFLAGS) build/src/overlays/$*_overlay.s -o build/src/overlays/$*_overlay.o
+	./tools/overlay.py $@ build/src/overlays/$*_overlay.s
+	$(AS) $(ASFLAGS) build/src/overlays/$*_overlay.s -o build/src/overlays/$*_overlay.o
 
 build/%.o: %.c
 	$(CC) -c $(CFLAGS) $(MIPS_VERSION) $(OPTFLAGS) -o $@ $<
@@ -285,26 +282,29 @@ build/comp/assets/textures/%.yaz0: build/baserom/assets/textures/%
 	./tools/yaz0 $< $@
 
 build/%.d: %.c
-	@./tools/depend.py $< $@
-	@$(GCC) $< -Iinclude -I./ -MM -MT 'build/$*.o' >> $@
+	./tools/depend.py $< $@
 
 build/dmadata_script.ld: build/dmadata_script.txt
-	@$(GCC) -E -CC -x c -Iinclude $< | grep -v '^#' > $@
+	$(GCC) -E -CC -x c -Iinclude $< | grep -v '^#' > $@
 
 build/linker_scripts/%.ld: linker_scripts/%.txt
-	@$(GCC) -E -CC -x c -Iinclude $< | grep -v '^#' > $@
+	$(GCC) -E -CC -x c -Iinclude $< | grep -v '^#' > $@
 
 build/assets/%.d: assets/%.c
-	@$(GCC) $< -Iinclude -I./ -MM -MT 'build/assets/$*.o' > $@
+	$(GCC) $< -Iinclude -I./ -MM -MT 'build/assets/$*.o' > $@
 
 ## Build C files from assets
 
 build/%.inc.c: %.png
 	$(ZAPD) btex -eh -tt $(lastword ,$(subst ., ,$(basename $<))) -i $< -o $@
 
+build/assets/%.bin.inc.c: assets/%.bin
+	$(ZAPD) bblb -eh -i $< -o $@
+
 build/assets/%.jpg.inc.c: assets/%.jpg
 	$(ZAPD) bren -eh -i $< -o $@
 
+# Checks headers dependencies of each C file
 ifneq ($(MAKECMDGOALS), clean)
 ifneq ($(MAKECMDGOALS), distclean)
 -include $(C_FILES:%.c=build/%.d)

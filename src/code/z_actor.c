@@ -54,7 +54,7 @@ void ActorShadow_Draw(Actor* actor, Lights* lights, GlobalContext* globalCtx, Gf
             }
 
             func_800C0094(actor->floorPoly, actor->world.pos.x, actor->floorHeight, actor->world.pos.z, &mtx);
-            Matrix_Put(&mtx);
+            SysMatrix_SetCurrentState(&mtx);
 
             if (dlist != D_04076BC0) {
                 Matrix_RotateY((f32)actor->shape.rot.y * (M_PI / 32768), MTXMODE_APPLY);
@@ -118,7 +118,7 @@ void func_800B40E0(GlobalContext* globalCtx, Light* light, MtxF* arg2, s32 arg3,
     sp58 = Math_FAtan2F(light->l.dir[0], light->l.dir[2]);
     arg6 *= (4.5f - (light->l.dir[1] * D_801DCA1C));
     arg6 = (arg6 < 1.0f) ? 1.0f : arg6;
-    Matrix_Put(arg2);
+    SysMatrix_SetCurrentState(arg2);
     Matrix_RotateY(sp58, MTXMODE_APPLY);
     Matrix_Scale(arg5, 1.0f, arg5 * arg6, MTXMODE_APPLY);
 
@@ -147,122 +147,122 @@ void func_800B40E0(GlobalContext* globalCtx, Light* light, MtxF* arg2, s32 arg3,
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B5040.asm")
 
-void Actor_TargetContextInit(TargetContext* targetCtxt, Actor* actor, GlobalContext* ctxt) {
-    targetCtxt->unk90 = NULL;
-    targetCtxt->unk8C = NULL;
-    targetCtxt->unk3C = NULL;
-    targetCtxt->unk38 = NULL;
-    targetCtxt->unk4B = 0;
-    targetCtxt->unk4C = 0;
-    targetCtxt->unk40 = 0;
-    func_800B5040(targetCtxt, actor, actor->category, ctxt);
-    func_800B4F78(targetCtxt, actor->category, ctxt);
+void Actor_TargetContextInit(TargetContext* targetCtx, Actor* actor, GlobalContext* globalCtx) {
+    targetCtx->unk90 = NULL;
+    targetCtx->unk8C = NULL;
+    targetCtx->unk3C = NULL;
+    targetCtx->unk38 = NULL;
+    targetCtx->unk4B = 0;
+    targetCtx->unk4C = 0;
+    targetCtx->unk40 = 0;
+    func_800B5040(targetCtx, actor, actor->category, globalCtx);
+    func_800B4F78(targetCtx, actor->category, globalCtx);
 }
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B5208.asm")
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B5814.asm")
 
-u32 Flags_GetSwitch(GlobalContext* ctxt, s32 flag) {
+u32 Flags_GetSwitch(GlobalContext* globalCtx, s32 flag) {
     if (flag >= 0 && flag < 0x80) {
-        return ctxt->actorCtx.switchFlags[(flag & -0x20) >> 5] & (1 << (flag & 0x1F));
+        return globalCtx->actorCtx.switchFlags[(flag & -0x20) >> 5] & (1 << (flag & 0x1F));
     }
     return 0;
 }
 
-void Actor_SetSwitchFlag(GlobalContext* ctxt, s32 flag) {
+void Actor_SetSwitchFlag(GlobalContext* globalCtx, s32 flag) {
     if (flag >= 0 && flag < 0x80) {
-        ctxt->actorCtx.switchFlags[(flag & -0x20) >> 5] |= 1 << (flag & 0x1F);
+        globalCtx->actorCtx.switchFlags[(flag & -0x20) >> 5] |= 1 << (flag & 0x1F);
     }
 }
 
-void Actor_UnsetSwitchFlag(GlobalContext* ctxt, s32 flag) {
+void Actor_UnsetSwitchFlag(GlobalContext* globalCtx, s32 flag) {
     if (flag >= 0 && flag < 0x80) {
-        ctxt->actorCtx.switchFlags[(flag & -0x20) >> 5] &= ~(1 << (flag & 0x1F));
+        globalCtx->actorCtx.switchFlags[(flag & -0x20) >> 5] &= ~(1 << (flag & 0x1F));
     }
 }
 
-u32 Actor_GetChestFlag(GlobalContext* ctxt, u32 flag) {
-    return ctxt->actorCtx.chestFlags & (1 << flag);
+u32 Actor_GetChestFlag(GlobalContext* globalCtx, u32 flag) {
+    return globalCtx->actorCtx.chestFlags & (1 << flag);
 }
 
-void Actor_SetChestFlag(GlobalContext* ctxt, u32 flag) {
-    ctxt->actorCtx.chestFlags |= (1 << flag);
+void Actor_SetChestFlag(GlobalContext* globalCtx, u32 flag) {
+    globalCtx->actorCtx.chestFlags |= (1 << flag);
 }
 
-void Actor_SetAllChestFlag(GlobalContext* ctxt, u32 flag) {
-    ctxt->actorCtx.chestFlags = flag;
+void Actor_SetAllChestFlag(GlobalContext* globalCtx, u32 flag) {
+    globalCtx->actorCtx.chestFlags = flag;
 }
 
-u32 Actor_GetAllChestFlag(GlobalContext* ctxt) {
-    return ctxt->actorCtx.chestFlags;
+u32 Actor_GetAllChestFlag(GlobalContext* globalCtx) {
+    return globalCtx->actorCtx.chestFlags;
 }
 
-u32 Actor_GetRoomCleared(GlobalContext* ctxt, u32 roomNumber) {
-    return ctxt->actorCtx.clearedRooms & (1 << roomNumber);
+u32 Actor_GetRoomCleared(GlobalContext* globalCtx, u32 roomNumber) {
+    return globalCtx->actorCtx.clearedRooms & (1 << roomNumber);
 }
 
-void Actor_SetRoomCleared(GlobalContext* ctxt, u32 roomNumber) {
-    ctxt->actorCtx.clearedRooms |= (1 << roomNumber);
+void Actor_SetRoomCleared(GlobalContext* globalCtx, u32 roomNumber) {
+    globalCtx->actorCtx.clearedRooms |= (1 << roomNumber);
 }
 
-void Actor_UnsetRoomCleared(GlobalContext* ctxt, u32 roomNumber) {
-    ctxt->actorCtx.clearedRooms &= ~(1 << roomNumber);
+void Actor_UnsetRoomCleared(GlobalContext* globalCtx, u32 roomNumber) {
+    globalCtx->actorCtx.clearedRooms &= ~(1 << roomNumber);
 }
 
-u32 Actor_GetRoomClearedTemp(GlobalContext* ctxt, u32 roomNumber) {
-    return ctxt->actorCtx.clearedRoomsTemp & (1 << roomNumber);
+u32 Actor_GetRoomClearedTemp(GlobalContext* globalCtx, u32 roomNumber) {
+    return globalCtx->actorCtx.clearedRoomsTemp & (1 << roomNumber);
 }
 
-void Actor_SetRoomClearedTemp(GlobalContext* ctxt, u32 roomNumber) {
-    ctxt->actorCtx.clearedRoomsTemp |= (1 << roomNumber);
+void Actor_SetRoomClearedTemp(GlobalContext* globalCtx, u32 roomNumber) {
+    globalCtx->actorCtx.clearedRoomsTemp |= (1 << roomNumber);
 }
 
-void Actor_UnsetRoomClearedTemp(GlobalContext* ctxt, u32 roomNumber) {
-    ctxt->actorCtx.clearedRoomsTemp &= ~(1 << roomNumber);
+void Actor_UnsetRoomClearedTemp(GlobalContext* globalCtx, u32 roomNumber) {
+    globalCtx->actorCtx.clearedRoomsTemp &= ~(1 << roomNumber);
 }
 
-u32 Actor_GetCollectibleFlag(GlobalContext* ctxt, s32 index) {
+u32 Actor_GetCollectibleFlag(GlobalContext* globalCtx, s32 index) {
     if (index > 0 && index < 0x80) {
-        return ctxt->actorCtx.collectibleFlags[(index & -0x20) >> 5] & (1 << (index & 0x1F));
+        return globalCtx->actorCtx.collectibleFlags[(index & -0x20) >> 5] & (1 << (index & 0x1F));
     }
     return 0;
 }
 
-void Actor_SetCollectibleFlag(GlobalContext* ctxt, s32 index) {
+void Actor_SetCollectibleFlag(GlobalContext* globalCtx, s32 index) {
     if (index > 0 && index < 0x80) {
-        ctxt->actorCtx.collectibleFlags[(index & -0x20) >> 5] |= 1 << (index & 0x1F);
+        globalCtx->actorCtx.collectibleFlags[(index & -0x20) >> 5] |= 1 << (index & 0x1F);
     }
 }
 
-void Actor_TitleCardContextInit(GlobalContext* ctxt, TitleCardContext* titleCtxt) {
-    titleCtxt->fadeOutDelay = 0;
-    titleCtxt->fadeInDelay = 0;
-    titleCtxt->color = 0;
-    titleCtxt->alpha = 0;
+void Actor_TitleCardContextInit(GlobalContext* globalCtx, TitleCardContext* titleCardCtx) {
+    titleCardCtx->fadeOutDelay = 0;
+    titleCardCtx->fadeInDelay = 0;
+    titleCardCtx->color = 0;
+    titleCardCtx->alpha = 0;
 }
 
-void Actor_TitleCardCreate(GlobalContext* ctxt, TitleCardContext* titleCtxt, u32 texture, s16 param_4, s16 param_5,
-                           u8 param_6, u8 param_7) {
-    titleCtxt->texture = texture;
-    titleCtxt->unk4 = param_4;
-    titleCtxt->unk6 = param_5;
-    titleCtxt->unk8 = param_6;
-    titleCtxt->unk9 = param_7;
-    titleCtxt->fadeOutDelay = 80;
-    titleCtxt->fadeInDelay = 0;
+void Actor_TitleCardCreate(GlobalContext* globalCtx, TitleCardContext* titleCardCtx, u32 texture, s16 param_4,
+                           s16 param_5, u8 param_6, u8 param_7) {
+    titleCardCtx->texture = texture;
+    titleCardCtx->unk4 = param_4;
+    titleCardCtx->unk6 = param_5;
+    titleCardCtx->unk8 = param_6;
+    titleCardCtx->unk9 = param_7;
+    titleCardCtx->fadeOutDelay = 80;
+    titleCardCtx->fadeInDelay = 0;
 }
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_Nop800B5E50.asm")
 
-void Actor_TitleCardUpdate(GlobalContext* ctxt, TitleCardContext* titleCtxt) {
-    if (DECR(titleCtxt->fadeInDelay) == 0) {
-        if (DECR(titleCtxt->fadeOutDelay) == 0) {
-            Math_StepToS(&titleCtxt->alpha, 0, 30);
-            Math_StepToS(&titleCtxt->color, 0, 70);
+void Actor_TitleCardUpdate(GlobalContext* globalCtx, TitleCardContext* titleCardCtx) {
+    if (DECR(titleCardCtx->fadeInDelay) == 0) {
+        if (DECR(titleCardCtx->fadeOutDelay) == 0) {
+            Math_StepToS(&titleCardCtx->alpha, 0, 30);
+            Math_StepToS(&titleCardCtx->color, 0, 70);
         } else {
-            Math_StepToS(&titleCtxt->alpha, 255, 10);
-            Math_StepToS(&titleCtxt->color, 255, 20);
+            Math_StepToS(&titleCardCtx->alpha, 255, 10);
+            Math_StepToS(&titleCardCtx->color, 255, 20);
         }
     }
 }
@@ -318,13 +318,13 @@ void Actor_SetScale(Actor* actor, f32 scale) {
     actor->scale.x = scale;
 }
 
-void Actor_SetObjectSegment(GlobalContext* ctxt, Actor* actor) {
+void Actor_SetObjectSegment(GlobalContext* globalCtx, Actor* actor) {
     // TODO: Segment number enum
-    gSegments[6] = PHYSICAL_TO_VIRTUAL(ctxt->objectCtx.status[actor->objBankIndex].segment);
+    gSegments[6] = PHYSICAL_TO_VIRTUAL(globalCtx->objectCtx.status[actor->objBankIndex].segment);
 }
 
 #if 0
-void Actor_InitToDefaultValues(Actor* actor, GlobalContext* ctxt) {
+void Actor_InitToDefaultValues(Actor* actor, GlobalContext* globalCtx) {
     Actor_InitCurrPosition(actor);
     Actor_InitDrawRotation(actor);
     Actor_SetHeight(actor, 0);
@@ -344,9 +344,9 @@ void Actor_InitToDefaultValues(Actor* actor, GlobalContext* ctxt) {
     actor->naviMsgId = 255;
 
     Actor_Setshape(&actor->shape, 0, 0, 0);
-    if (Object_IsLoaded(&ctxt->objectCtx, actor->objBankIndex) != 0) {
-        Actor_SetObjectSegment(ctxt, actor);
-        actor->init(actor, ctxt);
+    if (Object_IsLoaded(&globalCtx->objectCtx, actor->objBankIndex) != 0) {
+        Actor_SetObjectSegment(globalCtx, actor);
+        actor->init(actor, globalCtx);
         actor->init = NULL;
     }
 }
@@ -354,10 +354,10 @@ void Actor_InitToDefaultValues(Actor* actor, GlobalContext* ctxt) {
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_InitToDefaultValues.asm")
 #endif
 
-void Actor_FiniActor(Actor* actor, GlobalContext* ctxt) {
+void Actor_FiniActor(Actor* actor, GlobalContext* globalCtx) {
     if (actor->init == NULL) {
         if (actor->destroy != NULL) {
-            actor->destroy(actor, ctxt);
+            actor->destroy(actor, globalCtx);
             actor->destroy = NULL;
         }
     }
@@ -520,7 +520,7 @@ s32 Actor_IsActorFacedByActor(Actor* actor, Actor* other, s16 tolerance) {
     s16 angle;
     s16 dist;
 
-    angle = Actor_YawBetweenActors(actor, other) + 0x8000;
+    angle = BINANG_ROT180(Actor_YawBetweenActors(actor, other));
     dist = angle - other->shape.rot.y;
     if (ABS_ALT(dist) < tolerance) {
         return 1;
@@ -568,7 +568,7 @@ s32 Actor_IsActorFacingActorAndWithinRange(Actor* actor, Actor* other, f32 range
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B7678.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B78B8.asm")
+#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_UpdateBgCheckInfo.asm")
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B7E04.asm")
 
@@ -622,11 +622,11 @@ s32 Actor_IsActorFacingActorAndWithinRange(Actor* actor, Actor* other, f32 range
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B8934.asm")
 
-u32 Actor_HasParent(Actor* actor, GlobalContext* ctxt) {
+u32 Actor_HasParent(Actor* actor, GlobalContext* globalCtx) {
     if (actor->parent != NULL) {
-        return 1;
+        return true;
     } else {
-        return 0;
+        return false;
     }
 }
 
@@ -638,7 +638,13 @@ u32 Actor_HasParent(Actor* actor, GlobalContext* ctxt) {
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B8BD0.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B8BFC.asm")
+s32 Actor_HasNoParent(Actor* actor, GlobalContext* globalCtx) {
+    if (!actor->parent) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B8C20.asm")
 
@@ -698,9 +704,9 @@ u32 Actor_HasParent(Actor* actor, GlobalContext* ctxt) {
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800B9D1C.asm")
 
-void Actor_DrawAllSetup(GlobalContext* ctxt) {
-    ctxt->actorCtx.undrawnActorCount = 0;
-    ctxt->actorCtx.unkB = 0;
+void Actor_DrawAllSetup(GlobalContext* globalCtx) {
+    globalCtx->actorCtx.undrawnActorCount = 0;
+    globalCtx->actorCtx.unkB = 0;
 }
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_RecordUndrawnActor.asm")
@@ -730,7 +736,7 @@ void Actor_DrawAllSetup(GlobalContext* ctxt) {
 void Actor_FreeOverlay(ActorOverlay* entry) {
     void* ramAddr;
 
-    if (entry->nbLoaded == 0) {
+    if (entry->numLoaded == 0) {
         ramAddr = entry->loadedRamAddr;
         if (ramAddr != NULL) {
             // Bit 1 - always loaded
@@ -751,9 +757,9 @@ void Actor_FreeOverlay(ActorOverlay* entry) {
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_LoadOverlay.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_SpawnWithParentAndCutscene.asm")
+#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_SpawnAsChildAndCutscene.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_SpawnWithParent.asm")
+#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_SpawnAsChild.asm")
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_SpawnTransitionActors.asm")
 
@@ -825,6 +831,7 @@ void Actor_FreeOverlay(ActorOverlay* entry) {
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800BD6E4.asm")
 
+// This function is very similar to OoT's func_80034A14
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800BD888.asm")
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800BD9A0.asm")
@@ -839,7 +846,7 @@ void Actor_FreeOverlay(ActorOverlay* entry) {
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800BDCF4.asm")
 
-#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800BDFB0.asm")
+#pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//Actor_Noop.asm")
 
 #pragma GLOBAL_ASM("./asm/non_matchings/code/z_actor//func_800BDFC0.asm")
 

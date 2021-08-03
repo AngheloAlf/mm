@@ -26,7 +26,7 @@ const ActorInit En_Nnh_InitVars = {
     (ActorFunc)EnNnh_Draw,
 };
 
-ColliderCylinderInit D_80C08A00 = {
+static ColliderCylinderInit sCylinderInit = {
     {
         COLTYPE_TREE,
         AT_NONE,
@@ -53,7 +53,7 @@ void EnNnh_Init(Actor* thisx, GlobalContext* globalCtx) {
 
     Actor_SetScale(&this->actor, 0.01f);
     Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &D_80C08A00);
+    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
     this->actor.targetMode = 1;
     this->actor.focus.pos = this->actor.world.pos;
     this->actor.focus.pos.y += 30.0f;
@@ -95,7 +95,7 @@ void EnNnh_Update(Actor* thisx, GlobalContext* globalCtx) {
 
     this->actionFunc(this, globalCtx);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colCheckCtx, &this->collider.base);
+    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
 }
 
 void EnNnh_Draw(Actor* thisx, GlobalContext* globalCtx) {
