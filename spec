@@ -6715,28 +6715,32 @@ beginseg
     name "object_gi_ki_tan_mask"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_ki_tan_mask.o"
+    include "build/assets/objects/object_gi_ki_tan_mask/object_gi_ki_tan_mask.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_mask18"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_mask18.o"
+    include "build/assets/objects/object_gi_mask18/object_gi_mask18.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_rabit_mask"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_rabit_mask.o"
+    include "build/assets/objects/object_gi_rabit_mask/object_gi_rabit_mask.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_truth_mask"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_truth_mask.o"
+    include "build/assets/objects/object_gi_truth_mask/object_gi_truth_mask.o"
+    number 6
 endseg
 
 beginseg
@@ -6790,105 +6794,120 @@ beginseg
     name "object_gi_golonmask"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_golonmask.o"
+    include "build/assets/objects/object_gi_golonmask/object_gi_golonmask.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_zoramask"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_zoramask.o"
+    include "build/assets/objects/object_gi_zoramask/object_gi_zoramask.o"
+    number 6
 endseg
 
 beginseg
     name "object_ka"
     compress
     romalign 0x1000
-    include "build/baserom/object_ka.o"
+    include "build/assets/objects/object_ka/object_ka.o"
+    number 6
 endseg
 
 beginseg
     name "object_zg"
     compress
     romalign 0x1000
-    include "build/baserom/object_zg.o"
+    include "build/assets/objects/object_zg/object_zg.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_m_arrow"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_m_arrow.o"
+    include "build/assets/objects/object_gi_m_arrow/object_gi_m_arrow.o"
+    number 6
 endseg
 
 beginseg
     name "object_ds2"
     compress
     romalign 0x1000
-    include "build/baserom/object_ds2.o"
+    include "build/assets/objects/object_ds2/object_ds2.o"
+    number 6
 endseg
 
 beginseg
     name "object_fish"
     compress
     romalign 0x1000
-    include "build/baserom/object_fish.o"
+    include "build/assets/objects/object_fish/object_fish.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_sutaru"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_sutaru.o"
+    include "build/assets/objects/object_gi_sutaru/object_gi_sutaru.o"
+    number 6
 endseg
 
 beginseg
     name "object_ssh"
     compress
     romalign 0x1000
-    include "build/baserom/object_ssh.o"
+    include "build/assets/objects/object_ssh/object_ssh.o"
+    number 6
 endseg
 
 beginseg
     name "object_bigslime"
     compress
     romalign 0x1000
-    include "build/baserom/object_bigslime.o"
+    include "build/assets/objects/object_bigslime/object_bigslime.o"
+    number 6
 endseg
 
 beginseg
     name "object_bg"
     compress
     romalign 0x1000
-    include "build/baserom/object_bg.o"
+    include "build/assets/objects/object_bg/object_bg.o"
+    number 6
 endseg
 
 beginseg
     name "object_bombiwa"
     compress
     romalign 0x1000
-    include "build/baserom/object_bombiwa.o"
+    include "build/assets/objects/object_bombiwa/object_bombiwa.o"
+    number 6
 endseg
 
 beginseg
     name "object_hintnuts"
     compress
     romalign 0x1000
-    include "build/baserom/object_hintnuts.o"
+    include "build/assets/objects/object_hintnuts/object_hintnuts.o"
+    number 6
 endseg
 
 beginseg
     name "object_rs"
     compress
     romalign 0x1000
-    include "build/baserom/object_rs.o"
+    include "build/assets/objects/object_rs/object_rs.o"
+    number 6
 endseg
 
 beginseg
     name "object_gla"
     compress
     romalign 0x1000
-    include "build/baserom/object_gla.o"
+    include "build/assets/objects/object_gla/object_gla.o"
+    number 6
 endseg
 
 beginseg
@@ -6902,546 +6921,624 @@ beginseg
     name "object_dog"
     compress
     romalign 0x1000
-    include "build/baserom/object_dog.o"
+    include "build/assets/objects/object_dog/object_dog.o"
+    number 6
 endseg
 
 beginseg
     name "object_kibako2"
     compress
     romalign 0x1000
-    include "build/baserom/object_kibako2.o"
+    include "build/assets/objects/object_kibako2/object_kibako2.o"
+    number 6
 endseg
 
 beginseg
     name "object_dns"
     compress
     romalign 0x1000
-    include "build/baserom/object_dns.o"
+    include "build/assets/objects/object_dns/object_dns.o"
+    number 6
 endseg
 
 beginseg
     name "object_dnk"
     compress
     romalign 0x1000
-    include "build/baserom/object_dnk.o"
+    include "build/assets/objects/object_dnk/object_dnk.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_insect"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_insect.o"
+    include "build/assets/objects/object_gi_insect/object_gi_insect.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_ghost"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_ghost.o"
+    include "build/assets/objects/object_gi_ghost/object_gi_ghost.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_soul"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_soul.o"
+    include "build/assets/objects/object_gi_soul/object_gi_soul.o"
+    number 6
 endseg
 
 beginseg
     name "object_f40_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_f40_obj.o"
+    include "build/assets/objects/object_f40_obj/object_f40_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_rupy"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_rupy.o"
+    include "build/assets/objects/object_gi_rupy/object_gi_rupy.o"
+    number 6
 endseg
 
 beginseg
     name "object_po_composer"
     compress
     romalign 0x1000
-    include "build/baserom/object_po_composer.o"
+    include "build/assets/objects/object_po_composer/object_po_composer.o"
+    number 6
 endseg
 
 beginseg
     name "object_mu"
     compress
     romalign 0x1000
-    include "build/baserom/object_mu.o"
+    include "build/assets/objects/object_mu/object_mu.o"
+    number 6
 endseg
 
 beginseg
     name "object_wf"
     compress
     romalign 0x1000
-    include "build/baserom/object_wf.o"
+    include "build/assets/objects/object_wf/object_wf.o"
+    number 6
 endseg
 
 beginseg
     name "object_skb"
     compress
     romalign 0x1000
-    include "build/baserom/object_skb.o"
+    include "build/assets/objects/object_skb/object_skb.o"
+    number 6
 endseg
 
 beginseg
     name "object_gs"
     compress
     romalign 0x1000
-    include "build/baserom/object_gs.o"
+    include "build/assets/objects/object_gs/object_gs.o"
+    number 6
 endseg
 
 beginseg
     name "object_ps"
     compress
     romalign 0x1000
-    include "build/baserom/object_ps.o"
+    include "build/assets/objects/object_ps/object_ps.o"
+    number 6
 endseg
 
 beginseg
     name "object_omoya_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_omoya_obj.o"
+    include "build/assets/objects/object_omoya_obj/object_omoya_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_crow"
     compress
     romalign 0x1000
-    include "build/baserom/object_crow.o"
+    include "build/assets/objects/object_crow/object_crow.o"
+    number 6
 endseg
 
 beginseg
     name "object_cow"
     compress
     romalign 0x1000
-    include "build/baserom/object_cow.o"
+    include "build/assets/objects/object_cow/object_cow.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_sword_1"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_sword_1.o"
+    include "build/assets/objects/object_gi_sword_1/object_gi_sword_1.o"
+    number 6
 endseg
 
 beginseg
     name "object_zl4"
     compress
     romalign 0x1000
-    include "build/baserom/object_zl4.o"
+    include "build/assets/objects/object_zl4/object_zl4.o"
+    number 6
 endseg
 
 beginseg
     name "object_grasshopper"
     compress
     romalign 0x1000
-    include "build/baserom/object_grasshopper.o"
+    include "build/assets/objects/object_grasshopper/object_grasshopper.o"
+    number 6
 endseg
 
 beginseg
     name "object_boyo"
     compress
     romalign 0x1000
-    include "build/baserom/object_boyo.o"
+    include "build/assets/objects/object_boyo/object_boyo.o"
+    number 6
 endseg
 
 beginseg
     name "object_fwall"
     compress
     romalign 0x1000
-    include "build/baserom/object_fwall.o"
+    include "build/assets/objects/object_fwall/object_fwall.o"
+    number 6
 endseg
 
 beginseg
     name "object_jso"
     compress
     romalign 0x1000
-    include "build/baserom/object_jso.o"
+    include "build/assets/objects/object_jso/object_jso.o"
+    number 6
 endseg
 
 beginseg
     name "object_knight"
     compress
     romalign 0x1000
-    include "build/baserom/object_knight.o"
+    include "build/assets/objects/object_knight/object_knight.o"
+    number 6
 endseg
 
 beginseg
     name "object_icicle"
     compress
     romalign 0x1000
-    include "build/baserom/object_icicle.o"
+    include "build/assets/objects/object_icicle/object_icicle.o"
+    number 6
 endseg
 
 beginseg
     name "object_spdweb"
     compress
     romalign 0x1000
-    include "build/baserom/object_spdweb.o"
+    include "build/assets/objects/object_spdweb/object_spdweb.o"
+    number 6
 endseg
 
 beginseg
     name "object_boss01"
     compress
     romalign 0x1000
-    include "build/baserom/object_boss01.o"
+    include "build/assets/objects/object_boss01/object_boss01.o"
+    number 6
 endseg
 
 beginseg
     name "object_boss02"
     compress
     romalign 0x1000
-    include "build/baserom/object_boss02.o"
+    include "build/assets/objects/object_boss02/object_boss02.o"
+    number 6
 endseg
 
 beginseg
     name "object_boss03"
     compress
     romalign 0x1000
-    include "build/baserom/object_boss03.o"
+    include "build/assets/objects/object_boss03/object_boss03.o"
+    number 6
 endseg
 
 beginseg
     name "object_boss04"
     compress
     romalign 0x1000
-    include "build/baserom/object_boss04.o"
+    include "build/assets/objects/object_boss04/object_boss04.o"
+    number 6
 endseg
 
 beginseg
     name "object_boss05"
     compress
     romalign 0x1000
-    include "build/baserom/object_boss05.o"
+    include "build/assets/objects/object_boss05/object_boss05.o"
+    number 6
 endseg
 
 beginseg
     name "object_boss07"
     compress
     romalign 0x1000
-    include "build/baserom/object_boss07.o"
+    include "build/assets/objects/object_boss07/object_boss07.o"
+    number 6
 endseg
 
 beginseg
     name "object_raf"
     compress
     romalign 0x1000
-    include "build/baserom/object_raf.o"
+    include "build/assets/objects/object_raf/object_raf.o"
+    number 6
 endseg
 
 beginseg
     name "object_funen"
     compress
     romalign 0x1000
-    include "build/baserom/object_funen.o"
+    include "build/assets/objects/object_funen/object_funen.o"
+    number 6
 endseg
 
 beginseg
     name "object_raillift"
     compress
     romalign 0x1000
-    include "build/baserom/object_raillift.o"
+    include "build/assets/objects/object_raillift/object_raillift.o"
+    number 6
 endseg
 
 beginseg
     name "object_numa_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_numa_obj.o"
+    include "build/assets/objects/object_numa_obj/object_numa_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_flowerpot"
     compress
     romalign 0x1000
-    include "build/baserom/object_flowerpot.o"
+    include "build/assets/objects/object_flowerpot/object_flowerpot.o"
+    number 6
 endseg
 
 beginseg
     name "object_spinyroll"
     compress
     romalign 0x1000
-    include "build/baserom/object_spinyroll.o"
+    include "build/assets/objects/object_spinyroll/object_spinyroll.o"
+    number 6
 endseg
 
 beginseg
     name "object_ice_block"
     compress
     romalign 0x1000
-    include "build/baserom/object_ice_block.o"
+    include "build/assets/objects/object_ice_block/object_ice_block.o"
+    number 6
 endseg
 
 beginseg
     name "object_keikoku_demo"
     compress
     romalign 0x1000
-    include "build/baserom/object_keikoku_demo.o"
+    include "build/assets/objects/object_keikoku_demo/object_keikoku_demo.o"
+    number 6
 endseg
 
 beginseg
     name "object_slime"
     compress
     romalign 0x1000
-    include "build/baserom/object_slime.o"
+    include "build/assets/objects/object_slime/object_slime.o"
+    number 6
 endseg
 
 beginseg
     name "object_pr"
     compress
     romalign 0x1000
-    include "build/baserom/object_pr.o"
+    include "build/assets/objects/object_pr/object_pr.o"
+    number 6
 endseg
 
 beginseg
     name "object_f52_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_f52_obj.o"
+    include "build/assets/objects/object_f52_obj/object_f52_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_f53_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_f53_obj.o"
+    include "build/assets/objects/object_f53_obj/object_f53_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_kibako"
     compress
     romalign 0x1000
-    include "build/baserom/object_kibako.o"
+    include "build/assets/objects/object_kibako/object_kibako.o"
+    number 6
 endseg
 
 beginseg
     name "object_sek"
     compress
     romalign 0x1000
-    include "build/baserom/object_sek.o"
+    include "build/assets/objects/object_sek/object_sek.o"
+    number 6
 endseg
 
 beginseg
     name "object_gmo"
     compress
     romalign 0x1000
-    include "build/baserom/object_gmo.o"
+    include "build/assets/objects/object_gmo/object_gmo.o"
+    number 6
 endseg
 
 beginseg
     name "object_bat"
     compress
     romalign 0x1000
-    include "build/baserom/object_bat.o"
+    include "build/assets/objects/object_bat/object_bat.o"
+    number 6
 endseg
 
 beginseg
     name "object_sekihil"
     compress
     romalign 0x1000
-    include "build/baserom/object_sekihil.o"
+    include "build/assets/objects/object_sekihil/object_sekihil.o"
+    number 6
 endseg
 
 beginseg
     name "object_sekihig"
     compress
     romalign 0x1000
-    include "build/baserom/object_sekihig.o"
+    include "build/assets/objects/object_sekihig/object_sekihig.o"
+    number 6
 endseg
 
 beginseg
     name "object_sekihin"
     compress
     romalign 0x1000
-    include "build/baserom/object_sekihin.o"
+    include "build/assets/objects/object_sekihin/object_sekihin.o"
+    number 6
 endseg
 
 beginseg
     name "object_sekihiz"
     compress
     romalign 0x1000
-    include "build/baserom/object_sekihiz.o"
+    include "build/assets/objects/object_sekihiz/object_sekihiz.o"
+    number 6
 endseg
 
 beginseg
     name "object_wiz"
     compress
     romalign 0x1000
-    include "build/baserom/object_wiz.o"
+    include "build/assets/objects/object_wiz/object_wiz.o"
+    number 6
 endseg
 
 beginseg
     name "object_ladder"
     compress
     romalign 0x1000
-    include "build/baserom/object_ladder.o"
+    include "build/assets/objects/object_ladder/object_ladder.o"
+    number 6
 endseg
 
 beginseg
     name "object_mkk"
     compress
     romalign 0x1000
-    include "build/baserom/object_mkk.o"
+    include "build/assets/objects/object_mkk/object_mkk.o"
+    number 6
 endseg
 
 beginseg
     name "object_keikoku_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_keikoku_obj.o"
+    include "build/assets/objects/object_keikoku_obj/object_keikoku_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_sichitai_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_sichitai_obj.o"
+    include "build/assets/objects/object_sichitai_obj/object_sichitai_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_dekucity_ana_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_dekucity_ana_obj.o"
+    include "build/assets/objects/object_dekucity_ana_obj/object_dekucity_ana_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_rat"
     compress
     romalign 0x1000
-    include "build/baserom/object_rat.o"
+    include "build/assets/objects/object_rat/object_rat.o"
+    number 6
 endseg
 
 beginseg
     name "object_water_effect"
     compress
     romalign 0x1000
-    include "build/baserom/object_water_effect.o"
+    include "build/assets/objects/object_water_effect/object_water_effect.o"
+    number 6
 endseg
 
 beginseg
     name "object_dblue_object"
     compress
     romalign 0x1000
-    include "build/baserom/object_dblue_object.o"
+    include "build/assets/objects/object_dblue_object/object_dblue_object.o"
+    number 6
 endseg
 
 beginseg
     name "object_bal"
     compress
     romalign 0x1000
-    include "build/baserom/object_bal.o"
+    include "build/assets/objects/object_bal/object_bal.o"
+    number 6
 endseg
 
 beginseg
     name "object_warp_uzu"
     compress
     romalign 0x1000
-    include "build/baserom/object_warp_uzu.o"
+    include "build/assets/objects/object_warp_uzu/object_warp_uzu.o"
+    number 6
 endseg
 
 beginseg
     name "object_driftice"
     compress
     romalign 0x1000
-    include "build/baserom/object_driftice.o"
+    include "build/assets/objects/object_driftice/object_driftice.o"
+    number 6
 endseg
 
 beginseg
     name "object_fall"
     compress
     romalign 0x1000
-    include "build/baserom/object_fall.o"
+    include "build/assets/objects/object_fall/object_fall.o"
+    number 6
 endseg
 
 beginseg
     name "object_hanareyama_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_hanareyama_obj.o"
+    include "build/assets/objects/object_hanareyama_obj/object_hanareyama_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_crace_object"
     compress
     romalign 0x1000
-    include "build/baserom/object_crace_object.o"
+    include "build/assets/objects/object_crace_object/object_crace_object.o"
+    number 6
 endseg
 
 beginseg
     name "object_dnq"
     compress
     romalign 0x1000
-    include "build/baserom/object_dnq.o"
+    include "build/assets/objects/object_dnq/object_dnq.o"
+    number 6
 endseg
 
 beginseg
     name "object_obj_tokeidai"
     compress
     romalign 0x1000
-    include "build/baserom/object_obj_tokeidai.o"
+    include "build/assets/objects/object_obj_tokeidai/object_obj_tokeidai.o"
+    number 6
 endseg
 
 beginseg
     name "object_eg"
     compress
     romalign 0x1000
-    include "build/baserom/object_eg.o"
+    include "build/assets/objects/object_eg/object_eg.o"
+    number 6
 endseg
 
 beginseg
     name "object_tru"
     compress
     romalign 0x1000
-    include "build/baserom/object_tru.o"
+    include "build/assets/objects/object_tru/object_tru.o"
+    number 6
 endseg
 
 beginseg
     name "object_trt"
     compress
     romalign 0x1000
-    include "build/baserom/object_trt.o"
+    include "build/assets/objects/object_trt/object_trt.o"
+    number 6
 endseg
 
 beginseg
     name "object_hakugin_obj"
     compress
     romalign 0x1000
-    include "build/baserom/object_hakugin_obj.o"
+    include "build/assets/objects/object_hakugin_obj/object_hakugin_obj.o"
+    number 6
 endseg
 
 beginseg
     name "object_horse_game_check"
     compress
     romalign 0x1000
-    include "build/baserom/object_horse_game_check.o"
+    include "build/assets/objects/object_horse_game_check/object_horse_game_check.o"
+    number 6
 endseg
 
 beginseg
     name "object_stk"
     compress
     romalign 0x1000
-    include "build/baserom/object_stk.o"
+    include "build/assets/objects/object_stk/object_stk.o"
+    number 6
 endseg
 
 beginseg
     name "object_mnk"
     compress
     romalign 0x1000
-    include "build/baserom/object_mnk.o"
+    include "build/assets/objects/object_mnk/object_mnk.o"
+    number 6
 endseg
 
 beginseg
     name "object_gi_bottle_red"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_bottle_red.o"
+    include "build/assets/objects/object_gi_bottle_red/object_gi_bottle_red.o"
+    number 6
 endseg
 
 beginseg
@@ -7581,21 +7678,24 @@ beginseg
     name "object_ds2n"
     compress
     romalign 0x1000
-    include "build/baserom/object_ds2n.o"
+    include "build/assets/objects/object_ds2n/object_ds2n.o"
+    number 6
 endseg
 
 beginseg
     name "object_fsn"
     compress
     romalign 0x1000
-    include "build/baserom/object_fsn.o"
+    include "build/assets/objects/object_fsn/object_fsn.o"
+    number 6
 endseg
 
 beginseg
     name "object_shn"
     compress
     romalign 0x1000
-    include "build/baserom/object_shn.o"
+    include "build/assets/objects/object_shn/object_shn.o"
+    number 6
 endseg
 
 beginseg
@@ -7665,35 +7765,40 @@ beginseg
     name "object_sdn"
     compress
     romalign 0x1000
-    include "build/baserom/object_sdn.o"
+    include "build/assets/objects/object_sdn/object_sdn.o"
+    number 6
 endseg
 
 beginseg
     name "object_snowwd"
     compress
     romalign 0x1000
-    include "build/baserom/object_snowwd.o"
+    include "build/assets/objects/object_snowwd/object_snowwd.o"
+    number 6
 endseg
 
 beginseg
     name "object_giant"
     compress
     romalign 0x1000
-    include "build/baserom/object_giant.o"
+    include "build/assets/objects/object_giant/object_giant.o"
+    number 6
 endseg
 
 beginseg
     name "object_comb"
     compress
     romalign 0x1000
-    include "build/baserom/object_comb.o"
+    include "build/assets/objects/object_comb/object_comb.o"
+    number 6
 endseg
 
 beginseg
     name "object_hana"
     compress
     romalign 0x1000
-    include "build/baserom/object_hana.o"
+    include "build/assets/objects/object_hana/object_hana.o"
+    number 6
 endseg
 
 beginseg
