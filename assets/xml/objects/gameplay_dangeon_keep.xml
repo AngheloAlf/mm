@@ -11,7 +11,10 @@
         <!--Blob Name="gameplay_dangeon_keep_Blob_007708" Size="0x188" Offset="0x7708" /-->
         <DList Name="gameplay_dangeon_keep_DL_007890" Offset="0x7890" />
         <!--Blob Name="gameplay_dangeon_keep_Blob_007948" Size="0x30" Offset="0x7948" /-->
-        <DList Name="gameplay_dangeon_keep_DL_007978" Offset="0x7978" />
+
+        <!-- ZAPD extracts empty-->
+        <!--DList Name="gameplay_dangeon_keep_DL_007978" Offset="0x7978" /-->
+
         <!--Blob Name="gameplay_dangeon_keep_Blob_007A10" Size="0x40" Offset="0x7A10" /-->
         <DList Name="gameplay_dangeon_keep_DL_007A50" Offset="0x7A50" />
         <!--Blob Name="gameplay_dangeon_keep_Blob_007AE0" Size="0x40" Offset="0x7AE0" /-->

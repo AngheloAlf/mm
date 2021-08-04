@@ -14,7 +14,10 @@
         <DList Name="gameplay_field_keep_DL_003870" Offset="0x3870" />
         <DList Name="gameplay_field_keep_DL_003938" Offset="0x3938" />
         <!--Blob Name="gameplay_field_keep_Blob_003A00" Size="0x5C8" Offset="0x3A00" /-->
-        <DList Name="gameplay_field_keep_DL_003FC8" Offset="0x3FC8" />
+
+        <!-- ZAPD extracts nothing? -->
+        <!--DList Name="gameplay_field_keep_DL_003FC8" Offset="0x3FC8" /-->
+
         <DList Name="gameplay_field_keep_DL_004050" Offset="0x4050" />
         <DList Name="gameplay_field_keep_DL_004228" Offset="0x4228" />
         <!--Blob Name="gameplay_field_keep_Blob_0043F8" Size="0x1DE0" Offset="0x43F8" /-->

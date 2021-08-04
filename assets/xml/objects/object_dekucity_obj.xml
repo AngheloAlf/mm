@@ -1,7 +1,10 @@
 ﻿<Root>
     <File Name="object_dekucity_obj" Segment="6">
         <!--Blob Name="object_dekucity_obj_zeroes_unk_00000000" Size="0x2C0" Offset="0x0" /-->
-        <Animation Name="object_dekucity_obj_Anim_0002C0" Offset="0x2C0" />
+
+        <!-- ZAPD crashes -->
+        <!-- Animation Name="object_dekucity_obj_Anim_0002C0" Offset="0x2C0" / -->
+
         <DList Name="object_dekucity_obj_DL_0004E0" Offset="0x4E0" />
         <DList Name="object_dekucity_obj_DL_000610" Offset="0x610" />
         <Texture Name="object_dekucity_obj_Tex_000618" OutName="tex_000618" Format="rgb5a1" Width="32" Height="32" Offset="0x618" />

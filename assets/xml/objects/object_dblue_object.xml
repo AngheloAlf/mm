@@ -42,7 +42,10 @@
         <DList Name="object_dblue_object_DL_00CC08" Offset="0xCC08" />
         <DList Name="object_dblue_object_DL_00CD10" Offset="0xCD10" />
         <DList Name="object_dblue_object_DL_00CDD8" Offset="0xCDD8" />
-        <Animation Name="object_dblue_object_Anim_00CDE8" Offset="0xCDE8" />
+
+        <!-- ZAPD issue: Has empty stuff? -->
+        <!--Animation Name="object_dblue_object_Anim_00CDE8" Offset="0xCDE8" /-->
+
         <!--Blob Name="object_dblue_object_zeroes_unk_0000CDF8" Size="0x18" Offset="0xCDF8" /-->
         <DList Name="object_dblue_object_DL_00D110" Offset="0xD110" />
         <DList Name="object_dblue_object_DL_00D220" Offset="0xD220" />

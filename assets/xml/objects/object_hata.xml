@@ -1,7 +1,10 @@
 ﻿<Root>
     <File Name="object_hata" Segment="6">
         <!--Blob Name="object_hata_zeroes_unk_00000000" Size="0xD4" Offset="0x0" /-->
-        <Animation Name="object_hata_Anim_0000D4" Offset="0xD4" />
+
+        <!-- ZAPD crashes -->
+        <!--Animation Name="object_hata_Anim_0000D4" Offset="0xD4" /-->
+
         <!--Blob Name="object_hata_zeroes_unk_000000E4" Size="0x37C" Offset="0xE4" /-->
         <Texture Name="object_hata_Tex_000460" OutName="tex_000460" Format="rgb5a1" Width="32" Height="32" Offset="0x460" />
         <Texture Name="object_hata_Tex_000C60" OutName="tex_000C60" Format="rgb5a1" Width="32" Height="32" Offset="0xC60" />

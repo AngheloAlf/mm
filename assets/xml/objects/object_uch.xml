@@ -2,7 +2,10 @@
     <File Name="object_uch" Segment="6">
         <DList Name="object_uch_DL_000080" Offset="0x80" />
         <!--Blob Name="object_uch_zeroes_unk_00000130" Size="0x400" Offset="0x130" /-->
-        <Animation Name="object_uch_Anim_000538" Offset="0x538" />
+
+        <!-- Weird edge case that ZAPD doesn't support currently -->
+        <!--Animation Name="object_uch_Anim_000538" Offset="0x538" /-->
+
         <!--Blob Name="object_uch_zeroes_unk_00000548" Size="0x198" Offset="0x548" /-->
         <DList Name="object_uch_DL_000720" Offset="0x720" />
         <Texture Name="object_uch_Tex_0007B8" OutName="tex_0007B8" Format="ia16" Width="32" Height="32" Offset="0x7B8" />

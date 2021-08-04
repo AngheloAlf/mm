@@ -1,7 +1,10 @@
 ﻿<Root>
     <File Name="object_mask_gero" Segment="6">
-        <!--Blob Name="object_mask_gero_Blob_000000" Size="0xDB0" Offset="0x0" /-->
-        <DList Name="object_mask_gero_DL_000DB0" Offset="0xDB0" />
+        <Blob Name="object_mask_gero_Blob_000000" Size="0xDB0" Offset="0x0" />
+
+        <!-- ZAPD doesn't extract properly -->
+        <!--DList Name="object_mask_gero_DL_000DB0" Offset="0xDB0" /-->
+
         <!--Blob Name="object_mask_gero_Blob_001388" Size="0x1B08" Offset="0x1388" /-->
     </File>
 </Root>
