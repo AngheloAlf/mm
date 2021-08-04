@@ -26,9 +26,9 @@
         <DList Name="object_geldb_DL_005AF0" Offset="0x5AF0" />
         <DList Name="object_geldb_DL_005D60" Offset="0x5D60" />
         <DList Name="object_geldb_DL_005E60" Offset="0x5E60" />
-        <Texture Name="object_geldb_TLUT_0060E0" OutName="tlut_0060E0" Format="rgb5a1" Width="16" Height="16" Offset="0x60E0" />
+        <!--Texture Name="object_geldb_TLUT_0060E0" OutName="tlut_0060E0" Format="rgb5a1" Width="16" Height="16" Offset="0x60E0" /-->
         <!--Blob Name="object_geldb_Blob_0062E0" Size="0x38" Offset="0x62E0" /-->
-        <Texture Name="object_geldb_Tex_006318" OutName="tex_006318" Format="ci8" Width="8" Height="16" Offset="0x6318" />
+        <!--Texture Name="object_geldb_Tex_006318" OutName="tex_006318" Format="ci8" Width="8" Height="16" Offset="0x6318" /-->
         <!--Blob Name="object_geldb_Blob_006398" Size="0x400" Offset="0x6398" /-->
         <Texture Name="object_geldb_Tex_006798" OutName="tex_006798" Format="i8" Width="16" Height="16" Offset="0x6798" />
         <Texture Name="object_geldb_Tex_006898" OutName="tex_006898" Format="ci8" Width="8" Height="16" Offset="0x6898" />

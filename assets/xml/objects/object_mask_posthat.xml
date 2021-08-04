@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_posthat" Segment="6" Game="MM">
-        <!--Blob Name="object_mask_posthat_Blob_000000" Size="0x288" Offset="0x0" /-->
-        <DList Name="object_mask_posthat_DL_000288" Offset="0x288" />
+        <Blob Name="object_mask_posthat_Blob_000000" Size="0x288" Offset="0x0" />
+        <!--DList Name="object_mask_posthat_DL_000288" Offset="0x288" /-->
         <!--Blob Name="object_mask_posthat_Blob_000488" Size="0x6C8" Offset="0x488" /-->
     </File>
 </Root>

@@ -5631,28 +5631,32 @@ beginseg
     name "gameplay_dangeon_keep"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_dangeon_keep.o" // problems
+    include "build/assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.o"
+    number 5
 endseg
 
 beginseg
     name "gameplay_object_exchange_static"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_object_exchange_static.o"
+    include "build/assets/objects/gameplay_object_exchange_static/gameplay_object_exchange_static.o"
+    number 6
 endseg
 
 beginseg
     name "object_link_boy"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_boy.o" // problems
+    include "build/assets/objects/object_link_boy/object_link_boy.o"
+    number 6
 endseg
 
 beginseg
     name "object_link_child"
     compress
     romalign 0x1000
-    include "build/baserom/object_link_child.o" // problems
+    include "build/assets/objects/object_link_child/object_link_child.o"
+    number 6
 endseg
 
 beginseg
@@ -5691,28 +5695,32 @@ beginseg
     name "object_mask_rabit"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_rabit.o" // problems
+    include "build/assets/objects/object_mask_rabit/object_mask_rabit.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_skj"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_skj.o" // problems
+    include "build/assets/objects/object_mask_skj/object_mask_skj.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_truth"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_truth.o" // problems
+    include "build/assets/objects/object_mask_truth/object_mask_truth.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_gibudo"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_gibudo.o" // problems
+    include "build/assets/objects/object_mask_gibudo/object_mask_gibudo.o"
+    number 6
 endseg
 
 beginseg
@@ -5727,7 +5735,8 @@ beginseg
     name "object_mask_kerfay"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_kerfay.o" // problems
+    include "build/assets/objects/object_mask_kerfay/object_mask_kerfay.o"
+    number 6
 endseg
 
 beginseg
@@ -5758,14 +5767,16 @@ beginseg
     name "object_mask_posthat"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_posthat.o" // problems
+    include "build/assets/objects/object_mask_posthat/object_mask_posthat.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_zacho"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_zacho.o" // problems
+    include "build/assets/objects/object_mask_zacho/object_mask_zacho.o"
+    number 6
 endseg
 
 beginseg
@@ -5780,7 +5791,8 @@ beginseg
     name "object_mask_bree"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_bree.o" // problems
+    include "build/assets/objects/object_mask_bree/object_mask_bree.o"
+    number 6
 endseg
 
 beginseg
@@ -5795,21 +5807,24 @@ beginseg
     name "object_mask_yofukasi"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_yofukasi.o" // Problems
+    include "build/assets/objects/object_mask_yofukasi/object_mask_yofukasi.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_meoto"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_meoto.o" // Problems
+    include "build/assets/objects/object_mask_meoto/object_mask_meoto.o"
+    number 6
 endseg
 
 beginseg
     name "object_mask_dancer"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_dancer.o" // problems
+    include "build/assets/objects/object_mask_dancer/object_mask_dancer.o"
+    number 6
 endseg
 
 beginseg
@@ -5848,7 +5863,8 @@ beginseg
     name "object_mask_nuts"
     compress
     romalign 0x1000
-    include "build/baserom/object_mask_nuts.o" // problematic
+    include "build/assets/objects/object_mask_nuts/object_mask_nuts.o"
+    number 6
 endseg
 
 beginseg
@@ -5943,7 +5959,8 @@ beginseg
     name "object_zl1"
     compress
     romalign 0x1000
-    include "build/baserom/object_zl1.o" // problematic
+    include "build/assets/objects/object_zl1/object_zl1.o"
+    number 6
 endseg
 
 beginseg
@@ -6238,7 +6255,8 @@ beginseg
     name "object_in"
     compress
     romalign 0x1000
-    include "build/baserom/object_in.o" // problems
+    include "build/assets/objects/object_in/object_in.o"
+    number 6
 endseg
 
 beginseg
@@ -6277,7 +6295,8 @@ beginseg
     name "object_oF1d_map"
     compress
     romalign 0x1000
-    include "build/baserom/object_oF1d_map.o" // problematic
+    include "build/assets/objects/object_oF1d_map/object_oF1d_map.o"
+    number 6
 endseg
 
 beginseg
@@ -6652,7 +6671,8 @@ beginseg
     name "object_gm"
     compress
     romalign 0x1000
-    include "build/baserom/object_gm.o" // problems
+    include "build/assets/objects/object_gm/object_gm.o"
+    number 6
 endseg
 
 beginseg
@@ -6803,7 +6823,8 @@ beginseg
     name "object_mag"
     compress
     romalign 0x1000
-    include "build/baserom/object_mag.o" // problems
+    include "build/assets/objects/object_mag/object_mag.o"
+    number 6
 endseg
 
 beginseg
@@ -6930,7 +6951,8 @@ beginseg
     name "object_geldb"
     compress
     romalign 0x1000
-    include "build/baserom/object_geldb.o" // problems
+    include "build/assets/objects/object_geldb/object_geldb.o"
+    number 6
 endseg
 
 beginseg
@@ -7777,7 +7799,8 @@ beginseg
     name "object_gi_reserve01"
     compress
     romalign 0x1000
-    include "build/baserom/object_gi_reserve01.o" // problems
+    include "build/assets/objects/object_gi_reserve01/object_gi_reserve01.o"
+    number 6
 endseg
 
 beginseg
@@ -8320,7 +8343,8 @@ beginseg
     name "object_kz"
     compress
     romalign 0x1000
-    include "build/baserom/object_kz.o" // problems
+    include "build/assets/objects/object_kz/object_kz.o"
+    number 6
 endseg
 
 beginseg
@@ -8479,7 +8503,8 @@ beginseg
     name "object_tanron1"
     compress
     romalign 0x1000
-    include "build/baserom/object_tanron1.o" // problems
+    include "build/assets/objects/object_tanron1/object_tanron1.o"
+    number 6
 endseg
 
 beginseg

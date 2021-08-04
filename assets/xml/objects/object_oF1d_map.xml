@@ -72,9 +72,11 @@
         <Texture Name="object_oF1d_map_Tex_00FB38" OutName="tex_00FB38" Format="ci8" Width="32" Height="64" Offset="0xFB38" />
         <Texture Name="object_oF1d_map_Tex_010338" OutName="tex_010338" Format="ci8" Width="16" Height="16" Offset="0x10338" />
         <!--Blob Name="object_oF1d_map_zeroes_unk_00010438" Size="0x1000" Offset="0x10438" /-->
+        <!--
         <Texture Name="object_oF1d_map_Tex_011438" OutName="tex_011438" Format="rgb5a1" Width="8" Height="8" Offset="0x11438" />
         <Texture Name="object_oF1d_map_Tex_0114B8" OutName="tex_0114B8" Format="ci8" Width="16" Height="16" Offset="0x114B8" />
         <Texture Name="object_oF1d_map_Tex_0115B8" OutName="tex_0115B8" Format="rgb5a1" Width="32" Height="16" Offset="0x115B8" />
+        -->
         <Limb Name="object_oF1d_map_Skel_0119B8" LimbType="Standard" Offset="0x119B8" />
         <Limb Name="object_oF1d_map_Skel_0119C4" LimbType="Standard" Offset="0x119C4" />
         <Limb Name="object_oF1d_map_Skel_0119D0" LimbType="Standard" Offset="0x119D0" />
@@ -97,7 +99,7 @@
         <Animation Name="object_oF1d_map_Anim_012DE0" Offset="0x12DE0" />
         <Animation Name="object_oF1d_map_Anim_0135E8" Offset="0x135E8" />
         <Animation Name="object_oF1d_map_Anim_013DB0" Offset="0x13DB0" />
-        <Animation Name="object_oF1d_map_Anim_0143AC" Offset="0x143AC" />
+        <!--Animation Name="object_oF1d_map_Anim_0143AC" Offset="0x143AC" /-->
         <!--Blob Name="object_oF1d_map_zeroes_unk_000143BC" Size="0x92C" Offset="0x143BC" /-->
 
         <!-- ZAPD extracts empty -->

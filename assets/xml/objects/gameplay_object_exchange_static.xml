@@ -1,3 +1,6 @@
 ﻿<Root>
-    <File Name="gameplay_object_exchange_static" Segment="6" />
+    <File Name="gameplay_object_exchange_static" Segment="6" >
+        <!-- Empty? -->
+        <Blob Name="ogameplay_object_exchange_static_Blob_000000" Size="0x10" Offset="0x0" />
+    </File>
 </Root>

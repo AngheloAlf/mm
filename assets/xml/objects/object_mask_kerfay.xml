@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_kerfay" Segment="6" Game="MM">
-        <!--Blob Name="object_mask_kerfay_Blob_000000" Size="0xD38" Offset="0x0" /-->
-        <DList Name="object_mask_kerfay_DL_000D38" Offset="0xD38" />
+        <Blob Name="object_mask_kerfay_Blob_000000" Size="0xD38" Offset="0x0" />
+        <!--DList Name="object_mask_kerfay_DL_000D38" Offset="0xD38" /-->
         <!--Blob Name="object_mask_kerfay_Blob_001140" Size="0x480" Offset="0x1140" /-->
     </File>
 </Root>

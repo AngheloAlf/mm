@@ -24,11 +24,14 @@
         <DList Name="object_link_boy_DL_0067D8" Offset="0x67D8" />
         <DList Name="object_link_boy_DL_006A58" Offset="0x6A58" />
         <DList Name="object_link_boy_DL_006C38" Offset="0x6C38" />
+        <!--
         <DList Name="object_link_boy_DL_006EB8" Offset="0x6EB8" />
         <DList Name="object_link_boy_DL_007820" Offset="0x7820" />
         <DList Name="object_link_boy_DL_007A50" Offset="0x7A50" />
         <DList Name="object_link_boy_DL_007AD0" Offset="0x7AD0" />
         <DList Name="object_link_boy_DL_007F28" Offset="0x7F28" />
+        -->
+        <!--
         <DList Name="object_link_boy_DL_0080F0" Offset="0x80F0" />
         <Texture Name="object_link_boy_TLUT_008108" OutName="tlut_008108" Format="rgb5a1" Width="4" Height="4" Offset="0x8108" />
         <Texture Name="object_link_boy_TLUT_008128" OutName="tlut_008128" Format="rgb5a1" Width="4" Height="4" Offset="0x8128" />
@@ -38,6 +41,8 @@
         <Texture Name="object_link_boy_TLUT_0081A8" OutName="tlut_0081A8" Format="rgb5a1" Width="4" Height="4" Offset="0x81A8" />
         <Texture Name="object_link_boy_TLUT_0081C8" OutName="tlut_0081C8" Format="rgb5a1" Width="4" Height="4" Offset="0x81C8" />
         <Texture Name="object_link_boy_TLUT_0081E8" OutName="tlut_0081E8" Format="rgb5a1" Width="4" Height="4" Offset="0x81E8" />
+        -->
+        <!--
         <Texture Name="object_link_boy_Tex_008208" OutName="tex_008208" Format="rgb5a1" Width="16" Height="16" Offset="0x8208" />
         <Texture Name="object_link_boy_Tex_008408" OutName="tex_008408" Format="ci4" Width="16" Height="16" Offset="0x8408" />
         <Texture Name="object_link_boy_Tex_008488" OutName="tex_008488" Format="rgb5a1" Width="16" Height="32" Offset="0x8488" />
@@ -53,6 +58,7 @@
         <Texture Name="object_link_boy_Tex_00B108" OutName="tex_00B108" Format="ci4" Width="16" Height="16" Offset="0xB108" />
         <Texture Name="object_link_boy_Tex_00B188" OutName="tex_00B188" Format="ci4" Width="64" Height="64" Offset="0xB188" />
         <Texture Name="object_link_boy_Tex_00B988" OutName="tex_00B988" Format="rgb5a1" Width="50" Height="75" Offset="0xB988" />
+        -->
         <!--Blob Name="object_link_boy_Blob_00D6D4" Size="0x1BC" Offset="0xD6D4" /-->
     </File>
 </Root>
