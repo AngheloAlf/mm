@@ -6,7 +6,7 @@
         <!--Blob Name="object_in_Blob_001BF0" Size="0x50" Offset="0x1BF0" /-->
         <Animation Name="object_in_Anim_001D10" Offset="0x1D10" />
         <!--Blob Name="object_in_Blob_001D20" Size="0x1738" Offset="0x1D20" /-->
-        <Texture Name="object_in_TLUT_003458" OutName="tlut_003458" Format="rgb5a1" Width="16" Height="16" Offset="0x3458" />
+        <!--Texture Name="object_in_TLUT_003458" OutName="tlut_003458" Format="rgb5a1" Width="16" Height="16" Offset="0x3458" /-->
         <!--Blob Name="object_in_Blob_003658" Size="0x388" Offset="0x3658" /-->
         <Texture Name="object_in_Tex_0039E0" OutName="tex_0039E0" Format="rgb5a1" Width="16" Height="16" Offset="0x39E0" />
         <Texture Name="object_in_Tex_003BE0" OutName="tex_003BE0" Format="ci8" Width="16" Height="16" Offset="0x3BE0" />

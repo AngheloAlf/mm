@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_skj" Segment="6" Game="MM">
-        <!--Blob Name="object_mask_skj_Blob_000000" Size="0x9D8" Offset="0x0" /-->
-        <DList Name="object_mask_skj_DL_0009D8" Offset="0x9D8" />
+        <Blob Name="object_mask_skj_Blob_000000" Size="0x9D8" Offset="0x0" />
+        <!--DList Name="object_mask_skj_DL_0009D8" Offset="0x9D8" /-->
         <!--Blob Name="object_mask_skj_Blob_000FA0" Size="0x740" Offset="0xFA0" /-->
     </File>
 </Root>

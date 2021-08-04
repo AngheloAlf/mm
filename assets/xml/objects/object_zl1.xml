@@ -27,9 +27,9 @@
         <DList Name="object_zl1_DL_006828" Offset="0x6828" />
         <DList Name="object_zl1_DL_0069E0" Offset="0x69E0" />
         <DList Name="object_zl1_DL_006BA0" Offset="0x6BA0" />
-        <Texture Name="object_zl1_Tex_006CD8" OutName="tex_006CD8" Format="rgb5a1" Width="16" Height="16" Offset="0x6CD8" />
+        <!--Texture Name="object_zl1_Tex_006CD8" OutName="tex_006CD8" Format="rgb5a1" Width="16" Height="16" Offset="0x6CD8" /-->
         <!--Blob Name="object_zl1_Blob_006ED8" Size="0x1F0" Offset="0x6ED8" /-->
-        <Texture Name="object_zl1_TLUT_0070C8" OutName="tlut_0070C8" Format="rgb5a1" Width="16" Height="16" Offset="0x70C8" />
+        <!--Texture Name="object_zl1_TLUT_0070C8" OutName="tlut_0070C8" Format="rgb5a1" Width="16" Height="16" Offset="0x70C8" /-->
         <!--Blob Name="object_zl1_Blob_0072C8" Size="0x740" Offset="0x72C8" /-->
         <Texture Name="object_zl1_Tex_007A08" OutName="tex_007A08" Format="ci8" Width="8" Height="8" Offset="0x7A08" />
         <Texture Name="object_zl1_Tex_007A48" OutName="tex_007A48" Format="rgb5a1" Width="8" Height="8" Offset="0x7A48" />

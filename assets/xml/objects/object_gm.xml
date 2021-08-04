@@ -1,3 +1,6 @@
 ﻿<Root>
-    <File Name="object_gm" Segment="6" />
+    <File Name="object_gm" Segment="6" >
+        <!-- This file seems to be empty -->
+        <Blob Name="object_gm_Blob_000000" Size="0x10" Offset="0x0" />
+    </File>
 </Root>

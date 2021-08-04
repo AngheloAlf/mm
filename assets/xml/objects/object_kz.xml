@@ -30,9 +30,8 @@
         <DList Name="object_kz_DL_008B10" Offset="0x8B10" />
         <DList Name="object_kz_DL_008D80" Offset="0x8D80" />
         <DList Name="object_kz_DL_008E80" Offset="0x8E80" />
-        <Texture Name="object_kz_TLUT_009100" OutName="tlut_009100" Format="rgb5a1" Width="16" Height="16" Offset="0x9100" />
-        <!--Blob Name="object_kz_Blob_009300" Size="0x38" Offset="0x9300" /-->
-        <Texture Name="object_kz_Tex_009338" OutName="tex_009338" Format="ci8" Width="8" Height="16" Offset="0x9338" />
+        <!--Texture Name="object_kz_TLUT_009100" OutName="tlut_009100" Format="rgb5a1" Width="16" Height="16" Offset="0x9100" /-->
+        <!--Texture Name="object_kz_Tex_009338" OutName="tex_009338" Format="ci8" Width="8" Height="16" Offset="0x9338" /-->
         <!--Blob Name="object_kz_Blob_0093B8" Size="0x400" Offset="0x93B8" /-->
         <Texture Name="object_kz_Tex_0097B8" OutName="tex_0097B8" Format="i8" Width="16" Height="16" Offset="0x97B8" />
         <Texture Name="object_kz_Tex_0098B8" OutName="tex_0098B8" Format="ci8" Width="8" Height="16" Offset="0x98B8" />

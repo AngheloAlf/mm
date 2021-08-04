@@ -1,6 +1,6 @@
 ﻿<Root>
     <File Name="object_mask_nuts" Segment="6" Game="MM">
-        <!--Blob Name="object_mask_nuts_Blob_000000" Size="0x1D80" Offset="0x0" /-->
-        <DList Name="object_mask_nuts_DL_001D80" Offset="0x1D80" />
+        <Blob Name="object_mask_nuts_Blob_000000" Size="0x1D80" Offset="0x0" />
+        <!--DList Name="object_mask_nuts_DL_001D80" Offset="0x1D80" /-->
     </File>
 </Root>

@@ -1,7 +1,7 @@
 ﻿<Root>
     <File Name="object_mask_zacho" Segment="6" Game="MM">
-        <!--Blob Name="object_mask_zacho_Blob_000000" Size="0x6F8" Offset="0x0" /-->
-        <DList Name="object_mask_zacho_DL_0006F8" Offset="0x6F8" />
+        <Blob Name="object_mask_zacho_Blob_000000" Size="0x6F8" Offset="0x0" />
+        <!--DList Name="object_mask_zacho_DL_0006F8" Offset="0x6F8" /-->
         <!--Blob Name="object_mask_zacho_Blob_000BC8" Size="0xAC8" Offset="0xBC8" /-->
     </File>
 </Root>
