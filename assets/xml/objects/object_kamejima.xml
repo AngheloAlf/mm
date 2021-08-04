@@ -8,7 +8,7 @@
         <Animation Name="object_kamejima_Anim_0047B8" Offset="0x47B8" />
         <Animation Name="object_kamejima_Anim_0048B0" Offset="0x48B0" />
         <DList Name="object_kamejima_DL_004E70" Offset="0x4E70" />
-        <Texture Name="object_kamejima_TLUT_005248" OutName="tlut_005248" Format="rgb5a1" Width="16" Height="16" Offset="0x5248" />
+        <Texture Name="object_kamejima_TLUT_005248" OutName="tlut_005248" Format="rgba16" Width="16" Height="16" Offset="0x5248" />
         <Texture Name="object_kamejima_Tex_005448" OutName="tex_005448" Format="ci8" Width="32" Height="32" Offset="0x5448" />
         <Texture Name="object_kamejima_Tex_005848" OutName="tex_005848" Format="ci8" Width="64" Height="32" Offset="0x5848" />
         <!--Blob Name="object_kamejima_Blob_006048" Size="0x18" Offset="0x6048" /-->
@@ -27,8 +27,8 @@
         <DList Name="object_kamejima_DL_00A118" Offset="0xA118" />
         <DList Name="object_kamejima_DL_00A4B8" Offset="0xA4B8" />
         <DList Name="object_kamejima_DL_00A7C8" Offset="0xA7C8" />
-        <Texture Name="object_kamejima_TLUT_00AAD8" OutName="tlut_00AAD8" Format="rgb5a1" Width="16" Height="16" Offset="0xAAD8" />
-        <Texture Name="object_kamejima_TLUT_00ACD8" OutName="tlut_00ACD8" Format="rgb5a1" Width="16" Height="16" Offset="0xACD8" />
+        <Texture Name="object_kamejima_TLUT_00AAD8" OutName="tlut_00AAD8" Format="rgba16" Width="16" Height="16" Offset="0xAAD8" />
+        <Texture Name="object_kamejima_TLUT_00ACD8" OutName="tlut_00ACD8" Format="rgba16" Width="16" Height="16" Offset="0xACD8" />
         <Texture Name="object_kamejima_Tex_00AED8" OutName="tex_00AED8" Format="ci8" Width="32" Height="32" Offset="0xAED8" />
         <Texture Name="object_kamejima_Tex_00B2D8" OutName="tex_00B2D8" Format="ci8" Width="16" Height="16" Offset="0xB2D8" />
         <Texture Name="object_kamejima_Tex_00B3D8" OutName="tex_00B3D8" Format="ci8" Width="16" Height="32" Offset="0xB3D8" />

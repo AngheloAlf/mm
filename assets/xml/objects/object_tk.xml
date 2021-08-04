@@ -7,7 +7,7 @@
         <Animation Name="object_tk_Anim_003724" Offset="0x3724" />
         <Animation Name="object_tk_Anim_003B10" Offset="0x3B10" />
         <Animation Name="object_tk_Anim_003FB8" Offset="0x3FB8" />
-        <Texture Name="object_tk_TLUT_003FD0" OutName="tlut_003FD0" Format="rgb5a1" Width="16" Height="16" Offset="0x3FD0" />
+        <Texture Name="object_tk_TLUT_003FD0" OutName="tlut_003FD0" Format="rgba16" Width="16" Height="16" Offset="0x3FD0" />
         <Texture Name="object_tk_Tex_0041D0" OutName="tex_0041D0" Format="ci8" Width="8" Height="8" Offset="0x41D0" />
         <Texture Name="object_tk_Tex_004210" OutName="tex_004210" Format="ci8" Width="8" Height="8" Offset="0x4210" />
         <Texture Name="object_tk_Tex_004250" OutName="tex_004250" Format="ci8" Width="8" Height="8" Offset="0x4250" />
@@ -36,7 +36,7 @@
         <Texture Name="object_tk_Tex_00A350" OutName="tex_00A350" Format="ci8" Width="16" Height="16" Offset="0xA350" />
         <Texture Name="object_tk_Tex_00A450" OutName="tex_00A450" Format="ci8" Width="8" Height="16" Offset="0xA450" />
         <Texture Name="object_tk_Tex_00A4D0" OutName="tex_00A4D0" Format="i8" Width="8" Height="8" Offset="0xA4D0" />
-        <Texture Name="object_tk_Tex_00A510" OutName="tex_00A510" Format="rgb5a1" Width="8" Height="8" Offset="0xA510" />
+        <Texture Name="object_tk_Tex_00A510" OutName="tex_00A510" Format="rgba16" Width="8" Height="8" Offset="0xA510" />
         <Texture Name="object_tk_Tex_00A590" OutName="tex_00A590" Format="i4" Width="16" Height="32" Offset="0xA590" />
         <DList Name="object_tk_DL_00B260" Offset="0xB260" />
         <DList Name="object_tk_DL_00B3C8" Offset="0xB3C8" />

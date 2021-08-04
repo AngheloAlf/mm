@@ -28,16 +28,16 @@
         <DList Name="object_dinofos_DL_007C20" Offset="0x7C20" />
         <DList Name="object_dinofos_DL_007E70" Offset="0x7E70" />
         <DList Name="object_dinofos_DL_008058" Offset="0x8058" />
-        <Texture Name="object_dinofos_TLUT_0081B0" OutName="tlut_0081B0" Format="rgb5a1" Width="16" Height="16" Offset="0x81B0" />
+        <Texture Name="object_dinofos_TLUT_0081B0" OutName="tlut_0081B0" Format="rgba16" Width="16" Height="16" Offset="0x81B0" />
         <Texture Name="object_dinofos_Tex_0083B0" OutName="tex_0083B0" Format="ci8" Width="16" Height="16" Offset="0x83B0" />
-        <Texture Name="object_dinofos_Tex_0084B0" OutName="tex_0084B0" Format="rgb5a1" Width="16" Height="16" Offset="0x84B0" />
-        <Texture Name="object_dinofos_Tex_0086B0" OutName="tex_0086B0" Format="rgb5a1" Width="16" Height="16" Offset="0x86B0" />
-        <Texture Name="object_dinofos_Tex_0088B0" OutName="tex_0088B0" Format="rgb5a1" Width="8" Height="8" Offset="0x88B0" />
-        <Texture Name="object_dinofos_Tex_008930" OutName="tex_008930" Format="rgb5a1" Width="16" Height="16" Offset="0x8930" />
-        <Texture Name="object_dinofos_Tex_008B30" OutName="tex_008B30" Format="rgb5a1" Width="8" Height="8" Offset="0x8B30" />
-        <Texture Name="object_dinofos_Tex_008BB0" OutName="tex_008BB0" Format="rgb5a1" Width="8" Height="16" Offset="0x8BB0" />
-        <Texture Name="object_dinofos_Tex_008CB0" OutName="tex_008CB0" Format="rgb5a1" Width="16" Height="8" Offset="0x8CB0" />
-        <Texture Name="object_dinofos_Tex_008DB0" OutName="tex_008DB0" Format="rgb5a1" Width="8" Height="8" Offset="0x8DB0" />
+        <Texture Name="object_dinofos_Tex_0084B0" OutName="tex_0084B0" Format="rgba16" Width="16" Height="16" Offset="0x84B0" />
+        <Texture Name="object_dinofos_Tex_0086B0" OutName="tex_0086B0" Format="rgba16" Width="16" Height="16" Offset="0x86B0" />
+        <Texture Name="object_dinofos_Tex_0088B0" OutName="tex_0088B0" Format="rgba16" Width="8" Height="8" Offset="0x88B0" />
+        <Texture Name="object_dinofos_Tex_008930" OutName="tex_008930" Format="rgba16" Width="16" Height="16" Offset="0x8930" />
+        <Texture Name="object_dinofos_Tex_008B30" OutName="tex_008B30" Format="rgba16" Width="8" Height="8" Offset="0x8B30" />
+        <Texture Name="object_dinofos_Tex_008BB0" OutName="tex_008BB0" Format="rgba16" Width="8" Height="16" Offset="0x8BB0" />
+        <Texture Name="object_dinofos_Tex_008CB0" OutName="tex_008CB0" Format="rgba16" Width="16" Height="8" Offset="0x8CB0" />
+        <Texture Name="object_dinofos_Tex_008DB0" OutName="tex_008DB0" Format="rgba16" Width="8" Height="8" Offset="0x8DB0" />
         <!--Blob Name="object_dinofos_Blob_008E30" Size="0x600" Offset="0x8E30" /-->
         <Limb Name="object_dinofos_Limb_009430" LimbType="Standard" Offset="0x9430" />
         <Limb Name="object_dinofos_Limb_00943C" LimbType="Standard" Offset="0x943C" />

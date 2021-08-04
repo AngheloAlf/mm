@@ -7,11 +7,11 @@
         <DList Name="object_stk_DL_0046B0" Offset="0x46B0" />
         <DList Name="object_stk_DL_0053C0" Offset="0x53C0" />
         <DList Name="object_stk_DL_005870" Offset="0x5870" />
-        <Texture Name="object_stk_Tex_005920" OutName="tex_005920" Format="rgb5a1" Width="32" Height="32" Offset="0x5920" />
+        <Texture Name="object_stk_Tex_005920" OutName="tex_005920" Format="rgba16" Width="32" Height="32" Offset="0x5920" />
         <DList Name="object_stk_DL_006BB0" Offset="0x6BB0" />
         <DList Name="object_stk_DL_0079F0" Offset="0x79F0" />
         <DList Name="object_stk_DL_007E10" Offset="0x7E10" />
-        <Texture Name="object_stk_Tex_007EA0" OutName="tex_007EA0" Format="rgb5a1" Width="8" Height="8" Offset="0x7EA0" />
+        <Texture Name="object_stk_Tex_007EA0" OutName="tex_007EA0" Format="rgba16" Width="8" Height="8" Offset="0x7EA0" />
         <DList Name="object_stk_DL_0084C0" Offset="0x84C0" />
         <DList Name="object_stk_DL_0087B0" Offset="0x87B0" />
         <DList Name="object_stk_DL_008A80" Offset="0x8A80" />
@@ -48,13 +48,13 @@
         <DList Name="object_stk_DL_011560" Offset="0x11560" />
         <DList Name="object_stk_DL_011688" Offset="0x11688" />
         <!--Blob Name="object_stk_Blob_0117D0" Size="0x8" Offset="0x117D0" /-->
-        <Texture Name="object_stk_Tex_0117D8" OutName="tex_0117D8" Format="rgb5a1" Width="32" Height="16" Offset="0x117D8" />
-        <Texture Name="object_stk_Tex_011BD8" OutName="tex_011BD8" Format="rgb5a1" Width="32" Height="16" Offset="0x11BD8" />
-        <Texture Name="object_stk_Tex_011FD8" OutName="tex_011FD8" Format="rgb5a1" Width="16" Height="16" Offset="0x11FD8" />
-        <Texture Name="object_stk_Tex_0121D8" OutName="tex_0121D8" Format="rgb5a1" Width="16" Height="16" Offset="0x121D8" />
-        <Texture Name="object_stk_Tex_0123D8" OutName="tex_0123D8" Format="rgb5a1" Width="16" Height="16" Offset="0x123D8" />
-        <Texture Name="object_stk_Tex_0125D8" OutName="tex_0125D8" Format="rgb5a1" Width="32" Height="32" Offset="0x125D8" />
-        <Texture Name="object_stk_Tex_012DD8" OutName="tex_012DD8" Format="rgb5a1" Width="32" Height="16" Offset="0x12DD8" />
+        <Texture Name="object_stk_Tex_0117D8" OutName="tex_0117D8" Format="rgba16" Width="32" Height="16" Offset="0x117D8" />
+        <Texture Name="object_stk_Tex_011BD8" OutName="tex_011BD8" Format="rgba16" Width="32" Height="16" Offset="0x11BD8" />
+        <Texture Name="object_stk_Tex_011FD8" OutName="tex_011FD8" Format="rgba16" Width="16" Height="16" Offset="0x11FD8" />
+        <Texture Name="object_stk_Tex_0121D8" OutName="tex_0121D8" Format="rgba16" Width="16" Height="16" Offset="0x121D8" />
+        <Texture Name="object_stk_Tex_0123D8" OutName="tex_0123D8" Format="rgba16" Width="16" Height="16" Offset="0x123D8" />
+        <Texture Name="object_stk_Tex_0125D8" OutName="tex_0125D8" Format="rgba16" Width="32" Height="32" Offset="0x125D8" />
+        <Texture Name="object_stk_Tex_012DD8" OutName="tex_012DD8" Format="rgba16" Width="32" Height="16" Offset="0x12DD8" />
         <Limb Name="object_stk_Limb_0131D8" LimbType="Standard" Offset="0x131D8" />
         <Limb Name="object_stk_Limb_0131E4" LimbType="Standard" Offset="0x131E4" />
         <Limb Name="object_stk_Limb_0131F0" LimbType="Standard" Offset="0x131F0" />
@@ -82,26 +82,26 @@
         <Animation Name="object_stk_Anim_015C14" Offset="0x15C14" />
         <Animation Name="object_stk_Anim_016508" Offset="0x16508" />
         <DList Name="object_stk_DL_016620" Offset="0x16620" />
-        <Texture Name="object_stk_Tex_016720" OutName="tex_016720" Format="rgb5a1" Width="32" Height="32" Offset="0x16720" />
-        <Texture Name="object_stk_Tex_016F20" OutName="tex_016F20" Format="rgb5a1" Width="16" Height="8" Offset="0x16F20" />
-        <Texture Name="object_stk_Tex_017020" OutName="tex_017020" Format="rgb5a1" Width="32" Height="16" Offset="0x17020" />
-        <Texture Name="object_stk_Tex_017420" OutName="tex_017420" Format="rgb5a1" Width="16" Height="16" Offset="0x17420" />
-        <Texture Name="object_stk_Tex_017620" OutName="tex_017620" Format="rgb5a1" Width="8" Height="16" Offset="0x17620" />
-        <Texture Name="object_stk_Tex_017720" OutName="tex_017720" Format="rgb5a1" Width="16" Height="16" Offset="0x17720" />
+        <Texture Name="object_stk_Tex_016720" OutName="tex_016720" Format="rgba16" Width="32" Height="32" Offset="0x16720" />
+        <Texture Name="object_stk_Tex_016F20" OutName="tex_016F20" Format="rgba16" Width="16" Height="8" Offset="0x16F20" />
+        <Texture Name="object_stk_Tex_017020" OutName="tex_017020" Format="rgba16" Width="32" Height="16" Offset="0x17020" />
+        <Texture Name="object_stk_Tex_017420" OutName="tex_017420" Format="rgba16" Width="16" Height="16" Offset="0x17420" />
+        <Texture Name="object_stk_Tex_017620" OutName="tex_017620" Format="rgba16" Width="8" Height="16" Offset="0x17620" />
+        <Texture Name="object_stk_Tex_017720" OutName="tex_017720" Format="rgba16" Width="16" Height="16" Offset="0x17720" />
         <!--Blob Name="object_stk_Blob_017920" Size="0x800" Offset="0x17920" /-->
-        <Texture Name="object_stk_Tex_018120" OutName="tex_018120" Format="rgb5a1" Width="32" Height="64" Offset="0x18120" />
-        <Texture Name="object_stk_Tex_019120" OutName="tex_019120" Format="rgb5a1" Width="16" Height="16" Offset="0x19120" />
-        <Texture Name="object_stk_Tex_019320" OutName="tex_019320" Format="rgb5a1" Width="16" Height="16" Offset="0x19320" />
-        <Texture Name="object_stk_Tex_019520" OutName="tex_019520" Format="rgb5a1" Width="16" Height="16" Offset="0x19520" />
-        <Texture Name="object_stk_Tex_019720" OutName="tex_019720" Format="rgb5a1" Width="16" Height="16" Offset="0x19720" />
-        <Texture Name="object_stk_Tex_019920" OutName="tex_019920" Format="rgb5a1" Width="32" Height="32" Offset="0x19920" />
+        <Texture Name="object_stk_Tex_018120" OutName="tex_018120" Format="rgba16" Width="32" Height="64" Offset="0x18120" />
+        <Texture Name="object_stk_Tex_019120" OutName="tex_019120" Format="rgba16" Width="16" Height="16" Offset="0x19120" />
+        <Texture Name="object_stk_Tex_019320" OutName="tex_019320" Format="rgba16" Width="16" Height="16" Offset="0x19320" />
+        <Texture Name="object_stk_Tex_019520" OutName="tex_019520" Format="rgba16" Width="16" Height="16" Offset="0x19520" />
+        <Texture Name="object_stk_Tex_019720" OutName="tex_019720" Format="rgba16" Width="16" Height="16" Offset="0x19720" />
+        <Texture Name="object_stk_Tex_019920" OutName="tex_019920" Format="rgba16" Width="32" Height="32" Offset="0x19920" />
         <!--Blob Name="object_stk_Blob_01A120" Size="0x80" Offset="0x1A120" /-->
-        <Texture Name="object_stk_Tex_01A1A0" OutName="tex_01A1A0" Format="rgb5a1" Width="16" Height="32" Offset="0x1A1A0" />
-        <Texture Name="object_stk_Tex_01A5A0" OutName="tex_01A5A0" Format="rgb5a1" Width="8" Height="8" Offset="0x1A5A0" />
-        <Texture Name="object_stk_Tex_01A620" OutName="tex_01A620" Format="rgb5a1" Width="16" Height="16" Offset="0x1A620" />
-        <Texture Name="object_stk_Tex_01A820" OutName="tex_01A820" Format="rgb5a1" Width="16" Height="16" Offset="0x1A820" />
-        <Texture Name="object_stk_Tex_01AA20" OutName="tex_01AA20" Format="rgb5a1" Width="32" Height="16" Offset="0x1AA20" />
-        <Texture Name="object_stk_Tex_01AE20" OutName="tex_01AE20" Format="rgb5a1" Width="8" Height="8" Offset="0x1AE20" />
+        <Texture Name="object_stk_Tex_01A1A0" OutName="tex_01A1A0" Format="rgba16" Width="16" Height="32" Offset="0x1A1A0" />
+        <Texture Name="object_stk_Tex_01A5A0" OutName="tex_01A5A0" Format="rgba16" Width="8" Height="8" Offset="0x1A5A0" />
+        <Texture Name="object_stk_Tex_01A620" OutName="tex_01A620" Format="rgba16" Width="16" Height="16" Offset="0x1A620" />
+        <Texture Name="object_stk_Tex_01A820" OutName="tex_01A820" Format="rgba16" Width="16" Height="16" Offset="0x1A820" />
+        <Texture Name="object_stk_Tex_01AA20" OutName="tex_01AA20" Format="rgba16" Width="32" Height="16" Offset="0x1AA20" />
+        <Texture Name="object_stk_Tex_01AE20" OutName="tex_01AE20" Format="rgba16" Width="8" Height="8" Offset="0x1AE20" />
         <Texture Name="object_stk_Tex_01AEA0" OutName="tex_01AEA0" Format="ia16" Width="16" Height="8" Offset="0x1AEA0" />
         <Animation Name="object_stk_Anim_01C21C" Offset="0x1C21C" />
         <Animation Name="object_stk_Anim_01D008" Offset="0x1D008" />

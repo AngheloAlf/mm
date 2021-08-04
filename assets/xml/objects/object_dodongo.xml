@@ -22,12 +22,12 @@
         <DList Name="object_dodongo_DL_007198" Offset="0x7198" />
         <DList Name="object_dodongo_DL_007298" Offset="0x7298" />
         <DList Name="object_dodongo_DL_0073A8" Offset="0x73A8" />
-        <Texture Name="object_dodongo_Tex_0074B8" OutName="tex_0074B8" Format="rgb5a1" Width="16" Height="16" Offset="0x74B8" />
-        <Texture Name="object_dodongo_Tex_0076B8" OutName="tex_0076B8" Format="rgb5a1" Width="8" Height="16" Offset="0x76B8" />
-        <Texture Name="object_dodongo_Tex_0077B8" OutName="tex_0077B8" Format="rgb5a1" Width="8" Height="16" Offset="0x77B8" />
-        <Texture Name="object_dodongo_Tex_0078B8" OutName="tex_0078B8" Format="rgb5a1" Width="32" Height="16" Offset="0x78B8" />
-        <Texture Name="object_dodongo_Tex_007CB8" OutName="tex_007CB8" Format="rgb5a1" Width="16" Height="32" Offset="0x7CB8" />
-        <Texture Name="object_dodongo_Tex_0080B8" OutName="tex_0080B8" Format="rgb5a1" Width="8" Height="8" Offset="0x80B8" />
+        <Texture Name="object_dodongo_Tex_0074B8" OutName="tex_0074B8" Format="rgba16" Width="16" Height="16" Offset="0x74B8" />
+        <Texture Name="object_dodongo_Tex_0076B8" OutName="tex_0076B8" Format="rgba16" Width="8" Height="16" Offset="0x76B8" />
+        <Texture Name="object_dodongo_Tex_0077B8" OutName="tex_0077B8" Format="rgba16" Width="8" Height="16" Offset="0x77B8" />
+        <Texture Name="object_dodongo_Tex_0078B8" OutName="tex_0078B8" Format="rgba16" Width="32" Height="16" Offset="0x78B8" />
+        <Texture Name="object_dodongo_Tex_007CB8" OutName="tex_007CB8" Format="rgba16" Width="16" Height="32" Offset="0x7CB8" />
+        <Texture Name="object_dodongo_Tex_0080B8" OutName="tex_0080B8" Format="rgba16" Width="8" Height="8" Offset="0x80B8" />
         <Limb Name="object_dodongo_Limb_008138" LimbType="Standard" Offset="0x8138" />
         <Limb Name="object_dodongo_Limb_008144" LimbType="Standard" Offset="0x8144" />
         <Limb Name="object_dodongo_Limb_008150" LimbType="Standard" Offset="0x8150" />

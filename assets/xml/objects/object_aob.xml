@@ -17,7 +17,7 @@
         <Limb Name="object_aob_Limb_00012C" LimbType="Standard" Offset="0x12C" />
         <Limb Name="object_aob_Limb_000138" LimbType="Standard" Offset="0x138" />
         <Skeleton Name="object_aob_Skel_000180" Type="Flex" LimbType="Standard" Offset="0x180" />
-        <Texture Name="object_aob_TLUT_000198" OutName="tlut_000198" Format="rgb5a1" Width="16" Height="16" Offset="0x198" />
+        <Texture Name="object_aob_TLUT_000198" OutName="tlut_000198" Format="rgba16" Width="16" Height="16" Offset="0x198" />
         <Texture Name="object_aob_Tex_000398" OutName="tex_000398" Format="ci8" Width="16" Height="16" Offset="0x398" />
         <Texture Name="object_aob_Tex_000498" OutName="tex_000498" Format="ci8" Width="8" Height="8" Offset="0x498" />
         <Texture Name="object_aob_Tex_0004D8" OutName="tex_0004D8" Format="ci8" Width="16" Height="16" Offset="0x4D8" />

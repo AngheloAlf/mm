@@ -2,6 +2,6 @@
     <File Name="object_dor01" Segment="6" Game="MM">
         <DList Name="object_dor01_DL_000440" Offset="0x440" />
         <DList Name="object_dor01_DL_000448" Offset="0x448" />
-        <Texture Name="object_dor01_Tex_000650" OutName="tex_000650" Format="rgb5a1" Width="16" Height="128" Offset="0x650" />
+        <Texture Name="object_dor01_Tex_000650" OutName="tex_000650" Format="rgba16" Width="16" Height="128" Offset="0x650" />
     </File>
 </Root>

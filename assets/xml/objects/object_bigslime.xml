@@ -46,18 +46,18 @@
         <DList Name="object_bigslime_DL_00BC40" Offset="0xBC40" />
         <DList Name="object_bigslime_DL_00BD50" Offset="0xBD50" />
         <DList Name="object_bigslime_DL_00BE78" Offset="0xBE78" />
-        <Texture Name="object_bigslime_TLUT_00C028" OutName="tlut_00C028" Format="rgb5a1" Width="16" Height="16" Offset="0xC028" />
-        <Texture Name="object_bigslime_TLUT_00C228" OutName="tlut_00C228" Format="rgb5a1" Width="16" Height="16" Offset="0xC228" />
-        <Texture Name="object_bigslime_TLUT_00C428" OutName="tlut_00C428" Format="rgb5a1" Width="16" Height="16" Offset="0xC428" />
-        <Texture Name="object_bigslime_Tex_00C628" OutName="tex_00C628" Format="rgb5a1" Width="8" Height="8" Offset="0xC628" />
-        <Texture Name="object_bigslime_Tex_00C6A8" OutName="tex_00C6A8" Format="rgb5a1" Width="16" Height="16" Offset="0xC6A8" />
-        <Texture Name="object_bigslime_Tex_00C8A8" OutName="tex_00C8A8" Format="rgb5a1" Width="16" Height="16" Offset="0xC8A8" />
-        <Texture Name="object_bigslime_Tex_00CAA8" OutName="tex_00CAA8" Format="rgb5a1" Width="16" Height="32" Offset="0xCAA8" />
+        <Texture Name="object_bigslime_TLUT_00C028" OutName="tlut_00C028" Format="rgba16" Width="16" Height="16" Offset="0xC028" />
+        <Texture Name="object_bigslime_TLUT_00C228" OutName="tlut_00C228" Format="rgba16" Width="16" Height="16" Offset="0xC228" />
+        <Texture Name="object_bigslime_TLUT_00C428" OutName="tlut_00C428" Format="rgba16" Width="16" Height="16" Offset="0xC428" />
+        <Texture Name="object_bigslime_Tex_00C628" OutName="tex_00C628" Format="rgba16" Width="8" Height="8" Offset="0xC628" />
+        <Texture Name="object_bigslime_Tex_00C6A8" OutName="tex_00C6A8" Format="rgba16" Width="16" Height="16" Offset="0xC6A8" />
+        <Texture Name="object_bigslime_Tex_00C8A8" OutName="tex_00C8A8" Format="rgba16" Width="16" Height="16" Offset="0xC8A8" />
+        <Texture Name="object_bigslime_Tex_00CAA8" OutName="tex_00CAA8" Format="rgba16" Width="16" Height="32" Offset="0xCAA8" />
         <Texture Name="object_bigslime_Tex_00CEA8" OutName="tex_00CEA8" Format="ci8" Width="16" Height="32" Offset="0xCEA8" />
-        <Texture Name="object_bigslime_Tex_00D0A8" OutName="tex_00D0A8" Format="rgb5a1" Width="16" Height="16" Offset="0xD0A8" />
-        <Texture Name="object_bigslime_Tex_00D2A8" OutName="tex_00D2A8" Format="rgb5a1" Width="16" Height="8" Offset="0xD2A8" />
-        <Texture Name="object_bigslime_Tex_00D3A8" OutName="tex_00D3A8" Format="rgb5a1" Width="8" Height="8" Offset="0xD3A8" />
-        <Texture Name="object_bigslime_Tex_00D428" OutName="tex_00D428" Format="rgb5a1" Width="32" Height="16" Offset="0xD428" />
+        <Texture Name="object_bigslime_Tex_00D0A8" OutName="tex_00D0A8" Format="rgba16" Width="16" Height="16" Offset="0xD0A8" />
+        <Texture Name="object_bigslime_Tex_00D2A8" OutName="tex_00D2A8" Format="rgba16" Width="16" Height="8" Offset="0xD2A8" />
+        <Texture Name="object_bigslime_Tex_00D3A8" OutName="tex_00D3A8" Format="rgba16" Width="8" Height="8" Offset="0xD3A8" />
+        <Texture Name="object_bigslime_Tex_00D428" OutName="tex_00D428" Format="rgba16" Width="32" Height="16" Offset="0xD428" />
         <Texture Name="object_bigslime_Tex_00D828" OutName="tex_00D828" Format="ci8" Width="32" Height="32" Offset="0xD828" />
         <Texture Name="object_bigslime_Tex_00DC28" OutName="tex_00DC28" Format="ci8" Width="16" Height="32" Offset="0xDC28" />
         <Limb Name="object_bigslime_Limb_00DE28" LimbType="Standard" Offset="0xDE28" />
@@ -106,7 +106,7 @@
         <DList Name="object_bigslime_DL_0113B0" Offset="0x113B0" />
         <Texture Name="object_bigslime_Tex_011580" OutName="tex_011580" Format="i4" Width="16" Height="16" Offset="0x11580" />
         <Texture Name="object_bigslime_Tex_011600" OutName="tex_011600" Format="i8" Width="32" Height="32" Offset="0x11600" />
-        <Texture Name="object_bigslime_Tex_011A00" OutName="tex_011A00" Format="rgb5a1" Width="32" Height="32" Offset="0x11A00" />
+        <Texture Name="object_bigslime_Tex_011A00" OutName="tex_011A00" Format="rgba16" Width="32" Height="32" Offset="0x11A00" />
         <Texture Name="object_bigslime_Tex_012200" OutName="tex_012200" Format="i4" Width="64" Height="64" Offset="0x12200" />
         <Texture Name="object_bigslime_Tex_012A00" OutName="tex_012A00" Format="i4" Width="64" Height="64" Offset="0x12A00" />
         <Texture Name="object_bigslime_Tex_013200" OutName="tex_013200" Format="i4" Width="32" Height="32" Offset="0x13200" />

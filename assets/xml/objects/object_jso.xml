@@ -19,17 +19,17 @@
         <DList Name="object_jso_DL_0020B0" Offset="0x20B0" />
         <DList Name="object_jso_DL_002100" Offset="0x2100" />
         <!--Blob Name="object_jso_Blob_0021B8" Size="0x100" Offset="0x21B8" /-->
-        <Texture Name="object_jso_Tex_0022B8" OutName="tex_0022B8" Format="rgb5a1" Width="16" Height="16" Offset="0x22B8" />
-        <Texture Name="object_jso_Tex_0024B8" OutName="tex_0024B8" Format="rgb5a1" Width="8" Height="16" Offset="0x24B8" />
+        <Texture Name="object_jso_Tex_0022B8" OutName="tex_0022B8" Format="rgba16" Width="16" Height="16" Offset="0x22B8" />
+        <Texture Name="object_jso_Tex_0024B8" OutName="tex_0024B8" Format="rgba16" Width="8" Height="16" Offset="0x24B8" />
         <!--Blob Name="object_jso_Blob_0025B8" Size="0x80" Offset="0x25B8" /-->
-        <Texture Name="object_jso_Tex_002638" OutName="tex_002638" Format="rgb5a1" Width="4" Height="4" Offset="0x2638" />
-        <Texture Name="object_jso_Tex_002658" OutName="tex_002658" Format="rgb5a1" Width="8" Height="32" Offset="0x2658" />
-        <Texture Name="object_jso_TLUT_002858" OutName="tlut_002858" Format="rgb5a1" Width="16" Height="16" Offset="0x2858" />
-        <Texture Name="object_jso_TLUT_002A58" OutName="tlut_002A58" Format="rgb5a1" Width="16" Height="16" Offset="0x2A58" />
+        <Texture Name="object_jso_Tex_002638" OutName="tex_002638" Format="rgba16" Width="4" Height="4" Offset="0x2638" />
+        <Texture Name="object_jso_Tex_002658" OutName="tex_002658" Format="rgba16" Width="8" Height="32" Offset="0x2658" />
+        <Texture Name="object_jso_TLUT_002858" OutName="tlut_002858" Format="rgba16" Width="16" Height="16" Offset="0x2858" />
+        <Texture Name="object_jso_TLUT_002A58" OutName="tlut_002A58" Format="rgba16" Width="16" Height="16" Offset="0x2A58" />
         <Texture Name="object_jso_Tex_002C58" OutName="tex_002C58" Format="ci8" Width="16" Height="16" Offset="0x2C58" />
         <Texture Name="object_jso_Tex_002D58" OutName="tex_002D58" Format="ci8" Width="16" Height="16" Offset="0x2D58" />
         <DList Name="object_jso_DL_002ED8" Offset="0x2ED8" />
-        <Texture Name="object_jso_Tex_002FB8" OutName="tex_002FB8" Format="rgb5a1" Width="8" Height="8" Offset="0x2FB8" />
+        <Texture Name="object_jso_Tex_002FB8" OutName="tex_002FB8" Format="rgba16" Width="8" Height="8" Offset="0x2FB8" />
         <Limb Name="object_jso_Limb_003038" LimbType="Standard" Offset="0x3038" />
         <Limb Name="object_jso_Limb_003044" LimbType="Standard" Offset="0x3044" />
         <Limb Name="object_jso_Limb_003050" LimbType="Standard" Offset="0x3050" />
@@ -87,14 +87,14 @@
         <DList Name="object_jso_DL_009BD8" Offset="0x9BD8" />
         <DList Name="object_jso_DL_009C98" Offset="0x9C98" />
         <DList Name="object_jso_DL_009CF0" Offset="0x9CF0" />
-        <Texture Name="object_jso_Tex_009DB0" OutName="tex_009DB0" Format="rgb5a1" Width="8" Height="16" Offset="0x9DB0" />
-        <Texture Name="object_jso_Tex_009EB0" OutName="tex_009EB0" Format="rgb5a1" Width="8" Height="8" Offset="0x9EB0" />
-        <Texture Name="object_jso_Tex_009F30" OutName="tex_009F30" Format="rgb5a1" Width="16" Height="32" Offset="0x9F30" />
-        <Texture Name="object_jso_Tex_00A330" OutName="tex_00A330" Format="rgb5a1" Width="16" Height="16" Offset="0xA330" />
-        <Texture Name="object_jso_Tex_00A530" OutName="tex_00A530" Format="rgb5a1" Width="16" Height="8" Offset="0xA530" />
-        <Texture Name="object_jso_Tex_00A630" OutName="tex_00A630" Format="rgb5a1" Width="8" Height="8" Offset="0xA630" />
-        <Texture Name="object_jso_Tex_00A6B0" OutName="tex_00A6B0" Format="rgb5a1" Width="16" Height="16" Offset="0xA6B0" />
-        <Texture Name="object_jso_Tex_00A8B0" OutName="tex_00A8B0" Format="rgb5a1" Width="4" Height="4" Offset="0xA8B0" />
+        <Texture Name="object_jso_Tex_009DB0" OutName="tex_009DB0" Format="rgba16" Width="8" Height="16" Offset="0x9DB0" />
+        <Texture Name="object_jso_Tex_009EB0" OutName="tex_009EB0" Format="rgba16" Width="8" Height="8" Offset="0x9EB0" />
+        <Texture Name="object_jso_Tex_009F30" OutName="tex_009F30" Format="rgba16" Width="16" Height="32" Offset="0x9F30" />
+        <Texture Name="object_jso_Tex_00A330" OutName="tex_00A330" Format="rgba16" Width="16" Height="16" Offset="0xA330" />
+        <Texture Name="object_jso_Tex_00A530" OutName="tex_00A530" Format="rgba16" Width="16" Height="8" Offset="0xA530" />
+        <Texture Name="object_jso_Tex_00A630" OutName="tex_00A630" Format="rgba16" Width="8" Height="8" Offset="0xA630" />
+        <Texture Name="object_jso_Tex_00A6B0" OutName="tex_00A6B0" Format="rgba16" Width="16" Height="16" Offset="0xA6B0" />
+        <Texture Name="object_jso_Tex_00A8B0" OutName="tex_00A8B0" Format="rgba16" Width="4" Height="4" Offset="0xA8B0" />
         <Limb Name="object_jso_Limb_00A8D0" LimbType="Standard" Offset="0xA8D0" />
         <Limb Name="object_jso_Limb_00A8DC" LimbType="Standard" Offset="0xA8DC" />
         <Limb Name="object_jso_Limb_00A8E8" LimbType="Standard" Offset="0xA8E8" />

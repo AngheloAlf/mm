@@ -14,19 +14,19 @@
         <DList Name="object_az_DL_002A08" Offset="0x2A08" />
         <DList Name="object_az_DL_002B48" Offset="0x2B48" />
         <DList Name="object_az_DL_002C88" Offset="0x2C88" />
-        <Texture Name="object_az_Tex_002DC8" OutName="tex_002DC8" Format="rgb5a1" Width="32" Height="32" Offset="0x2DC8" />
-        <Texture Name="object_az_Tex_0035C8" OutName="tex_0035C8" Format="rgb5a1" Width="32" Height="32" Offset="0x35C8" />
-        <Texture Name="object_az_Tex_003DC8" OutName="tex_003DC8" Format="rgb5a1" Width="16" Height="32" Offset="0x3DC8" />
-        <Texture Name="object_az_Tex_0041C8" OutName="tex_0041C8" Format="rgb5a1" Width="16" Height="16" Offset="0x41C8" />
-        <Texture Name="object_az_Tex_0043C8" OutName="tex_0043C8" Format="rgb5a1" Width="16" Height="16" Offset="0x43C8" />
-        <Texture Name="object_az_Tex_0045C8" OutName="tex_0045C8" Format="rgb5a1" Width="16" Height="16" Offset="0x45C8" />
-        <Texture Name="object_az_Tex_0047C8" OutName="tex_0047C8" Format="rgb5a1" Width="8" Height="16" Offset="0x47C8" />
-        <Texture Name="object_az_Tex_0048C8" OutName="tex_0048C8" Format="rgb5a1" Width="32" Height="32" Offset="0x48C8" />
-        <Texture Name="object_az_Tex_0050C8" OutName="tex_0050C8" Format="rgb5a1" Width="32" Height="32" Offset="0x50C8" />
-        <Texture Name="object_az_Tex_0058C8" OutName="tex_0058C8" Format="rgb5a1" Width="32" Height="32" Offset="0x58C8" />
-        <Texture Name="object_az_Tex_0060C8" OutName="tex_0060C8" Format="rgb5a1" Width="32" Height="32" Offset="0x60C8" />
-        <Texture Name="object_az_Tex_0068C8" OutName="tex_0068C8" Format="rgb5a1" Width="32" Height="32" Offset="0x68C8" />
-        <Texture Name="object_az_Tex_0070C8" OutName="tex_0070C8" Format="rgb5a1" Width="16" Height="16" Offset="0x70C8" />
+        <Texture Name="object_az_Tex_002DC8" OutName="tex_002DC8" Format="rgba16" Width="32" Height="32" Offset="0x2DC8" />
+        <Texture Name="object_az_Tex_0035C8" OutName="tex_0035C8" Format="rgba16" Width="32" Height="32" Offset="0x35C8" />
+        <Texture Name="object_az_Tex_003DC8" OutName="tex_003DC8" Format="rgba16" Width="16" Height="32" Offset="0x3DC8" />
+        <Texture Name="object_az_Tex_0041C8" OutName="tex_0041C8" Format="rgba16" Width="16" Height="16" Offset="0x41C8" />
+        <Texture Name="object_az_Tex_0043C8" OutName="tex_0043C8" Format="rgba16" Width="16" Height="16" Offset="0x43C8" />
+        <Texture Name="object_az_Tex_0045C8" OutName="tex_0045C8" Format="rgba16" Width="16" Height="16" Offset="0x45C8" />
+        <Texture Name="object_az_Tex_0047C8" OutName="tex_0047C8" Format="rgba16" Width="8" Height="16" Offset="0x47C8" />
+        <Texture Name="object_az_Tex_0048C8" OutName="tex_0048C8" Format="rgba16" Width="32" Height="32" Offset="0x48C8" />
+        <Texture Name="object_az_Tex_0050C8" OutName="tex_0050C8" Format="rgba16" Width="32" Height="32" Offset="0x50C8" />
+        <Texture Name="object_az_Tex_0058C8" OutName="tex_0058C8" Format="rgba16" Width="32" Height="32" Offset="0x58C8" />
+        <Texture Name="object_az_Tex_0060C8" OutName="tex_0060C8" Format="rgba16" Width="32" Height="32" Offset="0x60C8" />
+        <Texture Name="object_az_Tex_0068C8" OutName="tex_0068C8" Format="rgba16" Width="32" Height="32" Offset="0x68C8" />
+        <Texture Name="object_az_Tex_0070C8" OutName="tex_0070C8" Format="rgba16" Width="16" Height="16" Offset="0x70C8" />
         <Limb Name="object_az_Limb_0072C8" LimbType="Standard" Offset="0x72C8" />
         <Limb Name="object_az_Limb_0072D4" LimbType="Standard" Offset="0x72D4" />
         <Limb Name="object_az_Limb_0072E0" LimbType="Standard" Offset="0x72E0" />
@@ -81,17 +81,17 @@
         <DList Name="object_az_DL_00F638" Offset="0xF638" />
         <DList Name="object_az_DL_00F788" Offset="0xF788" />
         <!--Blob Name="object_az_Blob_00F918" Size="0x2000" Offset="0xF918" /-->
-        <Texture Name="object_az_Tex_011918" OutName="tex_011918" Format="rgb5a1" Width="32" Height="32" Offset="0x11918" />
-        <Texture Name="object_az_Tex_012118" OutName="tex_012118" Format="rgb5a1" Width="16" Height="32" Offset="0x12118" />
-        <Texture Name="object_az_Tex_012518" OutName="tex_012518" Format="rgb5a1" Width="16" Height="16" Offset="0x12518" />
-        <Texture Name="object_az_Tex_012718" OutName="tex_012718" Format="rgb5a1" Width="32" Height="32" Offset="0x12718" />
-        <Texture Name="object_az_Tex_012F18" OutName="tex_012F18" Format="rgb5a1" Width="32" Height="32" Offset="0x12F18" />
-        <Texture Name="object_az_Tex_013718" OutName="tex_013718" Format="rgb5a1" Width="8" Height="16" Offset="0x13718" />
-        <Texture Name="object_az_Tex_013818" OutName="tex_013818" Format="rgb5a1" Width="32" Height="32" Offset="0x13818" />
-        <Texture Name="object_az_Tex_014018" OutName="tex_014018" Format="rgb5a1" Width="32" Height="32" Offset="0x14018" />
-        <Texture Name="object_az_Tex_014818" OutName="tex_014818" Format="rgb5a1" Width="32" Height="32" Offset="0x14818" />
-        <Texture Name="object_az_Tex_015018" OutName="tex_015018" Format="rgb5a1" Width="32" Height="32" Offset="0x15018" />
-        <Texture Name="object_az_Tex_015818" OutName="tex_015818" Format="rgb5a1" Width="32" Height="32" Offset="0x15818" />
+        <Texture Name="object_az_Tex_011918" OutName="tex_011918" Format="rgba16" Width="32" Height="32" Offset="0x11918" />
+        <Texture Name="object_az_Tex_012118" OutName="tex_012118" Format="rgba16" Width="16" Height="32" Offset="0x12118" />
+        <Texture Name="object_az_Tex_012518" OutName="tex_012518" Format="rgba16" Width="16" Height="16" Offset="0x12518" />
+        <Texture Name="object_az_Tex_012718" OutName="tex_012718" Format="rgba16" Width="32" Height="32" Offset="0x12718" />
+        <Texture Name="object_az_Tex_012F18" OutName="tex_012F18" Format="rgba16" Width="32" Height="32" Offset="0x12F18" />
+        <Texture Name="object_az_Tex_013718" OutName="tex_013718" Format="rgba16" Width="8" Height="16" Offset="0x13718" />
+        <Texture Name="object_az_Tex_013818" OutName="tex_013818" Format="rgba16" Width="32" Height="32" Offset="0x13818" />
+        <Texture Name="object_az_Tex_014018" OutName="tex_014018" Format="rgba16" Width="32" Height="32" Offset="0x14018" />
+        <Texture Name="object_az_Tex_014818" OutName="tex_014818" Format="rgba16" Width="32" Height="32" Offset="0x14818" />
+        <Texture Name="object_az_Tex_015018" OutName="tex_015018" Format="rgba16" Width="32" Height="32" Offset="0x15018" />
+        <Texture Name="object_az_Tex_015818" OutName="tex_015818" Format="rgba16" Width="32" Height="32" Offset="0x15818" />
         <!--Blob Name="object_az_Blob_016018" Size="0x1808" Offset="0x16018" /-->
         <Limb Name="object_az_Limb_017820" LimbType="Standard" Offset="0x17820" />
         <Limb Name="object_az_Limb_01782C" LimbType="Standard" Offset="0x1782C" />

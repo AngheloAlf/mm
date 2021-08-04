@@ -22,12 +22,12 @@
         <DList Name="object_uch_DL_0038C0" Offset="0x38C0" />
         <DList Name="object_uch_DL_003A28" Offset="0x3A28" />
         <DList Name="object_uch_DL_003BA8" Offset="0x3BA8" />
-        <Texture Name="object_uch_Tex_003D80" OutName="tex_003D80" Format="rgb5a1" Width="16" Height="16" Offset="0x3D80" />
+        <Texture Name="object_uch_Tex_003D80" OutName="tex_003D80" Format="rgba16" Width="16" Height="16" Offset="0x3D80" />
         <Texture Name="object_uch_Tex_003F80" OutName="tex_003F80" Format="ci8" Width="16" Height="16" Offset="0x3F80" />
         <Texture Name="object_uch_Tex_004080" OutName="tex_004080" Format="ci8" Width="16" Height="16" Offset="0x4080" />
         <Texture Name="object_uch_Tex_004180" OutName="tex_004180" Format="ci8" Width="16" Height="32" Offset="0x4180" />
         <Texture Name="object_uch_Tex_004380" OutName="tex_004380" Format="ci8" Width="16" Height="32" Offset="0x4380" />
-        <Texture Name="object_uch_Tex_004580" OutName="tex_004580" Format="rgb5a1" Width="32" Height="32" Offset="0x4580" />
+        <Texture Name="object_uch_Tex_004580" OutName="tex_004580" Format="rgba16" Width="32" Height="32" Offset="0x4580" />
         <Limb Name="object_uch_Skel_004D80" LimbType="Standard" Offset="0x4D80" />
         <Limb Name="object_uch_Skel_004D8C" LimbType="Standard" Offset="0x4D8C" />
         <Limb Name="object_uch_Skel_004D98" LimbType="Standard" Offset="0x4D98" />

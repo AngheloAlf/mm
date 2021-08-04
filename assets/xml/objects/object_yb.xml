@@ -21,7 +21,7 @@
         <DList Name="object_yb_DL_004D98" Offset="0x4D98" />
         <DList Name="object_yb_DL_004EC0" Offset="0x4EC0" />
         <DList Name="object_yb_DL_004FE0" Offset="0x4FE0" />
-        <Texture Name="object_yb_TLUT_0051B8" OutName="tlut_0051B8" Format="rgb5a1" Width="16" Height="16" Offset="0x51B8" />
+        <Texture Name="object_yb_TLUT_0051B8" OutName="tlut_0051B8" Format="rgba16" Width="16" Height="16" Offset="0x51B8" />
         <Texture Name="object_yb_Tex_0053B8" OutName="tex_0053B8" Format="ci8" Width="8" Height="8" Offset="0x53B8" />
         <Texture Name="object_yb_Tex_0053F8" OutName="tex_0053F8" Format="ci8" Width="8" Height="16" Offset="0x53F8" />
         <Texture Name="object_yb_Tex_005478" OutName="tex_005478" Format="ci8" Width="16" Height="16" Offset="0x5478" />

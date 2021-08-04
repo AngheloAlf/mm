@@ -13,11 +13,11 @@
         <DList Name="object_zod_DL_004500" Offset="0x4500" />
         <DList Name="object_zod_DL_004628" Offset="0x4628" />
         <DList Name="object_zod_DL_0047B8" Offset="0x47B8" />
-        <Texture Name="object_zod_Tex_004B50" OutName="tex_004B50" Format="rgb5a1" Width="8" Height="8" Offset="0x4B50" />
-        <Texture Name="object_zod_Tex_004BD0" OutName="tex_004BD0" Format="rgb5a1" Width="32" Height="32" Offset="0x4BD0" />
-        <Texture Name="object_zod_Tex_0053D0" OutName="tex_0053D0" Format="rgb5a1" Width="16" Height="16" Offset="0x53D0" />
-        <Texture Name="object_zod_Tex_0055D0" OutName="tex_0055D0" Format="rgb5a1" Width="8" Height="8" Offset="0x55D0" />
-        <Texture Name="object_zod_Tex_005650" OutName="tex_005650" Format="rgb5a1" Width="32" Height="32" Offset="0x5650" />
+        <Texture Name="object_zod_Tex_004B50" OutName="tex_004B50" Format="rgba16" Width="8" Height="8" Offset="0x4B50" />
+        <Texture Name="object_zod_Tex_004BD0" OutName="tex_004BD0" Format="rgba16" Width="32" Height="32" Offset="0x4BD0" />
+        <Texture Name="object_zod_Tex_0053D0" OutName="tex_0053D0" Format="rgba16" Width="16" Height="16" Offset="0x53D0" />
+        <Texture Name="object_zod_Tex_0055D0" OutName="tex_0055D0" Format="rgba16" Width="8" Height="8" Offset="0x55D0" />
+        <Texture Name="object_zod_Tex_005650" OutName="tex_005650" Format="rgba16" Width="32" Height="32" Offset="0x5650" />
         <!--Blob Name="object_zod_Blob_005E50" Size="0x2800" Offset="0x5E50" /-->
         <DList Name="object_zod_DL_00A460" Offset="0xA460" />
         <DList Name="object_zod_DL_00A550" Offset="0xA550" />
@@ -29,12 +29,12 @@
         <DList Name="object_zod_DL_00ACE8" Offset="0xACE8" />
         <DList Name="object_zod_DL_00AEE0" Offset="0xAEE0" />
         <DList Name="object_zod_DL_00B0D8" Offset="0xB0D8" />
-        <Texture Name="object_zod_Tex_00B348" OutName="tex_00B348" Format="rgb5a1" Width="32" Height="32" Offset="0xB348" />
-        <Texture Name="object_zod_Tex_00BB48" OutName="tex_00BB48" Format="rgb5a1" Width="32" Height="32" Offset="0xBB48" />
-        <Texture Name="object_zod_Tex_00C348" OutName="tex_00C348" Format="rgb5a1" Width="8" Height="8" Offset="0xC348" />
-        <Texture Name="object_zod_Tex_00C3C8" OutName="tex_00C3C8" Format="rgb5a1" Width="32" Height="32" Offset="0xC3C8" />
-        <Texture Name="object_zod_Tex_00CBC8" OutName="tex_00CBC8" Format="rgb5a1" Width="16" Height="16" Offset="0xCBC8" />
-        <Texture Name="object_zod_Tex_00CDC8" OutName="tex_00CDC8" Format="rgb5a1" Width="32" Height="32" Offset="0xCDC8" />
+        <Texture Name="object_zod_Tex_00B348" OutName="tex_00B348" Format="rgba16" Width="32" Height="32" Offset="0xB348" />
+        <Texture Name="object_zod_Tex_00BB48" OutName="tex_00BB48" Format="rgba16" Width="32" Height="32" Offset="0xBB48" />
+        <Texture Name="object_zod_Tex_00C348" OutName="tex_00C348" Format="rgba16" Width="8" Height="8" Offset="0xC348" />
+        <Texture Name="object_zod_Tex_00C3C8" OutName="tex_00C3C8" Format="rgba16" Width="32" Height="32" Offset="0xC3C8" />
+        <Texture Name="object_zod_Tex_00CBC8" OutName="tex_00CBC8" Format="rgba16" Width="16" Height="16" Offset="0xCBC8" />
+        <Texture Name="object_zod_Tex_00CDC8" OutName="tex_00CDC8" Format="rgba16" Width="32" Height="32" Offset="0xCDC8" />
         <Limb Name="object_zod_Limb_00D5C8" LimbType="Standard" Offset="0xD5C8" />
         <Limb Name="object_zod_Limb_00D5D4" LimbType="Standard" Offset="0xD5D4" />
         <Limb Name="object_zod_Limb_00D5E0" LimbType="Standard" Offset="0xD5E0" />

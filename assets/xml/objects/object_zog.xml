@@ -11,14 +11,14 @@
         <Animation Name="object_zog_Anim_0055B4" Offset="0x55B4" />
         <DList Name="object_zog_DL_0069F0" Offset="0x69F0" />
         <DList Name="object_zog_DL_006AA0" Offset="0x6AA0" />
-        <Texture Name="object_zog_Tex_006FD0" OutName="tex_006FD0" Format="rgb5a1" Width="16" Height="32" Offset="0x6FD0" />
-        <Texture Name="object_zog_Tex_0073D0" OutName="tex_0073D0" Format="rgb5a1" Width="16" Height="16" Offset="0x73D0" />
-        <Texture Name="object_zog_Tex_0075D0" OutName="tex_0075D0" Format="rgb5a1" Width="16" Height="16" Offset="0x75D0" />
-        <Texture Name="object_zog_Tex_0077D0" OutName="tex_0077D0" Format="rgb5a1" Width="16" Height="16" Offset="0x77D0" />
-        <Texture Name="object_zog_Tex_0079D0" OutName="tex_0079D0" Format="rgb5a1" Width="16" Height="32" Offset="0x79D0" />
-        <Texture Name="object_zog_Tex_007DD0" OutName="tex_007DD0" Format="rgb5a1" Width="16" Height="32" Offset="0x7DD0" />
-        <Texture Name="object_zog_Tex_0081D0" OutName="tex_0081D0" Format="rgb5a1" Width="32" Height="8" Offset="0x81D0" />
-        <Texture Name="object_zog_Tex_0083D0" OutName="tex_0083D0" Format="rgb5a1" Width="16" Height="8" Offset="0x83D0" />
+        <Texture Name="object_zog_Tex_006FD0" OutName="tex_006FD0" Format="rgba16" Width="16" Height="32" Offset="0x6FD0" />
+        <Texture Name="object_zog_Tex_0073D0" OutName="tex_0073D0" Format="rgba16" Width="16" Height="16" Offset="0x73D0" />
+        <Texture Name="object_zog_Tex_0075D0" OutName="tex_0075D0" Format="rgba16" Width="16" Height="16" Offset="0x75D0" />
+        <Texture Name="object_zog_Tex_0077D0" OutName="tex_0077D0" Format="rgba16" Width="16" Height="16" Offset="0x77D0" />
+        <Texture Name="object_zog_Tex_0079D0" OutName="tex_0079D0" Format="rgba16" Width="16" Height="32" Offset="0x79D0" />
+        <Texture Name="object_zog_Tex_007DD0" OutName="tex_007DD0" Format="rgba16" Width="16" Height="32" Offset="0x7DD0" />
+        <Texture Name="object_zog_Tex_0081D0" OutName="tex_0081D0" Format="rgba16" Width="32" Height="8" Offset="0x81D0" />
+        <Texture Name="object_zog_Tex_0083D0" OutName="tex_0083D0" Format="rgba16" Width="16" Height="8" Offset="0x83D0" />
         <!--Blob Name="object_zog_Blob_0084D0" Size="0x1D0" Offset="0x84D0" /-->
         <Animation Name="object_zog_Anim_008EB8" Offset="0x8EB8" />
         <Animation Name="object_zog_Anim_00931C" Offset="0x931C" />
@@ -61,25 +61,25 @@
         <DList Name="object_zog_DL_021FF0" Offset="0x21FF0" />
         <DList Name="object_zog_DL_022228" Offset="0x22228" />
         <DList Name="object_zog_DL_0224E8" Offset="0x224E8" />
-        <Texture Name="object_zog_TLUT_022790" OutName="tlut_022790" Format="rgb5a1" Width="16" Height="16" Offset="0x22790" />
-        <Texture Name="object_zog_TLUT_022990" OutName="tlut_022990" Format="rgb5a1" Width="16" Height="16" Offset="0x22990" />
+        <Texture Name="object_zog_TLUT_022790" OutName="tlut_022790" Format="rgba16" Width="16" Height="16" Offset="0x22790" />
+        <Texture Name="object_zog_TLUT_022990" OutName="tlut_022990" Format="rgba16" Width="16" Height="16" Offset="0x22990" />
         <Texture Name="object_zog_Tex_022B90" OutName="tex_022B90" Format="ci8" Width="8" Height="8" Offset="0x22B90" />
         <Texture Name="object_zog_Tex_022BD0" OutName="tex_022BD0" Format="ci8" Width="32" Height="32" Offset="0x22BD0" />
         <Texture Name="object_zog_Tex_022FD0" OutName="tex_022FD0" Format="ci8" Width="32" Height="32" Offset="0x22FD0" />
-        <Texture Name="object_zog_Tex_0233D0" OutName="tex_0233D0" Format="rgb5a1" Width="16" Height="16" Offset="0x233D0" />
+        <Texture Name="object_zog_Tex_0233D0" OutName="tex_0233D0" Format="rgba16" Width="16" Height="16" Offset="0x233D0" />
         <Texture Name="object_zog_Tex_0235D0" OutName="tex_0235D0" Format="ci8" Width="32" Height="64" Offset="0x235D0" />
         <Texture Name="object_zog_Tex_023DD0" OutName="tex_023DD0" Format="ci8" Width="8" Height="16" Offset="0x23DD0" />
-        <Texture Name="object_zog_Tex_023E50" OutName="tex_023E50" Format="rgb5a1" Width="16" Height="16" Offset="0x23E50" />
+        <Texture Name="object_zog_Tex_023E50" OutName="tex_023E50" Format="rgba16" Width="16" Height="16" Offset="0x23E50" />
         <Texture Name="object_zog_Tex_024050" OutName="tex_024050" Format="ci8" Width="16" Height="16" Offset="0x24050" />
-        <Texture Name="object_zog_Tex_024150" OutName="tex_024150" Format="rgb5a1" Width="16" Height="16" Offset="0x24150" />
+        <Texture Name="object_zog_Tex_024150" OutName="tex_024150" Format="rgba16" Width="16" Height="16" Offset="0x24150" />
         <Texture Name="object_zog_Tex_024350" OutName="tex_024350" Format="ci8" Width="16" Height="32" Offset="0x24350" />
         <Texture Name="object_zog_Tex_024550" OutName="tex_024550" Format="ci8" Width="16" Height="32" Offset="0x24550" />
         <!--Blob Name="object_zog_Blob_024750" Size="0x2800" Offset="0x24750" /-->
         <DList Name="object_zog_DL_0280A0" Offset="0x280A0" />
         <DList Name="object_zog_DL_0280A8" Offset="0x280A8" />
-        <Texture Name="object_zog_Tex_028610" OutName="tex_028610" Format="rgb5a1" Width="16" Height="16" Offset="0x28610" />
-        <Texture Name="object_zog_Tex_028810" OutName="tex_028810" Format="rgb5a1" Width="16" Height="32" Offset="0x28810" />
-        <Texture Name="object_zog_Tex_028C10" OutName="tex_028C10" Format="rgb5a1" Width="16" Height="32" Offset="0x28C10" />
+        <Texture Name="object_zog_Tex_028610" OutName="tex_028610" Format="rgba16" Width="16" Height="16" Offset="0x28610" />
+        <Texture Name="object_zog_Tex_028810" OutName="tex_028810" Format="rgba16" Width="16" Height="32" Offset="0x28810" />
+        <Texture Name="object_zog_Tex_028C10" OutName="tex_028C10" Format="rgba16" Width="16" Height="32" Offset="0x28C10" />
         <Limb Name="object_zog_Limb_029010" LimbType="Standard" Offset="0x29010" />
         <Limb Name="object_zog_Limb_02901C" LimbType="Standard" Offset="0x2901C" />
         <Limb Name="object_zog_Limb_029028" LimbType="Standard" Offset="0x29028" />

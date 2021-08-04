@@ -10,15 +10,15 @@
         <Animation Name="object_skb_Anim_002AC8" Offset="0x2AC8" />
         <!--Blob Name="object_skb_zeroes_unk_00002AD8" Size="0x18" Offset="0x2AD8" /-->
         <Animation Name="object_skb_Anim_003584" Offset="0x3584" />
-        <Texture Name="object_skb_Tex_0035A0" OutName="tex_0035A0" Format="rgb5a1" Width="16" Height="16" Offset="0x35A0" />
-        <Texture Name="object_skb_Tex_0037A0" OutName="tex_0037A0" Format="rgb5a1" Width="8" Height="16" Offset="0x37A0" />
-        <Texture Name="object_skb_Tex_0038A0" OutName="tex_0038A0" Format="rgb5a1" Width="8" Height="8" Offset="0x38A0" />
-        <Texture Name="object_skb_Tex_003920" OutName="tex_003920" Format="rgb5a1" Width="8" Height="8" Offset="0x3920" />
-        <Texture Name="object_skb_Tex_0039A0" OutName="tex_0039A0" Format="rgb5a1" Width="8" Height="8" Offset="0x39A0" />
-        <Texture Name="object_skb_Tex_003A20" OutName="tex_003A20" Format="rgb5a1" Width="8" Height="16" Offset="0x3A20" />
-        <Texture Name="object_skb_Tex_003B20" OutName="tex_003B20" Format="rgb5a1" Width="16" Height="8" Offset="0x3B20" />
-        <Texture Name="object_skb_Tex_003C20" OutName="tex_003C20" Format="rgb5a1" Width="16" Height="16" Offset="0x3C20" />
-        <Texture Name="object_skb_Tex_003E20" OutName="tex_003E20" Format="rgb5a1" Width="8" Height="8" Offset="0x3E20" />
+        <Texture Name="object_skb_Tex_0035A0" OutName="tex_0035A0" Format="rgba16" Width="16" Height="16" Offset="0x35A0" />
+        <Texture Name="object_skb_Tex_0037A0" OutName="tex_0037A0" Format="rgba16" Width="8" Height="16" Offset="0x37A0" />
+        <Texture Name="object_skb_Tex_0038A0" OutName="tex_0038A0" Format="rgba16" Width="8" Height="8" Offset="0x38A0" />
+        <Texture Name="object_skb_Tex_003920" OutName="tex_003920" Format="rgba16" Width="8" Height="8" Offset="0x3920" />
+        <Texture Name="object_skb_Tex_0039A0" OutName="tex_0039A0" Format="rgba16" Width="8" Height="8" Offset="0x39A0" />
+        <Texture Name="object_skb_Tex_003A20" OutName="tex_003A20" Format="rgba16" Width="8" Height="16" Offset="0x3A20" />
+        <Texture Name="object_skb_Tex_003B20" OutName="tex_003B20" Format="rgba16" Width="16" Height="8" Offset="0x3B20" />
+        <Texture Name="object_skb_Tex_003C20" OutName="tex_003C20" Format="rgba16" Width="16" Height="16" Offset="0x3C20" />
+        <Texture Name="object_skb_Tex_003E20" OutName="tex_003E20" Format="rgba16" Width="8" Height="8" Offset="0x3E20" />
         <DList Name="object_skb_DL_004F30" Offset="0x4F30" />
         <DList Name="object_skb_DL_005298" Offset="0x5298" />
         <DList Name="object_skb_DL_005340" Offset="0x5340" />

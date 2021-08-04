@@ -11,7 +11,7 @@
         <DList Name="object_bat_DL_000750" Offset="0x750" />
         <DList Name="object_bat_DL_000840" Offset="0x840" />
         <DList Name="object_bat_DL_000930" Offset="0x930" />
-        <Texture Name="object_bat_Tex_0009A0" OutName="tex_0009A0" Format="rgb5a1" Width="8" Height="16" Offset="0x9A0" />
-        <Texture Name="object_bat_Tex_000AA0" OutName="tex_000AA0" Format="rgb5a1" Width="16" Height="16" Offset="0xAA0" />
+        <Texture Name="object_bat_Tex_0009A0" OutName="tex_0009A0" Format="rgba16" Width="8" Height="16" Offset="0x9A0" />
+        <Texture Name="object_bat_Tex_000AA0" OutName="tex_000AA0" Format="rgba16" Width="16" Height="16" Offset="0xAA0" />
     </File>
 </Root>

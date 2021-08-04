@@ -7,8 +7,8 @@
         <DList Name="object_tanron4_DL_000440" Offset="0x440" />
         <DList Name="object_tanron4_DL_0004B0" Offset="0x4B0" />
         <DList Name="object_tanron4_DL_000550" Offset="0x550" />
-        <Texture Name="object_tanron4_Tex_0005C8" OutName="tex_0005C8" Format="rgb5a1" Width="32" Height="16" Offset="0x5C8" />
-        <Texture Name="object_tanron4_Tex_0009C8" OutName="tex_0009C8" Format="rgb5a1" Width="32" Height="16" Offset="0x9C8" />
+        <Texture Name="object_tanron4_Tex_0005C8" OutName="tex_0005C8" Format="rgba16" Width="32" Height="16" Offset="0x5C8" />
+        <Texture Name="object_tanron4_Tex_0009C8" OutName="tex_0009C8" Format="rgba16" Width="32" Height="16" Offset="0x9C8" />
         <Limb Name="object_tanron4_Limb_000DC8" LimbType="Standard" Offset="0xDC8" />
         <Limb Name="object_tanron4_Limb_000DD4" LimbType="Standard" Offset="0xDD4" />
         <Limb Name="object_tanron4_Limb_000DE0" LimbType="Standard" Offset="0xDE0" />

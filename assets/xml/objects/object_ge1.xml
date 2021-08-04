@@ -25,7 +25,7 @@
         <Limb Name="object_ge1_Limb_002C4C" LimbType="Standard" Offset="0x2C4C" />
         <Limb Name="object_ge1_Limb_002C58" LimbType="Standard" Offset="0x2C58" />
         <Skeleton Name="object_ge1_Skel_002CA0" Type="Flex" LimbType="Standard" Offset="0x2CA0" />
-        <Texture Name="object_ge1_TLUT_002CB8" OutName="tlut_002CB8" Format="rgb5a1" Width="16" Height="16" Offset="0x2CB8" />
+        <Texture Name="object_ge1_TLUT_002CB8" OutName="tlut_002CB8" Format="rgba16" Width="16" Height="16" Offset="0x2CB8" />
         <Texture Name="object_ge1_Tex_002EB8" OutName="tex_002EB8" Format="ci8" Width="8" Height="8" Offset="0x2EB8" />
         <Texture Name="object_ge1_Tex_002EF8" OutName="tex_002EF8" Format="ci8" Width="16" Height="16" Offset="0x2EF8" />
         <Texture Name="object_ge1_Tex_002FF8" OutName="tex_002FF8" Format="ci8" Width="8" Height="16" Offset="0x2FF8" />
@@ -38,8 +38,8 @@
         <Texture Name="object_ge1_Tex_004FF8" OutName="tex_004FF8" Format="ci8" Width="8" Height="8" Offset="0x4FF8" />
         <Texture Name="object_ge1_Tex_005038" OutName="tex_005038" Format="ci8" Width="8" Height="16" Offset="0x5038" />
         <Texture Name="object_ge1_Tex_0050B8" OutName="tex_0050B8" Format="ci8" Width="8" Height="8" Offset="0x50B8" />
-        <Texture Name="object_ge1_Tex_0050F8" OutName="tex_0050F8" Format="rgb5a1" Width="8" Height="8" Offset="0x50F8" />
-        <Texture Name="object_ge1_TLUT_005178" OutName="tlut_005178" Format="rgb5a1" Width="16" Height="16" Offset="0x5178" />
+        <Texture Name="object_ge1_Tex_0050F8" OutName="tex_0050F8" Format="rgba16" Width="8" Height="8" Offset="0x50F8" />
+        <Texture Name="object_ge1_TLUT_005178" OutName="tlut_005178" Format="rgba16" Width="16" Height="16" Offset="0x5178" />
         <Texture Name="object_ge1_Tex_005378" OutName="tex_005378" Format="ci8" Width="16" Height="16" Offset="0x5378" />
         <DList Name="object_ge1_DL_007F78" Offset="0x7F78" />
         <DList Name="object_ge1_DL_0085A8" Offset="0x85A8" />

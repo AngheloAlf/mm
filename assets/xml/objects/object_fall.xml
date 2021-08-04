@@ -17,10 +17,10 @@
         <Texture Name="object_fall_Tex_004628" OutName="tex_004628" Format="i8" Width="32" Height="64" Offset="0x4628" />
         <!--Blob Name="object_fall_Blob_004E28" Size="0x48" Offset="0x4E28" /-->
         <DList Name="object_fall_DL_0077F0" Offset="0x77F0" />
-        <Texture Name="object_fall_TLUT_0082F8" OutName="tlut_0082F8" Format="rgb5a1" Width="4" Height="4" Offset="0x82F8" />
-        <Texture Name="object_fall_TLUT_008318" OutName="tlut_008318" Format="rgb5a1" Width="4" Height="4" Offset="0x8318" />
-        <Texture Name="object_fall_Tex_008338" OutName="tex_008338" Format="rgb5a1" Width="32" Height="32" Offset="0x8338" />
-        <Texture Name="object_fall_Tex_008B38" OutName="tex_008B38" Format="rgb5a1" Width="64" Height="32" Offset="0x8B38" />
+        <Texture Name="object_fall_TLUT_0082F8" OutName="tlut_0082F8" Format="rgba16" Width="4" Height="4" Offset="0x82F8" />
+        <Texture Name="object_fall_TLUT_008318" OutName="tlut_008318" Format="rgba16" Width="4" Height="4" Offset="0x8318" />
+        <Texture Name="object_fall_Tex_008338" OutName="tex_008338" Format="rgba16" Width="32" Height="32" Offset="0x8338" />
+        <Texture Name="object_fall_Tex_008B38" OutName="tex_008B38" Format="rgba16" Width="64" Height="32" Offset="0x8B38" />
         <Texture Name="object_fall_Tex_009B38" OutName="tex_009B38" Format="ci4" Width="64" Height="64" Offset="0x9B38" />
         <Texture Name="object_fall_Tex_00A338" OutName="tex_00A338" Format="ci4" Width="64" Height="64" Offset="0xA338" />
     </File>

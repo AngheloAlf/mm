@@ -6,10 +6,10 @@
         <!--Blob Name="object_bdoor_Blob_0005C0" Size="0x1000" Offset="0x5C0" /-->
         <DList Name="object_bdoor_DL_001790" Offset="0x1790" />
         <DList Name="object_bdoor_DL_001850" Offset="0x1850" />
-        <Texture Name="object_bdoor_Tex_001910" OutName="tex_001910" Format="rgb5a1" Width="32" Height="64" Offset="0x1910" />
+        <Texture Name="object_bdoor_Tex_001910" OutName="tex_001910" Format="rgba16" Width="32" Height="64" Offset="0x1910" />
         <DList Name="object_bdoor_DL_002A50" Offset="0x2A50" />
         <DList Name="object_bdoor_DL_002AF8" Offset="0x2AF8" />
-        <Texture Name="object_bdoor_Tex_002BA0" OutName="tex_002BA0" Format="rgb5a1" Width="32" Height="64" Offset="0x2BA0" />
+        <Texture Name="object_bdoor_Tex_002BA0" OutName="tex_002BA0" Format="rgba16" Width="32" Height="64" Offset="0x2BA0" />
         <!--Blob Name="object_bdoor_Blob_003BA0" Size="0x4000" Offset="0x3BA0" /-->
     </File>
 </Root>

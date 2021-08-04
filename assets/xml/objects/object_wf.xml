@@ -1,10 +1,10 @@
 ﻿<Root>
     <File Name="object_wf" Segment="6" Game="MM">
-        <Texture Name="object_wf_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="8" Height="16" Offset="0x0" />
-        <Texture Name="object_wf_Tex_000100" OutName="tex_000100" Format="rgb5a1" Width="8" Height="8" Offset="0x100" />
-        <Texture Name="object_wf_Tex_000180" OutName="tex_000180" Format="rgb5a1" Width="8" Height="8" Offset="0x180" />
-        <Texture Name="object_wf_Tex_000200" OutName="tex_000200" Format="rgb5a1" Width="8" Height="8" Offset="0x200" />
-        <Texture Name="object_wf_Tex_000280" OutName="tex_000280" Format="rgb5a1" Width="8" Height="8" Offset="0x280" />
+        <Texture Name="object_wf_Tex_000000" OutName="tex_000000" Format="rgba16" Width="8" Height="16" Offset="0x0" />
+        <Texture Name="object_wf_Tex_000100" OutName="tex_000100" Format="rgba16" Width="8" Height="8" Offset="0x100" />
+        <Texture Name="object_wf_Tex_000180" OutName="tex_000180" Format="rgba16" Width="8" Height="8" Offset="0x180" />
+        <Texture Name="object_wf_Tex_000200" OutName="tex_000200" Format="rgba16" Width="8" Height="8" Offset="0x200" />
+        <Texture Name="object_wf_Tex_000280" OutName="tex_000280" Format="rgba16" Width="8" Height="8" Offset="0x280" />
         <!--Blob Name="object_wf_Blob_000300" Size="0x200" Offset="0x300" /-->
         <DList Name="object_wf_DL_001A20" Offset="0x1A20" />
         <DList Name="object_wf_DL_001AE8" Offset="0x1AE8" />
@@ -68,11 +68,11 @@
         <DList Name="object_wf_DL_007880" Offset="0x7880" />
         <DList Name="object_wf_DL_007998" Offset="0x7998" />
         <!--Blob Name="object_wf_Blob_007AA8" Size="0x200" Offset="0x7AA8" /-->
-        <Texture Name="object_wf_Tex_007CA8" OutName="tex_007CA8" Format="rgb5a1" Width="16" Height="32" Offset="0x7CA8" />
-        <Texture Name="object_wf_Tex_0080A8" OutName="tex_0080A8" Format="rgb5a1" Width="8" Height="8" Offset="0x80A8" />
-        <Texture Name="object_wf_Tex_008128" OutName="tex_008128" Format="rgb5a1" Width="8" Height="8" Offset="0x8128" />
-        <Texture Name="object_wf_Tex_0081A8" OutName="tex_0081A8" Format="rgb5a1" Width="8" Height="8" Offset="0x81A8" />
-        <Texture Name="object_wf_Tex_008228" OutName="tex_008228" Format="rgb5a1" Width="8" Height="8" Offset="0x8228" />
+        <Texture Name="object_wf_Tex_007CA8" OutName="tex_007CA8" Format="rgba16" Width="16" Height="32" Offset="0x7CA8" />
+        <Texture Name="object_wf_Tex_0080A8" OutName="tex_0080A8" Format="rgba16" Width="8" Height="8" Offset="0x80A8" />
+        <Texture Name="object_wf_Tex_008128" OutName="tex_008128" Format="rgba16" Width="8" Height="8" Offset="0x8128" />
+        <Texture Name="object_wf_Tex_0081A8" OutName="tex_0081A8" Format="rgba16" Width="8" Height="8" Offset="0x81A8" />
+        <Texture Name="object_wf_Tex_008228" OutName="tex_008228" Format="rgba16" Width="8" Height="8" Offset="0x8228" />
         <!--Blob Name="object_wf_Blob_0082A8" Size="0x400" Offset="0x82A8" /-->
         <DList Name="object_wf_DL_008E98" Offset="0x8E98" />
         <DList Name="object_wf_DL_008F38" Offset="0x8F38" />

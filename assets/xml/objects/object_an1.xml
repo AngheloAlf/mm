@@ -30,9 +30,9 @@
         <DList Name="object_an1_DL_00D618" Offset="0xD618" />
         <DList Name="object_an1_DL_00D730" Offset="0xD730" />
         <DList Name="object_an1_DL_00D850" Offset="0xD850" />
-        <Texture Name="object_an1_TLUT_00DB20" OutName="tlut_00DB20" Format="rgb5a1" Width="16" Height="16" Offset="0xDB20" />
-        <Texture Name="object_an1_Tex_00DD20" OutName="tex_00DD20" Format="rgb5a1" Width="16" Height="16" Offset="0xDD20" />
-        <Texture Name="object_an1_Tex_00DF20" OutName="tex_00DF20" Format="rgb5a1" Width="16" Height="16" Offset="0xDF20" />
+        <Texture Name="object_an1_TLUT_00DB20" OutName="tlut_00DB20" Format="rgba16" Width="16" Height="16" Offset="0xDB20" />
+        <Texture Name="object_an1_Tex_00DD20" OutName="tex_00DD20" Format="rgba16" Width="16" Height="16" Offset="0xDD20" />
+        <Texture Name="object_an1_Tex_00DF20" OutName="tex_00DF20" Format="rgba16" Width="16" Height="16" Offset="0xDF20" />
         <Texture Name="object_an1_Tex_00E120" OutName="tex_00E120" Format="ci8" Width="8" Height="8" Offset="0xE120" />
         <Texture Name="object_an1_Tex_00E160" OutName="tex_00E160" Format="ci8" Width="8" Height="16" Offset="0xE160" />
         <!--Blob Name="object_an1_Blob_00E1E0" Size="0x400" Offset="0xE1E0" /-->
@@ -47,8 +47,8 @@
         <DList Name="object_an1_DL_0111E0" Offset="0x111E0" />
         <DList Name="object_an1_DL_0111E8" Offset="0x111E8" />
         <Texture Name="object_an1_Tex_011928" OutName="tex_011928" Format="i8" Width="32" Height="32" Offset="0x11928" />
-        <Texture Name="object_an1_Tex_011D28" OutName="tex_011D28" Format="rgb5a1" Width="16" Height="16" Offset="0x11D28" />
-        <Texture Name="object_an1_Tex_011F28" OutName="tex_011F28" Format="rgb5a1" Width="16" Height="16" Offset="0x11F28" />
+        <Texture Name="object_an1_Tex_011D28" OutName="tex_011D28" Format="rgba16" Width="16" Height="16" Offset="0x11D28" />
+        <Texture Name="object_an1_Tex_011F28" OutName="tex_011F28" Format="rgba16" Width="16" Height="16" Offset="0x11F28" />
         <Texture Name="object_an1_Tex_012128" OutName="tex_012128" Format="i8" Width="16" Height="16" Offset="0x12128" />
         <Texture Name="object_an1_Tex_012228" OutName="tex_012228" Format="i4" Width="16" Height="16" Offset="0x12228" />
         <Texture Name="object_an1_Tex_0122A8" OutName="tex_0122A8" Format="i8" Width="16" Height="16" Offset="0x122A8" />

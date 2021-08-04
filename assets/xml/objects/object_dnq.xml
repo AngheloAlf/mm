@@ -15,16 +15,16 @@
         <Animation Name="object_dnq_Anim_006984" Offset="0x6984" />
         <Animation Name="object_dnq_Anim_007528" Offset="0x7528" />
         <Animation Name="object_dnq_Anim_008328" Offset="0x8328" />
-        <Texture Name="object_dnq_Tex_008340" OutName="tex_008340" Format="rgb5a1" Width="16" Height="16" Offset="0x8340" />
-        <Texture Name="object_dnq_Tex_008540" OutName="tex_008540" Format="rgb5a1" Width="16" Height="16" Offset="0x8540" />
-        <Texture Name="object_dnq_Tex_008740" OutName="tex_008740" Format="rgb5a1" Width="32" Height="32" Offset="0x8740" />
-        <Texture Name="object_dnq_Tex_008F40" OutName="tex_008F40" Format="rgb5a1" Width="32" Height="64" Offset="0x8F40" />
-        <Texture Name="object_dnq_Tex_009F40" OutName="tex_009F40" Format="rgb5a1" Width="32" Height="32" Offset="0x9F40" />
-        <Texture Name="object_dnq_Tex_00A740" OutName="tex_00A740" Format="rgb5a1" Width="16" Height="16" Offset="0xA740" />
-        <Texture Name="object_dnq_Tex_00A940" OutName="tex_00A940" Format="rgb5a1" Width="8" Height="8" Offset="0xA940" />
-        <Texture Name="object_dnq_Tex_00A9C0" OutName="tex_00A9C0" Format="rgb5a1" Width="16" Height="16" Offset="0xA9C0" />
-        <Texture Name="object_dnq_Tex_00ABC0" OutName="tex_00ABC0" Format="rgb5a1" Width="8" Height="8" Offset="0xABC0" />
-        <Texture Name="object_dnq_Tex_00AC40" OutName="tex_00AC40" Format="rgb5a1" Width="8" Height="8" Offset="0xAC40" />
+        <Texture Name="object_dnq_Tex_008340" OutName="tex_008340" Format="rgba16" Width="16" Height="16" Offset="0x8340" />
+        <Texture Name="object_dnq_Tex_008540" OutName="tex_008540" Format="rgba16" Width="16" Height="16" Offset="0x8540" />
+        <Texture Name="object_dnq_Tex_008740" OutName="tex_008740" Format="rgba16" Width="32" Height="32" Offset="0x8740" />
+        <Texture Name="object_dnq_Tex_008F40" OutName="tex_008F40" Format="rgba16" Width="32" Height="64" Offset="0x8F40" />
+        <Texture Name="object_dnq_Tex_009F40" OutName="tex_009F40" Format="rgba16" Width="32" Height="32" Offset="0x9F40" />
+        <Texture Name="object_dnq_Tex_00A740" OutName="tex_00A740" Format="rgba16" Width="16" Height="16" Offset="0xA740" />
+        <Texture Name="object_dnq_Tex_00A940" OutName="tex_00A940" Format="rgba16" Width="8" Height="8" Offset="0xA940" />
+        <Texture Name="object_dnq_Tex_00A9C0" OutName="tex_00A9C0" Format="rgba16" Width="16" Height="16" Offset="0xA9C0" />
+        <Texture Name="object_dnq_Tex_00ABC0" OutName="tex_00ABC0" Format="rgba16" Width="8" Height="8" Offset="0xABC0" />
+        <Texture Name="object_dnq_Tex_00AC40" OutName="tex_00AC40" Format="rgba16" Width="8" Height="8" Offset="0xAC40" />
         <DList Name="object_dnq_DL_00C9B0" Offset="0xC9B0" />
         <DList Name="object_dnq_DL_00CB70" Offset="0xCB70" />
         <DList Name="object_dnq_DL_00CC10" Offset="0xCC10" />

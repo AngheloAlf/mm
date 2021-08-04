@@ -2,9 +2,9 @@
     <File Name="object_tru" Segment="6" Game="MM">
         <DList Name="object_tru_DL_000390" Offset="0x390" />
         <DList Name="object_tru_DL_0004C8" Offset="0x4C8" />
-        <Texture Name="object_tru_Tex_000560" OutName="tex_000560" Format="rgb5a1" Width="16" Height="32" Offset="0x560" />
-        <Texture Name="object_tru_Tex_000960" OutName="tex_000960" Format="rgb5a1" Width="32" Height="32" Offset="0x960" />
-        <Texture Name="object_tru_Tex_001160" OutName="tex_001160" Format="rgb5a1" Width="32" Height="32" Offset="0x1160" />
+        <Texture Name="object_tru_Tex_000560" OutName="tex_000560" Format="rgba16" Width="16" Height="32" Offset="0x560" />
+        <Texture Name="object_tru_Tex_000960" OutName="tex_000960" Format="rgba16" Width="32" Height="32" Offset="0x960" />
+        <Texture Name="object_tru_Tex_001160" OutName="tex_001160" Format="rgba16" Width="32" Height="32" Offset="0x1160" />
         <DList Name="object_tru_DL_001F90" Offset="0x1F90" />
         <DList Name="object_tru_DL_0020C8" Offset="0x20C8" />
         <DList Name="object_tru_DL_002160" Offset="0x2160" />
@@ -48,30 +48,30 @@
         <Animation Name="object_tru_Anim_015068" Offset="0x15068" />
         <Animation Name="object_tru_Anim_015CA0" Offset="0x15CA0" />
         <Animation Name="object_tru_Anim_016B4C" Offset="0x16B4C" />
-        <Texture Name="object_tru_TLUT_016B60" OutName="tlut_016B60" Format="rgb5a1" Width="16" Height="16" Offset="0x16B60" />
-        <Texture Name="object_tru_TLUT_016D60" OutName="tlut_016D60" Format="rgb5a1" Width="16" Height="16" Offset="0x16D60" />
-        <Texture Name="object_tru_TLUT_016F60" OutName="tlut_016F60" Format="rgb5a1" Width="16" Height="16" Offset="0x16F60" />
-        <Texture Name="object_tru_TLUT_017160" OutName="tlut_017160" Format="rgb5a1" Width="16" Height="16" Offset="0x17160" />
-        <Texture Name="object_tru_TLUT_017360" OutName="tlut_017360" Format="rgb5a1" Width="16" Height="16" Offset="0x17360" />
-        <Texture Name="object_tru_TLUT_017560" OutName="tlut_017560" Format="rgb5a1" Width="16" Height="16" Offset="0x17560" />
-        <Texture Name="object_tru_Tex_017760" OutName="tex_017760" Format="rgb5a1" Width="32" Height="32" Offset="0x17760" />
-        <Texture Name="object_tru_Tex_017F60" OutName="tex_017F60" Format="rgb5a1" Width="16" Height="16" Offset="0x17F60" />
-        <Texture Name="object_tru_Tex_018160" OutName="tex_018160" Format="rgb5a1" Width="16" Height="16" Offset="0x18160" />
-        <Texture Name="object_tru_Tex_018360" OutName="tex_018360" Format="rgb5a1" Width="16" Height="16" Offset="0x18360" />
+        <Texture Name="object_tru_TLUT_016B60" OutName="tlut_016B60" Format="rgba16" Width="16" Height="16" Offset="0x16B60" />
+        <Texture Name="object_tru_TLUT_016D60" OutName="tlut_016D60" Format="rgba16" Width="16" Height="16" Offset="0x16D60" />
+        <Texture Name="object_tru_TLUT_016F60" OutName="tlut_016F60" Format="rgba16" Width="16" Height="16" Offset="0x16F60" />
+        <Texture Name="object_tru_TLUT_017160" OutName="tlut_017160" Format="rgba16" Width="16" Height="16" Offset="0x17160" />
+        <Texture Name="object_tru_TLUT_017360" OutName="tlut_017360" Format="rgba16" Width="16" Height="16" Offset="0x17360" />
+        <Texture Name="object_tru_TLUT_017560" OutName="tlut_017560" Format="rgba16" Width="16" Height="16" Offset="0x17560" />
+        <Texture Name="object_tru_Tex_017760" OutName="tex_017760" Format="rgba16" Width="32" Height="32" Offset="0x17760" />
+        <Texture Name="object_tru_Tex_017F60" OutName="tex_017F60" Format="rgba16" Width="16" Height="16" Offset="0x17F60" />
+        <Texture Name="object_tru_Tex_018160" OutName="tex_018160" Format="rgba16" Width="16" Height="16" Offset="0x18160" />
+        <Texture Name="object_tru_Tex_018360" OutName="tex_018360" Format="rgba16" Width="16" Height="16" Offset="0x18360" />
         <Texture Name="object_tru_Tex_018560" OutName="tex_018560" Format="ci8" Width="16" Height="8" Offset="0x18560" />
         <Texture Name="object_tru_Tex_0185E0" OutName="tex_0185E0" Format="ci8" Width="8" Height="8" Offset="0x185E0" />
-        <Texture Name="object_tru_Tex_018620" OutName="tex_018620" Format="rgb5a1" Width="8" Height="32" Offset="0x18620" />
-        <Texture Name="object_tru_Tex_018820" OutName="tex_018820" Format="rgb5a1" Width="8" Height="8" Offset="0x18820" />
+        <Texture Name="object_tru_Tex_018620" OutName="tex_018620" Format="rgba16" Width="8" Height="32" Offset="0x18620" />
+        <Texture Name="object_tru_Tex_018820" OutName="tex_018820" Format="rgba16" Width="8" Height="8" Offset="0x18820" />
         <Texture Name="object_tru_Tex_0188A0" OutName="tex_0188A0" Format="ci8" Width="8" Height="8" Offset="0x188A0" />
-        <Texture Name="object_tru_Tex_0188E0" OutName="tex_0188E0" Format="rgb5a1" Width="4" Height="8" Offset="0x188E0" />
+        <Texture Name="object_tru_Tex_0188E0" OutName="tex_0188E0" Format="rgba16" Width="4" Height="8" Offset="0x188E0" />
         <Texture Name="object_tru_Tex_018920" OutName="tex_018920" Format="ci8" Width="8" Height="16" Offset="0x18920" />
-        <Texture Name="object_tru_Tex_0189A0" OutName="tex_0189A0" Format="rgb5a1" Width="8" Height="8" Offset="0x189A0" />
-        <Texture Name="object_tru_Tex_018A20" OutName="tex_018A20" Format="rgb5a1" Width="16" Height="32" Offset="0x18A20" />
-        <Texture Name="object_tru_Tex_018E20" OutName="tex_018E20" Format="rgb5a1" Width="16" Height="8" Offset="0x18E20" />
+        <Texture Name="object_tru_Tex_0189A0" OutName="tex_0189A0" Format="rgba16" Width="8" Height="8" Offset="0x189A0" />
+        <Texture Name="object_tru_Tex_018A20" OutName="tex_018A20" Format="rgba16" Width="16" Height="32" Offset="0x18A20" />
+        <Texture Name="object_tru_Tex_018E20" OutName="tex_018E20" Format="rgba16" Width="16" Height="8" Offset="0x18E20" />
         <Texture Name="object_tru_Tex_018F20" OutName="tex_018F20" Format="ci8" Width="8" Height="8" Offset="0x18F20" />
         <Texture Name="object_tru_Tex_018F60" OutName="tex_018F60" Format="ci8" Width="8" Height="8" Offset="0x18F60" />
         <!--Blob Name="object_tru_Blob_018FA0" Size="0x1800" Offset="0x18FA0" /-->
-        <Texture Name="object_tru_Tex_01A7A0" OutName="tex_01A7A0" Format="rgb5a1" Width="8" Height="8" Offset="0x1A7A0" />
+        <Texture Name="object_tru_Tex_01A7A0" OutName="tex_01A7A0" Format="rgba16" Width="8" Height="8" Offset="0x1A7A0" />
         <DList Name="object_tru_DL_01A820" Offset="0x1A820" />
         <DList Name="object_tru_DL_01A830" Offset="0x1A830" />
         <Limb Name="object_tru_Limb_01A8C0" LimbType="Standard" Offset="0x1A8C0" />

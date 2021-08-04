@@ -12,9 +12,9 @@
         <DList Name="object_boss05_DL_0015F0" Offset="0x15F0" />
         <DList Name="object_boss05_DL_001688" Offset="0x1688" />
         <DList Name="object_boss05_DL_001740" Offset="0x1740" />
-        <Texture Name="object_boss05_Tex_0017D0" OutName="tex_0017D0" Format="rgb5a1" Width="8" Height="8" Offset="0x17D0" />
-        <Texture Name="object_boss05_Tex_001850" OutName="tex_001850" Format="rgb5a1" Width="32" Height="32" Offset="0x1850" />
-        <Texture Name="object_boss05_Tex_002050" OutName="tex_002050" Format="rgb5a1" Width="16" Height="32" Offset="0x2050" />
+        <Texture Name="object_boss05_Tex_0017D0" OutName="tex_0017D0" Format="rgba16" Width="8" Height="8" Offset="0x17D0" />
+        <Texture Name="object_boss05_Tex_001850" OutName="tex_001850" Format="rgba16" Width="32" Height="32" Offset="0x1850" />
+        <Texture Name="object_boss05_Tex_002050" OutName="tex_002050" Format="rgba16" Width="16" Height="32" Offset="0x2050" />
         <Limb Name="object_boss05_Limb_002450" LimbType="Standard" Offset="0x2450" />
         <Limb Name="object_boss05_Limb_00245C" LimbType="Standard" Offset="0x245C" />
         <Limb Name="object_boss05_Limb_002468" LimbType="Standard" Offset="0x2468" />
@@ -47,10 +47,10 @@
         <DList Name="object_boss05_DL_005298" Offset="0x5298" />
         <DList Name="object_boss05_DL_005348" Offset="0x5348" />
         <DList Name="object_boss05_DL_005460" Offset="0x5460" />
-        <Texture Name="object_boss05_Tex_005598" OutName="tex_005598" Format="rgb5a1" Width="16" Height="16" Offset="0x5598" />
-        <Texture Name="object_boss05_Tex_005798" OutName="tex_005798" Format="rgb5a1" Width="16" Height="32" Offset="0x5798" />
-        <Texture Name="object_boss05_Tex_005B98" OutName="tex_005B98" Format="rgb5a1" Width="8" Height="8" Offset="0x5B98" />
-        <Texture Name="object_boss05_Tex_005C18" OutName="tex_005C18" Format="rgb5a1" Width="16" Height="16" Offset="0x5C18" />
+        <Texture Name="object_boss05_Tex_005598" OutName="tex_005598" Format="rgba16" Width="16" Height="16" Offset="0x5598" />
+        <Texture Name="object_boss05_Tex_005798" OutName="tex_005798" Format="rgba16" Width="16" Height="32" Offset="0x5798" />
+        <Texture Name="object_boss05_Tex_005B98" OutName="tex_005B98" Format="rgba16" Width="8" Height="8" Offset="0x5B98" />
+        <Texture Name="object_boss05_Tex_005C18" OutName="tex_005C18" Format="rgba16" Width="16" Height="16" Offset="0x5C18" />
         <Texture Name="object_boss05_Tex_005E18" OutName="tex_005E18" Format="rgba32" Width="16" Height="16" Offset="0x5E18" />
         <!--Blob Name="object_boss05_Blob_006218" Size="0x30" Offset="0x6218" /-->
         <Limb Name="object_boss05_Limb_006248" LimbType="Standard" Offset="0x6248" />

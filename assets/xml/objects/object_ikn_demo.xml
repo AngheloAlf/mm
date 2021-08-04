@@ -18,15 +18,15 @@
         <DList Name="object_ikn_demo_DL_002B08" Offset="0x2B08" />
         <DList Name="object_ikn_demo_DL_002B90" Offset="0x2B90" />
         <DList Name="object_ikn_demo_DL_002C68" Offset="0x2C68" />
-        <Texture Name="object_ikn_demo_Tex_002D50" OutName="tex_002D50" Format="rgb5a1" Width="4" Height="4" Offset="0x2D50" />
-        <Texture Name="object_ikn_demo_Tex_002D70" OutName="tex_002D70" Format="rgb5a1" Width="8" Height="16" Offset="0x2D70" />
-        <Texture Name="object_ikn_demo_Tex_002E70" OutName="tex_002E70" Format="rgb5a1" Width="8" Height="16" Offset="0x2E70" />
-        <Texture Name="object_ikn_demo_Tex_002F70" OutName="tex_002F70" Format="rgb5a1" Width="8" Height="16" Offset="0x2F70" />
-        <Texture Name="object_ikn_demo_Tex_003070" OutName="tex_003070" Format="rgb5a1" Width="8" Height="8" Offset="0x3070" />
-        <Texture Name="object_ikn_demo_Tex_0030F0" OutName="tex_0030F0" Format="rgb5a1" Width="16" Height="16" Offset="0x30F0" />
-        <Texture Name="object_ikn_demo_Tex_0032F0" OutName="tex_0032F0" Format="rgb5a1" Width="16" Height="16" Offset="0x32F0" />
-        <Texture Name="object_ikn_demo_Tex_0034F0" OutName="tex_0034F0" Format="rgb5a1" Width="16" Height="8" Offset="0x34F0" />
-        <Texture Name="object_ikn_demo_Tex_0035F0" OutName="tex_0035F0" Format="rgb5a1" Width="16" Height="16" Offset="0x35F0" />
+        <Texture Name="object_ikn_demo_Tex_002D50" OutName="tex_002D50" Format="rgba16" Width="4" Height="4" Offset="0x2D50" />
+        <Texture Name="object_ikn_demo_Tex_002D70" OutName="tex_002D70" Format="rgba16" Width="8" Height="16" Offset="0x2D70" />
+        <Texture Name="object_ikn_demo_Tex_002E70" OutName="tex_002E70" Format="rgba16" Width="8" Height="16" Offset="0x2E70" />
+        <Texture Name="object_ikn_demo_Tex_002F70" OutName="tex_002F70" Format="rgba16" Width="8" Height="16" Offset="0x2F70" />
+        <Texture Name="object_ikn_demo_Tex_003070" OutName="tex_003070" Format="rgba16" Width="8" Height="8" Offset="0x3070" />
+        <Texture Name="object_ikn_demo_Tex_0030F0" OutName="tex_0030F0" Format="rgba16" Width="16" Height="16" Offset="0x30F0" />
+        <Texture Name="object_ikn_demo_Tex_0032F0" OutName="tex_0032F0" Format="rgba16" Width="16" Height="16" Offset="0x32F0" />
+        <Texture Name="object_ikn_demo_Tex_0034F0" OutName="tex_0034F0" Format="rgba16" Width="16" Height="8" Offset="0x34F0" />
+        <Texture Name="object_ikn_demo_Tex_0035F0" OutName="tex_0035F0" Format="rgba16" Width="16" Height="16" Offset="0x35F0" />
         <Limb Name="object_ikn_demo_Limb_0037F0" LimbType="Standard" Offset="0x37F0" />
         <Limb Name="object_ikn_demo_Limb_0037FC" LimbType="Standard" Offset="0x37FC" />
         <Limb Name="object_ikn_demo_Limb_003808" LimbType="Standard" Offset="0x3808" />
@@ -102,16 +102,16 @@
         <Animation Name="object_ikn_demo_Anim_00CA74" Offset="0xCA74" />
         <Animation Name="object_ikn_demo_Anim_00CD28" Offset="0xCD28" />
         <Animation Name="object_ikn_demo_Anim_00D044" Offset="0xD044" />
-        <Texture Name="object_ikn_demo_Tex_00D060" OutName="tex_00D060" Format="rgb5a1" Width="8" Height="8" Offset="0xD060" />
+        <Texture Name="object_ikn_demo_Tex_00D060" OutName="tex_00D060" Format="rgba16" Width="8" Height="8" Offset="0xD060" />
         <!--Blob Name="object_ikn_demo_Blob_00D0E0" Size="0x100" Offset="0xD0E0" /-->
-        <Texture Name="object_ikn_demo_Tex_00D1E0" OutName="tex_00D1E0" Format="rgb5a1" Width="16" Height="16" Offset="0xD1E0" />
+        <Texture Name="object_ikn_demo_Tex_00D1E0" OutName="tex_00D1E0" Format="rgba16" Width="16" Height="16" Offset="0xD1E0" />
         <!--Blob Name="object_ikn_demo_Blob_00D3E0" Size="0x100" Offset="0xD3E0" /-->
-        <Texture Name="object_ikn_demo_Tex_00D4E0" OutName="tex_00D4E0" Format="rgb5a1" Width="4" Height="4" Offset="0xD4E0" />
+        <Texture Name="object_ikn_demo_Tex_00D4E0" OutName="tex_00D4E0" Format="rgba16" Width="4" Height="4" Offset="0xD4E0" />
         <!--Blob Name="object_ikn_demo_Blob_00D500" Size="0x100" Offset="0xD500" /-->
-        <Texture Name="object_ikn_demo_Tex_00D600" OutName="tex_00D600" Format="rgb5a1" Width="16" Height="16" Offset="0xD600" />
+        <Texture Name="object_ikn_demo_Tex_00D600" OutName="tex_00D600" Format="rgba16" Width="16" Height="16" Offset="0xD600" />
         <!--Blob Name="object_ikn_demo_Blob_00D800" Size="0x100" Offset="0xD800" /-->
-        <Texture Name="object_ikn_demo_Tex_00D900" OutName="tex_00D900" Format="rgb5a1" Width="4" Height="8" Offset="0xD900" />
-        <Texture Name="object_ikn_demo_Tex_00D940" OutName="tex_00D940" Format="rgb5a1" Width="8" Height="16" Offset="0xD940" />
+        <Texture Name="object_ikn_demo_Tex_00D900" OutName="tex_00D900" Format="rgba16" Width="4" Height="8" Offset="0xD900" />
+        <Texture Name="object_ikn_demo_Tex_00D940" OutName="tex_00D940" Format="rgba16" Width="8" Height="16" Offset="0xD940" />
         <!--Blob Name="object_ikn_demo_Blob_00DA40" Size="0x240" Offset="0xDA40" /-->
         <Texture Name="object_ikn_demo_Tex_00DC80" OutName="tex_00DC80" Format="ia8" Width="8" Height="8" Offset="0xDC80" />
     </File>

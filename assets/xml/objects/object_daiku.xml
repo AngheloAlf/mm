@@ -6,15 +6,15 @@
         <Animation Name="object_daiku_Anim_001A24" Offset="0x1A24" />
         <Animation Name="object_daiku_Anim_002134" Offset="0x2134" />
         <Animation Name="object_daiku_Anim_002FA0" Offset="0x2FA0" />
-        <Texture Name="object_daiku_TLUT_002FB0" OutName="tlut_002FB0" Format="rgb5a1" Width="16" Height="16" Offset="0x2FB0" />
+        <Texture Name="object_daiku_TLUT_002FB0" OutName="tlut_002FB0" Format="rgba16" Width="16" Height="16" Offset="0x2FB0" />
         <Texture Name="object_daiku_Tex_0031B0" OutName="tex_0031B0" Format="ci8" Width="8" Height="8" Offset="0x31B0" />
         <Texture Name="object_daiku_Tex_0031F0" OutName="tex_0031F0" Format="ci8" Width="16" Height="16" Offset="0x31F0" />
-        <Texture Name="object_daiku_Tex_0032F0" OutName="tex_0032F0" Format="rgb5a1" Width="4" Height="4" Offset="0x32F0" />
+        <Texture Name="object_daiku_Tex_0032F0" OutName="tex_0032F0" Format="rgba16" Width="4" Height="4" Offset="0x32F0" />
         <Texture Name="object_daiku_Tex_003310" OutName="tex_003310" Format="ci8" Width="8" Height="16" Offset="0x3310" />
         <Texture Name="object_daiku_Tex_003390" OutName="tex_003390" Format="ci8" Width="8" Height="8" Offset="0x3390" />
         <Texture Name="object_daiku_Tex_0033D0" OutName="tex_0033D0" Format="ci8" Width="16" Height="16" Offset="0x33D0" />
         <Texture Name="object_daiku_Tex_0034D0" OutName="tex_0034D0" Format="ci8" Width="8" Height="8" Offset="0x34D0" />
-        <Texture Name="object_daiku_Tex_003510" OutName="tex_003510" Format="rgb5a1" Width="32" Height="32" Offset="0x3510" />
+        <Texture Name="object_daiku_Tex_003510" OutName="tex_003510" Format="rgba16" Width="32" Height="32" Offset="0x3510" />
         <Texture Name="object_daiku_Tex_003D10" OutName="tex_003D10" Format="ci8" Width="16" Height="16" Offset="0x3D10" />
         <Texture Name="object_daiku_Tex_003E10" OutName="tex_003E10" Format="ci8" Width="8" Height="8" Offset="0x3E10" />
         <Texture Name="object_daiku_Tex_003E50" OutName="tex_003E50" Format="ci8" Width="8" Height="8" Offset="0x3E50" />
@@ -40,14 +40,14 @@
         <DList Name="object_daiku_DL_008B20" Offset="0x8B20" />
         <DList Name="object_daiku_DL_008C30" Offset="0x8C30" />
         <DList Name="object_daiku_DL_008EC8" Offset="0x8EC8" />
-        <Texture Name="object_daiku_TLUT_008FA8" OutName="tlut_008FA8" Format="rgb5a1" Width="16" Height="16" Offset="0x8FA8" />
+        <Texture Name="object_daiku_TLUT_008FA8" OutName="tlut_008FA8" Format="rgba16" Width="16" Height="16" Offset="0x8FA8" />
         <Texture Name="object_daiku_Tex_0091A8" OutName="tex_0091A8" Format="ci8" Width="16" Height="16" Offset="0x91A8" />
         <DList Name="object_daiku_DL_009638" Offset="0x9638" />
-        <Texture Name="object_daiku_TLUT_0097B0" OutName="tlut_0097B0" Format="rgb5a1" Width="16" Height="16" Offset="0x97B0" />
+        <Texture Name="object_daiku_TLUT_0097B0" OutName="tlut_0097B0" Format="rgba16" Width="16" Height="16" Offset="0x97B0" />
         <Texture Name="object_daiku_Tex_0099B0" OutName="tex_0099B0" Format="i8" Width="32" Height="32" Offset="0x99B0" />
         <Texture Name="object_daiku_Tex_009DB0" OutName="tex_009DB0" Format="ci8" Width="16" Height="16" Offset="0x9DB0" />
         <DList Name="object_daiku_DL_00A390" Offset="0xA390" />
-        <Texture Name="object_daiku_TLUT_00A4D0" OutName="tlut_00A4D0" Format="rgb5a1" Width="16" Height="16" Offset="0xA4D0" />
+        <Texture Name="object_daiku_TLUT_00A4D0" OutName="tlut_00A4D0" Format="rgba16" Width="16" Height="16" Offset="0xA4D0" />
         <Texture Name="object_daiku_Tex_00A6D0" OutName="tex_00A6D0" Format="ci8" Width="8" Height="16" Offset="0xA6D0" />
         <Limb Name="object_daiku_Limb_00A750" LimbType="Standard" Offset="0xA750" />
         <Limb Name="object_daiku_Limb_00A75C" LimbType="Standard" Offset="0xA75C" />

@@ -12,12 +12,12 @@
         <DList Name="object_hintnuts_DL_001208" Offset="0x1208" />
         <DList Name="object_hintnuts_DL_0012F0" Offset="0x12F0" />
         <DList Name="object_hintnuts_DL_0014E0" Offset="0x14E0" />
-        <Texture Name="object_hintnuts_Tex_0015A8" OutName="tex_0015A8" Format="rgb5a1" Width="32" Height="32" Offset="0x15A8" />
-        <Texture Name="object_hintnuts_Tex_001DA8" OutName="tex_001DA8" Format="rgb5a1" Width="16" Height="16" Offset="0x1DA8" />
-        <Texture Name="object_hintnuts_Tex_001FA8" OutName="tex_001FA8" Format="rgb5a1" Width="8" Height="8" Offset="0x1FA8" />
-        <Texture Name="object_hintnuts_Tex_002028" OutName="tex_002028" Format="rgb5a1" Width="8" Height="8" Offset="0x2028" />
-        <Texture Name="object_hintnuts_Tex_0020A8" OutName="tex_0020A8" Format="rgb5a1" Width="8" Height="8" Offset="0x20A8" />
-        <Texture Name="object_hintnuts_Tex_002128" OutName="tex_002128" Format="rgb5a1" Width="16" Height="16" Offset="0x2128" />
+        <Texture Name="object_hintnuts_Tex_0015A8" OutName="tex_0015A8" Format="rgba16" Width="32" Height="32" Offset="0x15A8" />
+        <Texture Name="object_hintnuts_Tex_001DA8" OutName="tex_001DA8" Format="rgba16" Width="16" Height="16" Offset="0x1DA8" />
+        <Texture Name="object_hintnuts_Tex_001FA8" OutName="tex_001FA8" Format="rgba16" Width="8" Height="8" Offset="0x1FA8" />
+        <Texture Name="object_hintnuts_Tex_002028" OutName="tex_002028" Format="rgba16" Width="8" Height="8" Offset="0x2028" />
+        <Texture Name="object_hintnuts_Tex_0020A8" OutName="tex_0020A8" Format="rgba16" Width="8" Height="8" Offset="0x20A8" />
+        <Texture Name="object_hintnuts_Tex_002128" OutName="tex_002128" Format="rgba16" Width="16" Height="16" Offset="0x2128" />
         <Limb Name="object_hintnuts_Limb_002328" LimbType="Standard" Offset="0x2328" />
         <Limb Name="object_hintnuts_Limb_002334" LimbType="Standard" Offset="0x2334" />
         <Limb Name="object_hintnuts_Limb_002340" LimbType="Standard" Offset="0x2340" />

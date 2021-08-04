@@ -46,17 +46,17 @@
         <DList Name="object_dnt_DL_0098D8" Offset="0x98D8" />
         <DList Name="object_dnt_DL_0099E8" Offset="0x99E8" />
         <DList Name="object_dnt_DL_009AE0" Offset="0x9AE0" />
-        <Texture Name="object_dnt_Tex_009B80" OutName="tex_009B80" Format="rgb5a1" Width="16" Height="16" Offset="0x9B80" />
-        <Texture Name="object_dnt_Tex_009D80" OutName="tex_009D80" Format="rgb5a1" Width="16" Height="16" Offset="0x9D80" />
-        <Texture Name="object_dnt_Tex_009F80" OutName="tex_009F80" Format="rgb5a1" Width="8" Height="16" Offset="0x9F80" />
-        <Texture Name="object_dnt_Tex_00A080" OutName="tex_00A080" Format="rgb5a1" Width="8" Height="16" Offset="0xA080" />
-        <Texture Name="object_dnt_Tex_00A180" OutName="tex_00A180" Format="rgb5a1" Width="2" Height="16" Offset="0xA180" />
-        <Texture Name="object_dnt_Tex_00A1C0" OutName="tex_00A1C0" Format="rgb5a1" Width="8" Height="8" Offset="0xA1C0" />
-        <Texture Name="object_dnt_Tex_00A240" OutName="tex_00A240" Format="rgb5a1" Width="8" Height="16" Offset="0xA240" />
-        <Texture Name="object_dnt_Tex_00A340" OutName="tex_00A340" Format="rgb5a1" Width="16" Height="32" Offset="0xA340" />
-        <Texture Name="object_dnt_Tex_00A740" OutName="tex_00A740" Format="rgb5a1" Width="8" Height="8" Offset="0xA740" />
-        <Texture Name="object_dnt_Tex_00A7C0" OutName="tex_00A7C0" Format="rgb5a1" Width="16" Height="8" Offset="0xA7C0" />
-        <Texture Name="object_dnt_Tex_00A8C0" OutName="tex_00A8C0" Format="rgb5a1" Width="16" Height="16" Offset="0xA8C0" />
+        <Texture Name="object_dnt_Tex_009B80" OutName="tex_009B80" Format="rgba16" Width="16" Height="16" Offset="0x9B80" />
+        <Texture Name="object_dnt_Tex_009D80" OutName="tex_009D80" Format="rgba16" Width="16" Height="16" Offset="0x9D80" />
+        <Texture Name="object_dnt_Tex_009F80" OutName="tex_009F80" Format="rgba16" Width="8" Height="16" Offset="0x9F80" />
+        <Texture Name="object_dnt_Tex_00A080" OutName="tex_00A080" Format="rgba16" Width="8" Height="16" Offset="0xA080" />
+        <Texture Name="object_dnt_Tex_00A180" OutName="tex_00A180" Format="rgba16" Width="2" Height="16" Offset="0xA180" />
+        <Texture Name="object_dnt_Tex_00A1C0" OutName="tex_00A1C0" Format="rgba16" Width="8" Height="8" Offset="0xA1C0" />
+        <Texture Name="object_dnt_Tex_00A240" OutName="tex_00A240" Format="rgba16" Width="8" Height="16" Offset="0xA240" />
+        <Texture Name="object_dnt_Tex_00A340" OutName="tex_00A340" Format="rgba16" Width="16" Height="32" Offset="0xA340" />
+        <Texture Name="object_dnt_Tex_00A740" OutName="tex_00A740" Format="rgba16" Width="8" Height="8" Offset="0xA740" />
+        <Texture Name="object_dnt_Tex_00A7C0" OutName="tex_00A7C0" Format="rgba16" Width="16" Height="8" Offset="0xA7C0" />
+        <Texture Name="object_dnt_Tex_00A8C0" OutName="tex_00A8C0" Format="rgba16" Width="16" Height="16" Offset="0xA8C0" />
         <Limb Name="object_dnt_Limb_00AAC0" LimbType="Standard" Offset="0xAAC0" />
         <Limb Name="object_dnt_Limb_00AACC" LimbType="Standard" Offset="0xAACC" />
         <Limb Name="object_dnt_Limb_00AAD8" LimbType="Standard" Offset="0xAAD8" />
@@ -86,6 +86,6 @@
         <Limb Name="object_dnt_Limb_00ABF8" LimbType="Standard" Offset="0xABF8" />
         <Skeleton Name="object_dnt_Skel_00AC70" Type="Flex" LimbType="Standard" Offset="0xAC70" />
         <Animation Name="object_dnt_Anim_00B0B4" Offset="0xB0B4" />
-        <Texture Name="object_dnt_Tex_00B0D0" OutName="tex_00B0D0" Format="rgb5a1" Width="16" Height="16" Offset="0xB0D0" />
+        <Texture Name="object_dnt_Tex_00B0D0" OutName="tex_00B0D0" Format="rgba16" Width="16" Height="16" Offset="0xB0D0" />
     </File>
 </Root>

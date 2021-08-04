@@ -10,17 +10,17 @@
         <DList Name="object_am_DL_002550" Offset="0x2550" />
         <Texture Name="object_am_Tex_002638" OutName="tex_002638" Format="i4" Width="32" Height="32" Offset="0x2638" />
         <Texture Name="object_am_Tex_002838" OutName="tex_002838" Format="i4" Width="16" Height="32" Offset="0x2838" />
-        <Texture Name="object_am_Tex_002938" OutName="tex_002938" Format="rgb5a1" Width="16" Height="32" Offset="0x2938" />
+        <Texture Name="object_am_Tex_002938" OutName="tex_002938" Format="rgba16" Width="16" Height="32" Offset="0x2938" />
         <Texture Name="object_am_Tex_002D38" OutName="tex_002D38" Format="i4" Width="16" Height="32" Offset="0x2D38" />
         <Texture Name="object_am_Tex_002E38" OutName="tex_002E38" Format="i4" Width="32" Height="32" Offset="0x2E38" />
         <Texture Name="object_am_Tex_003038" OutName="tex_003038" Format="i4" Width="32" Height="32" Offset="0x3038" />
-        <Texture Name="object_am_Tex_003238" OutName="tex_003238" Format="rgb5a1" Width="32" Height="32" Offset="0x3238" />
-        <Texture Name="object_am_Tex_003A38" OutName="tex_003A38" Format="rgb5a1" Width="16" Height="16" Offset="0x3A38" />
-        <Texture Name="object_am_Tex_003C38" OutName="tex_003C38" Format="rgb5a1" Width="32" Height="32" Offset="0x3C38" />
-        <Texture Name="object_am_Tex_004438" OutName="tex_004438" Format="rgb5a1" Width="32" Height="32" Offset="0x4438" />
-        <Texture Name="object_am_Tex_004C38" OutName="tex_004C38" Format="rgb5a1" Width="32" Height="32" Offset="0x4C38" />
+        <Texture Name="object_am_Tex_003238" OutName="tex_003238" Format="rgba16" Width="32" Height="32" Offset="0x3238" />
+        <Texture Name="object_am_Tex_003A38" OutName="tex_003A38" Format="rgba16" Width="16" Height="16" Offset="0x3A38" />
+        <Texture Name="object_am_Tex_003C38" OutName="tex_003C38" Format="rgba16" Width="32" Height="32" Offset="0x3C38" />
+        <Texture Name="object_am_Tex_004438" OutName="tex_004438" Format="rgba16" Width="32" Height="32" Offset="0x4438" />
+        <Texture Name="object_am_Tex_004C38" OutName="tex_004C38" Format="rgba16" Width="32" Height="32" Offset="0x4C38" />
         <Texture Name="object_am_Tex_005438" OutName="tex_005438" Format="i4" Width="16" Height="8" Offset="0x5438" />
-        <Texture Name="object_am_Tex_005478" OutName="tex_005478" Format="rgb5a1" Width="16" Height="32" Offset="0x5478" />
+        <Texture Name="object_am_Tex_005478" OutName="tex_005478" Format="rgba16" Width="16" Height="32" Offset="0x5478" />
         <Limb Name="object_am_Limb_005878" LimbType="Standard" Offset="0x5878" />
         <Limb Name="object_am_Limb_005884" LimbType="Standard" Offset="0x5884" />
         <Limb Name="object_am_Limb_005890" LimbType="Standard" Offset="0x5890" />

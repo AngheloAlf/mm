@@ -38,7 +38,7 @@
         <Skeleton Name="object_bba_Skel_005EF0" Type="Flex" LimbType="Standard" Offset="0x5EF0" />
         <Animation Name="object_bba_Anim_006550" Offset="0x6550" />
         <Animation Name="object_bba_Anim_006B10" Offset="0x6B10" />
-        <Texture Name="object_bba_TLUT_006B20" OutName="tlut_006B20" Format="rgb5a1" Width="16" Height="16" Offset="0x6B20" />
+        <Texture Name="object_bba_TLUT_006B20" OutName="tlut_006B20" Format="rgba16" Width="16" Height="16" Offset="0x6B20" />
         <!--Blob Name="object_bba_Blob_006D20" Size="0x19C0" Offset="0x6D20" /-->
         <Texture Name="object_bba_Tex_0086E0" OutName="tex_0086E0" Format="ci8" Width="8" Height="8" Offset="0x86E0" />
         <Texture Name="object_bba_Tex_008720" OutName="tex_008720" Format="ci8" Width="32" Height="32" Offset="0x8720" />
@@ -48,7 +48,7 @@
         <Texture Name="object_bba_Tex_008FA0" OutName="tex_008FA0" Format="ci8" Width="16" Height="16" Offset="0x8FA0" />
         <Texture Name="object_bba_Tex_0090A0" OutName="tex_0090A0" Format="ci8" Width="16" Height="16" Offset="0x90A0" />
         <Texture Name="object_bba_Tex_0091A0" OutName="tex_0091A0" Format="ci8" Width="16" Height="16" Offset="0x91A0" />
-        <Texture Name="object_bba_Tex_0092A0" OutName="tex_0092A0" Format="rgb5a1" Width="32" Height="32" Offset="0x92A0" />
+        <Texture Name="object_bba_Tex_0092A0" OutName="tex_0092A0" Format="rgba16" Width="32" Height="32" Offset="0x92A0" />
         <Texture Name="object_bba_Tex_009AA0" OutName="tex_009AA0" Format="ci8" Width="16" Height="16" Offset="0x9AA0" />
         <Texture Name="object_bba_Tex_009BA0" OutName="tex_009BA0" Format="ci8" Width="32" Height="32" Offset="0x9BA0" />
         <Texture Name="object_bba_Tex_009FA0" OutName="tex_009FA0" Format="ci8" Width="16" Height="16" Offset="0x9FA0" />

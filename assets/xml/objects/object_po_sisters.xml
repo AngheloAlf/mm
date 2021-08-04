@@ -23,20 +23,20 @@
         <DList Name="object_po_sisters_DL_003DC8" Offset="0x3DC8" />
         <DList Name="object_po_sisters_DL_004020" Offset="0x4020" />
         <DList Name="object_po_sisters_DL_0046E0" Offset="0x46E0" />
-        <Texture Name="object_po_sisters_Tex_0048D8" OutName="tex_0048D8" Format="rgb5a1" Width="16" Height="16" Offset="0x48D8" />
-        <Texture Name="object_po_sisters_Tex_004AD8" OutName="tex_004AD8" Format="rgb5a1" Width="32" Height="32" Offset="0x4AD8" />
-        <Texture Name="object_po_sisters_Tex_0052D8" OutName="tex_0052D8" Format="rgb5a1" Width="32" Height="16" Offset="0x52D8" />
-        <Texture Name="object_po_sisters_Tex_0056D8" OutName="tex_0056D8" Format="rgb5a1" Width="16" Height="16" Offset="0x56D8" />
-        <Texture Name="object_po_sisters_Tex_0058D8" OutName="tex_0058D8" Format="rgb5a1" Width="4" Height="4" Offset="0x58D8" />
-        <Texture Name="object_po_sisters_Tex_0058F8" OutName="tex_0058F8" Format="rgb5a1" Width="16" Height="16" Offset="0x58F8" />
-        <Texture Name="object_po_sisters_Tex_005AF8" OutName="tex_005AF8" Format="rgb5a1" Width="16" Height="16" Offset="0x5AF8" />
-        <Texture Name="object_po_sisters_Tex_005CF8" OutName="tex_005CF8" Format="rgb5a1" Width="8" Height="8" Offset="0x5CF8" />
-        <Texture Name="object_po_sisters_Tex_005D78" OutName="tex_005D78" Format="rgb5a1" Width="16" Height="16" Offset="0x5D78" />
-        <Texture Name="object_po_sisters_Tex_005F78" OutName="tex_005F78" Format="rgb5a1" Width="16" Height="8" Offset="0x5F78" />
-        <Texture Name="object_po_sisters_Tex_006078" OutName="tex_006078" Format="rgb5a1" Width="16" Height="16" Offset="0x6078" />
-        <Texture Name="object_po_sisters_Tex_006278" OutName="tex_006278" Format="rgb5a1" Width="8" Height="8" Offset="0x6278" />
-        <Texture Name="object_po_sisters_Tex_0062F8" OutName="tex_0062F8" Format="rgb5a1" Width="4" Height="4" Offset="0x62F8" />
-        <Texture Name="object_po_sisters_Tex_006318" OutName="tex_006318" Format="rgb5a1" Width="16" Height="16" Offset="0x6318" />
+        <Texture Name="object_po_sisters_Tex_0048D8" OutName="tex_0048D8" Format="rgba16" Width="16" Height="16" Offset="0x48D8" />
+        <Texture Name="object_po_sisters_Tex_004AD8" OutName="tex_004AD8" Format="rgba16" Width="32" Height="32" Offset="0x4AD8" />
+        <Texture Name="object_po_sisters_Tex_0052D8" OutName="tex_0052D8" Format="rgba16" Width="32" Height="16" Offset="0x52D8" />
+        <Texture Name="object_po_sisters_Tex_0056D8" OutName="tex_0056D8" Format="rgba16" Width="16" Height="16" Offset="0x56D8" />
+        <Texture Name="object_po_sisters_Tex_0058D8" OutName="tex_0058D8" Format="rgba16" Width="4" Height="4" Offset="0x58D8" />
+        <Texture Name="object_po_sisters_Tex_0058F8" OutName="tex_0058F8" Format="rgba16" Width="16" Height="16" Offset="0x58F8" />
+        <Texture Name="object_po_sisters_Tex_005AF8" OutName="tex_005AF8" Format="rgba16" Width="16" Height="16" Offset="0x5AF8" />
+        <Texture Name="object_po_sisters_Tex_005CF8" OutName="tex_005CF8" Format="rgba16" Width="8" Height="8" Offset="0x5CF8" />
+        <Texture Name="object_po_sisters_Tex_005D78" OutName="tex_005D78" Format="rgba16" Width="16" Height="16" Offset="0x5D78" />
+        <Texture Name="object_po_sisters_Tex_005F78" OutName="tex_005F78" Format="rgba16" Width="16" Height="8" Offset="0x5F78" />
+        <Texture Name="object_po_sisters_Tex_006078" OutName="tex_006078" Format="rgba16" Width="16" Height="16" Offset="0x6078" />
+        <Texture Name="object_po_sisters_Tex_006278" OutName="tex_006278" Format="rgba16" Width="8" Height="8" Offset="0x6278" />
+        <Texture Name="object_po_sisters_Tex_0062F8" OutName="tex_0062F8" Format="rgba16" Width="4" Height="4" Offset="0x62F8" />
+        <Texture Name="object_po_sisters_Tex_006318" OutName="tex_006318" Format="rgba16" Width="16" Height="16" Offset="0x6318" />
         <!--Blob Name="object_po_sisters_Blob_006518" Size="0xB8" Offset="0x6518" /-->
     </File>
 </Root>

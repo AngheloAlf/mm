@@ -26,19 +26,19 @@
         <DList Name="object_al_DL_0062B0" Offset="0x62B0" />
         <DList Name="object_al_DL_0064E0" Offset="0x64E0" />
         <DList Name="object_al_DL_006598" Offset="0x6598" />
-        <Texture Name="object_al_TLUT_006638" OutName="tlut_006638" Format="rgb5a1" Width="16" Height="16" Offset="0x6638" />
+        <Texture Name="object_al_TLUT_006638" OutName="tlut_006638" Format="rgba16" Width="16" Height="16" Offset="0x6638" />
         <Texture Name="object_al_Tex_006838" OutName="tex_006838" Format="ci8" Width="8" Height="8" Offset="0x6838" />
         <Texture Name="object_al_Tex_006878" OutName="tex_006878" Format="ci8" Width="8" Height="8" Offset="0x6878" />
         <Texture Name="object_al_Tex_0068B8" OutName="tex_0068B8" Format="ci8" Width="16" Height="16" Offset="0x68B8" />
-        <Texture Name="object_al_Tex_0069B8" OutName="tex_0069B8" Format="rgb5a1" Width="64" Height="32" Offset="0x69B8" />
-        <Texture Name="object_al_Tex_0079B8" OutName="tex_0079B8" Format="rgb5a1" Width="32" Height="32" Offset="0x79B8" />
+        <Texture Name="object_al_Tex_0069B8" OutName="tex_0069B8" Format="rgba16" Width="64" Height="32" Offset="0x69B8" />
+        <Texture Name="object_al_Tex_0079B8" OutName="tex_0079B8" Format="rgba16" Width="32" Height="32" Offset="0x79B8" />
         <Texture Name="object_al_Tex_0081B8" OutName="tex_0081B8" Format="ci8" Width="32" Height="16" Offset="0x81B8" />
-        <Texture Name="object_al_Tex_0083B8" OutName="tex_0083B8" Format="rgb5a1" Width="32" Height="32" Offset="0x83B8" />
-        <Texture Name="object_al_Tex_008BB8" OutName="tex_008BB8" Format="rgb5a1" Width="8" Height="8" Offset="0x8BB8" />
+        <Texture Name="object_al_Tex_0083B8" OutName="tex_0083B8" Format="rgba16" Width="32" Height="32" Offset="0x83B8" />
+        <Texture Name="object_al_Tex_008BB8" OutName="tex_008BB8" Format="rgba16" Width="8" Height="8" Offset="0x8BB8" />
         <Texture Name="object_al_Tex_008C38" OutName="tex_008C38" Format="ci8" Width="16" Height="16" Offset="0x8C38" />
         <Texture Name="object_al_Tex_008D38" OutName="tex_008D38" Format="ci8" Width="16" Height="16" Offset="0x8D38" />
-        <Texture Name="object_al_Tex_008E38" OutName="tex_008E38" Format="rgb5a1" Width="32" Height="64" Offset="0x8E38" />
-        <Texture Name="object_al_Tex_009E38" OutName="tex_009E38" Format="rgb5a1" Width="8" Height="16" Offset="0x9E38" />
+        <Texture Name="object_al_Tex_008E38" OutName="tex_008E38" Format="rgba16" Width="32" Height="64" Offset="0x8E38" />
+        <Texture Name="object_al_Tex_009E38" OutName="tex_009E38" Format="rgba16" Width="8" Height="16" Offset="0x9E38" />
         <Limb Name="object_al_Limb_009F38" LimbType="Standard" Offset="0x9F38" />
         <Limb Name="object_al_Limb_009F44" LimbType="Standard" Offset="0x9F44" />
         <Limb Name="object_al_Limb_009F50" LimbType="Standard" Offset="0x9F50" />

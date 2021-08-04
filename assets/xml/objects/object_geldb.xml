@@ -8,7 +8,7 @@
         <Animation Name="object_geldb_Anim_001DFC" Offset="0x1DFC" />
         <Animation Name="object_geldb_Anim_001EFC" Offset="0x1EFC" />
         <Animation Name="object_geldb_Anim_0028A0" Offset="0x28A0" />
-        <Texture Name="object_geldb_TLUT_0028B0" OutName="tlut_0028B0" Format="rgb5a1" Width="16" Height="16" Offset="0x28B0" />
+        <Texture Name="object_geldb_TLUT_0028B0" OutName="tlut_0028B0" Format="rgba16" Width="16" Height="16" Offset="0x28B0" />
         <Texture Name="object_geldb_Tex_002AB0" OutName="tex_002AB0" Format="ci8" Width="8" Height="8" Offset="0x2AB0" />
         <Texture Name="object_geldb_Tex_002AF0" OutName="tex_002AF0" Format="ci8" Width="8" Height="8" Offset="0x2AF0" />
         <Texture Name="object_geldb_Tex_002B30" OutName="tex_002B30" Format="ci8" Width="16" Height="16" Offset="0x2B30" />
@@ -26,7 +26,7 @@
         <DList Name="object_geldb_DL_005AF0" Offset="0x5AF0" />
         <DList Name="object_geldb_DL_005D60" Offset="0x5D60" />
         <DList Name="object_geldb_DL_005E60" Offset="0x5E60" />
-        <!--Texture Name="object_geldb_TLUT_0060E0" OutName="tlut_0060E0" Format="rgb5a1" Width="16" Height="16" Offset="0x60E0" /-->
+        <!--Texture Name="object_geldb_TLUT_0060E0" OutName="tlut_0060E0" Format="rgba16" Width="16" Height="16" Offset="0x60E0" /-->
         <!--Blob Name="object_geldb_Blob_0062E0" Size="0x38" Offset="0x62E0" /-->
         <!--Texture Name="object_geldb_Tex_006318" OutName="tex_006318" Format="ci8" Width="8" Height="16" Offset="0x6318" /-->
         <!--Blob Name="object_geldb_Blob_006398" Size="0x400" Offset="0x6398" /-->

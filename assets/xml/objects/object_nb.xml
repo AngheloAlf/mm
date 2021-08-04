@@ -11,9 +11,9 @@
         <DList Name="object_nb_DL_005988" Offset="0x5988" />
         <DList Name="object_nb_DL_005AA8" Offset="0x5AA8" />
         <DList Name="object_nb_DL_006390" Offset="0x6390" />
-        <Texture Name="object_nb_TLUT_006910" OutName="tlut_006910" Format="rgb5a1" Width="16" Height="16" Offset="0x6910" />
-        <Texture Name="object_nb_TLUT_006B10" OutName="tlut_006B10" Format="rgb5a1" Width="16" Height="16" Offset="0x6B10" />
-        <Texture Name="object_nb_TLUT_006D10" OutName="tlut_006D10" Format="rgb5a1" Width="16" Height="16" Offset="0x6D10" />
+        <Texture Name="object_nb_TLUT_006910" OutName="tlut_006910" Format="rgba16" Width="16" Height="16" Offset="0x6910" />
+        <Texture Name="object_nb_TLUT_006B10" OutName="tlut_006B10" Format="rgba16" Width="16" Height="16" Offset="0x6B10" />
+        <Texture Name="object_nb_TLUT_006D10" OutName="tlut_006D10" Format="rgba16" Width="16" Height="16" Offset="0x6D10" />
         <Texture Name="object_nb_Tex_006F10" OutName="tex_006F10" Format="ci8" Width="8" Height="8" Offset="0x6F10" />
         <Texture Name="object_nb_Tex_006F50" OutName="tex_006F50" Format="ci8" Width="16" Height="16" Offset="0x6F50" />
         <Texture Name="object_nb_Tex_007050" OutName="tex_007050" Format="ci8" Width="16" Height="16" Offset="0x7050" />
@@ -24,7 +24,7 @@
         <Texture Name="object_nb_Tex_0074D0" OutName="tex_0074D0" Format="ci8" Width="16" Height="8" Offset="0x74D0" />
         <Texture Name="object_nb_Tex_007550" OutName="tex_007550" Format="ci8" Width="16" Height="16" Offset="0x7550" />
         <Texture Name="object_nb_Tex_007650" OutName="tex_007650" Format="i8" Width="16" Height="16" Offset="0x7650" />
-        <Texture Name="object_nb_Tex_007750" OutName="tex_007750" Format="rgb5a1" Width="8" Height="8" Offset="0x7750" />
+        <Texture Name="object_nb_Tex_007750" OutName="tex_007750" Format="rgba16" Width="8" Height="8" Offset="0x7750" />
         <Texture Name="object_nb_Tex_0077D0" OutName="tex_0077D0" Format="ci8" Width="16" Height="16" Offset="0x77D0" />
         <Texture Name="object_nb_Tex_0078D0" OutName="tex_0078D0" Format="ci8" Width="16" Height="16" Offset="0x78D0" />
         <Texture Name="object_nb_Tex_0079D0" OutName="tex_0079D0" Format="ci8" Width="32" Height="16" Offset="0x79D0" />

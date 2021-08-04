@@ -2,7 +2,7 @@
     <File Name="object_oyu" Segment="6" Game="MM">
         <DList Name="object_oyu_DL_000080" Offset="0x80" />
         <DList Name="object_oyu_DL_000158" Offset="0x158" />
-        <Texture Name="object_oyu_Tex_000160" OutName="tex_000160" Format="rgb5a1" Width="32" Height="32" Offset="0x160" />
+        <Texture Name="object_oyu_Tex_000160" OutName="tex_000160" Format="rgba16" Width="32" Height="32" Offset="0x160" />
         <!--Blob Name="object_oyu_Blob_000960" Size="0x60" Offset="0x960" /-->
     </File>
 </Root>

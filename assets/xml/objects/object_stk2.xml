@@ -12,7 +12,7 @@
         <Texture Name="object_stk2_Tex_009750" OutName="tex_009750" Format="i8" Width="32" Height="64" Offset="0x9750" />
         <!--Blob Name="object_stk2_zeroes_unk_00009F50" Size="0x7A0" Offset="0x9F50" /-->
         <DList Name="object_stk2_DL_00A840" Offset="0xA840" />
-        <Texture Name="object_stk2_Tex_00A958" OutName="tex_00A958" Format="rgb5a1" Width="32" Height="16" Offset="0xA958" />
+        <Texture Name="object_stk2_Tex_00A958" OutName="tex_00A958" Format="rgba16" Width="32" Height="16" Offset="0xA958" />
         <!--Blob Name="object_stk2_zeroes_unk_0000AD58" Size="0x2FBB8" Offset="0xAD58" /-->
     </File>
 </Root>

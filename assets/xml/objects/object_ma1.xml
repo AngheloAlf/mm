@@ -1,23 +1,23 @@
 ﻿<Root>
     <File Name="object_ma1" Segment="6" Game="MM">
         <DList Name="object_ma1_DL_0003B0" Offset="0x3B0" />
-        <Texture Name="object_ma1_TLUT_0005E0" OutName="tlut_0005E0" Format="rgb5a1" Width="16" Height="16" Offset="0x5E0" />
+        <Texture Name="object_ma1_TLUT_0005E0" OutName="tlut_0005E0" Format="rgba16" Width="16" Height="16" Offset="0x5E0" />
         <Texture Name="object_ma1_Tex_0007E0" OutName="tex_0007E0" Format="ci8" Width="16" Height="16" Offset="0x7E0" />
         <Texture Name="object_ma1_Tex_0008E0" OutName="tex_0008E0" Format="ci8" Width="8" Height="8" Offset="0x8E0" />
         <DList Name="object_ma1_DL_000A20" Offset="0xA20" />
-        <Texture Name="object_ma1_Tex_000AD0" OutName="tex_000AD0" Format="rgb5a1" Width="32" Height="64" Offset="0xAD0" />
+        <Texture Name="object_ma1_Tex_000AD0" OutName="tex_000AD0" Format="rgba16" Width="32" Height="64" Offset="0xAD0" />
         <Animation Name="object_ma1_Anim_002A8C" Offset="0x2A8C" />
         <DList Name="object_ma1_DL_0043A0" Offset="0x43A0" />
-        <Texture Name="object_ma1_TLUT_004CF8" OutName="tlut_004CF8" Format="rgb5a1" Width="16" Height="16" Offset="0x4CF8" />
+        <Texture Name="object_ma1_TLUT_004CF8" OutName="tlut_004CF8" Format="rgba16" Width="16" Height="16" Offset="0x4CF8" />
         <Texture Name="object_ma1_Tex_004EF8" OutName="tex_004EF8" Format="ci8" Width="16" Height="16" Offset="0x4EF8" />
         <Texture Name="object_ma1_Tex_004FF8" OutName="tex_004FF8" Format="ci8" Width="8" Height="8" Offset="0x4FF8" />
         <Texture Name="object_ma1_Tex_005038" OutName="tex_005038" Format="ci8" Width="8" Height="8" Offset="0x5038" />
         <Texture Name="object_ma1_Tex_005078" OutName="tex_005078" Format="ci8" Width="16" Height="16" Offset="0x5078" />
         <Texture Name="object_ma1_Tex_005178" OutName="tex_005178" Format="ci8" Width="16" Height="16" Offset="0x5178" />
         <Texture Name="object_ma1_Tex_005278" OutName="tex_005278" Format="ci8" Width="8" Height="16" Offset="0x5278" />
-        <Texture Name="object_ma1_Tex_0052F8" OutName="tex_0052F8" Format="rgb5a1" Width="32" Height="32" Offset="0x52F8" />
-        <Texture Name="object_ma1_Tex_005AF8" OutName="tex_005AF8" Format="rgb5a1" Width="16" Height="128" Offset="0x5AF8" />
-        <Texture Name="object_ma1_Tex_006AF8" OutName="tex_006AF8" Format="rgb5a1" Width="32" Height="16" Offset="0x6AF8" />
+        <Texture Name="object_ma1_Tex_0052F8" OutName="tex_0052F8" Format="rgba16" Width="32" Height="32" Offset="0x52F8" />
+        <Texture Name="object_ma1_Tex_005AF8" OutName="tex_005AF8" Format="rgba16" Width="16" Height="128" Offset="0x5AF8" />
+        <Texture Name="object_ma1_Tex_006AF8" OutName="tex_006AF8" Format="rgba16" Width="32" Height="16" Offset="0x6AF8" />
         <Animation Name="object_ma1_Anim_007328" Offset="0x7328" />
         <Animation Name="object_ma1_Anim_007D98" Offset="0x7D98" />
         <Animation Name="object_ma1_Anim_00852C" Offset="0x852C" />
@@ -44,13 +44,13 @@
         <DList Name="object_ma1_DL_00EE28" Offset="0xEE28" />
         <DList Name="object_ma1_DL_00EEE8" Offset="0xEEE8" />
         <DList Name="object_ma1_DL_00F068" Offset="0xF068" />
-        <Texture Name="object_ma1_TLUT_00F188" OutName="tlut_00F188" Format="rgb5a1" Width="16" Height="16" Offset="0xF188" />
+        <Texture Name="object_ma1_TLUT_00F188" OutName="tlut_00F188" Format="rgba16" Width="16" Height="16" Offset="0xF188" />
         <Texture Name="object_ma1_Tex_00F388" OutName="tex_00F388" Format="ci8" Width="16" Height="16" Offset="0xF388" />
         <Texture Name="object_ma1_Tex_00F488" OutName="tex_00F488" Format="ci8" Width="8" Height="8" Offset="0xF488" />
         <Texture Name="object_ma1_Tex_00F4C8" OutName="tex_00F4C8" Format="ci8" Width="8" Height="8" Offset="0xF4C8" />
         <Texture Name="object_ma1_Tex_00F508" OutName="tex_00F508" Format="ci8" Width="16" Height="16" Offset="0xF508" />
         <Texture Name="object_ma1_Tex_00F608" OutName="tex_00F608" Format="ci8" Width="8" Height="8" Offset="0xF608" />
-        <Texture Name="object_ma1_Tex_00F648" OutName="tex_00F648" Format="rgb5a1" Width="16" Height="32" Offset="0xF648" />
+        <Texture Name="object_ma1_Tex_00F648" OutName="tex_00F648" Format="rgba16" Width="16" Height="32" Offset="0xF648" />
         <Texture Name="object_ma1_Tex_00FA48" OutName="tex_00FA48" Format="ci8" Width="16" Height="16" Offset="0xFA48" />
         <Texture Name="object_ma1_Tex_00FB48" OutName="tex_00FB48" Format="ci8" Width="64" Height="16" Offset="0xFB48" />
         <Texture Name="object_ma1_Tex_00FF48" OutName="tex_00FF48" Format="ci8" Width="8" Height="16" Offset="0xFF48" />

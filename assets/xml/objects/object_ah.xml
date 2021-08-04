@@ -19,7 +19,7 @@
         <DList Name="object_ah_DL_005EB0" Offset="0x5EB0" />
         <DList Name="object_ah_DL_006090" Offset="0x6090" />
         <DList Name="object_ah_DL_0061B8" Offset="0x61B8" />
-        <Texture Name="object_ah_TLUT_0064B0" OutName="tlut_0064B0" Format="rgb5a1" Width="16" Height="16" Offset="0x64B0" />
+        <Texture Name="object_ah_TLUT_0064B0" OutName="tlut_0064B0" Format="rgba16" Width="16" Height="16" Offset="0x64B0" />
         <Texture Name="object_ah_Tex_0066B0" OutName="tex_0066B0" Format="ci8" Width="16" Height="16" Offset="0x66B0" />
         <Texture Name="object_ah_Tex_0067B0" OutName="tex_0067B0" Format="ci8" Width="16" Height="16" Offset="0x67B0" />
         <Texture Name="object_ah_Tex_0068B0" OutName="tex_0068B0" Format="ci8" Width="8" Height="8" Offset="0x68B0" />

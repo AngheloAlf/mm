@@ -10,6 +10,6 @@
         <DList Name="object_mkk_DL_000310" Offset="0x310" />
         <Texture Name="object_mkk_Tex_000390" OutName="tex_000390" Format="i4" Width="16" Height="16" Offset="0x390" />
         <Texture Name="object_mkk_Tex_000410" OutName="tex_000410" Format="i4" Width="16" Height="16" Offset="0x410" />
-        <Texture Name="object_mkk_Tex_000490" OutName="tex_000490" Format="rgb5a1" Width="8" Height="8" Offset="0x490" />
+        <Texture Name="object_mkk_Tex_000490" OutName="tex_000490" Format="rgba16" Width="8" Height="8" Offset="0x490" />
     </File>
 </Root>

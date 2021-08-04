@@ -8,7 +8,7 @@
         <DList Name="object_zoraegg_DL_002B60" Offset="0x2B60" />
         <DList Name="object_zoraegg_DL_002C70" Offset="0x2C70" />
         <DList Name="object_zoraegg_DL_002D30" Offset="0x2D30" />
-        <Texture Name="object_zoraegg_TLUT_002DF0" OutName="tlut_002DF0" Format="rgb5a1" Width="16" Height="16" Offset="0x2DF0" />
+        <Texture Name="object_zoraegg_TLUT_002DF0" OutName="tlut_002DF0" Format="rgba16" Width="16" Height="16" Offset="0x2DF0" />
         <Texture Name="object_zoraegg_Tex_002FF0" OutName="tex_002FF0" Format="ci8" Width="32" Height="32" Offset="0x2FF0" />
         <Texture Name="object_zoraegg_Tex_0033F0" OutName="tex_0033F0" Format="ci8" Width="8" Height="8" Offset="0x33F0" />
         <!--Blob Name="object_zoraegg_Blob_003430" Size="0x400" Offset="0x3430" /-->
@@ -27,7 +27,7 @@
         <Animation Name="object_zoraegg_Anim_004FE4" Offset="0x4FE4" />
         <Animation Name="object_zoraegg_Anim_005098" Offset="0x5098" />
         <DList Name="object_zoraegg_DL_005250" Offset="0x5250" />
-        <Texture Name="object_zoraegg_TLUT_0053B0" OutName="tlut_0053B0" Format="rgb5a1" Width="16" Height="16" Offset="0x53B0" />
+        <Texture Name="object_zoraegg_TLUT_0053B0" OutName="tlut_0053B0" Format="rgba16" Width="16" Height="16" Offset="0x53B0" />
         <Texture Name="object_zoraegg_Tex_0055B0" OutName="tex_0055B0" Format="ci8" Width="32" Height="32" Offset="0x55B0" />
     </File>
 </Root>

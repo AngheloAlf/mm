@@ -1,16 +1,16 @@
 ﻿<Root>
     <File Name="object_fu_kaiten" Segment="6" Game="MM">
         <DList Name="object_fu_kaiten_DL_0005D0" Offset="0x5D0" />
-        <Texture Name="object_fu_kaiten_TLUT_000858" OutName="tlut_000858" Format="rgb5a1" Width="4" Height="4" Offset="0x858" />
+        <Texture Name="object_fu_kaiten_TLUT_000858" OutName="tlut_000858" Format="rgba16" Width="4" Height="4" Offset="0x858" />
         <Texture Name="object_fu_kaiten_Tex_000878" OutName="tex_000878" Format="ci4" Width="64" Height="64" Offset="0x878" />
-        <Texture Name="object_fu_kaiten_Tex_001078" OutName="tex_001078" Format="rgb5a1" Width="16" Height="64" Offset="0x1078" />
-        <Texture Name="object_fu_kaiten_Tex_001878" OutName="tex_001878" Format="rgb5a1" Width="32" Height="32" Offset="0x1878" />
-        <Texture Name="object_fu_kaiten_Tex_002078" OutName="tex_002078" Format="rgb5a1" Width="32" Height="32" Offset="0x2078" />
+        <Texture Name="object_fu_kaiten_Tex_001078" OutName="tex_001078" Format="rgba16" Width="16" Height="64" Offset="0x1078" />
+        <Texture Name="object_fu_kaiten_Tex_001878" OutName="tex_001878" Format="rgba16" Width="32" Height="32" Offset="0x1878" />
+        <Texture Name="object_fu_kaiten_Tex_002078" OutName="tex_002078" Format="rgba16" Width="32" Height="32" Offset="0x2078" />
         <!--Blob Name="object_fu_kaiten_Blob_002878" Size="0x4E8" Offset="0x2878" /-->
         <DList Name="object_fu_kaiten_DL_002EB0" Offset="0x2EB0" />
         <DList Name="object_fu_kaiten_DL_002FB0" Offset="0x2FB0" />
         <DList Name="object_fu_kaiten_DL_002FC0" Offset="0x2FC0" />
-        <Texture Name="object_fu_kaiten_Tex_002FD0" OutName="tex_002FD0" Format="rgb5a1" Width="32" Height="32" Offset="0x2FD0" />
+        <Texture Name="object_fu_kaiten_Tex_002FD0" OutName="tex_002FD0" Format="rgba16" Width="32" Height="32" Offset="0x2FD0" />
         <!--Blob Name="object_fu_kaiten_Blob_0037D0" Size="0x60" Offset="0x37D0" /-->
     </File>
 </Root>

@@ -26,8 +26,8 @@
         <DList Name="object_rz_DL_00B050" Offset="0xB050" />
         <DList Name="object_rz_DL_00B170" Offset="0xB170" />
         <DList Name="object_rz_DL_00B288" Offset="0xB288" />
-        <Texture Name="object_rz_TLUT_00B450" OutName="tlut_00B450" Format="rgb5a1" Width="16" Height="16" Offset="0xB450" />
-        <Texture Name="object_rz_Tex_00B650" OutName="tex_00B650" Format="rgb5a1" Width="16" Height="16" Offset="0xB650" />
+        <Texture Name="object_rz_TLUT_00B450" OutName="tlut_00B450" Format="rgba16" Width="16" Height="16" Offset="0xB450" />
+        <Texture Name="object_rz_Tex_00B650" OutName="tex_00B650" Format="rgba16" Width="16" Height="16" Offset="0xB650" />
         <Texture Name="object_rz_Tex_00B850" OutName="tex_00B850" Format="ci8" Width="8" Height="8" Offset="0xB850" />
         <Texture Name="object_rz_Tex_00B890" OutName="tex_00B890" Format="ci8" Width="8" Height="8" Offset="0xB890" />
         <Texture Name="object_rz_Tex_00B8D0" OutName="tex_00B8D0" Format="ci8" Width="16" Height="16" Offset="0xB8D0" />

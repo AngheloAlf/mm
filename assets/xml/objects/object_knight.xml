@@ -45,13 +45,13 @@
         <Animation Name="object_knight_Anim_011298" Offset="0x11298" />
         <Animation Name="object_knight_Anim_011AAC" Offset="0x11AAC" />
         <DList Name="object_knight_DL_012400" Offset="0x12400" />
-        <Texture Name="object_knight_Tex_012760" OutName="tex_012760" Format="rgb5a1" Width="16" Height="16" Offset="0x12760" />
-        <Texture Name="object_knight_Tex_012960" OutName="tex_012960" Format="rgb5a1" Width="16" Height="16" Offset="0x12960" />
-        <Texture Name="object_knight_Tex_012B60" OutName="tex_012B60" Format="rgb5a1" Width="8" Height="8" Offset="0x12B60" />
+        <Texture Name="object_knight_Tex_012760" OutName="tex_012760" Format="rgba16" Width="16" Height="16" Offset="0x12760" />
+        <Texture Name="object_knight_Tex_012960" OutName="tex_012960" Format="rgba16" Width="16" Height="16" Offset="0x12960" />
+        <Texture Name="object_knight_Tex_012B60" OutName="tex_012B60" Format="rgba16" Width="8" Height="8" Offset="0x12B60" />
         <Texture Name="object_knight_Tex_012BE0" OutName="tex_012BE0" Format="ia16" Width="8" Height="8" Offset="0x12BE0" />
         <DList Name="object_knight_DL_012DB0" Offset="0x12DB0" />
-        <Texture Name="object_knight_Tex_012EC0" OutName="tex_012EC0" Format="rgb5a1" Width="8" Height="16" Offset="0x12EC0" />
-        <Texture Name="object_knight_Tex_012FC0" OutName="tex_012FC0" Format="rgb5a1" Width="4" Height="4" Offset="0x12FC0" />
+        <Texture Name="object_knight_Tex_012EC0" OutName="tex_012EC0" Format="rgba16" Width="8" Height="16" Offset="0x12EC0" />
+        <Texture Name="object_knight_Tex_012FC0" OutName="tex_012FC0" Format="rgba16" Width="4" Height="4" Offset="0x12FC0" />
         <DList Name="object_knight_DL_013020" Offset="0x13020" />
         <DList Name="object_knight_DL_0153E0" Offset="0x153E0" />
         <DList Name="object_knight_DL_0154B0" Offset="0x154B0" />
@@ -79,18 +79,18 @@
         <DList Name="object_knight_DL_016C78" Offset="0x16C78" />
         <DList Name="object_knight_DL_016DB0" Offset="0x16DB0" />
         <DList Name="object_knight_DL_016F70" Offset="0x16F70" />
-        <Texture Name="object_knight_Tex_017078" OutName="tex_017078" Format="rgb5a1" Width="16" Height="16" Offset="0x17078" />
-        <Texture Name="object_knight_Tex_017278" OutName="tex_017278" Format="rgb5a1" Width="4" Height="4" Offset="0x17278" />
-        <Texture Name="object_knight_Tex_017298" OutName="tex_017298" Format="rgb5a1" Width="4" Height="8" Offset="0x17298" />
-        <Texture Name="object_knight_Tex_0172D8" OutName="tex_0172D8" Format="rgb5a1" Width="8" Height="8" Offset="0x172D8" />
-        <Texture Name="object_knight_Tex_017358" OutName="tex_017358" Format="rgb5a1" Width="16" Height="16" Offset="0x17358" />
-        <Texture Name="object_knight_Tex_017558" OutName="tex_017558" Format="rgb5a1" Width="8" Height="8" Offset="0x17558" />
-        <Texture Name="object_knight_Tex_0175D8" OutName="tex_0175D8" Format="rgb5a1" Width="8" Height="16" Offset="0x175D8" />
-        <Texture Name="object_knight_Tex_0176D8" OutName="tex_0176D8" Format="rgb5a1" Width="16" Height="16" Offset="0x176D8" />
-        <Texture Name="object_knight_Tex_0178D8" OutName="tex_0178D8" Format="rgb5a1" Width="16" Height="16" Offset="0x178D8" />
-        <Texture Name="object_knight_Tex_017AD8" OutName="tex_017AD8" Format="rgb5a1" Width="8" Height="16" Offset="0x17AD8" />
-        <Texture Name="object_knight_Tex_017BD8" OutName="tex_017BD8" Format="rgb5a1" Width="16" Height="16" Offset="0x17BD8" />
-        <Texture Name="object_knight_Tex_017DD8" OutName="tex_017DD8" Format="rgb5a1" Width="8" Height="32" Offset="0x17DD8" />
+        <Texture Name="object_knight_Tex_017078" OutName="tex_017078" Format="rgba16" Width="16" Height="16" Offset="0x17078" />
+        <Texture Name="object_knight_Tex_017278" OutName="tex_017278" Format="rgba16" Width="4" Height="4" Offset="0x17278" />
+        <Texture Name="object_knight_Tex_017298" OutName="tex_017298" Format="rgba16" Width="4" Height="8" Offset="0x17298" />
+        <Texture Name="object_knight_Tex_0172D8" OutName="tex_0172D8" Format="rgba16" Width="8" Height="8" Offset="0x172D8" />
+        <Texture Name="object_knight_Tex_017358" OutName="tex_017358" Format="rgba16" Width="16" Height="16" Offset="0x17358" />
+        <Texture Name="object_knight_Tex_017558" OutName="tex_017558" Format="rgba16" Width="8" Height="8" Offset="0x17558" />
+        <Texture Name="object_knight_Tex_0175D8" OutName="tex_0175D8" Format="rgba16" Width="8" Height="16" Offset="0x175D8" />
+        <Texture Name="object_knight_Tex_0176D8" OutName="tex_0176D8" Format="rgba16" Width="16" Height="16" Offset="0x176D8" />
+        <Texture Name="object_knight_Tex_0178D8" OutName="tex_0178D8" Format="rgba16" Width="16" Height="16" Offset="0x178D8" />
+        <Texture Name="object_knight_Tex_017AD8" OutName="tex_017AD8" Format="rgba16" Width="8" Height="16" Offset="0x17AD8" />
+        <Texture Name="object_knight_Tex_017BD8" OutName="tex_017BD8" Format="rgba16" Width="16" Height="16" Offset="0x17BD8" />
+        <Texture Name="object_knight_Tex_017DD8" OutName="tex_017DD8" Format="rgba16" Width="8" Height="32" Offset="0x17DD8" />
         <Texture Name="object_knight_Tex_017FD8" OutName="tex_017FD8" Format="ia8" Width="8" Height="8" Offset="0x17FD8" />
         <Texture Name="object_knight_Tex_018018" OutName="tex_018018" Format="i4" Width="16" Height="16" Offset="0x18018" />
         <Texture Name="object_knight_Tex_018098" OutName="tex_018098" Format="i8" Width="64" Height="32" Offset="0x18098" />
@@ -106,7 +106,7 @@
         <!--Blob Name="object_knight_Blob_019358" Size="0x10" Offset="0x19358" /-->
         <DList Name="object_knight_DL_0193A8" Offset="0x193A8" />
         <DList Name="object_knight_DL_0193B0" Offset="0x193B0" />
-        <Texture Name="object_knight_Tex_019470" OutName="tex_019470" Format="rgb5a1" Width="4" Height="4" Offset="0x19470" />
+        <Texture Name="object_knight_Tex_019470" OutName="tex_019470" Format="rgba16" Width="4" Height="4" Offset="0x19470" />
         <!--Blob Name="object_knight_Blob_019490" Size="0x800" Offset="0x19490" /-->
         <DList Name="object_knight_DL_01D380" Offset="0x1D380" />
         <DList Name="object_knight_DL_01D4C0" Offset="0x1D4C0" />
@@ -134,12 +134,12 @@
         <DList Name="object_knight_DL_01F3C0" Offset="0x1F3C0" />
         <DList Name="object_knight_DL_01F5C0" Offset="0x1F5C0" />
         <DList Name="object_knight_DL_01F828" Offset="0x1F828" />
-        <Texture Name="object_knight_Tex_01F8E8" OutName="tex_01F8E8" Format="rgb5a1" Width="8" Height="16" Offset="0x1F8E8" />
-        <Texture Name="object_knight_Tex_01F9E8" OutName="tex_01F9E8" Format="rgb5a1" Width="8" Height="16" Offset="0x1F9E8" />
-        <Texture Name="object_knight_Tex_01FAE8" OutName="tex_01FAE8" Format="rgb5a1" Width="16" Height="8" Offset="0x1FAE8" />
+        <Texture Name="object_knight_Tex_01F8E8" OutName="tex_01F8E8" Format="rgba16" Width="8" Height="16" Offset="0x1F8E8" />
+        <Texture Name="object_knight_Tex_01F9E8" OutName="tex_01F9E8" Format="rgba16" Width="8" Height="16" Offset="0x1F9E8" />
+        <Texture Name="object_knight_Tex_01FAE8" OutName="tex_01FAE8" Format="rgba16" Width="16" Height="8" Offset="0x1FAE8" />
         <Texture Name="object_knight_Tex_01FBE8" OutName="tex_01FBE8" Format="ia8" Width="16" Height="16" Offset="0x1FBE8" />
-        <Texture Name="object_knight_Tex_01FCE8" OutName="tex_01FCE8" Format="rgb5a1" Width="8" Height="16" Offset="0x1FCE8" />
-        <Texture Name="object_knight_Tex_01FDE8" OutName="tex_01FDE8" Format="rgb5a1" Width="16" Height="16" Offset="0x1FDE8" />
+        <Texture Name="object_knight_Tex_01FCE8" OutName="tex_01FCE8" Format="rgba16" Width="8" Height="16" Offset="0x1FCE8" />
+        <Texture Name="object_knight_Tex_01FDE8" OutName="tex_01FDE8" Format="rgba16" Width="16" Height="16" Offset="0x1FDE8" />
         <Limb Name="object_knight_Limb_01FFE8" LimbType="Standard" Offset="0x1FFE8" />
         <Limb Name="object_knight_Limb_01FFF4" LimbType="Standard" Offset="0x1FFF4" />
         <Limb Name="object_knight_Limb_020000" LimbType="Standard" Offset="0x20000" />

@@ -45,13 +45,13 @@
         <DList Name="object_dnp_DL_00E9A8" Offset="0xE9A8" />
         <DList Name="object_dnp_DL_00EAC0" Offset="0xEAC0" />
         <DList Name="object_dnp_DL_00EBD8" Offset="0xEBD8" />
-        <Texture Name="object_dnp_Tex_00ECD0" OutName="tex_00ECD0" Format="rgb5a1" Width="16" Height="32" Offset="0xECD0" />
-        <Texture Name="object_dnp_Tex_00F0D0" OutName="tex_00F0D0" Format="rgb5a1" Width="16" Height="32" Offset="0xF0D0" />
-        <Texture Name="object_dnp_Tex_00F4D0" OutName="tex_00F4D0" Format="rgb5a1" Width="4" Height="16" Offset="0xF4D0" />
-        <Texture Name="object_dnp_Tex_00F550" OutName="tex_00F550" Format="rgb5a1" Width="8" Height="8" Offset="0xF550" />
-        <Texture Name="object_dnp_Tex_00F5D0" OutName="tex_00F5D0" Format="rgb5a1" Width="16" Height="16" Offset="0xF5D0" />
-        <Texture Name="object_dnp_Tex_00F7D0" OutName="tex_00F7D0" Format="rgb5a1" Width="32" Height="32" Offset="0xF7D0" />
-        <Texture Name="object_dnp_Tex_00FFD0" OutName="tex_00FFD0" Format="rgb5a1" Width="16" Height="32" Offset="0xFFD0" />
+        <Texture Name="object_dnp_Tex_00ECD0" OutName="tex_00ECD0" Format="rgba16" Width="16" Height="32" Offset="0xECD0" />
+        <Texture Name="object_dnp_Tex_00F0D0" OutName="tex_00F0D0" Format="rgba16" Width="16" Height="32" Offset="0xF0D0" />
+        <Texture Name="object_dnp_Tex_00F4D0" OutName="tex_00F4D0" Format="rgba16" Width="4" Height="16" Offset="0xF4D0" />
+        <Texture Name="object_dnp_Tex_00F550" OutName="tex_00F550" Format="rgba16" Width="8" Height="8" Offset="0xF550" />
+        <Texture Name="object_dnp_Tex_00F5D0" OutName="tex_00F5D0" Format="rgba16" Width="16" Height="16" Offset="0xF5D0" />
+        <Texture Name="object_dnp_Tex_00F7D0" OutName="tex_00F7D0" Format="rgba16" Width="32" Height="32" Offset="0xF7D0" />
+        <Texture Name="object_dnp_Tex_00FFD0" OutName="tex_00FFD0" Format="rgba16" Width="16" Height="32" Offset="0xFFD0" />
         <!--Blob Name="object_dnp_Blob_0103D0" Size="0x800" Offset="0x103D0" /-->
         <Limb Name="object_dnp_Limb_010BD0" LimbType="Standard" Offset="0x10BD0" />
         <Limb Name="object_dnp_Limb_010BDC" LimbType="Standard" Offset="0x10BDC" />

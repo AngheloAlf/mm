@@ -25,16 +25,16 @@
         <DList Name="object_ha_DL_006708" Offset="0x6708" />
         <DList Name="object_ha_DL_0068E8" Offset="0x68E8" />
         <DList Name="object_ha_DL_0069A8" Offset="0x69A8" />
-        <Texture Name="object_ha_TLUT_006E58" OutName="tlut_006E58" Format="rgb5a1" Width="16" Height="16" Offset="0x6E58" />
+        <Texture Name="object_ha_TLUT_006E58" OutName="tlut_006E58" Format="rgba16" Width="16" Height="16" Offset="0x6E58" />
         <Texture Name="object_ha_Tex_007058" OutName="tex_007058" Format="ci8" Width="16" Height="16" Offset="0x7058" />
         <Texture Name="object_ha_Tex_007158" OutName="tex_007158" Format="ci8" Width="16" Height="32" Offset="0x7158" />
-        <Texture Name="object_ha_Tex_007358" OutName="tex_007358" Format="rgb5a1" Width="16" Height="16" Offset="0x7358" />
+        <Texture Name="object_ha_Tex_007358" OutName="tex_007358" Format="rgba16" Width="16" Height="16" Offset="0x7358" />
         <Texture Name="object_ha_Tex_007558" OutName="tex_007558" Format="ci8" Width="16" Height="16" Offset="0x7558" />
         <Texture Name="object_ha_Tex_007658" OutName="tex_007658" Format="ci8" Width="16" Height="16" Offset="0x7658" />
-        <Texture Name="object_ha_Tex_007758" OutName="tex_007758" Format="rgb5a1" Width="32" Height="32" Offset="0x7758" />
+        <Texture Name="object_ha_Tex_007758" OutName="tex_007758" Format="rgba16" Width="32" Height="32" Offset="0x7758" />
         <Texture Name="object_ha_Tex_007F58" OutName="tex_007F58" Format="ci8" Width="32" Height="32" Offset="0x7F58" />
         <Texture Name="object_ha_Tex_008358" OutName="tex_008358" Format="ci8" Width="32" Height="32" Offset="0x8358" />
-        <Texture Name="object_ha_Tex_008758" OutName="tex_008758" Format="rgb5a1" Width="8" Height="16" Offset="0x8758" />
+        <Texture Name="object_ha_Tex_008758" OutName="tex_008758" Format="rgba16" Width="8" Height="16" Offset="0x8758" />
         <Texture Name="object_ha_Tex_008858" OutName="tex_008858" Format="ci8" Width="16" Height="16" Offset="0x8858" />
         <Texture Name="object_ha_Tex_008958" OutName="tex_008958" Format="ci8" Width="16" Height="16" Offset="0x8958" />
         <Texture Name="object_ha_Tex_008A58" OutName="tex_008A58" Format="ci8" Width="8" Height="16" Offset="0x8A58" />
@@ -97,7 +97,7 @@
         <DList Name="object_ha_DL_0125E8" Offset="0x125E8" />
         <DList Name="object_ha_DL_0127D0" Offset="0x127D0" />
         <DList Name="object_ha_DL_012890" Offset="0x12890" />
-        <Texture Name="object_ha_TLUT_012D48" OutName="tlut_012D48" Format="rgb5a1" Width="16" Height="16" Offset="0x12D48" />
+        <Texture Name="object_ha_TLUT_012D48" OutName="tlut_012D48" Format="rgba16" Width="16" Height="16" Offset="0x12D48" />
         <Texture Name="object_ha_Tex_012F48" OutName="tex_012F48" Format="ci8" Width="32" Height="32" Offset="0x12F48" />
         <Texture Name="object_ha_Tex_013348" OutName="tex_013348" Format="ci8" Width="32" Height="32" Offset="0x13348" />
         <Texture Name="object_ha_Tex_013748" OutName="tex_013748" Format="rgba32" Width="32" Height="32" Offset="0x13748" />

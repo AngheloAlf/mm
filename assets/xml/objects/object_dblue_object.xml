@@ -50,30 +50,30 @@
         <DList Name="object_dblue_object_DL_00D110" Offset="0xD110" />
         <DList Name="object_dblue_object_DL_00D220" Offset="0xD220" />
         <!--Blob Name="object_dblue_object_zeroes_unk_0000D228" Size="0x1E8" Offset="0xD228" /-->
-        <Texture Name="object_dblue_object_Tex_00D410" OutName="tex_00D410" Format="rgb5a1" Width="4" Height="4" Offset="0xD410" />
+        <Texture Name="object_dblue_object_Tex_00D410" OutName="tex_00D410" Format="rgba16" Width="4" Height="4" Offset="0xD410" />
         <!--Blob Name="object_dblue_object_zeroes_unk_0000D430" Size="0x420" Offset="0xD430" /-->
-        <Texture Name="object_dblue_object_Tex_00D850" OutName="tex_00D850" Format="rgb5a1" Width="4" Height="4" Offset="0xD850" />
+        <Texture Name="object_dblue_object_Tex_00D850" OutName="tex_00D850" Format="rgba16" Width="4" Height="4" Offset="0xD850" />
         <!--Blob Name="object_dblue_object_zeroes_unk_0000D870" Size="0x60" Offset="0xD870" /-->
-        <Texture Name="object_dblue_object_Tex_00D8D0" OutName="tex_00D8D0" Format="rgb5a1" Width="16" Height="64" Offset="0xD8D0" />
-        <Texture Name="object_dblue_object_Tex_00E0D0" OutName="tex_00E0D0" Format="rgb5a1" Width="8" Height="16" Offset="0xE0D0" />
-        <Texture Name="object_dblue_object_Tex_00E1D0" OutName="tex_00E1D0" Format="rgb5a1" Width="32" Height="64" Offset="0xE1D0" />
-        <Texture Name="object_dblue_object_Tex_00F1D0" OutName="tex_00F1D0" Format="rgb5a1" Width="16" Height="32" Offset="0xF1D0" />
-        <Texture Name="object_dblue_object_Tex_00F5D0" OutName="tex_00F5D0" Format="rgb5a1" Width="16" Height="64" Offset="0xF5D0" />
-        <Texture Name="object_dblue_object_Tex_00FDD0" OutName="tex_00FDD0" Format="rgb5a1" Width="16" Height="32" Offset="0xFDD0" />
-        <Texture Name="object_dblue_object_Tex_0101D0" OutName="tex_0101D0" Format="rgb5a1" Width="32" Height="64" Offset="0x101D0" />
-        <Texture Name="object_dblue_object_Tex_0111D0" OutName="tex_0111D0" Format="rgb5a1" Width="32" Height="32" Offset="0x111D0" />
+        <Texture Name="object_dblue_object_Tex_00D8D0" OutName="tex_00D8D0" Format="rgba16" Width="16" Height="64" Offset="0xD8D0" />
+        <Texture Name="object_dblue_object_Tex_00E0D0" OutName="tex_00E0D0" Format="rgba16" Width="8" Height="16" Offset="0xE0D0" />
+        <Texture Name="object_dblue_object_Tex_00E1D0" OutName="tex_00E1D0" Format="rgba16" Width="32" Height="64" Offset="0xE1D0" />
+        <Texture Name="object_dblue_object_Tex_00F1D0" OutName="tex_00F1D0" Format="rgba16" Width="16" Height="32" Offset="0xF1D0" />
+        <Texture Name="object_dblue_object_Tex_00F5D0" OutName="tex_00F5D0" Format="rgba16" Width="16" Height="64" Offset="0xF5D0" />
+        <Texture Name="object_dblue_object_Tex_00FDD0" OutName="tex_00FDD0" Format="rgba16" Width="16" Height="32" Offset="0xFDD0" />
+        <Texture Name="object_dblue_object_Tex_0101D0" OutName="tex_0101D0" Format="rgba16" Width="32" Height="64" Offset="0x101D0" />
+        <Texture Name="object_dblue_object_Tex_0111D0" OutName="tex_0111D0" Format="rgba16" Width="32" Height="32" Offset="0x111D0" />
         <Texture Name="object_dblue_object_Tex_0119D0" OutName="tex_0119D0" Format="ci4" Width="8" Height="16" Offset="0x119D0" />
-        <Texture Name="object_dblue_object_Tex_011A10" OutName="tex_011A10" Format="rgb5a1" Width="32" Height="32" Offset="0x11A10" />
+        <Texture Name="object_dblue_object_Tex_011A10" OutName="tex_011A10" Format="rgba16" Width="32" Height="32" Offset="0x11A10" />
         <!--Blob Name="object_dblue_object_zeroes_unk_00012210" Size="0x1D60" Offset="0x12210" /-->
         <Texture Name="object_dblue_object_Tex_013F70" OutName="tex_013F70" Format="ci4" Width="64" Height="64" Offset="0x13F70" />
-        <Texture Name="object_dblue_object_Tex_014770" OutName="tex_014770" Format="rgb5a1" Width="32" Height="32" Offset="0x14770" />
-        <Texture Name="object_dblue_object_Tex_014F70" OutName="tex_014F70" Format="rgb5a1" Width="32" Height="32" Offset="0x14F70" />
+        <Texture Name="object_dblue_object_Tex_014770" OutName="tex_014770" Format="rgba16" Width="32" Height="32" Offset="0x14770" />
+        <Texture Name="object_dblue_object_Tex_014F70" OutName="tex_014F70" Format="rgba16" Width="32" Height="32" Offset="0x14F70" />
         <Texture Name="object_dblue_object_Tex_015770" OutName="tex_015770" Format="ia8" Width="32" Height="64" Offset="0x15770" />
-        <Texture Name="object_dblue_object_Tex_015F70" OutName="tex_015F70" Format="rgb5a1" Width="32" Height="32" Offset="0x15F70" />
-        <Texture Name="object_dblue_object_Tex_016770" OutName="tex_016770" Format="rgb5a1" Width="32" Height="32" Offset="0x16770" />
-        <Texture Name="object_dblue_object_Tex_016F70" OutName="tex_016F70" Format="rgb5a1" Width="32" Height="32" Offset="0x16F70" />
+        <Texture Name="object_dblue_object_Tex_015F70" OutName="tex_015F70" Format="rgba16" Width="32" Height="32" Offset="0x15F70" />
+        <Texture Name="object_dblue_object_Tex_016770" OutName="tex_016770" Format="rgba16" Width="32" Height="32" Offset="0x16770" />
+        <Texture Name="object_dblue_object_Tex_016F70" OutName="tex_016F70" Format="rgba16" Width="32" Height="32" Offset="0x16F70" />
         <!--Blob Name="object_dblue_object_zeroes_unk_00017770" Size="0x400" Offset="0x17770" /-->
         <DList Name="object_dblue_object_DL_017D00" Offset="0x17D00" />
-        <Texture Name="object_dblue_object_Tex_017E58" OutName="tex_017E58" Format="rgb5a1" Width="32" Height="64" Offset="0x17E58" />
+        <Texture Name="object_dblue_object_Tex_017E58" OutName="tex_017E58" Format="rgba16" Width="32" Height="64" Offset="0x17E58" />
     </File>
 </Root>

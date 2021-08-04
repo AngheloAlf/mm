@@ -23,15 +23,15 @@
         <DList Name="object_fb_DL_002AD8" Offset="0x2AD8" />
         <DList Name="object_fb_DL_002B98" Offset="0x2B98" />
         <DList Name="object_fb_DL_002C20" Offset="0x2C20" />
-        <Texture Name="object_fb_Tex_002D20" OutName="tex_002D20" Format="rgb5a1" Width="32" Height="16" Offset="0x2D20" />
-        <Texture Name="object_fb_Tex_003120" OutName="tex_003120" Format="rgb5a1" Width="16" Height="32" Offset="0x3120" />
-        <Texture Name="object_fb_Tex_003520" OutName="tex_003520" Format="rgb5a1" Width="32" Height="16" Offset="0x3520" />
-        <Texture Name="object_fb_Tex_003920" OutName="tex_003920" Format="rgb5a1" Width="64" Height="32" Offset="0x3920" />
-        <Texture Name="object_fb_Tex_004920" OutName="tex_004920" Format="rgb5a1" Width="16" Height="16" Offset="0x4920" />
-        <Texture Name="object_fb_Tex_004B20" OutName="tex_004B20" Format="rgb5a1" Width="32" Height="16" Offset="0x4B20" />
-        <Texture Name="object_fb_Tex_004F20" OutName="tex_004F20" Format="rgb5a1" Width="8" Height="16" Offset="0x4F20" />
-        <Texture Name="object_fb_Tex_005020" OutName="tex_005020" Format="rgb5a1" Width="32" Height="32" Offset="0x5020" />
-        <Texture Name="object_fb_Tex_005820" OutName="tex_005820" Format="rgb5a1" Width="32" Height="32" Offset="0x5820" />
+        <Texture Name="object_fb_Tex_002D20" OutName="tex_002D20" Format="rgba16" Width="32" Height="16" Offset="0x2D20" />
+        <Texture Name="object_fb_Tex_003120" OutName="tex_003120" Format="rgba16" Width="16" Height="32" Offset="0x3120" />
+        <Texture Name="object_fb_Tex_003520" OutName="tex_003520" Format="rgba16" Width="32" Height="16" Offset="0x3520" />
+        <Texture Name="object_fb_Tex_003920" OutName="tex_003920" Format="rgba16" Width="64" Height="32" Offset="0x3920" />
+        <Texture Name="object_fb_Tex_004920" OutName="tex_004920" Format="rgba16" Width="16" Height="16" Offset="0x4920" />
+        <Texture Name="object_fb_Tex_004B20" OutName="tex_004B20" Format="rgba16" Width="32" Height="16" Offset="0x4B20" />
+        <Texture Name="object_fb_Tex_004F20" OutName="tex_004F20" Format="rgba16" Width="8" Height="16" Offset="0x4F20" />
+        <Texture Name="object_fb_Tex_005020" OutName="tex_005020" Format="rgba16" Width="32" Height="32" Offset="0x5020" />
+        <Texture Name="object_fb_Tex_005820" OutName="tex_005820" Format="rgba16" Width="32" Height="32" Offset="0x5820" />
         <Limb Name="object_fb_Limb_006020" LimbType="Standard" Offset="0x6020" />
         <Limb Name="object_fb_Limb_00602C" LimbType="Standard" Offset="0x602C" />
         <Limb Name="object_fb_Limb_006038" LimbType="Standard" Offset="0x6038" />

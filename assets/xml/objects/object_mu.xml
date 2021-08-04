@@ -5,7 +5,7 @@
         <Animation Name="object_mu_Anim_004904" Offset="0x4904" />
         <Animation Name="object_mu_Anim_005304" Offset="0x5304" />
         <Animation Name="object_mu_Anim_0053E0" Offset="0x53E0" />
-        <Texture Name="object_mu_TLUT_0053F0" OutName="tlut_0053F0" Format="rgb5a1" Width="16" Height="16" Offset="0x53F0" />
+        <Texture Name="object_mu_TLUT_0053F0" OutName="tlut_0053F0" Format="rgba16" Width="16" Height="16" Offset="0x53F0" />
         <Texture Name="object_mu_Tex_0055F0" OutName="tex_0055F0" Format="i8" Width="16" Height="16" Offset="0x55F0" />
         <Texture Name="object_mu_Tex_0056F0" OutName="tex_0056F0" Format="ci8" Width="16" Height="16" Offset="0x56F0" />
         <Texture Name="object_mu_Tex_0057F0" OutName="tex_0057F0" Format="i8" Width="8" Height="8" Offset="0x57F0" />

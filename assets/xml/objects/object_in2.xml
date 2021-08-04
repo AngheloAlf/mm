@@ -19,13 +19,13 @@
         <DList Name="object_in2_DL_0048F8" Offset="0x48F8" />
         <DList Name="object_in2_DL_0049F0" Offset="0x49F0" />
         <DList Name="object_in2_DL_004AF8" Offset="0x4AF8" />
-        <Texture Name="object_in2_Tex_004C28" OutName="tex_004C28" Format="rgb5a1" Width="16" Height="16" Offset="0x4C28" />
-        <Texture Name="object_in2_TLUT_004E28" OutName="tlut_004E28" Format="rgb5a1" Width="16" Height="16" Offset="0x4E28" />
+        <Texture Name="object_in2_Tex_004C28" OutName="tex_004C28" Format="rgba16" Width="16" Height="16" Offset="0x4C28" />
+        <Texture Name="object_in2_TLUT_004E28" OutName="tlut_004E28" Format="rgba16" Width="16" Height="16" Offset="0x4E28" />
         <!--Blob Name="object_in2_Blob_005028" Size="0x400" Offset="0x5028" /-->
         <Texture Name="object_in2_Tex_005428" OutName="tex_005428" Format="ci8" Width="8" Height="8" Offset="0x5428" />
         <Texture Name="object_in2_Tex_005468" OutName="tex_005468" Format="ci8" Width="8" Height="8" Offset="0x5468" />
         <!--Blob Name="object_in2_Blob_0054A8" Size="0x400" Offset="0x54A8" /-->
-        <Texture Name="object_in2_Tex_0058A8" OutName="tex_0058A8" Format="rgb5a1" Width="16" Height="16" Offset="0x58A8" />
+        <Texture Name="object_in2_Tex_0058A8" OutName="tex_0058A8" Format="rgba16" Width="16" Height="16" Offset="0x58A8" />
         <Texture Name="object_in2_Tex_005AA8" OutName="tex_005AA8" Format="ci8" Width="16" Height="16" Offset="0x5AA8" />
         <Texture Name="object_in2_Tex_005BA8" OutName="tex_005BA8" Format="ci8" Width="16" Height="16" Offset="0x5BA8" />
         <Texture Name="object_in2_Tex_005CA8" OutName="tex_005CA8" Format="i8" Width="8" Height="8" Offset="0x5CA8" />
@@ -43,7 +43,7 @@
         <Texture Name="object_in2_Tex_007068" OutName="tex_007068" Format="ci8" Width="8" Height="8" Offset="0x7068" />
         <DList Name="object_in2_DL_007198" Offset="0x7198" />
         <DList Name="object_in2_DL_0071A0" Offset="0x71A0" />
-        <Texture Name="object_in2_Tex_007260" OutName="tex_007260" Format="rgb5a1" Width="16" Height="16" Offset="0x7260" />
+        <Texture Name="object_in2_Tex_007260" OutName="tex_007260" Format="rgba16" Width="16" Height="16" Offset="0x7260" />
         <DList Name="object_in2_DL_007520" Offset="0x7520" />
         <DList Name="object_in2_DL_007528" Offset="0x7528" />
         <Texture Name="object_in2_Tex_007680" OutName="tex_007680" Format="i8" Width="16" Height="16" Offset="0x7680" />

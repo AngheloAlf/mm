@@ -22,18 +22,18 @@
         <DList Name="object_bal_DL_0050F8" Offset="0x50F8" />
         <DList Name="object_bal_DL_0051E0" Offset="0x51E0" />
         <DList Name="object_bal_DL_0052A0" Offset="0x52A0" />
-        <Texture Name="object_bal_TLUT_0053B0" OutName="tlut_0053B0" Format="rgb5a1" Width="4" Height="4" Offset="0x53B0" />
-        <Texture Name="object_bal_Tex_0053D0" OutName="tex_0053D0" Format="rgb5a1" Width="16" Height="16" Offset="0x53D0" />
-        <Texture Name="object_bal_Tex_0055D0" OutName="tex_0055D0" Format="rgb5a1" Width="32" Height="32" Offset="0x55D0" />
-        <Texture Name="object_bal_Tex_005DD0" OutName="tex_005DD0" Format="rgb5a1" Width="16" Height="16" Offset="0x5DD0" />
-        <Texture Name="object_bal_Tex_005FD0" OutName="tex_005FD0" Format="rgb5a1" Width="8" Height="8" Offset="0x5FD0" />
+        <Texture Name="object_bal_TLUT_0053B0" OutName="tlut_0053B0" Format="rgba16" Width="4" Height="4" Offset="0x53B0" />
+        <Texture Name="object_bal_Tex_0053D0" OutName="tex_0053D0" Format="rgba16" Width="16" Height="16" Offset="0x53D0" />
+        <Texture Name="object_bal_Tex_0055D0" OutName="tex_0055D0" Format="rgba16" Width="32" Height="32" Offset="0x55D0" />
+        <Texture Name="object_bal_Tex_005DD0" OutName="tex_005DD0" Format="rgba16" Width="16" Height="16" Offset="0x5DD0" />
+        <Texture Name="object_bal_Tex_005FD0" OutName="tex_005FD0" Format="rgba16" Width="8" Height="8" Offset="0x5FD0" />
         <!--Blob Name="object_bal_Blob_006050" Size="0x1000" Offset="0x6050" /-->
-        <Texture Name="object_bal_Tex_007050" OutName="tex_007050" Format="rgb5a1" Width="8" Height="8" Offset="0x7050" />
-        <Texture Name="object_bal_Tex_0070D0" OutName="tex_0070D0" Format="rgb5a1" Width="16" Height="16" Offset="0x70D0" />
-        <Texture Name="object_bal_Tex_0072D0" OutName="tex_0072D0" Format="rgb5a1" Width="64" Height="32" Offset="0x72D0" />
-        <Texture Name="object_bal_Tex_0082D0" OutName="tex_0082D0" Format="rgb5a1" Width="16" Height="32" Offset="0x82D0" />
-        <Texture Name="object_bal_Tex_0086D0" OutName="tex_0086D0" Format="rgb5a1" Width="32" Height="16" Offset="0x86D0" />
-        <Texture Name="object_bal_Tex_008AD0" OutName="tex_008AD0" Format="rgb5a1" Width="16" Height="16" Offset="0x8AD0" />
+        <Texture Name="object_bal_Tex_007050" OutName="tex_007050" Format="rgba16" Width="8" Height="8" Offset="0x7050" />
+        <Texture Name="object_bal_Tex_0070D0" OutName="tex_0070D0" Format="rgba16" Width="16" Height="16" Offset="0x70D0" />
+        <Texture Name="object_bal_Tex_0072D0" OutName="tex_0072D0" Format="rgba16" Width="64" Height="32" Offset="0x72D0" />
+        <Texture Name="object_bal_Tex_0082D0" OutName="tex_0082D0" Format="rgba16" Width="16" Height="32" Offset="0x82D0" />
+        <Texture Name="object_bal_Tex_0086D0" OutName="tex_0086D0" Format="rgba16" Width="32" Height="16" Offset="0x86D0" />
+        <Texture Name="object_bal_Tex_008AD0" OutName="tex_008AD0" Format="rgba16" Width="16" Height="16" Offset="0x8AD0" />
         <Texture Name="object_bal_Tex_008CD0" OutName="tex_008CD0" Format="ci4" Width="64" Height="64" Offset="0x8CD0" />
         <!--Blob Name="object_bal_Blob_0094D0" Size="0x1000" Offset="0x94D0" /-->
         <Limb Name="object_bal_Limb_00A4D0" LimbType="Standard" Offset="0xA4D0" />

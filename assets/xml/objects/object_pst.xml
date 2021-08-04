@@ -3,9 +3,9 @@
         <Animation Name="object_pst_Anim_000018" Offset="0x18" />
         <DList Name="object_pst_DL_0004A0" Offset="0x4A0" />
         <DList Name="object_pst_DL_000638" Offset="0x638" />
-        <Texture Name="object_pst_Tex_000760" OutName="tex_000760" Format="rgb5a1" Width="32" Height="32" Offset="0x760" />
-        <Texture Name="object_pst_Tex_000F60" OutName="tex_000F60" Format="rgb5a1" Width="32" Height="32" Offset="0xF60" />
-        <Texture Name="object_pst_Tex_001760" OutName="tex_001760" Format="rgb5a1" Width="16" Height="16" Offset="0x1760" />
+        <Texture Name="object_pst_Tex_000760" OutName="tex_000760" Format="rgba16" Width="32" Height="32" Offset="0x760" />
+        <Texture Name="object_pst_Tex_000F60" OutName="tex_000F60" Format="rgba16" Width="32" Height="32" Offset="0xF60" />
+        <Texture Name="object_pst_Tex_001760" OutName="tex_001760" Format="rgba16" Width="16" Height="16" Offset="0x1760" />
         <Texture Name="object_pst_Tex_001960" OutName="tex_001960" Format="i4" Width="32" Height="16" Offset="0x1960" />
         <Limb Name="object_pst_Limb_001A60" LimbType="Standard" Offset="0x1A60" />
         <Limb Name="object_pst_Limb_001A6C" LimbType="Standard" Offset="0x1A6C" />

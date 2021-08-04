@@ -9,7 +9,7 @@
         <DList Name="object_wiz_DL_000FD8" Offset="0xFD8" />
         <DList Name="object_wiz_DL_0010E0" Offset="0x10E0" />
         <DList Name="object_wiz_DL_0010E8" Offset="0x10E8" />
-        <Texture Name="object_wiz_Tex_001198" OutName="tex_001198" Format="rgb5a1" Width="16" Height="32" Offset="0x1198" />
+        <Texture Name="object_wiz_Tex_001198" OutName="tex_001198" Format="rgba16" Width="16" Height="32" Offset="0x1198" />
         <!--Blob Name="object_wiz_Blob_001598" Size="0x128" Offset="0x1598" /-->
         <DList Name="object_wiz_DL_001860" Offset="0x1860" />
         <Texture Name="object_wiz_Tex_0019F0" OutName="tex_0019F0" Format="i4" Width="32" Height="32" Offset="0x19F0" />
@@ -65,18 +65,18 @@
         <DList Name="object_wiz_DL_009918" Offset="0x9918" />
         <DList Name="object_wiz_DL_0099C0" Offset="0x99C0" />
         <DList Name="object_wiz_DL_009A98" Offset="0x9A98" />
-        <Texture Name="object_wiz_Tex_009B70" OutName="tex_009B70" Format="rgb5a1" Width="8" Height="8" Offset="0x9B70" />
-        <Texture Name="object_wiz_Tex_009BF0" OutName="tex_009BF0" Format="rgb5a1" Width="32" Height="32" Offset="0x9BF0" />
-        <Texture Name="object_wiz_Tex_00A3F0" OutName="tex_00A3F0" Format="rgb5a1" Width="8" Height="16" Offset="0xA3F0" />
-        <Texture Name="object_wiz_Tex_00A4F0" OutName="tex_00A4F0" Format="rgb5a1" Width="16" Height="16" Offset="0xA4F0" />
-        <Texture Name="object_wiz_Tex_00A6F0" OutName="tex_00A6F0" Format="rgb5a1" Width="16" Height="16" Offset="0xA6F0" />
-        <Texture Name="object_wiz_Tex_00A8F0" OutName="tex_00A8F0" Format="rgb5a1" Width="8" Height="8" Offset="0xA8F0" />
-        <Texture Name="object_wiz_Tex_00A970" OutName="tex_00A970" Format="rgb5a1" Width="8" Height="16" Offset="0xA970" />
-        <Texture Name="object_wiz_Tex_00AA70" OutName="tex_00AA70" Format="rgb5a1" Width="16" Height="4" Offset="0xAA70" />
-        <Texture Name="object_wiz_Tex_00AAF0" OutName="tex_00AAF0" Format="rgb5a1" Width="16" Height="16" Offset="0xAAF0" />
-        <Texture Name="object_wiz_Tex_00ACF0" OutName="tex_00ACF0" Format="rgb5a1" Width="16" Height="16" Offset="0xACF0" />
-        <Texture Name="object_wiz_Tex_00AEF0" OutName="tex_00AEF0" Format="rgb5a1" Width="16" Height="16" Offset="0xAEF0" />
-        <Texture Name="object_wiz_Tex_00B0F0" OutName="tex_00B0F0" Format="rgb5a1" Width="16" Height="8" Offset="0xB0F0" />
+        <Texture Name="object_wiz_Tex_009B70" OutName="tex_009B70" Format="rgba16" Width="8" Height="8" Offset="0x9B70" />
+        <Texture Name="object_wiz_Tex_009BF0" OutName="tex_009BF0" Format="rgba16" Width="32" Height="32" Offset="0x9BF0" />
+        <Texture Name="object_wiz_Tex_00A3F0" OutName="tex_00A3F0" Format="rgba16" Width="8" Height="16" Offset="0xA3F0" />
+        <Texture Name="object_wiz_Tex_00A4F0" OutName="tex_00A4F0" Format="rgba16" Width="16" Height="16" Offset="0xA4F0" />
+        <Texture Name="object_wiz_Tex_00A6F0" OutName="tex_00A6F0" Format="rgba16" Width="16" Height="16" Offset="0xA6F0" />
+        <Texture Name="object_wiz_Tex_00A8F0" OutName="tex_00A8F0" Format="rgba16" Width="8" Height="8" Offset="0xA8F0" />
+        <Texture Name="object_wiz_Tex_00A970" OutName="tex_00A970" Format="rgba16" Width="8" Height="16" Offset="0xA970" />
+        <Texture Name="object_wiz_Tex_00AA70" OutName="tex_00AA70" Format="rgba16" Width="16" Height="4" Offset="0xAA70" />
+        <Texture Name="object_wiz_Tex_00AAF0" OutName="tex_00AAF0" Format="rgba16" Width="16" Height="16" Offset="0xAAF0" />
+        <Texture Name="object_wiz_Tex_00ACF0" OutName="tex_00ACF0" Format="rgba16" Width="16" Height="16" Offset="0xACF0" />
+        <Texture Name="object_wiz_Tex_00AEF0" OutName="tex_00AEF0" Format="rgba16" Width="16" Height="16" Offset="0xAEF0" />
+        <Texture Name="object_wiz_Tex_00B0F0" OutName="tex_00B0F0" Format="rgba16" Width="16" Height="8" Offset="0xB0F0" />
         <Limb Name="object_wiz_Limb_00B1F0" LimbType="Standard" Offset="0xB1F0" />
         <Limb Name="object_wiz_Limb_00B1FC" LimbType="Standard" Offset="0xB1FC" />
         <Limb Name="object_wiz_Limb_00B208" LimbType="Standard" Offset="0xB208" />

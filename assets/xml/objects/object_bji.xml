@@ -18,14 +18,14 @@
         <DList Name="object_bji_DL_0033F0" Offset="0x33F0" />
         <DList Name="object_bji_DL_0034B0" Offset="0x34B0" />
         <DList Name="object_bji_DL_003570" Offset="0x3570" />
-        <Texture Name="object_bji_TLUT_003730" OutName="tlut_003730" Format="rgb5a1" Width="16" Height="16" Offset="0x3730" />
-        <Texture Name="object_bji_TLUT_003930" OutName="tlut_003930" Format="rgb5a1" Width="16" Height="16" Offset="0x3930" />
-        <Texture Name="object_bji_TLUT_003B30" OutName="tlut_003B30" Format="rgb5a1" Width="16" Height="16" Offset="0x3B30" />
-        <Texture Name="object_bji_TLUT_003D30" OutName="tlut_003D30" Format="rgb5a1" Width="16" Height="16" Offset="0x3D30" />
-        <Texture Name="object_bji_TLUT_003F30" OutName="tlut_003F30" Format="rgb5a1" Width="16" Height="16" Offset="0x3F30" />
-        <Texture Name="object_bji_Tex_004130" OutName="tex_004130" Format="rgb5a1" Width="16" Height="16" Offset="0x4130" />
-        <Texture Name="object_bji_TLUT_004330" OutName="tlut_004330" Format="rgb5a1" Width="16" Height="16" Offset="0x4330" />
-        <Texture Name="object_bji_TLUT_004530" OutName="tlut_004530" Format="rgb5a1" Width="16" Height="16" Offset="0x4530" />
+        <Texture Name="object_bji_TLUT_003730" OutName="tlut_003730" Format="rgba16" Width="16" Height="16" Offset="0x3730" />
+        <Texture Name="object_bji_TLUT_003930" OutName="tlut_003930" Format="rgba16" Width="16" Height="16" Offset="0x3930" />
+        <Texture Name="object_bji_TLUT_003B30" OutName="tlut_003B30" Format="rgba16" Width="16" Height="16" Offset="0x3B30" />
+        <Texture Name="object_bji_TLUT_003D30" OutName="tlut_003D30" Format="rgba16" Width="16" Height="16" Offset="0x3D30" />
+        <Texture Name="object_bji_TLUT_003F30" OutName="tlut_003F30" Format="rgba16" Width="16" Height="16" Offset="0x3F30" />
+        <Texture Name="object_bji_Tex_004130" OutName="tex_004130" Format="rgba16" Width="16" Height="16" Offset="0x4130" />
+        <Texture Name="object_bji_TLUT_004330" OutName="tlut_004330" Format="rgba16" Width="16" Height="16" Offset="0x4330" />
+        <Texture Name="object_bji_TLUT_004530" OutName="tlut_004530" Format="rgba16" Width="16" Height="16" Offset="0x4530" />
         <Texture Name="object_bji_Tex_004730" OutName="tex_004730" Format="ci8" Width="8" Height="8" Offset="0x4730" />
         <Texture Name="object_bji_Tex_004770" OutName="tex_004770" Format="ci8" Width="16" Height="16" Offset="0x4770" />
         <Texture Name="object_bji_Tex_004870" OutName="tex_004870" Format="ci8" Width="8" Height="8" Offset="0x4870" />

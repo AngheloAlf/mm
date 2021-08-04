@@ -22,7 +22,7 @@
         <DList Name="object_harfgibud_DL_006DB8" Offset="0x6DB8" />
         <DList Name="object_harfgibud_DL_006EA0" Offset="0x6EA0" />
         <DList Name="object_harfgibud_DL_006F98" Offset="0x6F98" />
-        <Texture Name="object_harfgibud_TLUT_0070A0" OutName="tlut_0070A0" Format="rgb5a1" Width="16" Height="16" Offset="0x70A0" />
+        <Texture Name="object_harfgibud_TLUT_0070A0" OutName="tlut_0070A0" Format="rgba16" Width="16" Height="16" Offset="0x70A0" />
         <Texture Name="object_harfgibud_Tex_0072A0" OutName="tex_0072A0" Format="i8" Width="64" Height="32" Offset="0x72A0" />
         <Texture Name="object_harfgibud_Tex_007AA0" OutName="tex_007AA0" Format="ci8" Width="8" Height="8" Offset="0x7AA0" />
         <Texture Name="object_harfgibud_Tex_007AE0" OutName="tex_007AE0" Format="ci8" Width="8" Height="16" Offset="0x7AE0" />
@@ -30,9 +30,9 @@
         <Texture Name="object_harfgibud_Tex_007BA0" OutName="tex_007BA0" Format="ci8" Width="8" Height="8" Offset="0x7BA0" />
         <Texture Name="object_harfgibud_Tex_007BE0" OutName="tex_007BE0" Format="ci8" Width="32" Height="32" Offset="0x7BE0" />
         <Texture Name="object_harfgibud_Tex_007FE0" OutName="tex_007FE0" Format="ci8" Width="16" Height="16" Offset="0x7FE0" />
-        <Texture Name="object_harfgibud_Tex_0080E0" OutName="tex_0080E0" Format="rgb5a1" Width="16" Height="16" Offset="0x80E0" />
+        <Texture Name="object_harfgibud_Tex_0080E0" OutName="tex_0080E0" Format="rgba16" Width="16" Height="16" Offset="0x80E0" />
         <Texture Name="object_harfgibud_Tex_0082E0" OutName="tex_0082E0" Format="i8" Width="8" Height="8" Offset="0x82E0" />
-        <Texture Name="object_harfgibud_Tex_008320" OutName="tex_008320" Format="rgb5a1" Width="8" Height="8" Offset="0x8320" />
+        <Texture Name="object_harfgibud_Tex_008320" OutName="tex_008320" Format="rgba16" Width="8" Height="8" Offset="0x8320" />
         <Texture Name="object_harfgibud_Tex_0083A0" OutName="tex_0083A0" Format="ci8" Width="16" Height="8" Offset="0x83A0" />
         <Texture Name="object_harfgibud_Tex_008420" OutName="tex_008420" Format="i8" Width="8" Height="8" Offset="0x8420" />
         <Limb Name="object_harfgibud_Limb_008460" LimbType="Standard" Offset="0x8460" />
@@ -76,17 +76,17 @@
         <DList Name="object_harfgibud_DL_010078" Offset="0x10078" />
         <DList Name="object_harfgibud_DL_0102B8" Offset="0x102B8" />
         <DList Name="object_harfgibud_DL_0103C0" Offset="0x103C0" />
-        <Texture Name="object_harfgibud_TLUT_010578" OutName="tlut_010578" Format="rgb5a1" Width="16" Height="16" Offset="0x10578" />
+        <Texture Name="object_harfgibud_TLUT_010578" OutName="tlut_010578" Format="rgba16" Width="16" Height="16" Offset="0x10578" />
         <Texture Name="object_harfgibud_Tex_010778" OutName="tex_010778" Format="ci8" Width="8" Height="8" Offset="0x10778" />
         <Texture Name="object_harfgibud_Tex_0107B8" OutName="tex_0107B8" Format="ci8" Width="16" Height="16" Offset="0x107B8" />
         <Texture Name="object_harfgibud_Tex_0108B8" OutName="tex_0108B8" Format="ci8" Width="8" Height="16" Offset="0x108B8" />
         <Texture Name="object_harfgibud_Tex_010938" OutName="tex_010938" Format="ci8" Width="8" Height="8" Offset="0x10938" />
         <Texture Name="object_harfgibud_Tex_010978" OutName="tex_010978" Format="ci8" Width="32" Height="16" Offset="0x10978" />
         <Texture Name="object_harfgibud_Tex_010B78" OutName="tex_010B78" Format="ci8" Width="8" Height="8" Offset="0x10B78" />
-        <Texture Name="object_harfgibud_Tex_010BB8" OutName="tex_010BB8" Format="rgb5a1" Width="8" Height="16" Offset="0x10BB8" />
-        <Texture Name="object_harfgibud_Tex_010CB8" OutName="tex_010CB8" Format="rgb5a1" Width="16" Height="16" Offset="0x10CB8" />
+        <Texture Name="object_harfgibud_Tex_010BB8" OutName="tex_010BB8" Format="rgba16" Width="8" Height="16" Offset="0x10BB8" />
+        <Texture Name="object_harfgibud_Tex_010CB8" OutName="tex_010CB8" Format="rgba16" Width="16" Height="16" Offset="0x10CB8" />
         <Texture Name="object_harfgibud_Tex_010EB8" OutName="tex_010EB8" Format="i8" Width="8" Height="8" Offset="0x10EB8" />
-        <Texture Name="object_harfgibud_Tex_010EF8" OutName="tex_010EF8" Format="rgb5a1" Width="16" Height="16" Offset="0x10EF8" />
+        <Texture Name="object_harfgibud_Tex_010EF8" OutName="tex_010EF8" Format="rgba16" Width="16" Height="16" Offset="0x10EF8" />
         <Texture Name="object_harfgibud_Tex_0110F8" OutName="tex_0110F8" Format="i8" Width="8" Height="8" Offset="0x110F8" />
         <!--Blob Name="object_harfgibud_Blob_011138" Size="0x1800" Offset="0x11138" /-->
         <Limb Name="object_harfgibud_Limb_012938" LimbType="Standard" Offset="0x12938" />

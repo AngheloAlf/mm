@@ -10,14 +10,14 @@
         <DList Name="object_dekunuts_DL_000E30" Offset="0xE30" />
         <DList Name="object_dekunuts_DL_000F20" Offset="0xF20" />
         <DList Name="object_dekunuts_DL_001050" Offset="0x1050" />
-        <Texture Name="object_dekunuts_Tex_0010F0" OutName="tex_0010F0" Format="rgb5a1" Width="8" Height="8" Offset="0x10F0" />
-        <Texture Name="object_dekunuts_Tex_001170" OutName="tex_001170" Format="rgb5a1" Width="8" Height="8" Offset="0x1170" />
-        <Texture Name="object_dekunuts_Tex_0011F0" OutName="tex_0011F0" Format="rgb5a1" Width="32" Height="32" Offset="0x11F0" />
-        <Texture Name="object_dekunuts_Tex_0019F0" OutName="tex_0019F0" Format="rgb5a1" Width="8" Height="8" Offset="0x19F0" />
-        <Texture Name="object_dekunuts_Tex_001A70" OutName="tex_001A70" Format="rgb5a1" Width="16" Height="16" Offset="0x1A70" />
+        <Texture Name="object_dekunuts_Tex_0010F0" OutName="tex_0010F0" Format="rgba16" Width="8" Height="8" Offset="0x10F0" />
+        <Texture Name="object_dekunuts_Tex_001170" OutName="tex_001170" Format="rgba16" Width="8" Height="8" Offset="0x1170" />
+        <Texture Name="object_dekunuts_Tex_0011F0" OutName="tex_0011F0" Format="rgba16" Width="32" Height="32" Offset="0x11F0" />
+        <Texture Name="object_dekunuts_Tex_0019F0" OutName="tex_0019F0" Format="rgba16" Width="8" Height="8" Offset="0x19F0" />
+        <Texture Name="object_dekunuts_Tex_001A70" OutName="tex_001A70" Format="rgba16" Width="16" Height="16" Offset="0x1A70" />
         <DList Name="object_dekunuts_DL_001E50" Offset="0x1E50" />
         <DList Name="object_dekunuts_DL_001F50" Offset="0x1F50" />
-        <Texture Name="object_dekunuts_Tex_001FD8" OutName="tex_001FD8" Format="rgb5a1" Width="16" Height="32" Offset="0x1FD8" />
+        <Texture Name="object_dekunuts_Tex_001FD8" OutName="tex_001FD8" Format="rgba16" Width="16" Height="32" Offset="0x1FD8" />
         <Limb Name="object_dekunuts_Limb_0023D8" LimbType="Standard" Offset="0x23D8" />
         <Limb Name="object_dekunuts_Limb_0023E4" LimbType="Standard" Offset="0x23E4" />
         <Limb Name="object_dekunuts_Limb_0023F0" LimbType="Standard" Offset="0x23F0" />

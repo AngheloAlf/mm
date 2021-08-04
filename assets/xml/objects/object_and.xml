@@ -25,15 +25,15 @@
         <DList Name="object_and_DL_0064C0" Offset="0x64C0" />
         <DList Name="object_and_DL_006708" Offset="0x6708" />
         <DList Name="object_and_DL_0067E0" Offset="0x67E0" />
-        <Texture Name="object_and_Tex_006C30" OutName="tex_006C30" Format="rgb5a1" Width="8" Height="8" Offset="0x6C30" />
-        <Texture Name="object_and_Tex_006CB0" OutName="tex_006CB0" Format="rgb5a1" Width="8" Height="16" Offset="0x6CB0" />
-        <Texture Name="object_and_Tex_006DB0" OutName="tex_006DB0" Format="rgb5a1" Width="16" Height="16" Offset="0x6DB0" />
-        <Texture Name="object_and_Tex_006FB0" OutName="tex_006FB0" Format="rgb5a1" Width="16" Height="16" Offset="0x6FB0" />
+        <Texture Name="object_and_Tex_006C30" OutName="tex_006C30" Format="rgba16" Width="8" Height="8" Offset="0x6C30" />
+        <Texture Name="object_and_Tex_006CB0" OutName="tex_006CB0" Format="rgba16" Width="8" Height="16" Offset="0x6CB0" />
+        <Texture Name="object_and_Tex_006DB0" OutName="tex_006DB0" Format="rgba16" Width="16" Height="16" Offset="0x6DB0" />
+        <Texture Name="object_and_Tex_006FB0" OutName="tex_006FB0" Format="rgba16" Width="16" Height="16" Offset="0x6FB0" />
         <Texture Name="object_and_Tex_0071B0" OutName="tex_0071B0" Format="i8" Width="8" Height="8" Offset="0x71B0" />
         <Texture Name="object_and_Tex_0071F0" OutName="tex_0071F0" Format="i8" Width="32" Height="32" Offset="0x71F0" />
-        <Texture Name="object_and_Tex_0075F0" OutName="tex_0075F0" Format="rgb5a1" Width="16" Height="16" Offset="0x75F0" />
-        <Texture Name="object_and_Tex_0077F0" OutName="tex_0077F0" Format="rgb5a1" Width="32" Height="16" Offset="0x77F0" />
-        <Texture Name="object_and_Tex_007BF0" OutName="tex_007BF0" Format="rgb5a1" Width="16" Height="16" Offset="0x7BF0" />
+        <Texture Name="object_and_Tex_0075F0" OutName="tex_0075F0" Format="rgba16" Width="16" Height="16" Offset="0x75F0" />
+        <Texture Name="object_and_Tex_0077F0" OutName="tex_0077F0" Format="rgba16" Width="32" Height="16" Offset="0x77F0" />
+        <Texture Name="object_and_Tex_007BF0" OutName="tex_007BF0" Format="rgba16" Width="16" Height="16" Offset="0x7BF0" />
         <!--Blob Name="object_and_Blob_007DF0" Size="0x2800" Offset="0x7DF0" /-->
         <Texture Name="object_and_Tex_00A5F0" OutName="tex_00A5F0" Format="i8" Width="32" Height="64" Offset="0xA5F0" />
         <Texture Name="object_and_Tex_00ADF0" OutName="tex_00ADF0" Format="i8" Width="32" Height="32" Offset="0xADF0" />

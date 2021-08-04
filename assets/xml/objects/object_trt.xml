@@ -32,30 +32,30 @@
         <DList Name="object_trt_DL_008AA0" Offset="0x8AA0" />
         <DList Name="object_trt_DL_008B30" Offset="0x8B30" />
         <DList Name="object_trt_DL_008BE0" Offset="0x8BE0" />
-        <Texture Name="object_trt_TLUT_008C78" OutName="tlut_008C78" Format="rgb5a1" Width="16" Height="16" Offset="0x8C78" />
-        <Texture Name="object_trt_TLUT_008E78" OutName="tlut_008E78" Format="rgb5a1" Width="16" Height="16" Offset="0x8E78" />
-        <Texture Name="object_trt_TLUT_009078" OutName="tlut_009078" Format="rgb5a1" Width="16" Height="16" Offset="0x9078" />
-        <Texture Name="object_trt_TLUT_009278" OutName="tlut_009278" Format="rgb5a1" Width="16" Height="16" Offset="0x9278" />
-        <Texture Name="object_trt_TLUT_009478" OutName="tlut_009478" Format="rgb5a1" Width="16" Height="16" Offset="0x9478" />
-        <Texture Name="object_trt_TLUT_009678" OutName="tlut_009678" Format="rgb5a1" Width="16" Height="16" Offset="0x9678" />
-        <Texture Name="object_trt_Tex_009878" OutName="tex_009878" Format="rgb5a1" Width="32" Height="32" Offset="0x9878" />
-        <Texture Name="object_trt_Tex_00A078" OutName="tex_00A078" Format="rgb5a1" Width="16" Height="16" Offset="0xA078" />
-        <Texture Name="object_trt_Tex_00A278" OutName="tex_00A278" Format="rgb5a1" Width="16" Height="16" Offset="0xA278" />
-        <Texture Name="object_trt_Tex_00A478" OutName="tex_00A478" Format="rgb5a1" Width="16" Height="16" Offset="0xA478" />
+        <Texture Name="object_trt_TLUT_008C78" OutName="tlut_008C78" Format="rgba16" Width="16" Height="16" Offset="0x8C78" />
+        <Texture Name="object_trt_TLUT_008E78" OutName="tlut_008E78" Format="rgba16" Width="16" Height="16" Offset="0x8E78" />
+        <Texture Name="object_trt_TLUT_009078" OutName="tlut_009078" Format="rgba16" Width="16" Height="16" Offset="0x9078" />
+        <Texture Name="object_trt_TLUT_009278" OutName="tlut_009278" Format="rgba16" Width="16" Height="16" Offset="0x9278" />
+        <Texture Name="object_trt_TLUT_009478" OutName="tlut_009478" Format="rgba16" Width="16" Height="16" Offset="0x9478" />
+        <Texture Name="object_trt_TLUT_009678" OutName="tlut_009678" Format="rgba16" Width="16" Height="16" Offset="0x9678" />
+        <Texture Name="object_trt_Tex_009878" OutName="tex_009878" Format="rgba16" Width="32" Height="32" Offset="0x9878" />
+        <Texture Name="object_trt_Tex_00A078" OutName="tex_00A078" Format="rgba16" Width="16" Height="16" Offset="0xA078" />
+        <Texture Name="object_trt_Tex_00A278" OutName="tex_00A278" Format="rgba16" Width="16" Height="16" Offset="0xA278" />
+        <Texture Name="object_trt_Tex_00A478" OutName="tex_00A478" Format="rgba16" Width="16" Height="16" Offset="0xA478" />
         <Texture Name="object_trt_Tex_00A678" OutName="tex_00A678" Format="ci8" Width="16" Height="8" Offset="0xA678" />
         <Texture Name="object_trt_Tex_00A6F8" OutName="tex_00A6F8" Format="ci8" Width="8" Height="8" Offset="0xA6F8" />
-        <Texture Name="object_trt_Tex_00A738" OutName="tex_00A738" Format="rgb5a1" Width="8" Height="32" Offset="0xA738" />
-        <Texture Name="object_trt_Tex_00A938" OutName="tex_00A938" Format="rgb5a1" Width="8" Height="8" Offset="0xA938" />
+        <Texture Name="object_trt_Tex_00A738" OutName="tex_00A738" Format="rgba16" Width="8" Height="32" Offset="0xA738" />
+        <Texture Name="object_trt_Tex_00A938" OutName="tex_00A938" Format="rgba16" Width="8" Height="8" Offset="0xA938" />
         <Texture Name="object_trt_Tex_00A9B8" OutName="tex_00A9B8" Format="ci8" Width="8" Height="8" Offset="0xA9B8" />
-        <Texture Name="object_trt_Tex_00A9F8" OutName="tex_00A9F8" Format="rgb5a1" Width="4" Height="8" Offset="0xA9F8" />
+        <Texture Name="object_trt_Tex_00A9F8" OutName="tex_00A9F8" Format="rgba16" Width="4" Height="8" Offset="0xA9F8" />
         <Texture Name="object_trt_Tex_00AA38" OutName="tex_00AA38" Format="ci8" Width="8" Height="16" Offset="0xAA38" />
-        <Texture Name="object_trt_Tex_00AAB8" OutName="tex_00AAB8" Format="rgb5a1" Width="8" Height="8" Offset="0xAAB8" />
-        <Texture Name="object_trt_Tex_00AB38" OutName="tex_00AB38" Format="rgb5a1" Width="16" Height="32" Offset="0xAB38" />
-        <Texture Name="object_trt_Tex_00AF38" OutName="tex_00AF38" Format="rgb5a1" Width="16" Height="8" Offset="0xAF38" />
+        <Texture Name="object_trt_Tex_00AAB8" OutName="tex_00AAB8" Format="rgba16" Width="8" Height="8" Offset="0xAAB8" />
+        <Texture Name="object_trt_Tex_00AB38" OutName="tex_00AB38" Format="rgba16" Width="16" Height="32" Offset="0xAB38" />
+        <Texture Name="object_trt_Tex_00AF38" OutName="tex_00AF38" Format="rgba16" Width="16" Height="8" Offset="0xAF38" />
         <Texture Name="object_trt_Tex_00B038" OutName="tex_00B038" Format="ci8" Width="8" Height="8" Offset="0xB038" />
         <Texture Name="object_trt_Tex_00B078" OutName="tex_00B078" Format="ci8" Width="8" Height="8" Offset="0xB078" />
         <!--Blob Name="object_trt_Blob_00B0B8" Size="0x1800" Offset="0xB0B8" /-->
-        <Texture Name="object_trt_Tex_00C8B8" OutName="tex_00C8B8" Format="rgb5a1" Width="8" Height="8" Offset="0xC8B8" />
+        <Texture Name="object_trt_Tex_00C8B8" OutName="tex_00C8B8" Format="rgba16" Width="8" Height="8" Offset="0xC8B8" />
         <Animation Name="object_trt_Anim_00C954" Offset="0xC954" />
         <Animation Name="object_trt_Anim_00C978" Offset="0xC978" />
         <!--Blob Name="object_trt_Blob_00C988" Size="0x18" Offset="0xC988" /-->

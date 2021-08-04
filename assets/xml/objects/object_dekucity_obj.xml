@@ -7,21 +7,21 @@
 
         <DList Name="object_dekucity_obj_DL_0004E0" Offset="0x4E0" />
         <DList Name="object_dekucity_obj_DL_000610" Offset="0x610" />
-        <Texture Name="object_dekucity_obj_Tex_000618" OutName="tex_000618" Format="rgb5a1" Width="32" Height="32" Offset="0x618" />
+        <Texture Name="object_dekucity_obj_Tex_000618" OutName="tex_000618" Format="rgba16" Width="32" Height="32" Offset="0x618" />
         <!--Blob Name="object_dekucity_obj_zeroes_unk_00000E18" Size="0x18" Offset="0xE18" /-->
         <DList Name="object_dekucity_obj_DL_001030" Offset="0x1030" />
         <DList Name="object_dekucity_obj_DL_001160" Offset="0x1160" />
-        <Texture Name="object_dekucity_obj_Tex_001168" OutName="tex_001168" Format="rgb5a1" Width="32" Height="32" Offset="0x1168" />
+        <Texture Name="object_dekucity_obj_Tex_001168" OutName="tex_001168" Format="rgba16" Width="32" Height="32" Offset="0x1168" />
         <!--Blob Name="object_dekucity_obj_zeroes_unk_00001968" Size="0x18" Offset="0x1968" /-->
         <DList Name="object_dekucity_obj_DL_001D80" Offset="0x1D80" />
         <DList Name="object_dekucity_obj_DL_001ED8" Offset="0x1ED8" />
-        <Texture Name="object_dekucity_obj_Tex_002008" OutName="tex_002008" Format="rgb5a1" Width="16" Height="64" Offset="0x2008" />
-        <Texture Name="object_dekucity_obj_Tex_002808" OutName="tex_002808" Format="rgb5a1" Width="32" Height="32" Offset="0x2808" />
+        <Texture Name="object_dekucity_obj_Tex_002008" OutName="tex_002008" Format="rgba16" Width="16" Height="64" Offset="0x2008" />
+        <Texture Name="object_dekucity_obj_Tex_002808" OutName="tex_002808" Format="rgba16" Width="32" Height="32" Offset="0x2808" />
         <Texture Name="object_dekucity_obj_Tex_003008" OutName="tex_003008" Format="i4" Width="64" Height="64" Offset="0x3008" />
         <!--Blob Name="object_dekucity_obj_zeroes_unk_00003808" Size="0x28" Offset="0x3808" /-->
         <DList Name="object_dekucity_obj_DL_003990" Offset="0x3990" />
         <DList Name="object_dekucity_obj_DL_003998" Offset="0x3998" />
-        <Texture Name="object_dekucity_obj_Tex_003AC0" OutName="tex_003AC0" Format="rgb5a1" Width="16" Height="32" Offset="0x3AC0" />
-        <Texture Name="object_dekucity_obj_Tex_003EC0" OutName="tex_003EC0" Format="rgb5a1" Width="32" Height="32" Offset="0x3EC0" />
+        <Texture Name="object_dekucity_obj_Tex_003AC0" OutName="tex_003AC0" Format="rgba16" Width="16" Height="32" Offset="0x3AC0" />
+        <Texture Name="object_dekucity_obj_Tex_003EC0" OutName="tex_003EC0" Format="rgba16" Width="32" Height="32" Offset="0x3EC0" />
     </File>
 </Root>

@@ -46,14 +46,14 @@
         <DList Name="object_dno_DL_00CF88" Offset="0xCF88" />
         <DList Name="object_dno_DL_00D040" Offset="0xD040" />
         <DList Name="object_dno_DL_00D108" Offset="0xD108" />
-        <Texture Name="object_dno_Tex_00D1C8" OutName="tex_00D1C8" Format="rgb5a1" Width="16" Height="16" Offset="0xD1C8" />
-        <Texture Name="object_dno_Tex_00D3C8" OutName="tex_00D3C8" Format="rgb5a1" Width="16" Height="16" Offset="0xD3C8" />
-        <Texture Name="object_dno_Tex_00D5C8" OutName="tex_00D5C8" Format="rgb5a1" Width="8" Height="8" Offset="0xD5C8" />
-        <Texture Name="object_dno_Tex_00D648" OutName="tex_00D648" Format="rgb5a1" Width="16" Height="16" Offset="0xD648" />
-        <Texture Name="object_dno_Tex_00D848" OutName="tex_00D848" Format="rgb5a1" Width="16" Height="32" Offset="0xD848" />
-        <Texture Name="object_dno_Tex_00DC48" OutName="tex_00DC48" Format="rgb5a1" Width="16" Height="8" Offset="0xDC48" />
-        <Texture Name="object_dno_Tex_00DD48" OutName="tex_00DD48" Format="rgb5a1" Width="16" Height="16" Offset="0xDD48" />
-        <Texture Name="object_dno_Tex_00DF48" OutName="tex_00DF48" Format="rgb5a1" Width="8" Height="16" Offset="0xDF48" />
+        <Texture Name="object_dno_Tex_00D1C8" OutName="tex_00D1C8" Format="rgba16" Width="16" Height="16" Offset="0xD1C8" />
+        <Texture Name="object_dno_Tex_00D3C8" OutName="tex_00D3C8" Format="rgba16" Width="16" Height="16" Offset="0xD3C8" />
+        <Texture Name="object_dno_Tex_00D5C8" OutName="tex_00D5C8" Format="rgba16" Width="8" Height="8" Offset="0xD5C8" />
+        <Texture Name="object_dno_Tex_00D648" OutName="tex_00D648" Format="rgba16" Width="16" Height="16" Offset="0xD648" />
+        <Texture Name="object_dno_Tex_00D848" OutName="tex_00D848" Format="rgba16" Width="16" Height="32" Offset="0xD848" />
+        <Texture Name="object_dno_Tex_00DC48" OutName="tex_00DC48" Format="rgba16" Width="16" Height="8" Offset="0xDC48" />
+        <Texture Name="object_dno_Tex_00DD48" OutName="tex_00DD48" Format="rgba16" Width="16" Height="16" Offset="0xDD48" />
+        <Texture Name="object_dno_Tex_00DF48" OutName="tex_00DF48" Format="rgba16" Width="8" Height="16" Offset="0xDF48" />
         <Limb Name="object_dno_Limb_00E048" LimbType="Standard" Offset="0xE048" />
         <Limb Name="object_dno_Limb_00E054" LimbType="Standard" Offset="0xE054" />
         <Limb Name="object_dno_Limb_00E060" LimbType="Standard" Offset="0xE060" />

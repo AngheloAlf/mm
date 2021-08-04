@@ -4,15 +4,15 @@
         <Animation Name="object_grasshopper_Anim_0008D4" Offset="0x8D4" />
         <Animation Name="object_grasshopper_Anim_0009E0" Offset="0x9E0" />
         <Animation Name="object_grasshopper_Anim_000F9C" Offset="0xF9C" />
-        <Texture Name="object_grasshopper_Tex_000FB0" OutName="tex_000FB0" Format="rgb5a1" Width="8" Height="8" Offset="0xFB0" />
-        <Texture Name="object_grasshopper_Tex_001030" OutName="tex_001030" Format="rgb5a1" Width="16" Height="32" Offset="0x1030" />
-        <Texture Name="object_grasshopper_Tex_001430" OutName="tex_001430" Format="rgb5a1" Width="16" Height="16" Offset="0x1430" />
-        <Texture Name="object_grasshopper_Tex_001630" OutName="tex_001630" Format="rgb5a1" Width="8" Height="8" Offset="0x1630" />
-        <Texture Name="object_grasshopper_Tex_0016B0" OutName="tex_0016B0" Format="rgb5a1" Width="32" Height="8" Offset="0x16B0" />
-        <Texture Name="object_grasshopper_Tex_0018B0" OutName="tex_0018B0" Format="rgb5a1" Width="16" Height="8" Offset="0x18B0" />
-        <Texture Name="object_grasshopper_Tex_0019B0" OutName="tex_0019B0" Format="rgb5a1" Width="8" Height="8" Offset="0x19B0" />
-        <Texture Name="object_grasshopper_Tex_001A30" OutName="tex_001A30" Format="rgb5a1" Width="8" Height="8" Offset="0x1A30" />
-        <Texture Name="object_grasshopper_Tex_001AB0" OutName="tex_001AB0" Format="rgb5a1" Width="16" Height="16" Offset="0x1AB0" />
+        <Texture Name="object_grasshopper_Tex_000FB0" OutName="tex_000FB0" Format="rgba16" Width="8" Height="8" Offset="0xFB0" />
+        <Texture Name="object_grasshopper_Tex_001030" OutName="tex_001030" Format="rgba16" Width="16" Height="32" Offset="0x1030" />
+        <Texture Name="object_grasshopper_Tex_001430" OutName="tex_001430" Format="rgba16" Width="16" Height="16" Offset="0x1430" />
+        <Texture Name="object_grasshopper_Tex_001630" OutName="tex_001630" Format="rgba16" Width="8" Height="8" Offset="0x1630" />
+        <Texture Name="object_grasshopper_Tex_0016B0" OutName="tex_0016B0" Format="rgba16" Width="32" Height="8" Offset="0x16B0" />
+        <Texture Name="object_grasshopper_Tex_0018B0" OutName="tex_0018B0" Format="rgba16" Width="16" Height="8" Offset="0x18B0" />
+        <Texture Name="object_grasshopper_Tex_0019B0" OutName="tex_0019B0" Format="rgba16" Width="8" Height="8" Offset="0x19B0" />
+        <Texture Name="object_grasshopper_Tex_001A30" OutName="tex_001A30" Format="rgba16" Width="8" Height="8" Offset="0x1A30" />
+        <Texture Name="object_grasshopper_Tex_001AB0" OutName="tex_001AB0" Format="rgba16" Width="16" Height="16" Offset="0x1AB0" />
         <DList Name="object_grasshopper_DL_002BE0" Offset="0x2BE0" />
         <DList Name="object_grasshopper_DL_002C70" Offset="0x2C70" />
         <DList Name="object_grasshopper_DL_002D00" Offset="0x2D00" />

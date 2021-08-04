@@ -2,12 +2,12 @@
     <File Name="object_mnk" Segment="6" Game="MM">
         <DList Name="object_mnk_DL_000F50" Offset="0xF50" />
         <DList Name="object_mnk_DL_000F58" Offset="0xF58" />
-        <Texture Name="object_mnk_TLUT_001620" OutName="tlut_001620" Format="rgb5a1" Width="16" Height="16" Offset="0x1620" />
+        <Texture Name="object_mnk_TLUT_001620" OutName="tlut_001620" Format="rgba16" Width="16" Height="16" Offset="0x1620" />
         <Texture Name="object_mnk_Tex_001820" OutName="tex_001820" Format="ci8" Width="16" Height="64" Offset="0x1820" />
         <Texture Name="object_mnk_Tex_001C20" OutName="tex_001C20" Format="ci8" Width="16" Height="16" Offset="0x1C20" />
         <Texture Name="object_mnk_Tex_001D20" OutName="tex_001D20" Format="ci8" Width="16" Height="16" Offset="0x1D20" />
         <Texture Name="object_mnk_Tex_001E20" OutName="tex_001E20" Format="ci8" Width="16" Height="128" Offset="0x1E20" />
-        <Texture Name="object_mnk_Tex_002620" OutName="tex_002620" Format="rgb5a1" Width="32" Height="32" Offset="0x2620" />
+        <Texture Name="object_mnk_Tex_002620" OutName="tex_002620" Format="rgba16" Width="32" Height="32" Offset="0x2620" />
         <!--Blob Name="object_mnk_Blob_002E20" Size="0x600" Offset="0x2E20" /-->
         <Animation Name="object_mnk_Anim_003504" Offset="0x3504" />
         <Animation Name="object_mnk_Anim_003584" Offset="0x3584" />
@@ -16,8 +16,8 @@
         <DList Name="object_mnk_DL_003C70" Offset="0x3C70" />
         <DList Name="object_mnk_DL_003D40" Offset="0x3D40" />
         <DList Name="object_mnk_DL_003DF8" Offset="0x3DF8" />
-        <Texture Name="object_mnk_Tex_003F10" OutName="tex_003F10" Format="rgb5a1" Width="16" Height="128" Offset="0x3F10" />
-        <Texture Name="object_mnk_Tex_004F10" OutName="tex_004F10" Format="rgb5a1" Width="16" Height="16" Offset="0x4F10" />
+        <Texture Name="object_mnk_Tex_003F10" OutName="tex_003F10" Format="rgba16" Width="16" Height="128" Offset="0x3F10" />
+        <Texture Name="object_mnk_Tex_004F10" OutName="tex_004F10" Format="rgba16" Width="16" Height="16" Offset="0x4F10" />
         <Limb Name="object_mnk_Limb_005110" LimbType="Standard" Offset="0x5110" />
         <Limb Name="object_mnk_Limb_00511C" LimbType="Standard" Offset="0x511C" />
         <Limb Name="object_mnk_Limb_005128" LimbType="Standard" Offset="0x5128" />
@@ -68,7 +68,7 @@
         <DList Name="object_mnk_DL_014310" Offset="0x14310" />
         <DList Name="object_mnk_DL_014590" Offset="0x14590" />
         <DList Name="object_mnk_DL_014790" Offset="0x14790" />
-        <Texture Name="object_mnk_TLUT_014A20" OutName="tlut_014A20" Format="rgb5a1" Width="16" Height="16" Offset="0x14A20" />
+        <Texture Name="object_mnk_TLUT_014A20" OutName="tlut_014A20" Format="rgba16" Width="16" Height="16" Offset="0x14A20" />
         <Texture Name="object_mnk_Tex_014C20" OutName="tex_014C20" Format="ci8" Width="32" Height="32" Offset="0x14C20" />
         <Texture Name="object_mnk_Tex_015020" OutName="tex_015020" Format="ci8" Width="32" Height="64" Offset="0x15020" />
         <Texture Name="object_mnk_Tex_015820" OutName="tex_015820" Format="ci8" Width="16" Height="16" Offset="0x15820" />
@@ -76,7 +76,7 @@
         <Texture Name="object_mnk_Tex_018920" OutName="tex_018920" Format="ci8" Width="16" Height="16" Offset="0x18920" />
         <Texture Name="object_mnk_Tex_018A20" OutName="tex_018A20" Format="ci8" Width="32" Height="32" Offset="0x18A20" />
         <Texture Name="object_mnk_Tex_018E20" OutName="tex_018E20" Format="ci8" Width="16" Height="16" Offset="0x18E20" />
-        <Texture Name="object_mnk_Tex_018F20" OutName="tex_018F20" Format="rgb5a1" Width="32" Height="32" Offset="0x18F20" />
+        <Texture Name="object_mnk_Tex_018F20" OutName="tex_018F20" Format="rgba16" Width="32" Height="32" Offset="0x18F20" />
         <Texture Name="object_mnk_Tex_019720" OutName="tex_019720" Format="ci8" Width="16" Height="16" Offset="0x19720" />
         <Texture Name="object_mnk_Tex_019820" OutName="tex_019820" Format="ci8" Width="16" Height="16" Offset="0x19820" />
         <Texture Name="object_mnk_Tex_019920" OutName="tex_019920" Format="ci8" Width="16" Height="16" Offset="0x19920" />
@@ -114,9 +114,9 @@
         <DList Name="object_mnk_DL_01C660" Offset="0x1C660" />
         <DList Name="object_mnk_DL_01C770" Offset="0x1C770" />
         <DList Name="object_mnk_DL_01C818" Offset="0x1C818" />
-        <Texture Name="object_mnk_Tex_01C8E8" OutName="tex_01C8E8" Format="rgb5a1" Width="16" Height="16" Offset="0x1C8E8" />
-        <Texture Name="object_mnk_Tex_01CAE8" OutName="tex_01CAE8" Format="rgb5a1" Width="32" Height="32" Offset="0x1CAE8" />
-        <Texture Name="object_mnk_Tex_01D2E8" OutName="tex_01D2E8" Format="rgb5a1" Width="16" Height="16" Offset="0x1D2E8" />
+        <Texture Name="object_mnk_Tex_01C8E8" OutName="tex_01C8E8" Format="rgba16" Width="16" Height="16" Offset="0x1C8E8" />
+        <Texture Name="object_mnk_Tex_01CAE8" OutName="tex_01CAE8" Format="rgba16" Width="32" Height="32" Offset="0x1CAE8" />
+        <Texture Name="object_mnk_Tex_01D2E8" OutName="tex_01D2E8" Format="rgba16" Width="16" Height="16" Offset="0x1D2E8" />
         <Limb Name="object_mnk_Limb_01D4E8" LimbType="Standard" Offset="0x1D4E8" />
         <Limb Name="object_mnk_Limb_01D4F4" LimbType="Standard" Offset="0x1D4F4" />
         <Limb Name="object_mnk_Limb_01D500" LimbType="Standard" Offset="0x1D500" />

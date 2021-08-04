@@ -6,13 +6,13 @@
         <DList Name="object_cow_DL_002368" Offset="0x2368" />
         <DList Name="object_cow_DL_002628" Offset="0x2628" />
         <DList Name="object_cow_DL_002760" Offset="0x2760" />
-        <Texture Name="object_cow_TLUT_002880" OutName="tlut_002880" Format="rgb5a1" Width="16" Height="16" Offset="0x2880" />
+        <Texture Name="object_cow_TLUT_002880" OutName="tlut_002880" Format="rgba16" Width="16" Height="16" Offset="0x2880" />
         <Texture Name="object_cow_Tex_002A80" OutName="tex_002A80" Format="ci8" Width="16" Height="16" Offset="0x2A80" />
         <Texture Name="object_cow_Tex_002B80" OutName="tex_002B80" Format="ci8" Width="8" Height="8" Offset="0x2B80" />
         <Texture Name="object_cow_Tex_002BC0" OutName="tex_002BC0" Format="ci8" Width="16" Height="16" Offset="0x2BC0" />
         <Texture Name="object_cow_Tex_002CC0" OutName="tex_002CC0" Format="i8" Width="64" Height="64" Offset="0x2CC0" />
         <Texture Name="object_cow_Tex_003CC0" OutName="tex_003CC0" Format="ci8" Width="8" Height="16" Offset="0x3CC0" />
-        <Texture Name="object_cow_Tex_003D40" OutName="tex_003D40" Format="rgb5a1" Width="16" Height="16" Offset="0x3D40" />
+        <Texture Name="object_cow_Tex_003D40" OutName="tex_003D40" Format="rgba16" Width="16" Height="16" Offset="0x3D40" />
         <Texture Name="object_cow_Tex_003F40" OutName="tex_003F40" Format="ci8" Width="8" Height="16" Offset="0x3F40" />
         <Limb Name="object_cow_Limb_003FC0" LimbType="Standard" Offset="0x3FC0" />
         <Limb Name="object_cow_Limb_003FCC" LimbType="Standard" Offset="0x3FCC" />

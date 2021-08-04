@@ -5,15 +5,15 @@
         <DList Name="object_boss04_DL_001E58" Offset="0x1E58" />
         <DList Name="object_boss04_DL_001FC8" Offset="0x1FC8" />
         <DList Name="object_boss04_DL_002138" Offset="0x2138" />
-        <Texture Name="object_boss04_TLUT_002328" OutName="tlut_002328" Format="rgb5a1" Width="4" Height="4" Offset="0x2328" />
-        <Texture Name="object_boss04_TLUT_002348" OutName="tlut_002348" Format="rgb5a1" Width="4" Height="4" Offset="0x2348" />
+        <Texture Name="object_boss04_TLUT_002328" OutName="tlut_002328" Format="rgba16" Width="4" Height="4" Offset="0x2328" />
+        <Texture Name="object_boss04_TLUT_002348" OutName="tlut_002348" Format="rgba16" Width="4" Height="4" Offset="0x2348" />
         <Texture Name="object_boss04_Tex_002368" OutName="tex_002368" Format="ci4" Width="64" Height="64" Offset="0x2368" />
         <Texture Name="object_boss04_Tex_002B68" OutName="tex_002B68" Format="ci4" Width="8" Height="16" Offset="0x2B68" />
-        <Texture Name="object_boss04_Tex_002BA8" OutName="tex_002BA8" Format="rgb5a1" Width="32" Height="32" Offset="0x2BA8" />
+        <Texture Name="object_boss04_Tex_002BA8" OutName="tex_002BA8" Format="rgba16" Width="32" Height="32" Offset="0x2BA8" />
         <DList Name="object_boss04_DL_0033D8" Offset="0x33D8" />
         <DList Name="object_boss04_DL_003450" Offset="0x3450" />
         <DList Name="object_boss04_DL_0034C8" Offset="0x34C8" />
-        <Texture Name="object_boss04_Tex_0034E0" OutName="tex_0034E0" Format="rgb5a1" Width="32" Height="32" Offset="0x34E0" />
+        <Texture Name="object_boss04_Tex_0034E0" OutName="tex_0034E0" Format="rgba16" Width="32" Height="32" Offset="0x34E0" />
         <Texture Name="object_boss04_Tex_003D10" OutName="tex_003D10" Format="ia16" Width="32" Height="32" Offset="0x3D10" />
         <DList Name="object_boss04_DL_004510" Offset="0x4510" />
         <DList Name="object_boss04_DL_004550" Offset="0x4550" />

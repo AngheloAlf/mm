@@ -16,7 +16,7 @@
         <DList Name="object_js_DL_0052D8" Offset="0x52D8" />
         <DList Name="object_js_DL_005408" Offset="0x5408" />
         <DList Name="object_js_DL_0055B0" Offset="0x55B0" />
-        <Texture Name="object_js_TLUT_005710" OutName="tlut_005710" Format="rgb5a1" Width="16" Height="16" Offset="0x5710" />
+        <Texture Name="object_js_TLUT_005710" OutName="tlut_005710" Format="rgba16" Width="16" Height="16" Offset="0x5710" />
         <Texture Name="object_js_Tex_005910" OutName="tex_005910" Format="ci8" Width="8" Height="16" Offset="0x5910" />
         <Texture Name="object_js_Tex_005990" OutName="tex_005990" Format="ci8" Width="16" Height="16" Offset="0x5990" />
         <Texture Name="object_js_Tex_005A90" OutName="tex_005A90" Format="ci8" Width="32" Height="16" Offset="0x5A90" />

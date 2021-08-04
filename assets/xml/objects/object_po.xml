@@ -18,16 +18,16 @@
         <DList Name="object_po_DL_002F58" Offset="0x2F58" />
         <Texture Name="object_po_Tex_003010" OutName="tex_003010" Format="i8" Width="32" Height="64" Offset="0x3010" />
         <DList Name="object_po_DL_003850" Offset="0x3850" />
-        <Texture Name="object_po_Tex_003910" OutName="tex_003910" Format="rgb5a1" Width="32" Height="16" Offset="0x3910" />
-        <Texture Name="object_po_Tex_003D10" OutName="tex_003D10" Format="rgb5a1" Width="32" Height="32" Offset="0x3D10" />
-        <Texture Name="object_po_Tex_004510" OutName="tex_004510" Format="rgb5a1" Width="16" Height="16" Offset="0x4510" />
-        <Texture Name="object_po_Tex_004710" OutName="tex_004710" Format="rgb5a1" Width="8" Height="8" Offset="0x4710" />
-        <Texture Name="object_po_Tex_004790" OutName="tex_004790" Format="rgb5a1" Width="16" Height="16" Offset="0x4790" />
-        <Texture Name="object_po_Tex_004990" OutName="tex_004990" Format="rgb5a1" Width="8" Height="8" Offset="0x4990" />
-        <Texture Name="object_po_Tex_004A10" OutName="tex_004A10" Format="rgb5a1" Width="8" Height="16" Offset="0x4A10" />
-        <Texture Name="object_po_Tex_004B10" OutName="tex_004B10" Format="rgb5a1" Width="16" Height="16" Offset="0x4B10" />
-        <Texture Name="object_po_Tex_004D10" OutName="tex_004D10" Format="rgb5a1" Width="16" Height="16" Offset="0x4D10" />
-        <Texture Name="object_po_Tex_004F10" OutName="tex_004F10" Format="rgb5a1" Width="8" Height="8" Offset="0x4F10" />
+        <Texture Name="object_po_Tex_003910" OutName="tex_003910" Format="rgba16" Width="32" Height="16" Offset="0x3910" />
+        <Texture Name="object_po_Tex_003D10" OutName="tex_003D10" Format="rgba16" Width="32" Height="32" Offset="0x3D10" />
+        <Texture Name="object_po_Tex_004510" OutName="tex_004510" Format="rgba16" Width="16" Height="16" Offset="0x4510" />
+        <Texture Name="object_po_Tex_004710" OutName="tex_004710" Format="rgba16" Width="8" Height="8" Offset="0x4710" />
+        <Texture Name="object_po_Tex_004790" OutName="tex_004790" Format="rgba16" Width="16" Height="16" Offset="0x4790" />
+        <Texture Name="object_po_Tex_004990" OutName="tex_004990" Format="rgba16" Width="8" Height="8" Offset="0x4990" />
+        <Texture Name="object_po_Tex_004A10" OutName="tex_004A10" Format="rgba16" Width="8" Height="16" Offset="0x4A10" />
+        <Texture Name="object_po_Tex_004B10" OutName="tex_004B10" Format="rgba16" Width="16" Height="16" Offset="0x4B10" />
+        <Texture Name="object_po_Tex_004D10" OutName="tex_004D10" Format="rgba16" Width="16" Height="16" Offset="0x4D10" />
+        <Texture Name="object_po_Tex_004F10" OutName="tex_004F10" Format="rgba16" Width="8" Height="8" Offset="0x4F10" />
         <Limb Name="object_po_Limb_004F90" LimbType="Standard" Offset="0x4F90" />
         <Limb Name="object_po_Limb_004F9C" LimbType="Standard" Offset="0x4F9C" />
         <Limb Name="object_po_Limb_004FA8" LimbType="Standard" Offset="0x4FA8" />

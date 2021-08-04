@@ -2,7 +2,7 @@
     <File Name="object_owl" Segment="6" Game="MM">
         <Animation Name="object_owl_Anim_001168" Offset="0x1168" />
         <DList Name="object_owl_DL_001200" Offset="0x1200" />
-        <Texture Name="object_owl_Tex_001290" OutName="tex_001290" Format="rgb5a1" Width="16" Height="32" Offset="0x1290" />
+        <Texture Name="object_owl_Tex_001290" OutName="tex_001290" Format="rgba16" Width="16" Height="32" Offset="0x1290" />
         <Animation Name="object_owl_Anim_001ADC" Offset="0x1ADC" />
         <DList Name="object_owl_DL_005050" Offset="0x5050" />
         <DList Name="object_owl_DL_0051C8" Offset="0x51C8" />
@@ -24,17 +24,17 @@
         <DList Name="object_owl_DL_006F68" Offset="0x6F68" />
         <DList Name="object_owl_DL_007030" Offset="0x7030" />
         <DList Name="object_owl_DL_007120" Offset="0x7120" />
-        <Texture Name="object_owl_Tex_0072B8" OutName="tex_0072B8" Format="rgb5a1" Width="16" Height="16" Offset="0x72B8" />
-        <Texture Name="object_owl_Tex_0074B8" OutName="tex_0074B8" Format="rgb5a1" Width="16" Height="16" Offset="0x74B8" />
-        <Texture Name="object_owl_Tex_0076B8" OutName="tex_0076B8" Format="rgb5a1" Width="32" Height="32" Offset="0x76B8" />
-        <Texture Name="object_owl_Tex_007EB8" OutName="tex_007EB8" Format="rgb5a1" Width="32" Height="32" Offset="0x7EB8" />
-        <Texture Name="object_owl_Tex_0086B8" OutName="tex_0086B8" Format="rgb5a1" Width="32" Height="32" Offset="0x86B8" />
+        <Texture Name="object_owl_Tex_0072B8" OutName="tex_0072B8" Format="rgba16" Width="16" Height="16" Offset="0x72B8" />
+        <Texture Name="object_owl_Tex_0074B8" OutName="tex_0074B8" Format="rgba16" Width="16" Height="16" Offset="0x74B8" />
+        <Texture Name="object_owl_Tex_0076B8" OutName="tex_0076B8" Format="rgba16" Width="32" Height="32" Offset="0x76B8" />
+        <Texture Name="object_owl_Tex_007EB8" OutName="tex_007EB8" Format="rgba16" Width="32" Height="32" Offset="0x7EB8" />
+        <Texture Name="object_owl_Tex_0086B8" OutName="tex_0086B8" Format="rgba16" Width="32" Height="32" Offset="0x86B8" />
         <!--Blob Name="object_owl_Blob_008EB8" Size="0xC00" Offset="0x8EB8" /-->
-        <Texture Name="object_owl_Tex_009AB8" OutName="tex_009AB8" Format="rgb5a1" Width="32" Height="32" Offset="0x9AB8" />
-        <Texture Name="object_owl_Tex_00A2B8" OutName="tex_00A2B8" Format="rgb5a1" Width="16" Height="16" Offset="0xA2B8" />
-        <Texture Name="object_owl_Tex_00A4B8" OutName="tex_00A4B8" Format="rgb5a1" Width="64" Height="32" Offset="0xA4B8" />
-        <Texture Name="object_owl_Tex_00B4B8" OutName="tex_00B4B8" Format="rgb5a1" Width="32" Height="32" Offset="0xB4B8" />
-        <Texture Name="object_owl_Tex_00BCB8" OutName="tex_00BCB8" Format="rgb5a1" Width="32" Height="32" Offset="0xBCB8" />
+        <Texture Name="object_owl_Tex_009AB8" OutName="tex_009AB8" Format="rgba16" Width="32" Height="32" Offset="0x9AB8" />
+        <Texture Name="object_owl_Tex_00A2B8" OutName="tex_00A2B8" Format="rgba16" Width="16" Height="16" Offset="0xA2B8" />
+        <Texture Name="object_owl_Tex_00A4B8" OutName="tex_00A4B8" Format="rgba16" Width="64" Height="32" Offset="0xA4B8" />
+        <Texture Name="object_owl_Tex_00B4B8" OutName="tex_00B4B8" Format="rgba16" Width="32" Height="32" Offset="0xB4B8" />
+        <Texture Name="object_owl_Tex_00BCB8" OutName="tex_00BCB8" Format="rgba16" Width="32" Height="32" Offset="0xBCB8" />
         <Limb Name="object_owl_Limb_00C4B8" LimbType="Standard" Offset="0xC4B8" />
         <Limb Name="object_owl_Limb_00C4C4" LimbType="Standard" Offset="0xC4C4" />
         <Limb Name="object_owl_Limb_00C4D0" LimbType="Standard" Offset="0xC4D0" />

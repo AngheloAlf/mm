@@ -19,29 +19,29 @@
         <DList Name="object_thiefbird_DL_0024A0" Offset="0x24A0" />
         <DList Name="object_thiefbird_DL_002590" Offset="0x2590" />
         <DList Name="object_thiefbird_DL_002680" Offset="0x2680" />
-        <Texture Name="object_thiefbird_Tex_002770" OutName="tex_002770" Format="rgb5a1" Width="8" Height="16" Offset="0x2770" />
-        <Texture Name="object_thiefbird_Tex_002870" OutName="tex_002870" Format="rgb5a1" Width="16" Height="16" Offset="0x2870" />
-        <Texture Name="object_thiefbird_Tex_002A70" OutName="tex_002A70" Format="rgb5a1" Width="16" Height="16" Offset="0x2A70" />
+        <Texture Name="object_thiefbird_Tex_002770" OutName="tex_002770" Format="rgba16" Width="8" Height="16" Offset="0x2770" />
+        <Texture Name="object_thiefbird_Tex_002870" OutName="tex_002870" Format="rgba16" Width="16" Height="16" Offset="0x2870" />
+        <Texture Name="object_thiefbird_Tex_002A70" OutName="tex_002A70" Format="rgba16" Width="16" Height="16" Offset="0x2A70" />
         <Texture Name="object_thiefbird_Tex_002C70" OutName="tex_002C70" Format="i8" Width="16" Height="16" Offset="0x2C70" />
-        <Texture Name="object_thiefbird_Tex_002D70" OutName="tex_002D70" Format="rgb5a1" Width="8" Height="8" Offset="0x2D70" />
-        <Texture Name="object_thiefbird_Tex_002DF0" OutName="tex_002DF0" Format="rgb5a1" Width="4" Height="8" Offset="0x2DF0" />
-        <Texture Name="object_thiefbird_Tex_002E30" OutName="tex_002E30" Format="rgb5a1" Width="16" Height="16" Offset="0x2E30" />
+        <Texture Name="object_thiefbird_Tex_002D70" OutName="tex_002D70" Format="rgba16" Width="8" Height="8" Offset="0x2D70" />
+        <Texture Name="object_thiefbird_Tex_002DF0" OutName="tex_002DF0" Format="rgba16" Width="4" Height="8" Offset="0x2DF0" />
+        <Texture Name="object_thiefbird_Tex_002E30" OutName="tex_002E30" Format="rgba16" Width="16" Height="16" Offset="0x2E30" />
         <DList Name="object_thiefbird_DL_003060" Offset="0x3060" />
         <DList Name="object_thiefbird_DL_0030D8" Offset="0x30D8" />
-        <Texture Name="object_thiefbird_Tex_0030F0" OutName="tex_0030F0" Format="rgb5a1" Width="8" Height="16" Offset="0x30F0" />
+        <Texture Name="object_thiefbird_Tex_0030F0" OutName="tex_0030F0" Format="rgba16" Width="8" Height="16" Offset="0x30F0" />
         <DList Name="object_thiefbird_DL_0033B0" Offset="0x33B0" />
         <DList Name="object_thiefbird_DL_003D58" Offset="0x3D58" />
         <DList Name="object_thiefbird_DL_004348" Offset="0x4348" />
         <DList Name="object_thiefbird_DL_004B88" Offset="0x4B88" />
         <DList Name="object_thiefbird_DL_0055E0" Offset="0x55E0" />
-        <Texture Name="object_thiefbird_Tex_0059A0" OutName="tex_0059A0" Format="rgb5a1" Width="32" Height="8" Offset="0x59A0" />
-        <Texture Name="object_thiefbird_Tex_005BA0" OutName="tex_005BA0" Format="rgb5a1" Width="8" Height="8" Offset="0x5BA0" />
-        <Texture Name="object_thiefbird_Tex_005C20" OutName="tex_005C20" Format="rgb5a1" Width="8" Height="8" Offset="0x5C20" />
-        <Texture Name="object_thiefbird_Tex_005CA0" OutName="tex_005CA0" Format="rgb5a1" Width="8" Height="8" Offset="0x5CA0" />
+        <Texture Name="object_thiefbird_Tex_0059A0" OutName="tex_0059A0" Format="rgba16" Width="32" Height="8" Offset="0x59A0" />
+        <Texture Name="object_thiefbird_Tex_005BA0" OutName="tex_005BA0" Format="rgba16" Width="8" Height="8" Offset="0x5BA0" />
+        <Texture Name="object_thiefbird_Tex_005C20" OutName="tex_005C20" Format="rgba16" Width="8" Height="8" Offset="0x5C20" />
+        <Texture Name="object_thiefbird_Tex_005CA0" OutName="tex_005CA0" Format="rgba16" Width="8" Height="8" Offset="0x5CA0" />
         <Texture Name="object_thiefbird_Tex_005D20" OutName="tex_005D20" Format="i8" Width="8" Height="8" Offset="0x5D20" />
-        <Texture Name="object_thiefbird_Tex_005D60" OutName="tex_005D60" Format="rgb5a1" Width="8" Height="16" Offset="0x5D60" />
-        <Texture Name="object_thiefbird_Tex_005E60" OutName="tex_005E60" Format="rgb5a1" Width="8" Height="16" Offset="0x5E60" />
-        <Texture Name="object_thiefbird_Tex_005F60" OutName="tex_005F60" Format="rgb5a1" Width="8" Height="8" Offset="0x5F60" />
+        <Texture Name="object_thiefbird_Tex_005D60" OutName="tex_005D60" Format="rgba16" Width="8" Height="16" Offset="0x5D60" />
+        <Texture Name="object_thiefbird_Tex_005E60" OutName="tex_005E60" Format="rgba16" Width="8" Height="16" Offset="0x5E60" />
+        <Texture Name="object_thiefbird_Tex_005F60" OutName="tex_005F60" Format="rgba16" Width="8" Height="8" Offset="0x5F60" />
         <Texture Name="object_thiefbird_Tex_005FE0" OutName="tex_005FE0" Format="i8" Width="8" Height="8" Offset="0x5FE0" />
         <Texture Name="object_thiefbird_Tex_006020" OutName="tex_006020" Format="i4" Width="16" Height="16" Offset="0x6020" />
         <Limb Name="object_thiefbird_Limb_0060A0" LimbType="Standard" Offset="0x60A0" />

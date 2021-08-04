@@ -1,8 +1,8 @@
 ﻿<Root>
     <File Name="object_link_zora" Segment="6" Game="MM">
         <!--Blob Name="object_link_zora_Blob_000000" Size="0x5000" Offset="0x0" /-->
-        <Texture Name="object_link_zora_TLUT_005000" OutName="tlut_005000" Format="rgb5a1" Width="16" Height="16" Offset="0x5000" />
-        <Texture Name="object_link_zora_Tex_005200" OutName="tex_005200" Format="rgb5a1" Width="16" Height="16" Offset="0x5200" />
+        <Texture Name="object_link_zora_TLUT_005000" OutName="tlut_005000" Format="rgba16" Width="16" Height="16" Offset="0x5000" />
+        <Texture Name="object_link_zora_Tex_005200" OutName="tex_005200" Format="rgba16" Width="16" Height="16" Offset="0x5200" />
         <Texture Name="object_link_zora_Tex_005400" OutName="tex_005400" Format="ci8" Width="32" Height="32" Offset="0x5400" />
         <Texture Name="object_link_zora_Tex_005800" OutName="tex_005800" Format="ci8" Width="16" Height="16" Offset="0x5800" />
         <Texture Name="object_link_zora_Tex_005900" OutName="tex_005900" Format="ci8" Width="16" Height="16" Offset="0x5900" />
@@ -33,7 +33,7 @@
         <DList Name="object_link_zora_DL_00BEE8" Offset="0xBEE8" />
         <DList Name="object_link_zora_DL_00C020" Offset="0xC020" />
         <DList Name="object_link_zora_DL_00C270" Offset="0xC270" />
-        <Texture Name="object_link_zora_TLUT_00C578" OutName="tlut_00C578" Format="rgb5a1" Width="16" Height="16" Offset="0xC578" />
+        <Texture Name="object_link_zora_TLUT_00C578" OutName="tlut_00C578" Format="rgba16" Width="16" Height="16" Offset="0xC578" />
         <Texture Name="object_link_zora_Tex_00C778" OutName="tex_00C778" Format="ci8" Width="16" Height="32" Offset="0xC778" />
         <Texture Name="object_link_zora_Tex_00C978" OutName="tex_00C978" Format="ci8" Width="16" Height="16" Offset="0xC978" />
         <DList Name="object_link_zora_DL_00CC38" Offset="0xCC38" />
@@ -43,15 +43,15 @@
         <Texture Name="object_link_zora_Tex_00E678" OutName="tex_00E678" Format="ci8" Width="16" Height="16" Offset="0xE678" />
         <Texture Name="object_link_zora_Tex_00E778" OutName="tex_00E778" Format="ci8" Width="16" Height="16" Offset="0xE778" />
         <Texture Name="object_link_zora_Tex_00E878" OutName="tex_00E878" Format="ci8" Width="8" Height="16" Offset="0xE878" />
-        <Texture Name="object_link_zora_Tex_00E8F8" OutName="tex_00E8F8" Format="rgb5a1" Width="16" Height="16" Offset="0xE8F8" />
-        <Texture Name="object_link_zora_Tex_00EAF8" OutName="tex_00EAF8" Format="rgb5a1" Width="16" Height="16" Offset="0xEAF8" />
-        <Texture Name="object_link_zora_Tex_00ECF8" OutName="tex_00ECF8" Format="rgb5a1" Width="16" Height="16" Offset="0xECF8" />
-        <Texture Name="object_link_zora_Tex_00EEF8" OutName="tex_00EEF8" Format="rgb5a1" Width="16" Height="32" Offset="0xEEF8" />
-        <Texture Name="object_link_zora_Tex_00F2F8" OutName="tex_00F2F8" Format="rgb5a1" Width="16" Height="32" Offset="0xF2F8" />
+        <Texture Name="object_link_zora_Tex_00E8F8" OutName="tex_00E8F8" Format="rgba16" Width="16" Height="16" Offset="0xE8F8" />
+        <Texture Name="object_link_zora_Tex_00EAF8" OutName="tex_00EAF8" Format="rgba16" Width="16" Height="16" Offset="0xEAF8" />
+        <Texture Name="object_link_zora_Tex_00ECF8" OutName="tex_00ECF8" Format="rgba16" Width="16" Height="16" Offset="0xECF8" />
+        <Texture Name="object_link_zora_Tex_00EEF8" OutName="tex_00EEF8" Format="rgba16" Width="16" Height="32" Offset="0xEEF8" />
+        <Texture Name="object_link_zora_Tex_00F2F8" OutName="tex_00F2F8" Format="rgba16" Width="16" Height="32" Offset="0xF2F8" />
         <DList Name="object_link_zora_DL_00FBB8" Offset="0xFBB8" />
         <DList Name="object_link_zora_DL_00FDF0" Offset="0xFDF0" />
-        <Texture Name="object_link_zora_Tex_010028" OutName="tex_010028" Format="rgb5a1" Width="16" Height="16" Offset="0x10028" />
-        <Texture Name="object_link_zora_Tex_010228" OutName="tex_010228" Format="rgb5a1" Width="16" Height="32" Offset="0x10228" />
+        <Texture Name="object_link_zora_Tex_010028" OutName="tex_010028" Format="rgba16" Width="16" Height="16" Offset="0x10028" />
+        <Texture Name="object_link_zora_Tex_010228" OutName="tex_010228" Format="rgba16" Width="16" Height="32" Offset="0x10228" />
         <DList Name="object_link_zora_DL_010868" Offset="0x10868" />
         <DList Name="object_link_zora_DL_010978" Offset="0x10978" />
         <DList Name="object_link_zora_DL_010D08" Offset="0x10D08" />

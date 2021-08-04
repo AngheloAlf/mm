@@ -43,7 +43,7 @@
         <DList Name="object_dy_obj_DL_0160F8" Offset="0x160F8" />
         <DList Name="object_dy_obj_DL_016360" Offset="0x16360" />
         <DList Name="object_dy_obj_DL_0164B8" Offset="0x164B8" />
-        <Texture Name="object_dy_obj_TLUT_0165C8" OutName="tlut_0165C8" Format="rgb5a1" Width="16" Height="16" Offset="0x165C8" />
+        <Texture Name="object_dy_obj_TLUT_0165C8" OutName="tlut_0165C8" Format="rgba16" Width="16" Height="16" Offset="0x165C8" />
         <Texture Name="object_dy_obj_Tex_0167C8" OutName="tex_0167C8" Format="ci8" Width="8" Height="8" Offset="0x167C8" />
         <Texture Name="object_dy_obj_Tex_016808" OutName="tex_016808" Format="ci8" Width="8" Height="8" Offset="0x16808" />
         <Texture Name="object_dy_obj_Tex_016848" OutName="tex_016848" Format="ci8" Width="32" Height="64" Offset="0x16848" />
@@ -51,7 +51,7 @@
         <Texture Name="object_dy_obj_Tex_017088" OutName="tex_017088" Format="ci8" Width="32" Height="32" Offset="0x17088" />
         <Texture Name="object_dy_obj_Tex_017488" OutName="tex_017488" Format="ci8" Width="32" Height="32" Offset="0x17488" />
         <Texture Name="object_dy_obj_Tex_017888" OutName="tex_017888" Format="ci8" Width="16" Height="16" Offset="0x17888" />
-        <Texture Name="object_dy_obj_Tex_017988" OutName="tex_017988" Format="rgb5a1" Width="32" Height="16" Offset="0x17988" />
+        <Texture Name="object_dy_obj_Tex_017988" OutName="tex_017988" Format="rgba16" Width="32" Height="16" Offset="0x17988" />
         <!--Blob Name="object_dy_obj_Blob_017D88" Size="0x4800" Offset="0x17D88" /-->
         <Texture Name="object_dy_obj_Tex_01C588" OutName="tex_01C588" Format="i8" Width="16" Height="16" Offset="0x1C588" />
         <Animation Name="object_dy_obj_Anim_01C6A4" Offset="0x1C6A4" />

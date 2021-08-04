@@ -15,7 +15,7 @@
         <Animation Name="object_boj_Anim_004F40" Offset="0x4F40" />
         <Animation Name="object_boj_Anim_005CE4" Offset="0x5CE4" />
         <Animation Name="object_boj_Anim_005D9C" Offset="0x5D9C" />
-        <Texture Name="object_boj_TLUT_005DB0" OutName="tlut_005DB0" Format="rgb5a1" Width="16" Height="16" Offset="0x5DB0" />
+        <Texture Name="object_boj_TLUT_005DB0" OutName="tlut_005DB0" Format="rgba16" Width="16" Height="16" Offset="0x5DB0" />
         <Texture Name="object_boj_Tex_005FB0" OutName="tex_005FB0" Format="ci8" Width="8" Height="16" Offset="0x5FB0" />
         <Texture Name="object_boj_Tex_006030" OutName="tex_006030" Format="ci8" Width="8" Height="8" Offset="0x6030" />
         <Texture Name="object_boj_Tex_006070" OutName="tex_006070" Format="ci8" Width="32" Height="16" Offset="0x6070" />
@@ -86,7 +86,7 @@
         <Animation Name="object_boj_Anim_0128F4" Offset="0x128F4" />
         <Animation Name="object_boj_Anim_012E84" Offset="0x12E84" />
         <DList Name="object_boj_DL_013380" Offset="0x13380" />
-        <Texture Name="object_boj_TLUT_0134C0" OutName="tlut_0134C0" Format="rgb5a1" Width="16" Height="16" Offset="0x134C0" />
+        <Texture Name="object_boj_TLUT_0134C0" OutName="tlut_0134C0" Format="rgba16" Width="16" Height="16" Offset="0x134C0" />
         <Texture Name="object_boj_Tex_0136C0" OutName="tex_0136C0" Format="ci8" Width="16" Height="16" Offset="0x136C0" />
     </File>
 </Root>

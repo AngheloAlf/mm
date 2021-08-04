@@ -57,7 +57,7 @@
         <Animation Name="object_boss07_Anim_00AD84" Offset="0xAD84" />
         <Animation Name="object_boss07_Anim_00AE40" Offset="0xAE40" />
         <Animation Name="object_boss07_Anim_00AEDC" Offset="0xAEDC" />
-        <Texture Name="object_boss07_Tex_00AEF0" OutName="tex_00AEF0" Format="rgb5a1" Width="8" Height="8" Offset="0xAEF0" />
+        <Texture Name="object_boss07_Tex_00AEF0" OutName="tex_00AEF0" Format="rgba16" Width="8" Height="8" Offset="0xAEF0" />
         <DList Name="object_boss07_DL_00AFB0" Offset="0xAFB0" />
         <DList Name="object_boss07_DL_00B020" Offset="0xB020" />
         <DList Name="object_boss07_DL_00BB30" Offset="0xBB30" />
@@ -74,24 +74,24 @@
         <Texture Name="object_boss07_Tex_00C8B8" OutName="tex_00C8B8" Format="i4" Width="32" Height="64" Offset="0xC8B8" />
         <Texture Name="object_boss07_Tex_00CCB8" OutName="tex_00CCB8" Format="i4" Width="32" Height="32" Offset="0xCCB8" />
         <DList Name="object_boss07_DL_00CEE8" Offset="0xCEE8" />
-        <Texture Name="object_boss07_TLUT_00CFB0" OutName="tlut_00CFB0" Format="rgb5a1" Width="4" Height="4" Offset="0xCFB0" />
-        <Texture Name="object_boss07_TLUT_00CFD0" OutName="tlut_00CFD0" Format="rgb5a1" Width="4" Height="4" Offset="0xCFD0" />
-        <Texture Name="object_boss07_Tex_00CFF0" OutName="tex_00CFF0" Format="rgb5a1" Width="16" Height="16" Offset="0xCFF0" />
+        <Texture Name="object_boss07_TLUT_00CFB0" OutName="tlut_00CFB0" Format="rgba16" Width="4" Height="4" Offset="0xCFB0" />
+        <Texture Name="object_boss07_TLUT_00CFD0" OutName="tlut_00CFD0" Format="rgba16" Width="4" Height="4" Offset="0xCFD0" />
+        <Texture Name="object_boss07_Tex_00CFF0" OutName="tex_00CFF0" Format="rgba16" Width="16" Height="16" Offset="0xCFF0" />
         <Texture Name="object_boss07_Tex_00D1F0" OutName="tex_00D1F0" Format="ci4" Width="64" Height="64" Offset="0xD1F0" />
         <Texture Name="object_boss07_Tex_00D9F0" OutName="tex_00D9F0" Format="ci4" Width="64" Height="64" Offset="0xD9F0" />
-        <Texture Name="object_boss07_TLUT_00E1F0" OutName="tlut_00E1F0" Format="rgb5a1" Width="4" Height="4" Offset="0xE1F0" />
-        <Texture Name="object_boss07_TLUT_00E210" OutName="tlut_00E210" Format="rgb5a1" Width="4" Height="4" Offset="0xE210" />
-        <Texture Name="object_boss07_TLUT_00E230" OutName="tlut_00E230" Format="rgb5a1" Width="4" Height="4" Offset="0xE230" />
-        <Texture Name="object_boss07_Tex_00E250" OutName="tex_00E250" Format="rgb5a1" Width="32" Height="32" Offset="0xE250" />
+        <Texture Name="object_boss07_TLUT_00E1F0" OutName="tlut_00E1F0" Format="rgba16" Width="4" Height="4" Offset="0xE1F0" />
+        <Texture Name="object_boss07_TLUT_00E210" OutName="tlut_00E210" Format="rgba16" Width="4" Height="4" Offset="0xE210" />
+        <Texture Name="object_boss07_TLUT_00E230" OutName="tlut_00E230" Format="rgba16" Width="4" Height="4" Offset="0xE230" />
+        <Texture Name="object_boss07_Tex_00E250" OutName="tex_00E250" Format="rgba16" Width="32" Height="32" Offset="0xE250" />
         <Texture Name="object_boss07_Tex_00EA50" OutName="tex_00EA50" Format="ci4" Width="64" Height="64" Offset="0xEA50" />
         <Texture Name="object_boss07_Tex_00F250" OutName="tex_00F250" Format="ci4" Width="64" Height="64" Offset="0xF250" />
         <Texture Name="object_boss07_Tex_00FA50" OutName="tex_00FA50" Format="ci4" Width="16" Height="16" Offset="0xFA50" />
-        <Texture Name="object_boss07_Tex_00FAD0" OutName="tex_00FAD0" Format="rgb5a1" Width="32" Height="64" Offset="0xFAD0" />
-        <Texture Name="object_boss07_Tex_010AD0" OutName="tex_010AD0" Format="rgb5a1" Width="32" Height="64" Offset="0x10AD0" />
-        <Texture Name="object_boss07_Tex_011AD0" OutName="tex_011AD0" Format="rgb5a1" Width="32" Height="64" Offset="0x11AD0" />
-        <Texture Name="object_boss07_Tex_012AD0" OutName="tex_012AD0" Format="rgb5a1" Width="32" Height="32" Offset="0x12AD0" />
-        <Texture Name="object_boss07_TLUT_0132D0" OutName="tlut_0132D0" Format="rgb5a1" Width="4" Height="4" Offset="0x132D0" />
-        <Texture Name="object_boss07_TLUT_0132F0" OutName="tlut_0132F0" Format="rgb5a1" Width="4" Height="4" Offset="0x132F0" />
+        <Texture Name="object_boss07_Tex_00FAD0" OutName="tex_00FAD0" Format="rgba16" Width="32" Height="64" Offset="0xFAD0" />
+        <Texture Name="object_boss07_Tex_010AD0" OutName="tex_010AD0" Format="rgba16" Width="32" Height="64" Offset="0x10AD0" />
+        <Texture Name="object_boss07_Tex_011AD0" OutName="tex_011AD0" Format="rgba16" Width="32" Height="64" Offset="0x11AD0" />
+        <Texture Name="object_boss07_Tex_012AD0" OutName="tex_012AD0" Format="rgba16" Width="32" Height="32" Offset="0x12AD0" />
+        <Texture Name="object_boss07_TLUT_0132D0" OutName="tlut_0132D0" Format="rgba16" Width="4" Height="4" Offset="0x132D0" />
+        <Texture Name="object_boss07_TLUT_0132F0" OutName="tlut_0132F0" Format="rgba16" Width="4" Height="4" Offset="0x132F0" />
         <Texture Name="object_boss07_Tex_013310" OutName="tex_013310" Format="ci4" Width="64" Height="64" Offset="0x13310" />
         <Texture Name="object_boss07_Tex_013B10" OutName="tex_013B10" Format="ci4" Width="64" Height="64" Offset="0x13B10" />
         <DList Name="object_boss07_DL_0149A0" Offset="0x149A0" />
@@ -148,7 +148,7 @@
         <DList Name="object_boss07_DL_02E6D0" Offset="0x2E6D0" />
         <DList Name="object_boss07_DL_02E838" Offset="0x2E838" />
         <DList Name="object_boss07_DL_02EAC0" Offset="0x2EAC0" />
-        <Texture Name="object_boss07_Tex_02ECF0" OutName="tex_02ECF0" Format="rgb5a1" Width="8" Height="16" Offset="0x2ECF0" />
+        <Texture Name="object_boss07_Tex_02ECF0" OutName="tex_02ECF0" Format="rgba16" Width="8" Height="16" Offset="0x2ECF0" />
         <DList Name="object_boss07_DL_02EE50" Offset="0x2EE50" />
         <DList Name="object_boss07_DL_02EEC8" Offset="0x2EEC8" />
         <DList Name="object_boss07_DL_02EEF8" Offset="0x2EEF8" />
@@ -197,20 +197,20 @@
         <Animation Name="object_boss07_Anim_03D224" Offset="0x3D224" />
         <Animation Name="object_boss07_Anim_03D7F0" Offset="0x3D7F0" />
         <Animation Name="object_boss07_Anim_03DD1C" Offset="0x3DD1C" />
-        <Texture Name="object_boss07_Tex_03DD30" OutName="tex_03DD30" Format="rgb5a1" Width="32" Height="64" Offset="0x3DD30" />
-        <Texture Name="object_boss07_Tex_03ED30" OutName="tex_03ED30" Format="rgb5a1" Width="32" Height="16" Offset="0x3ED30" />
-        <Texture Name="object_boss07_Tex_03F130" OutName="tex_03F130" Format="rgb5a1" Width="64" Height="32" Offset="0x3F130" />
-        <Texture Name="object_boss07_Tex_040130" OutName="tex_040130" Format="rgb5a1" Width="32" Height="32" Offset="0x40130" />
-        <Texture Name="object_boss07_Tex_040930" OutName="tex_040930" Format="rgb5a1" Width="16" Height="16" Offset="0x40930" />
-        <Texture Name="object_boss07_Tex_040B30" OutName="tex_040B30" Format="rgb5a1" Width="32" Height="64" Offset="0x40B30" />
-        <Texture Name="object_boss07_Tex_041B30" OutName="tex_041B30" Format="rgb5a1" Width="32" Height="32" Offset="0x41B30" />
-        <Texture Name="object_boss07_Tex_042330" OutName="tex_042330" Format="rgb5a1" Width="32" Height="64" Offset="0x42330" />
-        <Texture Name="object_boss07_Tex_043330" OutName="tex_043330" Format="rgb5a1" Width="32" Height="64" Offset="0x43330" />
-        <Texture Name="object_boss07_Tex_044330" OutName="tex_044330" Format="rgb5a1" Width="32" Height="64" Offset="0x44330" />
-        <Texture Name="object_boss07_Tex_045330" OutName="tex_045330" Format="rgb5a1" Width="16" Height="16" Offset="0x45330" />
-        <Texture Name="object_boss07_Tex_045530" OutName="tex_045530" Format="rgb5a1" Width="16" Height="16" Offset="0x45530" />
-        <Texture Name="object_boss07_Tex_045730" OutName="tex_045730" Format="rgb5a1" Width="16" Height="16" Offset="0x45730" />
-        <Texture Name="object_boss07_Tex_045930" OutName="tex_045930" Format="rgb5a1" Width="16" Height="16" Offset="0x45930" />
+        <Texture Name="object_boss07_Tex_03DD30" OutName="tex_03DD30" Format="rgba16" Width="32" Height="64" Offset="0x3DD30" />
+        <Texture Name="object_boss07_Tex_03ED30" OutName="tex_03ED30" Format="rgba16" Width="32" Height="16" Offset="0x3ED30" />
+        <Texture Name="object_boss07_Tex_03F130" OutName="tex_03F130" Format="rgba16" Width="64" Height="32" Offset="0x3F130" />
+        <Texture Name="object_boss07_Tex_040130" OutName="tex_040130" Format="rgba16" Width="32" Height="32" Offset="0x40130" />
+        <Texture Name="object_boss07_Tex_040930" OutName="tex_040930" Format="rgba16" Width="16" Height="16" Offset="0x40930" />
+        <Texture Name="object_boss07_Tex_040B30" OutName="tex_040B30" Format="rgba16" Width="32" Height="64" Offset="0x40B30" />
+        <Texture Name="object_boss07_Tex_041B30" OutName="tex_041B30" Format="rgba16" Width="32" Height="32" Offset="0x41B30" />
+        <Texture Name="object_boss07_Tex_042330" OutName="tex_042330" Format="rgba16" Width="32" Height="64" Offset="0x42330" />
+        <Texture Name="object_boss07_Tex_043330" OutName="tex_043330" Format="rgba16" Width="32" Height="64" Offset="0x43330" />
+        <Texture Name="object_boss07_Tex_044330" OutName="tex_044330" Format="rgba16" Width="32" Height="64" Offset="0x44330" />
+        <Texture Name="object_boss07_Tex_045330" OutName="tex_045330" Format="rgba16" Width="16" Height="16" Offset="0x45330" />
+        <Texture Name="object_boss07_Tex_045530" OutName="tex_045530" Format="rgba16" Width="16" Height="16" Offset="0x45530" />
+        <Texture Name="object_boss07_Tex_045730" OutName="tex_045730" Format="rgba16" Width="16" Height="16" Offset="0x45730" />
+        <Texture Name="object_boss07_Tex_045930" OutName="tex_045930" Format="rgba16" Width="16" Height="16" Offset="0x45930" />
         <!--Blob Name="object_boss07_Blob_045B30" Size="0x1000" Offset="0x45B30" /-->
     </File>
 </Root>

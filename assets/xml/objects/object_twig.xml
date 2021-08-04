@@ -1,8 +1,8 @@
 ﻿<Root>
     <File Name="object_twig" Segment="6" Game="MM">
-        <Texture Name="object_twig_Tex_000000" OutName="tex_000000" Format="rgb5a1" Width="32" Height="32" Offset="0x0" />
-        <Texture Name="object_twig_Tex_000800" OutName="tex_000800" Format="rgb5a1" Width="32" Height="32" Offset="0x800" />
-        <Texture Name="object_twig_Tex_001000" OutName="tex_001000" Format="rgb5a1" Width="16" Height="32" Offset="0x1000" />
+        <Texture Name="object_twig_Tex_000000" OutName="tex_000000" Format="rgba16" Width="32" Height="32" Offset="0x0" />
+        <Texture Name="object_twig_Tex_000800" OutName="tex_000800" Format="rgba16" Width="32" Height="32" Offset="0x800" />
+        <Texture Name="object_twig_Tex_001000" OutName="tex_001000" Format="rgba16" Width="16" Height="32" Offset="0x1000" />
         <DList Name="object_twig_DL_0014C0" Offset="0x14C0" />
         <DList Name="object_twig_DL_0014C8" Offset="0x14C8" />
         <!--Blob Name="object_twig_Blob_0015C0" Size="0x130" Offset="0x15C0" /-->

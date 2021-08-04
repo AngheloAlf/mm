@@ -2,9 +2,9 @@
     <File Name="object_ssh" Segment="6" Game="MM">
         <DList Name="object_ssh_DL_0000D0" Offset="0xD0" />
         <DList Name="object_ssh_DL_0000D8" Offset="0xD8" />
-        <Texture Name="object_ssh_Tex_000190" OutName="tex_000190" Format="rgb5a1" Width="32" Height="64" Offset="0x190" />
+        <Texture Name="object_ssh_Tex_000190" OutName="tex_000190" Format="rgba16" Width="32" Height="64" Offset="0x190" />
         <Animation Name="object_ssh_Anim_001494" Offset="0x1494" />
-        <Texture Name="object_ssh_TLUT_0014B0" OutName="tlut_0014B0" Format="rgb5a1" Width="16" Height="16" Offset="0x14B0" />
+        <Texture Name="object_ssh_TLUT_0014B0" OutName="tlut_0014B0" Format="rgba16" Width="16" Height="16" Offset="0x14B0" />
         <Texture Name="object_ssh_Tex_0016B0" OutName="tex_0016B0" Format="ci8" Width="8" Height="8" Offset="0x16B0" />
         <Texture Name="object_ssh_Tex_0016F0" OutName="tex_0016F0" Format="ci8" Width="16" Height="8" Offset="0x16F0" />
         <Texture Name="object_ssh_Tex_001770" OutName="tex_001770" Format="ci8" Width="8" Height="8" Offset="0x1770" />

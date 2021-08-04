@@ -58,7 +58,7 @@
         <DList Name="object_hanareyama_obj_DL_0034B8" Offset="0x34B8" />
         <DList Name="object_hanareyama_obj_DL_003578" Offset="0x3578" />
         <Texture Name="object_hanareyama_obj_Tex_003638" OutName="tex_003638" Format="i4" Width="64" Height="64" Offset="0x3638" />
-        <Texture Name="object_hanareyama_obj_Tex_003E38" OutName="tex_003E38" Format="rgb5a1" Width="32" Height="32" Offset="0x3E38" />
+        <Texture Name="object_hanareyama_obj_Tex_003E38" OutName="tex_003E38" Format="rgba16" Width="32" Height="32" Offset="0x3E38" />
         <!--Blob Name="object_hanareyama_obj_Blob_004638" Size="0x788" Offset="0x4638" /-->
     </File>
 </Root>

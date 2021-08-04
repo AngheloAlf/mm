@@ -15,18 +15,18 @@
         <DList Name="object_ds2n_DL_003988" Offset="0x3988" />
         <DList Name="object_ds2n_DL_003A68" Offset="0x3A68" />
         <DList Name="object_ds2n_DL_003B40" Offset="0x3B40" />
-        <Texture Name="object_ds2n_TLUT_003CD8" OutName="tlut_003CD8" Format="rgb5a1" Width="16" Height="16" Offset="0x3CD8" />
-        <Texture Name="object_ds2n_TLUT_003ED8" OutName="tlut_003ED8" Format="rgb5a1" Width="16" Height="16" Offset="0x3ED8" />
-        <Texture Name="object_ds2n_Tex_0040D8" OutName="tex_0040D8" Format="rgb5a1" Width="16" Height="16" Offset="0x40D8" />
-        <Texture Name="object_ds2n_Tex_0042D8" OutName="tex_0042D8" Format="rgb5a1" Width="16" Height="16" Offset="0x42D8" />
-        <Texture Name="object_ds2n_Tex_0044D8" OutName="tex_0044D8" Format="rgb5a1" Width="16" Height="32" Offset="0x44D8" />
+        <Texture Name="object_ds2n_TLUT_003CD8" OutName="tlut_003CD8" Format="rgba16" Width="16" Height="16" Offset="0x3CD8" />
+        <Texture Name="object_ds2n_TLUT_003ED8" OutName="tlut_003ED8" Format="rgba16" Width="16" Height="16" Offset="0x3ED8" />
+        <Texture Name="object_ds2n_Tex_0040D8" OutName="tex_0040D8" Format="rgba16" Width="16" Height="16" Offset="0x40D8" />
+        <Texture Name="object_ds2n_Tex_0042D8" OutName="tex_0042D8" Format="rgba16" Width="16" Height="16" Offset="0x42D8" />
+        <Texture Name="object_ds2n_Tex_0044D8" OutName="tex_0044D8" Format="rgba16" Width="16" Height="32" Offset="0x44D8" />
         <!--Blob Name="object_ds2n_Blob_0048D8" Size="0xC00" Offset="0x48D8" /-->
         <Texture Name="object_ds2n_Tex_0054D8" OutName="tex_0054D8" Format="ci8" Width="16" Height="16" Offset="0x54D8" />
         <Texture Name="object_ds2n_Tex_0055D8" OutName="tex_0055D8" Format="ci8" Width="8" Height="8" Offset="0x55D8" />
-        <Texture Name="object_ds2n_Tex_005618" OutName="tex_005618" Format="rgb5a1" Width="16" Height="16" Offset="0x5618" />
+        <Texture Name="object_ds2n_Tex_005618" OutName="tex_005618" Format="rgba16" Width="16" Height="16" Offset="0x5618" />
         <Texture Name="object_ds2n_Tex_005818" OutName="tex_005818" Format="ci8" Width="16" Height="16" Offset="0x5818" />
         <Texture Name="object_ds2n_Tex_005918" OutName="tex_005918" Format="ci8" Width="16" Height="32" Offset="0x5918" />
-        <Texture Name="object_ds2n_Tex_005B18" OutName="tex_005B18" Format="rgb5a1" Width="16" Height="16" Offset="0x5B18" />
+        <Texture Name="object_ds2n_Tex_005B18" OutName="tex_005B18" Format="rgba16" Width="16" Height="16" Offset="0x5B18" />
         <Texture Name="object_ds2n_Tex_005D18" OutName="tex_005D18" Format="ci8" Width="16" Height="16" Offset="0x5D18" />
         <!--Blob Name="object_ds2n_Blob_005E18" Size="0x400" Offset="0x5E18" /-->
         <Texture Name="object_ds2n_Tex_006218" OutName="tex_006218" Format="ci8" Width="32" Height="16" Offset="0x6218" />

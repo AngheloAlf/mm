@@ -3,18 +3,18 @@
         <Animation Name="object_ru2_Anim_0004CC" Offset="0x4CC" />
         <Animation Name="object_ru2_Anim_000DE8" Offset="0xDE8" />
         <!--Blob Name="object_ru2_Blob_000DF8" Size="0x128" Offset="0xDF8" /-->
-        <Texture Name="object_ru2_Tex_000F20" OutName="tex_000F20" Format="rgb5a1" Width="32" Height="32" Offset="0xF20" />
+        <Texture Name="object_ru2_Tex_000F20" OutName="tex_000F20" Format="rgba16" Width="32" Height="32" Offset="0xF20" />
         <Texture Name="object_ru2_Tex_001720" OutName="tex_001720" Format="ci8" Width="8" Height="8" Offset="0x1720" />
         <Texture Name="object_ru2_Tex_001760" OutName="tex_001760" Format="ci8" Width="16" Height="16" Offset="0x1760" />
         <Texture Name="object_ru2_Tex_001860" OutName="tex_001860" Format="ci8" Width="16" Height="16" Offset="0x1860" />
         <Texture Name="object_ru2_Tex_001960" OutName="tex_001960" Format="ci8" Width="8" Height="8" Offset="0x1960" />
-        <Texture Name="object_ru2_Tex_0019A0" OutName="tex_0019A0" Format="rgb5a1" Width="32" Height="32" Offset="0x19A0" />
+        <Texture Name="object_ru2_Tex_0019A0" OutName="tex_0019A0" Format="rgba16" Width="32" Height="32" Offset="0x19A0" />
         <Texture Name="object_ru2_Tex_0021A0" OutName="tex_0021A0" Format="ci8" Width="8" Height="8" Offset="0x21A0" />
         <Texture Name="object_ru2_Tex_0021E0" OutName="tex_0021E0" Format="ci8" Width="16" Height="16" Offset="0x21E0" />
         <!--Blob Name="object_ru2_Blob_0022E0" Size="0x1000" Offset="0x22E0" /-->
-        <Texture Name="object_ru2_Tex_0032E0" OutName="tex_0032E0" Format="rgb5a1" Width="8" Height="16" Offset="0x32E0" />
+        <Texture Name="object_ru2_Tex_0032E0" OutName="tex_0032E0" Format="rgba16" Width="8" Height="16" Offset="0x32E0" />
         <DList Name="object_ru2_DL_003EB0" Offset="0x3EB0" />
-        <Texture Name="object_ru2_TLUT_0043C0" OutName="tlut_0043C0" Format="rgb5a1" Width="16" Height="16" Offset="0x43C0" />
+        <Texture Name="object_ru2_TLUT_0043C0" OutName="tlut_0043C0" Format="rgba16" Width="16" Height="16" Offset="0x43C0" />
         <Texture Name="object_ru2_Tex_0045C0" OutName="tex_0045C0" Format="ci8" Width="8" Height="8" Offset="0x45C0" />
         <Texture Name="object_ru2_Tex_004600" OutName="tex_004600" Format="ci8" Width="8" Height="8" Offset="0x4600" />
         <Texture Name="object_ru2_Tex_004640" OutName="tex_004640" Format="ci8" Width="16" Height="16" Offset="0x4640" />
@@ -25,7 +25,7 @@
         <Texture Name="object_ru2_Tex_005480" OutName="tex_005480" Format="ci8" Width="16" Height="16" Offset="0x5480" />
         <Texture Name="object_ru2_Tex_005580" OutName="tex_005580" Format="ci8" Width="8" Height="8" Offset="0x5580" />
         <Texture Name="object_ru2_Tex_0055C0" OutName="tex_0055C0" Format="ci8" Width="8" Height="32" Offset="0x55C0" />
-        <Texture Name="object_ru2_Tex_0056C0" OutName="tex_0056C0" Format="rgb5a1" Width="32" Height="32" Offset="0x56C0" />
+        <Texture Name="object_ru2_Tex_0056C0" OutName="tex_0056C0" Format="rgba16" Width="32" Height="32" Offset="0x56C0" />
         <DList Name="object_ru2_DL_0088F0" Offset="0x88F0" />
         <DList Name="object_ru2_DL_008D30" Offset="0x8D30" />
         <DList Name="object_ru2_DL_009680" Offset="0x9680" />

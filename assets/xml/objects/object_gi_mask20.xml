@@ -2,7 +2,7 @@
     <File Name="object_gi_mask20" Segment="6" Game="MM">
         <DList Name="object_gi_mask20_DL_000800" Offset="0x800" />
         <DList Name="object_gi_mask20_DL_000808" Offset="0x808" />
-        <Texture Name="object_gi_mask20_TLUT_000C80" OutName="tlut_000C80" Format="rgb5a1" Width="16" Height="16" Offset="0xC80" />
+        <Texture Name="object_gi_mask20_TLUT_000C80" OutName="tlut_000C80" Format="rgba16" Width="16" Height="16" Offset="0xC80" />
         <Texture Name="object_gi_mask20_Tex_000E80" OutName="tex_000E80" Format="ia8" Width="48" Height="24" Offset="0xE80" />
         <Texture Name="object_gi_mask20_Tex_001300" OutName="tex_001300" Format="ci8" Width="16" Height="16" Offset="0x1300" />
         <Texture Name="object_gi_mask20_Tex_001400" OutName="tex_001400" Format="ci8" Width="8" Height="8" Offset="0x1400" />

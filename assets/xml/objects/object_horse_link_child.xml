@@ -9,15 +9,15 @@
         <DList Name="object_horse_link_child_DL_0014B8" Offset="0x14B8" />
         <DList Name="object_horse_link_child_DL_001568" Offset="0x1568" />
         <DList Name="object_horse_link_child_DL_001678" Offset="0x1678" />
-        <Texture Name="object_horse_link_child_Tex_001728" OutName="tex_001728" Format="rgb5a1" Width="16" Height="16" Offset="0x1728" />
+        <Texture Name="object_horse_link_child_Tex_001728" OutName="tex_001728" Format="rgba16" Width="16" Height="16" Offset="0x1728" />
         <!--Blob Name="object_horse_link_child_Blob_001928" Size="0x600" Offset="0x1928" /-->
-        <Texture Name="object_horse_link_child_Tex_001F28" OutName="tex_001F28" Format="rgb5a1" Width="4" Height="8" Offset="0x1F28" />
-        <Texture Name="object_horse_link_child_Tex_001F68" OutName="tex_001F68" Format="rgb5a1" Width="16" Height="16" Offset="0x1F68" />
-        <Texture Name="object_horse_link_child_Tex_002168" OutName="tex_002168" Format="rgb5a1" Width="16" Height="16" Offset="0x2168" />
-        <Texture Name="object_horse_link_child_Tex_002368" OutName="tex_002368" Format="rgb5a1" Width="16" Height="16" Offset="0x2368" />
-        <Texture Name="object_horse_link_child_Tex_002568" OutName="tex_002568" Format="rgb5a1" Width="4" Height="4" Offset="0x2568" />
-        <Texture Name="object_horse_link_child_Tex_002588" OutName="tex_002588" Format="rgb5a1" Width="8" Height="32" Offset="0x2588" />
-        <Texture Name="object_horse_link_child_Tex_002788" OutName="tex_002788" Format="rgb5a1" Width="16" Height="16" Offset="0x2788" />
+        <Texture Name="object_horse_link_child_Tex_001F28" OutName="tex_001F28" Format="rgba16" Width="4" Height="8" Offset="0x1F28" />
+        <Texture Name="object_horse_link_child_Tex_001F68" OutName="tex_001F68" Format="rgba16" Width="16" Height="16" Offset="0x1F68" />
+        <Texture Name="object_horse_link_child_Tex_002168" OutName="tex_002168" Format="rgba16" Width="16" Height="16" Offset="0x2168" />
+        <Texture Name="object_horse_link_child_Tex_002368" OutName="tex_002368" Format="rgba16" Width="16" Height="16" Offset="0x2368" />
+        <Texture Name="object_horse_link_child_Tex_002568" OutName="tex_002568" Format="rgba16" Width="4" Height="4" Offset="0x2568" />
+        <Texture Name="object_horse_link_child_Tex_002588" OutName="tex_002588" Format="rgba16" Width="8" Height="32" Offset="0x2588" />
+        <Texture Name="object_horse_link_child_Tex_002788" OutName="tex_002788" Format="rgba16" Width="16" Height="16" Offset="0x2788" />
         <Animation Name="object_horse_link_child_Anim_002F98" Offset="0x2F98" />
         <Animation Name="object_horse_link_child_Anim_0035B0" Offset="0x35B0" />
         <Animation Name="object_horse_link_child_Anim_003D38" Offset="0x3D38" />
@@ -35,7 +35,7 @@
         <Animation Name="object_horse_link_child_Anim_00D178" Offset="0xD178" />
         <Animation Name="object_horse_link_child_Anim_00D4E8" Offset="0xD4E8" />
         <DList Name="object_horse_link_child_DL_00D500" Offset="0xD500" />
-        <Texture Name="object_horse_link_child_Tex_00DAF0" OutName="tex_00DAF0" Format="rgb5a1" Width="16" Height="16" Offset="0xDAF0" />
-        <Texture Name="object_horse_link_child_Tex_00DCF0" OutName="tex_00DCF0" Format="rgb5a1" Width="32" Height="32" Offset="0xDCF0" />
+        <Texture Name="object_horse_link_child_Tex_00DAF0" OutName="tex_00DAF0" Format="rgba16" Width="16" Height="16" Offset="0xDAF0" />
+        <Texture Name="object_horse_link_child_Tex_00DCF0" OutName="tex_00DCF0" Format="rgba16" Width="32" Height="32" Offset="0xDCF0" />
     </File>
 </Root>

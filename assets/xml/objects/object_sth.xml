@@ -16,7 +16,7 @@
         <DList Name="object_sth_DL_002908" Offset="0x2908" />
         <DList Name="object_sth_DL_002A18" Offset="0x2A18" />
         <DList Name="object_sth_DL_002B20" Offset="0x2B20" />
-        <Texture Name="object_sth_TLUT_002D08" OutName="tlut_002D08" Format="rgb5a1" Width="16" Height="16" Offset="0x2D08" />
+        <Texture Name="object_sth_TLUT_002D08" OutName="tlut_002D08" Format="rgba16" Width="16" Height="16" Offset="0x2D08" />
         <Texture Name="object_sth_Tex_002F08" OutName="tex_002F08" Format="ci8" Width="8" Height="8" Offset="0x2F08" />
         <Texture Name="object_sth_Tex_002F48" OutName="tex_002F48" Format="ci8" Width="8" Height="8" Offset="0x2F48" />
         <Texture Name="object_sth_Tex_002F88" OutName="tex_002F88" Format="i8" Width="16" Height="16" Offset="0x2F88" />

@@ -39,9 +39,9 @@
         <DList Name="object_cs_DL_00AA58" Offset="0xAA58" />
         <DList Name="object_cs_DL_00ABA0" Offset="0xABA0" />
         <DList Name="object_cs_DL_00AD30" Offset="0xAD30" />
-        <Texture Name="object_cs_TLUT_00B020" OutName="tlut_00B020" Format="rgb5a1" Width="16" Height="16" Offset="0xB020" />
-        <Texture Name="object_cs_TLUT_00B220" OutName="tlut_00B220" Format="rgb5a1" Width="16" Height="16" Offset="0xB220" />
-        <Texture Name="object_cs_TLUT_00B420" OutName="tlut_00B420" Format="rgb5a1" Width="16" Height="16" Offset="0xB420" />
+        <Texture Name="object_cs_TLUT_00B020" OutName="tlut_00B020" Format="rgba16" Width="16" Height="16" Offset="0xB020" />
+        <Texture Name="object_cs_TLUT_00B220" OutName="tlut_00B220" Format="rgba16" Width="16" Height="16" Offset="0xB220" />
+        <Texture Name="object_cs_TLUT_00B420" OutName="tlut_00B420" Format="rgba16" Width="16" Height="16" Offset="0xB420" />
         <Texture Name="object_cs_Tex_00B620" OutName="tex_00B620" Format="ci8" Width="32" Height="16" Offset="0xB620" />
         <Texture Name="object_cs_Tex_00B820" OutName="tex_00B820" Format="ci8" Width="8" Height="8" Offset="0xB820" />
         <Texture Name="object_cs_Tex_00B860" OutName="tex_00B860" Format="ci8" Width="8" Height="8" Offset="0xB860" />

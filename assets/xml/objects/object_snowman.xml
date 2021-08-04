@@ -13,10 +13,10 @@
         <DList Name="object_snowman_DL_002D10" Offset="0x2D10" />
         <DList Name="object_snowman_DL_002DE0" Offset="0x2DE0" />
         <DList Name="object_snowman_DL_002E70" Offset="0x2E70" />
-        <Texture Name="object_snowman_Tex_002F00" OutName="tex_002F00" Format="rgb5a1" Width="32" Height="64" Offset="0x2F00" />
+        <Texture Name="object_snowman_Tex_002F00" OutName="tex_002F00" Format="rgba16" Width="32" Height="64" Offset="0x2F00" />
         <Texture Name="object_snowman_Tex_003F00" OutName="tex_003F00" Format="i4" Width="16" Height="16" Offset="0x3F00" />
         <Texture Name="object_snowman_Tex_003F80" OutName="tex_003F80" Format="i8" Width="16" Height="16" Offset="0x3F80" />
-        <Texture Name="object_snowman_Tex_004080" OutName="tex_004080" Format="rgb5a1" Width="16" Height="16" Offset="0x4080" />
+        <Texture Name="object_snowman_Tex_004080" OutName="tex_004080" Format="rgba16" Width="16" Height="16" Offset="0x4080" />
         <DList Name="object_snowman_DL_004400" Offset="0x4400" />
         <Limb Name="object_snowman_Limb_0044F0" LimbType="Standard" Offset="0x44F0" />
         <Limb Name="object_snowman_Limb_0044FC" LimbType="Standard" Offset="0x44FC" />
@@ -44,6 +44,6 @@
         <DList Name="object_snowman_DL_005CB0" Offset="0x5CB0" />
         <DList Name="object_snowman_DL_006190" Offset="0x6190" />
         <DList Name="object_snowman_DL_006620" Offset="0x6620" />
-        <Texture Name="object_snowman_Tex_006730" OutName="tex_006730" Format="rgb5a1" Width="32" Height="64" Offset="0x6730" />
+        <Texture Name="object_snowman_Tex_006730" OutName="tex_006730" Format="rgba16" Width="32" Height="64" Offset="0x6730" />
     </File>
 </Root>

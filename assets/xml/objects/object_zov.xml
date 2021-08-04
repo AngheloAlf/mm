@@ -33,8 +33,8 @@
         <DList Name="object_zov_DL_012CB8" Offset="0x12CB8" />
         <DList Name="object_zov_DL_012F28" Offset="0x12F28" />
         <DList Name="object_zov_DL_012FE8" Offset="0x12FE8" />
-        <Texture Name="object_zov_TLUT_013278" OutName="tlut_013278" Format="rgb5a1" Width="16" Height="16" Offset="0x13278" />
-        <Texture Name="object_zov_Tex_013478" OutName="tex_013478" Format="rgb5a1" Width="8" Height="16" Offset="0x13478" />
+        <Texture Name="object_zov_TLUT_013278" OutName="tlut_013278" Format="rgba16" Width="16" Height="16" Offset="0x13278" />
+        <Texture Name="object_zov_Tex_013478" OutName="tex_013478" Format="rgba16" Width="8" Height="16" Offset="0x13478" />
         <Texture Name="object_zov_Tex_013578" OutName="tex_013578" Format="ci8" Width="8" Height="8" Offset="0x13578" />
         <Texture Name="object_zov_Tex_0135B8" OutName="tex_0135B8" Format="ci8" Width="8" Height="8" Offset="0x135B8" />
         <!--Blob Name="object_zov_Blob_0135F8" Size="0x400" Offset="0x135F8" /-->
@@ -49,7 +49,7 @@
         <Texture Name="object_zov_Tex_015538" OutName="tex_015538" Format="ci8" Width="8" Height="8" Offset="0x15538" />
         <Texture Name="object_zov_Tex_015578" OutName="tex_015578" Format="ci8" Width="16" Height="16" Offset="0x15578" />
         <Texture Name="object_zov_Tex_015678" OutName="tex_015678" Format="ci8" Width="16" Height="16" Offset="0x15678" />
-        <Texture Name="object_zov_Tex_015778" OutName="tex_015778" Format="rgb5a1" Width="32" Height="32" Offset="0x15778" />
+        <Texture Name="object_zov_Tex_015778" OutName="tex_015778" Format="rgba16" Width="32" Height="32" Offset="0x15778" />
         <Texture Name="object_zov_Tex_015F78" OutName="tex_015F78" Format="ci8" Width="16" Height="16" Offset="0x15F78" />
         <Texture Name="object_zov_Tex_016078" OutName="tex_016078" Format="ci8" Width="8" Height="16" Offset="0x16078" />
         <Limb Name="object_zov_Limb_0160F8" LimbType="Standard" Offset="0x160F8" />

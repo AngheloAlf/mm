@@ -1,37 +1,37 @@
 ﻿<Root>
     <File Name="object_zl4" Segment="6" Game="MM">
         <Animation Name="object_zl4_Anim_000654" Offset="0x654" />
-        <Texture Name="object_zl4_TLUT_000670" OutName="tlut_000670" Format="rgb5a1" Width="16" Height="16" Offset="0x670" />
-        <Texture Name="object_zl4_Tex_000870" OutName="tex_000870" Format="rgb5a1" Width="16" Height="16" Offset="0x870" />
-        <Texture Name="object_zl4_Tex_000A70" OutName="tex_000A70" Format="rgb5a1" Width="16" Height="16" Offset="0xA70" />
+        <Texture Name="object_zl4_TLUT_000670" OutName="tlut_000670" Format="rgba16" Width="16" Height="16" Offset="0x670" />
+        <Texture Name="object_zl4_Tex_000870" OutName="tex_000870" Format="rgba16" Width="16" Height="16" Offset="0x870" />
+        <Texture Name="object_zl4_Tex_000A70" OutName="tex_000A70" Format="rgba16" Width="16" Height="16" Offset="0xA70" />
         <Texture Name="object_zl4_Tex_000C70" OutName="tex_000C70" Format="ci8" Width="8" Height="8" Offset="0xC70" />
         <Texture Name="object_zl4_Tex_000CB0" OutName="tex_000CB0" Format="ci8" Width="16" Height="16" Offset="0xCB0" />
         <Texture Name="object_zl4_Tex_000DB0" OutName="tex_000DB0" Format="ci8" Width="32" Height="64" Offset="0xDB0" />
-        <Texture Name="object_zl4_Tex_0015B0" OutName="tex_0015B0" Format="rgb5a1" Width="8" Height="8" Offset="0x15B0" />
-        <Texture Name="object_zl4_Tex_001630" OutName="tex_001630" Format="rgb5a1" Width="8" Height="8" Offset="0x1630" />
+        <Texture Name="object_zl4_Tex_0015B0" OutName="tex_0015B0" Format="rgba16" Width="8" Height="8" Offset="0x15B0" />
+        <Texture Name="object_zl4_Tex_001630" OutName="tex_001630" Format="rgba16" Width="8" Height="8" Offset="0x1630" />
         <Texture Name="object_zl4_Tex_0016B0" OutName="tex_0016B0" Format="ci8" Width="32" Height="8" Offset="0x16B0" />
         <Texture Name="object_zl4_Tex_0017B0" OutName="tex_0017B0" Format="ci8" Width="8" Height="8" Offset="0x17B0" />
         <Texture Name="object_zl4_Tex_0017F0" OutName="tex_0017F0" Format="ci8" Width="32" Height="32" Offset="0x17F0" />
-        <Texture Name="object_zl4_Tex_001BF0" OutName="tex_001BF0" Format="rgb5a1" Width="8" Height="16" Offset="0x1BF0" />
+        <Texture Name="object_zl4_Tex_001BF0" OutName="tex_001BF0" Format="rgba16" Width="8" Height="16" Offset="0x1BF0" />
         <Texture Name="object_zl4_Tex_001CF0" OutName="tex_001CF0" Format="ci8" Width="16" Height="16" Offset="0x1CF0" />
         <Texture Name="object_zl4_Tex_001DF0" OutName="tex_001DF0" Format="ci8" Width="8" Height="8" Offset="0x1DF0" />
-        <Texture Name="object_zl4_Tex_001E30" OutName="tex_001E30" Format="rgb5a1" Width="16" Height="32" Offset="0x1E30" />
+        <Texture Name="object_zl4_Tex_001E30" OutName="tex_001E30" Format="rgba16" Width="16" Height="32" Offset="0x1E30" />
         <Texture Name="object_zl4_Tex_002230" OutName="tex_002230" Format="ci8" Width="8" Height="8" Offset="0x2230" />
         <Texture Name="object_zl4_Tex_002270" OutName="tex_002270" Format="ci8" Width="8" Height="16" Offset="0x2270" />
         <Texture Name="object_zl4_Tex_0022F0" OutName="tex_0022F0" Format="ci8" Width="16" Height="32" Offset="0x22F0" />
-        <Texture Name="object_zl4_Tex_0024F0" OutName="tex_0024F0" Format="rgb5a1" Width="16" Height="16" Offset="0x24F0" />
-        <Texture Name="object_zl4_Tex_0026F0" OutName="tex_0026F0" Format="rgb5a1" Width="16" Height="16" Offset="0x26F0" />
-        <Texture Name="object_zl4_Tex_0028F0" OutName="tex_0028F0" Format="rgb5a1" Width="8" Height="8" Offset="0x28F0" />
-        <Texture Name="object_zl4_Tex_002970" OutName="tex_002970" Format="rgb5a1" Width="8" Height="8" Offset="0x2970" />
-        <Texture Name="object_zl4_Tex_0029F0" OutName="tex_0029F0" Format="rgb5a1" Width="16" Height="8" Offset="0x29F0" />
+        <Texture Name="object_zl4_Tex_0024F0" OutName="tex_0024F0" Format="rgba16" Width="16" Height="16" Offset="0x24F0" />
+        <Texture Name="object_zl4_Tex_0026F0" OutName="tex_0026F0" Format="rgba16" Width="16" Height="16" Offset="0x26F0" />
+        <Texture Name="object_zl4_Tex_0028F0" OutName="tex_0028F0" Format="rgba16" Width="8" Height="8" Offset="0x28F0" />
+        <Texture Name="object_zl4_Tex_002970" OutName="tex_002970" Format="rgba16" Width="8" Height="8" Offset="0x2970" />
+        <Texture Name="object_zl4_Tex_0029F0" OutName="tex_0029F0" Format="rgba16" Width="16" Height="8" Offset="0x29F0" />
         <!--Blob Name="object_zl4_Blob_002AF0" Size="0x2C00" Offset="0x2AF0" /-->
-        <Texture Name="object_zl4_Tex_0056F0" OutName="tex_0056F0" Format="rgb5a1" Width="16" Height="16" Offset="0x56F0" />
+        <Texture Name="object_zl4_Tex_0056F0" OutName="tex_0056F0" Format="rgba16" Width="16" Height="16" Offset="0x56F0" />
         <Texture Name="object_zl4_Tex_0058F0" OutName="tex_0058F0" Format="ci8" Width="16" Height="16" Offset="0x58F0" />
-        <Texture Name="object_zl4_Tex_0059F0" OutName="tex_0059F0" Format="rgb5a1" Width="8" Height="8" Offset="0x59F0" />
-        <Texture Name="object_zl4_Tex_005A70" OutName="tex_005A70" Format="rgb5a1" Width="16" Height="16" Offset="0x5A70" />
+        <Texture Name="object_zl4_Tex_0059F0" OutName="tex_0059F0" Format="rgba16" Width="8" Height="8" Offset="0x59F0" />
+        <Texture Name="object_zl4_Tex_005A70" OutName="tex_005A70" Format="rgba16" Width="16" Height="16" Offset="0x5A70" />
         <Texture Name="object_zl4_Tex_005C70" OutName="tex_005C70" Format="ci8" Width="8" Height="8" Offset="0x5C70" />
         <Texture Name="object_zl4_Tex_005CB0" OutName="tex_005CB0" Format="ci8" Width="16" Height="16" Offset="0x5CB0" />
-        <Texture Name="object_zl4_Tex_005DB0" OutName="tex_005DB0" Format="rgb5a1" Width="32" Height="32" Offset="0x5DB0" />
+        <Texture Name="object_zl4_Tex_005DB0" OutName="tex_005DB0" Format="rgba16" Width="32" Height="32" Offset="0x5DB0" />
         <DList Name="object_zl4_DL_00A630" Offset="0xA630" />
         <DList Name="object_zl4_DL_00AFC8" Offset="0xAFC8" />
         <DList Name="object_zl4_DL_00B8D8" Offset="0xB8D8" />
@@ -49,7 +49,7 @@
         <DList Name="object_zl4_DL_00D5E8" Offset="0xD5E8" />
         <DList Name="object_zl4_DL_00D728" Offset="0xD728" />
         <DList Name="object_zl4_DL_00D778" Offset="0xD778" />
-        <Texture Name="object_zl4_Tex_00D8B8" OutName="tex_00D8B8" Format="rgb5a1" Width="32" Height="16" Offset="0xD8B8" />
+        <Texture Name="object_zl4_Tex_00D8B8" OutName="tex_00D8B8" Format="rgba16" Width="32" Height="16" Offset="0xD8B8" />
         <DList Name="object_zl4_DL_00DE08" Offset="0xDE08" />
         <Limb Name="object_zl4_Limb_00DF28" LimbType="Standard" Offset="0xDF28" />
         <Limb Name="object_zl4_Limb_00DF34" LimbType="Standard" Offset="0xDF34" />
@@ -119,7 +119,7 @@
         <Animation Name="object_zl4_Anim_024B68" Offset="0x24B68" />
         <DList Name="object_zl4_DL_024D80" Offset="0x24D80" />
         <DList Name="object_zl4_DL_024E40" Offset="0x24E40" />
-        <Texture Name="object_zl4_Tex_024E50" OutName="tex_024E50" Format="rgb5a1" Width="16" Height="8" Offset="0x24E50" />
+        <Texture Name="object_zl4_Tex_024E50" OutName="tex_024E50" Format="rgba16" Width="16" Height="8" Offset="0x24E50" />
         <!--Blob Name="object_zl4_Blob_024F50" Size="0x10" Offset="0x24F50" /-->
     </File>
 </Root>

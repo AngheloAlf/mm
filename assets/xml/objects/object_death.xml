@@ -27,22 +27,22 @@
         <DList Name="object_death_DL_0084E0" Offset="0x84E0" />
         <DList Name="object_death_DL_008598" Offset="0x8598" />
         <DList Name="object_death_DL_008638" Offset="0x8638" />
-        <Texture Name="object_death_Tex_008788" OutName="tex_008788" Format="rgb5a1" Width="32" Height="32" Offset="0x8788" />
-        <Texture Name="object_death_Tex_008F88" OutName="tex_008F88" Format="rgb5a1" Width="8" Height="8" Offset="0x8F88" />
-        <Texture Name="object_death_Tex_009008" OutName="tex_009008" Format="rgb5a1" Width="8" Height="16" Offset="0x9008" />
-        <Texture Name="object_death_Tex_009108" OutName="tex_009108" Format="rgb5a1" Width="8" Height="8" Offset="0x9108" />
-        <Texture Name="object_death_Tex_009188" OutName="tex_009188" Format="rgb5a1" Width="16" Height="8" Offset="0x9188" />
-        <Texture Name="object_death_Tex_009288" OutName="tex_009288" Format="rgb5a1" Width="8" Height="8" Offset="0x9288" />
-        <Texture Name="object_death_Tex_009308" OutName="tex_009308" Format="rgb5a1" Width="8" Height="8" Offset="0x9308" />
-        <Texture Name="object_death_Tex_009388" OutName="tex_009388" Format="rgb5a1" Width="16" Height="16" Offset="0x9388" />
-        <Texture Name="object_death_Tex_009588" OutName="tex_009588" Format="rgb5a1" Width="4" Height="8" Offset="0x9588" />
-        <Texture Name="object_death_Tex_0095C8" OutName="tex_0095C8" Format="rgb5a1" Width="16" Height="16" Offset="0x95C8" />
-        <Texture Name="object_death_Tex_0097C8" OutName="tex_0097C8" Format="rgb5a1" Width="4" Height="8" Offset="0x97C8" />
+        <Texture Name="object_death_Tex_008788" OutName="tex_008788" Format="rgba16" Width="32" Height="32" Offset="0x8788" />
+        <Texture Name="object_death_Tex_008F88" OutName="tex_008F88" Format="rgba16" Width="8" Height="8" Offset="0x8F88" />
+        <Texture Name="object_death_Tex_009008" OutName="tex_009008" Format="rgba16" Width="8" Height="16" Offset="0x9008" />
+        <Texture Name="object_death_Tex_009108" OutName="tex_009108" Format="rgba16" Width="8" Height="8" Offset="0x9108" />
+        <Texture Name="object_death_Tex_009188" OutName="tex_009188" Format="rgba16" Width="16" Height="8" Offset="0x9188" />
+        <Texture Name="object_death_Tex_009288" OutName="tex_009288" Format="rgba16" Width="8" Height="8" Offset="0x9288" />
+        <Texture Name="object_death_Tex_009308" OutName="tex_009308" Format="rgba16" Width="8" Height="8" Offset="0x9308" />
+        <Texture Name="object_death_Tex_009388" OutName="tex_009388" Format="rgba16" Width="16" Height="16" Offset="0x9388" />
+        <Texture Name="object_death_Tex_009588" OutName="tex_009588" Format="rgba16" Width="4" Height="8" Offset="0x9588" />
+        <Texture Name="object_death_Tex_0095C8" OutName="tex_0095C8" Format="rgba16" Width="16" Height="16" Offset="0x95C8" />
+        <Texture Name="object_death_Tex_0097C8" OutName="tex_0097C8" Format="rgba16" Width="4" Height="8" Offset="0x97C8" />
         <Texture Name="object_death_Tex_009808" OutName="tex_009808" Format="i4" Width="16" Height="16" Offset="0x9808" />
         <DList Name="object_death_DL_009988" Offset="0x9988" />
         <Texture Name="object_death_Tex_009AA0" OutName="tex_009AA0" Format="i4" Width="16" Height="16" Offset="0x9AA0" />
         <DList Name="object_death_DL_009BA0" Offset="0x9BA0" />
-        <Texture Name="object_death_Tex_009C40" OutName="tex_009C40" Format="rgb5a1" Width="16" Height="16" Offset="0x9C40" />
+        <Texture Name="object_death_Tex_009C40" OutName="tex_009C40" Format="rgba16" Width="16" Height="16" Offset="0x9C40" />
         <DList Name="object_death_DL_009F10" Offset="0x9F10" />
         <DList Name="object_death_DL_009F88" Offset="0x9F88" />
         <DList Name="object_death_DL_00A088" Offset="0xA088" />
@@ -53,7 +53,7 @@
         <DList Name="object_death_DL_00A588" Offset="0xA588" />
         <DList Name="object_death_DL_00A688" Offset="0xA688" />
         <DList Name="object_death_DL_00A788" Offset="0xA788" />
-        <Texture Name="object_death_Tex_00A7B8" OutName="tex_00A7B8" Format="rgb5a1" Width="32" Height="16" Offset="0xA7B8" />
+        <Texture Name="object_death_Tex_00A7B8" OutName="tex_00A7B8" Format="rgba16" Width="32" Height="16" Offset="0xA7B8" />
         <Limb Name="object_death_Limb_00ABB8" LimbType="Standard" Offset="0xABB8" />
         <Limb Name="object_death_Limb_00ABC4" LimbType="Standard" Offset="0xABC4" />
         <Limb Name="object_death_Limb_00ABD0" LimbType="Standard" Offset="0xABD0" />

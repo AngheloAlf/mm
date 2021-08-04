@@ -22,11 +22,11 @@
         <DList Name="object_raf_DL_002340" Offset="0x2340" />
         <DList Name="object_raf_DL_002418" Offset="0x2418" />
         <DList Name="object_raf_DL_0024E0" Offset="0x24E0" />
-        <Texture Name="object_raf_Tex_0024F8" OutName="tex_0024F8" Format="rgb5a1" Width="16" Height="32" Offset="0x24F8" />
-        <Texture Name="object_raf_Tex_0028F8" OutName="tex_0028F8" Format="rgb5a1" Width="16" Height="32" Offset="0x28F8" />
-        <Texture Name="object_raf_Tex_002CF8" OutName="tex_002CF8" Format="rgb5a1" Width="16" Height="16" Offset="0x2CF8" />
-        <Texture Name="object_raf_Tex_002EF8" OutName="tex_002EF8" Format="rgb5a1" Width="16" Height="32" Offset="0x2EF8" />
-        <Texture Name="object_raf_Tex_0032F8" OutName="tex_0032F8" Format="rgb5a1" Width="8" Height="8" Offset="0x32F8" />
+        <Texture Name="object_raf_Tex_0024F8" OutName="tex_0024F8" Format="rgba16" Width="16" Height="32" Offset="0x24F8" />
+        <Texture Name="object_raf_Tex_0028F8" OutName="tex_0028F8" Format="rgba16" Width="16" Height="32" Offset="0x28F8" />
+        <Texture Name="object_raf_Tex_002CF8" OutName="tex_002CF8" Format="rgba16" Width="16" Height="16" Offset="0x2CF8" />
+        <Texture Name="object_raf_Tex_002EF8" OutName="tex_002EF8" Format="rgba16" Width="16" Height="32" Offset="0x2EF8" />
+        <Texture Name="object_raf_Tex_0032F8" OutName="tex_0032F8" Format="rgba16" Width="8" Height="8" Offset="0x32F8" />
         <Limb Name="object_raf_Skel_003378" LimbType="Standard" Offset="0x3378" />
         <Limb Name="object_raf_Skel_003384" LimbType="Standard" Offset="0x3384" />
         <Limb Name="object_raf_Skel_003390" LimbType="Standard" Offset="0x3390" />

@@ -1,23 +1,23 @@
 ﻿<Root>
     <File Name="object_link_child" Segment="6" Game="MM">
         <!--Blob Name="object_link_child_Blob_000000" Size="0x5000" Offset="0x0" /-->
-        <Texture Name="object_link_child_TLUT_005000" OutName="tlut_005000" Format="rgb5a1" Width="16" Height="16" Offset="0x5000" />
-        <Texture Name="object_link_child_Tex_005200" OutName="tex_005200" Format="rgb5a1" Width="16" Height="16" Offset="0x5200" />
-        <Texture Name="object_link_child_Tex_005400" OutName="tex_005400" Format="rgb5a1" Width="8" Height="16" Offset="0x5400" />
+        <Texture Name="object_link_child_TLUT_005000" OutName="tlut_005000" Format="rgba16" Width="16" Height="16" Offset="0x5000" />
+        <Texture Name="object_link_child_Tex_005200" OutName="tex_005200" Format="rgba16" Width="16" Height="16" Offset="0x5200" />
+        <Texture Name="object_link_child_Tex_005400" OutName="tex_005400" Format="rgba16" Width="8" Height="16" Offset="0x5400" />
         <Texture Name="object_link_child_Tex_005500" OutName="tex_005500" Format="ci8" Width="8" Height="8" Offset="0x5500" />
         <Texture Name="object_link_child_Tex_005540" OutName="tex_005540" Format="ci8" Width="16" Height="16" Offset="0x5540" />
         <Texture Name="object_link_child_Tex_005640" OutName="tex_005640" Format="ci8" Width="16" Height="16" Offset="0x5640" />
-        <Texture Name="object_link_child_Tex_005740" OutName="tex_005740" Format="rgb5a1" Width="32" Height="16" Offset="0x5740" />
-        <Texture Name="object_link_child_Tex_005B40" OutName="tex_005B40" Format="rgb5a1" Width="8" Height="16" Offset="0x5B40" />
+        <Texture Name="object_link_child_Tex_005740" OutName="tex_005740" Format="rgba16" Width="32" Height="16" Offset="0x5740" />
+        <Texture Name="object_link_child_Tex_005B40" OutName="tex_005B40" Format="rgba16" Width="8" Height="16" Offset="0x5B40" />
         <Texture Name="object_link_child_Tex_005C40" OutName="tex_005C40" Format="i8" Width="16" Height="16" Offset="0x5C40" />
         <Texture Name="object_link_child_Tex_005D40" OutName="tex_005D40" Format="i8" Width="8" Height="8" Offset="0x5D40" />
         <Texture Name="object_link_child_Tex_005D80" OutName="tex_005D80" Format="i8" Width="8" Height="16" Offset="0x5D80" />
-        <Texture Name="object_link_child_Tex_005E00" OutName="tex_005E00" Format="rgb5a1" Width="16" Height="32" Offset="0x5E00" />
-        <Texture Name="object_link_child_Tex_006200" OutName="tex_006200" Format="rgb5a1" Width="32" Height="32" Offset="0x6200" />
+        <Texture Name="object_link_child_Tex_005E00" OutName="tex_005E00" Format="rgba16" Width="16" Height="32" Offset="0x5E00" />
+        <Texture Name="object_link_child_Tex_006200" OutName="tex_006200" Format="rgba16" Width="32" Height="32" Offset="0x6200" />
         <Texture Name="object_link_child_Tex_006A00" OutName="tex_006A00" Format="ci8" Width="16" Height="16" Offset="0x6A00" />
-        <Texture Name="object_link_child_Tex_006B00" OutName="tex_006B00" Format="rgb5a1" Width="16" Height="16" Offset="0x6B00" />
+        <Texture Name="object_link_child_Tex_006B00" OutName="tex_006B00" Format="rgba16" Width="16" Height="16" Offset="0x6B00" />
         <!--Blob Name="object_link_child_Blob_006D00" Size="0xA00" Offset="0x6D00" /-->
-        <Texture Name="object_link_child_Tex_007700" OutName="tex_007700" Format="rgb5a1" Width="16" Height="16" Offset="0x7700" />
+        <Texture Name="object_link_child_Tex_007700" OutName="tex_007700" Format="rgba16" Width="16" Height="16" Offset="0x7700" />
         <DList Name="object_link_child_DL_00B360" Offset="0xB360" />
         <DList Name="object_link_child_DL_00B538" Offset="0xB538" />
         <DList Name="object_link_child_DL_00B778" Offset="0xB778" />
@@ -36,7 +36,7 @@
         <DList Name="object_link_child_DL_00D1B0" Offset="0xD1B0" />
         <DList Name="object_link_child_DL_00D3D8" Offset="0xD3D8" />
         <DList Name="object_link_child_DL_00D528" Offset="0xD528" />
-        <Texture Name="object_link_child_Tex_00D680" OutName="tex_00D680" Format="rgb5a1" Width="32" Height="16" Offset="0xD680" />
+        <Texture Name="object_link_child_Tex_00D680" OutName="tex_00D680" Format="rgba16" Width="32" Height="16" Offset="0xD680" />
         <!--Blob Name="object_link_child_Blob_00DA80" Size="0x88" Offset="0xDA80" /-->
         <Texture Name="object_link_child_Tex_00DB08" OutName="tex_00DB08" Format="ci8" Width="16" Height="16" Offset="0xDB08" />
         <!--Blob Name="object_link_child_Blob_00DC08" Size="0x360" Offset="0xDC08" /-->
@@ -86,26 +86,26 @@
         <DList Name="object_link_child_DL_017B40" Offset="0x17B40" />
         <DList Name="object_link_child_DL_0181C8" Offset="0x181C8" />
         <DList Name="object_link_child_DL_018490" Offset="0x18490" />
-        <Texture Name="object_link_child_TLUT_018A40" OutName="tlut_018A40" Format="rgb5a1" Width="16" Height="16" Offset="0x18A40" />
-        <Texture Name="object_link_child_TLUT_018C40" OutName="tlut_018C40" Format="rgb5a1" Width="16" Height="16" Offset="0x18C40" />
-        <Texture Name="object_link_child_TLUT_018E40" OutName="tlut_018E40" Format="rgb5a1" Width="16" Height="16" Offset="0x18E40" />
-        <Texture Name="object_link_child_TLUT_019040" OutName="tlut_019040" Format="rgb5a1" Width="16" Height="16" Offset="0x19040" />
+        <Texture Name="object_link_child_TLUT_018A40" OutName="tlut_018A40" Format="rgba16" Width="16" Height="16" Offset="0x18A40" />
+        <Texture Name="object_link_child_TLUT_018C40" OutName="tlut_018C40" Format="rgba16" Width="16" Height="16" Offset="0x18C40" />
+        <Texture Name="object_link_child_TLUT_018E40" OutName="tlut_018E40" Format="rgba16" Width="16" Height="16" Offset="0x18E40" />
+        <Texture Name="object_link_child_TLUT_019040" OutName="tlut_019040" Format="rgba16" Width="16" Height="16" Offset="0x19040" />
         <Texture Name="object_link_child_Tex_019240" OutName="tex_019240" Format="ci8" Width="8" Height="8" Offset="0x19240" />
         <Texture Name="object_link_child_Tex_019280" OutName="tex_019280" Format="ci8" Width="64" Height="32" Offset="0x19280" />
         <Texture Name="object_link_child_Tex_019A80" OutName="tex_019A80" Format="ci8" Width="32" Height="64" Offset="0x19A80" />
         <Texture Name="object_link_child_Tex_01A280" OutName="tex_01A280" Format="ci8" Width="16" Height="16" Offset="0x1A280" />
-        <Texture Name="object_link_child_Tex_01A380" OutName="tex_01A380" Format="rgb5a1" Width="64" Height="32" Offset="0x1A380" />
+        <Texture Name="object_link_child_Tex_01A380" OutName="tex_01A380" Format="rgba16" Width="64" Height="32" Offset="0x1A380" />
         <Texture Name="object_link_child_Tex_01B380" OutName="tex_01B380" Format="ci8" Width="16" Height="16" Offset="0x1B380" />
         <Texture Name="object_link_child_Tex_01B480" OutName="tex_01B480" Format="ci8" Width="64" Height="32" Offset="0x1B480" />
         <Texture Name="object_link_child_Tex_01BC80" OutName="tex_01BC80" Format="ci8" Width="16" Height="32" Offset="0x1BC80" />
         <Texture Name="object_link_child_Tex_01BE80" OutName="tex_01BE80" Format="ci8" Width="8" Height="16" Offset="0x1BE80" />
-        <Texture Name="object_link_child_Tex_01BF00" OutName="tex_01BF00" Format="rgb5a1" Width="8" Height="8" Offset="0x1BF00" />
-        <Texture Name="object_link_child_Tex_01BF80" OutName="tex_01BF80" Format="rgb5a1" Width="16" Height="16" Offset="0x1BF80" />
-        <Texture Name="object_link_child_Tex_01C180" OutName="tex_01C180" Format="rgb5a1" Width="16" Height="16" Offset="0x1C180" />
-        <Texture Name="object_link_child_Tex_01C380" OutName="tex_01C380" Format="rgb5a1" Width="8" Height="8" Offset="0x1C380" />
-        <Texture Name="object_link_child_Tex_01C400" OutName="tex_01C400" Format="rgb5a1" Width="16" Height="32" Offset="0x1C400" />
-        <Texture Name="object_link_child_Tex_01C800" OutName="tex_01C800" Format="rgb5a1" Width="16" Height="8" Offset="0x1C800" />
-        <Texture Name="object_link_child_Tex_01C900" OutName="tex_01C900" Format="rgb5a1" Width="16" Height="16" Offset="0x1C900" />
+        <Texture Name="object_link_child_Tex_01BF00" OutName="tex_01BF00" Format="rgba16" Width="8" Height="8" Offset="0x1BF00" />
+        <Texture Name="object_link_child_Tex_01BF80" OutName="tex_01BF80" Format="rgba16" Width="16" Height="16" Offset="0x1BF80" />
+        <Texture Name="object_link_child_Tex_01C180" OutName="tex_01C180" Format="rgba16" Width="16" Height="16" Offset="0x1C180" />
+        <Texture Name="object_link_child_Tex_01C380" OutName="tex_01C380" Format="rgba16" Width="8" Height="8" Offset="0x1C380" />
+        <Texture Name="object_link_child_Tex_01C400" OutName="tex_01C400" Format="rgba16" Width="16" Height="32" Offset="0x1C400" />
+        <Texture Name="object_link_child_Tex_01C800" OutName="tex_01C800" Format="rgba16" Width="16" Height="8" Offset="0x1C800" />
+        <Texture Name="object_link_child_Tex_01C900" OutName="tex_01C900" Format="rgba16" Width="16" Height="16" Offset="0x1C900" />
         <Texture Name="object_link_child_Tex_01CB00" OutName="tex_01CB00" Format="i8" Width="32" Height="64" Offset="0x1CB00" />
         <Texture Name="object_link_child_Tex_01D300" OutName="tex_01D300" Format="i8" Width="8" Height="8" Offset="0x1D300" />
         <Texture Name="object_link_child_Tex_01D340" OutName="tex_01D340" Format="i8" Width="16" Height="16" Offset="0x1D340" />

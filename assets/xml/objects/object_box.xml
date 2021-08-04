@@ -11,12 +11,12 @@
         <DList Name="object_box_DL_0012E8" Offset="0x12E8" />
         <DList Name="object_box_DL_001850" Offset="0x1850" />
         <DList Name="object_box_DL_001D58" Offset="0x1D58" />
-        <Texture Name="object_box_Tex_001E60" OutName="tex_001E60" Format="rgb5a1" Width="32" Height="64" Offset="0x1E60" />
-        <Texture Name="object_box_Tex_002E60" OutName="tex_002E60" Format="rgb5a1" Width="32" Height="32" Offset="0x2E60" />
-        <Texture Name="object_box_Tex_003660" OutName="tex_003660" Format="rgb5a1" Width="32" Height="64" Offset="0x3660" />
-        <Texture Name="object_box_Tex_004660" OutName="tex_004660" Format="rgb5a1" Width="32" Height="32" Offset="0x4660" />
-        <Texture Name="object_box_Tex_004E60" OutName="tex_004E60" Format="rgb5a1" Width="32" Height="64" Offset="0x4E60" />
-        <Texture Name="object_box_Tex_005E60" OutName="tex_005E60" Format="rgb5a1" Width="32" Height="32" Offset="0x5E60" />
+        <Texture Name="object_box_Tex_001E60" OutName="tex_001E60" Format="rgba16" Width="32" Height="64" Offset="0x1E60" />
+        <Texture Name="object_box_Tex_002E60" OutName="tex_002E60" Format="rgba16" Width="32" Height="32" Offset="0x2E60" />
+        <Texture Name="object_box_Tex_003660" OutName="tex_003660" Format="rgba16" Width="32" Height="64" Offset="0x3660" />
+        <Texture Name="object_box_Tex_004660" OutName="tex_004660" Format="rgba16" Width="32" Height="32" Offset="0x4660" />
+        <Texture Name="object_box_Tex_004E60" OutName="tex_004E60" Format="rgba16" Width="32" Height="64" Offset="0x4E60" />
+        <Texture Name="object_box_Tex_005E60" OutName="tex_005E60" Format="rgba16" Width="32" Height="32" Offset="0x5E60" />
         <Limb Name="object_box_Limb_006660" LimbType="Standard" Offset="0x6660" />
         <Limb Name="object_box_Limb_00666C" LimbType="Standard" Offset="0x666C" />
         <Limb Name="object_box_Limb_006678" LimbType="Standard" Offset="0x6678" />

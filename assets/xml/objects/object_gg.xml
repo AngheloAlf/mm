@@ -32,7 +32,7 @@
         <Texture Name="object_gg_Tex_006D20" OutName="tex_006D20" Format="i8" Width="16" Height="16" Offset="0x6D20" />
         <Texture Name="object_gg_Tex_006E20" OutName="tex_006E20" Format="i8" Width="32" Height="64" Offset="0x6E20" />
         <Texture Name="object_gg_Tex_007620" OutName="tex_007620" Format="i8" Width="32" Height="64" Offset="0x7620" />
-        <Texture Name="object_gg_Tex_007E20" OutName="tex_007E20" Format="rgb5a1" Width="32" Height="64" Offset="0x7E20" />
+        <Texture Name="object_gg_Tex_007E20" OutName="tex_007E20" Format="rgba16" Width="32" Height="64" Offset="0x7E20" />
         <Texture Name="object_gg_Tex_008E20" OutName="tex_008E20" Format="i8" Width="8" Height="8" Offset="0x8E20" />
         <Texture Name="object_gg_Tex_008E60" OutName="tex_008E60" Format="i8" Width="32" Height="32" Offset="0x8E60" />
         <!--Blob Name="object_gg_Blob_009260" Size="0x1000" Offset="0x9260" /-->

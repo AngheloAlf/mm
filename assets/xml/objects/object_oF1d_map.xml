@@ -8,7 +8,7 @@
         <DList Name="object_oF1d_map_DL_000DD8" Offset="0xDD8" />
         <DList Name="object_oF1d_map_DL_001560" Offset="0x1560" />
         <!--Blob Name="object_oF1d_map_zeroes_unk_00001750" Size="0x20" Offset="0x1750" /-->
-        <Texture Name="object_oF1d_map_Tex_001770" OutName="tex_001770" Format="rgb5a1" Width="32" Height="64" Offset="0x1770" />
+        <Texture Name="object_oF1d_map_Tex_001770" OutName="tex_001770" Format="rgba16" Width="32" Height="64" Offset="0x1770" />
         <!--Blob Name="object_oF1d_map_zeroes_unk_00002770" Size="0x800" Offset="0x2770" /-->
         <Texture Name="object_oF1d_map_Tex_002F70" OutName="tex_002F70" Format="i4" Width="32" Height="32" Offset="0x2F70" />
         <DList Name="object_oF1d_map_DL_0031A0" Offset="0x31A0" />
@@ -21,17 +21,17 @@
         <Animation Name="object_oF1d_map_Anim_0039D8" Offset="0x39D8" />
         <Animation Name="object_oF1d_map_Anim_003E28" Offset="0x3E28" />
         <DList Name="object_oF1d_map_DL_004DB0" Offset="0x4DB0" />
-        <Texture Name="object_oF1d_map_Tex_005340" OutName="tex_005340" Format="rgb5a1" Width="16" Height="16" Offset="0x5340" />
+        <Texture Name="object_oF1d_map_Tex_005340" OutName="tex_005340" Format="rgba16" Width="16" Height="16" Offset="0x5340" />
         <Texture Name="object_oF1d_map_Tex_005540" OutName="tex_005540" Format="ci8" Width="16" Height="16" Offset="0x5540" />
-        <Texture Name="object_oF1d_map_Tex_005640" OutName="tex_005640" Format="rgb5a1" Width="32" Height="32" Offset="0x5640" />
+        <Texture Name="object_oF1d_map_Tex_005640" OutName="tex_005640" Format="rgba16" Width="32" Height="32" Offset="0x5640" />
         <Texture Name="object_oF1d_map_Tex_005E40" OutName="tex_005E40" Format="ci8" Width="16" Height="16" Offset="0x5E40" />
         <Texture Name="object_oF1d_map_Tex_005F40" OutName="tex_005F40" Format="ci8" Width="32" Height="32" Offset="0x5F40" />
         <Texture Name="object_oF1d_map_Tex_006340" OutName="tex_006340" Format="ci8" Width="16" Height="16" Offset="0x6340" />
-        <Texture Name="object_oF1d_map_Tex_006440" OutName="tex_006440" Format="rgb5a1" Width="32" Height="32" Offset="0x6440" />
-        <Texture Name="object_oF1d_map_Tex_006C40" OutName="tex_006C40" Format="rgb5a1" Width="16" Height="16" Offset="0x6C40" />
+        <Texture Name="object_oF1d_map_Tex_006440" OutName="tex_006440" Format="rgba16" Width="32" Height="32" Offset="0x6440" />
+        <Texture Name="object_oF1d_map_Tex_006C40" OutName="tex_006C40" Format="rgba16" Width="16" Height="16" Offset="0x6C40" />
         <DList Name="object_oF1d_map_DL_007A60" Offset="0x7A60" />
         <DList Name="object_oF1d_map_DL_007A68" Offset="0x7A68" />
-        <Texture Name="object_oF1d_map_Tex_007EF0" OutName="tex_007EF0" Format="rgb5a1" Width="16" Height="16" Offset="0x7EF0" />
+        <Texture Name="object_oF1d_map_Tex_007EF0" OutName="tex_007EF0" Format="rgba16" Width="16" Height="16" Offset="0x7EF0" />
         <Texture Name="object_oF1d_map_Tex_0080F0" OutName="tex_0080F0" Format="ci8" Width="16" Height="16" Offset="0x80F0" />
         <Texture Name="object_oF1d_map_Tex_0081F0" OutName="tex_0081F0" Format="ci8" Width="8" Height="8" Offset="0x81F0" />
         <Texture Name="object_oF1d_map_Tex_008230" OutName="tex_008230" Format="ci8" Width="8" Height="16" Offset="0x8230" />
@@ -39,7 +39,7 @@
         <Texture Name="object_oF1d_map_Tex_008AB0" OutName="tex_008AB0" Format="ci8" Width="16" Height="16" Offset="0x8AB0" />
         <DList Name="object_oF1d_map_DL_0091A0" Offset="0x91A0" />
         <DList Name="object_oF1d_map_DL_0091A8" Offset="0x91A8" />
-        <Texture Name="object_oF1d_map_Tex_0094E0" OutName="tex_0094E0" Format="rgb5a1" Width="16" Height="16" Offset="0x94E0" />
+        <Texture Name="object_oF1d_map_Tex_0094E0" OutName="tex_0094E0" Format="rgba16" Width="16" Height="16" Offset="0x94E0" />
         <Texture Name="object_oF1d_map_Tex_0096E0" OutName="tex_0096E0" Format="ci8" Width="16" Height="16" Offset="0x96E0" />
         <Texture Name="object_oF1d_map_Tex_0097E0" OutName="tex_0097E0" Format="ci8" Width="8" Height="8" Offset="0x97E0" />
         <Texture Name="object_oF1d_map_Tex_009820" OutName="tex_009820" Format="ci8" Width="8" Height="16" Offset="0x9820" />
@@ -60,8 +60,8 @@
         <DList Name="object_oF1d_map_DL_00E610" Offset="0xE610" />
         <DList Name="object_oF1d_map_DL_00E6F8" Offset="0xE6F8" />
         <DList Name="object_oF1d_map_DL_00E828" Offset="0xE828" />
-        <Texture Name="object_oF1d_map_Tex_00EA78" OutName="tex_00EA78" Format="rgb5a1" Width="16" Height="16" Offset="0xEA78" />
-        <Texture Name="object_oF1d_map_Tex_00EC78" OutName="tex_00EC78" Format="rgb5a1" Width="16" Height="16" Offset="0xEC78" />
+        <Texture Name="object_oF1d_map_Tex_00EA78" OutName="tex_00EA78" Format="rgba16" Width="16" Height="16" Offset="0xEA78" />
+        <Texture Name="object_oF1d_map_Tex_00EC78" OutName="tex_00EC78" Format="rgba16" Width="16" Height="16" Offset="0xEC78" />
         <Texture Name="object_oF1d_map_Tex_00EE78" OutName="tex_00EE78" Format="ci8" Width="16" Height="16" Offset="0xEE78" />
         <Texture Name="object_oF1d_map_Tex_00EF78" OutName="tex_00EF78" Format="ci8" Width="16" Height="16" Offset="0xEF78" />
         <Texture Name="object_oF1d_map_Tex_00F078" OutName="tex_00F078" Format="ci8" Width="32" Height="32" Offset="0xF078" />
@@ -73,9 +73,9 @@
         <Texture Name="object_oF1d_map_Tex_010338" OutName="tex_010338" Format="ci8" Width="16" Height="16" Offset="0x10338" />
         <!--Blob Name="object_oF1d_map_zeroes_unk_00010438" Size="0x1000" Offset="0x10438" /-->
         <!--
-        <Texture Name="object_oF1d_map_Tex_011438" OutName="tex_011438" Format="rgb5a1" Width="8" Height="8" Offset="0x11438" />
+        <Texture Name="object_oF1d_map_Tex_011438" OutName="tex_011438" Format="rgba16" Width="8" Height="8" Offset="0x11438" />
         <Texture Name="object_oF1d_map_Tex_0114B8" OutName="tex_0114B8" Format="ci8" Width="16" Height="16" Offset="0x114B8" />
-        <Texture Name="object_oF1d_map_Tex_0115B8" OutName="tex_0115B8" Format="rgb5a1" Width="32" Height="16" Offset="0x115B8" />
+        <Texture Name="object_oF1d_map_Tex_0115B8" OutName="tex_0115B8" Format="rgba16" Width="32" Height="16" Offset="0x115B8" />
         -->
         <Limb Name="object_oF1d_map_Skel_0119B8" LimbType="Standard" Offset="0x119B8" />
         <Limb Name="object_oF1d_map_Skel_0119C4" LimbType="Standard" Offset="0x119C4" />

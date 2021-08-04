@@ -22,17 +22,17 @@
         <DList Name="object_okuta_DL_001B18" Offset="0x1B18" />
         <DList Name="object_okuta_DL_001BE8" Offset="0x1BE8" />
         <DList Name="object_okuta_DL_001C20" Offset="0x1C20" />
-        <Texture Name="object_okuta_Tex_001D20" OutName="tex_001D20" Format="rgb5a1" Width="16" Height="16" Offset="0x1D20" />
-        <Texture Name="object_okuta_Tex_001F20" OutName="tex_001F20" Format="rgb5a1" Width="8" Height="16" Offset="0x1F20" />
-        <Texture Name="object_okuta_Tex_002020" OutName="tex_002020" Format="rgb5a1" Width="16" Height="32" Offset="0x2020" />
-        <Texture Name="object_okuta_Tex_002420" OutName="tex_002420" Format="rgb5a1" Width="16" Height="16" Offset="0x2420" />
-        <Texture Name="object_okuta_Tex_002620" OutName="tex_002620" Format="rgb5a1" Width="16" Height="16" Offset="0x2620" />
-        <Texture Name="object_okuta_Tex_002820" OutName="tex_002820" Format="rgb5a1" Width="8" Height="16" Offset="0x2820" />
+        <Texture Name="object_okuta_Tex_001D20" OutName="tex_001D20" Format="rgba16" Width="16" Height="16" Offset="0x1D20" />
+        <Texture Name="object_okuta_Tex_001F20" OutName="tex_001F20" Format="rgba16" Width="8" Height="16" Offset="0x1F20" />
+        <Texture Name="object_okuta_Tex_002020" OutName="tex_002020" Format="rgba16" Width="16" Height="32" Offset="0x2020" />
+        <Texture Name="object_okuta_Tex_002420" OutName="tex_002420" Format="rgba16" Width="16" Height="16" Offset="0x2420" />
+        <Texture Name="object_okuta_Tex_002620" OutName="tex_002620" Format="rgba16" Width="16" Height="16" Offset="0x2620" />
+        <Texture Name="object_okuta_Tex_002820" OutName="tex_002820" Format="rgba16" Width="8" Height="16" Offset="0x2820" />
         <Texture Name="object_okuta_Tex_002920" OutName="tex_002920" Format="rgba32" Width="16" Height="16" Offset="0x2920" />
         <!--Blob Name="object_okuta_Blob_002D20" Size="0x200" Offset="0x2D20" /-->
-        <Texture Name="object_okuta_Tex_002F20" OutName="tex_002F20" Format="rgb5a1" Width="8" Height="8" Offset="0x2F20" />
-        <Texture Name="object_okuta_Tex_002FA0" OutName="tex_002FA0" Format="rgb5a1" Width="8" Height="8" Offset="0x2FA0" />
-        <Texture Name="object_okuta_Tex_003020" OutName="tex_003020" Format="rgb5a1" Width="16" Height="16" Offset="0x3020" />
+        <Texture Name="object_okuta_Tex_002F20" OutName="tex_002F20" Format="rgba16" Width="8" Height="8" Offset="0x2F20" />
+        <Texture Name="object_okuta_Tex_002FA0" OutName="tex_002FA0" Format="rgba16" Width="8" Height="8" Offset="0x2FA0" />
+        <Texture Name="object_okuta_Tex_003020" OutName="tex_003020" Format="rgba16" Width="16" Height="16" Offset="0x3020" />
         <DList Name="object_okuta_DL_003250" Offset="0x3250" />
         <Limb Name="object_okuta_Limb_0032E0" LimbType="Standard" Offset="0x32E0" />
         <Limb Name="object_okuta_Limb_0032EC" LimbType="Standard" Offset="0x32EC" />

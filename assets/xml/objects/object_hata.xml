@@ -6,8 +6,8 @@
         <!--Animation Name="object_hata_Anim_0000D4" Offset="0xD4" /-->
 
         <!--Blob Name="object_hata_zeroes_unk_000000E4" Size="0x37C" Offset="0xE4" /-->
-        <Texture Name="object_hata_Tex_000460" OutName="tex_000460" Format="rgb5a1" Width="32" Height="32" Offset="0x460" />
-        <Texture Name="object_hata_Tex_000C60" OutName="tex_000C60" Format="rgb5a1" Width="32" Height="32" Offset="0xC60" />
+        <Texture Name="object_hata_Tex_000460" OutName="tex_000460" Format="rgba16" Width="32" Height="32" Offset="0x460" />
+        <Texture Name="object_hata_Tex_000C60" OutName="tex_000C60" Format="rgba16" Width="32" Height="32" Offset="0xC60" />
         <Texture Name="object_hata_Tex_001460" OutName="tex_001460" Format="ia8" Width="128" Height="32" Offset="0x1460" />
         <DList Name="object_hata_DL_0026D0" Offset="0x26D0" />
         <DList Name="object_hata_DL_002850" Offset="0x2850" />

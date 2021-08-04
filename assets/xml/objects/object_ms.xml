@@ -8,7 +8,7 @@
         <DList Name="object_ms_DL_002E58" Offset="0x2E58" />
         <DList Name="object_ms_DL_002F90" Offset="0x2F90" />
         <DList Name="object_ms_DL_0030C0" Offset="0x30C0" />
-        <Texture Name="object_ms_TLUT_003230" OutName="tlut_003230" Format="rgb5a1" Width="16" Height="16" Offset="0x3230" />
+        <Texture Name="object_ms_TLUT_003230" OutName="tlut_003230" Format="rgba16" Width="16" Height="16" Offset="0x3230" />
         <Texture Name="object_ms_Tex_003430" OutName="tex_003430" Format="ci8" Width="16" Height="16" Offset="0x3430" />
         <Texture Name="object_ms_Tex_003530" OutName="tex_003530" Format="ci8" Width="32" Height="32" Offset="0x3530" />
         <Texture Name="object_ms_Tex_003930" OutName="tex_003930" Format="ci8" Width="16" Height="16" Offset="0x3930" />

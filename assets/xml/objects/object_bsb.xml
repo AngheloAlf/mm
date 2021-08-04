@@ -40,17 +40,17 @@
         <DList Name="object_bsb_DL_00B3C0" Offset="0xB3C0" />
         <DList Name="object_bsb_DL_00B4E8" Offset="0xB4E8" />
         <DList Name="object_bsb_DL_00B5B8" Offset="0xB5B8" />
-        <Texture Name="object_bsb_Tex_00B660" OutName="tex_00B660" Format="rgb5a1" Width="8" Height="16" Offset="0xB660" />
-        <Texture Name="object_bsb_Tex_00B760" OutName="tex_00B760" Format="rgb5a1" Width="8" Height="16" Offset="0xB760" />
-        <Texture Name="object_bsb_Tex_00B860" OutName="tex_00B860" Format="rgb5a1" Width="8" Height="8" Offset="0xB860" />
-        <Texture Name="object_bsb_Tex_00B8E0" OutName="tex_00B8E0" Format="rgb5a1" Width="16" Height="16" Offset="0xB8E0" />
-        <Texture Name="object_bsb_Tex_00BAE0" OutName="tex_00BAE0" Format="rgb5a1" Width="16" Height="8" Offset="0xBAE0" />
-        <Texture Name="object_bsb_Tex_00BBE0" OutName="tex_00BBE0" Format="rgb5a1" Width="8" Height="8" Offset="0xBBE0" />
-        <Texture Name="object_bsb_Tex_00BC60" OutName="tex_00BC60" Format="rgb5a1" Width="16" Height="16" Offset="0xBC60" />
-        <Texture Name="object_bsb_Tex_00BE60" OutName="tex_00BE60" Format="rgb5a1" Width="16" Height="16" Offset="0xBE60" />
-        <Texture Name="object_bsb_Tex_00C060" OutName="tex_00C060" Format="rgb5a1" Width="8" Height="16" Offset="0xC060" />
-        <Texture Name="object_bsb_Tex_00C160" OutName="tex_00C160" Format="rgb5a1" Width="8" Height="8" Offset="0xC160" />
-        <Texture Name="object_bsb_Tex_00C1E0" OutName="tex_00C1E0" Format="rgb5a1" Width="8" Height="8" Offset="0xC1E0" />
+        <Texture Name="object_bsb_Tex_00B660" OutName="tex_00B660" Format="rgba16" Width="8" Height="16" Offset="0xB660" />
+        <Texture Name="object_bsb_Tex_00B760" OutName="tex_00B760" Format="rgba16" Width="8" Height="16" Offset="0xB760" />
+        <Texture Name="object_bsb_Tex_00B860" OutName="tex_00B860" Format="rgba16" Width="8" Height="8" Offset="0xB860" />
+        <Texture Name="object_bsb_Tex_00B8E0" OutName="tex_00B8E0" Format="rgba16" Width="16" Height="16" Offset="0xB8E0" />
+        <Texture Name="object_bsb_Tex_00BAE0" OutName="tex_00BAE0" Format="rgba16" Width="16" Height="8" Offset="0xBAE0" />
+        <Texture Name="object_bsb_Tex_00BBE0" OutName="tex_00BBE0" Format="rgba16" Width="8" Height="8" Offset="0xBBE0" />
+        <Texture Name="object_bsb_Tex_00BC60" OutName="tex_00BC60" Format="rgba16" Width="16" Height="16" Offset="0xBC60" />
+        <Texture Name="object_bsb_Tex_00BE60" OutName="tex_00BE60" Format="rgba16" Width="16" Height="16" Offset="0xBE60" />
+        <Texture Name="object_bsb_Tex_00C060" OutName="tex_00C060" Format="rgba16" Width="8" Height="16" Offset="0xC060" />
+        <Texture Name="object_bsb_Tex_00C160" OutName="tex_00C160" Format="rgba16" Width="8" Height="8" Offset="0xC160" />
+        <Texture Name="object_bsb_Tex_00C1E0" OutName="tex_00C1E0" Format="rgba16" Width="8" Height="8" Offset="0xC1E0" />
         <!--Blob Name="object_bsb_Blob_00C260" Size="0x40" Offset="0xC260" /-->
         <Limb Name="object_bsb_Limb_00C2A0" LimbType="Standard" Offset="0xC2A0" />
         <Limb Name="object_bsb_Limb_00C2AC" LimbType="Standard" Offset="0xC2AC" />

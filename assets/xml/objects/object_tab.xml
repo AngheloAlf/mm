@@ -17,8 +17,8 @@
         <DList Name="object_tab_DL_005988" Offset="0x5988" />
         <DList Name="object_tab_DL_005A78" Offset="0x5A78" />
         <DList Name="object_tab_DL_005B60" Offset="0x5B60" />
-        <Texture Name="object_tab_TLUT_005CA8" OutName="tlut_005CA8" Format="rgb5a1" Width="16" Height="16" Offset="0x5CA8" />
-        <Texture Name="object_tab_Tex_005EA8" OutName="tex_005EA8" Format="rgb5a1" Width="16" Height="16" Offset="0x5EA8" />
+        <Texture Name="object_tab_TLUT_005CA8" OutName="tlut_005CA8" Format="rgba16" Width="16" Height="16" Offset="0x5CA8" />
+        <Texture Name="object_tab_Tex_005EA8" OutName="tex_005EA8" Format="rgba16" Width="16" Height="16" Offset="0x5EA8" />
         <Texture Name="object_tab_Tex_0060A8" OutName="tex_0060A8" Format="ci8" Width="8" Height="16" Offset="0x60A8" />
         <Texture Name="object_tab_Tex_006128" OutName="tex_006128" Format="ci8" Width="16" Height="32" Offset="0x6128" />
         <Texture Name="object_tab_Tex_006328" OutName="tex_006328" Format="ci8" Width="8" Height="8" Offset="0x6328" />
@@ -30,12 +30,12 @@
         <Texture Name="object_tab_Tex_007128" OutName="tex_007128" Format="ci8" Width="16" Height="16" Offset="0x7128" />
         <Texture Name="object_tab_Tex_007228" OutName="tex_007228" Format="ci8" Width="16" Height="16" Offset="0x7228" />
         <Texture Name="object_tab_Tex_007328" OutName="tex_007328" Format="i8" Width="32" Height="32" Offset="0x7328" />
-        <Texture Name="object_tab_Tex_007728" OutName="tex_007728" Format="rgb5a1" Width="8" Height="16" Offset="0x7728" />
+        <Texture Name="object_tab_Tex_007728" OutName="tex_007728" Format="rgba16" Width="8" Height="16" Offset="0x7728" />
         <Texture Name="object_tab_Tex_007828" OutName="tex_007828" Format="ci8" Width="8" Height="8" Offset="0x7828" />
         <Texture Name="object_tab_Tex_007868" OutName="tex_007868" Format="ci8" Width="8" Height="16" Offset="0x7868" />
         <Texture Name="object_tab_Tex_0078E8" OutName="tex_0078E8" Format="i8" Width="16" Height="16" Offset="0x78E8" />
         <Texture Name="object_tab_Tex_0079E8" OutName="tex_0079E8" Format="i8" Width="8" Height="8" Offset="0x79E8" />
-        <Texture Name="object_tab_Tex_007A28" OutName="tex_007A28" Format="rgb5a1" Width="16" Height="16" Offset="0x7A28" />
+        <Texture Name="object_tab_Tex_007A28" OutName="tex_007A28" Format="rgba16" Width="16" Height="16" Offset="0x7A28" />
         <!--Blob Name="object_tab_Blob_007C28" Size="0x220" Offset="0x7C28" /-->
         <Limb Name="object_tab_Limb_007E48" LimbType="Standard" Offset="0x7E48" />
         <Limb Name="object_tab_Limb_007E54" LimbType="Standard" Offset="0x7E54" />

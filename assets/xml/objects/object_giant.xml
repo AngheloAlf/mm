@@ -17,7 +17,7 @@
         <DList Name="object_giant_DL_004FD0" Offset="0x4FD0" />
         <DList Name="object_giant_DL_0050F8" Offset="0x50F8" />
         <DList Name="object_giant_DL_005218" Offset="0x5218" />
-        <Texture Name="object_giant_TLUT_005380" OutName="tlut_005380" Format="rgb5a1" Width="16" Height="16" Offset="0x5380" />
+        <Texture Name="object_giant_TLUT_005380" OutName="tlut_005380" Format="rgba16" Width="16" Height="16" Offset="0x5380" />
         <Texture Name="object_giant_Tex_005580" OutName="tex_005580" Format="ci8" Width="16" Height="16" Offset="0x5580" />
         <Texture Name="object_giant_Tex_005680" OutName="tex_005680" Format="ci8" Width="16" Height="16" Offset="0x5680" />
         <Texture Name="object_giant_Tex_005780" OutName="tex_005780" Format="ci8" Width="16" Height="16" Offset="0x5780" />
@@ -27,7 +27,7 @@
         <Texture Name="object_giant_Tex_007280" OutName="tex_007280" Format="ci8" Width="16" Height="16" Offset="0x7280" />
         <Texture Name="object_giant_Tex_007380" OutName="tex_007380" Format="ci8" Width="16" Height="32" Offset="0x7380" />
         <DList Name="object_giant_DL_007610" Offset="0x7610" />
-        <Texture Name="object_giant_Tex_0076C0" OutName="tex_0076C0" Format="rgb5a1" Width="16" Height="16" Offset="0x76C0" />
+        <Texture Name="object_giant_Tex_0076C0" OutName="tex_0076C0" Format="rgba16" Width="16" Height="16" Offset="0x76C0" />
         <Limb Name="object_giant_Limb_0078C0" LimbType="Standard" Offset="0x78C0" />
         <Limb Name="object_giant_Limb_0078CC" LimbType="Standard" Offset="0x78CC" />
         <Limb Name="object_giant_Limb_0078D8" LimbType="Standard" Offset="0x78D8" />

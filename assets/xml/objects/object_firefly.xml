@@ -1,16 +1,16 @@
 ﻿<Root>
     <File Name="object_firefly" Segment="6" Game="MM">
         <Animation Name="object_firefly_Anim_00017C" Offset="0x17C" />
-        <Texture Name="object_firefly_Tex_000190" OutName="tex_000190" Format="rgb5a1" Width="8" Height="8" Offset="0x190" />
-        <Texture Name="object_firefly_Tex_000210" OutName="tex_000210" Format="rgb5a1" Width="8" Height="8" Offset="0x210" />
-        <Texture Name="object_firefly_Tex_000290" OutName="tex_000290" Format="rgb5a1" Width="8" Height="8" Offset="0x290" />
-        <Texture Name="object_firefly_Tex_000310" OutName="tex_000310" Format="rgb5a1" Width="16" Height="8" Offset="0x310" />
-        <Texture Name="object_firefly_Tex_000410" OutName="tex_000410" Format="rgb5a1" Width="8" Height="16" Offset="0x410" />
-        <Texture Name="object_firefly_Tex_000510" OutName="tex_000510" Format="rgb5a1" Width="4" Height="16" Offset="0x510" />
-        <Texture Name="object_firefly_Tex_000590" OutName="tex_000590" Format="rgb5a1" Width="8" Height="8" Offset="0x590" />
-        <Texture Name="object_firefly_Tex_000610" OutName="tex_000610" Format="rgb5a1" Width="8" Height="16" Offset="0x610" />
-        <Texture Name="object_firefly_Tex_000710" OutName="tex_000710" Format="rgb5a1" Width="4" Height="16" Offset="0x710" />
-        <Texture Name="object_firefly_Tex_000790" OutName="tex_000790" Format="rgb5a1" Width="16" Height="8" Offset="0x790" />
+        <Texture Name="object_firefly_Tex_000190" OutName="tex_000190" Format="rgba16" Width="8" Height="8" Offset="0x190" />
+        <Texture Name="object_firefly_Tex_000210" OutName="tex_000210" Format="rgba16" Width="8" Height="8" Offset="0x210" />
+        <Texture Name="object_firefly_Tex_000290" OutName="tex_000290" Format="rgba16" Width="8" Height="8" Offset="0x290" />
+        <Texture Name="object_firefly_Tex_000310" OutName="tex_000310" Format="rgba16" Width="16" Height="8" Offset="0x310" />
+        <Texture Name="object_firefly_Tex_000410" OutName="tex_000410" Format="rgba16" Width="8" Height="16" Offset="0x410" />
+        <Texture Name="object_firefly_Tex_000510" OutName="tex_000510" Format="rgba16" Width="4" Height="16" Offset="0x510" />
+        <Texture Name="object_firefly_Tex_000590" OutName="tex_000590" Format="rgba16" Width="8" Height="8" Offset="0x590" />
+        <Texture Name="object_firefly_Tex_000610" OutName="tex_000610" Format="rgba16" Width="8" Height="16" Offset="0x610" />
+        <Texture Name="object_firefly_Tex_000710" OutName="tex_000710" Format="rgba16" Width="4" Height="16" Offset="0x710" />
+        <Texture Name="object_firefly_Tex_000790" OutName="tex_000790" Format="rgba16" Width="16" Height="8" Offset="0x790" />
         <DList Name="object_firefly_DL_000D30" Offset="0xD30" />
         <DList Name="object_firefly_DL_000F40" Offset="0xF40" />
         <DList Name="object_firefly_DL_001038" Offset="0x1038" />

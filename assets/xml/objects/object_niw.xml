@@ -8,14 +8,14 @@
         <DList Name="object_niw_DL_001088" Offset="0x1088" />
         <DList Name="object_niw_DL_001128" Offset="0x1128" />
         <DList Name="object_niw_DL_0011E0" Offset="0x11E0" />
-        <Texture Name="object_niw_Tex_001280" OutName="tex_001280" Format="rgb5a1" Width="16" Height="16" Offset="0x1280" />
-        <Texture Name="object_niw_Tex_001480" OutName="tex_001480" Format="rgb5a1" Width="8" Height="16" Offset="0x1480" />
-        <Texture Name="object_niw_Tex_001580" OutName="tex_001580" Format="rgb5a1" Width="8" Height="8" Offset="0x1580" />
-        <Texture Name="object_niw_Tex_001600" OutName="tex_001600" Format="rgb5a1" Width="8" Height="8" Offset="0x1600" />
-        <Texture Name="object_niw_Tex_001680" OutName="tex_001680" Format="rgb5a1" Width="16" Height="16" Offset="0x1680" />
-        <Texture Name="object_niw_Tex_001880" OutName="tex_001880" Format="rgb5a1" Width="32" Height="32" Offset="0x1880" />
-        <Texture Name="object_niw_Tex_002080" OutName="tex_002080" Format="rgb5a1" Width="8" Height="16" Offset="0x2080" />
-        <Texture Name="object_niw_Tex_002180" OutName="tex_002180" Format="rgb5a1" Width="16" Height="16" Offset="0x2180" />
+        <Texture Name="object_niw_Tex_001280" OutName="tex_001280" Format="rgba16" Width="16" Height="16" Offset="0x1280" />
+        <Texture Name="object_niw_Tex_001480" OutName="tex_001480" Format="rgba16" Width="8" Height="16" Offset="0x1480" />
+        <Texture Name="object_niw_Tex_001580" OutName="tex_001580" Format="rgba16" Width="8" Height="8" Offset="0x1580" />
+        <Texture Name="object_niw_Tex_001600" OutName="tex_001600" Format="rgba16" Width="8" Height="8" Offset="0x1600" />
+        <Texture Name="object_niw_Tex_001680" OutName="tex_001680" Format="rgba16" Width="16" Height="16" Offset="0x1680" />
+        <Texture Name="object_niw_Tex_001880" OutName="tex_001880" Format="rgba16" Width="32" Height="32" Offset="0x1880" />
+        <Texture Name="object_niw_Tex_002080" OutName="tex_002080" Format="rgba16" Width="8" Height="16" Offset="0x2080" />
+        <Texture Name="object_niw_Tex_002180" OutName="tex_002180" Format="rgba16" Width="16" Height="16" Offset="0x2180" />
         <DList Name="object_niw_DL_0023B0" Offset="0x23B0" />
         <DList Name="object_niw_DL_002428" Offset="0x2428" />
         <Limb Name="object_niw_Limb_002440" LimbType="Standard" Offset="0x2440" />

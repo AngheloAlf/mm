@@ -21,7 +21,7 @@
         <DList Name="object_pamera_DL_005830" Offset="0x5830" />
         <DList Name="object_pamera_DL_005A10" Offset="0x5A10" />
         <DList Name="object_pamera_DL_005D70" Offset="0x5D70" />
-        <Texture Name="object_pamera_TLUT_0060E8" OutName="tlut_0060E8" Format="rgb5a1" Width="16" Height="16" Offset="0x60E8" />
+        <Texture Name="object_pamera_TLUT_0060E8" OutName="tlut_0060E8" Format="rgba16" Width="16" Height="16" Offset="0x60E8" />
         <Texture Name="object_pamera_Tex_0062E8" OutName="tex_0062E8" Format="ci8" Width="16" Height="16" Offset="0x62E8" />
         <Texture Name="object_pamera_Tex_0063E8" OutName="tex_0063E8" Format="ci8" Width="16" Height="16" Offset="0x63E8" />
         <Texture Name="object_pamera_Tex_0064E8" OutName="tex_0064E8" Format="ci8" Width="16" Height="16" Offset="0x64E8" />

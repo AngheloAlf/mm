@@ -11,9 +11,9 @@
         <DList Name="object_rat_DL_000E20" Offset="0xE20" />
         <DList Name="object_rat_DL_000E90" Offset="0xE90" />
         <DList Name="object_rat_DL_000ED8" Offset="0xED8" />
-        <Texture Name="object_rat_Tex_0011C8" OutName="tex_0011C8" Format="rgb5a1" Width="16" Height="16" Offset="0x11C8" />
-        <Texture Name="object_rat_Tex_0013C8" OutName="tex_0013C8" Format="rgb5a1" Width="16" Height="16" Offset="0x13C8" />
-        <Texture Name="object_rat_Tex_0015C8" OutName="tex_0015C8" Format="rgb5a1" Width="16" Height="16" Offset="0x15C8" />
+        <Texture Name="object_rat_Tex_0011C8" OutName="tex_0011C8" Format="rgba16" Width="16" Height="16" Offset="0x11C8" />
+        <Texture Name="object_rat_Tex_0013C8" OutName="tex_0013C8" Format="rgba16" Width="16" Height="16" Offset="0x13C8" />
+        <Texture Name="object_rat_Tex_0015C8" OutName="tex_0015C8" Format="rgba16" Width="16" Height="16" Offset="0x15C8" />
         <Limb Name="object_rat_Limb_0017C8" LimbType="Standard" Offset="0x17C8" />
         <Limb Name="object_rat_Limb_0017D4" LimbType="Standard" Offset="0x17D4" />
         <Limb Name="object_rat_Limb_0017E0" LimbType="Standard" Offset="0x17E0" />

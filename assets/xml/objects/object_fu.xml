@@ -17,8 +17,8 @@
         <DList Name="object_fu_DL_0048E8" Offset="0x48E8" />
         <DList Name="object_fu_DL_004A08" Offset="0x4A08" />
         <DList Name="object_fu_DL_004B58" Offset="0x4B58" />
-        <Texture Name="object_fu_TLUT_004C60" OutName="tlut_004C60" Format="rgb5a1" Width="16" Height="16" Offset="0x4C60" />
-        <Texture Name="object_fu_TLUT_004E60" OutName="tlut_004E60" Format="rgb5a1" Width="16" Height="16" Offset="0x4E60" />
+        <Texture Name="object_fu_TLUT_004C60" OutName="tlut_004C60" Format="rgba16" Width="16" Height="16" Offset="0x4C60" />
+        <Texture Name="object_fu_TLUT_004E60" OutName="tlut_004E60" Format="rgba16" Width="16" Height="16" Offset="0x4E60" />
         <Texture Name="object_fu_Tex_005060" OutName="tex_005060" Format="ci8" Width="16" Height="16" Offset="0x5060" />
         <Texture Name="object_fu_Tex_005160" OutName="tex_005160" Format="ci8" Width="8" Height="8" Offset="0x5160" />
         <Texture Name="object_fu_Tex_0051A0" OutName="tex_0051A0" Format="ci8" Width="32" Height="32" Offset="0x51A0" />

@@ -1,9 +1,9 @@
 ﻿<Root>
     <File Name="object_test3" Segment="6" Game="MM">
-        <Texture Name="object_test3_TLUT_000000" OutName="tlut_000000" Format="rgb5a1" Width="16" Height="16" Offset="0x0" />
-        <Texture Name="object_test3_TLUT_000200" OutName="tlut_000200" Format="rgb5a1" Width="16" Height="16" Offset="0x200" />
-        <Texture Name="object_test3_Tex_000400" OutName="tex_000400" Format="rgb5a1" Width="16" Height="16" Offset="0x400" />
-        <Texture Name="object_test3_Tex_000600" OutName="tex_000600" Format="rgb5a1" Width="16" Height="16" Offset="0x600" />
+        <Texture Name="object_test3_TLUT_000000" OutName="tlut_000000" Format="rgba16" Width="16" Height="16" Offset="0x0" />
+        <Texture Name="object_test3_TLUT_000200" OutName="tlut_000200" Format="rgba16" Width="16" Height="16" Offset="0x200" />
+        <Texture Name="object_test3_Tex_000400" OutName="tex_000400" Format="rgba16" Width="16" Height="16" Offset="0x400" />
+        <Texture Name="object_test3_Tex_000600" OutName="tex_000600" Format="rgba16" Width="16" Height="16" Offset="0x600" />
         <Texture Name="object_test3_Tex_000800" OutName="tex_000800" Format="ci8" Width="8" Height="8" Offset="0x800" />
         <Texture Name="object_test3_Tex_000840" OutName="tex_000840" Format="ci8" Width="8" Height="16" Offset="0x840" />
         <Texture Name="object_test3_Tex_0008C0" OutName="tex_0008C0" Format="ci8" Width="16" Height="16" Offset="0x8C0" />
@@ -14,7 +14,7 @@
         <Texture Name="object_test3_Tex_001B40" OutName="tex_001B40" Format="ci8" Width="32" Height="32" Offset="0x1B40" />
         <Texture Name="object_test3_Tex_001F40" OutName="tex_001F40" Format="ci8" Width="8" Height="8" Offset="0x1F40" />
         <Texture Name="object_test3_Tex_001F80" OutName="tex_001F80" Format="ci8" Width="32" Height="16" Offset="0x1F80" />
-        <Texture Name="object_test3_Tex_002180" OutName="tex_002180" Format="rgb5a1" Width="32" Height="64" Offset="0x2180" />
+        <Texture Name="object_test3_Tex_002180" OutName="tex_002180" Format="rgba16" Width="32" Height="64" Offset="0x2180" />
         <Texture Name="object_test3_Tex_003180" OutName="tex_003180" Format="ci8" Width="16" Height="64" Offset="0x3180" />
         <Texture Name="object_test3_Tex_003580" OutName="tex_003580" Format="ci8" Width="16" Height="16" Offset="0x3580" />
         <!--Blob Name="object_test3_Blob_003680" Size="0x4400" Offset="0x3680" /-->

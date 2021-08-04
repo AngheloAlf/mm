@@ -28,14 +28,14 @@
         <DList Name="object_pp_DL_004C98" Offset="0x4C98" />
         <DList Name="object_pp_DL_004E18" Offset="0x4E18" />
         <DList Name="object_pp_DL_004F98" Offset="0x4F98" />
-        <Texture Name="object_pp_Tex_005118" OutName="tex_005118" Format="rgb5a1" Width="32" Height="32" Offset="0x5118" />
-        <Texture Name="object_pp_Tex_005918" OutName="tex_005918" Format="rgb5a1" Width="64" Height="32" Offset="0x5918" />
-        <Texture Name="object_pp_Tex_006918" OutName="tex_006918" Format="rgb5a1" Width="32" Height="32" Offset="0x6918" />
-        <Texture Name="object_pp_Tex_007118" OutName="tex_007118" Format="rgb5a1" Width="32" Height="32" Offset="0x7118" />
-        <Texture Name="object_pp_Tex_007918" OutName="tex_007918" Format="rgb5a1" Width="32" Height="32" Offset="0x7918" />
-        <Texture Name="object_pp_Tex_008118" OutName="tex_008118" Format="rgb5a1" Width="32" Height="32" Offset="0x8118" />
-        <Texture Name="object_pp_Tex_008918" OutName="tex_008918" Format="rgb5a1" Width="32" Height="32" Offset="0x8918" />
-        <Texture Name="object_pp_Tex_009118" OutName="tex_009118" Format="rgb5a1" Width="16" Height="16" Offset="0x9118" />
+        <Texture Name="object_pp_Tex_005118" OutName="tex_005118" Format="rgba16" Width="32" Height="32" Offset="0x5118" />
+        <Texture Name="object_pp_Tex_005918" OutName="tex_005918" Format="rgba16" Width="64" Height="32" Offset="0x5918" />
+        <Texture Name="object_pp_Tex_006918" OutName="tex_006918" Format="rgba16" Width="32" Height="32" Offset="0x6918" />
+        <Texture Name="object_pp_Tex_007118" OutName="tex_007118" Format="rgba16" Width="32" Height="32" Offset="0x7118" />
+        <Texture Name="object_pp_Tex_007918" OutName="tex_007918" Format="rgba16" Width="32" Height="32" Offset="0x7918" />
+        <Texture Name="object_pp_Tex_008118" OutName="tex_008118" Format="rgba16" Width="32" Height="32" Offset="0x8118" />
+        <Texture Name="object_pp_Tex_008918" OutName="tex_008918" Format="rgba16" Width="32" Height="32" Offset="0x8918" />
+        <Texture Name="object_pp_Tex_009118" OutName="tex_009118" Format="rgba16" Width="16" Height="16" Offset="0x9118" />
         <Texture Name="object_pp_Tex_009318" OutName="tex_009318" Format="i4" Width="32" Height="32" Offset="0x9318" />
         <Limb Name="object_pp_Limb_009518" LimbType="Standard" Offset="0x9518" />
         <Limb Name="object_pp_Limb_009524" LimbType="Standard" Offset="0x9524" />
@@ -91,14 +91,14 @@
         <DList Name="object_pp_DL_00DD58" Offset="0xDD58" />
         <DList Name="object_pp_DL_00DED8" Offset="0xDED8" />
         <DList Name="object_pp_DL_00E058" Offset="0xE058" />
-        <Texture Name="object_pp_Tex_00E1D8" OutName="tex_00E1D8" Format="rgb5a1" Width="32" Height="32" Offset="0xE1D8" />
-        <Texture Name="object_pp_Tex_00E9D8" OutName="tex_00E9D8" Format="rgb5a1" Width="64" Height="32" Offset="0xE9D8" />
-        <Texture Name="object_pp_Tex_00F9D8" OutName="tex_00F9D8" Format="rgb5a1" Width="32" Height="32" Offset="0xF9D8" />
-        <Texture Name="object_pp_Tex_0101D8" OutName="tex_0101D8" Format="rgb5a1" Width="32" Height="32" Offset="0x101D8" />
-        <Texture Name="object_pp_Tex_0109D8" OutName="tex_0109D8" Format="rgb5a1" Width="32" Height="32" Offset="0x109D8" />
-        <Texture Name="object_pp_Tex_0111D8" OutName="tex_0111D8" Format="rgb5a1" Width="32" Height="32" Offset="0x111D8" />
-        <Texture Name="object_pp_Tex_0119D8" OutName="tex_0119D8" Format="rgb5a1" Width="32" Height="32" Offset="0x119D8" />
-        <Texture Name="object_pp_Tex_0121D8" OutName="tex_0121D8" Format="rgb5a1" Width="16" Height="16" Offset="0x121D8" />
+        <Texture Name="object_pp_Tex_00E1D8" OutName="tex_00E1D8" Format="rgba16" Width="32" Height="32" Offset="0xE1D8" />
+        <Texture Name="object_pp_Tex_00E9D8" OutName="tex_00E9D8" Format="rgba16" Width="64" Height="32" Offset="0xE9D8" />
+        <Texture Name="object_pp_Tex_00F9D8" OutName="tex_00F9D8" Format="rgba16" Width="32" Height="32" Offset="0xF9D8" />
+        <Texture Name="object_pp_Tex_0101D8" OutName="tex_0101D8" Format="rgba16" Width="32" Height="32" Offset="0x101D8" />
+        <Texture Name="object_pp_Tex_0109D8" OutName="tex_0109D8" Format="rgba16" Width="32" Height="32" Offset="0x109D8" />
+        <Texture Name="object_pp_Tex_0111D8" OutName="tex_0111D8" Format="rgba16" Width="32" Height="32" Offset="0x111D8" />
+        <Texture Name="object_pp_Tex_0119D8" OutName="tex_0119D8" Format="rgba16" Width="32" Height="32" Offset="0x119D8" />
+        <Texture Name="object_pp_Tex_0121D8" OutName="tex_0121D8" Format="rgba16" Width="16" Height="16" Offset="0x121D8" />
         <Texture Name="object_pp_Tex_0123D8" OutName="tex_0123D8" Format="i4" Width="32" Height="32" Offset="0x123D8" />
         <Limb Name="object_pp_Limb_0125D8" LimbType="Standard" Offset="0x125D8" />
         <Limb Name="object_pp_Limb_0125E4" LimbType="Standard" Offset="0x125E4" />

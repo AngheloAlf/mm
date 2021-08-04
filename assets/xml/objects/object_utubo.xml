@@ -11,11 +11,11 @@
         <DList Name="object_utubo_DL_002B18" Offset="0x2B18" />
         <DList Name="object_utubo_DL_002C28" Offset="0x2C28" />
         <DList Name="object_utubo_DL_002D38" Offset="0x2D38" />
-        <Texture Name="object_utubo_TLUT_002E48" OutName="tlut_002E48" Format="rgb5a1" Width="4" Height="4" Offset="0x2E48" />
-        <Texture Name="object_utubo_TLUT_002E68" OutName="tlut_002E68" Format="rgb5a1" Width="4" Height="4" Offset="0x2E68" />
-        <Texture Name="object_utubo_TLUT_002E88" OutName="tlut_002E88" Format="rgb5a1" Width="4" Height="4" Offset="0x2E88" />
+        <Texture Name="object_utubo_TLUT_002E48" OutName="tlut_002E48" Format="rgba16" Width="4" Height="4" Offset="0x2E48" />
+        <Texture Name="object_utubo_TLUT_002E68" OutName="tlut_002E68" Format="rgba16" Width="4" Height="4" Offset="0x2E68" />
+        <Texture Name="object_utubo_TLUT_002E88" OutName="tlut_002E88" Format="rgba16" Width="4" Height="4" Offset="0x2E88" />
         <Texture Name="object_utubo_Tex_002EA8" OutName="tex_002EA8" Format="ci4" Width="64" Height="64" Offset="0x2EA8" />
-        <Texture Name="object_utubo_Tex_0036A8" OutName="tex_0036A8" Format="rgb5a1" Width="32" Height="32" Offset="0x36A8" />
+        <Texture Name="object_utubo_Tex_0036A8" OutName="tex_0036A8" Format="rgba16" Width="32" Height="32" Offset="0x36A8" />
         <Texture Name="object_utubo_Tex_003EA8" OutName="tex_003EA8" Format="ci4" Width="32" Height="32" Offset="0x3EA8" />
         <Texture Name="object_utubo_Tex_0040A8" OutName="tex_0040A8" Format="ci4" Width="32" Height="32" Offset="0x40A8" />
         <Limb Name="object_utubo_Limb_0042A8" LimbType="Standard" Offset="0x42A8" />

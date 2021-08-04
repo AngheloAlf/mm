@@ -18,10 +18,10 @@
         <DList Name="object_osn_DL_012780" Offset="0x12780" />
         <DList Name="object_osn_DL_0129F0" Offset="0x129F0" />
         <DList Name="object_osn_DL_012CE8" Offset="0x12CE8" />
-        <Texture Name="object_osn_Tex_012E78" OutName="tex_012E78" Format="rgb5a1" Width="16" Height="16" Offset="0x12E78" />
-        <Texture Name="object_osn_Tex_013078" OutName="tex_013078" Format="rgb5a1" Width="16" Height="16" Offset="0x13078" />
-        <Texture Name="object_osn_Tex_013278" OutName="tex_013278" Format="rgb5a1" Width="16" Height="16" Offset="0x13278" />
-        <Texture Name="object_osn_Tex_013478" OutName="tex_013478" Format="rgb5a1" Width="16" Height="16" Offset="0x13478" />
+        <Texture Name="object_osn_Tex_012E78" OutName="tex_012E78" Format="rgba16" Width="16" Height="16" Offset="0x12E78" />
+        <Texture Name="object_osn_Tex_013078" OutName="tex_013078" Format="rgba16" Width="16" Height="16" Offset="0x13078" />
+        <Texture Name="object_osn_Tex_013278" OutName="tex_013278" Format="rgba16" Width="16" Height="16" Offset="0x13278" />
+        <Texture Name="object_osn_Tex_013478" OutName="tex_013478" Format="rgba16" Width="16" Height="16" Offset="0x13478" />
         <Texture Name="object_osn_Tex_013678" OutName="tex_013678" Format="ci8" Width="8" Height="8" Offset="0x13678" />
         <Texture Name="object_osn_Tex_0136B8" OutName="tex_0136B8" Format="ci8" Width="8" Height="8" Offset="0x136B8" />
         <Texture Name="object_osn_Tex_0136F8" OutName="tex_0136F8" Format="ci8" Width="8" Height="8" Offset="0x136F8" />
@@ -32,7 +32,7 @@
         <Texture Name="object_osn_Tex_0139B8" OutName="tex_0139B8" Format="ci8" Width="8" Height="8" Offset="0x139B8" />
         <Texture Name="object_osn_Tex_0139F8" OutName="tex_0139F8" Format="ci8" Width="16" Height="16" Offset="0x139F8" />
         <Texture Name="object_osn_Tex_013AF8" OutName="tex_013AF8" Format="ci8" Width="16" Height="16" Offset="0x13AF8" />
-        <Texture Name="object_osn_Tex_013BF8" OutName="tex_013BF8" Format="rgb5a1" Width="8" Height="16" Offset="0x13BF8" />
+        <Texture Name="object_osn_Tex_013BF8" OutName="tex_013BF8" Format="rgba16" Width="8" Height="16" Offset="0x13BF8" />
         <Texture Name="object_osn_Tex_013CF8" OutName="tex_013CF8" Format="ci8" Width="16" Height="8" Offset="0x13CF8" />
         <Texture Name="object_osn_Tex_013D78" OutName="tex_013D78" Format="ci8" Width="16" Height="16" Offset="0x13D78" />
         <Texture Name="object_osn_Tex_013E78" OutName="tex_013E78" Format="ci8" Width="16" Height="16" Offset="0x13E78" />
@@ -50,7 +50,7 @@
         <Texture Name="object_osn_Tex_0154F8" OutName="tex_0154F8" Format="ci8" Width="16" Height="32" Offset="0x154F8" />
         <Texture Name="object_osn_Tex_0156F8" OutName="tex_0156F8" Format="ci8" Width="16" Height="32" Offset="0x156F8" />
         <Texture Name="object_osn_Tex_0158F8" OutName="tex_0158F8" Format="i8" Width="16" Height="32" Offset="0x158F8" />
-        <Texture Name="object_osn_Tex_015AF8" OutName="tex_015AF8" Format="rgb5a1" Width="16" Height="32" Offset="0x15AF8" />
+        <Texture Name="object_osn_Tex_015AF8" OutName="tex_015AF8" Format="rgba16" Width="16" Height="32" Offset="0x15AF8" />
         <Texture Name="object_osn_Tex_015EF8" OutName="tex_015EF8" Format="ci8" Width="16" Height="32" Offset="0x15EF8" />
         <Texture Name="object_osn_Tex_0160F8" OutName="tex_0160F8" Format="ci8" Width="16" Height="32" Offset="0x160F8" />
         <Texture Name="object_osn_Tex_0162F8" OutName="tex_0162F8" Format="ci8" Width="16" Height="32" Offset="0x162F8" />
@@ -58,13 +58,13 @@
         <!--Blob Name="object_osn_zeroes_unk_000166F8" Size="0x2058" Offset="0x166F8" /-->
         <DList Name="object_osn_DL_0192A0" Offset="0x192A0" />
         <DList Name="object_osn_DL_019650" Offset="0x19650" />
-        <Texture Name="object_osn_Tex_019700" OutName="tex_019700" Format="rgb5a1" Width="32" Height="64" Offset="0x19700" />
-        <Texture Name="object_osn_Tex_01A700" OutName="tex_01A700" Format="rgb5a1" Width="16" Height="16" Offset="0x1A700" />
-        <Texture Name="object_osn_Tex_01A900" OutName="tex_01A900" Format="rgb5a1" Width="16" Height="16" Offset="0x1A900" />
-        <Texture Name="object_osn_Tex_01AB00" OutName="tex_01AB00" Format="rgb5a1" Width="16" Height="16" Offset="0x1AB00" />
-        <Texture Name="object_osn_Tex_01AD00" OutName="tex_01AD00" Format="rgb5a1" Width="16" Height="16" Offset="0x1AD00" />
-        <Texture Name="object_osn_Tex_01AF00" OutName="tex_01AF00" Format="rgb5a1" Width="32" Height="32" Offset="0x1AF00" />
-        <Texture Name="object_osn_Tex_01B700" OutName="tex_01B700" Format="rgb5a1" Width="32" Height="32" Offset="0x1B700" />
+        <Texture Name="object_osn_Tex_019700" OutName="tex_019700" Format="rgba16" Width="32" Height="64" Offset="0x19700" />
+        <Texture Name="object_osn_Tex_01A700" OutName="tex_01A700" Format="rgba16" Width="16" Height="16" Offset="0x1A700" />
+        <Texture Name="object_osn_Tex_01A900" OutName="tex_01A900" Format="rgba16" Width="16" Height="16" Offset="0x1A900" />
+        <Texture Name="object_osn_Tex_01AB00" OutName="tex_01AB00" Format="rgba16" Width="16" Height="16" Offset="0x1AB00" />
+        <Texture Name="object_osn_Tex_01AD00" OutName="tex_01AD00" Format="rgba16" Width="16" Height="16" Offset="0x1AD00" />
+        <Texture Name="object_osn_Tex_01AF00" OutName="tex_01AF00" Format="rgba16" Width="32" Height="32" Offset="0x1AF00" />
+        <Texture Name="object_osn_Tex_01B700" OutName="tex_01B700" Format="rgba16" Width="32" Height="32" Offset="0x1B700" />
         <!--Blob Name="object_osn_zeroes_unk_0001BF00" Size="0x42D0" Offset="0x1BF00" /-->
         <Limb Name="object_osn_Skel_0201D0" LimbType="Standard" Offset="0x201D0" />
         <Limb Name="object_osn_Skel_0201DC" LimbType="Standard" Offset="0x201DC" />

@@ -2,12 +2,12 @@
     <File Name="object_tro" Segment="6" Game="MM">
         <!--Blob Name="object_tro_zeroes_unk_00000000" Size="0xB0" Offset="0x0" /-->
         <DList Name="object_tro_DL_0006B0" Offset="0x6B0" />
-        <Texture Name="object_tro_Tex_000AE0" OutName="tex_000AE0" Format="rgb5a1" Width="16" Height="16" Offset="0xAE0" />
-        <Texture Name="object_tro_Tex_000CE0" OutName="tex_000CE0" Format="rgb5a1" Width="16" Height="16" Offset="0xCE0" />
-        <Texture Name="object_tro_Tex_000EE0" OutName="tex_000EE0" Format="rgb5a1" Width="2" Height="8" Offset="0xEE0" />
+        <Texture Name="object_tro_Tex_000AE0" OutName="tex_000AE0" Format="rgba16" Width="16" Height="16" Offset="0xAE0" />
+        <Texture Name="object_tro_Tex_000CE0" OutName="tex_000CE0" Format="rgba16" Width="16" Height="16" Offset="0xCE0" />
+        <Texture Name="object_tro_Tex_000EE0" OutName="tex_000EE0" Format="rgba16" Width="2" Height="8" Offset="0xEE0" />
         <Texture Name="object_tro_Tex_000F00" OutName="tex_000F00" Format="ci8" Width="16" Height="8" Offset="0xF00" />
-        <Texture Name="object_tro_Tex_000F80" OutName="tex_000F80" Format="rgb5a1" Width="16" Height="8" Offset="0xF80" />
-        <Texture Name="object_tro_Tex_001080" OutName="tex_001080" Format="rgb5a1" Width="8" Height="8" Offset="0x1080" />
+        <Texture Name="object_tro_Tex_000F80" OutName="tex_000F80" Format="rgba16" Width="16" Height="8" Offset="0xF80" />
+        <Texture Name="object_tro_Tex_001080" OutName="tex_001080" Format="rgba16" Width="8" Height="8" Offset="0x1080" />
         <Texture Name="object_tro_Tex_001100" OutName="tex_001100" Format="ci8" Width="8" Height="8" Offset="0x1100" />
         <!--Blob Name="object_tro_zeroes_unk_00001140" Size="0x1820" Offset="0x1140" /-->
     </File>

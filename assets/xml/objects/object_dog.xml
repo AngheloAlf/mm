@@ -19,14 +19,14 @@
         <Animation Name="object_dog_Anim_001BD8" Offset="0x1BD8" />
         <Animation Name="object_dog_Anim_001FB0" Offset="0x1FB0" />
         <Animation Name="object_dog_Anim_0021C8" Offset="0x21C8" />
-        <Texture Name="object_dog_Tex_0021E0" OutName="tex_0021E0" Format="rgb5a1" Width="32" Height="32" Offset="0x21E0" />
-        <Texture Name="object_dog_Tex_0029E0" OutName="tex_0029E0" Format="rgb5a1" Width="32" Height="32" Offset="0x29E0" />
-        <Texture Name="object_dog_Tex_0031E0" OutName="tex_0031E0" Format="rgb5a1" Width="32" Height="32" Offset="0x31E0" />
-        <Texture Name="object_dog_Tex_0039E0" OutName="tex_0039E0" Format="rgb5a1" Width="32" Height="32" Offset="0x39E0" />
-        <Texture Name="object_dog_Tex_0041E0" OutName="tex_0041E0" Format="rgb5a1" Width="32" Height="32" Offset="0x41E0" />
-        <Texture Name="object_dog_Tex_0049E0" OutName="tex_0049E0" Format="rgb5a1" Width="32" Height="32" Offset="0x49E0" />
-        <Texture Name="object_dog_Tex_0051E0" OutName="tex_0051E0" Format="rgb5a1" Width="16" Height="16" Offset="0x51E0" />
-        <Texture Name="object_dog_Tex_0053E0" OutName="tex_0053E0" Format="rgb5a1" Width="32" Height="32" Offset="0x53E0" />
+        <Texture Name="object_dog_Tex_0021E0" OutName="tex_0021E0" Format="rgba16" Width="32" Height="32" Offset="0x21E0" />
+        <Texture Name="object_dog_Tex_0029E0" OutName="tex_0029E0" Format="rgba16" Width="32" Height="32" Offset="0x29E0" />
+        <Texture Name="object_dog_Tex_0031E0" OutName="tex_0031E0" Format="rgba16" Width="32" Height="32" Offset="0x31E0" />
+        <Texture Name="object_dog_Tex_0039E0" OutName="tex_0039E0" Format="rgba16" Width="32" Height="32" Offset="0x39E0" />
+        <Texture Name="object_dog_Tex_0041E0" OutName="tex_0041E0" Format="rgba16" Width="32" Height="32" Offset="0x41E0" />
+        <Texture Name="object_dog_Tex_0049E0" OutName="tex_0049E0" Format="rgba16" Width="32" Height="32" Offset="0x49E0" />
+        <Texture Name="object_dog_Tex_0051E0" OutName="tex_0051E0" Format="rgba16" Width="16" Height="16" Offset="0x51E0" />
+        <Texture Name="object_dog_Tex_0053E0" OutName="tex_0053E0" Format="rgba16" Width="32" Height="32" Offset="0x53E0" />
         <DList Name="object_dog_DL_006F40" Offset="0x6F40" />
         <DList Name="object_dog_DL_0072A8" Offset="0x72A8" />
         <DList Name="object_dog_DL_007348" Offset="0x7348" />

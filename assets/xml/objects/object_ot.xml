@@ -23,7 +23,7 @@
         <DList Name="object_ot_DL_002600" Offset="0x2600" />
         <DList Name="object_ot_DL_0026F8" Offset="0x26F8" />
         <DList Name="object_ot_DL_0027F0" Offset="0x27F0" />
-        <Texture Name="object_ot_TLUT_0028E0" OutName="tlut_0028E0" Format="rgb5a1" Width="16" Height="16" Offset="0x28E0" />
+        <Texture Name="object_ot_TLUT_0028E0" OutName="tlut_0028E0" Format="rgba16" Width="16" Height="16" Offset="0x28E0" />
         <Texture Name="object_ot_Tex_002AE0" OutName="tex_002AE0" Format="ci8" Width="32" Height="32" Offset="0x2AE0" />
         <Texture Name="object_ot_Tex_002EE0" OutName="tex_002EE0" Format="ci8" Width="32" Height="64" Offset="0x2EE0" />
         <Texture Name="object_ot_Tex_0036E0" OutName="tex_0036E0" Format="ci8" Width="32" Height="32" Offset="0x36E0" />

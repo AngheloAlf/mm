@@ -17,7 +17,7 @@
         <DList Name="object_gla_DL_004768" Offset="0x4768" />
         <DList Name="object_gla_DL_004928" Offset="0x4928" />
         <DList Name="object_gla_DL_004A38" Offset="0x4A38" />
-        <Texture Name="object_gla_TLUT_004BF8" OutName="tlut_004BF8" Format="rgb5a1" Width="16" Height="16" Offset="0x4BF8" />
+        <Texture Name="object_gla_TLUT_004BF8" OutName="tlut_004BF8" Format="rgba16" Width="16" Height="16" Offset="0x4BF8" />
         <Texture Name="object_gla_Tex_004DF8" OutName="tex_004DF8" Format="ci8" Width="8" Height="8" Offset="0x4DF8" />
         <Texture Name="object_gla_Tex_004E38" OutName="tex_004E38" Format="ci8" Width="8" Height="8" Offset="0x4E38" />
         <Texture Name="object_gla_Tex_004E78" OutName="tex_004E78" Format="ci8" Width="16" Height="16" Offset="0x4E78" />

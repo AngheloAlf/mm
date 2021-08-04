@@ -9,15 +9,15 @@
         <DList Name="object_po_fusen_DL_000D70" Offset="0xD70" />
         <DList Name="object_po_fusen_DL_000E28" Offset="0xE28" />
         <DList Name="object_po_fusen_DL_000EB8" Offset="0xEB8" />
-        <Texture Name="object_po_fusen_TLUT_0010E0" OutName="tlut_0010E0" Format="rgb5a1" Width="16" Height="16" Offset="0x10E0" />
-        <Texture Name="object_po_fusen_Tex_0012E0" OutName="tex_0012E0" Format="rgb5a1" Width="16" Height="16" Offset="0x12E0" />
-        <Texture Name="object_po_fusen_Tex_0014E0" OutName="tex_0014E0" Format="rgb5a1" Width="16" Height="16" Offset="0x14E0" />
-        <Texture Name="object_po_fusen_Tex_0016E0" OutName="tex_0016E0" Format="rgb5a1" Width="16" Height="16" Offset="0x16E0" />
+        <Texture Name="object_po_fusen_TLUT_0010E0" OutName="tlut_0010E0" Format="rgba16" Width="16" Height="16" Offset="0x10E0" />
+        <Texture Name="object_po_fusen_Tex_0012E0" OutName="tex_0012E0" Format="rgba16" Width="16" Height="16" Offset="0x12E0" />
+        <Texture Name="object_po_fusen_Tex_0014E0" OutName="tex_0014E0" Format="rgba16" Width="16" Height="16" Offset="0x14E0" />
+        <Texture Name="object_po_fusen_Tex_0016E0" OutName="tex_0016E0" Format="rgba16" Width="16" Height="16" Offset="0x16E0" />
         <Texture Name="object_po_fusen_Tex_0018E0" OutName="tex_0018E0" Format="ci8" Width="16" Height="16" Offset="0x18E0" />
         <Texture Name="object_po_fusen_Tex_0019E0" OutName="tex_0019E0" Format="i4" Width="16" Height="16" Offset="0x19E0" />
-        <Texture Name="object_po_fusen_Tex_001A60" OutName="tex_001A60" Format="rgb5a1" Width="16" Height="16" Offset="0x1A60" />
-        <Texture Name="object_po_fusen_Tex_001C60" OutName="tex_001C60" Format="rgb5a1" Width="32" Height="16" Offset="0x1C60" />
-        <Texture Name="object_po_fusen_Tex_002060" OutName="tex_002060" Format="rgb5a1" Width="16" Height="32" Offset="0x2060" />
+        <Texture Name="object_po_fusen_Tex_001A60" OutName="tex_001A60" Format="rgba16" Width="16" Height="16" Offset="0x1A60" />
+        <Texture Name="object_po_fusen_Tex_001C60" OutName="tex_001C60" Format="rgba16" Width="32" Height="16" Offset="0x1C60" />
+        <Texture Name="object_po_fusen_Tex_002060" OutName="tex_002060" Format="rgba16" Width="16" Height="32" Offset="0x2060" />
         <Limb Name="object_po_fusen_Limb_002460" LimbType="Standard" Offset="0x2460" />
         <Limb Name="object_po_fusen_Limb_00246C" LimbType="Standard" Offset="0x246C" />
         <Limb Name="object_po_fusen_Limb_002478" LimbType="Standard" Offset="0x2478" />

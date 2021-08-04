@@ -17,16 +17,16 @@
         <DList Name="object_rs_DL_004B88" Offset="0x4B88" />
         <DList Name="object_rs_DL_004D20" Offset="0x4D20" />
         <DList Name="object_rs_DL_004E70" Offset="0x4E70" />
-        <Texture Name="object_rs_TLUT_004FD8" OutName="tlut_004FD8" Format="rgb5a1" Width="16" Height="16" Offset="0x4FD8" />
+        <Texture Name="object_rs_TLUT_004FD8" OutName="tlut_004FD8" Format="rgba16" Width="16" Height="16" Offset="0x4FD8" />
         <Texture Name="object_rs_Tex_0051D8" OutName="tex_0051D8" Format="ci8" Width="8" Height="8" Offset="0x51D8" />
         <Texture Name="object_rs_Tex_005218" OutName="tex_005218" Format="ci8" Width="8" Height="8" Offset="0x5218" />
         <Texture Name="object_rs_Tex_005258" OutName="tex_005258" Format="ci8" Width="8" Height="32" Offset="0x5258" />
         <Texture Name="object_rs_Tex_005358" OutName="tex_005358" Format="ci8" Width="16" Height="16" Offset="0x5358" />
-        <Texture Name="object_rs_Tex_005458" OutName="tex_005458" Format="rgb5a1" Width="32" Height="32" Offset="0x5458" />
+        <Texture Name="object_rs_Tex_005458" OutName="tex_005458" Format="rgba16" Width="32" Height="32" Offset="0x5458" />
         <Texture Name="object_rs_Tex_005C58" OutName="tex_005C58" Format="ci8" Width="32" Height="64" Offset="0x5C58" />
-        <Texture Name="object_rs_Tex_006458" OutName="tex_006458" Format="rgb5a1" Width="16" Height="16" Offset="0x6458" />
-        <Texture Name="object_rs_Tex_006658" OutName="tex_006658" Format="rgb5a1" Width="8" Height="8" Offset="0x6658" />
-        <Texture Name="object_rs_Tex_0066D8" OutName="tex_0066D8" Format="rgb5a1" Width="16" Height="16" Offset="0x66D8" />
+        <Texture Name="object_rs_Tex_006458" OutName="tex_006458" Format="rgba16" Width="16" Height="16" Offset="0x6458" />
+        <Texture Name="object_rs_Tex_006658" OutName="tex_006658" Format="rgba16" Width="8" Height="8" Offset="0x6658" />
+        <Texture Name="object_rs_Tex_0066D8" OutName="tex_0066D8" Format="rgba16" Width="16" Height="16" Offset="0x66D8" />
         <Texture Name="object_rs_Tex_0068D8" OutName="tex_0068D8" Format="ci8" Width="16" Height="16" Offset="0x68D8" />
         <Texture Name="object_rs_Tex_0069D8" OutName="tex_0069D8" Format="ci8" Width="32" Height="32" Offset="0x69D8" />
         <Animation Name="object_rs_Anim_00788C" Offset="0x788C" />
