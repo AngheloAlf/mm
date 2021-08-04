@@ -5617,14 +5617,16 @@ beginseg
     name "gameplay_keep"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_keep.o" // problems
+    include "build/assets/objects/gameplay_keep/gameplay_keep.o"
+    number 4
 endseg
 
 beginseg
     name "gameplay_field_keep"
     compress
     romalign 0x1000
-    include "build/baserom/gameplay_field_keep.o" // problems
+    include "build/assets/objects/gameplay_field_keep/gameplay_field_keep.o"
+    number 5
 endseg
 
 beginseg
