@@ -4,10 +4,10 @@
 
 #define THIS ((ObjTokeidai*)thisx)
 
-void ObjTokeidai_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeidai_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeidai_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeidai_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjTokeidai_Init(Actor* thisx, GameState* game);
+void ObjTokeidai_Destroy(Actor* thisx, GameState* game);
+void ObjTokeidai_Update(Actor* thisx, GameState* game);
+void ObjTokeidai_Draw(Actor* thisx, GameState* game);
 
 void func_80AB319C(ObjTokeidai* this, GlobalContext* globalCtx);
 void func_80AB3240(ObjTokeidai* this, GlobalContext* globalCtx);

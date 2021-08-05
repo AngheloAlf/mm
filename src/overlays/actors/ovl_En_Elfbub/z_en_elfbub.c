@@ -4,10 +4,10 @@
 
 #define THIS ((EnElfbub*)thisx)
 
-void EnElfbub_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnElfbub_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnElfbub_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnElfbub_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnElfbub_Init(Actor* thisx, GameState* game);
+void EnElfbub_Destroy(Actor* thisx, GameState* game);
+void EnElfbub_Update(Actor* thisx, GameState* game);
+void EnElfbub_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Elfbub_InitVars = {

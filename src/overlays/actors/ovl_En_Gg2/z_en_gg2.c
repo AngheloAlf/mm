@@ -4,10 +4,10 @@
 
 #define THIS ((EnGg2*)thisx)
 
-void EnGg2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGg2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGg2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGg2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGg2_Init(Actor* thisx, GameState* game);
+void EnGg2_Destroy(Actor* thisx, GameState* game);
+void EnGg2_Update(Actor* thisx, GameState* game);
+void EnGg2_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Gg2_InitVars = {

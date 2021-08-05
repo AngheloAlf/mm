@@ -4,11 +4,11 @@
 
 #define THIS ((ObjKibako*)thisx)
 
-void ObjKibako_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjKibako_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjKibako_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjKibako_Init(Actor* thisx, GameState* game);
+void ObjKibako_Destroy(Actor* thisx, GameState* game);
+void ObjKibako_Update(Actor* thisx, GameState* game);
 
-void ObjKibako_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjKibako_Draw(Actor* thisx, GameState* game);
 void ObjKibako_SpawnCollectible(ObjKibako* this, GlobalContext* globalCtx);
 void func_809262BC(ObjKibako* this);
 void func_80926318(ObjKibako* this, GlobalContext* globalCtx);
@@ -126,9 +126,9 @@ void func_80926394(ObjKibako* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjKibako_Init(Actor* thisx, GlobalContext* globalCtx2) {
+void ObjKibako_Init(Actor* thisx, GameState* game) {
     ObjKibako* this = THIS;
-    GlobalContext* globalCtx = globalCtx2;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     s32 whichBankIndex;
 
     whichBankIndex = (this->actor.params >> 0xF) & 1;
@@ -139,11 +139,11 @@ void ObjKibako_Init(Actor* thisx, GlobalContext* globalCtx2) {
     } else {
         this->actor.uncullZoneForward = 800.0f;
     }
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     Collider_UpdateCylinder(&this->actor, &this->collider);
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
-    this->bankIndex = Object_GetIndex(&globalCtx->objectCtx, sObjectIdList[whichBankIndex]);
+    this->bankIndex = Object_GetIndex(&((GlobalContext*)game)->objectCtx, sObjectIdList[whichBankIndex]);
     if (this->bankIndex < 0) {
         Actor_MarkForDeath(&this->actor);
         return;
@@ -152,11 +152,11 @@ void ObjKibako_Init(Actor* thisx, GlobalContext* globalCtx2) {
     func_80926B40(this);
 }
 
-void ObjKibako_Destroy(Actor* thisx, GlobalContext* globalCtx2) {
-    GlobalContext* globalCtx = globalCtx2;
+void ObjKibako_Destroy(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     ObjKibako* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void ObjKibako_AirBreak(ObjKibako* this, GlobalContext* globalCtx) {
@@ -403,13 +403,13 @@ void ObjKibako_Thrown(ObjKibako* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjKibako_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjKibako_Update(Actor* thisx, GameState* game) {
     ObjKibako* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     ObjKibako_SetShadow(this);
 }
 
-void ObjKibako_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, sDisplayLists[((thisx->params >> 0xF) & 1)]);
+void ObjKibako_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, sDisplayLists[((thisx->params >> 0xF) & 1)]);
 }

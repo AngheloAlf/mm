@@ -4,9 +4,9 @@
 
 #define THIS ((EnMttag*)thisx)
 
-void EnMttag_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMttag_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMttag_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnMttag_Init(Actor* thisx, GameState* game);
+void EnMttag_Destroy(Actor* thisx, GameState* game);
+void EnMttag_Update(Actor* thisx, GameState* game);
 
 void func_809CF9A0(EnMttag* this, GlobalContext* globalCtx);
 void func_809CFA00(EnMttag* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnGakufu*)thisx)
 
-void EnGakufu_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGakufu_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGakufu_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGakufu_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGakufu_Init(Actor* thisx, GameState* game);
+void EnGakufu_Destroy(Actor* thisx, GameState* game);
+void EnGakufu_Update(Actor* thisx, GameState* game);
+void EnGakufu_Draw(Actor* thisx, GameState* game);
 
 void func_80AFCB94(EnGakufu* this, GlobalContext* globalCtx);
 void func_80AFCBD4(EnGakufu* this, GlobalContext* globalCtx);

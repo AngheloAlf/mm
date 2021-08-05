@@ -4,9 +4,9 @@
 
 #define THIS ((BgSpoutFire*)thisx)
 
-void BgSpoutFire_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgSpoutFire_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgSpoutFire_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgSpoutFire_Init(Actor* thisx, GameState* game);
+void BgSpoutFire_Destroy(Actor* thisx, GameState* game);
+void BgSpoutFire_Update(Actor* thisx, GameState* game);
 
 void func_80A60C94(BgSpoutFire* this, GlobalContext* globalCtx);
 void func_80A60CDC(BgSpoutFire* this, GlobalContext* globalCtx);

@@ -4,8 +4,8 @@
 
 #define THIS ((BgMarketStep*)thisx)
 
-void BgMarketStep_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgMarketStep_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgMarketStep_Init(Actor* thisx, GameState* game);
+void BgMarketStep_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Bg_Market_Step_InitVars = {
     ACTOR_BG_MARKET_STEP,  ACTORCAT_BG,           FLAGS,
@@ -27,14 +27,14 @@ extern Gfx D_06018C60[];
 Gfx* D_80AF0120[] = { D_0601F050, D_06018DA0 };
 Gfx* D_80AF0128[] = { D_0601EF10, D_06018C60 };
 
-void BgMarketStep_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgMarketStep_Init(Actor* thisx, GameState* game) {
     BgMarketStep* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
 }
-void BgMarketStep_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void BgMarketStep_Draw(Actor* thisx, GameState* game) {
     s32 index = thisx->params & 1;
 
-    func_800BDFC0(globalCtx, D_80AF0120[index]);
-    func_800BDFC0(globalCtx, D_80AF0128[index]);
+    func_800BDFC0(game, D_80AF0120[index]);
+    func_800BDFC0(game, D_80AF0128[index]);
 }

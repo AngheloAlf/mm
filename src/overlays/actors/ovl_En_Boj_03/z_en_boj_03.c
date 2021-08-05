@@ -4,10 +4,10 @@
 
 #define THIS ((EnBoj03*)thisx)
 
-void EnBoj03_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBoj03_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBoj03_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBoj03_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBoj03_Init(Actor* thisx, GameState* game);
+void EnBoj03_Destroy(Actor* thisx, GameState* game);
+void EnBoj03_Update(Actor* thisx, GameState* game);
+void EnBoj03_Draw(Actor* thisx, GameState* game);
 
 const ActorInit En_Boj_03_InitVars = {
     ACTOR_EN_BOJ_03,
@@ -21,11 +21,11 @@ const ActorInit En_Boj_03_InitVars = {
     (ActorFunc)EnBoj03_Draw,
 };
 
-void EnBoj03_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnBoj03_Init(Actor* thisx, GameState* game) {
 }
-void EnBoj03_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnBoj03_Destroy(Actor* thisx, GameState* game) {
 }
-void EnBoj03_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnBoj03_Update(Actor* thisx, GameState* game) {
 }
-void EnBoj03_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnBoj03_Draw(Actor* thisx, GameState* game) {
 }

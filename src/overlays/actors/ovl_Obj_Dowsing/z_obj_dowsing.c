@@ -4,9 +4,9 @@
 
 #define THIS ((ObjDowsing*)thisx)
 
-void ObjDowsing_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjDowsing_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjDowsing_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjDowsing_Init(Actor* thisx, GameState* game);
+void ObjDowsing_Destroy(Actor* thisx, GameState* game);
+void ObjDowsing_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Dowsing_InitVars = {

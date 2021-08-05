@@ -4,10 +4,10 @@
 
 #define THIS ((ObjTokeiTobira*)thisx)
 
-void ObjTokeiTobira_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeiTobira_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeiTobira_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeiTobira_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjTokeiTobira_Init(Actor* thisx, GameState* game);
+void ObjTokeiTobira_Destroy(Actor* thisx, GameState* game);
+void ObjTokeiTobira_Update(Actor* thisx, GameState* game);
+void ObjTokeiTobira_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Tokei_Tobira_InitVars = {

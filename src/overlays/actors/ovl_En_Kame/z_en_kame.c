@@ -4,10 +4,10 @@
 
 #define THIS ((EnKame*)thisx)
 
-void EnKame_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKame_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKame_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnKame_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnKame_Init(Actor* thisx, GameState* game);
+void EnKame_Destroy(Actor* thisx, GameState* game);
+void EnKame_Update(Actor* thisx, GameState* game);
+void EnKame_Draw(Actor* thisx, GameState* game);
 
 void func_80AD70EC(EnKame* this, GlobalContext* globalCtx);
 void func_80AD7254(EnKame* this, GlobalContext* globalCtx);

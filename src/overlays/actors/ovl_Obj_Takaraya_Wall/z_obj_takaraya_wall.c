@@ -4,10 +4,10 @@
 
 #define THIS ((ObjTakarayaWall*)thisx)
 
-void ObjTakarayaWall_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTakarayaWall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTakarayaWall_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjTakarayaWall_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjTakarayaWall_Init(Actor* thisx, GameState* game);
+void ObjTakarayaWall_Destroy(Actor* thisx, GameState* game);
+void ObjTakarayaWall_Update(Actor* thisx, GameState* game);
+void ObjTakarayaWall_Draw(Actor* thisx, GameState* game);
 
 void func_80AD9B04(ObjTakarayaWall* this, GlobalContext* globalCtx);
 

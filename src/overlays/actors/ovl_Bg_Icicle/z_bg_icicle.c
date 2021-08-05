@@ -10,10 +10,10 @@
 
 #define THIS ((BgIcicle*)thisx)
 
-void BgIcicle_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIcicle_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIcicle_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIcicle_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIcicle_Init(Actor* thisx, GameState* game);
+void BgIcicle_Destroy(Actor* thisx, GameState* game);
+void BgIcicle_Update(Actor* thisx, GameState* game);
+void BgIcicle_Draw(Actor* thisx, GameState* game);
 
 void BgIcicle_DoNothing(BgIcicle* this, GlobalContext* globalCtx);
 void BgIcicle_Wait(BgIcicle* this, GlobalContext* globalCtx);
@@ -63,7 +63,7 @@ static InitChainEntry sInitChain[] = {
 extern Gfx D_060000D0[];
 extern CollisionHeader D_06000294;
 
-void BgIcicle_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgIcicle_Init(Actor* thisx, GameState* game) {
     s32 pad;
     BgIcicle* this = THIS;
     s32 paramsHigh;
@@ -71,9 +71,9 @@ void BgIcicle_Init(Actor* thisx, GlobalContext* globalCtx) {
 
     Actor_ProcessInitChain(thisx, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 0);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000294);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06000294);
 
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, thisx, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, thisx, &sCylinderInit);
     Collider_UpdateCylinder(thisx, &this->collider);
 
     paramsHigh = (thisx->params >> 8) & 0xFF;
@@ -91,11 +91,11 @@ void BgIcicle_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void BgIcicle_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgIcicle_Destroy(Actor* thisx, GameState* game) {
     BgIcicle* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void BgIcicle_Break(BgIcicle* this, GlobalContext* globalCtx, f32 arg2) {
@@ -231,19 +231,19 @@ void BgIcicle_UpdateAttacked(BgIcicle* this, GlobalContext* globalCtx) {
     }
 }
 
-void BgIcicle_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgIcicle_Update(Actor* thisx, GameState* game) {
     s32 pad;
     BgIcicle* this = THIS;
 
-    BgIcicle_UpdateAttacked(this, globalCtx);
-    this->actionFunc(this, globalCtx);
+    BgIcicle_UpdateAttacked(this, game);
+    this->actionFunc(this, game);
 
     if (this->actionFunc != BgIcicle_Regrow) {
         Collider_UpdateCylinder(&this->dyna.actor, &this->collider);
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     }
 }
 
-void BgIcicle_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_060000D0);
+void BgIcicle_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_060000D0);
 }

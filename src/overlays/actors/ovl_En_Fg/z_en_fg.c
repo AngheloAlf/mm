@@ -10,10 +10,10 @@
 
 #define THIS ((EnFg*)thisx)
 
-void EnFg_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFg_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFg_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFg_Init(Actor* thisx, GameState* game);
+void EnFg_Destroy(Actor* thisx, GameState* game);
+void EnFg_Update(Actor* thisx, GameState* game);
+void EnFg_Draw(Actor* thisx, GameState* game);
 
 void EnFg_Jump(EnFg* this, GlobalContext* globalCtx);
 void EnFg_DoNothing(EnFg* this, GlobalContext* globalCtx);
@@ -317,14 +317,14 @@ void EnFg_Knockback(EnFg* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnFg_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnFg_Init(Actor* thisx, GameState* game) {
     EnFg* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 10.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600B538, NULL, this->limbDrawTbl, this->transitionDrawTbl, 24);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600B538, NULL, this->limbDrawTbl, this->transitionDrawTbl, 24);
     EnFg_UpdateAnimation(&this->skelAnime, 0);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, &sDamageTable, &sColChkInfoInit2);
     this->actor.flags |= 0x4000;
     Actor_SetScale(&this->actor, 0.01f);
@@ -332,13 +332,13 @@ void EnFg_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actionFunc = EnFg_Idle;
 }
 
-void EnFg_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnFg_Destroy(Actor* thisx, GameState* game) {
     EnFg* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
-void EnFg_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnFg_Update(Actor* thisx, GameState* game) {
     EnFg* this = THIS;
     s32 flag;
     s32 flagSet;
@@ -350,14 +350,14 @@ void EnFg_Update(Actor* thisx, GlobalContext* globalCtx) {
         flagSet = ((flag & 0x8000) == 0x8000);
         if (1) {}
         if (!flagSet) {
-            this->actionFunc(this, globalCtx);
-            Actor_UpdateBgCheckInfo(globalCtx, &this->actor, BASE_REG(16, 0), BASE_REG(16, 1), 0.0f, 0x5);
+            this->actionFunc(this, game);
+            Actor_UpdateBgCheckInfo(game, &this->actor, BASE_REG(16, 0), BASE_REG(16, 1), 0.0f, 0x5);
         }
     }
 
-    func_80A2D3D4(this, globalCtx);
+    func_80A2D3D4(this, game);
     EnFg_UpdateDust(&this->dustEffect[0]);
-    func_80A2D348(this, globalCtx);
+    func_80A2D348(this, game);
 }
 
 s32 EnFg_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
@@ -395,7 +395,7 @@ void EnFg_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec
     }
 }
 
-void EnFg_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnFg_Draw(Actor* thisx, GameState* game) {
     EnFg* this = THIS;
     s32 pad;
     Color_RGBA8 envColor[] = {
@@ -404,19 +404,19 @@ void EnFg_Draw(Actor* thisx, GlobalContext* globalCtx) {
     };
 
     SysMatrix_StatePush();
-    EnFg_DrawDust(globalCtx, &this->dustEffect[0]);
+    EnFg_DrawDust(game, &this->dustEffect[0]);
     SysMatrix_StatePop();
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gDPPipeSync(POLY_OPA_DISP++);
     gDPSetEnvColor(POLY_OPA_DISP++, envColor[this->actor.params].r, envColor[this->actor.params].g,
                    envColor[this->actor.params].b, envColor[this->actor.params].a);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(&D_060059A0));
     gSPSegment(POLY_OPA_DISP++, 0x09, Lib_SegmentedToVirtual(&D_060059A0));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnFg_OverrideLimbDraw, EnFg_PostLimbDraw, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
 void EnFg_AddDust(EnFgEffectDust* dustEffect, Vec3f* worldPos) {

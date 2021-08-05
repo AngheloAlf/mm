@@ -4,10 +4,10 @@
 
 #define THIS ((EnHiddenNuts*)thisx)
 
-void EnHiddenNuts_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHiddenNuts_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHiddenNuts_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHiddenNuts_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHiddenNuts_Init(Actor* thisx, GameState* game);
+void EnHiddenNuts_Destroy(Actor* thisx, GameState* game);
+void EnHiddenNuts_Update(Actor* thisx, GameState* game);
+void EnHiddenNuts_Draw(Actor* thisx, GameState* game);
 
 void func_80BDB2B8(EnHiddenNuts* this, GlobalContext* globalCtx);
 void func_80BDB59C(EnHiddenNuts* this, GlobalContext* globalCtx);

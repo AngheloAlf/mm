@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSmork*)thisx)
 
-void ObjSmork_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSmork_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSmork_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSmork_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSmork_Init(Actor* thisx, GameState* game);
+void ObjSmork_Destroy(Actor* thisx, GameState* game);
+void ObjSmork_Update(Actor* thisx, GameState* game);
+void ObjSmork_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Smork_InitVars = {

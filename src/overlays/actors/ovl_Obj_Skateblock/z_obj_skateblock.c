@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSkateblock*)thisx)
 
-void ObjSkateblock_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSkateblock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSkateblock_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSkateblock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSkateblock_Init(Actor* thisx, GameState* game);
+void ObjSkateblock_Destroy(Actor* thisx, GameState* game);
+void ObjSkateblock_Update(Actor* thisx, GameState* game);
+void ObjSkateblock_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Skateblock_InitVars = {

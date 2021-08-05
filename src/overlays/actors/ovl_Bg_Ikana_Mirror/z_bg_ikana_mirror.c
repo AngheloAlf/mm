@@ -4,10 +4,10 @@
 
 #define THIS ((BgIkanaMirror*)thisx)
 
-void BgIkanaMirror_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaMirror_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaMirror_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaMirror_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIkanaMirror_Init(Actor* thisx, GameState* game);
+void BgIkanaMirror_Destroy(Actor* thisx, GameState* game);
+void BgIkanaMirror_Update(Actor* thisx, GameState* game);
+void BgIkanaMirror_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Ikana_Mirror_InitVars = {

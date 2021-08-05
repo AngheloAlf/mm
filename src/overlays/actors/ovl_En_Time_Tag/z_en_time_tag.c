@@ -4,9 +4,9 @@
 
 #define THIS ((EnTimeTag*)thisx)
 
-void EnTimeTag_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTimeTag_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTimeTag_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnTimeTag_Init(Actor* thisx, GameState* game);
+void EnTimeTag_Destroy(Actor* thisx, GameState* game);
+void EnTimeTag_Update(Actor* thisx, GameState* game);
 
 void func_80AC9FD4(EnTimeTag* this, GlobalContext* globalCtx);
 void func_80AC9FE4(EnTimeTag* this, GlobalContext* globalCtx);

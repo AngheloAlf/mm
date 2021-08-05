@@ -11,11 +11,12 @@
 #define MASS_HEAVY 0xFE     // Can only be pushed by OC collisions with IMMOVABLE and HEAVY objects.
 
 struct Actor;
+struct GameState;
 struct GlobalContext;
 struct Lights;
 struct CollisionPoly;
 
-typedef void(*ActorFunc)(struct Actor* this, struct GlobalContext* globalCtx);
+typedef void(*ActorFunc)(struct Actor* thisx, struct GameState* game);
 
 typedef struct {
     /* 0x00 */ Vec3f pos;

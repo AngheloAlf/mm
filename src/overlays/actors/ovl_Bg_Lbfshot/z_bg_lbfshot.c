@@ -4,9 +4,9 @@
 
 #define THIS ((BgLbfshot*)thisx)
 
-void BgLbfshot_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgLbfshot_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgLbfshot_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgLbfshot_Init(Actor* thisx, GameState* game);
+void BgLbfshot_Destroy(Actor* thisx, GameState* game);
+void BgLbfshot_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Bg_Lbfshot_InitVars = {
     ACTOR_BG_LBFSHOT,
@@ -27,19 +27,19 @@ static InitChainEntry sInitChain[] = {
 extern CollisionHeader D_060014D8;
 extern Gfx D_06000228[];
 
-void BgLbfshot_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgLbfshot_Init(Actor* thisx, GameState* game) {
     BgLbfshot* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     this->dyna.actor.uncullZoneForward = 4000.0f;
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_060014D8);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_060014D8);
 }
-void BgLbfshot_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgLbfshot_Destroy(Actor* thisx, GameState* game) {
     BgLbfshot* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
-void BgLbfshot_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000228);
+void BgLbfshot_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000228);
 }

@@ -4,9 +4,9 @@
 
 #define THIS ((DemoGetitem*)thisx)
 
-void DemoGetitem_Init(Actor* thisx, GlobalContext* globalCtx);
-void DemoGetitem_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DemoGetitem_Update(Actor* thisx, GlobalContext* globalCtx);
+void DemoGetitem_Init(Actor* thisx, GameState* game);
+void DemoGetitem_Destroy(Actor* thisx, GameState* game);
+void DemoGetitem_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Demo_Getitem_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((BgIkanaBombwall*)thisx)
 
-void BgIkanaBombwall_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaBombwall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaBombwall_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaBombwall_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIkanaBombwall_Init(Actor* thisx, GameState* game);
+void BgIkanaBombwall_Destroy(Actor* thisx, GameState* game);
+void BgIkanaBombwall_Update(Actor* thisx, GameState* game);
+void BgIkanaBombwall_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Ikana_Bombwall_InitVars = {

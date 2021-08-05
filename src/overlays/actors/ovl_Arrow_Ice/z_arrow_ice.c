@@ -4,10 +4,10 @@
 
 #define THIS ((ArrowIce*)thisx)
 
-void ArrowIce_Init(Actor* thisx, GlobalContext* globalCtx);
-void ArrowIce_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ArrowIce_Update(Actor* thisx, GlobalContext* globalCtx);
-void ArrowIce_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ArrowIce_Init(Actor* thisx, GameState* game);
+void ArrowIce_Destroy(Actor* thisx, GameState* game);
+void ArrowIce_Update(Actor* thisx, GameState* game);
+void ArrowIce_Draw(Actor* thisx, GameState* game);
 
 void func_809224DC(ArrowIce* this, GlobalContext* globalCtx);
 void func_80922628(ArrowIce* this, GlobalContext* globalCtx);

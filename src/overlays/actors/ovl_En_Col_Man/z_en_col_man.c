@@ -4,9 +4,9 @@
 
 #define THIS ((EnColMan*)thisx)
 
-void EnColMan_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnColMan_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnColMan_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnColMan_Init(Actor* thisx, GameState* game);
+void EnColMan_Destroy(Actor* thisx, GameState* game);
+void EnColMan_Update(Actor* thisx, GameState* game);
 
 void func_80AFDE00(EnColMan* this, GlobalContext* globalCtx);
 void func_80AFDF00(EnColMan* this, GlobalContext* globalCtx);

@@ -10,10 +10,10 @@
 
 #define THIS ((BgCtowerRot*)thisx)
 
-void BgCtowerRot_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerRot_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerRot_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerRot_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgCtowerRot_Init(Actor* thisx, GameState* game);
+void BgCtowerRot_Destroy(Actor* thisx, GameState* game);
+void BgCtowerRot_Update(Actor* thisx, GameState* game);
+void BgCtowerRot_Draw(Actor* thisx, GameState* game);
 
 void BgCtowerRot_CorridorRotate(BgCtowerRot* this, GlobalContext* globalCtx);
 void BgCtowerRot_DoorDoNothing(BgCtowerRot* this, GlobalContext* globalCtx);
@@ -46,25 +46,25 @@ static InitChainEntry sInitChain[] = {
 
 static Gfx* bgCtowerRotDlists[] = { D_06012DA0, D_06017220, D_060174E0 };
 
-void BgCtowerRot_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerRot_Init(Actor* thisx, GameState* game) {
     BgCtowerRot* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player;
     Vec3f offset;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 1);
     if (this->dyna.actor.params == CORRIDOR) {
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_060142E8);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_060142E8);
         this->actionFunc = BgCtowerRot_CorridorRotate;
         return;
     }
     player = PLAYER;
     if (this->dyna.actor.params == MAIN_DOOR) {
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06017410);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06017410);
         this->dyna.actor.world.rot.y = this->dyna.actor.shape.rot.y + 0x4000;
     } else {
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06017650);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06017650);
         this->dyna.actor.world.rot.y = this->dyna.actor.shape.rot.y - 0x4000;
     }
     Actor_CalcOffsetOrientedToDrawRotation(&this->dyna.actor, &offset, &player->actor.world.pos);
@@ -78,10 +78,10 @@ void BgCtowerRot_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void BgCtowerRot_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerRot_Destroy(Actor* thisx, GameState* game) {
     BgCtowerRot* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void BgCtowerRot_CorridorRotate(BgCtowerRot* this, GlobalContext* globalCtx) {
@@ -150,17 +150,17 @@ void BgCtowerRot_SetupDoorClose(BgCtowerRot* this, GlobalContext* globalCtx) {
     }
 }
 
-void BgCtowerRot_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerRot_Update(Actor* thisx, GameState* game) {
     BgCtowerRot* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgCtowerRot_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerRot_Draw(Actor* thisx, GameState* game) {
     BgCtowerRot* this = THIS;
 
-    func_800BDFC0(globalCtx, bgCtowerRotDlists[this->dyna.actor.params]);
+    func_800BDFC0(game, bgCtowerRotDlists[this->dyna.actor.params]);
     if (this->dyna.actor.params == CORRIDOR) {
-        func_800BE03C(globalCtx, D_060129D0);
+        func_800BE03C(game, D_060129D0);
     }
 }

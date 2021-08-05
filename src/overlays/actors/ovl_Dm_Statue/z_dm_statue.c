@@ -4,10 +4,10 @@
 
 #define THIS ((DmStatue*)thisx)
 
-void DmStatue_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmStatue_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmStatue_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmStatue_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmStatue_Init(Actor* thisx, GameState* game);
+void DmStatue_Destroy(Actor* thisx, GameState* game);
+void DmStatue_Update(Actor* thisx, GameState* game);
+void DmStatue_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Dm_Statue_InitVars = {
     ACTOR_DM_STATUE,
@@ -24,19 +24,19 @@ const ActorInit Dm_Statue_InitVars = {
 extern AnimatedMaterial D_06001788;
 extern Gfx D_06000520[];
 
-void DmStatue_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DmStatue_Init(Actor* thisx, GameState* game) {
     DmStatue* this = THIS;
 
     Actor_SetScale(&this->actor, 10.0f);
 }
 
-void DmStatue_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DmStatue_Destroy(Actor* thisx, GameState* game) {
 }
 
-void DmStatue_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DmStatue_Update(Actor* thisx, GameState* game) {
 }
 
-void DmStatue_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    AnimatedMat_Draw(globalCtx, Lib_SegmentedToVirtual(&D_06001788));
-    func_800BE03C(globalCtx, D_06000520);
+void DmStatue_Draw(Actor* thisx, GameState* game) {
+    AnimatedMat_Draw(game, Lib_SegmentedToVirtual(&D_06001788));
+    func_800BE03C(game, D_06000520);
 }

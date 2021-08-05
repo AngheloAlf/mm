@@ -4,9 +4,9 @@
 
 #define THIS ((EffKamejimaWave*)thisx)
 
-void EffKamejimaWave_Init(Actor* thisx, GlobalContext* globalCtx);
-void EffKamejimaWave_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EffKamejimaWave_Update(Actor* thisx, GlobalContext* globalCtx);
+void EffKamejimaWave_Init(Actor* thisx, GameState* game);
+void EffKamejimaWave_Destroy(Actor* thisx, GameState* game);
+void EffKamejimaWave_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Eff_Kamejima_Wave_InitVars = {

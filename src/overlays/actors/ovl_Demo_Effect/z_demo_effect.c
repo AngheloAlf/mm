@@ -4,9 +4,9 @@
 
 #define THIS ((DemoEffect*)thisx)
 
-void DemoEffect_Init(Actor* thisx, GlobalContext* globalCtx);
-void DemoEffect_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DemoEffect_Update(Actor* thisx, GlobalContext* globalCtx);
+void DemoEffect_Init(Actor* thisx, GameState* game);
+void DemoEffect_Destroy(Actor* thisx, GameState* game);
+void DemoEffect_Update(Actor* thisx, GameState* game);
 
 void func_808CD940(DemoEffect* this, GlobalContext* globalCtx);
 void func_808CDBDC(DemoEffect* this, GlobalContext* globalCtx);

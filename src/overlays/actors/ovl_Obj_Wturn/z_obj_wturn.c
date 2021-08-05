@@ -4,8 +4,8 @@
 
 #define THIS ((ObjWturn*)thisx)
 
-void ObjWturn_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjWturn_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjWturn_Init(Actor* thisx, GameState* game);
+void ObjWturn_Update(Actor* thisx, GameState* game);
 
 void func_808A7968(ObjWturn* this, GlobalContext* globalCtx);
 void func_808A7A5C(ObjWturn* this, GlobalContext* globalCtx);

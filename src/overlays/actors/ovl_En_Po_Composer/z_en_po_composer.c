@@ -4,10 +4,10 @@
 
 #define THIS ((EnPoComposer*)thisx)
 
-void EnPoComposer_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPoComposer_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPoComposer_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPoComposer_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPoComposer_Init(Actor* thisx, GameState* game);
+void EnPoComposer_Destroy(Actor* thisx, GameState* game);
+void EnPoComposer_Update(Actor* thisx, GameState* game);
+void EnPoComposer_Draw(Actor* thisx, GameState* game);
 
 void func_80BC5294(EnPoComposer* this, GlobalContext* globalCtx);
 void func_80BC52F0(EnPoComposer* this, GlobalContext* globalCtx);

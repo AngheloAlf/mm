@@ -4,10 +4,10 @@
 
 #define THIS ((BgDblueBalance*)thisx)
 
-void BgDblueBalance_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueBalance_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueBalance_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueBalance_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgDblueBalance_Init(Actor* thisx, GameState* game);
+void BgDblueBalance_Destroy(Actor* thisx, GameState* game);
+void BgDblueBalance_Update(Actor* thisx, GameState* game);
+void BgDblueBalance_Draw(Actor* thisx, GameState* game);
 
 void func_80B82DE0(BgDblueBalance* this, GlobalContext* globalCtx);
 void func_80B8335C(BgDblueBalance* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((BgIkanaRotaryroom*)thisx)
 
-void BgIkanaRotaryroom_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaRotaryroom_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaRotaryroom_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaRotaryroom_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIkanaRotaryroom_Init(Actor* thisx, GameState* game);
+void BgIkanaRotaryroom_Destroy(Actor* thisx, GameState* game);
+void BgIkanaRotaryroom_Update(Actor* thisx, GameState* game);
+void BgIkanaRotaryroom_Draw(Actor* thisx, GameState* game);
 
 void func_80B814B8(BgIkanaRotaryroom* this, GlobalContext* globalCtx);
 

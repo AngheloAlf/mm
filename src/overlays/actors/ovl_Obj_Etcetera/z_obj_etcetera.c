@@ -4,9 +4,9 @@
 
 #define THIS ((ObjEtcetera*)thisx)
 
-void ObjEtcetera_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjEtcetera_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjEtcetera_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjEtcetera_Init(Actor* thisx, GameState* game);
+void ObjEtcetera_Destroy(Actor* thisx, GameState* game);
+void ObjEtcetera_Update(Actor* thisx, GameState* game);
 
 void func_80A7BF08(ObjEtcetera* this, GlobalContext* globalCtx);
 void func_80A7C168(ObjEtcetera* this, GlobalContext* globalCtx);

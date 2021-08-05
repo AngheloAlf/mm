@@ -4,10 +4,10 @@
 
 #define THIS ((EnVm*)thisx)
 
-void EnVm_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnVm_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnVm_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnVm_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnVm_Init(Actor* thisx, GameState* game);
+void EnVm_Destroy(Actor* thisx, GameState* game);
+void EnVm_Update(Actor* thisx, GameState* game);
+void EnVm_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Vm_InitVars = {

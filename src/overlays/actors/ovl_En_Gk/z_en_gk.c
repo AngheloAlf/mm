@@ -4,10 +4,10 @@
 
 #define THIS ((EnGk*)thisx)
 
-void EnGk_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGk_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGk_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGk_Init(Actor* thisx, GameState* game);
+void EnGk_Destroy(Actor* thisx, GameState* game);
+void EnGk_Update(Actor* thisx, GameState* game);
+void EnGk_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Gk_InitVars = {

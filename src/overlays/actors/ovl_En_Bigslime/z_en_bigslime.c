@@ -4,10 +4,10 @@
 
 #define THIS ((EnBigslime*)thisx)
 
-void EnBigslime_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBigslime_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBigslime_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBigslime_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBigslime_Init(Actor* thisx, GameState* game);
+void EnBigslime_Destroy(Actor* thisx, GameState* game);
+void EnBigslime_Update(Actor* thisx, GameState* game);
+void EnBigslime_Draw(Actor* thisx, GameState* game);
 
 void func_808E6E80(EnBigslime* this, GlobalContext* globalCtx);
 void func_808E6F50(EnBigslime* this, GlobalContext* globalCtx);

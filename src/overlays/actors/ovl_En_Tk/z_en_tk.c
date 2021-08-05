@@ -4,10 +4,10 @@
 
 #define THIS ((EnTk*)thisx)
 
-void EnTk_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTk_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTk_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTk_Init(Actor* thisx, GameState* game);
+void EnTk_Destroy(Actor* thisx, GameState* game);
+void EnTk_Update(Actor* thisx, GameState* game);
+void EnTk_Draw(Actor* thisx, GameState* game);
 
 void func_80AECA90(EnTk* this, GlobalContext* globalCtx);
 void func_80AECB6C(EnTk* this, GlobalContext* globalCtx);

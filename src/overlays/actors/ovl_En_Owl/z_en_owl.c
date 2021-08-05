@@ -4,10 +4,10 @@
 
 #define THIS ((EnOwl*)thisx)
 
-void EnOwl_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOwl_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOwl_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnOwl_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnOwl_Init(Actor* thisx, GameState* game);
+void EnOwl_Destroy(Actor* thisx, GameState* game);
+void EnOwl_Update(Actor* thisx, GameState* game);
+void EnOwl_Draw(Actor* thisx, GameState* game);
 
 void func_8095AB1C(EnOwl* this, GlobalContext* globalCtx);
 void func_8095ABF0(EnOwl* this, GlobalContext* globalCtx);

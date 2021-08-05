@@ -4,9 +4,9 @@
 
 #define THIS ((EnTagObj*)thisx)
 
-void EnTagObj_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTagObj_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTagObj_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnTagObj_Init(Actor* thisx, GameState* game);
+void EnTagObj_Destroy(Actor* thisx, GameState* game);
+void EnTagObj_Update(Actor* thisx, GameState* game);
 
 static ColliderCylinderInit sUnusedColliderInit = {
     {
@@ -40,20 +40,20 @@ const ActorInit En_Tag_Obj_InitVars = {
     (ActorFunc)NULL,
 };
 
-void EnTagObj_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnTagObj_Init(Actor* thisx, GameState* game) {
     EnTagObj* this = (EnTagObj*)thisx;
 
     this->hasSpawnedSeahorse = 0;
 }
 
-void EnTagObj_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnTagObj_Destroy(Actor* thisx, GameState* game) {
 }
 
-void EnTagObj_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnTagObj_Update(Actor* thisx, GameState* game) {
     EnTagObj* this = (EnTagObj*)thisx;
 
     if (!this->hasSpawnedSeahorse) {
-        Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_OT, this->actor.world.pos.x, this->actor.world.pos.y,
+        Actor_Spawn(&((GlobalContext*)game)->actorCtx, game, ACTOR_EN_OT, this->actor.world.pos.x, this->actor.world.pos.y,
                     this->actor.world.pos.z, 0, 0, 0, 0);
         this->hasSpawnedSeahorse = 1;
     }

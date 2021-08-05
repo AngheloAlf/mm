@@ -4,10 +4,10 @@
 
 #define THIS ((ObjIceblock*)thisx)
 
-void ObjIceblock_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjIceblock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjIceblock_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjIceblock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjIceblock_Init(Actor* thisx, GameState* game);
+void ObjIceblock_Destroy(Actor* thisx, GameState* game);
+void ObjIceblock_Update(Actor* thisx, GameState* game);
+void ObjIceblock_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Iceblock_InitVars = {

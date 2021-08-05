@@ -4,10 +4,10 @@
 
 #define THIS ((EnSsh*)thisx)
 
-void EnSsh_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSsh_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSsh_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSsh_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSsh_Init(Actor* thisx, GameState* game);
+void EnSsh_Destroy(Actor* thisx, GameState* game);
+void EnSsh_Update(Actor* thisx, GameState* game);
+void EnSsh_Draw(Actor* thisx, GameState* game);
 
 void func_809755C0(EnSsh* this, GlobalContext* globalCtx);
 void func_80975720(EnSsh* this, GlobalContext* globalCtx);

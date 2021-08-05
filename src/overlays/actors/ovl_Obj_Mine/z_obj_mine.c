@@ -4,10 +4,10 @@
 
 #define THIS ((ObjMine*)thisx)
 
-void ObjMine_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjMine_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjMine_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjMine_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjMine_Init(Actor* thisx, GameState* game);
+void ObjMine_Destroy(Actor* thisx, GameState* game);
+void ObjMine_Update(Actor* thisx, GameState* game);
+void ObjMine_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Mine_InitVars = {

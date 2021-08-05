@@ -4,10 +4,10 @@
 
 #define THIS ((ObjToge*)thisx)
 
-void ObjToge_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjToge_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjToge_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjToge_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjToge_Init(Actor* thisx, GameState* game);
+void ObjToge_Destroy(Actor* thisx, GameState* game);
+void ObjToge_Update(Actor* thisx, GameState* game);
+void ObjToge_Draw(Actor* thisx, GameState* game);
 
 void func_809A477C(ObjToge* this, GlobalContext* globalCtx);
 void func_809A481C(ObjToge* this, GlobalContext* globalCtx);

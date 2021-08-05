@@ -4,10 +4,10 @@
 
 #define THIS ((ObjMuPict*)thisx)
 
-void ObjMuPict_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjMuPict_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjMuPict_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjMuPict_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjMuPict_Init(Actor* thisx, GameState* game);
+void ObjMuPict_Destroy(Actor* thisx, GameState* game);
+void ObjMuPict_Update(Actor* thisx, GameState* game);
+void ObjMuPict_Draw(Actor* thisx, GameState* game);
 
 void func_80C06B5C(ObjMuPict* this);
 void func_80C06B70(ObjMuPict* this, GlobalContext* globalCtx);
@@ -31,14 +31,14 @@ const ActorInit Obj_Mu_Pict_InitVars = {
     (ActorFunc)ObjMuPict_Draw,
 };
 
-void ObjMuPict_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMuPict_Init(Actor* thisx, GameState* game) {
     ObjMuPict* this = THIS;
 
     if (!(gSaveContext.weekEventReg[75] & 0x20) && !(gSaveContext.weekEventReg[52] & 0x20)) {
         Actor_MarkForDeath(&this->actor);
     }
 
-    func_80C06D90(this, globalCtx);
+    func_80C06D90(this, game);
     this->unk14A = UNK_ACTOR_PARAM;
     this->actor.targetMode = 6;
     this->actor.focus.pos = this->actor.world.pos;
@@ -47,7 +47,7 @@ void ObjMuPict_Init(Actor* thisx, GlobalContext* globalCtx) {
     func_80C06B5C(this);
 }
 
-void ObjMuPict_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMuPict_Destroy(Actor* thisx, GameState* game) {
 }
 
 void func_80C06B5C(ObjMuPict* this) {
@@ -182,10 +182,10 @@ void func_80C06E88(ObjMuPict* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjMuPict_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMuPict_Update(Actor* thisx, GameState* game) {
     ObjMuPict* this = THIS;
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void ObjMuPict_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMuPict_Draw(Actor* thisx, GameState* game) {
 }

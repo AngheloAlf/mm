@@ -4,10 +4,10 @@
 
 #define THIS ((EnJa*)thisx)
 
-void EnJa_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnJa_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnJa_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnJa_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnJa_Init(Actor* thisx, GameState* game);
+void EnJa_Destroy(Actor* thisx, GameState* game);
+void EnJa_Update(Actor* thisx, GameState* game);
+void EnJa_Draw(Actor* thisx, GameState* game);
 
 void func_80BC21A8(EnJa* this, GlobalContext* globalCtx);
 void func_80BC22F4(EnJa* this, GlobalContext* globalCtx);

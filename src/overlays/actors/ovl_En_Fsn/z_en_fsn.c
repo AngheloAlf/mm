@@ -17,10 +17,10 @@
 #define ENFSN_GAVE_KEATONS_MASK (1 << 2)
 #define ENFSN_GAVE_LETTER_TO_MAMA (1 << 3)
 
-void EnFsn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFsn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFsn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFsn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFsn_Init(Actor* thisx, GameState* game);
+void EnFsn_Destroy(Actor* thisx, GameState* game);
+void EnFsn_Update(Actor* thisx, GameState* game);
+void EnFsn_Draw(Actor* thisx, GameState* game);
 
 void EnFsn_Idle(EnFsn* this, GlobalContext* globalCtx);
 void EnFsn_ConverseBackroom(EnFsn* this, GlobalContext* globalCtx);
@@ -1396,25 +1396,25 @@ void EnFsn_Blink(EnFsn* this) {
     }
 }
 
-void EnFsn_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnFsn_Init(Actor* thisx, GameState* game) {
     EnFsn* this = THIS;
     s32 pad;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 20.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06013320, &D_06012C34, this->limbDrawTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06013320, &D_06012C34, this->limbDrawTable,
                      this->transitionDrawTable, 19);
     if (ENFSN_IS_SHOP(&this->actor)) {
         this->actor.shape.rot.y = BINANG_ROT180(this->actor.shape.rot.y);
         this->actor.flags &= ~1;
         EnFsn_GetCutscenes(this);
-        EnFsn_InitShop(this, globalCtx);
+        EnFsn_InitShop(this, game);
     } else {
         if ((gSaveContext.weekEventReg[0x21] & 8) || (gSaveContext.weekEventReg[0x4F] & 0x40)) {
             Actor_MarkForDeath(&this->actor);
             return;
         }
-        Collider_InitCylinder(globalCtx, &this->collider);
-        Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+        Collider_InitCylinder(game, &this->collider);
+        Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
         this->blinkTimer = 20;
         this->eyeTextureIdx = 0;
         this->actor.flags |= 1;
@@ -1425,29 +1425,29 @@ void EnFsn_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnFsn_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnFsn_Destroy(Actor* thisx, GameState* game) {
     EnFsn* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
-void EnFsn_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnFsn_Update(Actor* thisx, GameState* game) {
     EnFsn* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    func_800E9250(globalCtx, &this->actor, &this->headRot, &this->unk27A, this->actor.focus.pos);
-    func_8013D9C8(globalCtx, this->limbRotYTable, this->limbRotZTable, 19);
+    func_800E9250(game, &this->actor, &this->headRot, &this->unk27A, this->actor.focus.pos);
+    func_8013D9C8(game, this->limbRotYTable, this->limbRotZTable, 19);
     EnFsn_Blink(this);
     if (ENFSN_IS_SHOP(&this->actor) && EnFsn_HasItemsToSell()) {
-        EnFsn_UpdateJoystickInputState(this, globalCtx);
+        EnFsn_UpdateJoystickInputState(this, game);
         EnFsn_UpdateItemSelectedProperty(this);
         EnFsn_UpdateStickDirectionPromptAnim(this);
         EnFsn_UpdateCursorAnim(this);
     }
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     if (ENFSN_IS_BACKROOM(&this->actor)) {
-        EnFsn_UpdateCollider(this, globalCtx);
+        EnFsn_UpdateCollider(this, game);
     }
 }
 
@@ -1607,17 +1607,17 @@ void EnFsn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Ve
     }
 }
 
-void EnFsn_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnFsn_Draw(Actor* thisx, GameState* game) {
     static void* sEyeTextures[] = { &D_06005BC0, &D_06006D40, &D_06007140 };
     EnFsn* this = THIS;
     s32 pad;
     s16 i;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C5B0(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C5B0(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTextureIdx]));
     gSPSegment(POLY_OPA_DISP++, 0x09, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTextureIdx]));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnFsn_OverrideLimbDraw, EnFsn_PostLimbDraw, &this->actor);
 
     for (i = 0; i < this->totalSellingItems; i++) {
@@ -1626,7 +1626,7 @@ void EnFsn_Draw(Actor* thisx, GlobalContext* globalCtx) {
         this->items[i]->actor.scale.z = 0.2f;
     }
 
-    EnFsn_DrawCursor(this, globalCtx, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
-    EnFsn_DrawStickDirectionPrompts(this, globalCtx);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    EnFsn_DrawCursor(this, game, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
+    EnFsn_DrawStickDirectionPrompts(this, game);
+    CLOSE_DISPS(game->gfxCtx);
 }

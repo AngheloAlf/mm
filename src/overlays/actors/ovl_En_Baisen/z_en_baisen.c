@@ -10,10 +10,10 @@
 
 #define THIS ((EnBaisen*)thisx)
 
-void EnBaisen_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBaisen_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBaisen_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBaisen_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBaisen_Init(Actor* thisx, GameState* game);
+void EnBaisen_Destroy(Actor* thisx, GameState* game);
+void EnBaisen_Update(Actor* thisx, GameState* game);
+void EnBaisen_Draw(Actor* thisx, GameState* game);
 
 void func_80BE87B0(EnBaisen* this, GlobalContext* globalCtx);
 void func_80BE87FC(EnBaisen* this);
@@ -65,11 +65,11 @@ static AnimationHeader* D_80BE8E4C[] = { &D_060011C0, &D_060008B4, &D_06008198 }
 
 static u8 animModes[] = { 0, 0 };
 
-void EnBaisen_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnBaisen_Init(Actor* thisx, GameState* game) {
     EnBaisen* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 25.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06007908, &D_060011C0, this->jointTable, this->morphTable, 20);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06007908, &D_060011C0, this->jointTable, this->morphTable, 20);
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
     this->paramCopy = this->actor.params;
     if (this->actor.params == 0) {
@@ -87,7 +87,7 @@ void EnBaisen_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
     this->actor.targetMode = 6;
     this->actor.gravity = -3.0f;
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     if (this->paramCopy == 0) {
         this->actionFunc = func_80BE87B0;
     } else {
@@ -95,10 +95,10 @@ void EnBaisen_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnBaisen_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnBaisen_Destroy(Actor* thisx, GameState* game) {
     EnBaisen* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnBaisen_ChangeAnimation(EnBaisen* this, s32 animIndex) {
@@ -240,7 +240,7 @@ void func_80BE8AAC(EnBaisen* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnBaisen_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnBaisen_Update(Actor* thisx, GameState* game) {
     s32 pad;
     EnBaisen* this = THIS;
 
@@ -253,9 +253,9 @@ void EnBaisen_Update(Actor* thisx, GlobalContext* globalCtx) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 20.0f, 20.0f, 50.0f, 0x1D);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 20.0f, 20.0f, 50.0f, 0x1D);
     Actor_SetScale(&this->actor, 0.01f);
     if (this->unk290) {
         func_80BE871C(this);
@@ -264,7 +264,7 @@ void EnBaisen_Update(Actor* thisx, GlobalContext* globalCtx) {
     Math_SmoothStepToS(&this->headRotX, this->headRotXTarget, 1, 0xBB8, 0);
     Math_SmoothStepToS(&this->headRotY, this->headRotYTarget, 1, 0x3E8, 0);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
 s32 EnBaisen_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -280,10 +280,10 @@ s32 EnBaisen_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dLi
     return false;
 }
 
-void EnBaisen_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnBaisen_Draw(Actor* thisx, GameState* game) {
     EnBaisen* this = THIS;
 
-    func_8012C28C(globalCtx->state.gfxCtx);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    func_8012C28C(game->gfxCtx);
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnBaisen_OverrideLimbDraw, NULL, &this->actor);
 }

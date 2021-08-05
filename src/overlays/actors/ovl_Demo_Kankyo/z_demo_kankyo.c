@@ -4,10 +4,10 @@
 
 #define THIS ((DemoKankyo*)thisx)
 
-void DemoKankyo_Init(Actor* thisx, GlobalContext* globalCtx);
-void DemoKankyo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DemoKankyo_Update(Actor* thisx, GlobalContext* globalCtx);
-void DemoKankyo_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DemoKankyo_Init(Actor* thisx, GameState* game);
+void DemoKankyo_Destroy(Actor* thisx, GameState* game);
+void DemoKankyo_Update(Actor* thisx, GameState* game);
+void DemoKankyo_Draw(Actor* thisx, GameState* game);
 
 void func_808CF06C(DemoKankyo* this, GlobalContext* globalCtx);
 void func_808CF0CC(DemoKankyo* this, GlobalContext* globalCtx);

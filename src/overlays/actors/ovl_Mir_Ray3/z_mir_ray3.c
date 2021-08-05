@@ -4,10 +4,10 @@
 
 #define THIS ((MirRay3*)thisx)
 
-void MirRay3_Init(Actor* thisx, GlobalContext* globalCtx);
-void MirRay3_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void MirRay3_Update(Actor* thisx, GlobalContext* globalCtx);
-void MirRay3_Draw(Actor* thisx, GlobalContext* globalCtx);
+void MirRay3_Init(Actor* thisx, GameState* game);
+void MirRay3_Destroy(Actor* thisx, GameState* game);
+void MirRay3_Update(Actor* thisx, GameState* game);
+void MirRay3_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Mir_Ray3_InitVars = {

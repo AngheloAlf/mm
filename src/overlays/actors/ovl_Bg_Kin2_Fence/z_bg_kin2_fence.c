@@ -4,10 +4,10 @@
 
 #define THIS ((BgKin2Fence*)thisx)
 
-void BgKin2Fence_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Fence_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Fence_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Fence_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgKin2Fence_Init(Actor* thisx, GameState* game);
+void BgKin2Fence_Destroy(Actor* thisx, GameState* game);
+void BgKin2Fence_Update(Actor* thisx, GameState* game);
+void BgKin2Fence_Draw(Actor* thisx, GameState* game);
 
 void BgKin2Fence_SetupHandleMaskCode(BgKin2Fence* this);
 void BgKin2Fence_HandleMaskCode(BgKin2Fence* this, GlobalContext* globalCtx);
@@ -147,15 +147,15 @@ void BgKin2Fence_SpawnEyeSparkles(BgKin2Fence* this, GlobalContext* globalCtx, s
     }
 }
 
-void BgKin2Fence_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgKin2Fence_Init(Actor* thisx, GameState* game) {
     BgKin2Fence* this = THIS;
     s32 i = 0;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 0);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000908);
-    Collider_InitJntSph(globalCtx, &this->collider);
-    Collider_SetJntSph(globalCtx, &this->collider, &this->dyna.actor, &sJntSphInit, this->colliderElements);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06000908);
+    Collider_InitJntSph(game, &this->collider);
+    Collider_SetJntSph(game, &this->collider, &this->dyna.actor, &sJntSphInit, this->colliderElements);
     SysMatrix_SetStateRotationAndTranslation(this->dyna.actor.world.pos.x, this->dyna.actor.world.pos.y,
                                              this->dyna.actor.world.pos.z, &this->dyna.actor.shape.rot);
     Matrix_Scale(this->dyna.actor.scale.x, this->dyna.actor.scale.y, this->dyna.actor.scale.z, 1);
@@ -164,18 +164,18 @@ void BgKin2Fence_Init(Actor* thisx, GlobalContext* globalCtx) {
         Collider_UpdateSpheres(i, &this->collider);
     }
 
-    if (Flags_GetSwitch(globalCtx, this->dyna.actor.params & 0x7F)) {
+    if (Flags_GetSwitch(game, this->dyna.actor.params & 0x7F)) {
         BgKin2Fence_SetupDoNothing(this);
         return;
     }
     BgKin2Fence_SetupHandleMaskCode(this);
 }
 
-void BgKin2Fence_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgKin2Fence_Destroy(Actor* thisx, GameState* game) {
     BgKin2Fence* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
-    Collider_DestroyJntSph(globalCtx, &this->collider);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
+    Collider_DestroyJntSph(game, &this->collider);
 }
 
 void BgKin2Fence_SetupHandleMaskCode(BgKin2Fence* this) {
@@ -259,12 +259,12 @@ void BgKin2Fence_SetupDoNothing(BgKin2Fence* this) {
 void BgKin2Fence_DoNothing(BgKin2Fence* this, GlobalContext* globalCtx) {
 }
 
-void BgKin2Fence_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgKin2Fence_Update(Actor* thisx, GameState* game) {
     BgKin2Fence* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgKin2Fence_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000828);
+void BgKin2Fence_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000828);
 }

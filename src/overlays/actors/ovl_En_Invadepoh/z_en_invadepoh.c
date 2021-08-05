@@ -11,9 +11,9 @@
 
 #define THIS ((EnInvadepoh*)thisx)
 
-void EnInvadepoh_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnInvadepoh_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnInvadepoh_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnInvadepoh_Init(Actor* thisx, GameState* game);
+void EnInvadepoh_Destroy(Actor* thisx, GameState* game);
+void EnInvadepoh_Update(Actor* thisx, GameState* game);
 
 void func_80B46DA8(EnInvadepoh* this);
 void func_80B46DC8(EnInvadepoh* this, GlobalContext* globalCtx);
@@ -1870,10 +1870,10 @@ void EnInvadepoh_InitCremia(EnInvadepoh* this, GlobalContext* globalCtx) {
     D_80B503F8 = this;
 }
 
-void EnInvadepoh_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnInvadepoh_Init(Actor* thisx, GameState* game) {
     EnInvadepoh* this = THIS;
 
-    D_80B4ECB0[INVADEPOH_TYPE(this)](this, globalCtx);
+    D_80B4ECB0[INVADEPOH_TYPE(this)](this, game);
 }
 
 void func_80B46BB0(EnInvadepoh* this, GlobalContext* globalCtx) {
@@ -1933,10 +1933,10 @@ void func_80B46D28(EnInvadepoh* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnInvadepoh_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnInvadepoh_Destroy(Actor* thisx, GameState* game) {
     EnInvadepoh* this = THIS;
 
-    D_80B4ECE8[INVADEPOH_TYPE(this)](this, globalCtx);
+    D_80B4ECE8[INVADEPOH_TYPE(this)](this, game);
 }
 
 void func_80B46DA8(EnInvadepoh* this) {
@@ -2098,10 +2098,10 @@ void func_80B47304(EnInvadepoh* this) {
 void func_80B47324(EnInvadepoh* this, GlobalContext* globalCtx) {
 }
 
-void EnInvadepoh_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnInvadepoh_Update(Actor* thisx, GameState* game) {
     EnInvadepoh* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     if (func_80B461DC()) {
         this->actor.draw = func_80B4D9B4;
     } else {

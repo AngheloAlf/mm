@@ -4,10 +4,10 @@
 
 #define THIS ((EnNeoReeba*)thisx)
 
-void EnNeoReeba_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnNeoReeba_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnNeoReeba_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnNeoReeba_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnNeoReeba_Init(Actor* thisx, GameState* game);
+void EnNeoReeba_Destroy(Actor* thisx, GameState* game);
+void EnNeoReeba_Update(Actor* thisx, GameState* game);
+void EnNeoReeba_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Neo_Reeba_InitVars = {

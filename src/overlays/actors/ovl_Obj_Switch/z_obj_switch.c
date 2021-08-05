@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSwitch*)thisx)
 
-void ObjSwitch_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSwitch_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSwitch_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSwitch_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSwitch_Init(Actor* thisx, GameState* game);
+void ObjSwitch_Destroy(Actor* thisx, GameState* game);
+void ObjSwitch_Update(Actor* thisx, GameState* game);
+void ObjSwitch_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Switch_InitVars = {

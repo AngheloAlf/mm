@@ -10,10 +10,10 @@
 
 #define THIS ((ObjHana*)thisx)
 
-void ObjHana_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHana_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHana_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHana_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHana_Init(Actor* thisx, GameState* game);
+void ObjHana_Destroy(Actor* thisx, GameState* game);
+void ObjHana_Update(Actor* thisx, GameState* game);
+void ObjHana_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Hana_InitVars = {
     ACTOR_OBJ_HANA,
@@ -36,18 +36,18 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_F32(uncullZoneDownward, 40, ICHAIN_STOP),
 };
 
-void ObjHana_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHana_Init(Actor* thisx, GameState* game) {
     ObjHana* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
 }
 
-void ObjHana_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHana_Destroy(Actor* thisx, GameState* game) {
 }
 
-void ObjHana_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHana_Update(Actor* thisx, GameState* game) {
 }
 
-void ObjHana_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000500);
+void ObjHana_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000500);
 }

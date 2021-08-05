@@ -4,10 +4,10 @@
 
 #define THIS ((ItemInbox*)thisx)
 
-void ItemInbox_Init(Actor* thisx, GlobalContext* globalCtx);
-void ItemInbox_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ItemInbox_Update(Actor* thisx, GlobalContext* globalCtx);
-void ItemInbox_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ItemInbox_Init(Actor* thisx, GameState* game);
+void ItemInbox_Destroy(Actor* thisx, GameState* game);
+void ItemInbox_Update(Actor* thisx, GameState* game);
+void ItemInbox_Draw(Actor* thisx, GameState* game);
 
 void ItemInbox_Idle(ItemInbox* this, GlobalContext* globalCtx);
 
@@ -23,14 +23,14 @@ const ActorInit Item_Inbox_InitVars = {
     (ActorFunc)ItemInbox_Draw,
 };
 
-void ItemInbox_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ItemInbox_Init(Actor* thisx, GameState* game) {
     ItemInbox* this = THIS;
 
     this->actionFunc = ItemInbox_Idle;
     Actor_SetScale(&this->actor, 0.2f);
 }
 
-void ItemInbox_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ItemInbox_Destroy(Actor* thisx, GameState* game) {
 }
 
 void ItemInbox_Idle(ItemInbox* this, GlobalContext* globalCtx) {
@@ -39,16 +39,16 @@ void ItemInbox_Idle(ItemInbox* this, GlobalContext* globalCtx) {
     }
 }
 
-void ItemInbox_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ItemInbox_Update(Actor* thisx, GameState* game) {
     ItemInbox* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void ItemInbox_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ItemInbox_Draw(Actor* thisx, GameState* game) {
     ItemInbox* this = THIS;
 
-    func_800B8050(&this->actor, globalCtx, 0);
-    func_800B8118(&this->actor, globalCtx, 0);
-    GetItem_Draw(globalCtx, this->actor.params & 0xFF);
+    func_800B8050(&this->actor, game, 0);
+    func_800B8118(&this->actor, game, 0);
+    GetItem_Draw(game, this->actor.params & 0xFF);
 }

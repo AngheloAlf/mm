@@ -4,10 +4,10 @@
 
 #define THIS ((EnZod*)thisx)
 
-void EnZod_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnZod_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnZod_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnZod_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnZod_Init(Actor* thisx, GameState* game);
+void EnZod_Destroy(Actor* thisx, GameState* game);
+void EnZod_Update(Actor* thisx, GameState* game);
+void EnZod_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Zod_InitVars = {

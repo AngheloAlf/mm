@@ -10,10 +10,10 @@
 
 #define THIS ((ObjBell*)thisx)
 
-void ObjBell_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBell_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjBell_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjBell_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjBell_Init(Actor* thisx, GameState* game);
+void ObjBell_Destroy(Actor* thisx, GameState* game);
+void ObjBell_Update(Actor* thisx, GameState* game);
+void ObjBell_Draw(Actor* thisx, GameState* game);
 
 s32 func_80A356D8(ObjBell* this);
 s32 func_80A357A8(ObjBell* this, GlobalContext* globalCtx);
@@ -222,7 +222,7 @@ void func_80A358FC(ObjBell* this, GlobalContext* globalCtx) {
     CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider1.base);
 }
 
-void func_80A359B4(Actor* thisx, GlobalContext* globalCtx) {
+void func_80A359B4(Actor* thisx, GameState* game) {
     SysMatrix_InsertTranslation(thisx->world.pos.x, thisx->world.pos.y, thisx->world.pos.z, MTXMODE_NEW);
     Matrix_Scale(thisx->scale.x, thisx->scale.y, thisx->scale.z, MTXMODE_APPLY);
     SysMatrix_InsertTranslation(0.0f, 2600.0f, 0.0f, MTXMODE_APPLY);
@@ -230,75 +230,78 @@ void func_80A359B4(Actor* thisx, GlobalContext* globalCtx) {
     SysMatrix_InsertXRotation_s(thisx->world.rot.x, MTXMODE_APPLY);
     Matrix_RotateY(-thisx->world.rot.y, MTXMODE_APPLY);
     SysMatrix_InsertTranslation(0.0f, -2600.0f, 0.0f, MTXMODE_APPLY);
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06000698);
     gSPDisplayList(POLY_OPA_DISP++, D_060008D0);
     gSPDisplayList(POLY_OPA_DISP++, D_06000960);
     gSPDisplayList(POLY_OPA_DISP++, D_060007A8);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
-void func_80A35B18(Actor* thisx, GlobalContext* globalCtx) {
+void func_80A35B18(Actor* thisx, GameState* game) {
     SysMatrix_InsertTranslation(thisx->world.pos.x, thisx->world.pos.y, thisx->world.pos.z, MTXMODE_NEW);
     Matrix_Scale(thisx->scale.x, thisx->scale.y, thisx->scale.z, MTXMODE_APPLY);
     Matrix_RotateY(thisx->shape.rot.y, MTXMODE_APPLY);
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06000570);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
-void func_80A35BD4(Actor* thisx, GlobalContext* globalCtx) {
+void func_80A35BD4(Actor* thisx, GameState* game) {
     SysMatrix_InsertTranslation(thisx->world.pos.x, thisx->world.pos.y - 4.0f, thisx->world.pos.z, MTXMODE_NEW);
     Matrix_Scale(thisx->scale.x, thisx->scale.y, thisx->scale.z, MTXMODE_APPLY);
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C2DC(game->gfxCtx);
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_XLU_DISP++, D_06000840);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
-void ObjBell_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjBell_Init(Actor* thisx, GameState* game) {
     ObjBell* this = THIS;
 
     BcCheck3_BgActorInit(&this->dyna, 0);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06001BA8);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06001BA8);
     Actor_SetScale(&this->dyna.actor, 0.08f);
-    Collider_InitAndSetSphere(globalCtx, &this->collider1, &this->dyna.actor, &sCylinderInit1);
-    Collider_InitAndSetSphere(globalCtx, &this->collider2, &this->dyna.actor, &sCylinderInit2);
+    Collider_InitAndSetSphere(game, &this->collider1, &this->dyna.actor, &sCylinderInit1);
+    Collider_InitAndSetSphere(game, &this->collider2, &this->dyna.actor, &sCylinderInit2);
     CollisionCheck_SetInfo2(&this->dyna.actor.colChkInfo, &sDamageTable, &sColChkInfoInit2);
 }
 
-void ObjBell_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjBell_Destroy(Actor* thisx, GameState* game) {
     ObjBell* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
-    Collider_DestroySphere(globalCtx, &this->collider1);
-    Collider_DestroySphere(globalCtx, &this->collider2);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
+    Collider_DestroySphere(game, &this->collider1);
+    Collider_DestroySphere(game, &this->collider2);
 }
 
-void ObjBell_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjBell_Update(Actor* thisx, GameState* game) {
     ObjBell* this = THIS;
 
     if (this->unk_214 != 0) {
         this->unk_214--;
     }
-    func_80A357A8(this, globalCtx);
+    func_80A357A8(this, game);
     func_80A356D8(this);
-    func_80A358FC(this, globalCtx);
+    func_80A358FC(this, game);
 }
 
-void ObjBell_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjBell_Draw(Actor* thisx, GameState* game) {
     ObjBell* this = THIS;
     Vec3f sp30;
     Vec3f sp24;
 
-    func_80A35B18(thisx, globalCtx);
-    func_80A35BD4(thisx, globalCtx);
-    func_80A359B4(thisx, globalCtx);
+    func_80A35B18(thisx, game);
+    func_80A35BD4(thisx, game);
+    func_80A359B4(thisx, game);
     Math_Vec3s_ToVec3f(&sp30, &this->collider1.dim.modelSphere.center);
     SysMatrix_MultiplyVector3fByState(&sp30, &sp24);
     Math_Vec3f_ToVec3s(&this->collider1.dim.worldSphere.center, &sp24);

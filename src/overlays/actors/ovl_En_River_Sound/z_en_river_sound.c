@@ -4,9 +4,9 @@
 
 #define THIS ((EnRiverSound*)thisx)
 
-void EnRiverSound_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRiverSound_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRiverSound_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRiverSound_Init(Actor* thisx, GameState* game);
+void EnRiverSound_Update(Actor* thisx, GameState* game);
+void EnRiverSound_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_River_Sound_InitVars = {

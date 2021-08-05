@@ -11,10 +11,10 @@
 
 #define THIS ((EnFirefly*)thisx)
 
-void EnFirefly_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFirefly_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFirefly_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFirefly_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFirefly_Init(Actor* thisx, GameState* game);
+void EnFirefly_Destroy(Actor* thisx, GameState* game);
+void EnFirefly_Update(Actor* thisx, GameState* game);
+void EnFirefly_Draw(Actor* thisx, GameState* game);
 
 void EnFirefly_FlyIdle(EnFirefly* this, GlobalContext* globalCtx);
 void EnFirefly_Fall(EnFirefly* this, GlobalContext* globalCtx);
@@ -123,13 +123,13 @@ extern AnimationHeader D_0600017C;
 extern SkeletonHeader D_060018B8;
 extern Gfx D_06001678[];
 
-void EnFirefly_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnFirefly_Init(Actor* thisx, GameState* game) {
     EnFirefly* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 25.0f);
-    SkelAnime_Init(globalCtx, &this->skelAnime, &D_060018B8, &D_0600017C, this->jointTable, this->morphTable, 28);
-    Collider_InitAndSetSphere(globalCtx, &this->collider, &this->actor, &sSphereInit);
+    SkelAnime_Init(game, &this->skelAnime, &D_060018B8, &D_0600017C, this->jointTable, this->morphTable, 28);
+    Collider_InitAndSetSphere(game, &this->collider, &this->actor, &sSphereInit);
     CollisionCheck_SetInfo(&this->actor.colChkInfo, &sDamageTable, &sColChkInfoInit);
 
     if (this->actor.params & KEESE_INVISIBLE) {
@@ -163,10 +163,10 @@ void EnFirefly_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->collider.dim.worldSphere.radius = sSphereInit.dim.modelSphere.radius;
 }
 
-void EnFirefly_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnFirefly_Destroy(Actor* thisx, GameState* game) {
     EnFirefly* this = THIS;
 
-    Collider_DestroySphere(globalCtx, &this->collider);
+    Collider_DestroySphere(game, &this->collider);
 }
 
 void EnFirefly_SpawnIceEffects(EnFirefly* this, GlobalContext* globalCtx) {
@@ -660,8 +660,8 @@ void EnFirefly_UpdateDamage(EnFirefly* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnFirefly_Update(Actor* thisx, GlobalContext* globalCtx2) {
-    GlobalContext* globalCtx = globalCtx2;
+void EnFirefly_Update(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnFirefly* this = THIS;
 
     if (this->collider.base.atFlags & AT_HIT) {
@@ -677,8 +677,8 @@ void EnFirefly_Update(Actor* thisx, GlobalContext* globalCtx2) {
         }
     }
 
-    EnFirefly_UpdateDamage(this, globalCtx);
-    this->actionFunc(this, globalCtx);
+    EnFirefly_UpdateDamage(this, game);
+    this->actionFunc(this, game);
 
     if (!(this->actor.flags & 0x8000)) {
         if ((this->actor.colChkInfo.health == 0) || (this->actionFunc == EnFirefly_Stunned)) {
@@ -692,17 +692,17 @@ void EnFirefly_Update(Actor* thisx, GlobalContext* globalCtx2) {
         }
     }
 
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 10.0f, 10.0f, 15.0f, 7);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 10.0f, 10.0f, 15.0f, 7);
     this->collider.dim.worldSphere.center.x = this->actor.world.pos.x;
     this->collider.dim.worldSphere.center.y = (s32)this->actor.world.pos.y + 10;
     this->collider.dim.worldSphere.center.z = this->actor.world.pos.z;
 
     if ((this->actionFunc == EnFirefly_DiveAttack) || (this->actionFunc == EnFirefly_DisturbDiveAttack)) {
-        CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAT(game, &globalCtx->colChkCtx, &this->collider.base);
     }
 
     if (this->actor.colChkInfo.health != 0) {
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &globalCtx->colChkCtx, &this->collider.base);
         this->actor.world.rot.y = this->actor.shape.rot.y;
 
         if (func_801378B8(&this->skelAnime, 5.0f)) {
@@ -710,7 +710,7 @@ void EnFirefly_Update(Actor* thisx, GlobalContext* globalCtx2) {
         }
     }
 
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &globalCtx->colChkCtx, &this->collider.base);
 
     if (this->unk_2E8.x > 0.0f) {
         if (this->unk_18F != 0xA) {
@@ -803,12 +803,12 @@ void EnFirefly_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList
     }
 }
 
-void EnFirefly_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnFirefly_Draw(Actor* thisx, GameState* game) {
     s32 pad;
     EnFirefly* this = THIS;
     Gfx* gfx;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
     if (this->isInvisible) {
         gfx = POLY_XLU_DISP;
@@ -824,7 +824,7 @@ void EnFirefly_Draw(Actor* thisx, GlobalContext* globalCtx) {
         gDPSetEnvColor(&gfx[1], 0, 0, 0, 255);
     }
 
-    gfx = SkelAnime_Draw2(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, EnFirefly_OverrideLimbDraw,
+    gfx = SkelAnime_Draw2(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, EnFirefly_OverrideLimbDraw,
                           EnFirefly_PostLimbDraw, &this->actor, &gfx[2]);
     if (this->isInvisible) {
         POLY_XLU_DISP = gfx;
@@ -832,9 +832,9 @@ void EnFirefly_Draw(Actor* thisx, GlobalContext* globalCtx) {
         POLY_OPA_DISP = gfx;
     }
 
-    func_800BE680(globalCtx, NULL, &this->unk_2F8, 3, this->unk_2E8.y * this->actor.scale.y * 200.0f, this->unk_2E8.z,
+    func_800BE680(game, NULL, &this->unk_2F8, 3, this->unk_2E8.y * this->actor.scale.y * 200.0f, this->unk_2E8.z,
                   this->unk_2E8.x, this->unk_18F);
-    this->unk_2F4 = globalCtx->gameplayFrames;
+    this->unk_2F4 = ((GlobalContext*)game)->gameplayFrames;
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

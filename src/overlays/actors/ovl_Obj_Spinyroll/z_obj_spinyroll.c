@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSpinyroll*)thisx)
 
-void ObjSpinyroll_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSpinyroll_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSpinyroll_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSpinyroll_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSpinyroll_Init(Actor* thisx, GameState* game);
+void ObjSpinyroll_Destroy(Actor* thisx, GameState* game);
+void ObjSpinyroll_Update(Actor* thisx, GameState* game);
+void ObjSpinyroll_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Spinyroll_InitVars = {

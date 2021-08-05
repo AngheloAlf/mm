@@ -4,10 +4,10 @@
 
 #define THIS ((EnHoll*)thisx)
 
-void EnHoll_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHoll_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHoll_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHoll_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHoll_Init(Actor* thisx, GameState* game);
+void EnHoll_Destroy(Actor* thisx, GameState* game);
+void EnHoll_Update(Actor* thisx, GameState* game);
+void EnHoll_Draw(Actor* thisx, GameState* game);
 
 void func_8089A330(EnHoll* this, GlobalContext* globalCtx);
 

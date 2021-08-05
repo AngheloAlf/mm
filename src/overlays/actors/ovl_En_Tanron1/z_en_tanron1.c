@@ -4,10 +4,10 @@
 
 #define THIS ((EnTanron1*)thisx)
 
-void EnTanron1_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron1_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron1_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron1_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTanron1_Init(Actor* thisx, GameState* game);
+void EnTanron1_Destroy(Actor* thisx, GameState* game);
+void EnTanron1_Update(Actor* thisx, GameState* game);
+void EnTanron1_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Tanron1_InitVars = {

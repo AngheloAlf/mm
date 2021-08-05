@@ -10,10 +10,10 @@
 
 #define THIS ((EnHg*)thisx)
 
-void EnHg_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHg_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHg_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHg_Init(Actor* thisx, GameState* game);
+void EnHg_Destroy(Actor* thisx, GameState* game);
+void EnHg_Update(Actor* thisx, GameState* game);
+void EnHg_Draw(Actor* thisx, GameState* game);
 
 void func_80BCF354(EnHg* this);
 void func_80BCF398(EnHg* this, GlobalContext* globalCtx);
@@ -121,16 +121,16 @@ static ActorAnimationEntry sAnimations[] = {
 
 static u32 D_80BD00C8 = false;
 
-void EnHg_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnHg_Init(Actor* thisx, GameState* game) {
     EnHg* this = THIS;
     s16 currentCutscene = this->actor.cutscene;
     s32 i;
 
     ActorShape_Init(&this->actor.shape, 0.0f, NULL, 36.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06008580, &D_0600260C, this->limbDrawTbl, this->transitionDrawTbl,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06008580, &D_0600260C, this->limbDrawTbl, this->transitionDrawTbl,
                      HG_LIMB_MAX);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, &sDamageTable, &sColChkInfoInit2);
     if ((gSaveContext.weekEventReg[0x4B] & 0x20) || (gSaveContext.weekEventReg[0x34] & 0x20)) {
         Actor_MarkForDeath(&this->actor);
@@ -148,10 +148,10 @@ void EnHg_Init(Actor* thisx, GlobalContext* globalCtx) {
     func_80BCF354(this);
 }
 
-void EnHg_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnHg_Destroy(Actor* thisx, GameState* game) {
     EnHg* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void func_80BCF354(EnHg* this) {
@@ -389,15 +389,15 @@ void func_80BCFC0C(EnHg* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnHg_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnHg_Update(Actor* thisx, GameState* game) {
     EnHg* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    func_80BCF7D8(this, globalCtx);
-    func_80BCFC0C(this, globalCtx);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 30.0f, 25.0f, 0.0f, 5);
-    func_80BCF778(this, globalCtx);
+    func_80BCF7D8(this, game);
+    func_80BCFC0C(this, game);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 30.0f, 25.0f, 0.0f, 5);
+    func_80BCF778(this, game);
 }
 
 s32 EnHg_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
@@ -413,15 +413,15 @@ void EnHg_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec
     }
 }
 
-void EnHg_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnHg_Draw(Actor* thisx, GameState* game) {
     EnHg* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnHg_OverrideLimbDraw, EnHg_PostLimbDraw, &this->actor);
     SysMatrix_SetCurrentState(&this->unk1D8);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06005E28);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

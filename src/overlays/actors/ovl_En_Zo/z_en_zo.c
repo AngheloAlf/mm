@@ -4,10 +4,10 @@
 
 #define THIS ((EnZo*)thisx)
 
-void EnZo_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnZo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnZo_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnZo_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnZo_Init(Actor* thisx, GameState* game);
+void EnZo_Destroy(Actor* thisx, GameState* game);
+void EnZo_Update(Actor* thisx, GameState* game);
+void EnZo_Draw(Actor* thisx, GameState* game);
 
 void func_8099EBD8(EnZo* this, GlobalContext* globalCtx);
 void func_8099EC50(EnZo* this, GlobalContext* globalCtx);

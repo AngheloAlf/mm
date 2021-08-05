@@ -10,10 +10,10 @@
 
 #define THIS ((ObjMoonStone*)thisx)
 
-void ObjMoonStone_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjMoonStone_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjMoonStone_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjMoonStone_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjMoonStone_Init(Actor* thisx, GameState* game);
+void ObjMoonStone_Destroy(Actor* thisx, GameState* game);
+void ObjMoonStone_Update(Actor* thisx, GameState* game);
+void ObjMoonStone_Draw(Actor* thisx, GameState* game);
 
 void func_80C0662C(ObjMoonStone* this);
 void func_80C06640(ObjMoonStone* this, GlobalContext* globalCtx);
@@ -40,7 +40,7 @@ extern AnimatedMaterial D_06001C60;
 extern Gfx D_06000D78[];
 extern Gfx D_06000C80[];
 
-void ObjMoonStone_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMoonStone_Init(Actor* thisx, GameState* game) {
     ObjMoonStone* this = THIS;
 
     Actor_SetScale(&this->actor, 0.3f);
@@ -55,7 +55,7 @@ void ObjMoonStone_Init(Actor* thisx, GlobalContext* globalCtx) {
     } else {
         if ((gSaveContext.weekEventReg[74] & 0x40) == 0) {
             if ((gSaveContext.weekEventReg[74] & 0x80)) {
-                Actor_Spawn(&globalCtx->actorCtx, globalCtx, 1, this->actor.world.pos.x, this->actor.world.pos.y,
+                Actor_Spawn(&((GlobalContext*)game)->actorCtx, game, 1, this->actor.world.pos.x, this->actor.world.pos.y,
                             this->actor.world.pos.z, 0, 0, 0, -1);
             }
             this->actor.flags &= ~1;
@@ -66,7 +66,7 @@ void ObjMoonStone_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void ObjMoonStone_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMoonStone_Destroy(Actor* thisx, GameState* game) {
 }
 
 void func_80C0662C(ObjMoonStone* this) {
@@ -138,26 +138,27 @@ void func_80C06870(ObjMoonStone* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjMoonStone_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjMoonStone_Update(Actor* thisx, GameState* game) {
     ObjMoonStone* this = THIS;
-    Player* player = PLAYER;
+    //Player* player = PLAYER;
+    Player* player = (Player*)((GlobalContext*)game)->actorCtx.actorList[ACTORCAT_PLAYER].first;
 
     if ((player->stateFlags1 & 0x10000282) == 0) {
-        this->actionFunc(this, globalCtx);
+        this->actionFunc(this, game);
     }
 }
 
-void ObjMoonStone_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    GraphicsContext* gfxCtx = globalCtx->state.gfxCtx;
+void ObjMoonStone_Draw(Actor* thisx, GameState* game) {
+    GraphicsContext* gfxCtx = game->gfxCtx;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    AnimatedMat_Draw(globalCtx, Lib_SegmentedToVirtual(&D_06001C60));
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    func_8012C2DC(game->gfxCtx);
+    AnimatedMat_Draw(game, Lib_SegmentedToVirtual(&D_06001C60));
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06000D78);
-    SysMatrix_NormalizeXYZ(&globalCtx->mf_187FC);
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    SysMatrix_NormalizeXYZ(&((GlobalContext*)game)->mf_187FC);
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_XLU_DISP++, D_06000C80);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

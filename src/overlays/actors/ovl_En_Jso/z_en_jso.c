@@ -4,9 +4,9 @@
 
 #define THIS ((EnJso*)thisx)
 
-void EnJso_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnJso_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnJso_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnJso_Init(Actor* thisx, GameState* game);
+void EnJso_Destroy(Actor* thisx, GameState* game);
+void EnJso_Update(Actor* thisx, GameState* game);
 
 void func_809ADCB8(EnJso* this, GlobalContext* globalCtx);
 void func_809AE87C(EnJso* this, GlobalContext* globalCtx);

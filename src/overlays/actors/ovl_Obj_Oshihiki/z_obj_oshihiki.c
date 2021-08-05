@@ -4,10 +4,10 @@
 
 #define THIS ((ObjOshihiki*)thisx)
 
-void ObjOshihiki_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjOshihiki_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjOshihiki_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjOshihiki_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjOshihiki_Init(Actor* thisx, GameState* game);
+void ObjOshihiki_Destroy(Actor* thisx, GameState* game);
+void ObjOshihiki_Update(Actor* thisx, GameState* game);
+void ObjOshihiki_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Oshihiki_InitVars = {

@@ -5,10 +5,10 @@
 #define THIS ((TGSw*)thisx)
 
 // Prototypes
-void TGSw_Init(Actor* thisx, GlobalContext* globalCtx);
-void TGSw_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void TGSw_Update(Actor* thisx, GlobalContext* globalCtx);
-void TGSw_Draw(Actor* thisx, GlobalContext* globalCtx);
+void TGSw_Init(Actor* thisx, GameState* game);
+void TGSw_Destroy(Actor* thisx, GameState* game);
+void TGSw_Update(Actor* thisx, GameState* game);
+void TGSw_Draw(Actor* thisx, GameState* game);
 
 void TGSw_ActionExecuteOneShot(struct TGSw* this, GlobalContext* globalCtx);
 
@@ -81,22 +81,22 @@ void TGSw_ActionExecuteOneShot(TGSw* this, GlobalContext* globalCtx) {
     Actor_MarkForDeath(&this->actor);
 }
 
-void TGSw_Init(Actor* thisx, GlobalContext* globalCtx) {
+void TGSw_Init(Actor* thisx, GameState* game) {
     TGSw* this = THIS;
     this->actor.cutscene = this->actor.world.rot.z;
     this->actionFunc = &TGSw_ActionDecider;
 }
 
-void TGSw_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void TGSw_Destroy(Actor* thisx, GameState* game) {
     ;
 }
 
-void TGSw_Update(Actor* thisx, GlobalContext* globalCtx) {
+void TGSw_Update(Actor* thisx, GameState* game) {
     TGSw* this = THIS;
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void TGSw_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void TGSw_Draw(Actor* thisx, GameState* game) {
     s32 pad;
     f32 scale;
     s32 absRot;
@@ -107,11 +107,11 @@ void TGSw_Draw(Actor* thisx, GlobalContext* globalCtx) {
         absRot = ABS_ALT(thisx->world.rot.y);
 
         DebugDisplay_AddObject(thisx->world.pos.x, thisx->world.pos.y, thisx->world.pos.z, 0, thisx->shape.rot.y, 0,
-                               0.1f, 0.1f, scale, 160, 160, 160, 255, 6, globalCtx->state.gfxCtx);
+                               0.1f, 0.1f, scale, 160, 160, 160, 255, 6, game->gfxCtx);
 
         scale = absRot * 0.2f;
         DebugDisplay_AddObject(thisx->world.pos.x, thisx->world.pos.y, thisx->world.pos.z, 0, 0, 0, 0.1f, scale, 0.1f,
-                               160, 160, 160, 255, 6, globalCtx->state.gfxCtx);
+                               160, 160, 160, 255, 6, game->gfxCtx);
         thisx->shape.rot.y += 0x1000;
     }
 }

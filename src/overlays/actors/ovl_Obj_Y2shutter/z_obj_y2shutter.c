@@ -4,10 +4,10 @@
 
 #define THIS ((ObjY2shutter*)thisx)
 
-void ObjY2shutter_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjY2shutter_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjY2shutter_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjY2shutter_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjY2shutter_Init(Actor* thisx, GameState* game);
+void ObjY2shutter_Destroy(Actor* thisx, GameState* game);
+void ObjY2shutter_Update(Actor* thisx, GameState* game);
+void ObjY2shutter_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Y2shutter_InitVars = {

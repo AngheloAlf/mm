@@ -4,10 +4,10 @@
 
 #define THIS ((ObjHsblock*)thisx)
 
-void ObjHsblock_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHsblock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHsblock_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHsblock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHsblock_Init(Actor* thisx, GameState* game);
+void ObjHsblock_Destroy(Actor* thisx, GameState* game);
+void ObjHsblock_Update(Actor* thisx, GameState* game);
+void ObjHsblock_Draw(Actor* thisx, GameState* game);
 
 void func_8093E0A0(ObjHsblock* this, GlobalContext* globalCtx);
 

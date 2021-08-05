@@ -4,10 +4,10 @@
 
 #define THIS ((EnPoSisters*)thisx)
 
-void EnPoSisters_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPoSisters_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPoSisters_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPoSisters_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPoSisters_Init(Actor* thisx, GameState* game);
+void EnPoSisters_Destroy(Actor* thisx, GameState* game);
+void EnPoSisters_Update(Actor* thisx, GameState* game);
+void EnPoSisters_Draw(Actor* thisx, GameState* game);
 
 void func_80B1AAE8(EnPoSisters* this, GlobalContext* globalCtx);
 void func_80B1ABB8(EnPoSisters* this, GlobalContext* globalCtx);

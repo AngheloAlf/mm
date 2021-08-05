@@ -4,10 +4,10 @@
 
 #define THIS ((EnInvadepohDemo*)thisx)
 
-void EnInvadepohDemo_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnInvadepohDemo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnInvadepohDemo_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnInvadepohDemo_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnInvadepohDemo_Init(Actor* thisx, GameState* game);
+void EnInvadepohDemo_Destroy(Actor* thisx, GameState* game);
+void EnInvadepohDemo_Update(Actor* thisx, GameState* game);
+void EnInvadepohDemo_Draw(Actor* thisx, GameState* game);
 
 void func_80C19AB4(EnInvadepohDemo* this, GlobalContext* globalCtx);
 void func_80C19D00(EnInvadepohDemo* this, GlobalContext* globalCtx);

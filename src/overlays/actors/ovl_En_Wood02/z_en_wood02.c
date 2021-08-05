@@ -4,10 +4,10 @@
 
 #define THIS ((EnWood02*)thisx)
 
-void EnWood02_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWood02_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWood02_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWood02_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWood02_Init(Actor* thisx, GameState* game);
+void EnWood02_Destroy(Actor* thisx, GameState* game);
+void EnWood02_Update(Actor* thisx, GameState* game);
+void EnWood02_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Wood02_InitVars = {

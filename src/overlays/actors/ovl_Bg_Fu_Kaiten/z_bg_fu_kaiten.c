@@ -4,10 +4,10 @@
 
 #define THIS ((BgFuKaiten*)thisx)
 
-void BgFuKaiten_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgFuKaiten_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgFuKaiten_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgFuKaiten_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgFuKaiten_Init(Actor* thisx, GameState* game);
+void BgFuKaiten_Destroy(Actor* thisx, GameState* game);
+void BgFuKaiten_Update(Actor* thisx, GameState* game);
+void BgFuKaiten_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Bg_Fu_Kaiten_InitVars = {
     ACTOR_BG_FU_KAITEN,
@@ -24,7 +24,7 @@ const ActorInit Bg_Fu_Kaiten_InitVars = {
 extern Gfx D_060005D0[];
 extern CollisionHeader D_06002D30;
 
-void BgFuKaiten_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgFuKaiten_Init(Actor* thisx, GameState* game) {
     UNK_TYPE pad0;
     UNK_TYPE pad1;
     CollisionHeader* header = 0;
@@ -32,7 +32,7 @@ void BgFuKaiten_Init(Actor* thisx, GlobalContext* globalCtx) {
     Actor_SetScale(thisx, 1.0);
     BcCheck3_BgActorInit(&THIS->bg, 3);
     BgCheck_RelocateMeshHeader(&D_06002D30, &header);
-    THIS->bg.bgId = BgCheck_AddActorMesh(globalCtx, &globalCtx->colCtx.dyna, &THIS->bg, header);
+    THIS->bg.bgId = BgCheck_AddActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, &THIS->bg, header);
 
     THIS->bouceHeight = 0.0;
     THIS->rotationSpeed = 0;
@@ -40,8 +40,8 @@ void BgFuKaiten_Init(Actor* thisx, GlobalContext* globalCtx) {
     THIS->bounce = 0;
 }
 
-void BgFuKaiten_Destroy(Actor* thisx, GlobalContext* globalCtx) {
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, THIS->bg.bgId);
+void BgFuKaiten_Destroy(Actor* thisx, GameState* game) {
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, THIS->bg.bgId);
 }
 
 void BgFuKaiten_UpdateRotation(BgFuKaiten* this) {
@@ -60,17 +60,17 @@ void BgFuKaiten_UpdateHeight(BgFuKaiten* this) {
     this->bg.actor.world.pos.y -= this->bouceHeight * Math_CosS(this->bounce);
 }
 
-void BgFuKaiten_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgFuKaiten_Update(Actor* thisx, GameState* game) {
     BgFuKaiten_UpdateRotation(THIS);
     BgFuKaiten_UpdateHeight(THIS);
 }
 
-void BgFuKaiten_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    GraphicsContext* gfxCtx = globalCtx->state.gfxCtx;
+void BgFuKaiten_Draw(Actor* thisx, GameState* game) {
+    GraphicsContext* gfxCtx = game->gfxCtx;
     UNK_TYPE pad;
 
     func_8012C28C(gfxCtx);
 
-    gSPMatrix(gfxCtx->polyOpa.p++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(gfxCtx->polyOpa.p++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(gfxCtx->polyOpa.p++, D_060005D0);
 }

@@ -4,10 +4,10 @@
 
 #define THIS ((EnSyatekiCrow*)thisx)
 
-void EnSyatekiCrow_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiCrow_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiCrow_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiCrow_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSyatekiCrow_Init(Actor* thisx, GameState* game);
+void EnSyatekiCrow_Destroy(Actor* thisx, GameState* game);
+void EnSyatekiCrow_Update(Actor* thisx, GameState* game);
+void EnSyatekiCrow_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Syateki_Crow_InitVars = {

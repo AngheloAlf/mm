@@ -10,10 +10,10 @@
 
 #define THIS ((EnJcMato*)thisx)
 
-void EnJcMato_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnJcMato_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnJcMato_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnJcMato_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnJcMato_Init(Actor* thisx, GameState* game);
+void EnJcMato_Destroy(Actor* thisx, GameState* game);
+void EnJcMato_Update(Actor* thisx, GameState* game);
+void EnJcMato_Draw(Actor* thisx, GameState* game);
 
 s32 EnJcMato_CheckForHit(EnJcMato* this, GlobalContext* globalCtx);
 void EnJcMato_SetupIdle(EnJcMato* this);
@@ -125,12 +125,12 @@ void EnJcMato_Idle(EnJcMato* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnJcMato_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnJcMato_Init(Actor* thisx, GameState* game) {
     EnJcMato* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 24.0f);
-    Collider_InitSphere(globalCtx, &this->collider);
-    Collider_SetSphere(globalCtx, &this->collider, &this->actor, &sSphereInit);
+    Collider_InitSphere(game, &this->collider);
+    Collider_SetSphere(game, &this->collider, &this->actor, &sSphereInit);
     this->collider.dim.worldSphere.radius = 0xF;
     this->actor.colChkInfo.damageTable = &sDamageTable;
     Actor_SetScale(&this->actor, 0.008f);
@@ -139,30 +139,30 @@ void EnJcMato_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnJcMato_SetupIdle(this);
 }
 
-void EnJcMato_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnJcMato_Destroy(Actor* thisx, GameState* game) {
     EnJcMato* this = THIS;
 
-    Collider_DestroySphere(globalCtx, &this->collider);
+    Collider_DestroySphere(game, &this->collider);
 }
 
-void EnJcMato_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnJcMato_Update(Actor* thisx, GameState* game) {
     EnJcMato* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     if (!(gSaveContext.eventInf[4] & 1)) {
-        EnJcMato_CheckForHit(this, globalCtx);
+        EnJcMato_CheckForHit(this, game);
     }
 }
 
 static Vec3f movement = { 0.0f, -2500.0f, 0.0f };
 
-void EnJcMato_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnJcMato_Draw(Actor* thisx, GameState* game) {
     EnJcMato* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06000390);
     SysMatrix_MultiplyVector3fByState(&movement, &this->pos);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

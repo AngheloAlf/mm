@@ -4,10 +4,10 @@
 
 #define THIS ((ObjYasi*)thisx)
 
-void ObjYasi_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjYasi_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjYasi_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjYasi_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjYasi_Init(Actor* thisx, GameState* game);
+void ObjYasi_Destroy(Actor* thisx, GameState* game);
+void ObjYasi_Update(Actor* thisx, GameState* game);
+void ObjYasi_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Yasi_InitVars = {

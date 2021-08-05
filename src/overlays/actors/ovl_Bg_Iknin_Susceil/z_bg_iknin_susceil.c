@@ -4,10 +4,10 @@
 
 #define THIS ((BgIkninSusceil*)thisx)
 
-void BgIkninSusceil_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIkninSusceil_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIkninSusceil_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIkninSusceil_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIkninSusceil_Init(Actor* thisx, GameState* game);
+void BgIkninSusceil_Destroy(Actor* thisx, GameState* game);
+void BgIkninSusceil_Update(Actor* thisx, GameState* game);
+void BgIkninSusceil_Draw(Actor* thisx, GameState* game);
 
 void func_80C0AB44(BgIkninSusceil* this, GlobalContext* globalCtx);
 void func_80C0AB88(BgIkninSusceil* this);
@@ -105,20 +105,20 @@ s32 func_80C0A95C(BgIkninSusceil* this, GlobalContext* globalCtx) {
     return phi_t0;
 }
 
-void BgIkninSusceil_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkninSusceil_Init(Actor* thisx, GameState* game) {
     BgIkninSusceil* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_0600CBAC);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_0600CBAC);
     this->animatedTexture = Lib_SegmentedToVirtual(&D_0600C670);
     func_80C0AC74(this);
 }
 
-void BgIkninSusceil_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkninSusceil_Destroy(Actor* thisx, GameState* game) {
     BgIkninSusceil* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void func_80C0AB14(BgIkninSusceil* this) {
@@ -215,14 +215,14 @@ void func_80C0AE5C(BgIkninSusceil* this, GlobalContext* globalCtx) {
     }
 }
 
-void BgIkninSusceil_Update(Actor* thisx, GlobalContext* globalCtx) {
-    s32 pad;
+void BgIkninSusceil_Update(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     BgIkninSusceil* this = THIS;
     Player* player = PLAYER;
 
     if ((this->unk168 == 0) && (this->unk166 > 0) && (player->stateFlags3 & 0x100) && (player->unk_B48 > 1000.0f)) {
         this->unk168 = 2;
-        if ((func_80C0A95C(this, globalCtx) != 0) && (this->actionFunc != func_80C0AE5C)) {
+        if ((func_80C0A95C(this, game) != 0) && (this->actionFunc != func_80C0AE5C)) {
             func_800B8E58(&player->actor, NA_SE_PL_BODY_HIT);
             func_80C0AE3C(this);
         }
@@ -232,7 +232,7 @@ void BgIkninSusceil_Update(Actor* thisx, GlobalContext* globalCtx) {
         this->unk168--;
     }
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 
     if ((this->dyna.actor.home.pos.y + 70.0f) < this->dyna.actor.world.pos.y) {
         this->unk166 = 0;
@@ -244,15 +244,15 @@ void BgIkninSusceil_Update(Actor* thisx, GlobalContext* globalCtx) {
         }
     }
     if (this->unk166 > 0) {
-        func_80C0A838(this, globalCtx);
+        func_80C0A838(this, game);
     } else {
-        func_80C0A804(this, globalCtx);
+        func_80C0A804(this, game);
     }
 }
 
-void BgIkninSusceil_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkninSusceil_Draw(Actor* thisx, GameState* game) {
     BgIkninSusceil* this = THIS;
 
-    AnimatedMat_Draw(globalCtx, this->animatedTexture);
-    func_800BDFC0(globalCtx, D_0600C308);
+    AnimatedMat_Draw(game, this->animatedTexture);
+    func_800BDFC0(game, D_0600C308);
 }

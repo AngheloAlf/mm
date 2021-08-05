@@ -4,10 +4,10 @@
 
 #define THIS ((BgHakuginSwitch*)thisx)
 
-void BgHakuginSwitch_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginSwitch_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginSwitch_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginSwitch_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgHakuginSwitch_Init(Actor* thisx, GameState* game);
+void BgHakuginSwitch_Destroy(Actor* thisx, GameState* game);
+void BgHakuginSwitch_Update(Actor* thisx, GameState* game);
+void BgHakuginSwitch_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Hakugin_Switch_InitVars = {

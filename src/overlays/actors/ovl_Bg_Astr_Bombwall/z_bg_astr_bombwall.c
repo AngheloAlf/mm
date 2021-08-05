@@ -4,10 +4,10 @@
 
 #define THIS ((BgAstrBombwall*)thisx)
 
-void BgAstrBombwall_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgAstrBombwall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgAstrBombwall_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgAstrBombwall_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgAstrBombwall_Init(Actor* thisx, GameState* game);
+void BgAstrBombwall_Destroy(Actor* thisx, GameState* game);
+void BgAstrBombwall_Update(Actor* thisx, GameState* game);
+void BgAstrBombwall_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Astr_Bombwall_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((EnGe3*)thisx)
 
-void EnGe3_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGe3_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGe3_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGe3_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGe3_Init(Actor* thisx, GameState* game);
+void EnGe3_Destroy(Actor* thisx, GameState* game);
+void EnGe3_Update(Actor* thisx, GameState* game);
+void EnGe3_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Ge3_InitVars = {

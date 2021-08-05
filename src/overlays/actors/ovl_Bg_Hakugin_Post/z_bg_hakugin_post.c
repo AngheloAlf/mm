@@ -4,9 +4,9 @@
 
 #define THIS ((BgHakuginPost*)thisx)
 
-void BgHakuginPost_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginPost_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginPost_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgHakuginPost_Init(Actor* thisx, GameState* game);
+void BgHakuginPost_Destroy(Actor* thisx, GameState* game);
+void BgHakuginPost_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Hakugin_Post_InitVars = {

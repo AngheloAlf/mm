@@ -10,17 +10,17 @@
 
 #define THIS ((EffDust*)thisx)
 
-void EffDust_Init(Actor* thisx, GlobalContext* globalCtx);
-void EffDust_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EffDust_Update(Actor* thisx, GlobalContext* globalCtx);
-void EffDust_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EffDust_Init(Actor* thisx, GameState* game);
+void EffDust_Destroy(Actor* thisx, GameState* game);
+void EffDust_Update(Actor* thisx, GameState* game);
+void EffDust_Draw(Actor* thisx, GameState* game);
 
 void func_80918D64(EffDust* this, GlobalContext* globalCtx);
 void func_80918FE4(EffDust* this, GlobalContext* globalCtx);
 void func_80919230(EffDust* this, GlobalContext* globalCtx);
 
-void func_80919768(Actor* thisx, GlobalContext* globalCtx);
-void func_809199FC(Actor* thisx, GlobalContext* globalCtx);
+void func_80919768(Actor* thisx, GameState* game);
+void func_809199FC(Actor* thisx, GameState* game);
 
 const ActorInit Eff_Dust_InitVars = {
     ACTOR_EFF_DUST,
@@ -47,7 +47,7 @@ void func_80918B40(EffDust* this) {
     this->index = 0;
 }
 
-void EffDust_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EffDust_Init(Actor* thisx, GameState* game) {
     EffDust* this = THIS;
     u32 type = this->actor.params;
 
@@ -98,7 +98,7 @@ void EffDust_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->life = 10;
 }
 
-void EffDust_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EffDust_Destroy(Actor* thisx, GameState* game) {
 }
 
 void func_80918D64(EffDust* this, GlobalContext* globalCtx) {
@@ -241,20 +241,20 @@ void func_80919230(EffDust* this, GlobalContext* globalCtx) {
     }
 }
 
-void EffDust_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EffDust_Update(Actor* thisx, GameState* game) {
     EffDust* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
 Gfx D_80919DB0[] = {
     gsSPEndDisplayList(),
 };
 
-void func_80919768(Actor* thisx, GlobalContext* globalCtx2) {
+void func_80919768(Actor* thisx, GameState* game) {
     EffDust* this = THIS;
-    GlobalContext* globalCtx = globalCtx2;
-    GraphicsContext* gfxCtx = globalCtx2->state.gfxCtx;
+    GlobalContext* globalCtx = (GlobalContext*)game;
+    GraphicsContext* gfxCtx = game->gfxCtx;
     f32* distanceTraveled;
     Vec3f* initialPositions;
     s32 i;
@@ -305,10 +305,10 @@ void func_80919768(Actor* thisx, GlobalContext* globalCtx2) {
     CLOSE_DISPS(gfxCtx);
 }
 
-void func_809199FC(Actor* thisx, GlobalContext* globalCtx2) {
+void func_809199FC(Actor* thisx, GameState* game) {
     EffDust* this = THIS;
-    GlobalContext* globalCtx = globalCtx2;
-    GraphicsContext* gfxCtx = globalCtx2->state.gfxCtx;
+    GlobalContext* globalCtx = (GlobalContext*)game;
+    GraphicsContext* gfxCtx = game->gfxCtx;
     f32* distanceTraveled;
     Vec3f* initialPositions;
     s32 i;
@@ -361,8 +361,8 @@ void func_809199FC(Actor* thisx, GlobalContext* globalCtx2) {
     CLOSE_DISPS(gfxCtx);
 }
 
-void EffDust_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EffDust_Draw(Actor* thisx, GameState* game) {
     EffDust* this = THIS;
 
-    this->drawFunc(thisx, globalCtx);
+    this->drawFunc(thisx, game);
 }

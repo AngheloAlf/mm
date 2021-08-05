@@ -4,10 +4,10 @@
 
 #define THIS ((EnFuKago*)thisx)
 
-void EnFuKago_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFuKago_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFuKago_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFuKago_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFuKago_Init(Actor* thisx, GameState* game);
+void EnFuKago_Destroy(Actor* thisx, GameState* game);
+void EnFuKago_Update(Actor* thisx, GameState* game);
+void EnFuKago_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Fu_Kago_InitVars = {

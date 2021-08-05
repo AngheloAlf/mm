@@ -4,10 +4,10 @@
 
 #define THIS ((ObjUm*)thisx)
 
-void ObjUm_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjUm_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjUm_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjUm_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjUm_Init(Actor* thisx, GameState* game);
+void ObjUm_Destroy(Actor* thisx, GameState* game);
+void ObjUm_Update(Actor* thisx, GameState* game);
+void ObjUm_Draw(Actor* thisx, GameState* game);
 
 void func_80B79A50(ObjUm* this, GlobalContext* globalCtx);
 void func_80B79F10(ObjUm* this, GlobalContext* globalCtx);

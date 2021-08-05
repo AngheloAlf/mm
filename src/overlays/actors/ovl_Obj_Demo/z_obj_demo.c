@@ -4,8 +4,8 @@
 
 #define THIS ((ObjDemo*)thisx)
 
-void ObjDemo_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjDemo_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjDemo_Init(Actor* thisx, GameState* game);
+void ObjDemo_Update(Actor* thisx, GameState* game);
 
 void func_80983678(ObjDemo* this, GlobalContext* globalCtx);
 void func_80983704(ObjDemo* this, GlobalContext* globalCtx);

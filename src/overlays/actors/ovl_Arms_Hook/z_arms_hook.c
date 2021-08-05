@@ -4,10 +4,10 @@
 
 #define THIS ((ArmsHook*)thisx)
 
-void ArmsHook_Init(Actor* thisx, GlobalContext* globalCtx);
-void ArmsHook_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ArmsHook_Update(Actor* thisx, GlobalContext* globalCtx);
-void ArmsHook_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ArmsHook_Init(Actor* thisx, GameState* game);
+void ArmsHook_Destroy(Actor* thisx, GameState* game);
+void ArmsHook_Update(Actor* thisx, GameState* game);
+void ArmsHook_Draw(Actor* thisx, GameState* game);
 
 void ArmsHook_Wait(ArmsHook* this, GlobalContext* globalCtx);
 void ArmsHook_Shoot(ArmsHook* this, GlobalContext* globalCtx);
@@ -50,22 +50,22 @@ void ArmsHook_SetupAction(ArmsHook* this, ArmsHookActionFunc actionFunc) {
     this->actionFunc = actionFunc;
 }
 
-void ArmsHook_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ArmsHook_Init(Actor* thisx, GameState* game) {
     ArmsHook* this = THIS;
 
-    Collider_InitQuad(globalCtx, &this->collider);
-    Collider_SetQuad(globalCtx, &this->collider, &this->actor, &D_808C1BC0);
+    Collider_InitQuad(game, &this->collider);
+    Collider_SetQuad(game, &this->collider, &this->actor, &D_808C1BC0);
     ArmsHook_SetupAction(this, ArmsHook_Wait);
     this->unk1E0 = this->actor.world.pos;
 }
 
-void ArmsHook_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ArmsHook_Destroy(Actor* thisx, GameState* game) {
     ArmsHook* this = THIS;
 
     if (this->grabbed != NULL) {
         this->grabbed->flags &= ~0x2000;
     }
-    Collider_DestroyQuad(globalCtx, &this->collider);
+    Collider_DestroyQuad(game, &this->collider);
 }
 
 void ArmsHook_Wait(ArmsHook* this, GlobalContext* globalCtx) {
@@ -271,10 +271,10 @@ void ArmsHook_Shoot(ArmsHook* this, GlobalContext* globalCtx) {
     }
 }
 
-void ArmsHook_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ArmsHook_Update(Actor* thisx, GameState* game) {
     ArmsHook* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     this->unk1EC = this->unk1E0;
 }
 
@@ -285,9 +285,9 @@ static Vec3f D_808C1C34 = { 0.0f, -500.0f, -3000.0f };
 static Vec3f D_808C1C40 = { 0.0f, 500.0f, 0.0f };
 static Vec3f D_808C1C4C = { 0.0f, -500.0f, 0.0f };
 
-void ArmsHook_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ArmsHook_Draw(Actor* thisx, GameState* game) {
     ArmsHook* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player = PLAYER;
     Vec3f sp68;
     Vec3f sp5C;
@@ -298,7 +298,7 @@ void ArmsHook_Draw(Actor* thisx, GlobalContext* globalCtx) {
     if (player->actor.draw != NULL && player->rightHandType == 0xB) {
         // OPEN_DISP macro
         {
-            GraphicsContext* sp44 = globalCtx->state.gfxCtx;
+            GraphicsContext* sp44 = game->gfxCtx;
             f32 f0;
 
             if ((ArmsHook_Shoot != this->actionFunc) || (this->timer <= 0)) {
@@ -311,11 +311,11 @@ void ArmsHook_Draw(Actor* thisx, GlobalContext* globalCtx) {
                 SysMatrix_MultiplyVector3fByState(&D_808C1C40, &sp5C);
                 SysMatrix_MultiplyVector3fByState(&D_808C1C4C, &sp50);
             }
-            func_80126440(globalCtx, &this->collider.base, &this->unk1C4, &sp5C, &sp50);
-            func_8012C28C(globalCtx->state.gfxCtx);
-            func_80122868(globalCtx, player);
+            func_80126440(game, &this->collider.base, &this->unk1C4, &sp5C, &sp50);
+            func_8012C28C(game->gfxCtx);
+            func_80122868(game, player);
 
-            gSPMatrix(sp44->polyOpa.p++, Matrix_NewMtx(globalCtx->state.gfxCtx),
+            gSPMatrix(sp44->polyOpa.p++, Matrix_NewMtx(game->gfxCtx),
                       G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
             gSPDisplayList(sp44->polyOpa.p++, D_0601D960);
             SysMatrix_InsertTranslation(this->actor.world.pos.x, this->actor.world.pos.y, this->actor.world.pos.z,
@@ -327,10 +327,10 @@ void ArmsHook_Draw(Actor* thisx, GlobalContext* globalCtx) {
             SysMatrix_InsertXRotation_s(Math_Atan2S(-sp68.y, sp4C), MTXMODE_APPLY);
             f0 = sqrtf(SQ(sp68.y) + sp48);
             Matrix_Scale(0.015f, 0.015f, f0 * 0.01f, MTXMODE_APPLY);
-            gSPMatrix(sp44->polyOpa.p++, Matrix_NewMtx(globalCtx->state.gfxCtx),
+            gSPMatrix(sp44->polyOpa.p++, Matrix_NewMtx(game->gfxCtx),
                       G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
             gSPDisplayList(sp44->polyOpa.p++, D_040008D0);
-            func_801229A0(globalCtx, player);
+            func_801229A0(game, player);
         }
     }
 }

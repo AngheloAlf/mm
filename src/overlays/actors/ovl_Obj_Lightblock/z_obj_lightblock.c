@@ -4,10 +4,10 @@
 
 #define THIS ((ObjLightblock*)thisx)
 
-void ObjLightblock_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjLightblock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjLightblock_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjLightblock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjLightblock_Init(Actor* thisx, GameState* game);
+void ObjLightblock_Destroy(Actor* thisx, GameState* game);
+void ObjLightblock_Update(Actor* thisx, GameState* game);
+void ObjLightblock_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Lightblock_InitVars = {

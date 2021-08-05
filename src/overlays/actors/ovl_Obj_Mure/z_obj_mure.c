@@ -4,9 +4,9 @@
 
 #define THIS ((ObjMure*)thisx)
 
-void ObjMure_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjMure_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjMure_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjMure_Init(Actor* thisx, GameState* game);
+void ObjMure_Destroy(Actor* thisx, GameState* game);
+void ObjMure_Update(Actor* thisx, GameState* game);
 
 void func_808D7FFC(ObjMure* this, GlobalContext* globalCtx);
 void func_808D8014(ObjMure* this, GlobalContext* globalCtx);

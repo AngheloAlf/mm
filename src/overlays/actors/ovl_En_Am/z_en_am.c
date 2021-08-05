@@ -4,10 +4,10 @@
 
 #define THIS ((EnAm*)thisx)
 
-void EnAm_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnAm_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnAm_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnAm_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnAm_Init(Actor* thisx, GameState* game);
+void EnAm_Destroy(Actor* thisx, GameState* game);
+void EnAm_Update(Actor* thisx, GameState* game);
+void EnAm_Draw(Actor* thisx, GameState* game);
 
 void func_808B0040(EnAm* this, GlobalContext* globalCtx);
 void func_808B0124(EnAm* this, GlobalContext* globalCtx);

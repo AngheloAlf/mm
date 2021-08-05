@@ -12,10 +12,10 @@
 
 #define THIS ((EnPametfrog*)thisx)
 
-void EnPametfrog_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPametfrog_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPametfrog_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPametfrog_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPametfrog_Init(Actor* thisx, GameState* game);
+void EnPametfrog_Destroy(Actor* thisx, GameState* game);
+void EnPametfrog_Update(Actor* thisx, GameState* game);
+void EnPametfrog_Draw(Actor* thisx, GameState* game);
 
 void EnPametfrog_JumpWaterEffects(EnPametfrog* this, GlobalContext* globalCtx);
 void EnPametfrog_RearOnSnapper(EnPametfrog* this, GlobalContext* globalCtx);
@@ -200,22 +200,22 @@ static s32 isFrogReturnedFlags[] = {
     (33 << 8) | 0x02, // Laundry Pool Frog Returned
 };
 
-void EnPametfrog_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnPametfrog_Init(Actor* thisx, GameState* game) {
     EnPametfrog* this = THIS;
     s32 i;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 55.0f);
     CollisionCheck_SetInfo(&this->actor.colChkInfo, &sDamageTable, &sColChkInit);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600DF98, &D_0600F990, this->limbDrawTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600DF98, &D_0600F990, this->limbDrawTable,
                      this->transitionDrawTable, 24);
-    Collider_InitAndSetJntSph(globalCtx, &this->collider, &this->actor, &sJntSphInit, this->colElement);
+    Collider_InitAndSetJntSph(game, &this->collider, &this->actor, &sJntSphInit, this->colElement);
     this->params = CLAMP(this->actor.params, 1, 4);
-    if (Actor_GetRoomCleared(globalCtx, globalCtx->roomCtx.currRoom.num)) {
+    if (Actor_GetRoomCleared(game, ((GlobalContext*)game)->roomCtx.currRoom.num)) {
         Actor_MarkForDeath(&this->actor);
         if (!(gSaveContext.weekEventReg[isFrogReturnedFlags[this->actor.params - 1] >> 8] &
               (u8)isFrogReturnedFlags[this->actor.params - 1])) {
-            Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_MINIFROG, this->actor.world.pos.x,
+            Actor_Spawn(&((GlobalContext*)game)->actorCtx, game, ACTOR_EN_MINIFROG, this->actor.world.pos.x,
                         this->actor.world.pos.y, this->actor.world.pos.z, 0, this->actor.shape.rot.y, 0, this->params);
         }
     } else {
@@ -223,7 +223,7 @@ void EnPametfrog_Init(Actor* thisx, GlobalContext* globalCtx) {
             this->collider.elements[i].dim.worldSphere.radius = this->collider.elements[i].dim.modelSphere.radius;
         }
 
-        if (Actor_SpawnAsChild(&globalCtx->actorCtx, &this->actor, globalCtx, ACTOR_EN_BIGPAMET,
+        if (Actor_SpawnAsChild(&((GlobalContext*)game)->actorCtx, &this->actor, game, ACTOR_EN_BIGPAMET,
                                this->actor.world.pos.x, this->actor.world.pos.y, this->actor.world.pos.z, 0, 0, 0,
                                0) == NULL) {
             Actor_MarkForDeath(&this->actor);
@@ -234,10 +234,10 @@ void EnPametfrog_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnPametfrog_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnPametfrog_Destroy(Actor* thisx, GameState* game) {
     EnPametfrog* this = THIS;
 
-    Collider_DestroyJntSph(globalCtx, &this->collider);
+    Collider_DestroyJntSph(game, &this->collider);
 }
 
 u8 EnPametfrog_Vec3fNormalize(Vec3f* vec) {
@@ -1340,7 +1340,7 @@ void EnPametfrog_ApplyDamageEffect(EnPametfrog* this, GlobalContext* globalCtx) 
     }
 }
 
-void EnPametfrog_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnPametfrog_Update(Actor* thisx, GameState* game) {
     EnPametfrog* this = THIS;
     f32 unk2C4;
     f32 arg3;
@@ -1348,17 +1348,17 @@ void EnPametfrog_Update(Actor* thisx, GlobalContext* globalCtx) {
     if (this->actor.params == GEKKO_CUTSCENE) {
         EnPametfrog_SetupCutscene(this);
     } else if (this->actionFunc != EnPametfrog_PlayCutscene) {
-        EnPametfrog_ApplyDamageEffect(this, globalCtx);
+        EnPametfrog_ApplyDamageEffect(this, game);
     } else {
         this->collider.base.acFlags &= ~AC_HIT;
     }
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     if ((this->actionFunc != EnPametfrog_JumpOnSnapper) && (this->actionFunc != EnPametfrog_RearOnSnapperRise)) {
         if (this->actor.gravity < -0.1f) {
             Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
             arg3 = this->actionFunc == EnPametfrog_FallInAir ? 3.0f : 15.0f;
-            Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 25.0f, arg3, 3.0f, 0x1F);
+            Actor_UpdateBgCheckInfo(game, &this->actor, 25.0f, arg3, 3.0f, 0x1F);
         } else if (this->freezeTimer == 0) {
             Actor_SetVelocityAndMoveXYRotation(&this->actor);
             this->actor.floorHeight = this->actor.world.pos.y;
@@ -1366,15 +1366,15 @@ void EnPametfrog_Update(Actor* thisx, GlobalContext* globalCtx) {
     }
 
     if (this->collider.base.atFlags & AT_ON) {
-        CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAT(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     }
 
     if (this->collider.base.acFlags & AC_ON) {
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     }
 
     if (this->collider.base.ocFlags1 & OC1_ON) {
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     }
 
     if (this->unk_2C4 > 0.0f) {
@@ -1433,13 +1433,13 @@ void EnPametfrog_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dLi
     }
 }
 
-void EnPametfrog_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnPametfrog_Draw(Actor* thisx, GameState* game) {
     EnPametfrog* this = THIS;
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
     Matrix_RotateY(this->spinYaw, MTXMODE_APPLY);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
                      EnPametfrog_PostLimbDraw, &this->actor);
-    func_800BE680(globalCtx, &this->actor, this->limbPos, ARRAY_COUNT(this->limbPos), this->unk_2C8, this->unk_2CC,
+    func_800BE680(game, &this->actor, this->limbPos, ARRAY_COUNT(this->limbPos), this->unk_2C8, this->unk_2CC,
                   this->unk_2C4, this->drawEffect);
 }

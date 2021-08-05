@@ -4,10 +4,10 @@
 
 #define THIS ((BgDblueElevator*)thisx)
 
-void BgDblueElevator_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueElevator_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueElevator_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueElevator_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgDblueElevator_Init(Actor* thisx, GameState* game);
+void BgDblueElevator_Destroy(Actor* thisx, GameState* game);
+void BgDblueElevator_Update(Actor* thisx, GameState* game);
+void BgDblueElevator_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Dblue_Elevator_InitVars = {

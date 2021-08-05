@@ -4,10 +4,10 @@
 
 #define THIS ((ObjLupygamelift*)thisx)
 
-void ObjLupygamelift_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjLupygamelift_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjLupygamelift_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjLupygamelift_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjLupygamelift_Init(Actor* thisx, GameState* game);
+void ObjLupygamelift_Destroy(Actor* thisx, GameState* game);
+void ObjLupygamelift_Update(Actor* thisx, GameState* game);
+void ObjLupygamelift_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Lupygamelift_InitVars = {

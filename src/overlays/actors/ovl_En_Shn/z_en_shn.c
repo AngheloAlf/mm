@@ -4,10 +4,10 @@
 
 #define THIS ((EnShn*)thisx)
 
-void EnShn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnShn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnShn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnShn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnShn_Init(Actor* thisx, GameState* game);
+void EnShn_Destroy(Actor* thisx, GameState* game);
+void EnShn_Update(Actor* thisx, GameState* game);
+void EnShn_Draw(Actor* thisx, GameState* game);
 
 void func_80AE69E8(EnShn* this, GlobalContext* globalCtx);
 void func_80AE6A64(EnShn* this, GlobalContext* globalCtx);

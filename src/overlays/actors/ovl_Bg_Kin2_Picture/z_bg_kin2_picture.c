@@ -4,10 +4,10 @@
 
 #define THIS ((BgKin2Picture*)thisx)
 
-void BgKin2Picture_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Picture_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Picture_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Picture_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgKin2Picture_Init(Actor* thisx, GameState* game);
+void BgKin2Picture_Destroy(Actor* thisx, GameState* game);
+void BgKin2Picture_Update(Actor* thisx, GameState* game);
+void BgKin2Picture_Draw(Actor* thisx, GameState* game);
 
 void func_80B6F4D4(BgKin2Picture* this, GlobalContext* globalCtx);
 void func_80B6F5B8(BgKin2Picture* this, GlobalContext* globalCtx);

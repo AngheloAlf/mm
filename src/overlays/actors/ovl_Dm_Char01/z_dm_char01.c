@@ -4,10 +4,10 @@
 
 #define THIS ((DmChar01*)thisx)
 
-void DmChar01_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmChar01_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmChar01_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmChar01_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmChar01_Init(Actor* thisx, GameState* game);
+void DmChar01_Destroy(Actor* thisx, GameState* game);
+void DmChar01_Update(Actor* thisx, GameState* game);
+void DmChar01_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Dm_Char01_InitVars = {

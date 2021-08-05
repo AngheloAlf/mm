@@ -4,10 +4,10 @@
 
 #define THIS ((BgHakaCurtain*)thisx)
 
-void BgHakaCurtain_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaCurtain_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaCurtain_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaCurtain_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgHakaCurtain_Init(Actor* thisx, GameState* game);
+void BgHakaCurtain_Destroy(Actor* thisx, GameState* game);
+void BgHakaCurtain_Update(Actor* thisx, GameState* game);
+void BgHakaCurtain_Draw(Actor* thisx, GameState* game);
 
 void func_80B6DC98(BgHakaCurtain* this);
 void func_80B6DCAC(BgHakaCurtain* this, GlobalContext* globalCtx);
@@ -41,23 +41,23 @@ static InitChainEntry sInitChain[] = {
 extern CollisionHeader D_06001588;
 extern Gfx D_06001410[];
 
-void BgHakaCurtain_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgHakaCurtain_Init(Actor* thisx, GameState* game) {
     BgHakaCurtain* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06001588);
-    if (Actor_GetRoomCleared(globalCtx, this->dyna.actor.room)) {
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06001588);
+    if (Actor_GetRoomCleared(game, this->dyna.actor.room)) {
         func_80B6DE80(this);
         return;
     }
     func_80B6DC98(this);
 }
 
-void BgHakaCurtain_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgHakaCurtain_Destroy(Actor* thisx, GameState* game) {
     BgHakaCurtain* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void func_80B6DC98(BgHakaCurtain* this) {
@@ -117,19 +117,19 @@ void func_80B6DE80(BgHakaCurtain* this) {
 void func_80B6DEA8(BgHakaCurtain* this, GlobalContext* globalCtx) {
 }
 
-void BgHakaCurtain_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgHakaCurtain_Update(Actor* thisx, GameState* game) {
     BgHakaCurtain* this = THIS;
     CsCmdActorAction* actorAction;
 
-    if (func_800EE29C(globalCtx, 0x1D5)) {
-        actorAction = globalCtx->csCtx.npcActions[func_800EE200(globalCtx, 0x1D5)];
-        if (actorAction->startFrame == globalCtx->csCtx.frames && actorAction->unk0 == 2) {
+    if (func_800EE29C(game, 0x1D5)) {
+        actorAction = ((GlobalContext*)game)->csCtx.npcActions[func_800EE200(game, 0x1D5)];
+        if (actorAction->startFrame == ((GlobalContext*)game)->csCtx.frames && actorAction->unk0 == 2) {
             func_80B6DD80(this);
         }
     }
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgHakaCurtain_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06001410);
+void BgHakaCurtain_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06001410);
 }

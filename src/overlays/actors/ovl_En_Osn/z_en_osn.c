@@ -4,10 +4,10 @@
 
 #define THIS ((EnOsn*)thisx)
 
-void EnOsn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOsn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOsn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnOsn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnOsn_Init(Actor* thisx, GameState* game);
+void EnOsn_Destroy(Actor* thisx, GameState* game);
+void EnOsn_Update(Actor* thisx, GameState* game);
+void EnOsn_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Osn_InitVars = {

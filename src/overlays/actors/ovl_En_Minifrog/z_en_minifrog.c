@@ -10,17 +10,17 @@
 
 #define THIS ((EnMinifrog*)thisx)
 
-void EnMinifrog_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMinifrog_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMinifrog_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMinifrog_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMinifrog_Init(Actor* thisx, GameState* game);
+void EnMinifrog_Destroy(Actor* thisx, GameState* game);
+void EnMinifrog_Update(Actor* thisx, GameState* game);
+void EnMinifrog_Draw(Actor* thisx, GameState* game);
 
 EnMinifrog* EnMinifrog_GetFrog(GlobalContext* globalCtx);
 
 void EnMinifrog_SpawnGrowAndShrink(EnMinifrog* this, GlobalContext* globalCtx);
 void EnMinifrog_Idle(EnMinifrog* this, GlobalContext* globalCtx);
 void EnMinifrog_SetupNextFrogInit(EnMinifrog* this, GlobalContext* globalCtx);
-void EnMinifrog_UpdateMissingFrog(Actor* thisx, GlobalContext* globalCtx);
+void EnMinifrog_UpdateMissingFrog(Actor* thisx, GameState* game);
 void EnMinifrog_YellowFrogDialog(EnMinifrog* this, GlobalContext* globalCtx);
 void EnMinifrog_SetupYellowFrogDialog(EnMinifrog* this, GlobalContext* globalCtx);
 
@@ -86,16 +86,16 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_F32_DIV1000(gravity, -800, ICHAIN_STOP),
 };
 
-void EnMinifrog_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinifrog_Init(Actor* thisx, GameState* game) {
     EnMinifrog* this = THIS;
     int i;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 15.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600B538, &D_06001534, this->limbDrawTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600B538, &D_06001534, this->limbDrawTable,
                      this->transitionDrawTable, 24);
     CollisionCheck_SetInfo(&this->actor.colChkInfo, NULL, &sColChkInfoInit);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
 
     if (!isInitialized) {
         for (i = 0; i < 2; i++) {
@@ -140,7 +140,7 @@ void EnMinifrog_Init(Actor* thisx, GlobalContext* globalCtx) {
             this->actor.home.rot.x = this->actor.home.rot.z = 0;
             this->frog = NULL;
         } else {
-            this->frog = EnMinifrog_GetFrog(globalCtx);
+            this->frog = EnMinifrog_GetFrog(game);
             this->actor.flags &= ~1;
 
             // Frog has been returned
@@ -155,10 +155,10 @@ void EnMinifrog_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnMinifrog_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinifrog_Destroy(Actor* thisx, GameState* game) {
     EnMinifrog* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
     if (this->flags & 0x100) {
         func_801A1F88();
     }
@@ -583,19 +583,19 @@ void EnMinifrog_SetupYellowFrogDialog(EnMinifrog* this, GlobalContext* globalCtx
     }
 }
 
-void EnMinifrog_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinifrog_Update(Actor* thisx, GameState* game) {
     EnMinifrog* this = THIS;
     s32 pad;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 25.0f, 12.0f, 0.0f, 0x1D);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 25.0f, 12.0f, 0.0f, 0x1D);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     this->actor.focus.rot.y = this->actor.shape.rot.y;
 }
 
-void EnMinifrog_UpdateMissingFrog(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinifrog_UpdateMissingFrog(Actor* thisx, GameState* game) {
     EnMinifrog* this = THIS;
     EnMinifrog* missingFrog;
 
@@ -638,17 +638,17 @@ static Color_RGBA8 sEnMinifrogColor[] = {
     { 200, 170, 0, 255 }, { 0, 170, 200, 255 }, { 210, 120, 100, 255 }, { 120, 130, 230, 255 }, { 190, 190, 190, 255 },
 };
 
-void EnMinifrog_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinifrog_Draw(Actor* thisx, GameState* game) {
     EnMinifrog* this = THIS;
     Color_RGBA8* envColor;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     envColor = &sEnMinifrogColor[this->frogIndex];
     gSPSegment(POLY_OPA_DISP++, 0x08, D_808A4D74[0]);
     gSPSegment(POLY_OPA_DISP++, 0x09, D_808A4D74[0]);
     gDPSetEnvColor(POLY_OPA_DISP++, envColor->r, envColor->g, envColor->b, envColor->a);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnMinifrog_OverrideLimbDraw, EnMinifrog_PostLimbDraw, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

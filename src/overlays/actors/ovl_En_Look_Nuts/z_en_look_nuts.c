@@ -4,10 +4,10 @@
 
 #define THIS ((EnLookNuts*)thisx)
 
-void EnLookNuts_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnLookNuts_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnLookNuts_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnLookNuts_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnLookNuts_Init(Actor* thisx, GameState* game);
+void EnLookNuts_Destroy(Actor* thisx, GameState* game);
+void EnLookNuts_Update(Actor* thisx, GameState* game);
+void EnLookNuts_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Look_Nuts_InitVars = {

@@ -10,10 +10,10 @@
 
 #define THIS ((EnSb*)thisx)
 
-void EnSb_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSb_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSb_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSb_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSb_Init(Actor* thisx, GameState* game);
+void EnSb_Destroy(Actor* thisx, GameState* game);
+void EnSb_Update(Actor* thisx, GameState* game);
+void EnSb_Draw(Actor* thisx, GameState* game);
 
 void EnSb_SetupWaitClosed(EnSb* this);
 void EnSb_Idle(EnSb* this, GlobalContext* globalCtx);
@@ -110,17 +110,17 @@ extern AnimationHeader D_06000124;
 extern AnimationHeader D_06002C8C;
 extern AnimationHeader D_060000B4;
 
-void EnSb_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnSb_Init(Actor* thisx, GameState* game) {
     EnSb* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     this->actor.colChkInfo.damageTable = &sDamageTable;
     this->actor.colChkInfo.mass = 0xA;
     this->actor.colChkInfo.health = 2;
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06002BF0, &D_06000194, this->limbDrawTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06002BF0, &D_06000194, this->limbDrawTable,
                      this->transitionDrawTable, 9);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinderType1(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinderType1(game, &this->collider, &this->actor, &sCylinderInit);
     this->isDead = false;
     this->actor.colChkInfo.mass = 0x5A;
     this->actor.shape.rot.y = 0;
@@ -133,10 +133,10 @@ void EnSb_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnSb_SetupWaitClosed(this);
 }
 
-void EnSb_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnSb_Destroy(Actor* thisx, GameState* game) {
     EnSb* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnSb_SpawnBubbles(GlobalContext* globalCtx, EnSb* this) {
@@ -358,8 +358,8 @@ void EnSb_UpdateDamage(EnSb* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnSb_Update(Actor* thisx, GlobalContext* globalCtx) {
-    s32 pad;
+void EnSb_Update(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnSb* this = THIS;
     Player* player = PLAYER;
 
@@ -369,20 +369,20 @@ void EnSb_Update(Actor* thisx, GlobalContext* globalCtx) {
         } else {
             this->actor.params = 1;
         }
-        Item_DropCollectibleRandom(globalCtx, &this->actor, &this->actor.world.pos, 0x80);
+        Item_DropCollectibleRandom(game, &this->actor, &this->actor.world.pos, 0x80);
         Actor_MarkForDeath(&this->actor);
     } else {
         Actor_SetHeight(&this->actor, 20.0f);
         Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-        this->actionFunc(this, globalCtx);
-        Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 20.0f, 25.0f, 20.0f, 5);
-        EnSb_UpdateDamage(this, globalCtx);
+        this->actionFunc(this, game);
+        Actor_UpdateBgCheckInfo(game, &this->actor, 20.0f, 25.0f, 20.0f, 5);
+        EnSb_UpdateDamage(this, game);
         if (player->stateFlags1 & 0x8000000) {
             Collider_UpdateCylinder(&this->actor, &this->collider);
             if (this->vulnerableTimer == 0) {
-                CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+                CollisionCheck_SetAT(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
             }
-            CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
         }
         SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     }
@@ -404,14 +404,14 @@ void EnSb_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec
     }
 }
 
-void EnSb_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnSb_Draw(Actor* thisx, GameState* game) {
     EnSb* this = THIS;
     Vec3f flamePos;
     Vec3f* offset;
     s16 fireDecr;
 
-    func_800B8050(&this->actor, globalCtx, 1);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
+    func_800B8050(&this->actor, game, 1);
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
                      EnSb_PostLimbDraw, &this->actor);
     if (this->fireCount != 0) {
         this->actor.colorFilterTimer++;
@@ -421,7 +421,7 @@ void EnSb_Draw(Actor* thisx, GlobalContext* globalCtx) {
             flamePos.x = randPlusMinusPoint5Scaled(5.0f) + (this->actor.world.pos.x + offset->x);
             flamePos.y = randPlusMinusPoint5Scaled(5.0f) + (this->actor.world.pos.y + offset->y);
             flamePos.z = randPlusMinusPoint5Scaled(5.0f) + (this->actor.world.pos.z + offset->z);
-            EffectSsEnFire_SpawnVec3f(globalCtx, &this->actor, &flamePos, 100, 0, 0, -1);
+            EffectSsEnFire_SpawnVec3f(game, &this->actor, &flamePos, 100, 0, 0, -1);
         }
     }
 }

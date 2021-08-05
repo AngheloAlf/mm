@@ -12,10 +12,10 @@
 
 #define THIS ((ObjBoyo*)thisx)
 
-void ObjBoyo_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBoyo_Destroy(Actor* thisx, GlobalContext* globalCtx2);
-void ObjBoyo_Update(Actor* thisx, GlobalContext* globalCtx2);
-void ObjBoyo_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjBoyo_Init(Actor* thisx, GameState* game);
+void ObjBoyo_Destroy(Actor* thisx, GameState* game);
+void ObjBoyo_Update(Actor* thisx, GameState* game);
+void ObjBoyo_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Boyo_InitVars = {
     ACTOR_OBJ_BOYO,
@@ -59,22 +59,22 @@ static InitChainEntry sInitChain[] = {
 extern Gfx D_06000300[];
 extern AnimatedMaterial D_06000E88;
 
-void ObjBoyo_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjBoyo_Init(Actor* thisx, GameState* game) {
     ObjBoyo* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     Collider_UpdateCylinder(&this->actor, &this->collider);
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
     this->unk_190 = Lib_SegmentedToVirtual(&D_06000E88);
 }
 
-void ObjBoyo_Destroy(Actor* thisx, GlobalContext* globalCtx2) {
-    GlobalContext* globalCtx = globalCtx2;
+void ObjBoyo_Destroy(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     ObjBoyo* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void ObjBoyo_UpdatePlayerBumpValues(ObjBoyo* this, Player* target) {
@@ -120,13 +120,13 @@ Actor* ObjBoyo_GetCollidedActor(ObjBoyo* this, GlobalContext* globalCtx, s32* nu
     return NULL;
 }
 
-void ObjBoyo_Update(Actor* thisx, GlobalContext* globalCtx2) {
+void ObjBoyo_Update(Actor* thisx, GameState* game) {
     ObjBoyo* this = THIS;
-    GlobalContext* globalCtx = globalCtx2;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Actor* target;
     s32 num;
 
-    target = ObjBoyo_GetCollidedActor(this, globalCtx, &num);
+    target = ObjBoyo_GetCollidedActor(this, game, &num);
 
     if (target != NULL) {
         sBumperCollideInfo[num].actorCollideFunc(this, (void*)target);
@@ -171,16 +171,16 @@ void ObjBoyo_Update(Actor* thisx, GlobalContext* globalCtx2) {
     this->collider.base.ocFlags1 &= ~OC1_HIT;
     this->collider.base.ocFlags2 &= ~OC2_HIT_PLAYER;
 
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &globalCtx->colChkCtx, &this->collider.base);
 
     if (thisx->xzDistToPlayer < 2000.0f) {
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
-void ObjBoyo_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjBoyo_Draw(Actor* thisx, GameState* game) {
     ObjBoyo* this = THIS;
 
-    AnimatedMat_Draw(globalCtx, this->unk_190);
-    func_800BDFC0(globalCtx, D_06000300);
+    AnimatedMat_Draw(game, this->unk_190);
+    func_800BDFC0(game, D_06000300);
 }

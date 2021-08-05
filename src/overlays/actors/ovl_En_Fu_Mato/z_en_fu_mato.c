@@ -4,10 +4,10 @@
 
 #define THIS ((EnFuMato*)thisx)
 
-void EnFuMato_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFuMato_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFuMato_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFuMato_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFuMato_Init(Actor* thisx, GameState* game);
+void EnFuMato_Destroy(Actor* thisx, GameState* game);
+void EnFuMato_Update(Actor* thisx, GameState* game);
+void EnFuMato_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Fu_Mato_InitVars = {

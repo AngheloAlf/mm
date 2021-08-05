@@ -4,10 +4,10 @@
 
 #define THIS ((DoorWarp1*)thisx)
 
-void DoorWarp1_Init(Actor* thisx, GlobalContext* globalCtx);
-void DoorWarp1_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DoorWarp1_Update(Actor* thisx, GlobalContext* globalCtx);
-void DoorWarp1_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DoorWarp1_Init(Actor* thisx, GameState* game);
+void DoorWarp1_Destroy(Actor* thisx, GameState* game);
+void DoorWarp1_Update(Actor* thisx, GameState* game);
+void DoorWarp1_Draw(Actor* thisx, GameState* game);
 
 void func_808B921C(DoorWarp1* this, GlobalContext* globalCtx);
 void func_808B93A0(DoorWarp1* this, GlobalContext* globalCtx);

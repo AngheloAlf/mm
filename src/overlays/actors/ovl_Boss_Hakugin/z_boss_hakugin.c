@@ -4,10 +4,10 @@
 
 #define THIS ((BossHakugin*)thisx)
 
-void BossHakugin_Init(Actor* thisx, GlobalContext* globalCtx);
-void BossHakugin_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BossHakugin_Update(Actor* thisx, GlobalContext* globalCtx);
-void BossHakugin_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BossHakugin_Init(Actor* thisx, GameState* game);
+void BossHakugin_Destroy(Actor* thisx, GameState* game);
+void BossHakugin_Update(Actor* thisx, GameState* game);
+void BossHakugin_Draw(Actor* thisx, GameState* game);
 
 void func_80B08018(BossHakugin* this, GlobalContext* globalCtx);
 void func_80B0813C(BossHakugin* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnEncount2*)thisx)
 
-void EnEncount2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnEncount2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnEncount2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnEncount2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnEncount2_Init(Actor* thisx, GameState* game);
+void EnEncount2_Destroy(Actor* thisx, GameState* game);
+void EnEncount2_Update(Actor* thisx, GameState* game);
+void EnEncount2_Draw(Actor* thisx, GameState* game);
 
 void EnEncount2_Idle(EnEncount2* this, GlobalContext* globalCtx);
 void EnEncount2_Popped(EnEncount2* this, GlobalContext* globalCtx);
@@ -95,17 +95,17 @@ extern Gfx D_06000A00[];
 extern Gfx D_06000D78[];
 extern CollisionHeader D_06002420;
 
-void EnEncount2_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnEncount2_Init(Actor* thisx, GameState* game) {
     EnEncount2* this = THIS;
     s32 pad;
     CollisionHeader* colHeader = NULL;
 
     BcCheck3_BgActorInit(&this->dyna, 0);
     BgCheck_RelocateMeshHeader(&D_06002420, &colHeader);
-    this->dyna.bgId = BgCheck_AddActorMesh(globalCtx, &globalCtx->colCtx.dyna, &this->dyna, colHeader);
+    this->dyna.bgId = BgCheck_AddActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, &this->dyna, colHeader);
     ActorShape_Init(&this->dyna.actor.shape, 0.0f, func_800B3FC0, 25.0f);
     this->dyna.actor.colChkInfo.mass = 0xFF;
-    Collider_InitAndSetJntSph(globalCtx, &this->collider, &this->dyna.actor, &sJntSphInit, &this->colElement);
+    Collider_InitAndSetJntSph(game, &this->collider, &this->dyna.actor, &sJntSphInit, &this->colElement);
 
     this->dyna.actor.targetMode = 6;
     this->dyna.actor.colChkInfo.health = 1;
@@ -116,7 +116,7 @@ void EnEncount2_Init(Actor* thisx, GlobalContext* globalCtx) {
         this->switchFlag = -1;
     }
 
-    if ((this->switchFlag >= 0) && (Flags_GetSwitch(globalCtx, this->switchFlag))) {
+    if ((this->switchFlag >= 0) && (Flags_GetSwitch(game, this->switchFlag))) {
         Actor_MarkForDeath(&this->dyna.actor);
         return;
     }
@@ -131,10 +131,10 @@ void EnEncount2_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnEncount2_SetIdle(this);
 }
 
-void EnEncount2_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnEncount2_Destroy(Actor* thisx, GameState* game) {
     EnEncount2* this = THIS;
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
-    Collider_DestroyJntSph(globalCtx, &this->collider);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
+    Collider_DestroyJntSph(game, &this->collider);
 }
 
 void EnEncount2_SetIdle(EnEncount2* this) {
@@ -180,7 +180,7 @@ void EnEncount2_Die(EnEncount2* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnEncount2_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnEncount2_Update(Actor* thisx, GameState* game) {
     EnEncount2* this = THIS;
     s32 pad;
 
@@ -189,24 +189,24 @@ void EnEncount2_Update(Actor* thisx, GlobalContext* globalCtx) {
     this->dyna.actor.shape.rot.y = this->dyna.actor.world.rot.y;
     Actor_SetHeight(&this->dyna.actor, 30.0f);
     Actor_SetScale(&this->dyna.actor, this->scale);
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->dyna.actor);
-    EnEncount2_UpdateParticles(this, globalCtx);
+    EnEncount2_UpdateParticles(this, game);
 
     if (!this->isPopped) {
         Collider_UpdateSpheresElement(&this->collider, 0, &this->dyna.actor);
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     }
 }
 
-void EnEncount2_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnEncount2_Draw(Actor* thisx, GameState* game) {
     EnEncount2* this = THIS;
     if (this->isPopped != 1) {
-        func_800BDFC0(globalCtx, D_06000A00);
-        func_800BDFC0(globalCtx, D_06000D78);
+        func_800BDFC0(game, D_06000A00);
+        func_800BDFC0(game, D_06000D78);
     }
-    EnEncount2_DrawParticles(this, globalCtx);
+    EnEncount2_DrawParticles(this, game);
 }
 
 void EnEncount2_InitParticles(EnEncount2* this, Vec3f* vec, s16 fadeDelay) {

@@ -10,9 +10,9 @@
 
 #define THIS ((ObjEnding*)thisx)
 
-void ObjEnding_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjEnding_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjEnding_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjEnding_Init(Actor* thisx, GameState* game);
+void ObjEnding_Update(Actor* thisx, GameState* game);
+void ObjEnding_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Ending_InitVars = {
     ACTOR_OBJ_ENDING,
@@ -40,7 +40,7 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_VEC3F_DIV1000(scale, 100, ICHAIN_STOP),
 };
 
-void ObjEnding_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjEnding_Init(Actor* thisx, GameState* game) {
     ObjEnding* this = THIS;
     AnimatedMaterial* animMat;
 
@@ -52,23 +52,23 @@ void ObjEnding_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void ObjEnding_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjEnding_Update(Actor* thisx, GameState* game) {
 }
 
-void ObjEnding_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjEnding_Draw(Actor* thisx, GameState* game) {
     ObjEnding* this = THIS;
     Gfx* dl1;
     Gfx* dl2;
 
     if (this->animMat != NULL) {
-        AnimatedMat_Draw(globalCtx, this->animMat);
+        AnimatedMat_Draw(game, this->animMat);
     }
     dl1 = this->modelInfo->dLists[0];
     if (dl1 != NULL) {
-        func_800BDFC0(globalCtx, dl1);
+        func_800BDFC0(game, dl1);
     }
     dl2 = this->modelInfo->dLists[1];
     if (dl2 != NULL) {
-        func_800BE03C(globalCtx, dl2);
+        func_800BE03C(game, dl2);
     }
 }

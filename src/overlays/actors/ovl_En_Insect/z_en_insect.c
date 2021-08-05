@@ -4,10 +4,10 @@
 
 #define THIS ((EnInsect*)thisx)
 
-void EnInsect_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnInsect_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnInsect_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnInsect_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnInsect_Init(Actor* thisx, GameState* game);
+void EnInsect_Destroy(Actor* thisx, GameState* game);
+void EnInsect_Update(Actor* thisx, GameState* game);
+void EnInsect_Draw(Actor* thisx, GameState* game);
 
 void func_8091ACC4(EnInsect* this, GlobalContext* globalCtx);
 void func_8091AE5C(EnInsect* this, GlobalContext* globalCtx);

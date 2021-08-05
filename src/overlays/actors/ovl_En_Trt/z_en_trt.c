@@ -14,10 +14,10 @@
 #define ENTRT_GIVEN_MUSHROOM (1 << 1)
 #define ENTRT_MET (1 << 2)
 
-void EnTrt_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTrt_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTrt_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTrt_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTrt_Init(Actor* thisx, GameState* game);
+void EnTrt_Destroy(Actor* thisx, GameState* game);
+void EnTrt_Update(Actor* thisx, GameState* game);
+void EnTrt_Draw(Actor* thisx, GameState* game);
 
 void EnTrt_GetCutscenes(EnTrt* this, GlobalContext* globalCtx);
 s32 EnTrt_ReturnItemToShelf(EnTrt* this);
@@ -1666,33 +1666,33 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_F32(targetArrowOffset, 500, ICHAIN_STOP),
 };
 
-void EnTrt_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnTrt_Init(Actor* thisx, GameState* game) {
     EnTrt* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    EnTrt_InitShop(this, globalCtx);
+    EnTrt_InitShop(this, game);
 }
 
-void EnTrt_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnTrt_Destroy(Actor* thisx, GameState* game) {
     EnTrt* this = THIS;
 
-    SkelAnime_Free(&this->skelAnime, globalCtx);
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    SkelAnime_Free(&this->skelAnime, game);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
-void EnTrt_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnTrt_Update(Actor* thisx, GameState* game) {
     EnTrt* this = THIS;
 
     this->blinkFunc(this);
-    EnTrt_UpdateJoystickInputState(globalCtx, this);
+    EnTrt_UpdateJoystickInputState(game, this);
     EnTrt_UpdateItemSelectedProperty(this);
     EnTrt_UpdateStickDirectionPromptAnim(this);
     EnTrt_UpdateCursorAnim(this);
-    EnTrt_UpdateHeadYawAndPitch(this, globalCtx);
-    this->actionFunc(this, globalCtx);
+    EnTrt_UpdateHeadYawAndPitch(this, game);
+    this->actionFunc(this, game);
     Actor_SetHeight(&this->actor, 90.0f);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    EnTrt_UpdateCollider(this, globalCtx);
+    EnTrt_UpdateCollider(this, game);
 }
 
 void EnTrt_UpdateHeadYawAndPitch(EnTrt* this, GlobalContext* globalCtx) {
@@ -1779,20 +1779,20 @@ void EnTrt_UnkActorDraw(GlobalContext* globalCtx, s32 limbIndex, Actor* thisx) {
     }
 }
 
-void EnTrt_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnTrt_Draw(Actor* thisx, GameState* game) {
     static TexturePtr sEyeTextures[] = { &D_0600B0B8, &D_0600B8B8, &D_0600C0B8 };
     EnTrt* this = THIS;
     s32 pad;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTextureIdx]));
     gSPSegment(POLY_OPA_DISP++, 0x09, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTextureIdx]));
-    func_801343C0(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    func_801343C0(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                   EnTrt_OverrideLimbDraw, EnTrt_PostLimbDraw, EnTrt_UnkActorDraw, &this->actor);
-    EnTrt_DrawCursor(globalCtx, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
-    EnTrt_DrawStickDirectionPrompt(globalCtx, this);
+    EnTrt_DrawCursor(game, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
+    EnTrt_DrawStickDirectionPrompt(game, this);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

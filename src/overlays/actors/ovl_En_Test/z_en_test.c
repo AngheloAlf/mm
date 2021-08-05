@@ -4,10 +4,10 @@
 
 #define THIS ((EnTest*)thisx)
 
-void EnTest_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTest_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTest_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTest_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTest_Init(Actor* thisx, GameState* game);
+void EnTest_Destroy(Actor* thisx, GameState* game);
+void EnTest_Update(Actor* thisx, GameState* game);
+void EnTest_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Test_InitVars = {

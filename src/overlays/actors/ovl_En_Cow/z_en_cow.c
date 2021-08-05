@@ -4,10 +4,10 @@
 
 #define THIS ((EnCow*)thisx)
 
-void EnCow_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnCow_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnCow_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnCow_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnCow_Init(Actor* thisx, GameState* game);
+void EnCow_Destroy(Actor* thisx, GameState* game);
+void EnCow_Update(Actor* thisx, GameState* game);
+void EnCow_Draw(Actor* thisx, GameState* game);
 
 void func_8099CAA8(EnCow* this, GlobalContext* globalCtx);
 void func_8099CB20(EnCow* this, GlobalContext* globalCtx);

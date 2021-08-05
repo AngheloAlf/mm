@@ -4,10 +4,10 @@
 
 #define THIS ((EnFamos*)thisx)
 
-void EnFamos_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFamos_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFamos_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFamos_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFamos_Init(Actor* thisx, GameState* game);
+void EnFamos_Destroy(Actor* thisx, GameState* game);
+void EnFamos_Update(Actor* thisx, GameState* game);
+void EnFamos_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Famos_InitVars = {

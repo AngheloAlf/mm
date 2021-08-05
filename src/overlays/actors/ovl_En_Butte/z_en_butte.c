@@ -4,10 +4,10 @@
 
 #define THIS ((EnButte*)thisx)
 
-void EnButte_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnButte_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnButte_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnButte_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnButte_Init(Actor* thisx, GameState* game);
+void EnButte_Destroy(Actor* thisx, GameState* game);
+void EnButte_Update(Actor* thisx, GameState* game);
+void EnButte_Draw(Actor* thisx, GameState* game);
 
 void func_8091C794(EnButte* this, GlobalContext* globalCtx);
 void func_8091CBB4(EnButte* this, GlobalContext* globalCtx);

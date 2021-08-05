@@ -12,10 +12,10 @@
 
 #define ENTOTO_WEEK_EVENT_FLAGS (gSaveContext.weekEventReg[50] & 1 || gSaveContext.weekEventReg[51] & 0x80)
 
-void EnToto_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnToto_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnToto_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnToto_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnToto_Init(Actor* thisx, GameState* game);
+void EnToto_Destroy(Actor* thisx, GameState* game);
+void EnToto_Update(Actor* thisx, GameState* game);
+void EnToto_Draw(Actor* thisx, GameState* game);
 
 void func_80BA3930(EnToto* this, GlobalContext* globalCtx);
 void func_80BA39C8(EnToto* this, GlobalContext* globalCtx);
@@ -194,27 +194,27 @@ void func_80BA36C0(EnToto* this, GlobalContext* globalCtx, s32 index) {
     D_80BA501C[this->actionFuncIndex](this, globalCtx);
 }
 
-void EnToto_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnToto_Init(Actor* thisx, GameState* game) {
     EnToto* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
-    if (globalCtx->sceneNum == 0x15 && (gSaveContext.time >= 0x4000 && gSaveContext.time < 0xE555)) {
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
+    if (((GlobalContext*)game)->sceneNum == 0x15 && (gSaveContext.time >= 0x4000 && gSaveContext.time < 0xE555)) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 30.0f);
     this->actor.bgCheckFlags |= 0x400;
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600A978, globalCtx->sceneNum == 0x12 ? &D_06003AA8 : &D_0600C880,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600A978, ((GlobalContext*)game)->sceneNum == 0x12 ? &D_06003AA8 : &D_0600C880,
                      this->limbDrawTbl, this->transitionDrawTbl, 18);
-    func_80BA36C0(this, globalCtx, 0);
+    func_80BA36C0(this, game, 0);
     this->actor.shape.rot.x = 0;
 }
 
-void EnToto_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnToto_Destroy(Actor* thisx, GameState* game) {
     EnToto* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void func_80BA383C(EnToto* this, GlobalContext* globalCtx) {
@@ -716,35 +716,35 @@ void func_80BA4CB4(EnToto* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnToto_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnToto_Update(Actor* thisx, GameState* game) {
     EnToto* this = THIS;
     s32 pad;
 
-    if (func_800EE29C(globalCtx, 0x20D)) {
-        func_80BA4CB4(this, globalCtx);
+    if (func_800EE29C(game, 0x20D)) {
+        func_80BA4CB4(this, game);
     } else {
-        D_80BA51B8[this->actionFuncIndex](this, globalCtx);
+        D_80BA51B8[this->actionFuncIndex](this, game);
     }
 
-    Collider_ResetCylinderAC(globalCtx, &this->collider.base);
+    Collider_ResetCylinderAC(game, &this->collider.base);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-    CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     Actor_SetHeight(&this->actor, 40.0f);
 }
 
-void EnToto_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnToto_Draw(Actor* thisx, GameState* game) {
     void* sp4C[] = { &D_06008AE8, &D_0600A068, &D_0600A468 };
     EnToto* this = THIS;
     s32 pad;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sp4C[this->unk260]));
-    Scene_SetRenderModeXlu(globalCtx, 0, 1);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
+    Scene_SetRenderModeXlu(game, 0, 1);
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
                      NULL, &this->actor);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

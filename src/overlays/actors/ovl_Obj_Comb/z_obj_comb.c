@@ -4,10 +4,10 @@
 
 #define THIS ((ObjComb*)thisx)
 
-void ObjComb_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjComb_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjComb_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjComb_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjComb_Init(Actor* thisx, GameState* game);
+void ObjComb_Destroy(Actor* thisx, GameState* game);
+void ObjComb_Update(Actor* thisx, GameState* game);
+void ObjComb_Draw(Actor* thisx, GameState* game);
 
 void func_8098DC60(ObjComb* this, GlobalContext* globalCtx);
 void func_8098DEA0(ObjComb* this, GlobalContext* globalCtx);

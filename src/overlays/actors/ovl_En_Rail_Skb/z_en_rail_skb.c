@@ -4,10 +4,10 @@
 
 #define THIS ((EnRailSkb*)thisx)
 
-void EnRailSkb_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRailSkb_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRailSkb_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRailSkb_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRailSkb_Init(Actor* thisx, GameState* game);
+void EnRailSkb_Destroy(Actor* thisx, GameState* game);
+void EnRailSkb_Update(Actor* thisx, GameState* game);
+void EnRailSkb_Draw(Actor* thisx, GameState* game);
 
 void func_80B70FF8(EnRailSkb* this, GlobalContext* globalCtx);
 void func_80B710E4(EnRailSkb* this, GlobalContext* globalCtx);

@@ -10,10 +10,10 @@
 
 #define THIS ((EnWarpUzu*)thisx)
 
-void EnWarpUzu_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWarpUzu_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWarpUzu_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWarpUzu_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWarpUzu_Init(Actor* thisx, GameState* game);
+void EnWarpUzu_Destroy(Actor* thisx, GameState* game);
+void EnWarpUzu_Update(Actor* thisx, GameState* game);
+void EnWarpUzu_Draw(Actor* thisx, GameState* game);
 
 void func_80A66208(EnWarpUzu* this, GlobalContext* globalCtx);
 void func_80A66278(EnWarpUzu* this, GlobalContext* globalCtx);
@@ -61,19 +61,19 @@ static InitChainEntry sInitChain[] = {
 
 extern Gfx D_06000EC0[];
 
-void EnWarpUzu_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnWarpUzu_Init(Actor* thisx, GameState* game) {
     EnWarpUzu* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, thisx, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, thisx, &sCylinderInit);
     thisx->targetMode = 0;
-    func_80A66208(this, globalCtx);
+    func_80A66208(this, game);
 }
 
-void EnWarpUzu_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnWarpUzu_Destroy(Actor* thisx, GameState* game) {
     EnWarpUzu* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 static Vec3f D_80A664FC = { 0.0f, 53.0f, -29.0f };
@@ -122,16 +122,16 @@ void func_80A66384(EnWarpUzu* this, GlobalContext* globalCtx) {
 void EnWarpUzu_DoNothing(EnWarpUzu* this, GlobalContext* globalCtx) {
 }
 
-void EnWarpUzu_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnWarpUzu_Update(Actor* thisx, GameState* game) {
     EnWarpUzu* this = THIS;
     s32 pad;
 
     this->actor.uncullZoneForward = 1000.0f;
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
-void EnWarpUzu_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000EC0);
+void EnWarpUzu_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000EC0);
 }

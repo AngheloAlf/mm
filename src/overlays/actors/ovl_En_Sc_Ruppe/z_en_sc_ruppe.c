@@ -4,10 +4,10 @@
 
 #define THIS ((EnScRuppe*)thisx)
 
-void EnScRuppe_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnScRuppe_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnScRuppe_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnScRuppe_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnScRuppe_Init(Actor* thisx, GameState* game);
+void EnScRuppe_Destroy(Actor* thisx, GameState* game);
+void EnScRuppe_Update(Actor* thisx, GameState* game);
+void EnScRuppe_Draw(Actor* thisx, GameState* game);
 
 void func_80BD6A8C(EnScRuppe* this, GlobalContext* globalCtx);
 void func_80BD6B18(EnScRuppe* this, GlobalContext* globalCtx);

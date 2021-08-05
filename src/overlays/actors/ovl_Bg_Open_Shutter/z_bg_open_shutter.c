@@ -4,10 +4,10 @@
 
 #define THIS ((BgOpenShutter*)thisx)
 
-void BgOpenShutter_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgOpenShutter_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgOpenShutter_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgOpenShutter_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgOpenShutter_Init(Actor* thisx, GameState* game);
+void BgOpenShutter_Destroy(Actor* thisx, GameState* game);
+void BgOpenShutter_Update(Actor* thisx, GameState* game);
+void BgOpenShutter_Draw(Actor* thisx, GameState* game);
 
 void func_80ACAD88(BgOpenShutter* this, GlobalContext* globalCtx);
 void func_80ACAE5C(BgOpenShutter* this, GlobalContext* globalCtx);

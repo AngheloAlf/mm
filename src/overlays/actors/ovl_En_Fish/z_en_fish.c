@@ -4,10 +4,10 @@
 
 #define THIS ((EnFish*)thisx)
 
-void EnFish_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFish_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFish_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFish_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFish_Init(Actor* thisx, GameState* game);
+void EnFish_Destroy(Actor* thisx, GameState* game);
+void EnFish_Update(Actor* thisx, GameState* game);
+void EnFish_Draw(Actor* thisx, GameState* game);
 
 #if 0
 // static ColliderJntSphElementInit sJntSphElementsInit[1] = {

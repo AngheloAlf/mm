@@ -4,10 +4,10 @@
 
 #define THIS ((EnRsn*)thisx)
 
-void EnRsn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRsn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRsn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRsn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRsn_Init(Actor* thisx, GameState* game);
+void EnRsn_Destroy(Actor* thisx, GameState* game);
+void EnRsn_Update(Actor* thisx, GameState* game);
+void EnRsn_Draw(Actor* thisx, GameState* game);
 
 void func_80C25D84(EnRsn* this, GlobalContext* globalCtx);
 
@@ -38,28 +38,28 @@ void func_80C25D40(EnRsn* this) {
 void func_80C25D84(EnRsn* this, GlobalContext* globalCtx) {
 }
 
-void EnRsn_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnRsn_Init(Actor* thisx, GameState* game) {
     EnRsn* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 20.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06009220, &D_06009120, NULL, NULL, 0);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06009220, &D_06009120, NULL, NULL, 0);
     this->actor.flags &= ~1;
     func_80C25D40(this);
 }
 
-void EnRsn_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnRsn_Destroy(Actor* thisx, GameState* game) {
     EnRsn* this = THIS;
 
-    SkelAnime_Free(&this->skelAnime, globalCtx);
+    SkelAnime_Free(&this->skelAnime, game);
 }
 
-void EnRsn_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnRsn_Update(Actor* thisx, GameState* game) {
     EnRsn* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    func_800E9250(globalCtx, &this->actor, &this->unk1D8, &this->unk1DE, this->actor.focus.pos);
+    func_800E9250(game, &this->actor, &this->unk1D8, &this->unk1DE, this->actor.focus.pos);
 }
 
 s32 EnRsn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
@@ -82,12 +82,12 @@ void EnRsn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Ve
     }
 }
 
-void EnRsn_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnRsn_Draw(Actor* thisx, GameState* game) {
     EnRsn* this = THIS;
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C5B0(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C5B0(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(D_06005458));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnRsn_OverrideLimbDraw, EnRsn_PostLimbDraw, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

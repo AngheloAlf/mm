@@ -4,10 +4,10 @@
 
 #define THIS ((EnDodongo*)thisx)
 
-void EnDodongo_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDodongo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDodongo_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDodongo_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDodongo_Init(Actor* thisx, GameState* game);
+void EnDodongo_Destroy(Actor* thisx, GameState* game);
+void EnDodongo_Update(Actor* thisx, GameState* game);
+void EnDodongo_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Dodongo_InitVars = {

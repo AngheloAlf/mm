@@ -4,10 +4,10 @@
 
 #define THIS ((EnDnq*)thisx)
 
-void EnDnq_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDnq_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDnq_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDnq_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDnq_Init(Actor* thisx, GameState* game);
+void EnDnq_Destroy(Actor* thisx, GameState* game);
+void EnDnq_Update(Actor* thisx, GameState* game);
+void EnDnq_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Dnq_InitVars = {

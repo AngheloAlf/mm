@@ -4,10 +4,10 @@
 
 #define THIS ((EnDeath*)thisx)
 
-void EnDeath_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDeath_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDeath_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDeath_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDeath_Init(Actor* thisx, GameState* game);
+void EnDeath_Destroy(Actor* thisx, GameState* game);
+void EnDeath_Update(Actor* thisx, GameState* game);
+void EnDeath_Draw(Actor* thisx, GameState* game);
 
 void func_808C589C(EnDeath* this, GlobalContext* globalCtx);
 void func_808C5AB8(EnDeath* this, GlobalContext* globalCtx);

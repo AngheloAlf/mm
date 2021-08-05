@@ -4,10 +4,10 @@
 
 #define THIS ((BgIknvObj*)thisx)
 
-void BgIknvObj_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIknvObj_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIknvObj_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIknvObj_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIknvObj_Init(Actor* thisx, GameState* game);
+void BgIknvObj_Destroy(Actor* thisx, GameState* game);
+void BgIknvObj_Update(Actor* thisx, GameState* game);
+void BgIknvObj_Draw(Actor* thisx, GameState* game);
 
 void BgIknvObj_DoNothing(BgIknvObj* this, GlobalContext* globalCtx);
 void BgIknvObj_UpdateWaterwheel(BgIknvObj* this, GlobalContext* globalCtx);
@@ -52,7 +52,7 @@ static ColliderCylinderInit sCylinderInit = {
     { 40, 40, 0, { 0, 0, 0 } },
 };
 
-void BgIknvObj_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgIknvObj_Init(Actor* thisx, GameState* game) {
     s32 pad;
     BgIknvObj* this = THIS;
     CollisionHeader* colHeader = NULL;
@@ -70,7 +70,7 @@ void BgIknvObj_Init(Actor* thisx, GlobalContext* globalCtx) {
             this->displayListPtr = D_06011880;
             BcCheck3_BgActorInit(&this->dyna, 0);
             BgCheck_RelocateMeshHeader(&D_060119D4, &colHeader);
-            this->dyna.bgId = BgCheck_AddActorMesh(globalCtx, &globalCtx->colCtx.dyna, &this->dyna, colHeader);
+            this->dyna.bgId = BgCheck_AddActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, &this->dyna, colHeader);
             this->actionFunc = BgIknvObj_UpdateRaisedDoor;
             this->dyna.actor.world.pos.y = this->dyna.actor.home.pos.y + 120.0f;
             break;
@@ -79,8 +79,8 @@ void BgIknvObj_Init(Actor* thisx, GlobalContext* globalCtx) {
             this->actionFunc = BgIknvObj_UpdateSakonDoor;
             BcCheck3_BgActorInit(&this->dyna, 0);
             BgCheck_RelocateMeshHeader(&D_06012CA4, &colHeader);
-            this->dyna.bgId = BgCheck_AddActorMesh(globalCtx, &globalCtx->colCtx.dyna, &this->dyna, colHeader);
-            Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->dyna.actor, &sCylinderInit);
+            this->dyna.bgId = BgCheck_AddActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, &this->dyna, colHeader);
+            Collider_InitAndSetCylinder(game, &this->collider, &this->dyna.actor, &sCylinderInit);
             Collider_UpdateCylinder(&this->dyna.actor, &this->collider);
             this->dyna.actor.colChkInfo.mass = MASS_IMMOVABLE;
             gSaveContext.weekEventReg[51] &= (u8)~0x10;
@@ -91,18 +91,18 @@ void BgIknvObj_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void BgIknvObj_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgIknvObj_Destroy(Actor* thisx, GameState* game) {
     BgIknvObj* this = THIS;
 
     if (IKNV_OBJ_TYPE(this) != IKNV_OBJ_RAISED_DOOR) {
         if (IKNV_OBJ_TYPE(this) == IKNV_OBJ_SAKON_DOOR) {
-            Collider_DestroyCylinder(globalCtx, &this->collider);
+            Collider_DestroyCylinder(game, &this->collider);
             gSaveContext.weekEventReg[51] &= (u8)~0x10;
         } else {
             return;
         }
     }
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 s32 func_80BD7CEC(BgIknvObj* this) {
@@ -200,18 +200,18 @@ void BgIknvObj_UpdateRaisedDoor(BgIknvObj* this, GlobalContext* globalCtx) {
 void BgIknvObj_DoNothing(BgIknvObj* this, GlobalContext* globalCtx) {
 }
 
-void BgIknvObj_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgIknvObj_Update(Actor* thisx, GameState* game) {
     BgIknvObj* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgIknvObj_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void BgIknvObj_Draw(Actor* thisx, GameState* game) {
     BgIknvObj* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    func_8012C28C(game->gfxCtx);
     gSPDisplayList(POLY_OPA_DISP++, this->displayListPtr);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

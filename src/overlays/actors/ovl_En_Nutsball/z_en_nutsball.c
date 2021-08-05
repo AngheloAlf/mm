@@ -5,10 +5,10 @@
 
 #define THIS ((EnNutsball*)thisx)
 
-void EnNutsball_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnNutsball_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnNutsball_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnNutsball_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnNutsball_Init(Actor* thisx, GameState* game);
+void EnNutsball_Destroy(Actor* thisx, GameState* game);
+void EnNutsball_Update(Actor* thisx, GameState* game);
+void EnNutsball_Draw(Actor* thisx, GameState* game);
 
 void EnNutsball_InitColliderParams(EnNutsball* this);
 
@@ -44,11 +44,11 @@ static ColliderCylinderInit sCylinderInit = {
     { 13, 13, 0, { 0, 0, 0 } },
 };
 
-void EnNutsball_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnNutsball_Init(Actor* thisx, GameState* game) {
     EnNutsball* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 400.0f, (ActorShadowFunc)func_800B3FC0, 13.0f);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     this->actor.shape.rot.y = 0;
     this->actor.speedXZ = 10.0f;
     if (this->actor.params == 2) {
@@ -67,9 +67,9 @@ void EnNutsball_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnNutsball_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnNutsball_Destroy(Actor* thisx, GameState* game) {
     EnNutsball* this = THIS;
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnNutsball_InitColliderParams(EnNutsball* this) {
@@ -79,10 +79,9 @@ void EnNutsball_InitColliderParams(EnNutsball* this) {
     this->collider.info.toucher.damage = 2;
 }
 
-void EnNutsball_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnNutsball_Update(Actor* thisx, GameState* game) {
     EnNutsball* this = THIS;
-    GlobalContext* globalCtx2 = globalCtx;
-
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player = PLAYER;
     Vec3f worldPos;
     Vec3s worldRot;
@@ -113,11 +112,11 @@ void EnNutsball_Update(Actor* thisx, GlobalContext* globalCtx) {
                 spawnBurstPos.x = this->actor.world.pos.x;
                 spawnBurstPos.y = this->actor.world.pos.y + 4.0f;
                 spawnBurstPos.z = this->actor.world.pos.z;
-                EffectSsHahen_SpawnBurst(globalCtx, &spawnBurstPos, 6.0f, 0, 7, 3, 15, HAHEN_OBJECT_DEFAULT, 10, NULL);
+                EffectSsHahen_SpawnBurst(game, &spawnBurstPos, 6.0f, 0, 7, 3, 15, HAHEN_OBJECT_DEFAULT, 10, NULL);
                 if (this->actor.params == 1) {
-                    func_800F0568(globalCtx, &this->actor.world.pos, 20, NA_SE_EV_NUTS_BROKEN);
+                    func_800F0568(game, &this->actor.world.pos, 20, NA_SE_EV_NUTS_BROKEN);
                 } else {
-                    func_800F0568(globalCtx, &this->actor.world.pos, 20, NA_SE_EN_OCTAROCK_ROCK);
+                    func_800F0568(game, &this->actor.world.pos, 20, NA_SE_EN_OCTAROCK_ROCK);
                 }
                 Actor_MarkForDeath(&this->actor);
             }
@@ -129,14 +128,14 @@ void EnNutsball_Update(Actor* thisx, GlobalContext* globalCtx) {
 
         Actor_SetVelocityAndMoveXYRotation(&this->actor);
         Math_Vec3f_Copy(&worldPos, &this->actor.world.pos);
-        Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 10.0f, 5.0f, 10.0f, 0x7);
+        Actor_UpdateBgCheckInfo(game, &this->actor, 10.0f, 5.0f, 10.0f, 0x7);
 
         if (this->actor.bgCheckFlags & 8) {
-            if (func_800C9A4C(&globalCtx2->colCtx, this->actor.wallPoly, this->actor.wallBgId) & 0x30) {
+            if (func_800C9A4C(&globalCtx->colCtx, this->actor.wallPoly, this->actor.wallBgId) & 0x30) {
                 this->actor.bgCheckFlags &= ~8;
-                if (func_800C55C4(&globalCtx2->colCtx, &this->actor.prevPos, &worldPos, &this->actor.world.pos, &poly,
+                if (func_800C55C4(&globalCtx->colCtx, &this->actor.prevPos, &worldPos, &this->actor.world.pos, &poly,
                                   1, 0, 0, 1, &bgId)) {
-                    if (func_800C9A4C(&globalCtx2->colCtx, poly, bgId) & 0x30) {
+                    if (func_800C9A4C(&globalCtx->colCtx, poly, bgId) & 0x30) {
                         this->actor.world.pos.x += this->actor.velocity.x * 0.01f;
                         this->actor.world.pos.z += this->actor.velocity.z * 0.01f;
                     } else {
@@ -151,23 +150,23 @@ void EnNutsball_Update(Actor* thisx, GlobalContext* globalCtx) {
 
         this->actor.flags |= 0x1000000;
 
-        CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAT(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 
         if (this->timer < this->timerThreshold) {
-            CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
         }
     }
 }
 
-void EnNutsball_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnNutsball_Draw(Actor* thisx, GameState* game) {
     EnNutsball* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    SysMatrix_InsertMatrix(&globalCtx->mf_187FC, 1);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    SysMatrix_InsertMatrix(&((GlobalContext*)game)->mf_187FC, 1);
     SysMatrix_InsertZRotation_s(this->actor.home.rot.z, 1);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_04058BA0);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

@@ -4,10 +4,10 @@
 
 #define THIS ((BgF40Block*)thisx)
 
-void BgF40Block_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgF40Block_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgF40Block_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgF40Block_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgF40Block_Init(Actor* thisx, GameState* game);
+void BgF40Block_Destroy(Actor* thisx, GameState* game);
+void BgF40Block_Update(Actor* thisx, GameState* game);
+void BgF40Block_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_F40_Block_InitVars = {

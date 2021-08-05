@@ -4,9 +4,9 @@
 
 #define THIS ((DmGm*)thisx)
 
-void DmGm_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmGm_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmGm_Update(Actor* thisx, GlobalContext* globalCtx);
+void DmGm_Init(Actor* thisx, GameState* game);
+void DmGm_Destroy(Actor* thisx, GameState* game);
+void DmGm_Update(Actor* thisx, GameState* game);
 
 void func_80C248A8(DmGm* this, GlobalContext* globalCtx);
 void func_80C24A00(DmGm* this, GlobalContext* globalCtx);

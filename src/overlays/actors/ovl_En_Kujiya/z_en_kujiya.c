@@ -4,10 +4,10 @@
 
 #define THIS ((EnKujiya*)thisx)
 
-void EnKujiya_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKujiya_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKujiya_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnKujiya_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnKujiya_Init(Actor* thisx, GameState* game);
+void EnKujiya_Destroy(Actor* thisx, GameState* game);
+void EnKujiya_Update(Actor* thisx, GameState* game);
+void EnKujiya_Draw(Actor* thisx, GameState* game);
 
 void func_80BB09BC(EnKujiya* this, GlobalContext* globalCtx);
 void func_80BB0E58(EnKujiya* this, GlobalContext* globalCtx);

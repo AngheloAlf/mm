@@ -4,10 +4,10 @@
 
 #define THIS ((DoorAna*)thisx)
 
-void DoorAna_Init(Actor* thisx, GlobalContext* globalCtx);
-void DoorAna_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DoorAna_Update(Actor* thisx, GlobalContext* globalCtx);
-void DoorAna_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DoorAna_Init(Actor* thisx, GameState* game);
+void DoorAna_Destroy(Actor* thisx, GameState* game);
+void DoorAna_Update(Actor* thisx, GameState* game);
+void DoorAna_Draw(Actor* thisx, GameState* game);
 
 void DoorAna_WaitClosed(DoorAna* this, GlobalContext* globalCtx);
 void DoorAna_WaitOpen(DoorAna* this, GlobalContext* globalCtx);
@@ -55,14 +55,14 @@ void DoorAna_SetupAction(DoorAna* this, DoorAnaActionFunc actionFunction) {
     this->actionFunc = actionFunction;
 }
 
-void DoorAna_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DoorAna_Init(Actor* thisx, GameState* game) {
     DoorAna* this = THIS;
     s32 grottoType = GET_DOORANA_TYPE(this);
     this->actor.shape.rot.y = this->actor.shape.rot.z = 0;
 
     if ((grottoType == DOORANA_TYPE_UNK) || (grottoType == DOORANA_TYPE_HIDDEN)) {
         if (grottoType == DOORANA_TYPE_HIDDEN) {
-            Collider_InitAndSetCylinder(globalCtx, &this->bombCollider, &this->actor, &sCylinderInit);
+            Collider_InitAndSetCylinder(game, &this->bombCollider, &this->actor, &sCylinderInit);
         } else {
             this->actor.flags |= 0x10; // always update
         }
@@ -77,12 +77,12 @@ void DoorAna_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actor.targetMode = 0;
 }
 
-void DoorAna_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DoorAna_Destroy(Actor* thisx, GameState* game) {
     DoorAna* this = THIS;
     s32 grottoType = GET_DOORANA_TYPE(this);
 
     if (grottoType == DOORANA_TYPE_HIDDEN) {
-        Collider_DestroyCylinder(globalCtx, &this->bombCollider);
+        Collider_DestroyCylinder(game, &this->bombCollider);
     }
 }
 
@@ -193,13 +193,13 @@ void DoorAna_GrabLink(DoorAna* this, GlobalContext* globalCtx) {
     }
 }
 
-void DoorAna_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DoorAna_Update(Actor* thisx, GameState* game) {
     DoorAna* this = THIS;
 
-    this->actionFunc(this, globalCtx);
-    this->actor.shape.rot.y = BINANG_ROT180(func_800DFCDC(globalCtx->cameraPtrs[globalCtx->activeCamera]));
+    this->actionFunc(this, game);
+    this->actor.shape.rot.y = BINANG_ROT180(func_800DFCDC(((GlobalContext*)game)->cameraPtrs[((GlobalContext*)game)->activeCamera]));
 }
 
-void DoorAna_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BE03C(globalCtx, D_05000C40);
+void DoorAna_Draw(Actor* thisx, GameState* game) {
+    func_800BE03C(game, D_05000C40);
 }

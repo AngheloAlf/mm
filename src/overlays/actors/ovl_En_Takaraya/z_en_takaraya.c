@@ -4,10 +4,10 @@
 
 #define THIS ((EnTakaraya*)thisx)
 
-void EnTakaraya_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTakaraya_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTakaraya_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTakaraya_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTakaraya_Init(Actor* thisx, GameState* game);
+void EnTakaraya_Destroy(Actor* thisx, GameState* game);
+void EnTakaraya_Update(Actor* thisx, GameState* game);
+void EnTakaraya_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Takaraya_InitVars = {

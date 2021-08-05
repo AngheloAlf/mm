@@ -4,9 +4,9 @@
 
 #define THIS ((EnEncount4*)thisx)
 
-void EnEncount4_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnEncount4_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnEncount4_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnEncount4_Init(Actor* thisx, GameState* game);
+void EnEncount4_Destroy(Actor* thisx, GameState* game);
+void EnEncount4_Update(Actor* thisx, GameState* game);
 
 void func_809C3FD8(EnEncount4* this, GlobalContext* globalCtx);
 void func_809C4078(EnEncount4* this, GlobalContext* globalCtx);

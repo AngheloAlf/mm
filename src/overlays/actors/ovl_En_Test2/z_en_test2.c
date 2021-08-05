@@ -4,8 +4,8 @@
 
 #define THIS ((EnTest2*)thisx)
 
-void EnTest2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTest2_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnTest2_Init(Actor* thisx, GameState* game);
+void EnTest2_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Test2_InitVars = {

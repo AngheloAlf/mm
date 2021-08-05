@@ -4,10 +4,10 @@
 
 #define THIS ((DemoSyoten*)thisx)
 
-void DemoSyoten_Init(Actor* thisx, GlobalContext* globalCtx);
-void DemoSyoten_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DemoSyoten_Update(Actor* thisx, GlobalContext* globalCtx);
-void DemoSyoten_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DemoSyoten_Init(Actor* thisx, GameState* game);
+void DemoSyoten_Destroy(Actor* thisx, GameState* game);
+void DemoSyoten_Update(Actor* thisx, GameState* game);
+void DemoSyoten_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Demo_Syoten_InitVars = {

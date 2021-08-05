@@ -4,10 +4,10 @@
 
 #define THIS ((BgDblueWaterfall*)thisx)
 
-void BgDblueWaterfall_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueWaterfall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueWaterfall_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueWaterfall_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgDblueWaterfall_Init(Actor* thisx, GameState* game);
+void BgDblueWaterfall_Destroy(Actor* thisx, GameState* game);
+void BgDblueWaterfall_Update(Actor* thisx, GameState* game);
+void BgDblueWaterfall_Draw(Actor* thisx, GameState* game);
 
 void func_80B84928(BgDblueWaterfall* this, GlobalContext* globalCtx);
 void func_80B84AEC(BgDblueWaterfall* this, GlobalContext* globalCtx);

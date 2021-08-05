@@ -4,10 +4,10 @@
 
 #define THIS ((ObjKendoKanban*)thisx)
 
-void ObjKendoKanban_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjKendoKanban_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjKendoKanban_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjKendoKanban_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjKendoKanban_Init(Actor* thisx, GameState* game);
+void ObjKendoKanban_Destroy(Actor* thisx, GameState* game);
+void ObjKendoKanban_Update(Actor* thisx, GameState* game);
+void ObjKendoKanban_Draw(Actor* thisx, GameState* game);
 
 void func_80B65894(ObjKendoKanban* this, GlobalContext* globalCtx);
 void func_80B65CE0(ObjKendoKanban* this, GlobalContext* globalCtx);

@@ -4,9 +4,9 @@
 
 #define THIS ((BgFireWall*)thisx)
 
-void BgFireWall_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgFireWall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgFireWall_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgFireWall_Init(Actor* thisx, GameState* game);
+void BgFireWall_Destroy(Actor* thisx, GameState* game);
+void BgFireWall_Update(Actor* thisx, GameState* game);
 
 void func_809AC638(BgFireWall* this, GlobalContext* globalCtx);
 void func_809AC68C(BgFireWall* this, GlobalContext* globalCtx);

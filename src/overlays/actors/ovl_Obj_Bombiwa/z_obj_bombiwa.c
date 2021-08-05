@@ -4,9 +4,9 @@
 
 #define THIS ((ObjBombiwa*)thisx)
 
-void ObjBombiwa_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBombiwa_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjBombiwa_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjBombiwa_Init(Actor* thisx, GameState* game);
+void ObjBombiwa_Destroy(Actor* thisx, GameState* game);
+void ObjBombiwa_Update(Actor* thisx, GameState* game);
 
 void func_80939EF4(ObjBombiwa* this, GlobalContext* globalCtx);
 void func_8093A1F0(ObjBombiwa* this, GlobalContext* globalCtx);

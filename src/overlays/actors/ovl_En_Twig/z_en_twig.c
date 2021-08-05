@@ -4,10 +4,10 @@
 
 #define THIS ((EnTwig*)thisx)
 
-void EnTwig_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTwig_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTwig_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTwig_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTwig_Init(Actor* thisx, GameState* game);
+void EnTwig_Destroy(Actor* thisx, GameState* game);
+void EnTwig_Update(Actor* thisx, GameState* game);
+void EnTwig_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Twig_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjHunsui*)thisx)
 
-void ObjHunsui_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHunsui_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHunsui_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHunsui_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHunsui_Init(Actor* thisx, GameState* game);
+void ObjHunsui_Destroy(Actor* thisx, GameState* game);
+void ObjHunsui_Update(Actor* thisx, GameState* game);
+void ObjHunsui_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Hunsui_InitVars = {

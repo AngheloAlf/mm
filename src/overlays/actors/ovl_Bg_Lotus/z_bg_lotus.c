@@ -10,10 +10,10 @@
 
 #define THIS ((BgLotus*)thisx)
 
-void BgLotus_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgLotus_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgLotus_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgLotus_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgLotus_Init(Actor* thisx, GameState* game);
+void BgLotus_Destroy(Actor* thisx, GameState* game);
+void BgLotus_Update(Actor* thisx, GameState* game);
+void BgLotus_Draw(Actor* thisx, GameState* game);
 
 void BgLotus_Wait(BgLotus* this, GlobalContext* globalCtx);
 void BgLotus_Sink(BgLotus* this, GlobalContext* globalCtx);
@@ -38,25 +38,25 @@ static InitChainEntry sInitChain[] = {
 extern CollisionHeader D_06000A20; // Lilypad collision
 extern Gfx D_06000040[];           // Lilypad model
 
-void BgLotus_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgLotus_Init(Actor* thisx, GameState* game) {
     BgLotus* this = THIS;
     s32 pad;
     s32 sp2C;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000A20);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06000A20);
     this->dyna.actor.floorHeight =
-        func_800C411C(&globalCtx->colCtx, &thisx->floorPoly, &sp2C, &this->dyna.actor, &this->dyna.actor.world.pos);
+        func_800C411C(&((GlobalContext*)game)->colCtx, &thisx->floorPoly, &sp2C, &this->dyna.actor, &this->dyna.actor.world.pos);
     this->timer2 = 96;
     this->dyna.actor.world.rot.y = Rand_Next() >> 0x10;
     this->actionFunc = BgLotus_Wait;
 }
 
-void BgLotus_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgLotus_Destroy(Actor* thisx, GameState* game) {
     BgLotus* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void BgLotus_SetScaleXZ(BgLotus* this) {
@@ -162,16 +162,16 @@ void BgLotus_WaitToAppear(BgLotus* this, GlobalContext* globalCtx) {
     }
 }
 
-void BgLotus_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgLotus_Update(Actor* thisx, GameState* game) {
     BgLotus* this = THIS;
     s32 pad;
     void* sp2C;
 
-    func_800CA1E8(globalCtx, &globalCtx->colCtx, this->dyna.actor.world.pos.x, this->dyna.actor.world.pos.z,
+    func_800CA1E8(game, &((GlobalContext*)game)->colCtx, this->dyna.actor.world.pos.x, this->dyna.actor.world.pos.z,
                   &this->height, &sp2C);
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgLotus_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000040);
+void BgLotus_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000040);
 }

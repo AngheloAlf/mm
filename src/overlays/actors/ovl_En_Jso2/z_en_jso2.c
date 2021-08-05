@@ -4,10 +4,10 @@
 
 #define THIS ((EnJso2*)thisx)
 
-void EnJso2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnJso2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnJso2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnJso2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnJso2_Init(Actor* thisx, GameState* game);
+void EnJso2_Destroy(Actor* thisx, GameState* game);
+void EnJso2_Update(Actor* thisx, GameState* game);
+void EnJso2_Draw(Actor* thisx, GameState* game);
 
 void func_80A778F8(EnJso2* this, GlobalContext* globalCtx);
 void func_80A785E4(EnJso2* this, GlobalContext* globalCtx);

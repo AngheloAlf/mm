@@ -4,10 +4,10 @@
 
 #define THIS ((EnLight*)thisx)
 
-void EnLight_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnLight_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnLight_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnLight_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnLight_Init(Actor* thisx, GameState* game);
+void EnLight_Destroy(Actor* thisx, GameState* game);
+void EnLight_Update(Actor* thisx, GameState* game);
+void EnLight_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Light_InitVars = {

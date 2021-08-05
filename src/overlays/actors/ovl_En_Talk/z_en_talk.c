@@ -4,9 +4,9 @@
 
 #define THIS ((EnTalk*)thisx)
 
-void EnTalk_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTalk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTalk_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnTalk_Init(Actor* thisx, GameState* game);
+void EnTalk_Destroy(Actor* thisx, GameState* game);
+void EnTalk_Update(Actor* thisx, GameState* game);
 
 void func_80BDE058(EnTalk* this, GlobalContext* globalCtx);
 void func_80BDE090(EnTalk* this, GlobalContext* globalCtx);

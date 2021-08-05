@@ -4,8 +4,8 @@
 
 #define THIS ((ObjMakeoshihiki*)thisx)
 
-void ObjMakeoshihiki_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjMakeoshihiki_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjMakeoshihiki_Init(Actor* thisx, GameState* game);
+void ObjMakeoshihiki_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Makeoshihiki_InitVars = {

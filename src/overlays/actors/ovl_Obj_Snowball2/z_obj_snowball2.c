@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSnowball2*)thisx)
 
-void ObjSnowball2_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSnowball2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSnowball2_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSnowball2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSnowball2_Init(Actor* thisx, GameState* game);
+void ObjSnowball2_Destroy(Actor* thisx, GameState* game);
+void ObjSnowball2_Update(Actor* thisx, GameState* game);
+void ObjSnowball2_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Snowball2_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((EnBigpamet*)thisx)
 
-void EnBigpamet_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBigpamet_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBigpamet_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBigpamet_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBigpamet_Init(Actor* thisx, GameState* game);
+void EnBigpamet_Destroy(Actor* thisx, GameState* game);
+void EnBigpamet_Update(Actor* thisx, GameState* game);
+void EnBigpamet_Draw(Actor* thisx, GameState* game);
 
 void func_80A281DC(EnBigpamet* this, GlobalContext* globalCtx);
 void func_80A282C8(EnBigpamet* this, GlobalContext* globalCtx);

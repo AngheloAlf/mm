@@ -13,12 +13,12 @@
 #define LOOKED_AT_PLAYER (1 << 0)
 #define END_INTERACTION (1 << 1)
 
-void EnOssan_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOssan_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOssan_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnOssan_Init(Actor* thisx, GameState* game);
+void EnOssan_Destroy(Actor* thisx, GameState* game);
+void EnOssan_Update(Actor* thisx, GameState* game);
 
-void EnOssan_DrawCuriosityShopMan(Actor* thisx, GlobalContext* globalCtx);
-void EnOssan_DrawPartTimeWorker(Actor* thisx, GlobalContext* globalCtx);
+void EnOssan_DrawCuriosityShopMan(Actor* thisx, GameState* game);
+void EnOssan_DrawPartTimeWorker(Actor* thisx, GameState* game);
 
 void EnOssan_InitCuriosityShopMan(EnOssan* this, GlobalContext* globalCtx);
 void EnOssan_InitPartTimeWorker(EnOssan* this, GlobalContext* globalCtx);
@@ -226,7 +226,7 @@ void EnOssan_SpawnShopItems(EnOssan* this, GlobalContext* globalCtx, ShopItem* s
     }
 }
 
-void EnOssan_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnOssan_Init(Actor* thisx, GameState* game) {
     EnOssan* this = THIS;
     s16 id;
 
@@ -236,7 +236,7 @@ void EnOssan_Init(Actor* thisx, GlobalContext* globalCtx) {
         return;
     }
     id = sObjectIds[this->actor.params];
-    this->objIndex = Object_GetIndex(&globalCtx->objectCtx, id);
+    this->objIndex = Object_GetIndex(&((GlobalContext*)game)->objectCtx, id);
     if (this->objIndex < 0) {
         Actor_MarkForDeath(&this->actor);
         return;
@@ -246,10 +246,10 @@ void EnOssan_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnOssan_SetupAction(this, EnOssan_InitShop);
 }
 
-void EnOssan_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnOssan_Destroy(Actor* thisx, GameState* game) {
     EnOssan* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnOssan_UpdateCursorPos(GlobalContext* globalCtx, EnOssan* this) {
@@ -1509,21 +1509,21 @@ void EnOssan_GetCutscenes(EnOssan* this, GlobalContext* globalCtx) {
     this->lookToShopKeeperFromShelfCutscene = ActorCutscene_GetAdditionalCutscene(this->lookToRightShelfCutscene);
 }
 
-void EnOssan_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnOssan_Update(Actor* thisx, GameState* game) {
     EnOssan* this = THIS;
 
     if (this->actionFunc != EnOssan_InitShop) {
         this->blinkFunc(this);
-        EnOssan_UpdateJoystickInputState(globalCtx, this);
+        EnOssan_UpdateJoystickInputState(game, this);
         EnOssan_UpdateItemSelectedProperty(this);
         EnOssan_UpdateStickDirectionPromptAnim(this);
         EnOssan_UpdateCursorAnim(this);
-        func_800E9250(globalCtx, &this->actor, &this->headRot, &this->unk2CC, this->actor.focus.pos);
-        this->actionFunc(this, globalCtx);
+        func_800E9250(game, &this->actor, &this->headRot, &this->unk2CC, this->actor.focus.pos);
+        this->actionFunc(this, game);
         Actor_SetHeight(&this->actor, 90.0f);
         SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     } else {
-        this->actionFunc(this, globalCtx);
+        this->actionFunc(this, game);
     }
 }
 
@@ -1678,32 +1678,32 @@ void EnOssan_PostLimbDrawPartTimeWorker(GlobalContext* globalCtx, s32 limbIndex,
     }
 }
 
-void EnOssan_DrawCuriosityShopMan(Actor* thisx, GlobalContext* globalCtx) {
+void EnOssan_DrawCuriosityShopMan(Actor* thisx, GameState* game) {
     static TexturePtr sEyeTextures[] = { &D_06005BC0, &D_06006D40, &D_06007140 };
     EnOssan* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTexIndex]));
     SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnOssan_OverrideLimbDrawCuriosityShopMan, EnOssan_PostLimbDrawCuriosityShopMan, &this->actor);
     EnOssan_DrawCursor(globalCtx, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
     EnOssan_DrawStickDirectionPrompts(globalCtx, this);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
-void EnOssan_DrawPartTimeWorker(Actor* thisx, GlobalContext* globalCtx) {
+void EnOssan_DrawPartTimeWorker(Actor* thisx, GameState* game) {
     static TexturePtr sEyeTextures[] = { &D_06006498, &D_06006B18, &D_06006F18 };
     EnOssan* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTexIndex]));
     SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnOssan_OverrideLimbDrawPartTimeWorker, EnOssan_PostLimbDrawPartTimeWorker, &this->actor);
     EnOssan_DrawCursor(globalCtx, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
     EnOssan_DrawStickDirectionPrompts(globalCtx, this);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

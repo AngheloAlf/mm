@@ -4,10 +4,10 @@
 
 #define THIS ((EnNimotsu*)thisx)
 
-void EnNimotsu_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnNimotsu_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnNimotsu_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnNimotsu_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnNimotsu_Init(Actor* thisx, GameState* game);
+void EnNimotsu_Destroy(Actor* thisx, GameState* game);
+void EnNimotsu_Update(Actor* thisx, GameState* game);
+void EnNimotsu_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Nimotsu_InitVars = {

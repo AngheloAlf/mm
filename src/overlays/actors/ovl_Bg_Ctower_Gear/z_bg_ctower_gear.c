@@ -19,13 +19,13 @@ typedef enum {
     /* 0x03 */ ORGAN
 } BgCtowerGearType;
 
-void BgCtowerGear_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerGear_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerGear_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerGear_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgCtowerGear_Init(Actor* thisx, GameState* game);
+void BgCtowerGear_Destroy(Actor* thisx, GameState* game);
+void BgCtowerGear_Update(Actor* thisx, GameState* game);
+void BgCtowerGear_Draw(Actor* thisx, GameState* game);
 
-void BgCtowerGear_UpdateOrgan(Actor* thisx, GlobalContext* globalCtx);
-void BgCtowerGear_DrawOrgan(Actor* thisx, GlobalContext* globalCtx);
+void BgCtowerGear_UpdateOrgan(Actor* thisx, GameState* game);
+void BgCtowerGear_DrawOrgan(Actor* thisx, GameState* game);
 
 const ActorInit Bg_Ctower_Gear_InitVars = {
     ACTOR_BG_CTOWER_GEAR,
@@ -127,7 +127,7 @@ void BgCtowerGear_Splash(BgCtowerGear* this, GlobalContext* globalCtx) {
     }
 }
 
-void BgCtowerGear_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerGear_Init(Actor* thisx, GameState* game) {
     BgCtowerGear* this = THIS;
     s32 type;
 
@@ -144,25 +144,25 @@ void BgCtowerGear_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
     if (type == WATER_WHEEL) {
         BcCheck3_BgActorInit(&this->dyna, 3);
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06018588);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06018588);
     } else if (type == ORGAN) {
         BcCheck3_BgActorInit(&this->dyna, 0);
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06016E70);
-        func_800C62BC(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06016E70);
+        func_800C62BC(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
     }
 }
 
-void BgCtowerGear_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerGear_Destroy(Actor* thisx, GameState* game) {
     BgCtowerGear* this = THIS;
     s32 type;
 
     type = BGCTOWERGEAR_GET_TYPE(this);
     if ((type == WATER_WHEEL) || (type == ORGAN)) {
-        BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+        BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
     }
 }
 
-void BgCtowerGear_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerGear_Update(Actor* thisx, GameState* game) {
     BgCtowerGear* this = THIS;
     s32 type;
 
@@ -174,22 +174,22 @@ void BgCtowerGear_Update(Actor* thisx, GlobalContext* globalCtx) {
         func_800B9010(&this->dyna.actor, NA_SE_EV_WINDMILL_LEVEL - SFX_FLAG);
     } else if (type == WATER_WHEEL) {
         this->dyna.actor.shape.rot.z -= 0x1F4;
-        BgCtowerGear_Splash(this, globalCtx);
+        BgCtowerGear_Splash(this, game);
     }
 }
 
-void BgCtowerGear_UpdateOrgan(Actor* thisx, GlobalContext* globalCtx) {
+void BgCtowerGear_UpdateOrgan(Actor* thisx, GameState* game) {
     BgCtowerGear* this = THIS;
 
-    if (func_800EE29C(globalCtx, 0x68)) {
-        switch (globalCtx->csCtx.npcActions[func_800EE200(globalCtx, 0x68)]->unk0) {
+    if (func_800EE29C(game, 0x68)) {
+        switch (((GlobalContext*)game)->csCtx.npcActions[func_800EE200(game, 0x68)]->unk0) {
             case 1:
                 this->dyna.actor.draw = NULL;
-                func_800C62BC(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+                func_800C62BC(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
                 break;
             case 2:
                 this->dyna.actor.draw = BgCtowerGear_DrawOrgan;
-                func_800C6314(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+                func_800C6314(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
                 break;
             case 3:
                 Actor_MarkForDeath(&this->dyna.actor);
@@ -198,18 +198,17 @@ void BgCtowerGear_UpdateOrgan(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-// Using BgCtowerGear *this = THIS causes regalloc issues
-void BgCtowerGear_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_80AD32E8[BGCTOWERGEAR_GET_TYPE(thisx)]);
+void BgCtowerGear_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_80AD32E8[BGCTOWERGEAR_GET_TYPE(thisx)]);
 }
 
-void BgCtowerGear_DrawOrgan(Actor* thisx, GlobalContext* globalCtx) {
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+void BgCtowerGear_DrawOrgan(Actor* thisx, GameState* game) {
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_060160A0);
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    func_8012C2DC(game->gfxCtx);
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_XLU_DISP++, D_06015F30);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

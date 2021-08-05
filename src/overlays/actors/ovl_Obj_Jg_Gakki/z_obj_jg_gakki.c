@@ -4,10 +4,10 @@
 
 #define THIS ((ObjJgGakki*)thisx)
 
-void ObjJgGakki_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjJgGakki_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjJgGakki_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjJgGakki_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjJgGakki_Init(Actor* thisx, GameState* game);
+void ObjJgGakki_Destroy(Actor* thisx, GameState* game);
+void ObjJgGakki_Update(Actor* thisx, GameState* game);
+void ObjJgGakki_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Jg_Gakki_InitVars = {

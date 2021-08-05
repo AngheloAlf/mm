@@ -10,10 +10,10 @@
 
 #define THIS ((EnFishing*)thisx)
 
-void EnFishing_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFishing_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFishing_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFishing_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFishing_Init(Actor* thisx, GameState* game);
+void EnFishing_Destroy(Actor* thisx, GameState* game);
+void EnFishing_Update(Actor* thisx, GameState* game);
+void EnFishing_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Fishing_InitVars = {

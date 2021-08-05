@@ -4,10 +4,10 @@
 
 #define THIS ((Boss04*)thisx)
 
-void Boss04_Init(Actor* thisx, GlobalContext* globalCtx);
-void Boss04_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void Boss04_Update(Actor* thisx, GlobalContext* globalCtx);
-void Boss04_Draw(Actor* thisx, GlobalContext* globalCtx);
+void Boss04_Init(Actor* thisx, GameState* game);
+void Boss04_Destroy(Actor* thisx, GameState* game);
+void Boss04_Update(Actor* thisx, GameState* game);
+void Boss04_Draw(Actor* thisx, GameState* game);
 
 void func_809EC568(Boss04* this, GlobalContext* globalCtx);
 void func_809ECD18(Boss04* this, GlobalContext* globalCtx);

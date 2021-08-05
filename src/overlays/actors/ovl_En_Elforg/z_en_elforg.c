@@ -4,10 +4,10 @@
 
 #define THIS ((EnElforg*)thisx)
 
-void EnElforg_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnElforg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnElforg_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnElforg_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnElforg_Init(Actor* thisx, GameState* game);
+void EnElforg_Destroy(Actor* thisx, GameState* game);
+void EnElforg_Update(Actor* thisx, GameState* game);
+void EnElforg_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Elforg_InitVars = {

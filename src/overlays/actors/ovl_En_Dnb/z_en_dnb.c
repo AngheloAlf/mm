@@ -4,10 +4,10 @@
 
 #define THIS ((EnDnb*)thisx)
 
-void EnDnb_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDnb_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDnb_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDnb_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDnb_Init(Actor* thisx, GameState* game);
+void EnDnb_Destroy(Actor* thisx, GameState* game);
+void EnDnb_Update(Actor* thisx, GameState* game);
+void EnDnb_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Dnb_InitVars = {

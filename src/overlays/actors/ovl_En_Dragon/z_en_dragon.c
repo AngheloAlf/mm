@@ -4,10 +4,10 @@
 
 #define THIS ((EnDragon*)thisx)
 
-void EnDragon_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDragon_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDragon_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDragon_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDragon_Init(Actor* thisx, GameState* game);
+void EnDragon_Destroy(Actor* thisx, GameState* game);
+void EnDragon_Update(Actor* thisx, GameState* game);
+void EnDragon_Draw(Actor* thisx, GameState* game);
 
 void func_80B5ED90(EnDragon* this, GlobalContext* globalCtx);
 void func_80B5EE3C(EnDragon* this, GlobalContext* globalCtx);

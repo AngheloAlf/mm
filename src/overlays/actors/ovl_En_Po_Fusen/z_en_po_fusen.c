@@ -14,10 +14,10 @@
 #define GET_FUSE_LEN_PARAM(this) (((Actor*)(this))->params & 0x3FF)
 #define GET_IS_FUSE_TYPE_PARAM(this) (((Actor*)(this))->params & 0x8000)
 
-void EnPoFusen_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPoFusen_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPoFusen_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPoFusen_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPoFusen_Init(Actor* thisx, GameState* game);
+void EnPoFusen_Destroy(Actor* thisx, GameState* game);
+void EnPoFusen_Update(Actor* thisx, GameState* game);
+void EnPoFusen_Draw(Actor* thisx, GameState* game);
 
 u16 EnPoFusen_CheckParent(EnPoFusen* this, GlobalContext* globalCtx);
 void EnPoFusen_InitNoFuse(EnPoFusen* this);
@@ -98,7 +98,7 @@ static DamageTable sDamageTable = {
     /* Powder Keg     */ DMG_ENTRY(0, 0x0),
 };
 
-void EnPoFusen_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnPoFusen_Init(Actor* thisx, GameState* game) {
     EnPoFusen* this = THIS;
     f32 heightTemp;
 
@@ -106,16 +106,16 @@ void EnPoFusen_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actor.targetMode = 6;
     this->actor.colChkInfo.damageTable = &sDamageTable;
 
-    Collider_InitSphere(globalCtx, &this->collider);
-    Collider_SetSphere(globalCtx, &this->collider, &this->actor, &sSphereInit);
+    Collider_InitSphere(game, &this->collider);
+    Collider_SetSphere(game, &this->collider, &this->actor, &sSphereInit);
 
     if (0) {}
     this->collider.dim.worldSphere.radius = 40;
-    SkelAnime_InitSV(globalCtx, &this->anime, &D_060024F0, &D_06000040, this->limbDrawTbl, this->transitionDrawTbl, 10);
+    SkelAnime_InitSV(game, &this->anime, &D_060024F0, &D_06000040, this->limbDrawTbl, this->transitionDrawTbl, 10);
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 25.0f);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 0.0f, 0.0f, 0.0f, 0x4);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 0.0f, 0.0f, 0.0f, 0x4);
 
-    if (EnPoFusen_CheckParent(this, globalCtx) == 0) {
+    if (EnPoFusen_CheckParent(this, game) == 0) {
         Actor_MarkForDeath(&this->actor);
     }
 
@@ -142,9 +142,9 @@ void EnPoFusen_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnPoFusen_InitNoFuse(this);
 }
 
-void EnPoFusen_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnPoFusen_Destroy(Actor* thisx, GameState* game) {
     EnPoFusen* this = THIS;
-    Collider_DestroySphere(globalCtx, &this->collider);
+    Collider_DestroySphere(game, &this->collider);
 }
 
 u16 EnPoFusen_CheckParent(EnPoFusen* this, GlobalContext* globalCtx) {
@@ -262,10 +262,10 @@ void EnPoFusen_IdleFuse(EnPoFusen* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnPoFusen_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnPoFusen_Update(Actor* thisx, GameState* game) {
     EnPoFusen* this = THIS;
-    this->actionFunc(this, globalCtx);
-    if (EnPoFusen_CheckCollision(this, globalCtx) != 0) {
+    this->actionFunc(this, game);
+    if (EnPoFusen_CheckCollision(this, game) != 0) {
         EnPoFusen_IncrementRomaniPop(this);
     }
 }
@@ -316,9 +316,9 @@ void EnPoFusen_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList
 void EnPoFusen_UnkActorDraw(GlobalContext* globalCtx, s32 limbIndex, Actor* actor) {
 }
 
-void EnPoFusen_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnPoFusen_Draw(Actor* thisx, GameState* game) {
     EnPoFusen* this = THIS;
-    func_8012C28C(globalCtx->state.gfxCtx);
-    func_801343C0(globalCtx, this->anime.skeleton, this->anime.limbDrawTbl, this->anime.dListCount,
+    func_8012C28C(game->gfxCtx);
+    func_801343C0(game, this->anime.skeleton, this->anime.limbDrawTbl, this->anime.dListCount,
                   EnPoFusen_OverrideLimbDraw, EnPoFusen_PostLimbDraw, EnPoFusen_UnkActorDraw, &this->actor);
 }

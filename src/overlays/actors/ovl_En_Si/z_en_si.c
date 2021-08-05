@@ -4,10 +4,10 @@
 
 #define THIS ((EnSi*)thisx)
 
-void EnSi_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSi_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSi_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSi_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSi_Init(Actor* thisx, GameState* game);
+void EnSi_Destroy(Actor* thisx, GameState* game);
+void EnSi_Update(Actor* thisx, GameState* game);
+void EnSi_Draw(Actor* thisx, GameState* game);
 
 void func_8098CB70(EnSi* this, GlobalContext* globalCtx);
 void func_8098CBDC(EnSi* this, GlobalContext* globalCtx);

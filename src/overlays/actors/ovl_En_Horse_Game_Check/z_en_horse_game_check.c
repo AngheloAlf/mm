@@ -4,10 +4,10 @@
 
 #define THIS ((EnHorseGameCheck*)thisx)
 
-void EnHorseGameCheck_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHorseGameCheck_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHorseGameCheck_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHorseGameCheck_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHorseGameCheck_Init(Actor* thisx, GameState* game);
+void EnHorseGameCheck_Destroy(Actor* thisx, GameState* game);
+void EnHorseGameCheck_Update(Actor* thisx, GameState* game);
+void EnHorseGameCheck_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Horse_Game_Check_InitVars = {

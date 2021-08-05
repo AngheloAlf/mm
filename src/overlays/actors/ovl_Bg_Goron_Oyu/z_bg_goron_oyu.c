@@ -4,10 +4,10 @@
 
 #define THIS ((BgGoronOyu*)thisx)
 
-void BgGoronOyu_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgGoronOyu_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgGoronOyu_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgGoronOyu_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgGoronOyu_Init(Actor* thisx, GameState* game);
+void BgGoronOyu_Destroy(Actor* thisx, GameState* game);
+void BgGoronOyu_Update(Actor* thisx, GameState* game);
+void BgGoronOyu_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Goron_Oyu_InitVars = {

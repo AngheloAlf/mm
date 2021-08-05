@@ -4,10 +4,10 @@
 
 #define THIS ((BgHakuginElvpole*)thisx)
 
-void BgHakuginElvpole_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginElvpole_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginElvpole_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgHakuginElvpole_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgHakuginElvpole_Init(Actor* thisx, GameState* game);
+void BgHakuginElvpole_Destroy(Actor* thisx, GameState* game);
+void BgHakuginElvpole_Update(Actor* thisx, GameState* game);
+void BgHakuginElvpole_Draw(Actor* thisx, GameState* game);
 
 void func_80ABD92C(BgHakuginElvpole* this, GlobalContext* globalCtx);
 

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjChan*)thisx)
 
-void ObjChan_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjChan_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjChan_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjChan_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjChan_Init(Actor* thisx, GameState* game);
+void ObjChan_Destroy(Actor* thisx, GameState* game);
+void ObjChan_Update(Actor* thisx, GameState* game);
+void ObjChan_Draw(Actor* thisx, GameState* game);
 
 void func_80BB9F24(ObjChan* this, GlobalContext* globalCtx);
 void func_80BBA314(ObjChan* this, GlobalContext* globalCtx);

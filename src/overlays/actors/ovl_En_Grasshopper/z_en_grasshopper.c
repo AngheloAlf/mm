@@ -4,10 +4,10 @@
 
 #define THIS ((EnGrasshopper*)thisx)
 
-void EnGrasshopper_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGrasshopper_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGrasshopper_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGrasshopper_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGrasshopper_Init(Actor* thisx, GameState* game);
+void EnGrasshopper_Destroy(Actor* thisx, GameState* game);
+void EnGrasshopper_Update(Actor* thisx, GameState* game);
+void EnGrasshopper_Draw(Actor* thisx, GameState* game);
 
 #if 0
 // static DamageTable sDamageTable = {

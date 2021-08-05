@@ -4,10 +4,10 @@
 
 #define THIS ((DmAl*)thisx)
 
-void DmAl_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmAl_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmAl_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmAl_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmAl_Init(Actor* thisx, GameState* game);
+void DmAl_Destroy(Actor* thisx, GameState* game);
+void DmAl_Update(Actor* thisx, GameState* game);
+void DmAl_Draw(Actor* thisx, GameState* game);
 
 void func_80C1BDD8(DmAl* this, GlobalContext* globalCtx);
 

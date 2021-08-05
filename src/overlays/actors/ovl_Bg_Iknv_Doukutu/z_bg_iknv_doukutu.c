@@ -4,10 +4,10 @@
 
 #define THIS ((BgIknvDoukutu*)thisx)
 
-void BgIknvDoukutu_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIknvDoukutu_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIknvDoukutu_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIknvDoukutu_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIknvDoukutu_Init(Actor* thisx, GameState* game);
+void BgIknvDoukutu_Destroy(Actor* thisx, GameState* game);
+void BgIknvDoukutu_Update(Actor* thisx, GameState* game);
+void BgIknvDoukutu_Draw(Actor* thisx, GameState* game);
 
 void func_80BD716C(BgIknvDoukutu* this, GlobalContext* globalCtx);
 void func_80BD71BC(BgIknvDoukutu* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((BgF40Switch*)thisx)
 
-void BgF40Switch_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgF40Switch_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgF40Switch_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgF40Switch_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgF40Switch_Init(Actor* thisx, GameState* game);
+void BgF40Switch_Destroy(Actor* thisx, GameState* game);
+void BgF40Switch_Update(Actor* thisx, GameState* game);
+void BgF40Switch_Draw(Actor* thisx, GameState* game);
 
 void func_80BC4B20(BgF40Switch* this, GlobalContext* globalCtx);
 void func_80BC4B94(BgF40Switch* this, GlobalContext* globalCtx);

@@ -12,10 +12,10 @@
 
 #define THIS ((EnPamera*)thisx)
 
-void EnPamera_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPamera_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPamera_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPamera_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPamera_Init(Actor* thisx, GameState* game);
+void EnPamera_Destroy(Actor* thisx, GameState* game);
+void EnPamera_Update(Actor* thisx, GameState* game);
+void EnPamera_Draw(Actor* thisx, GameState* game);
 
 s32 func_80BD84F0(EnPamera* this, GlobalContext* globalCtx);
 void func_80BD8588(EnPamera* this, GlobalContext* globalCtx);
@@ -67,7 +67,7 @@ void func_80BDA170(EnPamera* this);
 void func_80BDA1C8(EnPamera* this, GlobalContext* globalCtx);
 void func_80BDA288(EnPamera* this);
 void func_80BDA2E0(EnPamera* this, GlobalContext* globalCtx);
-void func_80BDA344(Actor* thisx, GlobalContext* globalCtx);
+void func_80BDA344(Actor* thisx, GameState* game);
 
 extern FlexSkeletonHeader D_06008448;
 extern AnimationHeader D_060005BC;
@@ -146,16 +146,16 @@ static TexturePtr D_80BDA604[] = { &D_060066E8, &D_06006AE8, &D_06006EE8 };
 
 static TexturePtr D_80BDA610[] = { &D_060072E8, &D_060073E8 };
 
-void EnPamera_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnPamera_Init(Actor* thisx, GameState* game) {
     s32 pad;
     EnPamera* this = THIS;
     Vec3f sp44;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 15.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06008448, &D_060005BC, this->limbDrawTbl, this->transitionDrawTbl,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06008448, &D_060005BC, this->limbDrawTbl, this->transitionDrawTbl,
                      PAMERA_LIMB_MAX);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, NULL, &sColChkInfoInit2);
     this->actor.targetMode = 6;
     this->unk_312 = 0;
@@ -166,9 +166,9 @@ void EnPamera_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->unk_322 = 0;
     this->unk_324 = 0;
     if ((this->actor.params & 0xF000) >> 0xC) {
-        func_80BD9840(this, globalCtx);
+        func_80BD9840(this, game);
     } else {
-        func_80BD8588(this, globalCtx);
+        func_80BD8588(this, game);
         func_80BD8658(this);
         if (1) {}
         if (!(gSaveContext.weekEventReg[14] & 4) || (gSaveContext.weekEventReg[52] & 0x20) ||
@@ -240,10 +240,10 @@ void func_80BD8658(EnPamera* this) {
     }
 }
 
-void EnPamera_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnPamera_Destroy(Actor* thisx, GameState* game) {
     EnPamera* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void func_80BD8700(EnPamera* this) {
@@ -531,18 +531,18 @@ void func_80BD94E0(EnPamera* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnPamera_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnPamera_Update(Actor* thisx, GameState* game) {
     s32 pad;
     EnPamera* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    func_80BD90AC(this, globalCtx);
-    func_80BD9384(this, globalCtx);
-    func_80BD94E0(this, globalCtx);
+    func_80BD90AC(this, game);
+    func_80BD9384(this, game);
+    func_80BD94E0(this, game);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-    func_80BD93F4(this, globalCtx);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+    func_80BD93F4(this, game);
 }
 
 s32 EnPamera_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -562,17 +562,17 @@ void EnPamera_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList,
     }
 }
 
-void EnPamera_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnPamera_Draw(Actor* thisx, GameState* game) {
     EnPamera* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, SEGMENTED_TO_VIRTUAL(D_80BDA604[this->unk_312]));
     gSPSegment(POLY_OPA_DISP++, 0x09, SEGMENTED_TO_VIRTUAL(D_80BDA610[this->unk_314]));
     gSPSegment(POLY_OPA_DISP++, 0x0A, SEGMENTED_TO_VIRTUAL(D_80BDA5FC[this->unk_310]));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnPamera_OverrideLimbDraw, EnPamera_PostLimbDraw, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
 void func_80BD9840(EnPamera* this, GlobalContext* globalCtx) {
@@ -853,8 +853,8 @@ void func_80BDA2E0(EnPamera* this, GlobalContext* globalCtx) {
     }
 }
 
-void func_80BDA344(Actor* thisx, GlobalContext* globalCtx) {
-    s32 pad;
+void func_80BDA344(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnPamera* this = THIS;
 
     this->actionFunc(this, globalCtx);

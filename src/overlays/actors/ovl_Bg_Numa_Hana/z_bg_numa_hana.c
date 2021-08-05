@@ -4,10 +4,10 @@
 
 #define THIS ((BgNumaHana*)thisx)
 
-void BgNumaHana_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgNumaHana_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgNumaHana_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgNumaHana_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgNumaHana_Init(Actor* thisx, GameState* game);
+void BgNumaHana_Destroy(Actor* thisx, GameState* game);
+void BgNumaHana_Update(Actor* thisx, GameState* game);
+void BgNumaHana_Draw(Actor* thisx, GameState* game);
 
 void func_80A1AA28(BgNumaHana* this, GlobalContext* globalCtx);
 void func_80A1AA4C(BgNumaHana* this, GlobalContext* globalCtx);

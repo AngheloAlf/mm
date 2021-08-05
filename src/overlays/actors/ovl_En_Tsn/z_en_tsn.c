@@ -4,10 +4,10 @@
 
 #define THIS ((EnTsn*)thisx)
 
-void EnTsn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTsn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTsn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTsn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTsn_Init(Actor* thisx, GameState* game);
+void EnTsn_Destroy(Actor* thisx, GameState* game);
+void EnTsn_Update(Actor* thisx, GameState* game);
+void EnTsn_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Tsn_InitVars = {

@@ -4,9 +4,9 @@
 
 #define THIS ((EnOkarinaEffect*)thisx)
 
-void EnOkarinaEffect_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOkarinaEffect_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOkarinaEffect_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnOkarinaEffect_Init(Actor* thisx, GameState* game);
+void EnOkarinaEffect_Destroy(Actor* thisx, GameState* game);
+void EnOkarinaEffect_Update(Actor* thisx, GameState* game);
 
 void func_8096B104(EnOkarinaEffect* this, GlobalContext* globalCtx);
 void func_8096B174(EnOkarinaEffect* this, GlobalContext* globalCtx);
@@ -28,13 +28,13 @@ void EnOkarinaEffect_SetupAction(EnOkarinaEffect* this, EnOkarinaEffectActionFun
     this->actionFunc = actionFunc;
 }
 
-void EnOkarinaEffect_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnOkarinaEffect_Destroy(Actor* thisx, GameState* game) {
 }
 
-void EnOkarinaEffect_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnOkarinaEffect_Init(Actor* thisx, GameState* game) {
     EnOkarinaEffect* this = THIS;
 
-    if (globalCtx->envCtx.unk_F2[1]) {
+    if (((GlobalContext*)game)->envCtx.unk_F2[1]) {
         Actor_MarkForDeath(&this->actor);
     }
     EnOkarinaEffect_SetupAction(this, func_8096B104);
@@ -70,8 +70,8 @@ void func_8096B1FC(EnOkarinaEffect* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnOkarinaEffect_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnOkarinaEffect_Update(Actor* thisx, GameState* game) {
     EnOkarinaEffect* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }

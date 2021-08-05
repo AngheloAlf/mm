@@ -4,9 +4,9 @@
 
 #define THIS ((ShotSun*)thisx)
 
-void ShotSun_Init(Actor* thisx, GlobalContext* globalCtx);
-void ShotSun_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ShotSun_Update(Actor* thisx, GlobalContext* globalCtx);
+void ShotSun_Init(Actor* thisx, GameState* game);
+void ShotSun_Destroy(Actor* thisx, GameState* game);
+void ShotSun_Update(Actor* thisx, GameState* game);
 
 void func_80973740(ShotSun* this, GlobalContext* globalCtx);
 void func_80973804(ShotSun* this, GlobalContext* globalCtx);

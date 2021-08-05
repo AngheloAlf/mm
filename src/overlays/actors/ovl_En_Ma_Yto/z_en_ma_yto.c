@@ -10,10 +10,10 @@
 
 #define THIS ((EnMaYto*)thisx)
 
-void EnMaYto_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMaYto_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMaYto_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMaYto_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMaYto_Init(Actor* thisx, GameState* game);
+void EnMaYto_Destroy(Actor* thisx, GameState* game);
+void EnMaYto_Update(Actor* thisx, GameState* game);
+void EnMaYto_Draw(Actor* thisx, GameState* game);
 
 s32 EnMaYto_CheckValidSpawn(EnMaYto* this, GlobalContext* globalCtx);
 void EnMaYto_InitAnimation(EnMaYto* this, GlobalContext* globalCtx);
@@ -164,7 +164,7 @@ static void* sEyesTextures[] = {
     D_06011AD8, D_060122D8, D_06012AD8, D_060132D8, D_06013AD8, D_060142D8,
 };
 
-void EnMaYto_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYto_Init(Actor* thisx, GameState* game) {
     EnMaYto* this = THIS;
     s32 pad;
 
@@ -183,25 +183,25 @@ void EnMaYto_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->unk31E = 0;
     this->blinkTimer = 100;
     this->type = EN_MA_YTO_PARSE_TYPE(this->actor.params);
-    if (!EnMaYto_CheckValidSpawn(this, globalCtx)) {
+    if (!EnMaYto_CheckValidSpawn(this, game)) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 18.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06015C28, NULL, this->limbDrawTbl, this->transitionDrawTbl,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06015C28, NULL, this->limbDrawTbl, this->transitionDrawTbl,
                      MA2_LIMB_MAX);
-    EnMaYto_InitAnimation(this, globalCtx);
+    EnMaYto_InitAnimation(this, game);
 
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, DamageTable_Get(0x16), &sColChkInfoInit2);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 0.0f, 0.0f, 0.0f, 4);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 0.0f, 0.0f, 0.0f, 4);
 
-    if (EnMaYto_TryFindRomani(this, globalCtx) == 1) {
+    if (EnMaYto_TryFindRomani(this, game) == 1) {
         EnMaYto_SetupKeepLookingForRomani(this);
     } else {
-        EnMaYto_ChooseAction(this, globalCtx);
+        EnMaYto_ChooseAction(this, game);
     }
 }
 
@@ -384,10 +384,10 @@ s32 EnMaYto_TryFindRomani(EnMaYto* this, GlobalContext* globalCtx) {
     return 0;
 }
 
-void EnMaYto_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYto_Destroy(Actor* thisx, GameState* game) {
     EnMaYto* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnMaYto_SetupKeepLookingForRomani(EnMaYto* this) {
@@ -1445,12 +1445,12 @@ void EnMaYto_SetTalkedFlag(void) {
     }
 }
 
-void EnMaYto_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYto_Update(Actor* thisx, GameState* game) {
     EnMaYto* this = THIS;
 
-    this->actionFunc(this, globalCtx);
-    EnMaYto_UpdateCollision(this, globalCtx);
-    func_80B90C78(this, globalCtx);
+    this->actionFunc(this, game);
+    EnMaYto_UpdateCollision(this, game);
+    func_80B90C78(this, game);
 }
 
 s32 EnMaYto_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -1485,22 +1485,22 @@ void EnMaYto_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
     }
 }
 
-void EnMaYto_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYto_Draw(Actor* thisx, GameState* game) {
     EnMaYto* this = THIS;
     s32 pad;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
     if (this->type == MA_YTO_TYPE_BARN && (gSaveContext.weekEventReg[0x16] & 1)) { // Alieans defeated
-        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(POLY_OPA_DISP++, D_06005430);
     }
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
     gSPSegment(POLY_OPA_DISP++, 0x09, Lib_SegmentedToVirtual(sMouthTextures[this->mouthTexIndex]));
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyesTextures[this->eyeTexIndex]));
 
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnMaYto_OverrideLimbDraw, EnMaYto_PostLimbDraw, &this->actor);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

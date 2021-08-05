@@ -4,10 +4,10 @@
 
 #define THIS ((DmAh*)thisx)
 
-void DmAh_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmAh_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmAh_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmAh_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmAh_Init(Actor* thisx, GameState* game);
+void DmAh_Destroy(Actor* thisx, GameState* game);
+void DmAh_Update(Actor* thisx, GameState* game);
+void DmAh_Draw(Actor* thisx, GameState* game);
 
 void func_80C1D7FC(DmAh* this, GlobalContext* globalCtx);
 void func_80C1D92C(DmAh* this, GlobalContext* globalCtx);

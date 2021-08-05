@@ -4,10 +4,10 @@
 
 #define THIS ((ObjWarpstone*)thisx)
 
-void ObjWarpstone_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjWarpstone_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjWarpstone_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjWarpstone_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjWarpstone_Init(Actor* thisx, GameState* game);
+void ObjWarpstone_Destroy(Actor* thisx, GameState* game);
+void ObjWarpstone_Update(Actor* thisx, GameState* game);
+void ObjWarpstone_Draw(Actor* thisx, GameState* game);
 void ObjWarpstone_SetupAction(ObjWarpstone* this, ObjWarpstoneActionFunc actionFunc);
 s32 ObjWarpstone_ClosedIdle(ObjWarpstone* this, GlobalContext* globalCtx);
 s32 ObjWarpstone_BeginOpeningCutscene(ObjWarpstone* this, GlobalContext* globalCtx);
@@ -60,11 +60,11 @@ void ObjWarpstone_SetupAction(ObjWarpstone* this, ObjWarpstoneActionFunc actionF
     this->actionFunc = actionFunc;
 }
 
-void ObjWarpstone_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjWarpstone_Init(Actor* thisx, GameState* game) {
     ObjWarpstone* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->dyna.actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->dyna.actor, &sCylinderInit);
     Actor_SetHeight(&this->dyna.actor, 40.0f);
 
     if (!IS_OWL_HIT(GET_OWL_ID(this))) {
@@ -75,10 +75,10 @@ void ObjWarpstone_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void ObjWarpstone_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjWarpstone_Destroy(Actor* thisx, GameState* game) {
     ObjWarpstone* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 s32 ObjWarpstone_ClosedIdle(ObjWarpstone* this, GlobalContext* globalCtx) {
@@ -127,38 +127,38 @@ s32 ObjWarpstone_OpenedIdle(ObjWarpstone* this, GlobalContext* globalCtx) {
     return false;
 }
 
-void ObjWarpstone_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjWarpstone_Update(Actor* thisx, GameState* game) {
     ObjWarpstone* this = THIS;
     s32 pad;
 
     if (this->isTalking) {
-        if (func_800B867C(&this->dyna.actor, globalCtx) != 0) {
+        if (func_800B867C(&this->dyna.actor, game) != 0) {
             this->isTalking = false;
-        } else if ((func_80152498(&globalCtx->msgCtx) == 4) && (func_80147624(globalCtx))) {
-            if (globalCtx->msgCtx.choiceIndex != 0) {
+        } else if ((func_80152498(&((GlobalContext*)game)->msgCtx) == 4) && (func_80147624(game))) {
+            if (((GlobalContext*)game)->msgCtx.choiceIndex != 0) {
                 func_8019F208();
-                globalCtx->msgCtx.unk11F22 = 0x4D;
-                globalCtx->msgCtx.unk120D6 = 0;
-                globalCtx->msgCtx.unk120D4 = 0;
+                ((GlobalContext*)game)->msgCtx.unk11F22 = 0x4D;
+                ((GlobalContext*)game)->msgCtx.unk120D6 = 0;
+                ((GlobalContext*)game)->msgCtx.unk120D4 = 0;
                 gSaveContext.owlSaveLocation = GET_OWL_ID(this);
             } else {
-                func_801477B4(globalCtx);
+                func_801477B4(game);
             }
         }
-    } else if (func_800B84D0(&this->dyna.actor, globalCtx)) {
+    } else if (func_800B84D0(&this->dyna.actor, game)) {
         this->isTalking = true;
-    } else if (!this->actionFunc(this, globalCtx)) {
-        func_800B863C(&this->dyna.actor, globalCtx);
+    } else if (!this->actionFunc(this, game)) {
+        func_800B863C(&this->dyna.actor, game);
     }
-    Collider_ResetCylinderAC(globalCtx, &this->collider.base);
+    Collider_ResetCylinderAC(game, &this->collider.base);
     Collider_UpdateCylinder(&this->dyna.actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-    CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
-void ObjWarpstone_Draw(Actor* thisx, GlobalContext* globalCtx2) {
+void ObjWarpstone_Draw(Actor* thisx, GameState* game) {
     ObjWarpstone* this = THIS;
-    GlobalContext* globalCtx = globalCtx2;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
     func_800BDFC0(globalCtx, sOwlStatueDLs[this->modelIndex]);
     if (this->dyna.actor.home.rot.x != 0) {

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjToudai*)thisx)
 
-void ObjToudai_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjToudai_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjToudai_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjToudai_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjToudai_Init(Actor* thisx, GameState* game);
+void ObjToudai_Destroy(Actor* thisx, GameState* game);
+void ObjToudai_Update(Actor* thisx, GameState* game);
+void ObjToudai_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Toudai_InitVars = {

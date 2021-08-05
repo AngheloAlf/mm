@@ -4,10 +4,10 @@
 
 #define THIS ((ObjKepnKoya*)thisx)
 
-void ObjKepnKoya_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjKepnKoya_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjKepnKoya_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjKepnKoya_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjKepnKoya_Init(Actor* thisx, GameState* game);
+void ObjKepnKoya_Destroy(Actor* thisx, GameState* game);
+void ObjKepnKoya_Update(Actor* thisx, GameState* game);
+void ObjKepnKoya_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Kepn_Koya_InitVars = {
     ACTOR_OBJ_KEPN_KOYA,
@@ -29,27 +29,27 @@ static InitChainEntry sInitChain[] = {
 extern CollisionHeader D_0600805C;
 extern Gfx D_06003478[];
 
-void ObjKepnKoya_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjKepnKoya_Init(Actor* thisx, GameState* game) {
     ObjKepnKoya* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     Actor_SetScale(&this->dyna.actor, 0.1f);
     BcCheck3_BgActorInit(&this->dyna, 0);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_0600805C);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_0600805C);
     if (this->dyna.bgId == 0x32) {
         Actor_MarkForDeath(&this->dyna.actor);
     }
 }
 
-void ObjKepnKoya_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjKepnKoya_Destroy(Actor* thisx, GameState* game) {
     ObjKepnKoya* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
-void ObjKepnKoya_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjKepnKoya_Update(Actor* thisx, GameState* game) {
 }
 
-void ObjKepnKoya_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06003478);
+void ObjKepnKoya_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06003478);
 }

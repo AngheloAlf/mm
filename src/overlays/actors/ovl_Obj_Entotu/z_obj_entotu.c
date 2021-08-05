@@ -4,10 +4,10 @@
 
 #define THIS ((ObjEntotu*)thisx)
 
-void ObjEntotu_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjEntotu_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjEntotu_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjEntotu_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjEntotu_Init(Actor* thisx, GameState* game);
+void ObjEntotu_Destroy(Actor* thisx, GameState* game);
+void ObjEntotu_Update(Actor* thisx, GameState* game);
+void ObjEntotu_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Entotu_InitVars = {

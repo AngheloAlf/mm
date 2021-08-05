@@ -4,9 +4,9 @@
 
 #define THIS ((EnFr*)thisx)
 
-void EnFr_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFr_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFr_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnFr_Init(Actor* thisx, GameState* game);
+void EnFr_Destroy(Actor* thisx, GameState* game);
+void EnFr_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Fr_InitVars = {

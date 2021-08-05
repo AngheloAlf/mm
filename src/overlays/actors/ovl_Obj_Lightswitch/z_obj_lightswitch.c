@@ -4,10 +4,10 @@
 
 #define THIS ((ObjLightswitch*)thisx)
 
-void ObjLightswitch_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjLightswitch_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjLightswitch_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjLightswitch_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjLightswitch_Init(Actor* thisx, GameState* game);
+void ObjLightswitch_Destroy(Actor* thisx, GameState* game);
+void ObjLightswitch_Update(Actor* thisx, GameState* game);
+void ObjLightswitch_Draw(Actor* thisx, GameState* game);
 void ObjLightswitch_PlayCinema(ObjLightswitch* this, GlobalContext* globalCtx);
 void ObjLightSwitch_SetupEnabled(ObjLightswitch* this);
 void ObjLightSwitch_Enabled(ObjLightswitch* this, GlobalContext* globalCtx);
@@ -144,13 +144,13 @@ void ObjLightswitch_SpawnEffects(ObjLightswitch* this, GlobalContext* globalCtx)
     }
 }
 
-void ObjLightswitch_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjLightswitch_Init(Actor* thisx, GameState* game) {
     ObjLightswitch* this = THIS;
     s32 pad;
     u32 isSwitchActivated;
     s32 isTriggered;
 
-    isSwitchActivated = Flags_GetSwitch(globalCtx, GET_LIGHTSWITCH_SWITCHFLAG(this));
+    isSwitchActivated = Flags_GetSwitch(game, GET_LIGHTSWITCH_SWITCHFLAG(this));
     isTriggered = false;
     Actor_ProcessInitChain(&this->actor, sInitChain);
     Actor_SetHeight(&this->actor, 0.0f);
@@ -165,7 +165,7 @@ void ObjLightswitch_Init(Actor* thisx, GlobalContext* globalCtx) {
         ObjLightswitch_SetupIdle(this);
     }
 
-    ObjLightswitch_InitCollider(this, globalCtx);
+    ObjLightswitch_InitCollider(this, game);
 
     if (GET_LIGHTSWITCH_INVISIBLE(this)) {
         // the stone tower exterior switch is part of the scene mesh, the actor is invisble on top
@@ -177,9 +177,9 @@ void ObjLightswitch_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void ObjLightswitch_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjLightswitch_Destroy(Actor* thisx, GameState* game) {
     ObjLightswitch* this = THIS;
-    Collider_DestroyJntSph(globalCtx, &this->collider);
+    Collider_DestroyJntSph(game, &this->collider);
 }
 
 void ObjLightswitch_SetAction(ObjLightswitch* this, ObjLightswitchSetupFunc setupFunc, u32 setState) {
@@ -321,7 +321,7 @@ void ObjLightSwitch_Fade(ObjLightswitch* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjLightswitch_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjLightswitch_Update(Actor* thisx, GameState* game) {
     ObjLightswitch* this = THIS;
     s32 pad;
 
@@ -354,11 +354,11 @@ void ObjLightswitch_Update(Actor* thisx, GlobalContext* globalCtx) {
         }
     }
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     if (this->actor.update != NULL) {
         this->previousACFlags = this->collider.base.acFlags;
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     }
 }
 
@@ -434,13 +434,13 @@ void ObjLightSwitch_DrawXlu(ObjLightswitch* this, GlobalContext* globalCtx) {
     CLOSE_DISPS(globalCtx->state.gfxCtx);
 }
 
-void ObjLightswitch_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjLightswitch_Draw(Actor* thisx, GameState* game) {
     ObjLightswitch* this = THIS;
     s32 alpha = (u8)(this->colorAlpha >> 6);
 
     if ((GET_LIGHTSWITCH_TYPE(this) == LIGHTSWITCH_TYPE_FAKE) && (alpha > 0) && (alpha < 255)) {
-        ObjLightSwitch_DrawXlu(this, globalCtx);
+        ObjLightSwitch_DrawXlu(this, game);
     } else {
-        ObjLightSwitch_DrawOpa(this, globalCtx);
+        ObjLightSwitch_DrawOpa(this, game);
     }
 }

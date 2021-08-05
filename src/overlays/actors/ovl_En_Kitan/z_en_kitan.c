@@ -4,9 +4,9 @@
 
 #define THIS ((EnKitan*)thisx)
 
-void EnKitan_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKitan_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKitan_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnKitan_Init(Actor* thisx, GameState* game);
+void EnKitan_Destroy(Actor* thisx, GameState* game);
+void EnKitan_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Kitan_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjDanpeilift*)thisx)
 
-void ObjDanpeilift_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjDanpeilift_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjDanpeilift_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjDanpeilift_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjDanpeilift_Init(Actor* thisx, GameState* game);
+void ObjDanpeilift_Destroy(Actor* thisx, GameState* game);
+void ObjDanpeilift_Update(Actor* thisx, GameState* game);
+void ObjDanpeilift_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Danpeilift_InitVars = {

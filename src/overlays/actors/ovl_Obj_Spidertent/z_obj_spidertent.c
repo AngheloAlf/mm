@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSpidertent*)thisx)
 
-void ObjSpidertent_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSpidertent_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSpidertent_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSpidertent_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSpidertent_Init(Actor* thisx, GameState* game);
+void ObjSpidertent_Destroy(Actor* thisx, GameState* game);
+void ObjSpidertent_Update(Actor* thisx, GameState* game);
+void ObjSpidertent_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Spidertent_InitVars = {

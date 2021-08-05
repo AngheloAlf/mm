@@ -4,10 +4,10 @@
 
 #define THIS ((BgHakaBombwall*)thisx)
 
-void BgHakaBombwall_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaBombwall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaBombwall_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaBombwall_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgHakaBombwall_Init(Actor* thisx, GameState* game);
+void BgHakaBombwall_Destroy(Actor* thisx, GameState* game);
+void BgHakaBombwall_Update(Actor* thisx, GameState* game);
+void BgHakaBombwall_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Haka_Bombwall_InitVars = {

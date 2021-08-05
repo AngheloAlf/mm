@@ -4,10 +4,10 @@
 
 #define THIS ((EnHs2*)thisx)
 
-void EnHs2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHs2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHs2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHs2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHs2_Init(Actor* thisx, GameState* game);
+void EnHs2_Destroy(Actor* thisx, GameState* game);
+void EnHs2_Update(Actor* thisx, GameState* game);
+void EnHs2_Draw(Actor* thisx, GameState* game);
 
 void EnHs2_DoNothing(EnHs2* this, GlobalContext* globalCtx);
 
@@ -23,24 +23,24 @@ const ActorInit En_Hs2_InitVars = {
     (ActorFunc)EnHs2_Draw,
 };
 
-void EnHs2_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnHs2_Init(Actor* thisx, GameState* game) {
     EnHs2* this = THIS;
 
     Actor_SetScale(&this->actor, 1.0f);
     this->actionFunc = EnHs2_DoNothing;
 }
 
-void EnHs2_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnHs2_Destroy(Actor* thisx, GameState* game) {
 }
 
 void EnHs2_DoNothing(EnHs2* this, GlobalContext* globalCtx) {
 }
 
-void EnHs2_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnHs2_Update(Actor* thisx, GameState* game) {
     EnHs2* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void EnHs2_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnHs2_Draw(Actor* thisx, GameState* game) {
 }

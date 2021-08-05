@@ -4,9 +4,9 @@
 
 #define THIS ((ObjVisiblock*)thisx)
 
-void ObjVisiblock_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjVisiblock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjVisiblock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjVisiblock_Init(Actor* thisx, GameState* game);
+void ObjVisiblock_Destroy(Actor* thisx, GameState* game);
+void ObjVisiblock_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Visiblock_InitVars = {
     ACTOR_OBJ_VISIBLOCK,
@@ -30,20 +30,20 @@ static InitChainEntry sInitChain[] = {
 extern CollisionHeader D_06000AD0;
 extern Gfx D_06000140[];
 
-void ObjVisiblock_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjVisiblock_Init(Actor* thisx, GameState* game) {
     ObjVisiblock* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 0);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000AD0);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06000AD0);
 }
 
-void ObjVisiblock_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjVisiblock_Destroy(Actor* thisx, GameState* game) {
     ObjVisiblock* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
-void ObjVisiblock_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BE03C(globalCtx, D_06000140);
+void ObjVisiblock_Draw(Actor* thisx, GameState* game) {
+    func_800BE03C(game, D_06000140);
 }

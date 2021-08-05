@@ -4,10 +4,10 @@
 
 #define THIS ((EffLastday*)thisx)
 
-void EffLastday_Init(Actor* thisx, GlobalContext* globalCtx);
-void EffLastday_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EffLastday_Update(Actor* thisx, GlobalContext* globalCtx);
-void EffLastday_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EffLastday_Init(Actor* thisx, GameState* game);
+void EffLastday_Destroy(Actor* thisx, GameState* game);
+void EffLastday_Update(Actor* thisx, GameState* game);
+void EffLastday_Draw(Actor* thisx, GameState* game);
 
 void func_80BEBD0C(EffLastday* this, GlobalContext* globalCtx);
 void func_80BEBDF8(EffLastday* this, GlobalContext* globalCtx);

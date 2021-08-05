@@ -4,9 +4,9 @@
 
 #define THIS ((ObjSwprize*)thisx)
 
-void ObjSwprize_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSwprize_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSwprize_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjSwprize_Init(Actor* thisx, GameState* game);
+void ObjSwprize_Destroy(Actor* thisx, GameState* game);
+void ObjSwprize_Update(Actor* thisx, GameState* game);
 
 void func_80C25654(ObjSwprize* this, GlobalContext* globalCtx);
 void func_80C256AC(ObjSwprize* this, GlobalContext* globalCtx);

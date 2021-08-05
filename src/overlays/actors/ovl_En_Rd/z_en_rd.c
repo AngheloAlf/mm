@@ -4,10 +4,10 @@
 
 #define THIS ((EnRd*)thisx)
 
-void EnRd_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRd_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRd_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRd_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRd_Init(Actor* thisx, GameState* game);
+void EnRd_Destroy(Actor* thisx, GameState* game);
+void EnRd_Update(Actor* thisx, GameState* game);
+void EnRd_Draw(Actor* thisx, GameState* game);
 
 void func_808D43AC(EnRd* this, GlobalContext* globalCtx);
 void func_808D4660(EnRd* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnGuardNuts*)thisx)
 
-void EnGuardNuts_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGuardNuts_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGuardNuts_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGuardNuts_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGuardNuts_Init(Actor* thisx, GameState* game);
+void EnGuardNuts_Destroy(Actor* thisx, GameState* game);
+void EnGuardNuts_Update(Actor* thisx, GameState* game);
+void EnGuardNuts_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Guard_Nuts_InitVars = {

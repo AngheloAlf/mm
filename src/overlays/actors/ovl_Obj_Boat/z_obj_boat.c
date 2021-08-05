@@ -4,10 +4,10 @@
 
 #define THIS ((ObjBoat*)thisx)
 
-void ObjBoat_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBoat_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjBoat_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjBoat_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjBoat_Init(Actor* thisx, GameState* game);
+void ObjBoat_Destroy(Actor* thisx, GameState* game);
+void ObjBoat_Update(Actor* thisx, GameState* game);
+void ObjBoat_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Boat_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((EnHonotrap*)thisx)
 
-void EnHonotrap_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHonotrap_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHonotrap_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHonotrap_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHonotrap_Init(Actor* thisx, GameState* game);
+void EnHonotrap_Destroy(Actor* thisx, GameState* game);
+void EnHonotrap_Update(Actor* thisx, GameState* game);
+void EnHonotrap_Draw(Actor* thisx, GameState* game);
 
 void func_8092EBDC(EnHonotrap* this, GlobalContext* globalCtx);
 void func_8092ECF0(EnHonotrap* this, GlobalContext* globalCtx);

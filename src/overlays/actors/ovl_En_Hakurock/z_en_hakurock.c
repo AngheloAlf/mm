@@ -4,9 +4,9 @@
 
 #define THIS ((EnHakurock*)thisx)
 
-void EnHakurock_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHakurock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHakurock_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnHakurock_Init(Actor* thisx, GameState* game);
+void EnHakurock_Destroy(Actor* thisx, GameState* game);
+void EnHakurock_Update(Actor* thisx, GameState* game);
 
 void func_80B22040(EnHakurock* this, GlobalContext* globalCtx);
 void func_80B221E8(EnHakurock* this, GlobalContext* globalCtx);

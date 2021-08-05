@@ -4,9 +4,9 @@
 
 #define THIS ((BgSinkaiKabe*)thisx)
 
-void BgSinkaiKabe_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgSinkaiKabe_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgSinkaiKabe_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgSinkaiKabe_Init(Actor* thisx, GameState* game);
+void BgSinkaiKabe_Destroy(Actor* thisx, GameState* game);
+void BgSinkaiKabe_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Sinkai_Kabe_InitVars = {

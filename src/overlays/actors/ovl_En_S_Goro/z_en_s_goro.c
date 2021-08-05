@@ -4,10 +4,10 @@
 
 #define THIS ((EnSGoro*)thisx)
 
-void EnSGoro_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSGoro_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSGoro_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSGoro_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSGoro_Init(Actor* thisx, GameState* game);
+void EnSGoro_Destroy(Actor* thisx, GameState* game);
+void EnSGoro_Update(Actor* thisx, GameState* game);
+void EnSGoro_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_S_Goro_InitVars = {

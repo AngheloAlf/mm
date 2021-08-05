@@ -4,10 +4,10 @@
 
 #define THIS ((EnArrow*)thisx)
 
-void EnArrow_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnArrow_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnArrow_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnArrow_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnArrow_Init(Actor* thisx, GameState* game);
+void EnArrow_Destroy(Actor* thisx, GameState* game);
+void EnArrow_Update(Actor* thisx, GameState* game);
+void EnArrow_Draw(Actor* thisx, GameState* game);
 
 void func_8088A594(EnArrow* this, GlobalContext* globalCtx);
 void func_8088ACE0(EnArrow* this, GlobalContext* globalCtx);

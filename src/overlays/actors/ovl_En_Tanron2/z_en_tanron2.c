@@ -4,10 +4,10 @@
 
 #define THIS ((EnTanron2*)thisx)
 
-void EnTanron2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTanron2_Init(Actor* thisx, GameState* game);
+void EnTanron2_Destroy(Actor* thisx, GameState* game);
+void EnTanron2_Update(Actor* thisx, GameState* game);
+void EnTanron2_Draw(Actor* thisx, GameState* game);
 
 void func_80BB69FC(EnTanron2* this, GlobalContext* globalCtx);
 void func_80BB6BD8(EnTanron2* this, GlobalContext* globalCtx);

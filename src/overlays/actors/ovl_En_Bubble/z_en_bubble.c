@@ -4,10 +4,10 @@
 
 #define THIS ((EnBubble*)thisx)
 
-void EnBubble_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBubble_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBubble_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBubble_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBubble_Init(Actor* thisx, GameState* game);
+void EnBubble_Destroy(Actor* thisx, GameState* game);
+void EnBubble_Update(Actor* thisx, GameState* game);
+void EnBubble_Draw(Actor* thisx, GameState* game);
 
 void func_808A029C(EnBubble* this, GlobalContext* globalCtx);
 void func_808A0350(EnBubble* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((BgHakaTomb*)thisx)
 
-void BgHakaTomb_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaTomb_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaTomb_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgHakaTomb_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgHakaTomb_Init(Actor* thisx, GameState* game);
+void BgHakaTomb_Destroy(Actor* thisx, GameState* game);
+void BgHakaTomb_Update(Actor* thisx, GameState* game);
+void BgHakaTomb_Draw(Actor* thisx, GameState* game);
 
 void func_80BD6624(BgHakaTomb* this);
 void func_80BD66AC(BgHakaTomb* this, GlobalContext* globalCtx);
@@ -37,20 +37,20 @@ static InitChainEntry sInitChain[] = {
 
 static Vec3f D_80BD68A4 = { 30.0f, 90.0f, 0.0f };
 
-void BgHakaTomb_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgHakaTomb_Init(Actor* thisx, GameState* game) {
     BgHakaTomb* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, D_06000EE8);
+    BgCheck3_LoadMesh(game, &this->dyna, D_06000EE8);
     func_8013E3B8(&this->dyna.actor, this->cutscenes, ARRAY_COUNT(this->cutscenes));
     func_80BD6624(this);
 }
 
-void BgHakaTomb_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgHakaTomb_Destroy(Actor* thisx, GameState* game) {
     BgHakaTomb* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void func_80BD6624(BgHakaTomb* this) {
@@ -109,12 +109,12 @@ void BgHakaTomb_SetupDoNothing(BgHakaTomb* this) {
 void BgHakaTomb_DoNothing(BgHakaTomb* this, GlobalContext* globalCtx) {
 }
 
-void BgHakaTomb_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgHakaTomb_Update(Actor* thisx, GameState* game) {
     BgHakaTomb* this = THIS;
     s32 pad;
     Vec3f vec;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Matrix_RotateY(this->dyna.actor.world.rot.y, MTXMODE_NEW);
     SysMatrix_InsertXRotation_s(this->dyna.actor.world.rot.x, MTXMODE_APPLY);
     SysMatrix_InsertZRotation_s(this->dyna.actor.world.rot.z, MTXMODE_APPLY);
@@ -122,6 +122,6 @@ void BgHakaTomb_Update(Actor* thisx, GlobalContext* globalCtx) {
     Math_Vec3f_Sum(&this->dyna.actor.world.pos, &vec, &this->dyna.actor.focus.pos);
 }
 
-void BgHakaTomb_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_060007B0);
+void BgHakaTomb_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_060007B0);
 }

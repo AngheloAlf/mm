@@ -4,9 +4,9 @@
 
 #define THIS ((EnFall*)thisx)
 
-void EnFall_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFall_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFall_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnFall_Init(Actor* thisx, GameState* game);
+void EnFall_Destroy(Actor* thisx, GameState* game);
+void EnFall_Update(Actor* thisx, GameState* game);
 
 void func_80A6C3FC(EnFall* this, GlobalContext* globalCtx);
 void func_80A6C9A8(EnFall* this, GlobalContext* globalCtx);

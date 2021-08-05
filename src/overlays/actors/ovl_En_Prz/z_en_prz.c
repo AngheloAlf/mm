@@ -4,10 +4,10 @@
 
 #define THIS ((EnPrz*)thisx)
 
-void EnPrz_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPrz_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPrz_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPrz_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPrz_Init(Actor* thisx, GameState* game);
+void EnPrz_Destroy(Actor* thisx, GameState* game);
+void EnPrz_Update(Actor* thisx, GameState* game);
+void EnPrz_Draw(Actor* thisx, GameState* game);
 
 #if 0
 // static DamageTable sDamageTable = {

@@ -10,10 +10,10 @@
 
 #define THIS ((BgKeikokuSpr*)thisx)
 
-void BgKeikokuSpr_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgKeikokuSpr_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgKeikokuSpr_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgKeikokuSpr_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgKeikokuSpr_Init(Actor* thisx, GameState* game);
+void BgKeikokuSpr_Destroy(Actor* thisx, GameState* game);
+void BgKeikokuSpr_Update(Actor* thisx, GameState* game);
+void BgKeikokuSpr_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Bg_Keikoku_Spr_InitVars = {
     ACTOR_BG_KEIKOKU_SPR,
@@ -41,28 +41,28 @@ extern AnimatedMaterial D_060003F8;
 extern Gfx D_06000500[];
 extern AnimatedMaterial D_060005F8;
 
-void BgKeikokuSpr_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgKeikokuSpr_Init(Actor* thisx, GameState* game) {
     Actor_ProcessInitChain(thisx, sInitChain);
 }
 
-void BgKeikokuSpr_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgKeikokuSpr_Destroy(Actor* thisx, GameState* game) {
 }
 
-void BgKeikokuSpr_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgKeikokuSpr_Update(Actor* thisx, GameState* game) {
 }
 
-void BgKeikokuSpr_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void BgKeikokuSpr_Draw(Actor* thisx, GameState* game) {
     s32 pad;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    AnimatedMat_Draw(globalCtx, Lib_SegmentedToVirtual(&D_060001F8));
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    AnimatedMat_Draw(game, Lib_SegmentedToVirtual(&D_060001F8));
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_XLU_DISP++, D_06000100);
-    AnimatedMat_Draw(globalCtx, Lib_SegmentedToVirtual(&D_060003F8));
+    AnimatedMat_Draw(game, Lib_SegmentedToVirtual(&D_060003F8));
     gSPDisplayList(POLY_XLU_DISP++, D_06000300);
-    AnimatedMat_Draw(globalCtx, Lib_SegmentedToVirtual(&D_060005F8));
+    AnimatedMat_Draw(game, Lib_SegmentedToVirtual(&D_060005F8));
     gSPDisplayList(POLY_XLU_DISP++, D_06000500);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

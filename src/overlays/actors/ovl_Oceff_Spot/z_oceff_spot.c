@@ -4,10 +4,10 @@
 
 #define THIS ((OceffSpot*)thisx)
 
-void OceffSpot_Init(Actor* thisx, GlobalContext* globalCtx);
-void OceffSpot_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void OceffSpot_Update(Actor* thisx, GlobalContext* globalCtx);
-void OceffSpot_Draw(Actor* thisx, GlobalContext* globalCtx);
+void OceffSpot_Init(Actor* thisx, GameState* game);
+void OceffSpot_Destroy(Actor* thisx, GameState* game);
+void OceffSpot_Update(Actor* thisx, GameState* game);
+void OceffSpot_Draw(Actor* thisx, GameState* game);
 
 void func_809728F8(OceffSpot* this, GlobalContext* globalCtx);
 void func_80972934(OceffSpot* this, GlobalContext* globalCtx);

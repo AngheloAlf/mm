@@ -4,10 +4,10 @@
 
 #define THIS ((EnAttackNiw*)thisx)
 
-void EnAttackNiw_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnAttackNiw_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnAttackNiw_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnAttackNiw_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnAttackNiw_Init(Actor* thisx, GameState* game);
+void EnAttackNiw_Destroy(Actor* thisx, GameState* game);
+void EnAttackNiw_Update(Actor* thisx, GameState* game);
+void EnAttackNiw_Draw(Actor* thisx, GameState* game);
 
 void func_80958634(EnAttackNiw* this, GlobalContext* globalCtx);
 void func_80958974(EnAttackNiw* this, GlobalContext* globalCtx);

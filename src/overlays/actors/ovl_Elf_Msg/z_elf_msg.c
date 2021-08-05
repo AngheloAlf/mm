@@ -4,9 +4,9 @@
 
 #define THIS ((ElfMsg*)thisx)
 
-void ElfMsg_Init(Actor* thisx, GlobalContext* globalCtx);
-void ElfMsg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ElfMsg_Update(Actor* thisx, GlobalContext* globalCtx);
+void ElfMsg_Init(Actor* thisx, GameState* game);
+void ElfMsg_Destroy(Actor* thisx, GameState* game);
+void ElfMsg_Update(Actor* thisx, GameState* game);
 
 void ElfMsg_SetupAction(ElfMsg* this, ElfMsgActionFunc actionFunc);
 

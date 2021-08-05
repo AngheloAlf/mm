@@ -4,9 +4,9 @@
 
 #define THIS ((ObjPurify*)thisx)
 
-void ObjPurify_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjPurify_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjPurify_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjPurify_Init(Actor* thisx, GameState* game);
+void ObjPurify_Destroy(Actor* thisx, GameState* game);
+void ObjPurify_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Purify_InitVars = {

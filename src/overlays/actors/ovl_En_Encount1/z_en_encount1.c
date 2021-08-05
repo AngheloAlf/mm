@@ -4,8 +4,8 @@
 
 #define THIS ((EnEncount1*)thisx)
 
-void EnEncount1_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnEncount1_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnEncount1_Init(Actor* thisx, GameState* game);
+void EnEncount1_Update(Actor* thisx, GameState* game);
 
 void func_808E0954(EnEncount1* this, GlobalContext* globalCtx);
 

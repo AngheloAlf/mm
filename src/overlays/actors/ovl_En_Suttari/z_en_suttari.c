@@ -12,10 +12,10 @@
 
 #define THIS ((EnSuttari*)thisx)
 
-void EnSuttari_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSuttari_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSuttari_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSuttari_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSuttari_Init(Actor* thisx, GameState* game);
+void EnSuttari_Destroy(Actor* thisx, GameState* game);
+void EnSuttari_Update(Actor* thisx, GameState* game);
+void EnSuttari_Draw(Actor* thisx, GameState* game);
 
 void func_80BACA14(EnSuttari* this, GlobalContext* globalCtx);
 void func_80BACEE0(EnSuttari* this, GlobalContext* globalCtx);
@@ -1415,7 +1415,7 @@ void func_80BADF3C(EnSuttari* this, GlobalContext* globalCtx) {
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
 }
 
-void EnSuttari_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnSuttari_Init(Actor* thisx, GameState* game) {
     EnSuttari* this = THIS;
     s32 pad;
 
@@ -1423,36 +1423,36 @@ void EnSuttari_Init(Actor* thisx, GlobalContext* globalCtx) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, &sDamageTable, &sColChkInfoInit2);
     this->actor.flags &= ~1;
-    EnSuttari_GetPaths(this, globalCtx);
+    EnSuttari_GetPaths(this, game);
     Actor_SetScale(&this->actor, 0.01f);
     this->actionFunc = func_80BAC6E8;
     this->actor.gravity = -4.0f;
 }
 
-void EnSuttari_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnSuttari_Destroy(Actor* thisx, GameState* game) {
     EnSuttari* this = THIS;
 
-    if ((globalCtx->sceneNum == SCENE_BACKTOWN) && !(this->flags2 & 4)) {
+    if ((((GlobalContext*)game)->sceneNum == SCENE_BACKTOWN) && !(this->flags2 & 4)) {
         func_801A89A8(0x101400FF);
     }
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
-void EnSuttari_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnSuttari_Update(Actor* thisx, GameState* game) {
     EnSuttari* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player = PLAYER;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     if ((this->flags1 & 8) && (this->flags2 & 0x10) && (player->stateFlags1 & 0x10000000)) {
         player->actor.freezeTimer = 3;
     }
     if (!(this->flags1 & 0x8000)) {
-        func_80BAB4F0(this, globalCtx);
+        func_80BAB4F0(this, game);
     }
     if (this->flags2 & 2) {
         EnSuttari_UpdateTime();
@@ -1532,28 +1532,28 @@ void EnSuttari_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList
 void EnSuttari_UnkDraw(GlobalContext* globalCtx, s32 limbIndex, Actor* thisx) {
 }
 
-void EnSuttari_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnSuttari_Draw(Actor* thisx, GameState* game) {
     EnSuttari* this = THIS;
     s32 pad;
     Vec3f sp5C;
     Vec3f sp50;
 
     if (this->flags1 & 0x80) {
-        OPEN_DISPS(globalCtx->state.gfxCtx);
-        func_8012C28C(globalCtx->state.gfxCtx);
-        gSPSegment(POLY_OPA_DISP++, 0x08, Gfx_EnvColor(globalCtx->state.gfxCtx, 255, 255, 255, 0));
-        gSPSegment(POLY_OPA_DISP++, 0x09, Gfx_EnvColor(globalCtx->state.gfxCtx, 55, 55, 255, 0));
+        OPEN_DISPS(game->gfxCtx);
+        func_8012C28C(game->gfxCtx);
+        gSPSegment(POLY_OPA_DISP++, 0x08, Gfx_EnvColor(game->gfxCtx, 255, 255, 255, 0));
+        gSPSegment(POLY_OPA_DISP++, 0x09, Gfx_EnvColor(game->gfxCtx, 55, 55, 255, 0));
         gDPPipeSync(POLY_OPA_DISP++);
-        func_801343C0(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+        func_801343C0(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                       EnSuttari_OverrideLimbDraw, EnSuttari_PostLimbDraw, EnSuttari_UnkDraw, &this->actor);
         if (this->flags1 & 0x80) {
-            func_8012C2DC(globalCtx->state.gfxCtx);
+            func_8012C2DC(game->gfxCtx);
             sp5C = this->actor.world.pos;
             sp50.x = 0.2f;
             sp50.y = 0.2f;
             sp50.z = 0.2f;
-            func_800BC620(&sp5C, &sp50, 0xFF, globalCtx);
+            func_800BC620(&sp5C, &sp50, 0xFF, game);
         }
-        CLOSE_DISPS(globalCtx->state.gfxCtx);
+        CLOSE_DISPS(game->gfxCtx);
     }
 }

@@ -4,10 +4,10 @@
 
 #define THIS ((EnSda*)thisx)
 
-void EnSda_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSda_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSda_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSda_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSda_Init(Actor* thisx, GameState* game);
+void EnSda_Destroy(Actor* thisx, GameState* game);
+void EnSda_Update(Actor* thisx, GameState* game);
+void EnSda_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Sda_InitVars = {

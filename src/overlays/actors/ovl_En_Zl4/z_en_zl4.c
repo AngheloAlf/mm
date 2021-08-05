@@ -4,10 +4,10 @@
 
 #define THIS ((EnZl4*)thisx)
 
-void EnZl4_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnZl4_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnZl4_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnZl4_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnZl4_Init(Actor* thisx, GameState* game);
+void EnZl4_Destroy(Actor* thisx, GameState* game);
+void EnZl4_Update(Actor* thisx, GameState* game);
+void EnZl4_Draw(Actor* thisx, GameState* game);
 
 void func_809A1D0C(EnZl4* this, GlobalContext* globalCtx);
 

@@ -4,10 +4,10 @@
 
 #define THIS ((EnIk*)thisx)
 
-void EnIk_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnIk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnIk_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnIk_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnIk_Init(Actor* thisx, GameState* game);
+void EnIk_Destroy(Actor* thisx, GameState* game);
+void EnIk_Update(Actor* thisx, GameState* game);
+void EnIk_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Ik_InitVars = {

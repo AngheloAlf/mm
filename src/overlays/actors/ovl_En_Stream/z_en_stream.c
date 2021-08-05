@@ -4,10 +4,10 @@
 
 #define THIS ((EnStream*)thisx)
 
-void EnStream_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnStream_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnStream_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnStream_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnStream_Init(Actor* thisx, GameState* game);
+void EnStream_Destroy(Actor* thisx, GameState* game);
+void EnStream_Update(Actor* thisx, GameState* game);
+void EnStream_Draw(Actor* thisx, GameState* game);
 
 void EnStream_SetupAction(EnStream* this, EnStreamActionFunc actionFunc);
 

@@ -4,10 +4,10 @@
 
 #define THIS ((EnWiz*)thisx)
 
-void EnWiz_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWiz_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWiz_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWiz_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWiz_Init(Actor* thisx, GameState* game);
+void EnWiz_Destroy(Actor* thisx, GameState* game);
+void EnWiz_Update(Actor* thisx, GameState* game);
+void EnWiz_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Wiz_InitVars = {

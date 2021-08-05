@@ -8,10 +8,10 @@
 
 #define FLAGS 0x00800010
 
-void EnNiw_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnNiw_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnNiw_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnNiw_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnNiw_Init(Actor* thisx, GameState* game);
+void EnNiw_Destroy(Actor* thisx, GameState* game);
+void EnNiw_Update(Actor* thisx, GameState* game);
+void EnNiw_Draw(Actor* thisx, GameState* game);
 void EnNiw_SetupIdle(EnNiw* this);
 void EnNiw_Idle(EnNiw* this, GlobalContext* globalCtx);
 void EnNiw_Thrown(EnNiw* this, GlobalContext* globalCtx);
@@ -108,7 +108,7 @@ static Vec3f D_808934E8 = {
 
 static s32 pad = 0;
 
-void EnNiw_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnNiw_Init(Actor* thisx, GameState* game) {
     EnNiw* this = (EnNiw*)thisx;
     Vec3f dTemp = D_808934C4;
 
@@ -125,7 +125,7 @@ void EnNiw_Init(Actor* thisx, GlobalContext* globalCtx) {
 
     ActorShape_Init(&thisx->shape, 0.0f, func_800B3FC0, 25.0f);
 
-    SkelAnime_InitSV(globalCtx, &this->skelanime, &D_06002530, &D_060000E8, this->limbDrawTbl,
+    SkelAnime_InitSV(game, &this->skelanime, &D_06002530, &D_060000E8, this->limbDrawTbl,
                      this->transitionDrawtable, ENNIW_LIMBCOUNT);
     Math_Vec3f_Copy(&this->unk2A4, &this->actor.world.pos);
     Math_Vec3f_Copy(&this->unk2B0, &this->actor.world.pos);
@@ -142,7 +142,7 @@ void EnNiw_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
 
     if (this->niwType == ENNIW_TYPE_REGULAR) {
-        Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+        Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     }
 
     if (this->niwType == ENNIW_TYPE_UNK2) {
@@ -161,11 +161,11 @@ void EnNiw_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnNiw_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnNiw_Destroy(Actor* thisx, GameState* game) {
     EnNiw* this = (EnNiw*)thisx;
 
     if (this->niwType == ENNIW_TYPE_REGULAR) {
-        Collider_DestroyCylinder(globalCtx, &this->collider);
+        Collider_DestroyCylinder(game, &this->collider);
     }
 }
 
@@ -732,23 +732,28 @@ void EnNiw_CheckRage(EnNiw* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnNiw_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnNiw_Update(Actor* thisx, GameState* game) {
     EnNiw* this = (EnNiw*)thisx;
     s8 pad0;
     s16 i;
-    Player* player = PLAYER;
+    Player* player;
     s16 pad1;
     s16 featherCount;
     Vec3f pos;
     Vec3f spB8;
     Vec3f spAC;
-    s32 pad2[9];
+    GlobalContext* globalCtx = (GlobalContext*)game;
+    s32 pad2[8];
     s16 temp29C;
     f32 featherScale;
     f32 camResult;
     f32 floorHeight;
-    f32 dist = 20.0f;
+    f32 dist;
     s32 pad3;
+
+    player = PLAYER;
+
+    dist = 20.0f;
 
     this->unusedCounter28C++;
 
@@ -789,7 +794,7 @@ void EnNiw_Update(Actor* thisx, GlobalContext* globalCtx) {
         this->unk29E = 0;
     }
 
-    EnNiw_UpdateFeather(this, globalCtx);
+    EnNiw_UpdateFeather(this, game);
 
     DECR(this->unkTimer24C);
     DECR(this->unkTimer24E);
@@ -805,23 +810,23 @@ void EnNiw_Update(Actor* thisx, GlobalContext* globalCtx) {
 
     this->actor.shape.rot = this->actor.world.rot;
     this->actor.shape.shadowScale = 15.0f;
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetHeight(&this->actor, this->unk308);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
 
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 20.0f, 20.0f, 60.0f, 0x1F);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 20.0f, 20.0f, 60.0f, 0x1F);
 
     if ((this->actor.floorHeight <= BGCHECK_Y_MIN) || (this->actor.floorHeight >= 32000.0f)) {
         // if cucco is off the map?
         Vec3f camera;
-        camera.x = globalCtx->view.at.x - globalCtx->view.eye.x;
-        camera.y = globalCtx->view.at.y - globalCtx->view.eye.y;
-        camera.z = globalCtx->view.at.z - globalCtx->view.eye.z;
+        camera.x = ((GlobalContext*)game)->view.at.x - ((GlobalContext*)game)->view.eye.x;
+        camera.y = ((GlobalContext*)game)->view.at.y - ((GlobalContext*)game)->view.eye.y;
+        camera.z = ((GlobalContext*)game)->view.at.z - ((GlobalContext*)game)->view.eye.z;
         camResult = camera.y / sqrtf(SQXYZ(camera));
 
         this->actor.world.pos.x = this->actor.home.pos.x;
         this->actor.world.pos.z = this->actor.home.pos.z;
-        this->actor.world.pos.y = (this->actor.home.pos.y + globalCtx->view.eye.y) + (camResult * 160.0f);
+        this->actor.world.pos.y = (this->actor.home.pos.y + ((GlobalContext*)game)->view.eye.y) + (camResult * 160.0f);
 
         if (this->actor.world.pos.y < this->actor.home.pos.y) {
             this->actor.world.pos.y = this->actor.home.pos.y + 300.0f;
@@ -866,17 +871,17 @@ void EnNiw_Update(Actor* thisx, GlobalContext* globalCtx) {
         Math_Vec3f_Copy(&pos, &this->actor.world.pos);
         pos.y += this->actor.yDistToWater;
         this->unkTimer250 = 30;
-        EffectSsGSplash_Spawn(globalCtx, &pos, 0, 0, 0, 400);
+        EffectSsGSplash_Spawn(game, &pos, 0, 0, 0, 400);
         this->unkTimer252 = 0;
         this->unknownState28E = 6;
         this->actionFunc = EnNiw_Swimming;
 
     } else {
         if (this->isStormActive && (this->actor.xyzDistToPlayerSq < (SQ(dist))) && (player->invincibilityTimer == 0)) {
-            func_800B8D50(globalCtx, &this->actor, 2.0f, this->actor.world.rot.y, 0.0f, 0x10);
+            func_800B8D50(game, &this->actor, 2.0f, this->actor.world.rot.y, 0.0f, 0x10);
         }
 
-        EnNiw_CheckRage(this, globalCtx);
+        EnNiw_CheckRage(this, game);
         if ((this->flutterSfxTimer == 0) && (this->unknownState28E == 4)) {
             this->flutterSfxTimer = 7;
             Audio_PlayActorSound2(&this->actor, NA_SE_EN_CHICKEN_FLUTTER);
@@ -895,12 +900,12 @@ void EnNiw_Update(Actor* thisx, GlobalContext* globalCtx) {
         if (!this->isStormActive) {
             if (this->niwType == ENNIW_TYPE_REGULAR) {
                 Collider_UpdateCylinder(&this->actor, &this->collider);
-                CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+                CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 
-                if (globalCtx) {}
+                if (game) {}
 
                 if ((this->unknownState28E != 4) && (this->unknownState28E != 5)) {
-                    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+                    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
                 }
             }
         }
@@ -929,13 +934,13 @@ s32 EnNiw_LimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* 
     return 0;
 }
 
-void EnNiw_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnNiw_Draw(Actor* thisx, GameState* game) {
     EnNiw* this = (EnNiw*)thisx;
 
-    func_8012C28C(globalCtx->state.gfxCtx);
-    SkelAnime_DrawSV(globalCtx, this->skelanime.skeleton, this->skelanime.limbDrawTbl, this->skelanime.dListCount,
+    func_8012C28C(game->gfxCtx);
+    SkelAnime_DrawSV(game, this->skelanime.skeleton, this->skelanime.limbDrawTbl, this->skelanime.dListCount,
                      EnNiw_LimbDraw, NULL, &this->actor);
-    EnNiw_DrawFeathers(this, globalCtx);
+    EnNiw_DrawFeathers(this, game);
 }
 
 void EnNiw_SpawnFeather(EnNiw* this, Vec3f* pos, Vec3f* vel, Vec3f* accel, f32 scale) {

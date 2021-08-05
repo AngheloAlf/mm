@@ -4,9 +4,9 @@
 
 #define THIS ((EnOnpuman*)thisx)
 
-void EnOnpuman_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOnpuman_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOnpuman_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnOnpuman_Init(Actor* thisx, GameState* game);
+void EnOnpuman_Destroy(Actor* thisx, GameState* game);
+void EnOnpuman_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Onpuman_InitVars = {

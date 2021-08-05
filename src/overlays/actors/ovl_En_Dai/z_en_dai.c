@@ -10,10 +10,10 @@
 
 #define THIS ((EnDai*)thisx)
 
-void EnDai_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDai_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDai_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDai_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDai_Init(Actor* thisx, GameState* game);
+void EnDai_Destroy(Actor* thisx, GameState* game);
+void EnDai_Update(Actor* thisx, GameState* game);
+void EnDai_Draw(Actor* thisx, GameState* game);
 
 void func_80B3F00C(EnDai* this, GlobalContext* globalCtx);
 void func_80B3EEDC(EnDai* this, GlobalContext* globalCtx);
@@ -72,8 +72,8 @@ EnDaiParticle* func_80B3DFF0(EnDaiParticle* particle, Vec3f arg1, Vec3f arg2, Ve
     return NULL;
 }
 
-void func_80B3E168(EnDaiParticle* particle, GlobalContext* globalCtx2) {
-    GlobalContext* globalCtx = globalCtx2;
+void func_80B3E168(EnDaiParticle* particle, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     s32 pad;
     s32 isDisplayListSet = false;
     s32 i;
@@ -524,11 +524,11 @@ void func_80B3F044(EnDai* this, GlobalContext* globalCtx) {
     func_800EDF24(&this->actor, globalCtx, sp2C);
 }
 
-void EnDai_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnDai_Init(Actor* thisx, GameState* game) {
     EnDai* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 0.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_060130D0, NULL, this->jointTable, this->morphTable, 19);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_060130D0, NULL, this->jointTable, this->morphTable, 19);
     this->unk_A70 = -1;
     func_80B3E5DC(this, 0);
     Actor_SetScale(&this->actor, 0.2f);
@@ -558,26 +558,26 @@ void EnDai_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actionFunc = func_80B3EEDC;
 }
 
-void EnDai_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnDai_Destroy(Actor* thisx, GameState* game) {
 }
 
-void EnDai_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnDai_Update(Actor* thisx, GameState* game) {
     EnDai* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player = PLAYER;
 
-    if (!func_80B3E7C8(this, globalCtx) && func_80B3E69C(this, globalCtx)) {
-        func_80B3F044(this, globalCtx);
+    if (!func_80B3E7C8(this, game) && func_80B3E69C(this, game)) {
+        func_80B3F044(this, game);
         SkelAnime_FrameUpdateMatrix(&this->skelAnime);
         func_80B3E834(this);
         func_80B3E460(this);
     } else {
-        this->actionFunc(this, globalCtx);
+        this->actionFunc(this, game);
         if (!(player->stateFlags2 & 0x8000000)) {
             SkelAnime_FrameUpdateMatrix(&this->skelAnime);
             func_80B3E834(this);
             if (!(this->unk_1CE & 0x200)) {
-                func_8013C964(&this->actor, globalCtx, 0.0f, 0.0f, 0, this->unk_1CE & 7);
+                func_8013C964(&this->actor, game, 0.0f, 0.0f, 0, this->unk_1CE & 7);
             }
             func_80B3E460(this);
         }
@@ -736,14 +736,14 @@ void func_80B3F920(EnDai* this, GlobalContext* globalCtx) {
     func_80B3E5B4(this, globalCtx);
 }
 
-void EnDai_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnDai_Draw(Actor* thisx, GameState* game) {
     EnDai* this = THIS;
 
     if (!(this->unk_1CE & 0x200)) {
         if (this->unk_1CE & 0x20) {
-            func_80B3F78C(this, globalCtx);
+            func_80B3F78C(this, game);
         } else {
-            func_80B3F920(this, globalCtx);
+            func_80B3F920(this, game);
         }
     }
 }

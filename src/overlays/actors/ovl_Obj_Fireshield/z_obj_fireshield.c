@@ -4,10 +4,10 @@
 
 #define THIS ((ObjFireshield*)thisx)
 
-void ObjFireshield_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjFireshield_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjFireshield_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjFireshield_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjFireshield_Init(Actor* thisx, GameState* game);
+void ObjFireshield_Destroy(Actor* thisx, GameState* game);
+void ObjFireshield_Update(Actor* thisx, GameState* game);
+void ObjFireshield_Draw(Actor* thisx, GameState* game);
 
 void func_80A4CABC(ObjFireshield* this, GlobalContext* globalCtx);
 void func_80A4CB7C(ObjFireshield* this, GlobalContext* globalCtx);

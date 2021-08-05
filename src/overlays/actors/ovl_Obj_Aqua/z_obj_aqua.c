@@ -4,10 +4,10 @@
 
 #define THIS ((ObjAqua*)thisx)
 
-void ObjAqua_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjAqua_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjAqua_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjAqua_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjAqua_Init(Actor* thisx, GameState* game);
+void ObjAqua_Destroy(Actor* thisx, GameState* game);
+void ObjAqua_Update(Actor* thisx, GameState* game);
+void ObjAqua_Draw(Actor* thisx, GameState* game);
 
 void func_80ACBC8C(ObjAqua* this, GlobalContext* globalCtx);
 void func_80ACBD48(ObjAqua* this, GlobalContext* globalCtx);

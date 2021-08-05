@@ -10,10 +10,10 @@
 
 #define THIS ((ItemBHeart*)thisx)
 
-void ItemBHeart_Init(Actor* thisx, GlobalContext* globalCtx);
-void ItemBHeart_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ItemBHeart_Update(Actor* thisx, GlobalContext* globalCtx);
-void ItemBHeart_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ItemBHeart_Init(Actor* thisx, GameState* game);
+void ItemBHeart_Destroy(Actor* thisx, GameState* game);
+void ItemBHeart_Update(Actor* thisx, GameState* game);
+void ItemBHeart_Draw(Actor* thisx, GameState* game);
 
 void func_808BCF54(ItemBHeart* this, GlobalContext* globalCtx);
 
@@ -39,10 +39,10 @@ static InitChainEntry sInitChain[] = {
 extern Gfx D_06001290[];
 extern Gfx D_06001470[];
 
-void ItemBHeart_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ItemBHeart_Init(Actor* thisx, GameState* game) {
     ItemBHeart* this = THIS;
 
-    if (Actor_GetCollectibleFlag(globalCtx, 0x1F)) {
+    if (Actor_GetCollectibleFlag(game, 0x1F)) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
@@ -59,20 +59,20 @@ void ItemBHeart_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actor.world.pos.y += (20.0f * this->unk_168);
 }
 
-void ItemBHeart_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ItemBHeart_Destroy(Actor* thisx, GameState* game) {
 }
 
-void ItemBHeart_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ItemBHeart_Update(Actor* thisx, GameState* game) {
     ItemBHeart* this = THIS;
 
-    func_808BCF54(this, globalCtx);
+    func_808BCF54(this, game);
 
     if (!(this->unk_168 < 0.5f)) {
-        if (Actor_HasParent(&this->actor, globalCtx)) {
-            Actor_SetCollectibleFlag(globalCtx, 0x1F);
+        if (Actor_HasParent(&this->actor, game)) {
+            Actor_SetCollectibleFlag(game, 0x1F);
             Actor_MarkForDeath(&this->actor);
         } else {
-            func_800B8A1C(&this->actor, globalCtx, 0xD, 30.0f, 80.0f);
+            func_800B8A1C(&this->actor, game, 0xD, 30.0f, 80.0f);
         }
     }
 }
@@ -83,14 +83,14 @@ void func_808BCF54(ItemBHeart* this, GlobalContext* globalCtx) {
     Actor_SetScale(&this->actor, this->unk_164 * this->unk_168);
 }
 
-void ItemBHeart_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ItemBHeart_Draw(Actor* thisx, GameState* game) {
     ItemBHeart* this = THIS;
     Actor* blueWarpActor;
     u8 flag = false;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    blueWarpActor = globalCtx->actorCtx.actorList[ACTORCAT_ITEMACTION].first;
+    blueWarpActor = ((GlobalContext*)game)->actorCtx.actorList[ACTORCAT_ITEMACTION].first;
 
     while (blueWarpActor != NULL) {
         if ((blueWarpActor->id == ACTOR_DOOR_WARP1) && (blueWarpActor->projectedPos.z > this->actor.projectedPos.z)) {
@@ -101,16 +101,16 @@ void ItemBHeart_Draw(Actor* thisx, GlobalContext* globalCtx) {
     }
 
     if (flag || thisx->world.rot.y != 0) {
-        func_8012C2DC(globalCtx->state.gfxCtx);
-        gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        func_8012C2DC(game->gfxCtx);
+        gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(POLY_XLU_DISP++, D_06001290);
         gSPDisplayList(POLY_XLU_DISP++, D_06001470);
     } else {
-        func_8012C28C(globalCtx->state.gfxCtx);
-        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        func_8012C28C(game->gfxCtx);
+        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(POLY_OPA_DISP++, D_06001290);
         gSPDisplayList(POLY_OPA_DISP++, D_06001470);
     }
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

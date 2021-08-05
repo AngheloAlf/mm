@@ -4,10 +4,10 @@
 
 #define THIS ((EnOt*)thisx)
 
-void EnOt_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOt_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOt_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnOt_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnOt_Init(Actor* thisx, GameState* game);
+void EnOt_Destroy(Actor* thisx, GameState* game);
+void EnOt_Update(Actor* thisx, GameState* game);
+void EnOt_Draw(Actor* thisx, GameState* game);
 
 void func_80B5BE04(EnOt* this, GlobalContext* globalCtx);
 void func_80B5BED4(EnOt* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnMm3*)thisx)
 
-void EnMm3_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMm3_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMm3_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMm3_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMm3_Init(Actor* thisx, GameState* game);
+void EnMm3_Destroy(Actor* thisx, GameState* game);
+void EnMm3_Update(Actor* thisx, GameState* game);
+void EnMm3_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Mm3_InitVars = {

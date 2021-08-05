@@ -4,10 +4,10 @@
 
 #define THIS ((EnRacedog*)thisx)
 
-void EnRacedog_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRacedog_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRacedog_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRacedog_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRacedog_Init(Actor* thisx, GameState* game);
+void EnRacedog_Destroy(Actor* thisx, GameState* game);
+void EnRacedog_Update(Actor* thisx, GameState* game);
+void EnRacedog_Draw(Actor* thisx, GameState* game);
 
 void func_80B24C14(EnRacedog* this, GlobalContext* globalCtx);
 void func_80B24CB4(EnRacedog* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjDriftice*)thisx)
 
-void ObjDriftice_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjDriftice_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjDriftice_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjDriftice_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjDriftice_Init(Actor* thisx, GameState* game);
+void ObjDriftice_Destroy(Actor* thisx, GameState* game);
+void ObjDriftice_Update(Actor* thisx, GameState* game);
+void ObjDriftice_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Driftice_InitVars = {

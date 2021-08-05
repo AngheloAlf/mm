@@ -10,10 +10,10 @@
 
 #define THIS ((EnGirlA*)thisx)
 
-void EnGirlA_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGirlA_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGirlA_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGirlA_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGirlA_Init(Actor* thisx, GameState* game);
+void EnGirlA_Destroy(Actor* thisx, GameState* game);
+void EnGirlA_Update(Actor* thisx, GameState* game);
+void EnGirlA_Draw(Actor* thisx, GameState* game);
 
 void EnGirlA_InitalUpdate(EnGirlA* this, GlobalContext* globalCtx);
 void EnGirlA_Update2(EnGirlA* this, GlobalContext* globalCtx);
@@ -175,13 +175,13 @@ void EnGirlA_InitObjIndex(EnGirlA* this, GlobalContext* globalCtx) {
     this->mainActionFunc = EnGirlA_InitalUpdate;
 }
 
-void EnGirlA_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnGirlA_Init(Actor* thisx, GameState* game) {
     EnGirlA* this = THIS;
 
-    EnGirlA_InitObjIndex(this, globalCtx);
+    EnGirlA_InitObjIndex(this, game);
 }
 
-void EnGirlA_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnGirlA_Destroy(Actor* thisx, GameState* game) {
 }
 
 s32 EnGirlA_CanBuyPotionRed(GlobalContext* globalCtx, EnGirlA* this) {
@@ -588,18 +588,18 @@ void EnGirlA_Update2(EnGirlA* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnGirlA_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnGirlA_Update(Actor* thisx, GameState* game) {
     EnGirlA* this = THIS;
 
-    this->mainActionFunc(this, globalCtx);
+    this->mainActionFunc(this, game);
 }
 
-void EnGirlA_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnGirlA_Draw(Actor* thisx, GameState* game) {
     EnGirlA* this = THIS;
 
     Matrix_RotateY(this->rotY, MTXMODE_APPLY);
     if (this->drawFunc != NULL) {
-        this->drawFunc(&this->actor, globalCtx, 0);
+        this->drawFunc(&this->actor, game, 0);
     }
-    GetItem_Draw(globalCtx, this->getItemDrawId);
+    GetItem_Draw(game, this->getItemDrawId);
 }

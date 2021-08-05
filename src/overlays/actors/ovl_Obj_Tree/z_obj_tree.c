@@ -4,10 +4,10 @@
 
 #define THIS ((ObjTree*)thisx)
 
-void ObjTree_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTree_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTree_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjTree_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjTree_Init(Actor* thisx, GameState* game);
+void ObjTree_Destroy(Actor* thisx, GameState* game);
+void ObjTree_Update(Actor* thisx, GameState* game);
+void ObjTree_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Tree_InitVars = {

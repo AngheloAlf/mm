@@ -4,10 +4,10 @@
 
 #define THIS ((ObjDinner*)thisx)
 
-void ObjDinner_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjDinner_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjDinner_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjDinner_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjDinner_Init(Actor* thisx, GameState* game);
+void ObjDinner_Destroy(Actor* thisx, GameState* game);
+void ObjDinner_Update(Actor* thisx, GameState* game);
+void ObjDinner_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Dinner_InitVars = {
     ACTOR_OBJ_DINNER,
@@ -23,7 +23,7 @@ const ActorInit Obj_Dinner_InitVars = {
 
 extern Gfx D_060011E0[];
 
-void ObjDinner_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjDinner_Init(Actor* thisx, GameState* game) {
     ObjDinner* this = THIS;
 
     if (gSaveContext.isNight != true || (CURRENT_DAY == 3 && gSaveContext.weekEventReg[0x16] & 1)) {
@@ -32,18 +32,18 @@ void ObjDinner_Init(Actor* thisx, GlobalContext* globalCtx) {
     Actor_SetScale(&this->actor, 0.1f);
 }
 
-void ObjDinner_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjDinner_Destroy(Actor* thisx, GameState* game) {
 }
 
-void ObjDinner_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjDinner_Update(Actor* thisx, GameState* game) {
 }
 
-void ObjDinner_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+void ObjDinner_Draw(Actor* thisx, GameState* game) {
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_060011E0);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

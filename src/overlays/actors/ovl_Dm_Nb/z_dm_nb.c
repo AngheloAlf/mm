@@ -10,10 +10,10 @@
 
 #define THIS ((DmNb*)thisx)
 
-void DmNb_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmNb_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmNb_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmNb_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmNb_Init(Actor* thisx, GameState* game);
+void DmNb_Destroy(Actor* thisx, GameState* game);
+void DmNb_Update(Actor* thisx, GameState* game);
+void DmNb_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Dm_Nb_InitVars = {
     ACTOR_DM_NB,
@@ -68,11 +68,11 @@ void func_80C1DF18(DmNb* this, GlobalContext* globalCtx) {
     }
 }
 
-void DmNb_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DmNb_Init(Actor* thisx, GameState* game) {
     DmNb* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, NULL, 0.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06008C40, NULL, this->limbDrawTable, this->transitionDrawTable, 8);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06008C40, NULL, this->limbDrawTable, this->transitionDrawTable, 8);
     this->unk1F0 = -1;
     func_80C1DED0(this, 0);
     this->actor.flags &= ~1;
@@ -80,24 +80,24 @@ void DmNb_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actionFunc = func_80C1DF18;
 }
 
-void DmNb_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DmNb_Destroy(Actor* thisx, GameState* game) {
 }
 
-void DmNb_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DmNb_Update(Actor* thisx, GameState* game) {
     DmNb* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 30.0f, 12.0f, 0.0f, 0x4);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 30.0f, 12.0f, 0.0f, 0x4);
 }
 
 void DmNb_UnkActorDraw(GlobalContext* globalCtx, s32 limbIndex, Actor* actor) {
 }
 
-void DmNb_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void DmNb_Draw(Actor* thisx, GameState* game) {
     DmNb* this = THIS;
 
-    func_8012C5B0(globalCtx->state.gfxCtx);
-    func_801343C0(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
+    func_8012C5B0(game->gfxCtx);
+    func_801343C0(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
                   NULL, DmNb_UnkActorDraw, &this->actor);
 }

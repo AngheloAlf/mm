@@ -4,10 +4,10 @@
 
 #define THIS ((EnKanban*)thisx)
 
-void EnKanban_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKanban_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKanban_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnKanban_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnKanban_Init(Actor* thisx, GameState* game);
+void EnKanban_Destroy(Actor* thisx, GameState* game);
+void EnKanban_Update(Actor* thisx, GameState* game);
+void EnKanban_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Kanban_InitVars = {

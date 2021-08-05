@@ -4,10 +4,10 @@
 
 #define THIS ((EnWallmas*)thisx)
 
-void EnWallmas_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWallmas_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWallmas_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWallmas_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWallmas_Init(Actor* thisx, GameState* game);
+void EnWallmas_Destroy(Actor* thisx, GameState* game);
+void EnWallmas_Update(Actor* thisx, GameState* game);
+void EnWallmas_Draw(Actor* thisx, GameState* game);
 
 void func_80874BE4(EnWallmas* this, GlobalContext* globalCtx);
 void func_80874DE8(EnWallmas* this, GlobalContext* globalCtx);

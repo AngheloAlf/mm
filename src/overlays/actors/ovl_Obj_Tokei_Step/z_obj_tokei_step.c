@@ -10,10 +10,10 @@
 
 #define THIS ((ObjTokeiStep*)thisx)
 
-void ObjTokeiStep_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeiStep_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeiStep_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjTokeiStep_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjTokeiStep_Init(Actor* thisx, GameState* game);
+void ObjTokeiStep_Destroy(Actor* thisx, GameState* game);
+void ObjTokeiStep_Update(Actor* thisx, GameState* game);
+void ObjTokeiStep_Draw(Actor* thisx, GameState* game);
 
 void ObjTokeiStep_SetupBeginOpen(ObjTokeiStep* this);
 void ObjTokeiStep_BeginOpen(ObjTokeiStep* this, GlobalContext* globalCtx);
@@ -23,7 +23,7 @@ void ObjTokeiStep_SetupOpen(ObjTokeiStep* this);
 void ObjTokeiStep_Open(ObjTokeiStep* this, GlobalContext* globalCtx);
 void ObjTokeiStep_SetupDoNothingOpen(ObjTokeiStep* this);
 void ObjTokeiStep_DoNothingOpen(ObjTokeiStep* this, GlobalContext* globalCtx);
-void ObjTokeiStep_DrawOpen(Actor* thisx, GlobalContext* globalCtx);
+void ObjTokeiStep_DrawOpen(Actor* thisx, GameState* game);
 
 const ActorInit Obj_Tokei_Step_InitVars = {
     ACTOR_OBJ_TOKEI_STEP,
@@ -191,13 +191,13 @@ s32 ObjTokeiStep_OpenProcess(ObjTokeiStep* this, GlobalContext* globalCtx) {
     return isOpen;
 }
 
-void ObjTokeiStep_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjTokeiStep_Init(Actor* thisx, GameState* game) {
     ObjTokeiStep* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 0);
-    if ((globalCtx->sceneNum == 0x6F) && (gSaveContext.sceneSetupIndex == 2) && (globalCtx->csCtx.unk_12 == 0)) {
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000968);
+    if ((((GlobalContext*)game)->sceneNum == 0x6F) && (gSaveContext.sceneSetupIndex == 2) && (((GlobalContext*)game)->csCtx.unk_12 == 0)) {
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06000968);
         ObjTokeiStep_InitSteps(this);
         ObjTokeiStep_SetupBeginOpen(this);
     } else if (!((CURRENT_DAY != 3) || (gSaveContext.time >= 0x4000)) || gSaveContext.day >= 4) {
@@ -205,16 +205,16 @@ void ObjTokeiStep_Init(Actor* thisx, GlobalContext* globalCtx) {
         ObjTokeiStep_InitStepsOpen(this);
         ObjTokeiStep_SetupDoNothingOpen(this);
     } else {
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000968);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06000968);
         ObjTokeiStep_InitSteps(this);
         ObjTokeiStep_SetupDoNothing(this);
     }
 }
 
-void ObjTokeiStep_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjTokeiStep_Destroy(Actor* thisx, GameState* game) {
     ObjTokeiStep* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void ObjTokeiStep_SetupBeginOpen(ObjTokeiStep* this) {
@@ -260,34 +260,34 @@ void ObjTokeiStep_SetupDoNothingOpen(ObjTokeiStep* this) {
 void ObjTokeiStep_DoNothingOpen(ObjTokeiStep* this, GlobalContext* globalCtx) {
 }
 
-void ObjTokeiStep_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjTokeiStep_Update(Actor* thisx, GameState* game) {
     ObjTokeiStep* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void ObjTokeiStep_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjTokeiStep_Draw(Actor* thisx, GameState* game) {
     ObjTokeiStep* this = THIS;
 
-    func_800BDFC0(globalCtx, D_06000088);
+    func_800BDFC0(game, D_06000088);
 }
 
-void ObjTokeiStep_DrawOpen(Actor* thisx, GlobalContext* globalCtx) {
+void ObjTokeiStep_DrawOpen(Actor* thisx, GameState* game) {
     ObjTokeiStep* this = THIS;
     int i;
     ObjTokeiStepPanel* panel;
     Gfx* gfx;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
     gfx = POLY_OPA_DISP;
     gSPDisplayList(gfx++, &sSetupDL[6 * 0x19]);
 
     for (i = 0; i < 7; i++) {
         panel = &this->panels[i];
         ObjTokeiStep_SetSysMatrix(panel);
-        gSPMatrix(gfx++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPMatrix(gfx++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(gfx++, D_06000088);
     }
     POLY_OPA_DISP = gfx;
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

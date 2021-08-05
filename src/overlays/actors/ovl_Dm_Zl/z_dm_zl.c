@@ -4,10 +4,10 @@
 
 #define THIS ((DmZl*)thisx)
 
-void DmZl_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmZl_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmZl_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmZl_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmZl_Init(Actor* thisx, GameState* game);
+void DmZl_Destroy(Actor* thisx, GameState* game);
+void DmZl_Update(Actor* thisx, GameState* game);
+void DmZl_Draw(Actor* thisx, GameState* game);
 
 void func_80A382FC(DmZl* this, GlobalContext* globalCtx);
 

@@ -4,10 +4,10 @@
 
 #define THIS ((EnAkindonuts*)thisx)
 
-void EnAkindonuts_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnAkindonuts_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnAkindonuts_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnAkindonuts_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnAkindonuts_Init(Actor* thisx, GameState* game);
+void EnAkindonuts_Destroy(Actor* thisx, GameState* game);
+void EnAkindonuts_Update(Actor* thisx, GameState* game);
+void EnAkindonuts_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Akindonuts_InitVars = {

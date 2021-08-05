@@ -4,9 +4,9 @@
 
 #define THIS ((EnWarptag*)thisx)
 
-void EnWarptag_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWarptag_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWarptag_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnWarptag_Init(Actor* thisx, GameState* game);
+void EnWarptag_Destroy(Actor* thisx, GameState* game);
+void EnWarptag_Update(Actor* thisx, GameState* game);
 
 void func_809C085C(EnWarptag* this, GlobalContext* globalCtx);
 void func_809C08E0(EnWarptag* this, GlobalContext* globalCtx);

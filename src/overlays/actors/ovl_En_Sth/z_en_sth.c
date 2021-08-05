@@ -4,9 +4,9 @@
 
 #define THIS ((EnSth*)thisx)
 
-void EnSth_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSth_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSth_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnSth_Init(Actor* thisx, GameState* game);
+void EnSth_Destroy(Actor* thisx, GameState* game);
+void EnSth_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Sth_InitVars = {

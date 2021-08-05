@@ -4,10 +4,10 @@
 
 #define THIS ((BgIkanaRay*)thisx)
 
-void BgIkanaRay_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaRay_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaRay_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaRay_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIkanaRay_Init(Actor* thisx, GameState* game);
+void BgIkanaRay_Destroy(Actor* thisx, GameState* game);
+void BgIkanaRay_Update(Actor* thisx, GameState* game);
+void BgIkanaRay_Draw(Actor* thisx, GameState* game);
 
 void BgIkanaRay_SetDeactivated(BgIkanaRay* this);
 void BgIkanaRay_UpdateCheckForActivation(BgIkanaRay* this, GlobalContext* globalCtx);
@@ -56,29 +56,29 @@ static InitChainEntry sInitChain[] = {
 extern Gfx D_06001100[];
 extern AnimatedMaterial D_06001228[];
 
-void BgIkanaRay_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaRay_Init(Actor* thisx, GameState* game) {
     BgIkanaRay* this = THIS;
     ColliderCylinder* collision = &this->collision;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    Collider_InitCylinder(globalCtx, collision);
-    Collider_SetCylinder(globalCtx, collision, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, collision);
+    Collider_SetCylinder(game, collision, &this->actor, &sCylinderInit);
     Collider_UpdateCylinder(&this->actor, &this->collision);
 
     this->animatedTextures = (AnimatedMaterial*)Lib_SegmentedToVirtual(D_06001228);
 
-    if (Flags_GetSwitch(globalCtx, this->actor.params & 0x7F)) {
+    if (Flags_GetSwitch(game, this->actor.params & 0x7F)) {
         BgIkanaRay_SetActivated(this);
     } else {
         BgIkanaRay_SetDeactivated(this);
     }
 }
 
-void BgIkanaRay_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaRay_Destroy(Actor* thisx, GameState* game) {
     BgIkanaRay* this = THIS;
 
     ColliderCylinder* collision = &this->collision;
-    Collider_DestroyCylinder(globalCtx, collision);
+    Collider_DestroyCylinder(game, collision);
 }
 
 void BgIkanaRay_SetDeactivated(BgIkanaRay* this) {
@@ -103,15 +103,15 @@ void BgIkanaRay_UpdateActivated(BgIkanaRay* this, GlobalContext* globalCtx) {
     CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collision.base);
 }
 
-void BgIkanaRay_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaRay_Update(Actor* thisx, GameState* game) {
     BgIkanaRay* this = THIS;
 
-    this->update(this, globalCtx);
+    this->update(this, game);
 }
 
-void BgIkanaRay_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaRay_Draw(Actor* thisx, GameState* game) {
     BgIkanaRay* this = THIS;
 
-    AnimatedMat_Draw(globalCtx, this->animatedTextures);
-    func_800BE03C(globalCtx, D_06001100);
+    AnimatedMat_Draw(game, this->animatedTextures);
+    func_800BE03C(game, D_06001100);
 }

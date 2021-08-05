@@ -4,10 +4,10 @@
 
 #define THIS ((ObjTaru*)thisx)
 
-void ObjTaru_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTaru_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTaru_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjTaru_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjTaru_Init(Actor* thisx, GameState* game);
+void ObjTaru_Destroy(Actor* thisx, GameState* game);
+void ObjTaru_Update(Actor* thisx, GameState* game);
+void ObjTaru_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Taru_InitVars = {

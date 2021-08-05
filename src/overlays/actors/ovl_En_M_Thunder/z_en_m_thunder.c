@@ -4,10 +4,10 @@
 
 #define THIS ((EnMThunder*)thisx)
 
-void EnMThunder_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMThunder_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMThunder_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMThunder_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMThunder_Init(Actor* thisx, GameState* game);
+void EnMThunder_Destroy(Actor* thisx, GameState* game);
+void EnMThunder_Update(Actor* thisx, GameState* game);
+void EnMThunder_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_M_Thunder_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjKzsaku*)thisx)
 
-void ObjKzsaku_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjKzsaku_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjKzsaku_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjKzsaku_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjKzsaku_Init(Actor* thisx, GameState* game);
+void ObjKzsaku_Destroy(Actor* thisx, GameState* game);
+void ObjKzsaku_Update(Actor* thisx, GameState* game);
+void ObjKzsaku_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Kzsaku_InitVars = {

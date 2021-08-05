@@ -4,10 +4,10 @@
 
 #define THIS ((EnBomBowlMan*)thisx)
 
-void EnBomBowlMan_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBomBowlMan_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBomBowlMan_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBomBowlMan_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBomBowlMan_Init(Actor* thisx, GameState* game);
+void EnBomBowlMan_Destroy(Actor* thisx, GameState* game);
+void EnBomBowlMan_Update(Actor* thisx, GameState* game);
+void EnBomBowlMan_Draw(Actor* thisx, GameState* game);
 
 void func_809C4DA4(EnBomBowlMan* this, GlobalContext* globalCtx);
 void func_809C51B4(EnBomBowlMan* this, GlobalContext* globalCtx);

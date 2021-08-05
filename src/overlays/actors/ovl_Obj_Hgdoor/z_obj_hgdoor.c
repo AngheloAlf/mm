@@ -4,10 +4,10 @@
 
 #define THIS ((ObjHgdoor*)thisx)
 
-void ObjHgdoor_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHgdoor_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHgdoor_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHgdoor_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHgdoor_Init(Actor* thisx, GameState* game);
+void ObjHgdoor_Destroy(Actor* thisx, GameState* game);
+void ObjHgdoor_Update(Actor* thisx, GameState* game);
+void ObjHgdoor_Draw(Actor* thisx, GameState* game);
 
 void ObjHgdoor_SetupCheckShouldOpen(ObjHgdoor* this);
 void ObjHgdoor_CheckShouldOpen(ObjHgdoor* this, GlobalContext* globalCtx);
@@ -66,7 +66,7 @@ void ObjHgdoor_SetParent(ObjHgdoor* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjHgdoor_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHgdoor_Init(Actor* thisx, GameState* game) {
     ObjHgdoor* this = THIS;
     s32 pad;
     CollisionHeader* header = NULL;
@@ -78,17 +78,17 @@ void ObjHgdoor_Init(Actor* thisx, GlobalContext* globalCtx) {
     } else {
         BgCheck_RelocateMeshHeader(&D_060018C0, &header);
     }
-    this->dyna.bgId = BgCheck_AddActorMesh(globalCtx, &globalCtx->colCtx.dyna, &this->dyna, header);
+    this->dyna.bgId = BgCheck_AddActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, &this->dyna, header);
     this->rotation = 0;
     this->timer = 0;
     this->cutscene = this->dyna.actor.cutscene;
     ObjHgdoor_SetupCheckShouldOpen(this);
 }
 
-void ObjHgdoor_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHgdoor_Destroy(Actor* thisx, GameState* game) {
     ObjHgdoor* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void ObjHgdoor_SetupCheckShouldOpen(ObjHgdoor* this) {
@@ -184,18 +184,18 @@ void func_80BD4500(ObjHgdoor* this) {
     }
 }
 
-void ObjHgdoor_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHgdoor_Update(Actor* thisx, GameState* game) {
     ObjHgdoor* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     func_80BD4500(this);
 }
 
-void ObjHgdoor_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+void ObjHgdoor_Draw(Actor* thisx, GameState* game) {
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     if (OBJHGDOOR_IS_RIGHT_DOOR(thisx)) {
         gSPDisplayList(POLY_OPA_DISP++, D_06001AB0);
         gSPDisplayList(POLY_OPA_DISP++, D_06001BA8);
@@ -204,5 +204,5 @@ void ObjHgdoor_Draw(Actor* thisx, GlobalContext* globalCtx) {
         gSPDisplayList(POLY_OPA_DISP++, D_06001768);
     }
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

@@ -4,9 +4,9 @@
 
 #define THIS ((BgDyYoseizo*)thisx)
 
-void BgDyYoseizo_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgDyYoseizo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgDyYoseizo_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgDyYoseizo_Init(Actor* thisx, GameState* game);
+void BgDyYoseizo_Destroy(Actor* thisx, GameState* game);
+void BgDyYoseizo_Update(Actor* thisx, GameState* game);
 
 void func_80A0AE1C(BgDyYoseizo* this, GlobalContext* globalCtx);
 void func_80A0B078(BgDyYoseizo* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnFireRock*)thisx)
 
-void EnFireRock_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFireRock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFireRock_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFireRock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFireRock_Init(Actor* thisx, GameState* game);
+void EnFireRock_Destroy(Actor* thisx, GameState* game);
+void EnFireRock_Update(Actor* thisx, GameState* game);
+void EnFireRock_Draw(Actor* thisx, GameState* game);
 
 const ActorInit En_Fire_Rock_InitVars = {
     ACTOR_EN_FIRE_ROCK,
@@ -21,11 +21,11 @@ const ActorInit En_Fire_Rock_InitVars = {
     (ActorFunc)EnFireRock_Draw,
 };
 
-void EnFireRock_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnFireRock_Init(Actor* thisx, GameState* game) {
 }
-void EnFireRock_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnFireRock_Destroy(Actor* thisx, GameState* game) {
 }
-void EnFireRock_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnFireRock_Update(Actor* thisx, GameState* game) {
 }
-void EnFireRock_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnFireRock_Draw(Actor* thisx, GameState* game) {
 }

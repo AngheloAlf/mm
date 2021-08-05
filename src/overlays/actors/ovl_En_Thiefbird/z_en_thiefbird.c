@@ -4,10 +4,10 @@
 
 #define THIS ((EnThiefbird*)thisx)
 
-void EnThiefbird_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnThiefbird_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnThiefbird_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnThiefbird_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnThiefbird_Init(Actor* thisx, GameState* game);
+void EnThiefbird_Destroy(Actor* thisx, GameState* game);
+void EnThiefbird_Update(Actor* thisx, GameState* game);
+void EnThiefbird_Draw(Actor* thisx, GameState* game);
 
 void func_80C11590(EnThiefbird* this, GlobalContext* globalCtx);
 void func_80C1193C(EnThiefbird* this, GlobalContext* globalCtx);

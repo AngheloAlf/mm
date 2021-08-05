@@ -4,9 +4,9 @@
 
 #define THIS ((BgOpenSpot*)thisx)
 
-void BgOpenSpot_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgOpenSpot_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgOpenSpot_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgOpenSpot_Init(Actor* thisx, GameState* game);
+void BgOpenSpot_Destroy(Actor* thisx, GameState* game);
+void BgOpenSpot_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Open_Spot_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((EnPart*)thisx)
 
-void EnPart_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPart_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPart_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPart_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPart_Init(Actor* thisx, GameState* game);
+void EnPart_Destroy(Actor* thisx, GameState* game);
+void EnPart_Update(Actor* thisx, GameState* game);
+void EnPart_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Part_InitVars = {

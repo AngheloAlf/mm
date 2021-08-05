@@ -4,10 +4,10 @@
 
 #define THIS ((ObjIcePoly*)thisx)
 
-void ObjIcePoly_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjIcePoly_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjIcePoly_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjIcePoly_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjIcePoly_Init(Actor* thisx, GameState* game);
+void ObjIcePoly_Destroy(Actor* thisx, GameState* game);
+void ObjIcePoly_Update(Actor* thisx, GameState* game);
+void ObjIcePoly_Draw(Actor* thisx, GameState* game);
 
 void func_80931A38(ObjIcePoly* this, GlobalContext* globalCtx);
 void func_80931E58(ObjIcePoly* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((ObjBigicicle*)thisx)
 
-void ObjBigicicle_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBigicicle_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjBigicicle_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjBigicicle_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjBigicicle_Init(Actor* thisx, GameState* game);
+void ObjBigicicle_Destroy(Actor* thisx, GameState* game);
+void ObjBigicicle_Update(Actor* thisx, GameState* game);
+void ObjBigicicle_Draw(Actor* thisx, GameState* game);
 
 void func_80AE8FD4(ObjBigicicle* this, GlobalContext* globalCtx);
 void func_80AE9090(ObjBigicicle* this, GlobalContext* globalCtx);

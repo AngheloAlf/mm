@@ -4,10 +4,10 @@
 
 #define THIS ((EnWizBrock*)thisx)
 
-void EnWizBrock_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWizBrock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWizBrock_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWizBrock_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWizBrock_Init(Actor* thisx, GameState* game);
+void EnWizBrock_Destroy(Actor* thisx, GameState* game);
+void EnWizBrock_Update(Actor* thisx, GameState* game);
+void EnWizBrock_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Wiz_Brock_InitVars = {

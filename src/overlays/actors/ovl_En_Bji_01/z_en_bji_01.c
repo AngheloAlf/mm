@@ -4,10 +4,10 @@
 
 #define THIS ((EnBji01*)thisx)
 
-void EnBji01_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBji01_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBji01_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBji01_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBji01_Init(Actor* thisx, GameState* game);
+void EnBji01_Destroy(Actor* thisx, GameState* game);
+void EnBji01_Update(Actor* thisx, GameState* game);
+void EnBji01_Draw(Actor* thisx, GameState* game);
 
 void func_809CCE98(EnBji01* this, GlobalContext* globalCtx);
 void func_809CCEE8(EnBji01* this, GlobalContext* globalCtx);
@@ -329,13 +329,13 @@ void func_809CD77C(EnBji01* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnBji01_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnBji01_Init(Actor* thisx, GameState* game) {
     EnBji01* this = THIS;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 30.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600578C, &D_06000FDC, this->jointTable, this->morphTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600578C, &D_06000FDC, this->jointTable, this->morphTable,
                      BJI_LIMB_MAX);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
 
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
     this->actor.targetMode = 0;
@@ -346,20 +346,20 @@ void EnBji01_Init(Actor* thisx, GlobalContext* globalCtx) {
     func_8013E3B8(&this->actor, this->cutscenes,
                   ARRAY_COUNT(this->cutscenes)); /* initializes all elements of cutscenes to -1 */
     this->moonsTear =
-        (ObjMoonStone*)func_ActorCategoryIterateById(globalCtx, NULL, ACTORCAT_PROP, ACTOR_OBJ_MOON_STONE);
+        (ObjMoonStone*)func_ActorCategoryIterateById(game, NULL, ACTORCAT_PROP, ACTOR_OBJ_MOON_STONE);
 
     switch (gSaveContext.entranceIndex) {
         case 0x4C00: /* Observatory from ECT */
         case 0x4C10: /* Observatory from Termina Field door */
             this->actor.params = ENBJI01_PARAMS_DEFAULT;
-            func_809CCE98(this, globalCtx);
+            func_809CCE98(this, game);
             break;
         case 0x4C20: /* Observatory from Termina Field telescope */
             this->actor.flags |= 0x10000;
             func_801A5BD0(0);
             func_801A89A8(0xE0000100);
             this->actor.params = ENBJI01_PARAMS_LOOKED_THROUGH_TELESCOPE;
-            func_809CCE98(this, globalCtx);
+            func_809CCE98(this, game);
             break;
         default:
             Actor_MarkForDeath(&this->actor);
@@ -367,19 +367,19 @@ void EnBji01_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnBji01_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnBji01_Destroy(Actor* thisx, GameState* game) {
     EnBji01* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
-void EnBji01_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnBji01_Update(Actor* thisx, GameState* game) {
     static s16 sBlinkSequence[] = { 0, 1, 2, 1, 0, 0 };
     EnBji01* this = THIS;
     s32 pad;
 
-    this->actionFunc(this, globalCtx);
-    Actor_UpdateBgCheckInfo(globalCtx, (Actor*)this, 0.0f, 0.0f, 0.0f, 4U);
+    this->actionFunc(this, game);
+    Actor_UpdateBgCheckInfo(game, (Actor*)this, 0.0f, 0.0f, 0.0f, 4U);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
 
     if (this->blinkTimer-- <= 0) {
@@ -393,7 +393,7 @@ void EnBji01_Update(Actor* thisx, GlobalContext* globalCtx) {
 
     Actor_SetHeight(&this->actor, 40.0f);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
 s32 EnBji01_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -436,14 +436,14 @@ void EnBji01_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
     }
 }
 
-void EnBji01_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnBji01_Draw(Actor* thisx, GameState* game) {
     static void* sEyeTextures[] = { D_060049F0, D_06004E70, D_06005270 };
     EnBji01* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyeTextures[this->eyeTexIndex]));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnBji01_OverrideLimbDraw, EnBji01_PostLimbDraw, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

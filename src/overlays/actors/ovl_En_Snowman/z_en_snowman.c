@@ -4,10 +4,10 @@
 
 #define THIS ((EnSnowman*)thisx)
 
-void EnSnowman_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSnowman_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSnowman_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSnowman_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSnowman_Init(Actor* thisx, GameState* game);
+void EnSnowman_Destroy(Actor* thisx, GameState* game);
+void EnSnowman_Update(Actor* thisx, GameState* game);
+void EnSnowman_Draw(Actor* thisx, GameState* game);
 
 void func_80B1746C(EnSnowman* this, GlobalContext* globalCtx);
 void func_80B178B8(EnSnowman* this, GlobalContext* globalCtx);

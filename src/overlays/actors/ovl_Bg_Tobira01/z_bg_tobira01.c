@@ -4,10 +4,10 @@
 
 #define THIS ((BgTobira01*)thisx)
 
-void BgTobira01_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgTobira01_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgTobira01_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgTobira01_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgTobira01_Init(Actor* thisx, GameState* game);
+void BgTobira01_Destroy(Actor* thisx, GameState* game);
+void BgTobira01_Update(Actor* thisx, GameState* game);
+void BgTobira01_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Bg_Tobira01_InitVars = {
     ACTOR_BG_TOBIRA01,
@@ -68,12 +68,12 @@ void BgTobira01_Open(BgTobira01* this, GlobalContext* globalCtx) {
     }
 }
 
-void BgTobira01_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgTobira01_Init(Actor* thisx, GameState* game) {
     BgTobira01* this = THIS;
     s32 pad;
 
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_060011C0);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_060011C0);
     gSaveContext.weekEventReg[88] &= (u8)~0x40;
     Actor_SetScale(&this->dyna.actor, 1.0f);
     this->timer2 = gSaveContext.isNight;
@@ -81,26 +81,26 @@ void BgTobira01_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actionFunc = BgTobira01_Open;
 }
 
-void BgTobira01_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgTobira01_Destroy(Actor* thisx, GameState* game) {
     BgTobira01* this = THIS;
     s32 pad;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
-void BgTobira01_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgTobira01_Update(Actor* thisx, GameState* game) {
     BgTobira01* this = THIS;
     s32 pad;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgTobira01_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+void BgTobira01_Draw(Actor* thisx, GameState* game) {
+    OPEN_DISPS(game->gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06000088);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

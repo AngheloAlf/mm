@@ -4,10 +4,10 @@
 
 #define THIS ((BgDblueMovebg*)thisx)
 
-void BgDblueMovebg_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueMovebg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueMovebg_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgDblueMovebg_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgDblueMovebg_Init(Actor* thisx, GameState* game);
+void BgDblueMovebg_Destroy(Actor* thisx, GameState* game);
+void BgDblueMovebg_Update(Actor* thisx, GameState* game);
+void BgDblueMovebg_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Dblue_Movebg_InitVars = {

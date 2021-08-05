@@ -4,9 +4,9 @@
 
 #define THIS ((EnHanabi*)thisx)
 
-void EnHanabi_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHanabi_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHanabi_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnHanabi_Init(Actor* thisx, GameState* game);
+void EnHanabi_Destroy(Actor* thisx, GameState* game);
+void EnHanabi_Update(Actor* thisx, GameState* game);
 
 void func_80B23894(EnHanabi* this, GlobalContext* globalCtx);
 void func_80B238D4(EnHanabi* this, GlobalContext* globalCtx);

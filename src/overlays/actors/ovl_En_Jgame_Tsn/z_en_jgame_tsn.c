@@ -4,10 +4,10 @@
 
 #define THIS ((EnJgameTsn*)thisx)
 
-void EnJgameTsn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnJgameTsn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnJgameTsn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnJgameTsn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnJgameTsn_Init(Actor* thisx, GameState* game);
+void EnJgameTsn_Destroy(Actor* thisx, GameState* game);
+void EnJgameTsn_Update(Actor* thisx, GameState* game);
+void EnJgameTsn_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Jgame_Tsn_InitVars = {

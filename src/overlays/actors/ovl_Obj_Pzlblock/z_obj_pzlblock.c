@@ -4,9 +4,9 @@
 
 #define THIS ((ObjPzlblock*)thisx)
 
-void ObjPzlblock_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjPzlblock_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjPzlblock_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjPzlblock_Init(Actor* thisx, GameState* game);
+void ObjPzlblock_Destroy(Actor* thisx, GameState* game);
+void ObjPzlblock_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Pzlblock_InitVars = {

@@ -4,9 +4,9 @@
 
 #define THIS ((EnHitTag*)thisx)
 
-void EnHitTag_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHitTag_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHitTag_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnHitTag_Init(Actor* thisx, GameState* game);
+void EnHitTag_Destroy(Actor* thisx, GameState* game);
+void EnHitTag_Update(Actor* thisx, GameState* game);
 
 void func_80BE20E8(EnHitTag* this, GlobalContext* globalCtx);
 

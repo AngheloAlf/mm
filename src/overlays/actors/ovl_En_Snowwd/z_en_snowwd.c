@@ -4,10 +4,10 @@
 
 #define THIS ((EnSnowwd*)thisx)
 
-void EnSnowwd_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSnowwd_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSnowwd_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSnowwd_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSnowwd_Init(Actor* thisx, GameState* game);
+void EnSnowwd_Destroy(Actor* thisx, GameState* game);
+void EnSnowwd_Update(Actor* thisx, GameState* game);
+void EnSnowwd_Draw(Actor* thisx, GameState* game);
 
 void func_80AF76F0(EnSnowwd* this, GlobalContext* globalCtx);
 

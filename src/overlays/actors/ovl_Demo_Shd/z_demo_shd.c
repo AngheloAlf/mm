@@ -4,10 +4,10 @@
 
 #define THIS ((DemoShd*)thisx)
 
-void DemoShd_Init(Actor* thisx, GlobalContext* globalCtx);
-void DemoShd_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DemoShd_Update(Actor* thisx, GlobalContext* globalCtx);
-void DemoShd_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DemoShd_Init(Actor* thisx, GameState* game);
+void DemoShd_Destroy(Actor* thisx, GameState* game);
+void DemoShd_Update(Actor* thisx, GameState* game);
+void DemoShd_Draw(Actor* thisx, GameState* game);
 
 const ActorInit Demo_Shd_InitVars = {
     ACTOR_DEMO_SHD,
@@ -21,11 +21,11 @@ const ActorInit Demo_Shd_InitVars = {
     (ActorFunc)DemoShd_Draw,
 };
 
-void DemoShd_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DemoShd_Init(Actor* thisx, GameState* game) {
 }
-void DemoShd_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DemoShd_Destroy(Actor* thisx, GameState* game) {
 }
-void DemoShd_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DemoShd_Update(Actor* thisx, GameState* game) {
 }
-void DemoShd_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void DemoShd_Draw(Actor* thisx, GameState* game) {
 }

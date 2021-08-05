@@ -4,10 +4,10 @@
 
 #define THIS ((EnRecepgirl*)thisx)
 
-void EnRecepgirl_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRecepgirl_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRecepgirl_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRecepgirl_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRecepgirl_Init(Actor* thisx, GameState* game);
+void EnRecepgirl_Destroy(Actor* thisx, GameState* game);
+void EnRecepgirl_Update(Actor* thisx, GameState* game);
+void EnRecepgirl_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Recepgirl_InitVars = {

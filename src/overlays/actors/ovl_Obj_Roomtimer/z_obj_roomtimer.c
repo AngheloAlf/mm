@@ -4,9 +4,9 @@
 
 #define THIS ((ObjRoomtimer*)thisx)
 
-void ObjRoomtimer_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjRoomtimer_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjRoomtimer_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjRoomtimer_Init(Actor* thisx, GameState* game);
+void ObjRoomtimer_Destroy(Actor* thisx, GameState* game);
+void ObjRoomtimer_Update(Actor* thisx, GameState* game);
 
 void func_80973CD8(ObjRoomtimer* this, GlobalContext* globalCtx);
 void func_80973D3C(ObjRoomtimer* this, GlobalContext* globalCtx);

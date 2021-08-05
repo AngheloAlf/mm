@@ -4,10 +4,10 @@
 
 #define THIS ((EnPeehat*)thisx)
 
-void EnPeehat_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPeehat_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPeehat_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPeehat_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPeehat_Init(Actor* thisx, GameState* game);
+void EnPeehat_Destroy(Actor* thisx, GameState* game);
+void EnPeehat_Update(Actor* thisx, GameState* game);
+void EnPeehat_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Peehat_InitVars = {

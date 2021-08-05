@@ -4,10 +4,10 @@
 
 #define THIS ((ObjDhouse*)thisx)
 
-void ObjDhouse_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjDhouse_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjDhouse_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjDhouse_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjDhouse_Init(Actor* thisx, GameState* game);
+void ObjDhouse_Destroy(Actor* thisx, GameState* game);
+void ObjDhouse_Update(Actor* thisx, GameState* game);
+void ObjDhouse_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Dhouse_InitVars = {

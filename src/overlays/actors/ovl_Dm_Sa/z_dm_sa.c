@@ -4,10 +4,10 @@
 
 #define THIS ((DmSa*)thisx)
 
-void DmSa_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmSa_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmSa_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmSa_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmSa_Init(Actor* thisx, GameState* game);
+void DmSa_Destroy(Actor* thisx, GameState* game);
+void DmSa_Update(Actor* thisx, GameState* game);
+void DmSa_Draw(Actor* thisx, GameState* game);
 
 void DmSa_DoNothing(DmSa* this, GlobalContext* globalCtx);
 
@@ -41,31 +41,31 @@ void func_80A2E960(SkelAnime* arg0, ActorAnimationEntry* animations, u16 index) 
                          animations->mode, animations->morphFrames);
 }
 
-void DmSa_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DmSa_Init(Actor* thisx, GameState* game) {
     DmSa* this = THIS;
 
     this->unk2E0 = 0;
     this->alpha = 0xFF;
     this->actor.targetArrowOffset = 3000.0f;
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 24.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06013328, NULL, 0, 0, 0);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06013328, NULL, 0, 0, 0);
     func_80A2E960(&this->skelAnime, D_80A2ED00, 0);
     Actor_SetScale(&this->actor, 0.01f);
     this->actionFunc = DmSa_DoNothing;
 }
 
-void DmSa_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DmSa_Destroy(Actor* thisx, GameState* game) {
 }
 
 void DmSa_DoNothing(DmSa* this, GlobalContext* globalCtx) {
 }
 
-void DmSa_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DmSa_Update(Actor* thisx, GameState* game) {
     DmSa* this = THIS;
 
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     this->alpha += 0;
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
 s32 func_80A2EB10(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* actor) {
@@ -101,21 +101,21 @@ Gfx* func_80A2EBB0(GraphicsContext* gfxCtx, u32 alpha) {
     return dList;
 }
 
-void DmSa_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void DmSa_Draw(Actor* thisx, GameState* game) {
     DmSa* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
     if (this->alpha < 0xFF) {
-        gSPSegment(POLY_OPA_DISP++, 0x0C, func_80A2EB58(globalCtx->state.gfxCtx, this->alpha));
+        gSPSegment(POLY_OPA_DISP++, 0x0C, func_80A2EB58(game->gfxCtx, this->alpha));
     } else {
-        gSPSegment(POLY_OPA_DISP++, 0x0C, func_80A2EBB0(globalCtx->state.gfxCtx, this->alpha));
+        gSPSegment(POLY_OPA_DISP++, 0x0C, func_80A2EBB0(game->gfxCtx, this->alpha));
     }
 
-    func_801343C0(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    func_801343C0(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                   func_80A2EB10, func_80A2EB2C, func_80A2EB44, &this->actor);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

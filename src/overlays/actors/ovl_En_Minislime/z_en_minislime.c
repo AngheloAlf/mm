@@ -11,9 +11,9 @@
 
 #define THIS ((EnMinislime*)thisx)
 
-void EnMinislime_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMinislime_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMinislime_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnMinislime_Init(Actor* thisx, GameState* game);
+void EnMinislime_Destroy(Actor* thisx, GameState* game);
+void EnMinislime_Update(Actor* thisx, GameState* game);
 
 void EnMinislime_SetupDisappear(EnMinislime* this);
 void EnMinislime_Disappear(EnMinislime* this, GlobalContext* globalCtx);
@@ -118,21 +118,21 @@ static DamageTable sDamageTable = {
     /* Powder Keg     */ DMG_ENTRY(1, MINISLIME_DMGEFF_BREAK_ICE),
 };
 
-void EnMinislime_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinislime_Init(Actor* thisx, GameState* game) {
     EnMinislime* this = THIS;
 
     this->actor.flags &= ~1;
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo(&this->actor.colChkInfo, &sDamageTable, &sColChkInfoInit);
     this->id = this->actor.params;
     this->actor.shape.shadowAlpha = 255;
     EnMinislime_SetupDisappear(this);
 }
 
-void EnMinislime_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinislime_Destroy(Actor* thisx, GameState* game) {
     EnMinislime* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnMinislime_CheckBackgroundCollision(EnMinislime* this) {
@@ -706,16 +706,16 @@ void EnMinislime_ApplyDamage(EnMinislime* this) {
     }
 }
 
-void EnMinislime_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnMinislime_Update(Actor* thisx, GameState* game) {
     EnMinislime* this = THIS;
     Player* player;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Vec3f vec1;
 
     if ((this->actor.params == MINISLIME_DEFEAT_IDLE) && (this->actor.bgCheckFlags & 1)) {
         EnMinislime_SetupDefeatIdle(this);
     } else if (this->actor.params == MINISLIME_DEFEAT_MELT) {
-        EnMinislime_SetupDefeatMelt(this, globalCtx);
+        EnMinislime_SetupDefeatMelt(this, game);
     } else if ((this->actor.params == MINISLIME_FORM_BIGSLIME) && (this->actionFunc != EnMinislime_MoveToBigslime)) {
         EnMinislime_SetupMoveToBigslime(this);
     } else {
@@ -731,7 +731,7 @@ void EnMinislime_Update(Actor* thisx, GlobalContext* globalCtx) {
         this->collider.base.atFlags &= ~AT_HIT;
     }
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 
     if ((this->actionFunc != EnMinislime_Disappear) && (this->actionFunc != EnMinislime_Despawn)) {
         if (this->actionFunc == EnMinislime_MoveToBigslime) {
@@ -747,13 +747,13 @@ void EnMinislime_Update(Actor* thisx, GlobalContext* globalCtx) {
         this->collider.dim.yShift = ((EnMinislime*)thisx)->actor.scale.y * -400.0f;
 
         if ((this->attackTimer == 0) && (this->collider.base.atFlags & AT_ON)) {
-            CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetAT(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
         }
         if (this->collider.base.acFlags & AC_ON) {
-            CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
         }
         if (this->collider.base.ocFlags1 & OC1_ON) {
-            CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
         }
 
         if (this->attackTimer != 0) {
@@ -765,7 +765,7 @@ void EnMinislime_Update(Actor* thisx, GlobalContext* globalCtx) {
             vec1.x = this->actor.world.pos.x;
             vec1.z = this->actor.world.pos.z;
             vec1.y = player->actor.world.pos.y + player->actor.yDistToWater;
-            EffectSsGRipple_Spawn(globalCtx, &vec1, 500, 720, 0);
+            EffectSsGRipple_Spawn(game, &vec1, 500, 720, 0);
         }
     }
 }

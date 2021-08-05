@@ -9,13 +9,13 @@
 
 #define THIS ((EnTorch2*)thisx)
 
-void EnTorch2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTorch2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTorch2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTorch2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTorch2_Init(Actor* thisx, GameState* game);
+void EnTorch2_Destroy(Actor* thisx, GameState* game);
+void EnTorch2_Update(Actor* thisx, GameState* game);
+void EnTorch2_Draw(Actor* thisx, GameState* game);
 
-void EnTorch2_UpdateIdle(Actor* thisx, GlobalContext* globalCtx);
-void EnTorch2_UpdateDeath(Actor* thisx, GlobalContext* globalCtx);
+void EnTorch2_UpdateIdle(Actor* thisx, GameState* game);
+void EnTorch2_UpdateDeath(Actor* thisx, GameState* game);
 
 const ActorInit En_Torch2_InitVars = {
     ACTOR_EN_TORCH2,
@@ -50,12 +50,12 @@ static Gfx* sShellDLists[] = {
     D_0401C430, // Human
 };
 
-void EnTorch2_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnTorch2_Init(Actor* thisx, GameState* game) {
     EnTorch2* this = THIS;
     s16 params;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
 
     // params: which form Link is in (e.g. human, deku, etc.)
     params = this->actor.params;
@@ -68,15 +68,15 @@ void EnTorch2_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->framesUntilNextState = 20;
 }
 
-void EnTorch2_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnTorch2_Destroy(Actor* thisx, GameState* game) {
     EnTorch2* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
-    func_80169DCC(globalCtx, this->actor.params + 3, 0xFF, 0, 0xBFF, &this->actor.world.pos, this->actor.shape.rot.y);
-    globalCtx->actorCtx.unk254[this->actor.params] = 0;
+    Collider_DestroyCylinder(game, &this->collider);
+    func_80169DCC(game, this->actor.params + 3, 0xFF, 0, 0xBFF, &this->actor.world.pos, this->actor.shape.rot.y);
+    ((GlobalContext*)game)->actorCtx.unk254[this->actor.params] = 0;
 }
 
-void EnTorch2_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnTorch2_Update(Actor* thisx, GameState* game) {
     EnTorch2* this = THIS;
     u16 targetAlpha;
     u16 remainingFrames;
@@ -89,7 +89,7 @@ void EnTorch2_Update(Actor* thisx, GlobalContext* globalCtx) {
 
     this->actor.gravity = -1.0f;
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 30.0f, 20.0f, 70.0f, 0x05);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 30.0f, 20.0f, 70.0f, 0x05);
 
     if (this->framesUntilNextState == 0) {
         remainingFrames = 0;
@@ -115,14 +115,14 @@ void EnTorch2_Update(Actor* thisx, GlobalContext* globalCtx) {
         } else {
             // Once the player has moved away, update collision and become opaque
             Collider_UpdateCylinder(&this->actor, &this->collider);
-            CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
             targetAlpha = 255;
         }
         Math_StepToS(&this->alpha, targetAlpha, 8);
     }
 }
 
-void EnTorch2_UpdateIdle(Actor* thisx, GlobalContext* globalCtx) {
+void EnTorch2_UpdateIdle(Actor* thisx, GameState* game) {
     EnTorch2* this = THIS;
 
     if (this->state == TORCH2_STATE_DYING) {
@@ -132,7 +132,7 @@ void EnTorch2_UpdateIdle(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnTorch2_UpdateDeath(Actor* thisx, GlobalContext* globalCtx) {
+void EnTorch2_UpdateDeath(Actor* thisx, GameState* game) {
     EnTorch2* this = THIS;
 
     // Fall down and become transparent, then delete once invisible
@@ -144,21 +144,21 @@ void EnTorch2_UpdateDeath(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnTorch2_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnTorch2_Draw(Actor* thisx, GameState* game) {
     EnTorch2* this = THIS;
 
-    GlobalContext* unused = globalCtx;
+    GlobalContext* unused = game;
     Gfx* gfx = sShellDLists[thisx->params];
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
     if (this->alpha == 0xFF) {
-        Scene_SetRenderModeXlu(globalCtx, 0, 0x01);
+        Scene_SetRenderModeXlu(game, 0, 0x01);
         gDPSetEnvColor(POLY_OPA_DISP++, 255, 255, 255, 255);
-        func_800BDFC0(globalCtx, gfx);
+        func_800BDFC0(game, gfx);
     } else {
-        Scene_SetRenderModeXlu(globalCtx, 1, 0x02);
+        Scene_SetRenderModeXlu(game, 1, 0x02);
         gDPSetEnvColor(POLY_XLU_DISP++, 255, 255, 255, this->alpha);
-        func_800BE03C(globalCtx, gfx);
+        func_800BE03C(game, gfx);
     }
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

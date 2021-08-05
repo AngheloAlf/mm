@@ -4,10 +4,10 @@
 
 #define THIS ((OceffStorm*)thisx)
 
-void OceffStorm_Init(Actor* thisx, GlobalContext* globalCtx);
-void OceffStorm_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void OceffStorm_Update(Actor* thisx, GlobalContext* globalCtx);
-void OceffStorm_Draw(Actor* thisx, GlobalContext* globalCtx);
+void OceffStorm_Init(Actor* thisx, GameState* game);
+void OceffStorm_Destroy(Actor* thisx, GameState* game);
+void OceffStorm_Update(Actor* thisx, GameState* game);
+void OceffStorm_Draw(Actor* thisx, GameState* game);
 
 void func_80981928(OceffStorm* this, GlobalContext* globalCtx);
 void func_80981B48(OceffStorm* this, GlobalContext* globalCtx);

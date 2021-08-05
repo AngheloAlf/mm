@@ -4,9 +4,9 @@
 
 #define THIS ((EnKusa*)thisx)
 
-void EnKusa_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKusa_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKusa_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnKusa_Init(Actor* thisx, GameState* game);
+void EnKusa_Destroy(Actor* thisx, GameState* game);
+void EnKusa_Update(Actor* thisx, GameState* game);
 
 void func_809358D8(EnKusa* this, GlobalContext* globalCtx);
 void func_809359AC(EnKusa* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnKusa2*)thisx)
 
-void EnKusa2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKusa2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKusa2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnKusa2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnKusa2_Init(Actor* thisx, GameState* game);
+void EnKusa2_Destroy(Actor* thisx, GameState* game);
+void EnKusa2_Update(Actor* thisx, GameState* game);
+void EnKusa2_Draw(Actor* thisx, GameState* game);
 
 void func_80A5D5F4(EnKusa2* this, GlobalContext* globalCtx);
 void func_80A5D62C(EnKusa2* this, GlobalContext* globalCtx);

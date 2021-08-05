@@ -4,10 +4,10 @@
 
 #define THIS ((BgBotihasira*)thisx)
 
-void BgBotihasira_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgBotihasira_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgBotihasira_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgBotihasira_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgBotihasira_Init(Actor* thisx, GameState* game);
+void BgBotihasira_Destroy(Actor* thisx, GameState* game);
+void BgBotihasira_Update(Actor* thisx, GameState* game);
+void BgBotihasira_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Botihasira_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((EnWizFire*)thisx)
 
-void EnWizFire_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWizFire_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWizFire_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWizFire_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWizFire_Init(Actor* thisx, GameState* game);
+void EnWizFire_Destroy(Actor* thisx, GameState* game);
+void EnWizFire_Update(Actor* thisx, GameState* game);
+void EnWizFire_Draw(Actor* thisx, GameState* game);
 
 void func_80A4984C(EnWizFire* this, GlobalContext* globalCtx);
 void func_80A49A44(EnWizFire* this, GlobalContext* globalCtx);

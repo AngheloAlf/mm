@@ -24,10 +24,10 @@
             gSaveContext.weekEventReg[92] | (u8)((gSaveContext.weekEventReg[92] & ~(1 | 2 | 4)) | 1); \
     }
 
-void EnIn_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnIn_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnIn_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnIn_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnIn_Init(Actor* thisx, GameState* game);
+void EnIn_Destroy(Actor* thisx, GameState* game);
+void EnIn_Update(Actor* thisx, GameState* game);
+void EnIn_Draw(Actor* thisx, GameState* game);
 
 void func_808F5A94(EnIn* this, GlobalContext* globalCtx);
 void func_808F3690(EnIn* this, GlobalContext* globalCtx);
@@ -1390,17 +1390,17 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_F32(uncullZoneDownward, 300, ICHAIN_STOP),
 };
 
-void EnIn_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnIn_Init(Actor* thisx, GameState* game) {
     EnIn* this = THIS;
     s32 pad[2];
     s16 type;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 30.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06014EA8, NULL, this->limbDrawTbl, this->transitionDrawTbl, 20);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06014EA8, NULL, this->limbDrawTbl, this->transitionDrawTbl, 20);
     func_808F30B0(&this->skelAnime, 0);
-    Collider_InitCylinder(globalCtx, &this->colliderCylinder);
-    Collider_SetCylinder(globalCtx, &this->colliderCylinder, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->colliderCylinder);
+    Collider_SetCylinder(game, &this->colliderCylinder, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, &sDamageTable, &sColChkInfoInit2);
     this->unk48A = 0;
     this->unk48C = 0;
@@ -1420,11 +1420,11 @@ void EnIn_Init(Actor* thisx, GlobalContext* globalCtx) {
         this->unk23D = 1;
         this->actionFunc = func_808F374C;
     } else {
-        Collider_InitJntSph(globalCtx, &this->colliderJntSph);
-        Collider_SetJntSph(globalCtx, &this->colliderJntSph, &this->actor, &sJntSphInit, &this->colliderJntSphElement);
+        Collider_InitJntSph(game, &this->colliderJntSph);
+        Collider_SetJntSph(game, &this->colliderJntSph, &this->actor, &sJntSphInit, &this->colliderJntSphElement);
         Actor_SetScale(&this->actor, 0.01f);
         this->actor.gravity = -4.0f;
-        this->path = func_8013D648(globalCtx, ENIN_GET_PATH(&this->actor), 0x3F);
+        this->path = func_8013D648(game, ENIN_GET_PATH(&this->actor), 0x3F);
         this->unk23D = 0;
         if (type == ENIN_YELLOW_SHIRT || type == ENIN_BLUE_SHIRT) {
             if ((gSaveContext.weekEventReg[92] & (1 | 2 | 4)) == 2 ||
@@ -1432,7 +1432,7 @@ void EnIn_Init(Actor* thisx, GlobalContext* globalCtx) {
                 gSaveContext.weekEventReg[56] &= (u8)~8;
                 this->unk4A8 = 0;
                 this->unk4AC |= 2;
-                func_808F35AC(this, globalCtx);
+                func_808F35AC(this, game);
                 this->unk23C = 0;
                 D_801BDAA0 = 0;
                 if ((gSaveContext.weekEventReg[92] & (1 | 2 | 4)) == 2) {
@@ -1460,7 +1460,7 @@ void EnIn_Init(Actor* thisx, GlobalContext* globalCtx) {
                             this->actionFunc = func_808F5A94;
                         } else {
                             if (gSaveContext.weekEventReg[52] & 1) {
-                                Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_KANBAN, this->actor.world.pos.x,
+                                Actor_Spawn(&((GlobalContext*)game)->actorCtx, game, ACTOR_EN_KANBAN, this->actor.world.pos.x,
                                             this->actor.world.pos.y, this->actor.world.pos.z, this->actor.shape.rot.x,
                                             this->actor.shape.rot.y, this->actor.shape.rot.z, 0xF);
                                 Actor_MarkForDeath(&this->actor);
@@ -1487,30 +1487,30 @@ void EnIn_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnIn_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnIn_Destroy(Actor* thisx, GameState* game) {
     EnIn* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->colliderCylinder);
+    Collider_DestroyCylinder(game, &this->colliderCylinder);
 }
 
-void EnIn_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnIn_Update(Actor* thisx, GameState* game) {
     EnIn* this = THIS;
 
-    func_808F3310(this, globalCtx);
-    func_808F3334(this, globalCtx);
+    func_808F3310(this, game);
+    func_808F3334(this, game);
     if (this->unk4AC & 2) {
         this->unk4AC &= ~2;
-        func_808F38F8(this, globalCtx);
+        func_808F38F8(this, game);
     }
-    if (Player_GetMask(globalCtx) == PLAYER_MASK_CIRCUS_LEADERS_MASK) {
+    if (Player_GetMask(game) == PLAYER_MASK_CIRCUS_LEADERS_MASK) {
         this->unk4AC |= 0x40;
     } else {
         this->unk4AC &= ~0x40;
     }
-    this->actionFunc(this, globalCtx);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 0.0f, 0.0f, 0.0f, 0x4);
-    func_808F3414(this, globalCtx);
-    func_808F32A0(this, globalCtx);
+    this->actionFunc(this, game);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 0.0f, 0.0f, 0.0f, 0x4);
+    func_808F3414(this, game);
+    func_808F32A0(this, game);
 }
 
 void func_808F6334(EnIn* this, GlobalContext* globalCtx) {
@@ -1634,13 +1634,13 @@ void EnIn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec
     }
 }
 
-void EnIn_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnIn_Draw(Actor* thisx, GameState* game) {
     EnIn* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gDPPipeSync(POLY_OPA_DISP++);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnIn_OverrideLimbDraw, EnIn_PostLimbDraw, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

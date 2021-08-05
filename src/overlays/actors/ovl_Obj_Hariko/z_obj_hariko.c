@@ -4,10 +4,10 @@
 
 #define THIS ((ObjHariko*)thisx)
 
-void ObjHariko_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHariko_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHariko_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHariko_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHariko_Init(Actor* thisx, GameState* game);
+void ObjHariko_Destroy(Actor* thisx, GameState* game);
+void ObjHariko_Update(Actor* thisx, GameState* game);
+void ObjHariko_Draw(Actor* thisx, GameState* game);
 
 void func_80B66A90(ObjHariko* this, GlobalContext* globalCtx);
 void func_80B66AC4(ObjHariko* this, GlobalContext* globalCtx);

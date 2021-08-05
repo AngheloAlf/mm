@@ -4,10 +4,10 @@
 
 #define THIS ((EnSyatekiOkuta*)thisx)
 
-void EnSyatekiOkuta_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiOkuta_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiOkuta_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiOkuta_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSyatekiOkuta_Init(Actor* thisx, GameState* game);
+void EnSyatekiOkuta_Destroy(Actor* thisx, GameState* game);
+void EnSyatekiOkuta_Update(Actor* thisx, GameState* game);
+void EnSyatekiOkuta_Draw(Actor* thisx, GameState* game);
 
 void func_80A362A8(EnSyatekiOkuta* this, GlobalContext* globalCtx);
 void func_80A36350(EnSyatekiOkuta* this, GlobalContext* globalCtx);

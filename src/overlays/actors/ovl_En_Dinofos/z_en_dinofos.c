@@ -4,10 +4,10 @@
 
 #define THIS ((EnDinofos*)thisx)
 
-void EnDinofos_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDinofos_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDinofos_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDinofos_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDinofos_Init(Actor* thisx, GameState* game);
+void EnDinofos_Destroy(Actor* thisx, GameState* game);
+void EnDinofos_Update(Actor* thisx, GameState* game);
+void EnDinofos_Draw(Actor* thisx, GameState* game);
 
 void func_8089B288(EnDinofos* this, GlobalContext* globalCtx);
 void func_8089B3D4(EnDinofos* this, GlobalContext* globalCtx);

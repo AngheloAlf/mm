@@ -10,13 +10,13 @@
 
 #define THIS ((EnSob1*)thisx)
 
-void EnSob1_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSob1_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSob1_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnSob1_Init(Actor* thisx, GameState* game);
+void EnSob1_Destroy(Actor* thisx, GameState* game);
+void EnSob1_Update(Actor* thisx, GameState* game);
 
-void EnSob1_DrawZoraShopkeeper(Actor* thisx, GlobalContext* globalCtx);
-void EnSob1_DrawGoronShopkeeper(Actor* thisx, GlobalContext* globalCtx);
-void EnSob1_DrawBombShopkeeper(Actor* thisx, GlobalContext* globalCtx);
+void EnSob1_DrawZoraShopkeeper(Actor* thisx, GameState* game);
+void EnSob1_DrawGoronShopkeeper(Actor* thisx, GameState* game);
+void EnSob1_DrawBombShopkeeper(Actor* thisx, GameState* game);
 
 void EnSob1_InitZoraShopkeeper(EnSob1* this, GlobalContext* globalCtx);
 void EnSob1_InitGoronShopkeeper(EnSob1* this, GlobalContext* globalCtx);
@@ -386,7 +386,7 @@ s32 EnSob1_GetObjIndices(EnSob1* this, GlobalContext* globalCtx, s16* objIds) {
     return true;
 }
 
-void EnSob1_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnSob1_Init(Actor* thisx, GameState* game) {
     EnSob1* this = THIS;
     s32 pad;
     s16* objIds;
@@ -411,12 +411,12 @@ void EnSob1_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 
     objIds = sObjectIds[this->shopType];
-    this->objIndices[0] = Object_GetIndex(&globalCtx->objectCtx, objIds[0]);
+    this->objIndices[0] = Object_GetIndex(&((GlobalContext*)game)->objectCtx, objIds[0]);
     if (this->objIndices[0] < 0) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
-    if (!EnSob1_GetObjIndices(this, globalCtx, objIds)) {
+    if (!EnSob1_GetObjIndices(this, game, objIds)) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
@@ -424,10 +424,10 @@ void EnSob1_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnSob1_SetupAction(this, EnSob1_InitShop);
 }
 
-void EnSob1_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnSob1_Destroy(Actor* thisx, GameState* game) {
     EnSob1* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnSob1_UpdateCursorPos(GlobalContext* globalCtx, EnSob1* this) {
@@ -1466,26 +1466,26 @@ void EnSob1_InitShop(EnSob1* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnSob1_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnSob1_Update(Actor* thisx, GameState* game) {
     EnSob1ActionFunc changeObjectFunc;
     EnSob1* this = THIS;
 
     if (this->actionFunc != EnSob1_InitShop) {
         this->blinkFunc(this);
-        EnSob1_UpdateJoystickInputState(globalCtx, this);
+        EnSob1_UpdateJoystickInputState(game, this);
         EnSob1_UpdateItemSelectedProperty(this);
         EnSob1_UpdateStickDirectionPromptAnim(this);
         EnSob1_UpdateCursorAnim(this);
         Math_StepToS(&this->headRot, this->headRotTarget, 0x190);
-        this->actionFunc(this, globalCtx);
+        this->actionFunc(this, game);
         Actor_SetHeight(&this->actor, 90.0f);
         changeObjectFunc = this->changeObjectFunc;
         if (changeObjectFunc != NULL) {
-            changeObjectFunc(this, globalCtx);
+            changeObjectFunc(this, game);
         }
         SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     } else {
-        this->actionFunc(this, globalCtx);
+        this->actionFunc(this, game);
     }
 }
 
@@ -1636,76 +1636,76 @@ Gfx* EnSob1_EndDList(GraphicsContext* gfxCtx) {
     return dList;
 }
 
-void EnSob1_DrawZoraShopkeeper(Actor* thisx, GlobalContext* globalCtx) {
+void EnSob1_DrawZoraShopkeeper(Actor* thisx, GameState* game) {
     static TexturePtr sZoraShopkeeperEyeTextures[] = { &D_060050A0, &D_060058A0, &D_060060A0 };
     EnSob1* this = THIS;
     s32 pad;
     s32 i;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gDPSetEnvColor(POLY_OPA_DISP++, 0, 0, 0, 255);
-    gSPSegment(POLY_OPA_DISP++, 0x0C, EnSob1_EndDList(globalCtx->state.gfxCtx));
+    gSPSegment(POLY_OPA_DISP++, 0x0C, EnSob1_EndDList(game->gfxCtx));
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sZoraShopkeeperEyeTextures[this->eyeTexIndex]));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnSob1_OverrideLimbDrawZoraShopkeeper, NULL, &this->actor);
     for (i = 0; i < ARRAY_COUNT(this->items); i++) {
         this->items[i]->actor.scale.x = 0.2f;
         this->items[i]->actor.scale.y = 0.2f;
         this->items[i]->actor.scale.z = 0.2f;
     }
-    EnSob1_DrawCursor(globalCtx, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
-    EnSob1_DrawStickDirectionPrompt(globalCtx, this);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    EnSob1_DrawCursor(game, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
+    EnSob1_DrawStickDirectionPrompt(((GlobalContext*)game), this);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
-void EnSob1_DrawGoronShopkeeper(Actor* thisx, GlobalContext* globalCtx) {
+void EnSob1_DrawGoronShopkeeper(Actor* thisx, GameState* game) {
     static TexturePtr sGoronShopkeeperEyeTextures[] = { &D_06010438, &D_06010C38, &D_06011038 };
     EnSob1* this = THIS;
     s32 pad;
     s32 i;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sGoronShopkeeperEyeTextures[this->eyeTexIndex]));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, NULL,
                      NULL, &this->actor);
     for (i = 0; i < ARRAY_COUNT(this->items); i++) {
         this->items[i]->actor.scale.x = 0.2f;
         this->items[i]->actor.scale.y = 0.2f;
         this->items[i]->actor.scale.z = 0.2f;
     }
-    EnSob1_DrawCursor(globalCtx, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
-    EnSob1_DrawStickDirectionPrompt(globalCtx, this);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    EnSob1_DrawCursor(game, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
+    EnSob1_DrawStickDirectionPrompt(game, this);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
-void EnSob1_DrawBombShopkeeper(Actor* thisx, GlobalContext* globalCtx) {
+void EnSob1_DrawBombShopkeeper(Actor* thisx, GameState* game) {
     EnSob1* this = THIS;
     s32 pad;
     u32 frames;
     s32 i;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(&D_06005458));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnSob1_OverrideLimbDrawBombShopkeeper, EnSob1_PostLimbDrawBombShopkeeper, &this->actor);
     for (i = 0; i < ARRAY_COUNT(this->items); i++) {
         this->items[i]->actor.scale.x = 0.2f;
         this->items[i]->actor.scale.y = 0.2f;
         this->items[i]->actor.scale.z = 0.2f;
     }
-    EnSob1_DrawCursor(globalCtx, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
-    EnSob1_DrawStickDirectionPrompt(globalCtx, this);
-    frames = globalCtx->gameplayFrames;
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    SysMatrix_NormalizeXYZ(&globalCtx->mf_187FC);
+    EnSob1_DrawCursor(game, this, this->cursorX, this->cursorY, this->cursorZ, this->drawCursor);
+    EnSob1_DrawStickDirectionPrompt(game, this);
+    frames = ((GlobalContext*)game)->gameplayFrames;
+    func_8012C2DC(game->gfxCtx);
+    SysMatrix_NormalizeXYZ(&((GlobalContext*)game)->mf_187FC);
     Matrix_Scale(1.0f, 1.0f, 1.0f, MTXMODE_APPLY);
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPSegment(POLY_XLU_DISP++, 0x08,
-               Gfx_TwoTexScroll(globalCtx->state.gfxCtx, 0, 0, 0, 32, 64, 1, 0, -frames * 20, 32, 128));
+               Gfx_TwoTexScroll(game->gfxCtx, 0, 0, 0, 32, 64, 1, 0, -frames * 20, 32, 128));
     gDPSetPrimColor(POLY_XLU_DISP++, 128, 128, 255, 255, 0, 255);
     gDPSetEnvColor(POLY_XLU_DISP++, 255, 0, 0, 0);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

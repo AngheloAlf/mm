@@ -4,10 +4,10 @@
 
 #define THIS ((EnTanron6*)thisx)
 
-void EnTanron6_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron6_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron6_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTanron6_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTanron6_Init(Actor* thisx, GameState* game);
+void EnTanron6_Destroy(Actor* thisx, GameState* game);
+void EnTanron6_Update(Actor* thisx, GameState* game);
+void EnTanron6_Draw(Actor* thisx, GameState* game);
 
 void EnTanron6_DoNothing(EnTanron6* this);
 void func_80BE60D0(EnTanron6* this, GlobalContext* globalCtx);
@@ -59,7 +59,7 @@ static DamageTable sDamageTable = {
     /* Powder Keg     */ DMG_ENTRY(0, 0xF),
 };
 
-void EnTanron6_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnTanron6_Init(Actor* thisx, GameState* game) {
     EnTanron6* this = THIS;
 
     this->actor.colChkInfo.mass = 10;
@@ -70,7 +70,7 @@ void EnTanron6_Init(Actor* thisx, GlobalContext* globalCtx) {
     EnTanron6_DoNothing(this);
 }
 
-void EnTanron6_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnTanron6_Destroy(Actor* thisx, GameState* game) {
 }
 
 void EnTanron6_DoNothing(EnTanron6* this) {
@@ -80,13 +80,13 @@ void EnTanron6_DoNothing(EnTanron6* this) {
 void func_80BE60D0(EnTanron6* this, GlobalContext* globalCtx) {
 }
 
-void EnTanron6_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnTanron6_Update(Actor* thisx, GameState* game) {
     EnTanron6* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 10.0f, 40.0f, 40.0f, 0x1D);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 10.0f, 40.0f, 40.0f, 0x1D);
 }
 
-void EnTanron6_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnTanron6_Draw(Actor* thisx, GameState* game) {
 }

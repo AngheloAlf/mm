@@ -4,10 +4,10 @@
 
 #define THIS ((EnTuboTrap*)thisx)
 
-void EnTuboTrap_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTuboTrap_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTuboTrap_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnTuboTrap_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnTuboTrap_Init(Actor* thisx, GameState* game);
+void EnTuboTrap_Destroy(Actor* thisx, GameState* game);
+void EnTuboTrap_Update(Actor* thisx, GameState* game);
+void EnTuboTrap_Draw(Actor* thisx, GameState* game);
 void EnTuboTrap_Idle(EnTuboTrap* this, GlobalContext* globalCtx);
 void EnTuboTrap_Levitate(EnTuboTrap* this, GlobalContext* globalCtx);
 void EnTuboTrap_FlyAtPlayer(EnTuboTrap* this, GlobalContext* globalCtx);
@@ -51,22 +51,22 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_F32(uncullZoneDownward, 100, ICHAIN_STOP),
 };
 
-void EnTuboTrap_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnTuboTrap_Init(Actor* thisx, GameState* game) {
     EnTuboTrap* this = THIS;
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
     this->actor.shape.rot.z = 0;
     this->actor.world.rot.z = 0;
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 1.8f);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     this->actionFunc = EnTuboTrap_Idle;
 }
 
-void EnTuboTrap_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnTuboTrap_Destroy(Actor* thisx, GameState* game) {
     EnTuboTrap* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnTuboTrap_DropCollectible(EnTuboTrap* this, GlobalContext* globalCtx) {
@@ -278,13 +278,13 @@ void EnTuboTrap_FlyAtPlayer(EnTuboTrap* this, GlobalContext* globalCtx) {
     EnTuboTrap_HandleImpact(this, globalCtx);
 }
 
-void EnTuboTrap_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnTuboTrap_Update(Actor* thisx, GameState* game) {
     EnTuboTrap* this = THIS;
     s32 padding;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 12.0f, 10.0f, 20.0f, 0x1F);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 12.0f, 10.0f, 20.0f, 0x1F);
     Actor_SetHeight(&this->actor, 0.0f);
 
     if (this->actor.projectedPos.z < 811.0f) {
@@ -302,11 +302,11 @@ void EnTuboTrap_Update(Actor* thisx, GlobalContext* globalCtx) {
     }
 
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-    CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAT(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
-void EnTuboTrap_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnTuboTrap_Draw(Actor* thisx, GameState* game) {
     //  Gfx_DrawDListOpa with a display list
-    func_800BDFC0(globalCtx, D_05017EA0);
+    func_800BDFC0(game, D_05017EA0);
 }

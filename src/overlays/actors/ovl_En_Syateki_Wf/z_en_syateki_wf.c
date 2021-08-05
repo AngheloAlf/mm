@@ -4,10 +4,10 @@
 
 #define THIS ((EnSyatekiWf*)thisx)
 
-void EnSyatekiWf_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiWf_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiWf_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSyatekiWf_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSyatekiWf_Init(Actor* thisx, GameState* game);
+void EnSyatekiWf_Destroy(Actor* thisx, GameState* game);
+void EnSyatekiWf_Update(Actor* thisx, GameState* game);
+void EnSyatekiWf_Draw(Actor* thisx, GameState* game);
 
 void func_80A20284(EnSyatekiWf* this, GlobalContext* globalCtx);
 void func_80A20320(EnSyatekiWf* this, GlobalContext* globalCtx);

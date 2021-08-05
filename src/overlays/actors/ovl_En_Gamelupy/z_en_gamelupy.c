@@ -4,10 +4,10 @@
 
 #define THIS ((EnGamelupy*)thisx)
 
-void EnGamelupy_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGamelupy_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGamelupy_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGamelupy_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGamelupy_Init(Actor* thisx, GameState* game);
+void EnGamelupy_Destroy(Actor* thisx, GameState* game);
+void EnGamelupy_Update(Actor* thisx, GameState* game);
+void EnGamelupy_Draw(Actor* thisx, GameState* game);
 
 void func_80AF6958(EnGamelupy* this, GlobalContext* globalCtx);
 void func_80AF69A8(EnGamelupy* this, GlobalContext* globalCtx);

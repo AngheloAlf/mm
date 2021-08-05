@@ -4,9 +4,9 @@
 
 #define THIS ((EnDnk*)thisx)
 
-void EnDnk_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDnk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDnk_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnDnk_Init(Actor* thisx, GameState* game);
+void EnDnk_Destroy(Actor* thisx, GameState* game);
+void EnDnk_Update(Actor* thisx, GameState* game);
 
 void func_80A51648(EnDnk* this, GlobalContext* globalCtx);
 void func_80A51890(EnDnk* this, GlobalContext* globalCtx);

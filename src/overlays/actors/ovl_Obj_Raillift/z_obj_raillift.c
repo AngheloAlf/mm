@@ -10,13 +10,13 @@
 
 #define THIS ((ObjRaillift*)thisx)
 
-void ObjRaillift_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjRaillift_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjRaillift_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjRaillift_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjRaillift_Init(Actor* thisx, GameState* game);
+void ObjRaillift_Destroy(Actor* thisx, GameState* game);
+void ObjRaillift_Update(Actor* thisx, GameState* game);
+void ObjRaillift_Draw(Actor* thisx, GameState* game);
 
-void ObjRaillift_DrawDekuFlowerPlatformColorful(Actor* thisx, GlobalContext* globalCtx);
-void ObjRaillift_DrawDekuFlowerPlatform(Actor* thisx, GlobalContext* globalCtx);
+void ObjRaillift_DrawDekuFlowerPlatformColorful(Actor* thisx, GameState* game);
+void ObjRaillift_DrawDekuFlowerPlatform(Actor* thisx, GameState* game);
 
 void ObjRaillift_DoNothing(ObjRaillift* this, GlobalContext* globalCtx);
 void ObjRaillift_Idle(ObjRaillift* this, GlobalContext* globalCtx);
@@ -57,7 +57,7 @@ void ObjRaillift_UpdatePosition(ObjRaillift* this, s32 idx) {
     Math_Vec3s_ToVec3f(&this->dyna.actor.world.pos, &this->points[idx]);
 }
 
-void ObjRaillift_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjRaillift_Init(Actor* thisx, GameState* game) {
     ObjRaillift* this = THIS;
     s32 pad;
     Path* path;
@@ -71,14 +71,14 @@ void ObjRaillift_Init(Actor* thisx, GlobalContext* globalCtx) {
     thisx->shape.rot.z = 0;
     thisx->world.rot.z = 0;
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, sColHeaders[type]);
+    BgCheck3_LoadMesh(game, &this->dyna, sColHeaders[type]);
     this->speed = OBJRAILLIFT_GET_SPEED(thisx);
     if (this->speed < 0.0f) {
         this->speed = -this->speed;
         isColorful = true;
     }
     if (type == DEKU_FLOWER_PLATFORM) {
-        Actor_SpawnAsChild(&globalCtx->actorCtx, thisx, globalCtx, ACTOR_OBJ_ETCETERA, thisx->world.pos.x,
+        Actor_SpawnAsChild(&((GlobalContext*)game)->actorCtx, thisx, game, ACTOR_OBJ_ETCETERA, thisx->world.pos.x,
                            thisx->world.pos.y, thisx->world.pos.z, thisx->shape.rot.x, thisx->shape.rot.y,
                            thisx->shape.rot.z, 0);
         if (isColorful) {
@@ -90,13 +90,13 @@ void ObjRaillift_Init(Actor* thisx, GlobalContext* globalCtx) {
     if (this->speed < 0.01f) {
         this->actionFunc = ObjRaillift_DoNothing;
     } else {
-        path = &globalCtx->setupPathList[OBJRAILLIFT_GET_PATH(thisx)];
+        path = &((GlobalContext*)game)->setupPathList[OBJRAILLIFT_GET_PATH(thisx)];
         this->curPoint = OBJRAILLIFT_GET_STARTING_POINT(thisx);
         this->endPoint = path->count - 1;
         this->direction = 1;
         this->points = (Vec3s*)Lib_SegmentedToVirtual(path->points);
         ObjRaillift_UpdatePosition(this, this->curPoint);
-        if (OBJRAILLIFT_HAS_FLAG(thisx) && !Flags_GetSwitch(globalCtx, OBJRAILLIFT_GET_FLAG(thisx))) {
+        if (OBJRAILLIFT_HAS_FLAG(thisx) && !Flags_GetSwitch(game, OBJRAILLIFT_GET_FLAG(thisx))) {
             this->actionFunc = ObjRaillift_Idle;
         } else {
             this->actionFunc = ObjRaillift_Move;
@@ -104,10 +104,10 @@ void ObjRaillift_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void ObjRaillift_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjRaillift_Destroy(Actor* thisx, GameState* game) {
     ObjRaillift* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void ObjRaillift_DoNothing(ObjRaillift* this, GlobalContext* globalCtx) {
@@ -220,12 +220,12 @@ void ObjRaillift_StartCutscene(ObjRaillift* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjRaillift_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjRaillift_Update(Actor* thisx, GameState* game) {
     ObjRaillift* this = THIS;
     f32 target;
     f32 step;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetHeight(&this->dyna.actor, 10.0f);
     if (this->cutsceneTimer > 0) {
         this->cutsceneTimer--;
@@ -265,29 +265,29 @@ void ObjRaillift_Update(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void ObjRaillift_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void ObjRaillift_Draw(Actor* thisx, GameState* game) {
     s32 pad;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08,
-               Gfx_TwoTexScrollEnvColor(globalCtx->state.gfxCtx, 0, globalCtx->gameplayFrames, 0, 32, 32, 1, 0, 0, 32,
+               Gfx_TwoTexScrollEnvColor(game->gfxCtx, 0, ((GlobalContext*)game)->gameplayFrames, 0, 32, 32, 1, 0, 0, 32,
                                         32, 0, 0, 0, 160));
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06004BF0);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
 /*
 The non-colorful platforms are the ones found in Woodfall Temple
 */
-void ObjRaillift_DrawDekuFlowerPlatform(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000208);
+void ObjRaillift_DrawDekuFlowerPlatform(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000208);
 }
 
 /*
 The colorful platforms are the ones found in Deku Palace
 */
-void ObjRaillift_DrawDekuFlowerPlatformColorful(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_060071B8);
+void ObjRaillift_DrawDekuFlowerPlatformColorful(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_060071B8);
 }

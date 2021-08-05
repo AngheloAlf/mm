@@ -10,10 +10,10 @@
 
 #define THIS ((DmChar07*)thisx)
 
-void DmChar07_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmChar07_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmChar07_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmChar07_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmChar07_Init(Actor* thisx, GameState* game);
+void DmChar07_Destroy(Actor* thisx, GameState* game);
+void DmChar07_Update(Actor* thisx, GameState* game);
+void DmChar07_Draw(Actor* thisx, GameState* game);
 
 void DmChar07_DoNothing(DmChar07* this, GlobalContext* globalCtx);
 
@@ -51,7 +51,7 @@ void DmChar07_SetupAction(DmChar07* this, DmChar07ActionFunc actionFunc) {
     this->actionFunc = actionFunc;
 }
 
-void DmChar07_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DmChar07_Init(Actor* thisx, GameState* game) {
     DmChar07* this = THIS;
 
     this->isStage = 0;
@@ -62,44 +62,44 @@ void DmChar07_Init(Actor* thisx, GlobalContext* globalCtx) {
         Actor_SetScale(&this->dyna.actor, 0.1f);
         this->isStage = 1;
         BcCheck3_BgActorInit(&this->dyna, 0);
-        BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06006688);
+        BgCheck3_LoadMesh(game, &this->dyna, &D_06006688);
     } else {
         Actor_SetScale(&this->dyna.actor, 1.0f);
     }
     DmChar07_SetupAction(this, DmChar07_DoNothing);
 }
 
-void DmChar07_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DmChar07_Destroy(Actor* thisx, GameState* game) {
     DmChar07* this = THIS;
 
     if (this->isStage) {
-        BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+        BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
     }
 }
 
 void DmChar07_DoNothing(DmChar07* this, GlobalContext* globalCtx) {
 }
 
-void DmChar07_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DmChar07_Update(Actor* thisx, GameState* game) {
     DmChar07* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void DmChar07_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void DmChar07_Draw(Actor* thisx, GameState* game) {
     DmChar07* this = THIS;
     s32 pad;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     switch (this->dyna.actor.params) {
         case DMCHAR07_STAGE:
             gSPDisplayList(POLY_OPA_DISP++, D_06002CD0);
             break;
         case DMCHAR07_CREDITS_STAGE:
-            AnimatedMat_Draw(globalCtx, Lib_SegmentedToVirtual(&D_060105F8));
+            AnimatedMat_Draw(game, Lib_SegmentedToVirtual(&D_060105F8));
             gSPDisplayList(POLY_OPA_DISP++, D_06007918);
             gSPDisplayList(POLY_OPA_DISP++, D_06000240);
             gSPDisplayList(POLY_OPA_DISP++, D_06000790);
@@ -129,8 +129,8 @@ void DmChar07_Draw(Actor* thisx, GlobalContext* globalCtx) {
             break;
     }
 
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    func_8012C2DC(game->gfxCtx);
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     switch (this->dyna.actor.params) {
         case DMCHAR07_STAGE:
             gSPDisplayList(POLY_XLU_DISP++, D_06002BA0);
@@ -164,5 +164,5 @@ void DmChar07_Draw(Actor* thisx, GlobalContext* globalCtx) {
             break;
     }
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

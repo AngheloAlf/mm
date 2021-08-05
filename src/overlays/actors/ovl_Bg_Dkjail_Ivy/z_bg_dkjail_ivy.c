@@ -4,10 +4,10 @@
 
 #define THIS ((BgDkjailIvy*)thisx)
 
-void BgDkjailIvy_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgDkjailIvy_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgDkjailIvy_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgDkjailIvy_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgDkjailIvy_Init(Actor* thisx, GameState* game);
+void BgDkjailIvy_Destroy(Actor* thisx, GameState* game);
+void BgDkjailIvy_Update(Actor* thisx, GameState* game);
+void BgDkjailIvy_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Dkjail_Ivy_InitVars = {

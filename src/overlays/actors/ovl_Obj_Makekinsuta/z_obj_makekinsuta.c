@@ -4,9 +4,9 @@
 
 #define THIS ((ObjMakekinsuta*)thisx)
 
-void ObjMakekinsuta_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjMakekinsuta_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjMakekinsuta_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjMakekinsuta_Init(Actor* thisx, GameState* game);
+void ObjMakekinsuta_Destroy(Actor* thisx, GameState* game);
+void ObjMakekinsuta_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Makekinsuta_InitVars = {

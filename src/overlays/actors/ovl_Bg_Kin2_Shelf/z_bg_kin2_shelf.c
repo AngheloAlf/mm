@@ -4,10 +4,10 @@
 
 #define THIS ((BgKin2Shelf*)thisx)
 
-void BgKin2Shelf_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Shelf_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Shelf_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgKin2Shelf_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgKin2Shelf_Init(Actor* thisx, GameState* game);
+void BgKin2Shelf_Destroy(Actor* thisx, GameState* game);
+void BgKin2Shelf_Update(Actor* thisx, GameState* game);
+void BgKin2Shelf_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Kin2_Shelf_InitVars = {

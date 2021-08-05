@@ -4,9 +4,9 @@
 
 #define THIS ((ObjBean*)thisx)
 
-void ObjBean_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBean_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjBean_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjBean_Init(Actor* thisx, GameState* game);
+void ObjBean_Destroy(Actor* thisx, GameState* game);
+void ObjBean_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Bean_InitVars = {

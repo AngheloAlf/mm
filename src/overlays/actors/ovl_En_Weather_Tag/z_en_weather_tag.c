@@ -4,10 +4,10 @@
 
 #define THIS ((EnWeatherTag*)thisx)
 
-void EnWeatherTag_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWeatherTag_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWeatherTag_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWeatherTag_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWeatherTag_Init(Actor* thisx, GameState* game);
+void EnWeatherTag_Destroy(Actor* thisx, GameState* game);
+void EnWeatherTag_Update(Actor* thisx, GameState* game);
+void EnWeatherTag_Draw(Actor* thisx, GameState* game);
 
 void func_80966A08(EnWeatherTag* this, GlobalContext* globalCtx);
 void func_80966A68(EnWeatherTag* this, GlobalContext* globalCtx);
@@ -52,10 +52,10 @@ void EnWeatherTag_SetupAction(EnWeatherTag* this, EnWeatherTagActionFunc func) {
     this->actionFunc = func;
 }
 
-void EnWeatherTag_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnWeatherTag_Destroy(Actor* thisx, GameState* game) {
 }
 
-void EnWeatherTag_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnWeatherTag_Init(Actor* thisx, GameState* game) {
     EnWeatherTag* this = (EnWeatherTag*)thisx;
     s32 pad;
     Path* path;
@@ -88,16 +88,16 @@ void EnWeatherTag_Init(Actor* thisx, GlobalContext* globalCtx) {
             EnWeatherTag_SetupAction(this, func_80966FEC);
             break;
         case WEATHERTAG_TYPE_UNK5:
-            func_800BC154(globalCtx, &globalCtx->actorCtx, &this->actor, 7);
-            globalCtx->skyboxId = 3;
-            globalCtx->envCtx.unk_1F = 5;
-            globalCtx->envCtx.unk_20 = 5;
+            func_800BC154(game, &((GlobalContext*)game)->actorCtx, &this->actor, 7);
+            ((GlobalContext*)game)->skyboxId = 3;
+            ((GlobalContext*)game)->envCtx.unk_1F = 5;
+            ((GlobalContext*)game)->envCtx.unk_20 = 5;
             D_801F4E74 = 1.0f;
             EnWeatherTag_SetupAction(this, func_80966BF4);
             break;
         case WEATHERTAG_TYPE_WATERMURK:
             pathID = WEATHER_TAG_PATHID(this);
-            path = &globalCtx->setupPathList[pathID];
+            path = &((GlobalContext*)game)->setupPathList[pathID];
             this->pathPoints = Lib_SegmentedToVirtual(path->points);
             this->pathCount = path->count;
             EnWeatherTag_SetupAction(this, func_809672DC);
@@ -472,14 +472,14 @@ void func_80967608(EnWeatherTag* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnWeatherTag_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnWeatherTag_Update(Actor* thisx, GameState* game) {
     EnWeatherTag* this = (EnWeatherTag*)thisx;
     u16 oldTime;
 
-    this->actionFunc(this, globalCtx);
-    if ((globalCtx->actorCtx.unk5 & 2) && (globalCtx->msgCtx.unk11F22 != 0) && (globalCtx->msgCtx.unk11F04 == 0x5E6) &&
-        (!FrameAdvance_IsEnabled(globalCtx)) && (globalCtx->sceneLoadFlag == 0) &&
-        (ActorCutscene_GetCurrentIndex() == -1) && (globalCtx->csCtx.state == 0)) {
+    this->actionFunc(this, game);
+    if ((((GlobalContext*)game)->actorCtx.unk5 & 2) && (((GlobalContext*)game)->msgCtx.unk11F22 != 0) && (((GlobalContext*)game)->msgCtx.unk11F04 == 0x5E6) &&
+        (!FrameAdvance_IsEnabled(game)) && (((GlobalContext*)game)->sceneLoadFlag == 0) &&
+        (ActorCutscene_GetCurrentIndex() == -1) && (((GlobalContext*)game)->csCtx.state == 0)) {
 
         oldTime = gSaveContext.time;
         gSaveContext.time = (u16)REG(0xF) + oldTime; // cast req
@@ -490,5 +490,5 @@ void EnWeatherTag_Update(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnWeatherTag_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnWeatherTag_Draw(Actor* thisx, GameState* game) {
 }

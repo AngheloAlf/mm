@@ -4,10 +4,10 @@
 
 #define THIS ((EnFloormas*)thisx)
 
-void EnFloormas_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnFloormas_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnFloormas_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnFloormas_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnFloormas_Init(Actor* thisx, GameState* game);
+void EnFloormas_Destroy(Actor* thisx, GameState* game);
+void EnFloormas_Update(Actor* thisx, GameState* game);
+void EnFloormas_Draw(Actor* thisx, GameState* game);
 
 void func_808D0B50(EnFloormas* this, GlobalContext* globalCtx);
 void func_808D0C58(EnFloormas* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((DmStk*)thisx)
 
-void DmStk_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmStk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmStk_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmStk_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmStk_Init(Actor* thisx, GameState* game);
+void DmStk_Destroy(Actor* thisx, GameState* game);
+void DmStk_Update(Actor* thisx, GameState* game);
+void DmStk_Draw(Actor* thisx, GameState* game);
 
 void func_80AA16F4(DmStk* this, GlobalContext* globalCtx);
 void func_80AA1704(DmStk* this, GlobalContext* globalCtx);

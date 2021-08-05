@@ -4,10 +4,10 @@
 
 #define THIS ((EnSlime*)thisx)
 
-void EnSlime_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnSlime_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnSlime_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnSlime_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnSlime_Init(Actor* thisx, GameState* game);
+void EnSlime_Destroy(Actor* thisx, GameState* game);
+void EnSlime_Update(Actor* thisx, GameState* game);
+void EnSlime_Draw(Actor* thisx, GameState* game);
 
 void func_80A2F140(EnSlime* this, GlobalContext* globalCtx);
 void func_80A2F1A4(EnSlime* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnElf*)thisx)
 
-void EnElf_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnElf_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnElf_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnElf_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnElf_Init(Actor* thisx, GameState* game);
+void EnElf_Destroy(Actor* thisx, GameState* game);
+void EnElf_Update(Actor* thisx, GameState* game);
+void EnElf_Draw(Actor* thisx, GameState* game);
 
 void func_8088DD34(EnElf* this, GlobalContext* globalCtx);
 void func_8088E018(EnElf* this, GlobalContext* globalCtx);

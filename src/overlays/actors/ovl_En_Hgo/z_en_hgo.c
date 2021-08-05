@@ -4,10 +4,10 @@
 
 #define THIS ((EnHgo*)thisx)
 
-void EnHgo_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnHgo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnHgo_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnHgo_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnHgo_Init(Actor* thisx, GameState* game);
+void EnHgo_Destroy(Actor* thisx, GameState* game);
+void EnHgo_Update(Actor* thisx, GameState* game);
+void EnHgo_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Hgo_InitVars = {

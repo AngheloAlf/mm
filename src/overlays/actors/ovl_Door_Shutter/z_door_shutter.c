@@ -4,9 +4,9 @@
 
 #define THIS ((DoorShutter*)thisx)
 
-void DoorShutter_Init(Actor* thisx, GlobalContext* globalCtx);
-void DoorShutter_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DoorShutter_Update(Actor* thisx, GlobalContext* globalCtx);
+void DoorShutter_Init(Actor* thisx, GameState* game);
+void DoorShutter_Destroy(Actor* thisx, GameState* game);
+void DoorShutter_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Door_Shutter_InitVars = {

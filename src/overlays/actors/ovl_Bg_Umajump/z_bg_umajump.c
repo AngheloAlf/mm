@@ -4,9 +4,9 @@
 
 #define THIS ((BgUmajump*)thisx)
 
-void BgUmajump_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgUmajump_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgUmajump_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgUmajump_Init(Actor* thisx, GameState* game);
+void BgUmajump_Destroy(Actor* thisx, GameState* game);
+void BgUmajump_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Umajump_InitVars = {

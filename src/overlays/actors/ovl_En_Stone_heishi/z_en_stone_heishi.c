@@ -4,10 +4,10 @@
 
 #define THIS ((EnStoneheishi*)thisx)
 
-void EnStoneheishi_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnStoneheishi_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnStoneheishi_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnStoneheishi_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnStoneheishi_Init(Actor* thisx, GameState* game);
+void EnStoneheishi_Destroy(Actor* thisx, GameState* game);
+void EnStoneheishi_Update(Actor* thisx, GameState* game);
+void EnStoneheishi_Draw(Actor* thisx, GameState* game);
 
 void func_80BC9560(EnStoneheishi* this, GlobalContext* globalCtx);
 void func_80BC9680(EnStoneheishi* this, GlobalContext* globalCtx);

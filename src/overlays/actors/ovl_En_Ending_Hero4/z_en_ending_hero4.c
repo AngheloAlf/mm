@@ -4,10 +4,10 @@
 
 #define THIS ((EnEndingHero4*)thisx)
 
-void EnEndingHero4_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnEndingHero4_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnEndingHero4_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnEndingHero4_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnEndingHero4_Init(Actor* thisx, GameState* game);
+void EnEndingHero4_Destroy(Actor* thisx, GameState* game);
+void EnEndingHero4_Update(Actor* thisx, GameState* game);
+void EnEndingHero4_Draw(Actor* thisx, GameState* game);
 
 void func_80C23748(EnEndingHero4* this);
 void func_80C23764(EnEndingHero4* this, GlobalContext* globalCtx);
@@ -27,20 +27,20 @@ const ActorInit En_Ending_Hero4_InitVars = {
 extern FlexSkeletonHeader D_0600D640;
 extern AnimationHeader D_06002A84;
 
-void EnEndingHero4_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnEndingHero4_Init(Actor* thisx, GameState* game) {
     EnEndingHero4* this = THIS;
 
     this->actor.colChkInfo.mass = 0xFF;
     Actor_SetScale(&this->actor, 0.01f);
     this->actor.targetMode = 6;
     this->actor.gravity = -3.0f;
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600D640, &D_06002A84, this->limbDrawTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600D640, &D_06002A84, this->limbDrawTable,
                      this->transitionDrawTable, 17);
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 25.0f);
     func_80C23748(this);
 }
 
-void EnEndingHero4_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnEndingHero4_Destroy(Actor* thisx, GameState* game) {
 }
 
 void func_80C23748(EnEndingHero4* this) {
@@ -52,19 +52,19 @@ void func_80C23764(EnEndingHero4* this, GlobalContext* globalCtx) {
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
 }
 
-void EnEndingHero4_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnEndingHero4_Update(Actor* thisx, GameState* game) {
     EnEndingHero4* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 20.0f, 20.0f, 50.0f, 0x1D);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 20.0f, 20.0f, 50.0f, 0x1D);
 }
 
-void EnEndingHero4_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnEndingHero4_Draw(Actor* thisx, GameState* game) {
     EnEndingHero4* this = THIS;
 
-    func_8012C28C(globalCtx->state.gfxCtx);
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, 0, 0,
+    func_8012C28C(game->gfxCtx);
+    func_8012C2DC(game->gfxCtx);
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount, 0, 0,
                      &this->actor);
 }

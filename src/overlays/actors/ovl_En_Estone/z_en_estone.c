@@ -4,10 +4,10 @@
 
 #define THIS ((EnEstone*)thisx)
 
-void EnEstone_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnEstone_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnEstone_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnEstone_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnEstone_Init(Actor* thisx, GameState* game);
+void EnEstone_Destroy(Actor* thisx, GameState* game);
+void EnEstone_Update(Actor* thisx, GameState* game);
+void EnEstone_Draw(Actor* thisx, GameState* game);
 
 void func_80A9A1DC(EnEstone* this, GlobalContext* globalCtx);
 void func_80A9A4B0(EnEstone* this, GlobalContext* globalCtx);

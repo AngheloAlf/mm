@@ -4,10 +4,10 @@
 
 #define THIS ((EnNnh*)thisx)
 
-void EnNnh_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnNnh_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnNnh_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnNnh_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnNnh_Init(Actor* thisx, GameState* game);
+void EnNnh_Destroy(Actor* thisx, GameState* game);
+void EnNnh_Update(Actor* thisx, GameState* game);
+void EnNnh_Draw(Actor* thisx, GameState* game);
 
 void func_80C08828(EnNnh* this);
 void func_80C0883C(EnNnh* this, GlobalContext* globalCtx);
@@ -48,22 +48,22 @@ static ColliderCylinderInit sCylinderInit = {
 
 extern Gfx D_06001510[];
 
-void EnNnh_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnNnh_Init(Actor* thisx, GameState* game) {
     EnNnh* this = THIS;
 
     Actor_SetScale(&this->actor, 0.01f);
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     this->actor.targetMode = 1;
     this->actor.focus.pos = this->actor.world.pos;
     this->actor.focus.pos.y += 30.0f;
     func_80C08828(this);
 }
 
-void EnNnh_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnNnh_Destroy(Actor* thisx, GameState* game) {
     EnNnh* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void func_80C08828(EnNnh* this) {
@@ -89,20 +89,20 @@ void func_80C088B8(EnNnh* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnNnh_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnNnh_Update(Actor* thisx, GameState* game) {
     EnNnh* this = THIS;
     s32 pad;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
-void EnNnh_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    GraphicsContext* gfxCtx = globalCtx->state.gfxCtx;
+void EnNnh_Draw(Actor* thisx, GameState* game) {
+    GraphicsContext* gfxCtx = game->gfxCtx;
     s32 pad;
 
     func_8012C28C(gfxCtx);
-    gSPMatrix(gfxCtx->polyOpa.p++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(gfxCtx->polyOpa.p++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(gfxCtx->polyOpa.p++, D_06001510);
 }

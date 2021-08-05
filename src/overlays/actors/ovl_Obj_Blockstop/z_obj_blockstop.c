@@ -4,8 +4,8 @@
 
 #define THIS ((ObjBlockstop*)thisx)
 
-void ObjBlockstop_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjBlockstop_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjBlockstop_Init(Actor* thisx, GameState* game);
+void ObjBlockstop_Update(Actor* thisx, GameState* game);
 
 void func_809466F0(ObjBlockstop* this, GlobalContext* globalCtx);
 

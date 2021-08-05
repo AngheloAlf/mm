@@ -10,10 +10,10 @@
 
 #define THIS ((EnGuruguru*)thisx)
 
-void EnGuruguru_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGuruguru_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGuruguru_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGuruguru_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGuruguru_Init(Actor* thisx, GameState* game);
+void EnGuruguru_Destroy(Actor* thisx, GameState* game);
+void EnGuruguru_Update(Actor* thisx, GameState* game);
+void EnGuruguru_Draw(Actor* thisx, GameState* game);
 
 void EnGuruguru_DoNothing(EnGuruguru* this, GlobalContext* globalCtx);
 void func_80BC6E10(EnGuruguru* this);
@@ -75,15 +75,15 @@ static f32 D_80BC79D8[] = { 1.0f, 1.0f };
 static void* sEyeTextures[] = { D_06005F20, D_06006320 };
 static void* sMouthTextures[] = { D_06006720, D_06006920 };
 
-void EnGuruguru_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnGuruguru_Init(Actor* thisx, GameState* game) {
     EnGuruguru* this = THIS;
 
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 19.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06006C90, &D_06000B04, this->jointTable, this->morphTable, 16);
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06006C90, &D_06000B04, this->jointTable, this->morphTable, 16);
     this->actor.targetMode = 0;
     if (this->actor.params != 2) {
-        Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+        Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     }
     if (!gSaveContext.isNight) {
         if (this->actor.params == 0) {
@@ -103,11 +103,11 @@ void EnGuruguru_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnGuruguru_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnGuruguru_Destroy(Actor* thisx, GameState* game) {
     EnGuruguru* this = THIS;
 
     if (this->actor.params != 2) {
-        Collider_DestroyCylinder(globalCtx, &this->collider);
+        Collider_DestroyCylinder(game, &this->collider);
     }
 }
 
@@ -319,10 +319,11 @@ void func_80BC7520(EnGuruguru* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnGuruguru_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnGuruguru_Update(Actor* thisx, GameState* game) {
     EnGuruguru* this = THIS;
     s32 yaw;
-    Player* player = PLAYER;
+    //Player* player = PLAYER;
+    Player* player = (Player*)((GlobalContext*)game)->actorCtx.actorList[ACTORCAT_PLAYER].first;
     s16 yawTemp;
 
     if (!gSaveContext.isNight) {
@@ -335,7 +336,7 @@ void EnGuruguru_Update(Actor* thisx, GlobalContext* globalCtx) {
         return;
     }
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 
     if (this->actor.params == 2) {
         if (fabsf(player->actor.world.pos.y - this->actor.world.pos.y) < 100.0f) {
@@ -369,9 +370,9 @@ void EnGuruguru_Update(Actor* thisx, GlobalContext* globalCtx) {
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
     Math_SmoothStepToS(&this->headXRot, this->headXRotTarget, 1, 3000, 0);
     Math_SmoothStepToS(&this->headZRot, this->headZRotTarget, 1, 1000, 0);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 20.0f, 20.0f, 50.0f, 0x1D);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 20.0f, 20.0f, 50.0f, 0x1D);
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
 s32 EnGuruguru_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -386,15 +387,15 @@ s32 EnGuruguru_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** d
     return false;
 }
 
-void EnGuruguru_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnGuruguru_Draw(Actor* thisx, GameState* game) {
     EnGuruguru* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    func_8012C2DC(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    func_8012C2DC(game->gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, SEGMENTED_TO_VIRTUAL(sEyeTextures[this->texIndex]));
     gSPSegment(POLY_OPA_DISP++, 0x09, SEGMENTED_TO_VIRTUAL(sMouthTextures[this->texIndex]));
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnGuruguru_OverrideLimbDraw, NULL, &this->actor);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

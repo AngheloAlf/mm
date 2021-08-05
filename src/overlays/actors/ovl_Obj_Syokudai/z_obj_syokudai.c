@@ -4,10 +4,10 @@
 
 #define THIS ((ObjSyokudai*)thisx)
 
-void ObjSyokudai_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjSyokudai_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjSyokudai_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjSyokudai_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjSyokudai_Init(Actor* thisx, GameState* game);
+void ObjSyokudai_Destroy(Actor* thisx, GameState* game);
+void ObjSyokudai_Update(Actor* thisx, GameState* game);
+void ObjSyokudai_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Syokudai_InitVars = {

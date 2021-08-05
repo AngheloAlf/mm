@@ -4,10 +4,10 @@
 
 #define THIS ((EnScopecoin*)thisx)
 
-void EnScopecoin_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnScopecoin_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnScopecoin_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnScopecoin_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnScopecoin_Init(Actor* thisx, GameState* game);
+void EnScopecoin_Destroy(Actor* thisx, GameState* game);
+void EnScopecoin_Update(Actor* thisx, GameState* game);
+void EnScopecoin_Draw(Actor* thisx, GameState* game);
 
 void func_80BFCFA0(EnScopecoin* this, GlobalContext* globalCtx);
 void func_80BFCFB8(EnScopecoin* this, GlobalContext* globalCtx);
@@ -35,7 +35,7 @@ void func_80BFCFB8(EnScopecoin* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnScopecoin_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnScopecoin_Init(Actor* thisx, GameState* game) {
     EnScopecoin* this = THIS;
 
     Actor_SetScale(&this->actor, 0.01f);
@@ -45,9 +45,9 @@ void EnScopecoin_Init(Actor* thisx, GlobalContext* globalCtx) {
         this->unk148 = 0;
     }
 
-    if (globalCtx->actorCtx.unk5 & 2) {
+    if (((GlobalContext*)game)->actorCtx.unk5 & 2) {
         if (this->unk148 == 2 || this->unk148 == 6) {
-            if (Actor_GetCollectibleFlag(globalCtx, (this->actor.params & 0x7F0) >> 4)) {
+            if (Actor_GetCollectibleFlag(game, (this->actor.params & 0x7F0) >> 4)) {
                 Actor_MarkForDeath(&this->actor);
                 return;
             }
@@ -57,7 +57,7 @@ void EnScopecoin_Init(Actor* thisx, GlobalContext* globalCtx) {
         return;
     }
     if (this->unk148 == 2 || this->unk148 == 6) {
-        if (Actor_GetCollectibleFlag(globalCtx, (this->actor.params & 0x7F0) >> 4)) {
+        if (Actor_GetCollectibleFlag(game, (this->actor.params & 0x7F0) >> 4)) {
             Actor_MarkForDeath(&this->actor);
         } else {
             this->actor.draw = NULL;
@@ -68,27 +68,27 @@ void EnScopecoin_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnScopecoin_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnScopecoin_Destroy(Actor* thisx, GameState* game) {
 }
 
-void EnScopecoin_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnScopecoin_Update(Actor* thisx, GameState* game) {
     EnScopecoin* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
 static UNK_PTR D_80BFD280[] = { &D_04061FC0, &D_04061FE0, &D_04062000, &D_04062040,
                                 &D_04062020, &D_04062060, &D_04062000 };
 
-void EnScopecoin_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnScopecoin_Draw(Actor* thisx, GameState* game) {
     EnScopecoin* this = THIS;
-    GraphicsContext* gfxCtx = globalCtx->state.gfxCtx;
+    GraphicsContext* gfxCtx = game->gfxCtx;
 
-    func_8012C28C(globalCtx->state.gfxCtx);
-    func_800B8050(&this->actor, globalCtx, 0);
+    func_8012C28C(game->gfxCtx);
+    func_800B8050(&this->actor, game, 0);
     OPEN_DISPS(gfxCtx);
 
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(D_80BFD280[this->unk148]));
     gSPDisplayList(POLY_OPA_DISP++, D_040622C0);
 

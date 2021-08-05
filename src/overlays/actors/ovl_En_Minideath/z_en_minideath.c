@@ -4,9 +4,9 @@
 
 #define THIS ((EnMinideath*)thisx)
 
-void EnMinideath_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMinideath_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMinideath_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnMinideath_Init(Actor* thisx, GameState* game);
+void EnMinideath_Destroy(Actor* thisx, GameState* game);
+void EnMinideath_Update(Actor* thisx, GameState* game);
 
 void func_808CA860(EnMinideath* this, GlobalContext* globalCtx);
 void func_808CA8F4(EnMinideath* this, GlobalContext* globalCtx);

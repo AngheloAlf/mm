@@ -4,10 +4,10 @@
 
 #define THIS ((ObjHugebombiwa*)thisx)
 
-void ObjHugebombiwa_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHugebombiwa_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHugebombiwa_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHugebombiwa_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHugebombiwa_Init(Actor* thisx, GameState* game);
+void ObjHugebombiwa_Destroy(Actor* thisx, GameState* game);
+void ObjHugebombiwa_Update(Actor* thisx, GameState* game);
+void ObjHugebombiwa_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Hugebombiwa_InitVars = {

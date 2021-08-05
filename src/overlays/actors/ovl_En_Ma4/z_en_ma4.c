@@ -10,10 +10,10 @@
 
 #define THIS ((EnMa4*)thisx)
 
-void EnMa4_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMa4_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMa4_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMa4_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMa4_Init(Actor* thisx, GameState* game);
+void EnMa4_Destroy(Actor* thisx, GameState* game);
+void EnMa4_Update(Actor* thisx, GameState* game);
+void EnMa4_Draw(Actor* thisx, GameState* game);
 
 void EnMa4_SetupWait(EnMa4* this);
 void EnMa4_Wait(EnMa4* this, GlobalContext* globalCtx);
@@ -196,19 +196,19 @@ void EnMa4_InitPath(EnMa4* this, GlobalContext* globalCtx) {
     this->actor.shape.rot.y = this->actor.world.rot.y = Math_Vec3f_Yaw(&this->actor.world.pos, &nextPoint);
 }
 
-void EnMa4_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnMa4_Init(Actor* thisx, GameState* game) {
     EnMa4* this = THIS;
     s32 pad;
 
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 18.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06013928, NULL, this->limbDrawTable, this->transitionDrawTable,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06013928, NULL, this->limbDrawTable, this->transitionDrawTable,
                      MA1_LIMB_MAX);
 
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, DamageTable_Get(0x16), &D_80AC00DC);
 
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 0.0f, 0.0f, 0.0f, 4);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 0.0f, 0.0f, 0.0f, 4);
     Actor_SetScale(&this->actor, 0.01f);
 
     this->actor.targetMode = 0;
@@ -227,12 +227,12 @@ void EnMa4_Init(Actor* thisx, GlobalContext* globalCtx) {
         this->hasBow = false;
     }
 
-    if (func_800EE1D8(globalCtx) != 0) { // if (sceneSetupIndex != 0)
+    if (func_800EE1D8(game) != 0) { // if (sceneSetupIndex != 0)
         EnMa4_ChangeAnim(this, 0);
         this->state = MA4_STATE_HORSEBACKGAME;
-        EnMa4_InitHorsebackGame(this, globalCtx);
+        EnMa4_InitHorsebackGame(this, game);
     } else {
-        EnMa4_InitPath(this, globalCtx);
+        EnMa4_InitPath(this, game);
 
         if (gSaveContext.entranceIndex == 0x6410) {
             EnMa4_ChangeAnim(this, 0);
@@ -254,10 +254,10 @@ void EnMa4_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnMa4_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnMa4_Destroy(Actor* thisx, GameState* game) {
     EnMa4* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
     gSaveContext.weekEventReg[0x8] &= (u8)~0x01;
 }
 
@@ -1038,16 +1038,16 @@ void EnMa4_InitFaceExpression(EnMa4* this) {
     }
 }
 
-void EnMa4_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnMa4_Update(Actor* thisx, GameState* game) {
     EnMa4* this = THIS;
     s32 pad;
 
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     EnMa4_UpdateEyes(this);
-    this->actionFunc(this, globalCtx);
-    func_80ABDD9C(this, globalCtx);
+    this->actionFunc(this, game);
+    func_80ABDD9C(this, game);
 }
 
 s32 EnMa4_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
@@ -1083,22 +1083,22 @@ void EnMa4_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Ve
     }
 }
 
-void EnMa4_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnMa4_Draw(Actor* thisx, GameState* game) {
     EnMa4* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
     if (this->type == MA4_TYPE_ALIENS_WON) {
-        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(POLY_OPA_DISP++, D_06000A20);
     }
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
     gSPSegment(POLY_OPA_DISP++, 0x08, SEGMENTED_TO_VIRTUAL(sEyeTextures[this->eyeTexIndex]));
     gSPSegment(POLY_OPA_DISP++, 0x09, SEGMENTED_TO_VIRTUAL(sMouthTextures[this->mouthTexIndex]));
 
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnMa4_OverrideLimbDraw, EnMa4_PostLimbDraw, &this->actor);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

@@ -4,10 +4,10 @@
 
 #define THIS ((EnGinkoMan*)thisx)
 
-void EnGinkoMan_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnGinkoMan_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnGinkoMan_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnGinkoMan_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnGinkoMan_Init(Actor* thisx, GameState* game);
+void EnGinkoMan_Destroy(Actor* thisx, GameState* game);
+void EnGinkoMan_Update(Actor* thisx, GameState* game);
+void EnGinkoMan_Draw(Actor* thisx, GameState* game);
 
 void EnGinkoMan_SetupIdle(EnGinkoMan* this);
 void EnGinkoMan_SetupDialogue(EnGinkoMan* this);
@@ -51,7 +51,7 @@ ActorAnimationEntry animations[] = {
     { &D_06004A7C, 1.0f, 0.0f, 0.0f, 0, -4.0f },
 };
 
-void EnGinkoMan_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnGinkoMan_Init(Actor* thisx, GameState* game) {
     EnGinkoMan* this = THIS;
 
     this->actor.targetMode = 1;
@@ -63,12 +63,12 @@ void EnGinkoMan_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->isStampChecked = false;
     this->choiceDepositWithdrawl = GINKOMAN_CHOICE_RESET;
     this->serviceFee = 0;
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600C240, &D_060043F0, this->limbDrawTbl, this->transitionDrawTbl,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_0600C240, &D_060043F0, this->limbDrawTbl, this->transitionDrawTbl,
                      16);
     EnGinkoMan_SetupIdle(this);
 }
 
-void EnGinkoMan_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnGinkoMan_Destroy(Actor* thisx, GameState* game) {
 }
 
 void EnGinkoMan_SetupIdle(EnGinkoMan* this) {
@@ -619,13 +619,13 @@ void EnGinkoMan_FacePlayer(EnGinkoMan* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnGinkoMan_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnGinkoMan_Update(Actor* thisx, GameState* game) {
     EnGinkoMan* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     this->actor.focus.pos = this->actor.world.pos;
     this->actor.focus.pos.y += 30.0f;
-    EnGinkoMan_FacePlayer(this, globalCtx);
+    EnGinkoMan_FacePlayer(this, game);
 }
 
 s32 EnGinkoMan_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -652,19 +652,19 @@ s32 EnGinkoMan_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** d
 void EnGinkoMan_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
 }
 
-void EnGinkoMan_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnGinkoMan_Draw(Actor* thisx, GameState* game) {
     EnGinkoMan* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
-    gSPSegment(POLY_OPA_DISP++, 0x08, Gfx_EnvColor(globalCtx->state.gfxCtx, 50, 80, 0, 0));
-    gSPSegment(POLY_OPA_DISP++, 0x09, Gfx_EnvColor(globalCtx->state.gfxCtx, 50, 80, 0, 0));
+    gSPSegment(POLY_OPA_DISP++, 0x08, Gfx_EnvColor(game->gfxCtx, 50, 80, 0, 0));
+    gSPSegment(POLY_OPA_DISP++, 0x09, Gfx_EnvColor(game->gfxCtx, 50, 80, 0, 0));
     gDPPipeSync(POLY_OPA_DISP++);
 
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      &EnGinkoMan_OverrideLimbDraw, &EnGinkoMan_PostLimbDraw, &this->actor);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

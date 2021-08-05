@@ -4,9 +4,9 @@
 
 #define THIS ((ObjNozoki*)thisx)
 
-void ObjNozoki_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjNozoki_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjNozoki_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjNozoki_Init(Actor* thisx, GameState* game);
+void ObjNozoki_Destroy(Actor* thisx, GameState* game);
+void ObjNozoki_Update(Actor* thisx, GameState* game);
 
 void func_80BA2514(ObjNozoki* this, GlobalContext* globalCtx);
 void func_80BA28DC(ObjNozoki* this, GlobalContext* globalCtx);

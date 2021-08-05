@@ -4,10 +4,10 @@
 
 #define THIS ((OceffWipe6*)thisx)
 
-void OceffWipe6_Init(Actor* thisx, GlobalContext* globalCtx);
-void OceffWipe6_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void OceffWipe6_Update(Actor* thisx, GlobalContext* globalCtx);
-void OceffWipe6_Draw(Actor* thisx, GlobalContext* globalCtx);
+void OceffWipe6_Init(Actor* thisx, GameState* game);
+void OceffWipe6_Destroy(Actor* thisx, GameState* game);
+void OceffWipe6_Update(Actor* thisx, GameState* game);
+void OceffWipe6_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Oceff_Wipe6_InitVars = {

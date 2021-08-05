@@ -48,10 +48,10 @@ typedef struct {
     /* 0x02 */ u8 objectType;
 } SpiralSceneInfo;
 
-void DoorSpiral_Init(Actor* thisx, GlobalContext* globalCtx);
-void DoorSpiral_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DoorSpiral_Update(Actor* thisx, GlobalContext* globalCtx);
-void DoorSpiral_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DoorSpiral_Init(Actor* thisx, GameState* game);
+void DoorSpiral_Destroy(Actor* thisx, GameState* game);
+void DoorSpiral_Update(Actor* thisx, GameState* game);
+void DoorSpiral_Draw(Actor* thisx, GameState* game);
 
 void DoorSpiral_WaitForObject(DoorSpiral* this, GlobalContext* globalCtx);
 void DoorSpiral_Wait(DoorSpiral* this, GlobalContext* globalCtx);
@@ -175,13 +175,13 @@ static InitChainEntry sInitChain[] = {
     ICHAIN_F32(uncullZoneDownward, 400, ICHAIN_STOP),
 };
 
-void DoorSpiral_Init(Actor* thisx, GlobalContext* globalCtx) {
+void DoorSpiral_Init(Actor* thisx, GameState* game) {
     DoorSpiral* this = (DoorSpiral*)thisx;
     s32 pad;
     s32 transition = GET_TRANSITION_ID_PARAM(thisx);
     s8 objBankId;
 
-    if (this->actor.room != globalCtx->doorCtx.transitionActorList[transition].sides[0].room) {
+    if (this->actor.room != ((GlobalContext*)game)->doorCtx.transitionActorList[transition].sides[0].room) {
         Actor_MarkForDeath(&this->actor);
         return;
     }
@@ -189,8 +189,8 @@ void DoorSpiral_Init(Actor* thisx, GlobalContext* globalCtx) {
     Actor_ProcessInitChain(&this->actor, sInitChain);
     this->unk145 = GET_UNK145_PARAM(thisx); // set but never used
     this->orientation = GET_ORIENTATION_PARAM(thisx);
-    this->objectType = DoorSpiral_GetObjectType(globalCtx);
-    objBankId = Object_GetIndex(&globalCtx->objectCtx, sSpiralObjectInfo[this->objectType].objectBankId);
+    this->objectType = DoorSpiral_GetObjectType(game);
+    objBankId = Object_GetIndex(&((GlobalContext*)game)->objectCtx, sSpiralObjectInfo[this->objectType].objectBankId);
     this->bankIndex = objBankId;
 
     if (objBankId < 0) {
@@ -202,10 +202,10 @@ void DoorSpiral_Init(Actor* thisx, GlobalContext* globalCtx) {
     Actor_SetHeight(&this->actor, 60.0f);
 }
 
-void DoorSpiral_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void DoorSpiral_Destroy(Actor* thisx, GameState* game) {
     s32 transition = GET_TRANSITION_ID_PARAM(thisx);
 
-    globalCtx->doorCtx.transitionActorList[transition].id *= -1;
+    ((GlobalContext*)game)->doorCtx.transitionActorList[transition].id *= -1;
 }
 
 /**
@@ -301,17 +301,17 @@ void DoorSpiral_PlayerClimb(DoorSpiral* this, GlobalContext* globalCtx) {
     }
 }
 
-void DoorSpiral_Update(Actor* thisx, GlobalContext* globalCtx) {
+void DoorSpiral_Update(Actor* thisx, GameState* game) {
     DoorSpiral* this = (DoorSpiral*)thisx;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player = PLAYER;
 
     if ((!(player->stateFlags1 & 0x100004C0)) || (this->actionFunc == DoorSpiral_WaitForObject)) {
-        this->actionFunc(this, globalCtx);
+        this->actionFunc(this, game);
     }
 }
 
-void DoorSpiral_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void DoorSpiral_Draw(Actor* thisx, GameState* game) {
     s32 pad;
     DoorSpiral* this = (DoorSpiral*)thisx;
 
@@ -323,15 +323,15 @@ void DoorSpiral_Draw(Actor* thisx, GlobalContext* globalCtx) {
         dList = spiralInfo->spiralDL[this->orientation];
 
         if (dList != NULL) {
-            OPEN_DISPS(globalCtx->state.gfxCtx);
+            OPEN_DISPS(game->gfxCtx);
 
-            func_8012C28C(globalCtx->state.gfxCtx);
+            func_8012C28C(game->gfxCtx);
 
-            gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx),
+            gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx),
                       G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
             gSPDisplayList(POLY_OPA_DISP++, spiralInfo->spiralDL[this->orientation]);
 
-            CLOSE_DISPS(globalCtx->state.gfxCtx);
+            CLOSE_DISPS(game->gfxCtx);
         }
     }
 }

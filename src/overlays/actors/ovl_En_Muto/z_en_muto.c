@@ -4,10 +4,10 @@
 
 #define THIS ((EnMuto*)thisx)
 
-void EnMuto_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMuto_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMuto_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMuto_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMuto_Init(Actor* thisx, GameState* game);
+void EnMuto_Destroy(Actor* thisx, GameState* game);
+void EnMuto_Update(Actor* thisx, GameState* game);
+void EnMuto_Draw(Actor* thisx, GameState* game);
 
 void func_80BE7DEC(EnMuto* this, GlobalContext* globalCtx);
 void func_80BE7FEC(EnMuto* this, GlobalContext* globalCtx);

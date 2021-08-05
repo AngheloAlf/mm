@@ -4,10 +4,10 @@
 
 #define THIS ((ArrowLight*)thisx)
 
-void ArrowLight_Init(Actor* thisx, GlobalContext* globalCtx);
-void ArrowLight_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ArrowLight_Update(Actor* thisx, GlobalContext* globalCtx);
-void ArrowLight_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ArrowLight_Init(Actor* thisx, GameState* game);
+void ArrowLight_Destroy(Actor* thisx, GameState* game);
+void ArrowLight_Update(Actor* thisx, GameState* game);
+void ArrowLight_Draw(Actor* thisx, GameState* game);
 
 void func_809243AC(ArrowLight* this, GlobalContext* globalCtx);
 void func_809244F8(ArrowLight* this, GlobalContext* globalCtx);

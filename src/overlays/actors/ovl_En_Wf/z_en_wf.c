@@ -4,10 +4,10 @@
 
 #define THIS ((EnWf*)thisx)
 
-void EnWf_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWf_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWf_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWf_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWf_Init(Actor* thisx, GameState* game);
+void EnWf_Destroy(Actor* thisx, GameState* game);
+void EnWf_Update(Actor* thisx, GameState* game);
+void EnWf_Draw(Actor* thisx, GameState* game);
 
 void func_80990F50(EnWf* this, GlobalContext* globalCtx);
 void func_80991040(EnWf* this, GlobalContext* globalCtx);

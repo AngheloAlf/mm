@@ -4,10 +4,10 @@
 
 #define THIS ((DmHina*)thisx)
 
-void DmHina_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmHina_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmHina_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmHina_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmHina_Init(Actor* thisx, GameState* game);
+void DmHina_Destroy(Actor* thisx, GameState* game);
+void DmHina_Update(Actor* thisx, GameState* game);
+void DmHina_Draw(Actor* thisx, GameState* game);
 
 void func_80A1F470(DmHina* this, GlobalContext* globalCtx);
 void func_80A1F56C(DmHina* this, GlobalContext* globalCtx);

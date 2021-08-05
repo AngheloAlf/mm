@@ -4,10 +4,10 @@
 
 #define THIS ((DmOpstage*)thisx)
 
-void DmOpstage_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmOpstage_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmOpstage_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmOpstage_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmOpstage_Init(Actor* thisx, GameState* game);
+void DmOpstage_Destroy(Actor* thisx, GameState* game);
+void DmOpstage_Update(Actor* thisx, GameState* game);
+void DmOpstage_Draw(Actor* thisx, GameState* game);
 
 void func_80A9FA58(DmOpstage* this, GlobalContext* globalCtx);
 

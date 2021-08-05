@@ -4,8 +4,8 @@
 
 #define THIS ((BgBreakwall*)thisx)
 
-void BgBreakwall_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgBreakwall_Update(Actor* thisx, GlobalContext* globalCtx);
+void BgBreakwall_Init(Actor* thisx, GameState* game);
+void BgBreakwall_Update(Actor* thisx, GameState* game);
 
 void BgBreakwall_SetupAction(BgBreakwall* this, BgBreakwallActionFunc actionFunc);
 

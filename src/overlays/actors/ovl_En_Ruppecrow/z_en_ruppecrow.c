@@ -4,10 +4,10 @@
 
 #define THIS ((EnRuppecrow*)thisx)
 
-void EnRuppecrow_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRuppecrow_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRuppecrow_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRuppecrow_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRuppecrow_Init(Actor* thisx, GameState* game);
+void EnRuppecrow_Destroy(Actor* thisx, GameState* game);
+void EnRuppecrow_Update(Actor* thisx, GameState* game);
+void EnRuppecrow_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Ruppecrow_InitVars = {

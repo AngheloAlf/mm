@@ -4,10 +4,10 @@
 
 #define THIS ((ObjVspinyroll*)thisx)
 
-void ObjVspinyroll_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjVspinyroll_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjVspinyroll_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjVspinyroll_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjVspinyroll_Init(Actor* thisx, GameState* game);
+void ObjVspinyroll_Destroy(Actor* thisx, GameState* game);
+void ObjVspinyroll_Update(Actor* thisx, GameState* game);
+void ObjVspinyroll_Draw(Actor* thisx, GameState* game);
 
 void func_80A3CEE0(ObjVspinyroll* this, GlobalContext* globalCtx);
 void func_80A3CF4C(ObjVspinyroll* this, GlobalContext* globalCtx);

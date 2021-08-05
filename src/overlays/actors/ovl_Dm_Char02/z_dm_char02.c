@@ -4,10 +4,10 @@
 
 #define THIS ((DmChar02*)thisx)
 
-void DmChar02_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmChar02_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmChar02_Update(Actor* thisx, GlobalContext* globalCtx);
-void DmChar02_Draw(Actor* thisx, GlobalContext* globalCtx);
+void DmChar02_Init(Actor* thisx, GameState* game);
+void DmChar02_Destroy(Actor* thisx, GameState* game);
+void DmChar02_Update(Actor* thisx, GameState* game);
+void DmChar02_Draw(Actor* thisx, GameState* game);
 
 void func_80AAB04C(DmChar02* this, GlobalContext* globalCtx);
 

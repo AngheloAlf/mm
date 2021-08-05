@@ -4,9 +4,9 @@
 
 #define THIS ((BgInibsMovebg*)thisx)
 
-void BgInibsMovebg_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgInibsMovebg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgInibsMovebg_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgInibsMovebg_Init(Actor* thisx, GameState* game);
+void BgInibsMovebg_Destroy(Actor* thisx, GameState* game);
+void BgInibsMovebg_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Inibs_Movebg_InitVars = {

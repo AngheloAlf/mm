@@ -4,10 +4,10 @@
 
 #define THIS ((EnDns*)thisx)
 
-void EnDns_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDns_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDns_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDns_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDns_Init(Actor* thisx, GameState* game);
+void EnDns_Destroy(Actor* thisx, GameState* game);
+void EnDns_Update(Actor* thisx, GameState* game);
+void EnDns_Draw(Actor* thisx, GameState* game);
 
 void func_8092D1B8(EnDns* this, GlobalContext* globalCtx);
 void func_8092D320(EnDns* this, GlobalContext* globalCtx);

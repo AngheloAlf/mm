@@ -4,10 +4,10 @@
 
 #define THIS ((ObjUsiyane*)thisx)
 
-void ObjUsiyane_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjUsiyane_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjUsiyane_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjUsiyane_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjUsiyane_Init(Actor* thisx, GameState* game);
+void ObjUsiyane_Destroy(Actor* thisx, GameState* game);
+void ObjUsiyane_Update(Actor* thisx, GameState* game);
+void ObjUsiyane_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Obj_Usiyane_InitVars = {

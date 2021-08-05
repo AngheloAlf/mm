@@ -4,10 +4,10 @@
 
 #define THIS ((EnDt*)thisx)
 
-void EnDt_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDt_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDt_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDt_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDt_Init(Actor* thisx, GameState* game);
+void EnDt_Destroy(Actor* thisx, GameState* game);
+void EnDt_Update(Actor* thisx, GameState* game);
+void EnDt_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Dt_InitVars = {

@@ -4,10 +4,10 @@
 
 #define THIS ((EnWaterEffect*)thisx)
 
-void EnWaterEffect_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnWaterEffect_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnWaterEffect_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnWaterEffect_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnWaterEffect_Init(Actor* thisx, GameState* game);
+void EnWaterEffect_Destroy(Actor* thisx, GameState* game);
+void EnWaterEffect_Update(Actor* thisx, GameState* game);
+void EnWaterEffect_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Water_Effect_InitVars = {

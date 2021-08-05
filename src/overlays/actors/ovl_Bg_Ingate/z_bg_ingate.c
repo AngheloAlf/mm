@@ -4,10 +4,10 @@
 
 #define THIS ((BgIngate*)thisx)
 
-void BgIngate_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIngate_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIngate_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIngate_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIngate_Init(Actor* thisx, GameState* game);
+void BgIngate_Destroy(Actor* thisx, GameState* game);
+void BgIngate_Update(Actor* thisx, GameState* game);
+void BgIngate_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit Bg_Ingate_InitVars = {

@@ -10,10 +10,10 @@
 
 #define THIS ((EnMaYts*)thisx)
 
-void EnMaYts_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMaYts_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMaYts_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMaYts_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMaYts_Init(Actor* thisx, GameState* game);
+void EnMaYts_Destroy(Actor* thisx, GameState* game);
+void EnMaYts_Update(Actor* thisx, GameState* game);
+void EnMaYts_Draw(Actor* thisx, GameState* game);
 
 void EnMaYts_SetupDoNothing(EnMaYts* this);
 void EnMaYts_DoNothing(EnMaYts* this, GlobalContext* globalCtx);
@@ -27,7 +27,7 @@ void EnMaYts_ChooseNextDialogue(EnMaYts* this, GlobalContext* globalCtx);
 
 void EnMaYts_SetFaceExpression(EnMaYts* this, s16 overrideEyeTexIndex, s16 mouthTexIndex);
 
-void EnMaYts_DrawSleeping(Actor* thisx, GlobalContext* globalCtx);
+void EnMaYts_DrawSleeping(Actor* thisx, GameState* game);
 
 extern AnimationHeader D_06009E58;
 extern AnimationHeader D_06018948;
@@ -237,28 +237,28 @@ s32 EnMaYts_CheckValidSpawn(EnMaYts* this, GlobalContext* globalCtx) {
     return true;
 }
 
-void EnMaYts_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYts_Init(Actor* thisx, GameState* game) {
     EnMaYts* this = THIS;
     s32 pad;
 
     this->type = EN_MA_YTS_PARSE_TYPE(thisx);
-    if (!EnMaYts_CheckValidSpawn(this, globalCtx)) {
+    if (!EnMaYts_CheckValidSpawn(this, game)) {
         Actor_MarkForDeath(&this->actor);
     }
     ActorShape_Init(&this->actor.shape, 0.0f, func_800B3FC0, 18.0f);
-    SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_06013928, NULL, this->limbDrawTbl, this->transitionDrawTbl,
+    SkelAnime_InitSV(game, &this->skelAnime, &D_06013928, NULL, this->limbDrawTbl, this->transitionDrawTbl,
                      MA1_LIMB_MAX);
-    EnMaYts_InitAnimation(this, globalCtx);
+    EnMaYts_InitAnimation(this, game);
 
-    Collider_InitCylinder(globalCtx, &this->collider);
-    Collider_SetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitCylinder(game, &this->collider);
+    Collider_SetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, DamageTable_Get(0x16), &sColChkInfoInit2);
 
     if (this->type == MA_YTS_TYPE_SLEEPING) {
         this->collider.dim.radius = 40;
     }
 
-    Actor_UpdateBgCheckInfo(globalCtx, &this->actor, 0.0f, 0.0f, 0.0f, 0x4);
+    Actor_UpdateBgCheckInfo(game, &this->actor, 0.0f, 0.0f, 0.0f, 0x4);
     Actor_SetScale(&this->actor, 0.01f);
 
     this->unk_1D8.unk_00 = 0;
@@ -296,10 +296,10 @@ void EnMaYts_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 }
 
-void EnMaYts_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYts_Destroy(Actor* thisx, GameState* game) {
     EnMaYts* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnMaYts_SetupDoNothing(EnMaYts* this) {
@@ -509,17 +509,17 @@ void EnMaYts_SetFaceExpression(EnMaYts* this, s16 overrideEyeTexIndex, s16 mouth
     }
 }
 
-void EnMaYts_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYts_Update(Actor* thisx, GameState* game) {
     EnMaYts* this = THIS;
     ColliderCylinder* collider;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     collider = &this->collider;
     Collider_UpdateCylinder(&this->actor, collider);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &collider->base);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &collider->base);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
     EnMaYts_UpdateEyes(this);
-    func_80B8D12C(this, globalCtx);
+    func_80B8D12C(this, game);
 }
 
 s32 EnMaYts_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
@@ -556,28 +556,28 @@ void EnMaYts_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
     }
 }
 
-void EnMaYts_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnMaYts_Draw(Actor* thisx, GameState* game) {
     EnMaYts* this = THIS;
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
     gSPSegment(POLY_OPA_DISP++, 0x09, SEGMENTED_TO_VIRTUAL(sMouthTextures[this->mouthTexIndex]));
     gSPSegment(POLY_OPA_DISP++, 0x08, SEGMENTED_TO_VIRTUAL(sEyeTextures[this->eyeTexIndex]));
 
-    SkelAnime_DrawSV(globalCtx, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
+    SkelAnime_DrawSV(game, this->skelAnime.skeleton, this->skelAnime.limbDrawTbl, this->skelAnime.dListCount,
                      EnMaYts_OverrideLimbDraw, EnMaYts_PostLimbDraw, &this->actor);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }
 
 // Alternative draw function
-void EnMaYts_DrawSleeping(Actor* thisx, GlobalContext* globalCtx) {
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
+void EnMaYts_DrawSleeping(Actor* thisx, GameState* game) {
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
 
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_060043A0);
 
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

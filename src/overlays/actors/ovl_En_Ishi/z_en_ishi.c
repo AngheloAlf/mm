@@ -4,9 +4,9 @@
 
 #define THIS ((EnIshi*)thisx)
 
-void EnIshi_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnIshi_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnIshi_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnIshi_Init(Actor* thisx, GameState* game);
+void EnIshi_Destroy(Actor* thisx, GameState* game);
+void EnIshi_Update(Actor* thisx, GameState* game);
 
 void func_8095E5C0(EnIshi* this, GlobalContext* globalCtx);
 void func_8095E660(EnIshi* this, GlobalContext* globalCtx);

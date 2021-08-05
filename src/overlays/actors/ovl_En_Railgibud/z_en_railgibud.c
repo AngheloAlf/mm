@@ -4,10 +4,10 @@
 
 #define THIS ((EnRailgibud*)thisx)
 
-void EnRailgibud_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnRailgibud_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnRailgibud_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnRailgibud_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnRailgibud_Init(Actor* thisx, GameState* game);
+void EnRailgibud_Destroy(Actor* thisx, GameState* game);
+void EnRailgibud_Update(Actor* thisx, GameState* game);
+void EnRailgibud_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Railgibud_InitVars = {

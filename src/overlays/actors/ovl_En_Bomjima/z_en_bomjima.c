@@ -4,10 +4,10 @@
 
 #define THIS ((EnBomjima*)thisx)
 
-void EnBomjima_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBomjima_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBomjima_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnBomjima_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnBomjima_Init(Actor* thisx, GameState* game);
+void EnBomjima_Destroy(Actor* thisx, GameState* game);
+void EnBomjima_Update(Actor* thisx, GameState* game);
+void EnBomjima_Draw(Actor* thisx, GameState* game);
 
 void func_80BFEA94(EnBomjima* this, GlobalContext* globalCtx);
 void func_80BFEB64(EnBomjima* this, GlobalContext* globalCtx);

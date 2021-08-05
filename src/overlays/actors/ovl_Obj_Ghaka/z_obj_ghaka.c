@@ -10,10 +10,10 @@
 
 #define THIS ((ObjGhaka*)thisx)
 
-void ObjGhaka_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjGhaka_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjGhaka_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjGhaka_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjGhaka_Init(Actor* thisx, GameState* game);
+void ObjGhaka_Destroy(Actor* thisx, GameState* game);
+void ObjGhaka_Update(Actor* thisx, GameState* game);
+void ObjGhaka_Draw(Actor* thisx, GameState* game);
 
 void func_80B3C260(ObjGhaka* this);
 void func_80B3C29C(ObjGhaka* this);
@@ -146,7 +146,7 @@ void func_80B3C624(ObjGhaka* this, GlobalContext* globalCtx) {
     }
 }
 
-void ObjGhaka_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjGhaka_Init(Actor* thisx, GameState* game) {
     ObjGhaka* this = THIS;
     s32 pad;
     CollisionHeader* colHeader = NULL;
@@ -155,39 +155,39 @@ void ObjGhaka_Init(Actor* thisx, GlobalContext* globalCtx) {
     Actor_SetScale(&this->dyna.actor, 0.1f);
     BcCheck3_BgActorInit(&this->dyna, 1);
     BgCheck_RelocateMeshHeader(&D_06003CD0, &colHeader);
-    this->dyna.bgId = BgCheck_AddActorMesh(globalCtx, &globalCtx->colCtx.dyna, &this->dyna, colHeader);
-    Actor_UpdateBgCheckInfo(globalCtx, &this->dyna.actor, 0.0f, 0.0f, 0.0f, 0x4);
+    this->dyna.bgId = BgCheck_AddActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, &this->dyna, colHeader);
+    Actor_UpdateBgCheckInfo(game, &this->dyna.actor, 0.0f, 0.0f, 0.0f, 0x4);
     if (this->dyna.actor.floorPoly == 0) {
         Actor_MarkForDeath(&this->dyna.actor);
     }
     if (gSaveContext.weekEventReg[20] & 0x20) {
-        func_80B3C2C4(this, globalCtx);
+        func_80B3C2C4(this, game);
     }
     func_80B3C260(this);
 }
 
-void ObjGhaka_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjGhaka_Destroy(Actor* thisx, GameState* game) {
     ObjGhaka* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
-void ObjGhaka_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjGhaka_Update(Actor* thisx, GameState* game) {
     ObjGhaka* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
     thisx->focus.pos.x = thisx->world.pos.x;
     thisx->focus.pos.y = thisx->world.pos.y + 60.0f;
     thisx->focus.pos.z = thisx->world.pos.z;
 }
 
-void ObjGhaka_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    OPEN_DISPS(globalCtx->state.gfxCtx);
-    func_8012C28C(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+void ObjGhaka_Draw(Actor* thisx, GameState* game) {
+    OPEN_DISPS(game->gfxCtx);
+    func_8012C28C(game->gfxCtx);
+    gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, D_06001A20);
-    func_8012C2DC(globalCtx->state.gfxCtx);
-    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+    func_8012C2DC(game->gfxCtx);
+    gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_XLU_DISP++, D_06001980);
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 }

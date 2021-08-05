@@ -4,10 +4,10 @@
 
 #define THIS ((EnKakasi*)thisx)
 
-void EnKakasi_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKakasi_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKakasi_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnKakasi_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnKakasi_Init(Actor* thisx, GameState* game);
+void EnKakasi_Destroy(Actor* thisx, GameState* game);
+void EnKakasi_Update(Actor* thisx, GameState* game);
+void EnKakasi_Draw(Actor* thisx, GameState* game);
 
 void func_8096FCC4(EnKakasi* this, GlobalContext* globalCtx);
 void func_8096FE00(EnKakasi* this, GlobalContext* globalCtx);

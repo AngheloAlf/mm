@@ -4,9 +4,9 @@
 
 #define THIS ((EnBaguo*)thisx)
 
-void EnBaguo_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBaguo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBaguo_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnBaguo_Init(Actor* thisx, GameState* game);
+void EnBaguo_Destroy(Actor* thisx, GameState* game);
+void EnBaguo_Update(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Baguo_InitVars = {

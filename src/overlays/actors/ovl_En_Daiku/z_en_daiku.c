@@ -4,10 +4,10 @@
 
 #define THIS ((EnDaiku*)thisx)
 
-void EnDaiku_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnDaiku_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnDaiku_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnDaiku_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnDaiku_Init(Actor* thisx, GameState* game);
+void EnDaiku_Destroy(Actor* thisx, GameState* game);
+void EnDaiku_Update(Actor* thisx, GameState* game);
+void EnDaiku_Draw(Actor* thisx, GameState* game);
 
 void func_809438F8(EnDaiku* this, GlobalContext* globalCtx);
 void func_80943BDC(EnDaiku* this, GlobalContext* globalCtx);

@@ -4,10 +4,10 @@
 
 #define THIS ((EnViewer*)thisx)
 
-void EnViewer_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnViewer_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnViewer_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnViewer_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnViewer_Init(Actor* thisx, GameState* game);
+void EnViewer_Destroy(Actor* thisx, GameState* game);
+void EnViewer_Update(Actor* thisx, GameState* game);
+void EnViewer_Draw(Actor* thisx, GameState* game);
 
 void func_8089F17C(EnViewer* this, GlobalContext* globalCtx);
 void func_8089F218(EnViewer* this, GlobalContext* globalCtx);

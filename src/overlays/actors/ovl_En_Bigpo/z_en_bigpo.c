@@ -4,9 +4,9 @@
 
 #define THIS ((EnBigpo*)thisx)
 
-void EnBigpo_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnBigpo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnBigpo_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnBigpo_Init(Actor* thisx, GameState* game);
+void EnBigpo_Destroy(Actor* thisx, GameState* game);
+void EnBigpo_Update(Actor* thisx, GameState* game);
 
 void func_80B61AF8(EnBigpo* this, GlobalContext* globalCtx);
 void func_80B61B70(EnBigpo* this, GlobalContext* globalCtx);

@@ -4,9 +4,9 @@
 
 #define THIS ((ObjTsubo*)thisx)
 
-void ObjTsubo_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjTsubo_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjTsubo_Update(Actor* thisx, GlobalContext* globalCtx);
+void ObjTsubo_Init(Actor* thisx, GameState* game);
+void ObjTsubo_Destroy(Actor* thisx, GameState* game);
+void ObjTsubo_Update(Actor* thisx, GameState* game);
 
 void func_80928928(ObjTsubo* this, GlobalContext* globalCtx);
 void func_809289E4(ObjTsubo* this, GlobalContext* globalCtx);

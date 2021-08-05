@@ -4,10 +4,10 @@
 
 #define THIS ((EnOsk*)thisx)
 
-void EnOsk_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnOsk_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnOsk_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnOsk_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnOsk_Init(Actor* thisx, GameState* game);
+void EnOsk_Destroy(Actor* thisx, GameState* game);
+void EnOsk_Update(Actor* thisx, GameState* game);
+void EnOsk_Draw(Actor* thisx, GameState* game);
 
 void func_80BF5F60(EnOsk* this, GlobalContext* globalCtx);
 void func_80BF61EC(EnOsk* this, GlobalContext* globalCtx);

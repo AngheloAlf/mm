@@ -4,10 +4,10 @@
 
 #define THIS ((ObjHsStump*)thisx)
 
-void ObjHsStump_Init(Actor* thisx, GlobalContext* globalCtx);
-void ObjHsStump_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void ObjHsStump_Update(Actor* thisx, GlobalContext* globalCtx);
-void ObjHsStump_Draw(Actor* thisx, GlobalContext* globalCtx);
+void ObjHsStump_Init(Actor* thisx, GameState* game);
+void ObjHsStump_Destroy(Actor* thisx, GameState* game);
+void ObjHsStump_Update(Actor* thisx, GameState* game);
+void ObjHsStump_Draw(Actor* thisx, GameState* game);
 
 void ObjHsStump_SetupIdle(ObjHsStump* this, GlobalContext* globalCtx);
 void ObjHsStump_Idle(ObjHsStump* this, GlobalContext* globalCtx);
@@ -35,25 +35,25 @@ static Vec3f iceSmokeAccel = { 0.0f, 0.0f, 0.0f };
 extern Gfx D_060003B8[];
 extern CollisionHeader D_060011B0;
 
-void ObjHsStump_Init(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHsStump_Init(Actor* thisx, GameState* game) {
     ObjHsStump* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     this->isHidden = OBJHSSTUMP_GET_ISHIDDEN(thisx);
     this->switchFlag = OBJHSSTUMP_GET_SWITCHFLAG(thisx); // Must be thisx to match
     BcCheck3_BgActorInit(&this->dyna, 1);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_060011B0);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_060011B0);
     switch (this->isHidden) {
         case true:
-            if (Flags_GetSwitch(globalCtx, this->switchFlag)) {
+            if (Flags_GetSwitch(game, this->switchFlag)) {
                 this->isHidden = false;
             } else {
                 this->dyna.actor.draw = NULL;
                 Actor_SetScale(&this->dyna.actor, 0.0f);
-                func_800C62BC(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+                func_800C62BC(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
             }
         case false:
-            ObjHsStump_SetupIdle(this, globalCtx);
+            ObjHsStump_SetupIdle(this, game);
     }
 }
 
@@ -127,18 +127,18 @@ void ObjHsStump_Appear(ObjHsStump* this, GlobalContext* globalCtx) {
     this->framesAppeared++;
 }
 
-void ObjHsStump_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHsStump_Destroy(Actor* thisx, GameState* game) {
     ObjHsStump* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
-void ObjHsStump_Update(Actor* thisx, GlobalContext* globalCtx) {
+void ObjHsStump_Update(Actor* thisx, GameState* game) {
     ObjHsStump* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void ObjHsStump_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_060003B8);
+void ObjHsStump_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_060003B8);
 }

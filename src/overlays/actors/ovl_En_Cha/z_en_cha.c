@@ -10,10 +10,10 @@
 
 #define THIS ((EnCha*)thisx)
 
-void EnCha_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnCha_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnCha_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnCha_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnCha_Init(Actor* thisx, GameState* game);
+void EnCha_Destroy(Actor* thisx, GameState* game);
+void EnCha_Update(Actor* thisx, GameState* game);
+void EnCha_Draw(Actor* thisx, GameState* game);
 
 void EnCha_Idle(EnCha* this, GlobalContext* globalCtx);
 
@@ -52,11 +52,11 @@ static ColliderCylinderInit sCylinderInit = {
 extern Gfx D_06000710[];
 extern Gfx D_06000958[];
 
-void EnCha_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnCha_Init(Actor* thisx, GameState* game) {
     EnCha* this = THIS;
     s32 pad;
 
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
     this->actor.colChkInfo.mass = 0xFF;
     Collider_UpdateCylinder(&this->actor, &this->collider);
     Actor_SetScale(&this->actor, 0.01f);
@@ -66,10 +66,10 @@ void EnCha_Init(Actor* thisx, GlobalContext* globalCtx) {
     gSaveContext.weekEventReg[60] &= 0xFB;
 }
 
-void EnCha_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnCha_Destroy(Actor* thisx, GameState* game) {
     EnCha* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnCha_Ring(EnCha* this, GlobalContext* globalCtx) {
@@ -103,22 +103,22 @@ void EnCha_Idle(EnCha* this, GlobalContext* globalCtx) {
     this->actor.home.rot.z *= 0.96f;
 }
 
-void EnCha_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnCha_Update(Actor* thisx, GameState* game) {
     EnCha* this = THIS;
-    GlobalContext* globalCtx2 = globalCtx;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    CollisionCheck_SetOC(globalCtx, &globalCtx2->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
     this->actionFunc(this, globalCtx);
     if ((this->actor.shape.rot.z >= -0x1F3F) && (this->actor.shape.rot.z < 0x1F40)) {
-        CollisionCheck_SetAC(globalCtx, &globalCtx2->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
-void EnCha_Draw(Actor* thisx, GlobalContext* globalCtx) {
+void EnCha_Draw(Actor* thisx, GameState* game) {
     EnCha* this = THIS;
 
-    func_800BDFC0(globalCtx, D_06000710);
+    func_800BDFC0(game, D_06000710);
     SysMatrix_InsertTranslation(-1094.0f, 4950.0f, 9.0f, 1);
     SysMatrix_InsertXRotation_s(this->actor.home.rot.x, 1);
-    func_800BDFC0(globalCtx, D_06000958);
+    func_800BDFC0(game, D_06000958);
 }

@@ -4,10 +4,10 @@
 
 #define THIS ((EnKarebaba*)thisx)
 
-void EnKarebaba_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnKarebaba_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnKarebaba_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnKarebaba_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnKarebaba_Init(Actor* thisx, GameState* game);
+void EnKarebaba_Destroy(Actor* thisx, GameState* game);
+void EnKarebaba_Update(Actor* thisx, GameState* game);
+void EnKarebaba_Draw(Actor* thisx, GameState* game);
 
 void func_808F15B0(EnKarebaba* this, GlobalContext* globalCtx);
 void func_808F169C(EnKarebaba* this, GlobalContext* globalCtx);

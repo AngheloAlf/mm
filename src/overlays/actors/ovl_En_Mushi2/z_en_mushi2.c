@@ -4,10 +4,10 @@
 
 #define THIS ((EnMushi2*)thisx)
 
-void EnMushi2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnMushi2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnMushi2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnMushi2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnMushi2_Init(Actor* thisx, GameState* game);
+void EnMushi2_Destroy(Actor* thisx, GameState* game);
+void EnMushi2_Update(Actor* thisx, GameState* game);
+void EnMushi2_Draw(Actor* thisx, GameState* game);
 
 void func_80A6A36C(EnMushi2* this, GlobalContext* globalCtx);
 void func_80A6A5C0(EnMushi2* this, GlobalContext* globalCtx);

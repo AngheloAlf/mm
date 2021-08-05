@@ -4,10 +4,10 @@
 
 #define THIS ((EnZoraegg*)thisx)
 
-void EnZoraegg_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnZoraegg_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnZoraegg_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnZoraegg_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnZoraegg_Init(Actor* thisx, GameState* game);
+void EnZoraegg_Destroy(Actor* thisx, GameState* game);
+void EnZoraegg_Update(Actor* thisx, GameState* game);
+void EnZoraegg_Draw(Actor* thisx, GameState* game);
 
 #if 0
 const ActorInit En_Zoraegg_InitVars = {

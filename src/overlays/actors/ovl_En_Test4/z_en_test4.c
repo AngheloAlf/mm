@@ -4,9 +4,9 @@
 
 #define THIS ((EnTest4*)thisx)
 
-void EnTest4_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnTest4_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnTest4_Update(Actor* thisx, GlobalContext* globalCtx);
+void EnTest4_Init(Actor* thisx, GameState* game);
+void EnTest4_Destroy(Actor* thisx, GameState* game);
+void EnTest4_Update(Actor* thisx, GameState* game);
 
 void func_80A42AB8(EnTest4* this, GlobalContext* globalCtx);
 void func_80A42F20(EnTest4* this, GlobalContext* globalCtx);

@@ -4,9 +4,9 @@
 
 #define THIS ((DmTag*)thisx)
 
-void DmTag_Init(Actor* thisx, GlobalContext* globalCtx);
-void DmTag_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void DmTag_Update(Actor* thisx, GlobalContext* globalCtx);
+void DmTag_Init(Actor* thisx, GameState* game);
+void DmTag_Destroy(Actor* thisx, GameState* game);
+void DmTag_Update(Actor* thisx, GameState* game);
 
 void func_80C229AC(DmTag* this, GlobalContext* globalCtx);
 void func_80C229EC(DmTag* this, GlobalContext* globalCtx);

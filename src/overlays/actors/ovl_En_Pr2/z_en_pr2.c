@@ -4,10 +4,10 @@
 
 #define THIS ((EnPr2*)thisx)
 
-void EnPr2_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnPr2_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnPr2_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnPr2_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnPr2_Init(Actor* thisx, GameState* game);
+void EnPr2_Destroy(Actor* thisx, GameState* game);
+void EnPr2_Update(Actor* thisx, GameState* game);
+void EnPr2_Draw(Actor* thisx, GameState* game);
 
 #if 0
 // static DamageTable sDamageTable = {

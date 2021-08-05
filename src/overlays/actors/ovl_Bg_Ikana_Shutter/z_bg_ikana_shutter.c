@@ -4,10 +4,10 @@
 
 #define THIS ((BgIkanaShutter*)thisx)
 
-void BgIkanaShutter_Init(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaShutter_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaShutter_Update(Actor* thisx, GlobalContext* globalCtx);
-void BgIkanaShutter_Draw(Actor* thisx, GlobalContext* globalCtx);
+void BgIkanaShutter_Init(Actor* thisx, GameState* game);
+void BgIkanaShutter_Destroy(Actor* thisx, GameState* game);
+void BgIkanaShutter_Update(Actor* thisx, GameState* game);
+void BgIkanaShutter_Draw(Actor* thisx, GameState* game);
 
 void func_80BD5828(BgIkanaShutter* this);
 void func_80BD5844(BgIkanaShutter* this, GlobalContext* globalCtx);
@@ -57,31 +57,31 @@ s32 BgIkanaShutter_AllSwitchesPressed(BgIkanaShutter* this, GlobalContext* globa
            Flags_GetSwitch(globalCtx, (this->dyna.actor.params & 0x7F) + 3);
 }
 
-void BgIkanaShutter_Init(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaShutter_Init(Actor* thisx, GameState* game) {
     BgIkanaShutter* this = THIS;
 
     Actor_ProcessInitChain(&this->dyna.actor, sInitChain);
     BcCheck3_BgActorInit(&this->dyna, 0);
-    BgCheck3_LoadMesh(globalCtx, &this->dyna, &D_06000F28);
+    BgCheck3_LoadMesh(game, &this->dyna, &D_06000F28);
     if (!((this->dyna.actor.params >> 8) & 1)) {
-        if (BgIkanaShutter_AllSwitchesPressed(this, globalCtx)) {
+        if (BgIkanaShutter_AllSwitchesPressed(this, game)) {
             func_80BD599C(this);
             return;
         }
         func_80BD5828(this);
         return;
     }
-    if (Actor_GetRoomCleared(globalCtx, this->dyna.actor.room)) {
+    if (Actor_GetRoomCleared(game, this->dyna.actor.room)) {
         BgIkanaShutter_SetupDoNothing(this);
         return;
     }
     func_80BD5AE8(this);
 }
 
-void BgIkanaShutter_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaShutter_Destroy(Actor* thisx, GameState* game) {
     BgIkanaShutter* this = THIS;
 
-    BgCheck_RemoveActorMesh(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
+    BgCheck_RemoveActorMesh(game, &((GlobalContext*)game)->colCtx.dyna, this->dyna.bgId);
 }
 
 void func_80BD5828(BgIkanaShutter* this) {
@@ -200,12 +200,12 @@ void BgIkanaShutter_SetupDoNothing(BgIkanaShutter* this) {
 void BgIkanaShutter_DoNothing(BgIkanaShutter* this, GlobalContext* globalCtx) {
 }
 
-void BgIkanaShutter_Update(Actor* thisx, GlobalContext* globalCtx) {
+void BgIkanaShutter_Update(Actor* thisx, GameState* game) {
     BgIkanaShutter* this = THIS;
 
-    this->actionFunc(this, globalCtx);
+    this->actionFunc(this, game);
 }
 
-void BgIkanaShutter_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, D_06000CE8);
+void BgIkanaShutter_Draw(Actor* thisx, GameState* game) {
+    func_800BDFC0(game, D_06000CE8);
 }
