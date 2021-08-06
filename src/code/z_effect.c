@@ -91,7 +91,7 @@ void Effect_InitCommon(EffCommon* common) {
     common->unk2 = 0;
 }
 
-void Effect_Init(GlobalContext* globalCtx) {
+void Effect_Init(GameState* game) {
     s32 i;
 
     for (i = 0; i < SPARK_COUNT; i++) {
@@ -111,14 +111,15 @@ void Effect_Init(GlobalContext* globalCtx) {
         Effect_InitCommon(&sEffTable.tireMarks[i].base);
     }
 
-    sEffTable.globalCtx = globalCtx;
+    sEffTable.globalCtx = (GlobalContext*)game;
 }
 
-void Effect_Add(GlobalContext* globalCtx, s32* index, s32 type, u8 param_4, u8 param_5, void* initParams) {
+void Effect_Add(GameState* game, s32* index, s32 type, u8 param_4, u8 param_5, void* initParams) {
     u32 slotFound;
     s32 i;
     void* params;
     EffCommon* common;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
     params = NULL;
     *index = TOTAL_EFFECT_COUNT;
@@ -217,14 +218,14 @@ void Effect_DrawAll(GraphicsContext* gfxCtx) {
     }
 }
 
-void Effect_UpdateAll(GlobalContext* globalCtx) {
+void Effect_UpdateAll(GameState* game) {
     s32 i;
 
     for (i = 0; i < SPARK_COUNT; i++) {
         if (1) {} // necessary to match
         if (sEffTable.sparks[i].base.active) {
             if (sEffInfoTable[0].update(&sEffTable.sparks[i].params) == 1) {
-                Effect_Destroy(globalCtx, i);
+                Effect_Destroy(game, i);
             }
         }
     }
@@ -233,7 +234,7 @@ void Effect_UpdateAll(GlobalContext* globalCtx) {
         if (1) {} // necessary to match
         if (sEffTable.blures[i].base.active) {
             if (sEffInfoTable[1].update(&sEffTable.blures[i].params) == 1) {
-                Effect_Destroy(globalCtx, i + 3);
+                Effect_Destroy(game, i + 3);
             }
         }
     }
@@ -242,7 +243,7 @@ void Effect_UpdateAll(GlobalContext* globalCtx) {
         if (1) {} // necessary to match
         if (sEffTable.shieldParticles[i].base.active) {
             if (sEffInfoTable[3].update(&sEffTable.shieldParticles[i].params) == 1) {
-                Effect_Destroy(globalCtx, i + 28);
+                Effect_Destroy(game, i + 28);
             }
         }
     }
@@ -251,13 +252,13 @@ void Effect_UpdateAll(GlobalContext* globalCtx) {
         if (1) {} // necessary to match
         if (sEffTable.tireMarks[i].base.active) {
             if (sEffInfoTable[4].update(&sEffTable.tireMarks[i].params) == 1) {
-                Effect_Destroy(globalCtx, i + 31);
+                Effect_Destroy(game, i + 31);
             }
         }
     }
 }
 
-void Effect_Destroy(GlobalContext* globalCtx, s32 index) {
+void Effect_Destroy(GameState* game, s32 index) {
     if (index == TOTAL_EFFECT_COUNT) {
         return;
     }
@@ -290,7 +291,7 @@ void Effect_Destroy(GlobalContext* globalCtx, s32 index) {
     }
 }
 
-void Effect_DestroyAll(GlobalContext* globalCtx) {
+void Effect_DestroyAll(GameState* game) {
     s32 i;
 
     for (i = 0; i < SPARK_COUNT; i++) {
