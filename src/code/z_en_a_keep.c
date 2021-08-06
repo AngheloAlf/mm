@@ -1,25 +1,28 @@
 #include "global.h"
 
-void EnAObj_Init(ActorEnAObj* this, GlobalContext* globalCtx) {
+void EnAObj_Init(ActorEnAObj* this, GameState* game) {
     ActorEnAObj* s0 = (ActorEnAObj*)this;
+
     s0->base.textId = ((s0->base.params >> 8) & 0xFF) | 0x300;
     s0->base.params = (s0->base.params & 0xFF) - 9;
-    Actor_ProcessInitChain((Actor*)s0, &enAObjInitVar);
+    Actor_ProcessInitChain(&s0->base, &enAObjInitVar);
     ActorShape_Init(&s0->base.shape, 0, (ActorShadowFunc)func_800B3FC0, 12);
-    Collider_InitAndSetCylinder(globalCtx, &s0->collision, (Actor*)s0, &enAObjCylinderInit);
-    Collider_UpdateCylinder((Actor*)s0, &s0->collision);
+    Collider_InitAndSetCylinder(game, &s0->collision, (Actor*)s0, &enAObjCylinderInit);
+    Collider_UpdateCylinder(&s0->base, &s0->collision);
     s0->base.colChkInfo.mass = 255;
     s0->update = (ActorFunc)EnAObj_Update1;
 }
 
-void EnAObj_Destroy(ActorEnAObj* this, GlobalContext* globalCtx) {
+void EnAObj_Destroy(ActorEnAObj* this, GameState* game) {
     ColliderCylinder* a2 = &this->collision;
-    Collider_DestroyCylinder(globalCtx, a2);
+
+    Collider_DestroyCylinder(game, a2);
 }
 
 void EnAObj_Update1(ActorEnAObj* this, GlobalContext* globalCtx) {
     s16 v0;
     s32 v1;
+
     if (func_800B84D0((Actor*)this, globalCtx) != 0) {
         this->update = (ActorFunc)EnAObj_Update2;
     } else {
@@ -37,12 +40,13 @@ void EnAObj_Update2(ActorEnAObj* this, GlobalContext* globalCtx) {
     }
 }
 
-void EnAObj_Update(ActorEnAObj* this, GlobalContext* globalCtx) {
-    (this->update)((Actor*)this, (GlobalContext*)globalCtx);
+void EnAObj_Update(ActorEnAObj* this, GameState* game) {
+    (this->update)(&this->base, game);
+
     Actor_SetHeight((Actor*)this, 45.0f);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, (Collider*)&this->collision);
+    CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, (Collider*)&this->collision);
 }
 
-void EnAObj_Draw(ActorEnAObj* this, GlobalContext* globalCtx) {
-    func_800BDFC0(globalCtx, enAObjDisplayLists[this->base.params]);
+void EnAObj_Draw(ActorEnAObj* this,GameState* game) {
+    func_800BDFC0((GlobalContext*)game, enAObjDisplayLists[this->base.params]);
 }

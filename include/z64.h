@@ -1081,11 +1081,11 @@ struct PreNMIContext {
 
 typedef struct GlobalContext GlobalContext;
 
-typedef s32 (*ColChkResetFunc)(GlobalContext*, Collider*);
-typedef void (*ColChkBloodFunc)(GlobalContext*, Collider*, Vec3f*);
-typedef void (*ColChkApplyFunc)(GlobalContext*, CollisionCheckContext*, Collider*);
-typedef void (*ColChkVsFunc)(GlobalContext*, CollisionCheckContext*, Collider*, Collider*);
-typedef s32 (*ColChkLineFunc)(GlobalContext*, CollisionCheckContext*, Collider*, Vec3f*, Vec3f*);
+typedef s32 (*ColChkResetFunc)(GameState*, Collider*);
+typedef void (*ColChkBloodFunc)(GameState*, Collider*, Vec3f*);
+typedef void (*ColChkApplyFunc)(GameState*, CollisionCheckContext*, Collider*);
+typedef void (*ColChkVsFunc)(GameState*, CollisionCheckContext*, Collider*, Collider*);
+typedef s32 (*ColChkLineFunc)(GameState*, CollisionCheckContext*, Collider*, Vec3f*, Vec3f*);
 
 typedef void(*cutscene_update_func)(GlobalContext* globalCtx, CutsceneContext* cCtxt);
 

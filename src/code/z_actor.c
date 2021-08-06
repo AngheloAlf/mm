@@ -353,10 +353,10 @@ void Actor_InitToDefaultValues(Actor* actor, GlobalContext* globalCtx) {
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_actor/Actor_InitToDefaultValues.s")
 #endif
 
-void Actor_FiniActor(Actor* actor, GlobalContext* globalCtx) {
+void Actor_FiniActor(Actor* actor, GameState* game) {
     if (actor->init == NULL) {
         if (actor->destroy != NULL) {
-            actor->destroy(actor, globalCtx);
+            actor->destroy(actor, game);
             actor->destroy = NULL;
         }
     }
