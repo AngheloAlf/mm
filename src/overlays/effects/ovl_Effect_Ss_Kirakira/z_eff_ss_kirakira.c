@@ -8,11 +8,11 @@
 
 #define PARAMS ((EffectSsKirakiraInitParams*)initParamsx)
 
-s32 EffectSsKirakira_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
+s32 EffectSsKirakira_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
 void func_80977DB4(GlobalContext* globalCtx, u32 index, EffectSs* this);
 void func_80977E6C(GlobalContext* globalCtx, u32 index, EffectSs* this);
 void func_80977F28(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsKirakira_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+void EffectSsKirakira_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Kirakira_InitVars = {

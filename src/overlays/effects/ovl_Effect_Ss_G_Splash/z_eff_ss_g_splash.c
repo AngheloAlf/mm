@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsGSplashInitParams*)initParamsx)
 
-s32 EffectSsGSplash_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsGSplash_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsGSplash_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsGSplash_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsGSplash_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsGSplash_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_G_Splash_InitVars = {

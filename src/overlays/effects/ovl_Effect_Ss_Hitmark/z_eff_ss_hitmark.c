@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsHitmarkInitParams*)initParamsx)
 
-s32 EffectSsHitmark_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsHitmark_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsHitmark_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsHitmark_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsHitmark_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsHitmark_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Hitmark_InitVars = {

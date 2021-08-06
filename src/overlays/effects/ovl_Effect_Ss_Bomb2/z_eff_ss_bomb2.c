@@ -8,8 +8,8 @@
 
 #define PARAMS ((EffectSsBomb2InitParams*)initParamsx)
 
-s32 EffectSsBomb2_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsBomb2_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsBomb2_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsBomb2_Update(GameState* game, u32 index, EffectSs* this);
 void func_80978138(GlobalContext* globalCtx, u32 index, EffectSs* this);
 void func_80978304(GlobalContext* globalCtx, u32 index, EffectSs* this);
 

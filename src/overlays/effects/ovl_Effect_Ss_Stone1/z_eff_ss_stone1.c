@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsStone1InitParams*)initParamsx)
 
-s32 EffectSsStone1_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsStone1_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsStone1_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsStone1_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsStone1_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsStone1_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Stone1_InitVars = {

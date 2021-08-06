@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsSibukiInitParams*)initParamsx)
 
-s32 EffectSsSibuki_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsSibuki_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsSibuki_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsSibuki_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsSibuki_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsSibuki_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Sibuki_InitVars = {

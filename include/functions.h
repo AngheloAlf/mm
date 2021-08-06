@@ -571,23 +571,23 @@ void Effect_DrawAll(GraphicsContext* gfxCtx);
 void Effect_UpdateAll(GlobalContext* globalCtx);
 void Effect_Destroy(GlobalContext* globalCtx, s32 index);
 void Effect_DestroyAll(GlobalContext* globalCtx);
-void EffectSS_Init(GlobalContext* globalCtx, s32 numEntries);
-void EffectSS_Clear(GlobalContext* globalCtx);
+void EffectSS_Init(GameState* game, s32 numEntries);
+void EffectSS_Clear(GameState* game);
 EffectSs* EffectSS_GetTable(void);
 void EffectSS_Delete(EffectSs* param_1);
 void EffectSS_ResetEntry(EffectSs* particle);
 s32 EffectSS_FindFreeSpace(s32 priority, s32* tableEntry);
-void EffectSS_Copy(GlobalContext* globalCtx, EffectSs* particle);
-void EffectSs_Spawn(GlobalContext* globalCtx, s32 type, s32 priority, void* initParams);
-void EffectSS_UpdateParticle(GlobalContext* globalCtx, s32 index);
-void EffectSS_UpdateAllParticles(GlobalContext* globalCtx);
-void EffectSS_DrawParticle(GlobalContext* globalCtx, s32 index);
-void EffectSS_DrawAllParticles(GlobalContext* globalCtx);
+void EffectSS_Copy(GameState* game, EffectSs* particle);
+void EffectSs_Spawn(GameState* game, s32 type, s32 priority, void* initParams);
+void EffectSS_UpdateParticle(GameState* game, s32 index);
+void EffectSS_UpdateAllParticles(GameState* game);
+void EffectSS_DrawParticle(GameState* game, s32 index);
+void EffectSS_DrawAllParticles(GameState* game);
 s16 func_800B096C(s16 param_1, s16 param_2, s32 param_3);
 s16 func_800B09D0(s16 a0, s16 a1, f32 a2);
 u8 func_800B0A24(u8 a0, u8 a1, f32 a2);
-void EffectSs_DrawGEffect(GlobalContext* globalCtx, EffectSs* this, void* texture);
-void EffectSsDust_Spawn(GlobalContext* globalCtx, u16 drawFlags, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor, Color_RGBA8* envColor, s16 scale, s16 scaleStep, s16 life, u8 updateMode);
+void EffectSs_DrawGEffect(GameState* game, EffectSs* this, void* texture);
+void EffectSsDust_Spawn(GameState* game, u16 drawFlags, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor, Color_RGBA8* envColor, s16 scale, s16 scaleStep, s16 life, u8 updateMode);
 void func_800B0DE0(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep);
 void func_800B0E48(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
@@ -617,12 +617,12 @@ void func_800B139C(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f*
 void func_800B13D8(Vec3f* srcPos, f32 randScale, Vec3f* newPos, Vec3f* velocity, Vec3f* accel);
 void func_800B14D4(GlobalContext* globalCtx, f32 randScale, Vec3f* srcPos);
 void func_800B1598(GlobalContext* globalCtx, f32 randScale, Vec3f* srcPos);
-void EffectSsKiraKira_SpawnSmallYellow (GlobalContext * globalCtx, Vec3f * pos, Vec3f * velocity, Vec3f * accel);
-void EffectSsKiraKira_SpawnSmall(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel,
+void EffectSsKiraKira_SpawnSmallYellow(GameState* game, Vec3f * pos, Vec3f * velocity, Vec3f * accel);
+void EffectSsKiraKira_SpawnSmall(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel,
                                  Color_RGBA8* primColor, Color_RGBA8* envColor);
-void EffectSsGSpk_SpawnSmall(GlobalContext* globalCtx, Actor* actor, Vec3f* pos, Vec3f* velocity, Vec3f* accel,
+void EffectSsGSpk_SpawnSmall(GameState* game, Actor* actor, Vec3f* pos, Vec3f* velocity, Vec3f* accel,
                              Color_RGBA8* primColor, Color_RGBA8* envColor);
-void EffectSsKiraKira_SpawnDispersed (GlobalContext * globalCtx, Vec3f * pos, Vec3f * velocity, Vec3f * accel, Color_RGBA8 * primColor, Color_RGBA8 * envColor, s16 scale, s32 life);
+void EffectSsKiraKira_SpawnDispersed(GameState* game, Vec3f * pos, Vec3f * velocity, Vec3f * accel, Color_RGBA8 * primColor, Color_RGBA8 * envColor, s16 scale, s32 life);
 // void EffectSsKiraKira_SpawnFocused(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5, UNK_TYPE4 param_6, UNK_TYPE2 param_7, UNK_TYPE4 param_8);
 // void EffectSsBomb2_SpawnFade(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4);
 // void EffectSsBomb2_SpawnLayered(UNK_TYPE4 param_1, Vec3f* param_2, Vec3f* param_3, Vec3f* param_4, UNK_TYPE2 param_5, UNK_TYPE2 param_6);
@@ -636,33 +636,33 @@ void EffectSsKiraKira_SpawnDispersed (GlobalContext * globalCtx, Vec3f * pos, Ve
 // void EffectSsGSpk_SpawnRandColor(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7);
 // void EffectSsGSpk_SpawnSmall(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5, UNK_TYPE4 param_6, UNK_TYPE4 param_7);
 // void EffectSsDFire_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4, UNK_TYPE2 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7, UNK_TYPE2 param_8, UNK_TYPE2 param_9, UNK_TYPE4 param_10);
-void EffectSsBubble_Spawn(GlobalContext* globalCtx, Vec3f* pos, f32 yPosOffset, f32 yPosRandScale, f32 xzPosRandScale,
+void EffectSsBubble_Spawn(GameState* game, Vec3f* pos, f32 yPosOffset, f32 yPosRandScale, f32 xzPosRandScale,
                           f32 scale);
-void EffectSsGRipple_Spawn(GlobalContext* globalCtx, Vec3f* pos, s16 radius, s16 radiusMax, s16 life);
-void EffectSsGSplash_Spawn(GlobalContext* globalCtx, Vec3f* pos, Color_RGBA8* primColor, Color_RGBA8* envColor,
+void EffectSsGRipple_Spawn(GameState* game, Vec3f* pos, s16 radius, s16 radiusMax, s16 life);
+void EffectSsGSplash_Spawn(GameState* game, Vec3f* pos, Color_RGBA8* primColor, Color_RGBA8* envColor,
                            s16 type, s16 scale);
 // void EffectSsGFire_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2);
 // void EffectSsLightning_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Color_RGBA8* pzParm3, Color_RGBA8* pzParm4, UNK_TYPE2 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7, UNK_TYPE2 param_8);
 // void EffectSsDtBubble_SpawnColorProfile(UNK_TYPE4 param_1, Vec3f* param_2, Vec3f* param_3, Vec3f* param_4, UNK_TYPE2 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7, UNK_TYPE2 param_8);
-void EffectSsDtBubble_SpawnCustomColor(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel,
+void EffectSsDtBubble_SpawnCustomColor(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel,
                                        Color_RGBA8* primColor, Color_RGBA8* envColor, s16 scale, s16 life, s16 randXZ);
-void EffectSsHahen_Spawn(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 unused, s16 scale,
+void EffectSsHahen_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 unused, s16 scale,
                          s16 objId, s16 life, Gfx* dList);
-void EffectSsHahen_SpawnBurst(GlobalContext* globalCtx, Vec3f* pos, f32 burstScale, s16 unused, s16 scale,
+void EffectSsHahen_SpawnBurst(GameState* game, Vec3f* pos, f32 burstScale, s16 unused, s16 scale,
                               s16 randScaleRange, s16 count, s16 objId, s16 life, Gfx* dList);
 // void func_800B2364(void);
 // void EffectSsStick_Spawn(UNK_TYPE4 uParm1, UNK_PTR puParm2, UNK_TYPE2 uParm3);
 // void EffectSsSibuki_Spawn(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE2 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7);
-void EffectSsSibuki_SpawnBurst(GlobalContext* globalCtx, Vec3f* pos);
+void EffectSsSibuki_SpawnBurst(GameState* game, Vec3f* pos);
 // void EffectSsStone1_Spawn(UNK_TYPE4 uParm1, UNK_PTR puParm2, UNK_TYPE4 uParm3);
 // void EffectSsHitMark_Spawn(UNK_TYPE4 uParm1, UNK_TYPE4 uParm2, UNK_TYPE2 uParm3, Vec3f* pzParm4);
-void EffectSsHitMark_SpawnFixedScale(GlobalContext* globalCtx, s32 type, Vec3f* pos);
+void EffectSsHitMark_SpawnFixedScale(GameState* game, s32 type, Vec3f* pos);
 // void EffectSsHitMark_SpawnCustomScale(void);
 // void EffectSsFhgFlash_SpawnShock(UNK_TYPE4 uParm1, UNK_TYPE4 uParm2, Vec3f* pzParm3, UNK_TYPE2 uParm4, UNK_TYPE1 param_5);
 // void EffectSsKFire_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4, UNK_TYPE2 param_5, UNK_TYPE1 param_6);
-void EffectSsSolderSrchBall_Spawn(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 unused,
+void EffectSsSolderSrchBall_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 unused,
                                   s16* linkDetected, s16 drawFlag);
-void EffectSsKakera_Spawn(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* arg3, s16 gravity, s16 arg5,
+void EffectSsKakera_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* arg3, s16 gravity, s16 arg5,
                           s16 arg6, s16 arg7, s16 arg8, s16 scale, s16 arg10, s16 arg11, s32 life, s16 colorIdx,
                           s16 objId, Gfx* dList);
 // void EffectSsIcePiece_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, UNK_TYPE4 uParm3, Vec3f* pzParm4, Vec3f* param_5, UNK_TYPE4 param_6);
@@ -670,22 +670,22 @@ void EffectSsKakera_Spawn(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity,
 // void EffectSsEnIce_SpawnFlyingVec3f(UNK_TYPE4 uParm1, Actor* pzParm2, Vec3f* pzParm3, Color_RGBA8* pzParm4, Color_RGBA8* param_5, UNK_TYPE4 param_6);
 // void func_800B2B44(void);
 // void func_800B2B7C(void);
-void EffectSsEnIce_Spawn(GlobalContext* globalCtx, Vec3f* pos, f32 scale, Vec3f* velocity, Vec3f* accel,
+void EffectSsEnIce_Spawn(GameState* game, Vec3f* pos, f32 scale, Vec3f* velocity, Vec3f* accel,
                          Color_RGBA8* primColor, Color_RGBA8* envColor, s32 life);
 // void EffectSsFireTail_Spawn(UNK_TYPE4 uParm1, UNK_TYPE4 uParm2, Vec3f* pzParm3, UNK_TYPE4 uParm4, Vec3f* param_5, UNK_TYPE2 param_6, Color_RGBA8* param_7, Color_RGBA8* param_8, UNK_TYPE2 param_9, UNK_TYPE2 param_10, UNK_TYPE4 param_11);
 // void EffectSsFireTail_SpawnFlame(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE2 param_5, UNK_TYPE4 param_6);
 // void EffectSsFireTail_SpawnFlameOnPlayer(void);
-void EffectSsEnFire_SpawnVec3f(GlobalContext* globalCtx, Actor* actor, Vec3f* pos, s16 scale, s16 arg4, s16 flags, s16 bodyPart);
+void EffectSsEnFire_SpawnVec3f(GameState* game, Actor* actor, Vec3f* pos, s16 scale, s16 arg4, s16 flags, s16 bodyPart);
 // void EffectSsEnFire_SpawnVec3s(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE2 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7);
 // void EffectSsExtra_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4, UNK_TYPE2 param_5, UNK_TYPE2 param_6);
-void EffectSsDeadDb_Spawn(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* prim, Color_RGBA8* env,
+void EffectSsDeadDb_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* prim, Color_RGBA8* env,
                           s16 scale, s16 scaleStep, s32 unk);
 void func_800B3030(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
                    s32 colorIndex);
 // void EffectSsDeadDd_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4, UNK_TYPE1* param_5, UNK_TYPE1* param_6, UNK_TYPE2 param_7, UNK_TYPE2 param_8, UNK_TYPE2 param_9, UNK_TYPE4 param_10);
 // void EffectSsDeadDs_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4, UNK_TYPE2 param_5, UNK_TYPE2 param_6, UNK_TYPE2 param_7, UNK_TYPE4 param_8);
 // void func_800B31BC(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE2 param_5, UNK_TYPE4 param_6);
-void EffectSsIceSmoke_Spawn(GlobalContext* globalCtx, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale);
+void EffectSsIceSmoke_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale);
 // void EffectSsIceBlock_Spawn(UNK_TYPE4 uParm1, Vec3f* pzParm2, Vec3f* pzParm3, Vec3f* pzParm4, UNK_TYPE2 param_5);
 void func_800B32D0(GameState* gamestate);
 // void func_800B3644(void);

@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsStickInitParams*)initParamsx)
 
-s32 EffectSsStick_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsStick_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsStick_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsStick_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsStick_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsStick_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Stick_InitVars = {

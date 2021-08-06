@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsIceSmokeInitParams*)initParamsx)
 
-s32 EffectSsIceSmoke_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsIceSmoke_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsIceSmoke_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsIceSmoke_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsIceSmoke_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsIceSmoke_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Ice_Smoke_InitVars = {

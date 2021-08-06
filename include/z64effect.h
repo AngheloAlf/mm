@@ -226,9 +226,9 @@ typedef struct {
 
 struct EffectSs;
 
-typedef u32 (*EffectSsInitFunc)(struct GlobalContext* globalCtx, u32 index, struct EffectSs* effectSs, void* initParams);
-typedef void(*EffectSsUpdateFunc)(struct GlobalContext* globalCtx, u32 index, struct EffectSs* particle);
-typedef void(*EffectSsDrawFunc)(struct GlobalContext* globalCtx, u32 index, struct EffectSs* particle);
+typedef u32 (*EffectSsInitFunc)(struct GameState* game, u32 index, struct EffectSs* effectSs, void* initParams);
+typedef void(*EffectSsUpdateFunc)(struct GameState* game, u32 index, struct EffectSs* particle);
+typedef void(*EffectSsDrawFunc)(struct GameState* game, u32 index, struct EffectSs* particle);
 
 typedef struct {
     /* 0x00 */ u32 type;

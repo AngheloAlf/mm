@@ -8,8 +8,8 @@
 
 #define PARAMS ((EffectSsSbnInitParams*)initParamsx)
 
-s32 EffectSsSbn_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsSbn_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsSbn_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsSbn_Update(GameState* game, u32 index, EffectSs* this);
 void func_80AC8ECC(GlobalContext* globalCtx, u32 index, EffectSs* this);
 void func_80AC9164(GlobalContext* globalCtx, u32 index, EffectSs* this);
 

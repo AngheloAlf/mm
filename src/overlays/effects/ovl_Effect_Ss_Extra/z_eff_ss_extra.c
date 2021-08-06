@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsExtraInitParams*)initParamsx)
 
-s32 EffectSsExtra_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsExtra_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsExtra_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsExtra_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsExtra_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsExtra_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Extra_InitVars = {

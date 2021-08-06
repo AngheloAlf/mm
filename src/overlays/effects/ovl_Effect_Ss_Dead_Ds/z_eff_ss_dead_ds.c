@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsDeadDsInitParams*)initParamsx)
 
-s32 EffectSsDeadDs_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsDeadDs_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsDeadDs_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsDeadDs_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsDeadDs_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsDeadDs_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Dead_Ds_InitVars = {

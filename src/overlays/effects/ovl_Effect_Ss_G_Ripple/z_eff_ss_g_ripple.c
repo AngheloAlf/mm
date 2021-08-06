@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsGRippleInitParams*)initParamsx)
 
-s32 EffectSsGRipple_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsGRipple_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsGRipple_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsGRipple_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsGRipple_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsGRipple_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_G_Ripple_InitVars = {

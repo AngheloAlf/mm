@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsIcePieceInitParams*)initParamsx)
 
-s32 EffectSsIcePiece_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsIcePiece_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsIcePiece_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsIcePiece_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsIcePiece_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsIcePiece_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Ice_Piece_InitVars = {

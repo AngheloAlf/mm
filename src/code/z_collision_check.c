@@ -1148,8 +1148,9 @@ ColChkResetFunc sATResetFuncs[] = {
  */
 s32 CollisionCheck_SetAT(GameState* game, CollisionCheckContext* colCtxt, Collider* collider) {
     s32 index;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    if (FrameAdvance_IsEnabled(game)) {
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
     sATResetFuncs[collider->shape](game, collider);
@@ -1175,7 +1176,9 @@ s32 CollisionCheck_SetAT(GameState* game, CollisionCheckContext* colCtxt, Collid
  * will be inserted into the next slot.
  */
 s32 CollisionCheck_SetAT_SAC(GameState* game, CollisionCheckContext* colCtxt, Collider* collider, s32 index) {
-    if (FrameAdvance_IsEnabled(game)) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
+
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
     sATResetFuncs[collider->shape](game, collider);
@@ -1208,8 +1211,9 @@ ColChkResetFunc sACResetFuncs[] = {
  */
 s32 CollisionCheck_SetAC(GameState* game, CollisionCheckContext* colCtxt, Collider* collider) {
     s32 index;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    if (FrameAdvance_IsEnabled(game)) {
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
     sACResetFuncs[collider->shape](game, collider);
@@ -1235,7 +1239,9 @@ s32 CollisionCheck_SetAC(GameState* game, CollisionCheckContext* colCtxt, Collid
  * will be inserted into the next slot
  */
 s32 CollisionCheck_SetAC_SAC(GameState* game, CollisionCheckContext* colCtxt, Collider* collider, s32 index) {
-    if (FrameAdvance_IsEnabled(game)) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
+
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
     sACResetFuncs[collider->shape](game, collider);
@@ -1268,8 +1274,9 @@ ColChkResetFunc sOCResetFuncs[] = {
  */
 s32 CollisionCheck_SetOC(GameState* game, CollisionCheckContext* colCtxt, Collider* collider) {
     s32 index;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    if (FrameAdvance_IsEnabled(game)) {
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
     sOCResetFuncs[collider->shape](game, collider);
@@ -1295,7 +1302,9 @@ s32 CollisionCheck_SetOC(GameState* game, CollisionCheckContext* colCtxt, Collid
  * will be inserted into the next slot.
  */
 s32 CollisionCheck_SetOC_SAC(GameState* game, CollisionCheckContext* colCtxt, Collider* collider, s32 index) {
-    if (FrameAdvance_IsEnabled(game)) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
+
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
     sOCResetFuncs[collider->shape](game, collider);
@@ -1326,8 +1335,9 @@ s32 CollisionCheck_SetOC_SAC(GameState* game, CollisionCheckContext* colCtxt, Co
  */
 s32 CollisionCheck_SetOCLine(GameState* game, CollisionCheckContext* colCtxt, OcLine* line) {
     s32 index;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    if (FrameAdvance_IsEnabled(game)) {
+    if (FrameAdvance_IsEnabled(globalCtx)) {
         return -1;
     }
 

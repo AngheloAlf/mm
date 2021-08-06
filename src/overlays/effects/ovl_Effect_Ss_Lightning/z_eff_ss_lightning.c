@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsLightningInitParams*)initParamsx)
 
-s32 EffectSsLightning_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsLightning_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsLightning_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsLightning_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsLightning_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsLightning_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Lightning_InitVars = {

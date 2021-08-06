@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsFireTailInitParams*)initParamsx)
 
-s32 EffectSsFireTail_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsFireTail_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsFireTail_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsFireTail_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsFireTail_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsFireTail_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Fire_Tail_InitVars = {

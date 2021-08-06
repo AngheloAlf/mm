@@ -8,9 +8,9 @@
 
 #define PARAMS ((EffectSsSolderSrchBallInitParams*)initParamsx)
 
-s32 EffectSsSolderSrchBall_Init(GlobalContext* globalCtx, u32 index, EffectSs* this, void* initParamsx);
-void EffectSsSolderSrchBall_Update(GlobalContext* globalCtx, u32 index, EffectSs* this);
-void EffectSsSolderSrchBall_Draw(GlobalContext* globalCtx, u32 index, EffectSs* this);
+s32 EffectSsSolderSrchBall_Init(GameState* game, u32 index, EffectSs* this, void* initParamsx);
+void EffectSsSolderSrchBall_Update(GameState* game, u32 index, EffectSs* this);
+void EffectSsSolderSrchBall_Draw(GameState* game, u32 index, EffectSs* this);
 
 #if 0
 const EffectSsInit Effect_Ss_Solder_Srch_Ball_InitVars = {

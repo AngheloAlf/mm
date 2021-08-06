@@ -1,11 +1,11 @@
 #include "global.h"
 
-void EffectSS_Init(GlobalContext* globalCtx, s32 numEntries) {
+void EffectSS_Init(GameState* game, s32 numEntries) {
     u32 i;
     EffectSs* effectsSs;
     EffectSsOverlay* overlay;
 
-    EffectSS2Info.data_table = (EffectSs*)THA_AllocEndAlign16(&globalCtx->state.heap, numEntries * sizeof(EffectSs));
+    EffectSS2Info.data_table = (EffectSs*)THA_AllocEndAlign16(&game->heap, numEntries * sizeof(EffectSs));
     EffectSS2Info.searchIndex = 0;
     EffectSS2Info.size = numEntries;
 
@@ -21,7 +21,7 @@ void EffectSS_Init(GlobalContext* globalCtx, s32 numEntries) {
     }
 }
 
-void EffectSS_Clear(GlobalContext* globalCtx) {
+void EffectSS_Clear(GameState* game) {
     u32 i;
     EffectSs* effectsSs;
     EffectSsOverlay* overlay;
@@ -146,8 +146,9 @@ s32 EffectSS_FindFreeSpace(s32 priority, s32* tableEntry) {
     return false;
 }
 
-void EffectSS_Copy(GlobalContext* globalCtx, EffectSs* effectsSs) {
+void EffectSS_Copy(GameState* game, EffectSs* effectsSs) {
     s32 index;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
     if (FrameAdvance_IsEnabled(globalCtx) != true) {
         if (EffectSS_FindFreeSpace(effectsSs->priority, &index) == 0) {
@@ -157,7 +158,7 @@ void EffectSS_Copy(GlobalContext* globalCtx, EffectSs* effectsSs) {
     }
 }
 
-void EffectSs_Spawn(GlobalContext* globalCtx, s32 type, s32 priority, void* initData) {
+void EffectSs_Spawn(GameState* game, s32 type, s32 priority, void* initData) {
     s32 index;
     u32 overlaySize;
     EffectSsOverlay* entry = &particleOverlayTable[type];
@@ -197,13 +198,13 @@ void EffectSs_Spawn(GlobalContext* globalCtx, s32 type, s32 priority, void* init
         EffectSS2Info.data_table[index].type = type;
         EffectSS2Info.data_table[index].priority = priority;
 
-        if (initInfo->init(globalCtx, index, &EffectSS2Info.data_table[index], initData) == 0) {
+        if (initInfo->init(game, index, &EffectSS2Info.data_table[index], initData) == 0) {
             EffectSS_ResetEntry(&EffectSS2Info.data_table[index]);
         }
     }
 }
 
-void EffectSS_UpdateParticle(GlobalContext* globalCtx, s32 index) {
+void EffectSS_UpdateParticle(GameState* game, s32 index) {
     EffectSs* particle = &EffectSS2Info.data_table[index];
 
     if (particle->update != NULL) {
@@ -215,11 +216,11 @@ void EffectSS_UpdateParticle(GlobalContext* globalCtx, s32 index) {
         particle->pos.y += particle->velocity.y;
         particle->pos.z += particle->velocity.z;
 
-        particle->update(globalCtx, index, particle);
+        particle->update(game, index, particle);
     }
 }
 
-void EffectSS_UpdateAllParticles(GlobalContext* globalCtx) {
+void EffectSS_UpdateAllParticles(GameState* game) {
     s32 i;
 
     for (i = 0; i < EffectSS2Info.size; i++) {
@@ -232,23 +233,25 @@ void EffectSS_UpdateAllParticles(GlobalContext* globalCtx) {
         }
 
         if (EffectSS2Info.data_table[i].life > -1) {
-            EffectSS_UpdateParticle(globalCtx, i);
+            EffectSS_UpdateParticle(game, i);
         }
     }
 }
 
-void EffectSS_DrawParticle(GlobalContext* globalCtx, s32 index) {
+void EffectSS_DrawParticle(GameState* game, s32 index) {
     EffectSs* entry = &EffectSS2Info.data_table[index];
 
     if (entry->draw != NULL) {
-        entry->draw(globalCtx, index, entry);
+        entry->draw(game, index, entry);
     }
 }
 
-void EffectSS_DrawAllParticles(GlobalContext* globalCtx) {
-    Lights* lights = LightContext_NewLights(&globalCtx->lightCtx, globalCtx->state.gfxCtx);
+void EffectSS_DrawAllParticles(GameState* game) {
+    Lights* lights;
     s32 i;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
+    lights = LightContext_NewLights(&globalCtx->lightCtx, globalCtx->state.gfxCtx);
     Lights_BindAll(lights, globalCtx->lightCtx.listHead, NULL, globalCtx);
     Lights_Draw(lights, globalCtx->state.gfxCtx);
 
@@ -259,7 +262,7 @@ void EffectSS_DrawAllParticles(GlobalContext* globalCtx) {
                 (EffectSS2Info.data_table[i].pos.z > 32000.0f) || (EffectSS2Info.data_table[i].pos.z < -32000.0f)) {
                 EffectSS_Delete(&EffectSS2Info.data_table[i]);
             } else {
-                EffectSS_DrawParticle(globalCtx, i);
+                EffectSS_DrawParticle(game, i);
             }
         }
     }
