@@ -14,6 +14,7 @@
 #define ANIM_FLAG_UPDATEXZ 0x02
 #define ANIM_FLAG_UPDATEY 0x10
 
+struct GameState;
 struct GlobalContext;
 struct Actor;
 typedef struct SkelAnime SkelAnime;
@@ -175,27 +176,27 @@ struct SkelAnime {
     /* 0x3E */ Vec3s unk3E;
 }; // size = 0x44
 
-typedef s32 (*OverrideLimbDraw)(struct GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+typedef s32 (*OverrideLimbDraw)(struct GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                 struct Actor* actor);
 
-typedef void (*PostLimbDraw)(struct GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot,
+typedef void (*PostLimbDraw)(struct GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot,
                              struct Actor* actor);
 
-typedef s32 (*OverrideLimbDraw2)(struct GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+typedef s32 (*OverrideLimbDraw2)(struct GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                  struct Actor* actor, Gfx** gfx);
 
-typedef void (*PostLimbDraw2)(struct GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot,
+typedef void (*PostLimbDraw2)(struct GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot,
                               struct Actor* actor, Gfx** gfx);
 
-typedef s32 (*OverrideLimbDrawSV)(struct GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+typedef s32 (*OverrideLimbDrawSV)(struct GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                   struct Actor* actor);
 
-typedef void (*PostLimbDrawSV)(struct GlobalContext* globalCtx, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot,
+typedef void (*PostLimbDrawSV)(struct GameState* game, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot,
                                struct Actor* actor);
 
-typedef void (*UnkActorDraw)(struct GlobalContext* globalCtx, s32 limbIndex, struct Actor* actor);
+typedef void (*UnkActorDraw)(struct GameState* game, s32 limbIndex, struct Actor* actor);
 
-typedef void (*AnimationEntryCallback)(struct GlobalContext*, AnimationEntryType*);
+typedef void (*AnimationEntryCallback)(struct GameState* game, AnimationEntryType*);
 
 extern u32 link_animetion_segment;
 

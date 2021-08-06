@@ -1556,7 +1556,7 @@ void EnFsn_DrawStickDirectionPrompts(EnFsn* this, GlobalContext* globalCtx) {
     CLOSE_DISPS(globalCtx->state.gfxCtx);
 }
 
-s32 EnFsn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
+s32 EnFsn_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
     EnFsn* this = THIS;
     s16 tmp;
     s32 limbRotTableIdx;
@@ -1592,7 +1592,7 @@ s32 EnFsn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList,
     return 0;
 }
 
-void EnFsn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnFsn_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     EnFsn* this = THIS;
 
     if (limbIndex == 16) {
@@ -1600,10 +1600,10 @@ void EnFsn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Ve
         this->actor.focus.pos.y = this->actor.world.pos.y + 60.0f;
         this->actor.focus.pos.z = this->actor.world.pos.z;
 
-        OPEN_DISPS(globalCtx->state.gfxCtx);
+        OPEN_DISPS(game->gfxCtx);
         gSPDisplayList(POLY_OPA_DISP++, D_0600F180);
         gSPDisplayList(POLY_OPA_DISP++, D_0600F218);
-        CLOSE_DISPS(globalCtx->state.gfxCtx);
+        CLOSE_DISPS(game->gfxCtx);
     }
 }
 

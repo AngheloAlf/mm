@@ -64,7 +64,7 @@ void EnRsn_Update(Actor* thisx, GameState* game) {
     func_800E9250(globalCtx, &this->actor, &this->unk1D8, &this->unk1DE, this->actor.focus.pos);
 }
 
-s32 EnRsn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
+s32 EnRsn_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
     EnRsn* this = THIS;
 
     if (limbIndex == 14) {
@@ -75,7 +75,7 @@ s32 EnRsn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList,
 
 static Vec3f D_80C26028 = { 0.0f, 0.0f, 0.0f };
 
-void EnRsn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnRsn_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     EnRsn* this = THIS;
     Vec3f sp18 = D_80C26028;
 

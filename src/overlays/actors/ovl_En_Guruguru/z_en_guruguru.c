@@ -375,7 +375,7 @@ void EnGuruguru_Update(Actor* thisx, GameState* game) {
     CollisionCheck_SetOC(game, &((GlobalContext*)game)->colChkCtx, &this->collider.base);
 }
 
-s32 EnGuruguru_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnGuruguru_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                 Actor* thisx) {
     EnGuruguru* this = THIS;
 

@@ -545,7 +545,7 @@ void EnPamera_Update(Actor* thisx, GameState* game) {
     func_80BD93F4(this, game);
 }
 
-s32 EnPamera_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnPamera_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                               Actor* thisx) {
     EnPamera* this = THIS;
 
@@ -556,7 +556,7 @@ s32 EnPamera_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dLi
     return 0;
 }
 
-void EnPamera_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnPamera_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     if (limbIndex == PAMERA_LIMB_HAIR) {
         SysMatrix_MultiplyVector3fByState(&D_80BDA5F0, &thisx->focus.pos);
     }

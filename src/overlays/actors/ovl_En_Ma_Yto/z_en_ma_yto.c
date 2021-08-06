@@ -1453,7 +1453,7 @@ void EnMaYto_Update(Actor* thisx, GameState* game) {
     func_80B90C78(this, game);
 }
 
-s32 EnMaYto_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnMaYto_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                              Actor* thisx) {
     EnMaYto* this = THIS;
     Vec3s sp4;
@@ -1477,7 +1477,7 @@ s32 EnMaYto_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dLis
     return 0;
 }
 
-void EnMaYto_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnMaYto_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     EnMaYto* this = THIS;
 
     if (limbIndex == MA2_LIMB_HEAD) {

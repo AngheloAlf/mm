@@ -1534,9 +1534,9 @@ void func_808F6334(EnIn* this, GlobalContext* globalCtx) {
     this->unk4C8 = newUnk4C8;
 }
 
-s32 EnIn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
+s32 EnIn_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
     EnIn* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Gfx* sp50[] = {
         NULL,       NULL,       D_060149A8, D_06014AE0, D_06014C30, D_060145D8, D_06014710,
         D_06014860, D_06014420, D_06012A78, D_06013DE0, D_06013F10, D_06014040, D_060137A0,
@@ -1552,7 +1552,7 @@ s32 EnIn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
         *dList = D_0601C528;
     }
 
-    OPEN_DISPS(globalCtx->state.gfxCtx);
+    OPEN_DISPS(game->gfxCtx);
     if (limbIndex == 16) {
         void* sp38[] = { &D_060035E0, &D_06004820, &D_06004C20, &D_060043E0 };
         gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sp38[this->unk482]));
@@ -1560,7 +1560,7 @@ s32 EnIn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
     } else {
         AnimatedMat_DrawStep(globalCtx, Lib_SegmentedToVirtual(&D_06001C30), this->unk4AC & 8 ? 1 : 0);
     }
-    CLOSE_DISPS(globalCtx->state.gfxCtx);
+    CLOSE_DISPS(game->gfxCtx);
 
     if (limbIndex == 16) {
         SysMatrix_InsertTranslation(1500.0f, 0.0f, 0.0f, MTXMODE_APPLY);
@@ -1595,7 +1595,7 @@ s32 EnIn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
     return 0;
 }
 
-void EnIn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnIn_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     EnIn* this = THIS;
     Vec3f sp50 = { 1600.0f, 0.0f, 0.0f };
     Vec3f sp44 = { 0.0f, 0.0f, 0.0f };
@@ -1614,23 +1614,23 @@ void EnIn_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec
         }
         if (this->unk23C == 0) {
             if (!(this->unk4AC & 8)) {
-                OPEN_DISPS(globalCtx->state.gfxCtx);
+                OPEN_DISPS(game->gfxCtx);
                 if (limbIndex == 12) {
                     gSPDisplayList(POLY_OPA_DISP++, D_06007A70);
                 }
                 if (limbIndex == 15) {
                     gSPDisplayList(POLY_OPA_DISP++, D_06007C48);
                 }
-                CLOSE_DISPS(globalCtx->state.gfxCtx);
+                CLOSE_DISPS(game->gfxCtx);
             }
         }
     }
     if (this->unk4AC & 0x20) {
-        OPEN_DISPS(globalCtx->state.gfxCtx);
+        OPEN_DISPS(game->gfxCtx);
         if (limbIndex == 12) {
             gSPDisplayList(POLY_OPA_DISP++, D_06007C48);
         }
-        CLOSE_DISPS(globalCtx->state.gfxCtx);
+        CLOSE_DISPS(game->gfxCtx);
     }
 }
 

@@ -360,7 +360,7 @@ void EnFg_Update(Actor* thisx, GameState* game) {
     func_80A2D348(this, game);
 }
 
-s32 EnFg_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
+s32 EnFg_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
     EnFg* this = THIS;
 
     if ((limbIndex == 7) || (limbIndex == 8)) {
@@ -375,19 +375,19 @@ s32 EnFg_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, 
     return 0;
 }
 
-void EnFg_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnFg_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     EnFg* this = THIS;
-    s16 pad;
+    GlobalContext* globalCtx = game;
     Vec3f vec1 = { 0.0f, 0.0f, 0.0f };
 
     if ((limbIndex == 7) || (limbIndex == 8)) {
-        OPEN_DISPS(globalCtx->state.gfxCtx);
+        OPEN_DISPS(game->gfxCtx);
         SysMatrix_StatePush();
         SysMatrix_NormalizeXYZ(&globalCtx->mf_187FC);
-        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(POLY_OPA_DISP++, *dList);
         SysMatrix_StatePop();
-        CLOSE_DISPS(globalCtx->state.gfxCtx);
+        CLOSE_DISPS(game->gfxCtx);
     }
 
     if (limbIndex == 4) {

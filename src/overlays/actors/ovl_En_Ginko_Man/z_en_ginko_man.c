@@ -628,7 +628,7 @@ void EnGinkoMan_Update(Actor* thisx, GameState* game) {
     EnGinkoMan_FacePlayer(this, game);
 }
 
-s32 EnGinkoMan_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnGinkoMan_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                 Actor* thisx) {
     EnGinkoMan* this = THIS;
 
@@ -649,7 +649,7 @@ s32 EnGinkoMan_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** d
     return 0;
 }
 
-void EnGinkoMan_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnGinkoMan_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
 }
 
 void EnGinkoMan_Draw(Actor* thisx, GameState* game) {

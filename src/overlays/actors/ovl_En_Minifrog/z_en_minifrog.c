@@ -605,7 +605,7 @@ void EnMinifrog_UpdateMissingFrog(Actor* thisx, GameState* game) {
     }
 }
 
-s32 EnMinifrog_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnMinifrog_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                 Actor* thisx) {
     if (limbIndex == 1) {
         pos->z -= 500.0f;
@@ -618,19 +618,19 @@ s32 EnMinifrog_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** d
     return 0;
 }
 
-void EnMinifrog_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
-    EnMinifrog* this = THIS;
+void EnMinifrog_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
     if ((limbIndex == 7) || (limbIndex == 8)) {
-        OPEN_DISPS(globalCtx->state.gfxCtx);
+        OPEN_DISPS(game->gfxCtx);
         SysMatrix_NormalizeXYZ(&globalCtx->mf_187FC);
-        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(globalCtx->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(game->gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
         gSPDisplayList(POLY_OPA_DISP++, *dList);
-        CLOSE_DISPS(globalCtx->state.gfxCtx);
+        CLOSE_DISPS(game->gfxCtx);
     }
 
     if (limbIndex == 4) {
-        SysMatrix_GetStateTranslation(&this->actor.focus.pos);
+        SysMatrix_GetStateTranslation(&thisx->focus.pos);
     }
 }
 

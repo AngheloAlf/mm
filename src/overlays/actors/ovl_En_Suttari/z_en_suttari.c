@@ -1470,7 +1470,7 @@ void EnSuttari_Update(Actor* thisx, GameState* game) {
     }
 }
 
-s32 EnSuttari_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnSuttari_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                Actor* thisx) {
     EnSuttari* this = THIS;
 
@@ -1494,11 +1494,11 @@ s32 EnSuttari_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dL
     return false;
 }
 
-void EnSuttari_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnSuttari_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     static Vec3f D_80BAE950 = { 0.0f, 0.0f, 0.0f };
     static Vec3f D_80BAE95C = { 2000.0f, -1000.0f, 0.0f };
     EnSuttari* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     MtxF* curState;
     Actor* bombBag;
 
@@ -1516,10 +1516,10 @@ void EnSuttari_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList
                         func_8018219C(curState, &bombBag->shape.rot, 0);
                     }
                 } else {
-                    func_8012C28C(globalCtx->state.gfxCtx);
-                    OPEN_DISPS(globalCtx->state.gfxCtx);
+                    func_8012C28C(game->gfxCtx);
+                    OPEN_DISPS(game->gfxCtx);
                     gSPDisplayList(POLY_OPA_DISP++, D_06013380);
-                    CLOSE_DISPS(globalCtx->state.gfxCtx);
+                    CLOSE_DISPS(game->gfxCtx);
                 }
             }
         }

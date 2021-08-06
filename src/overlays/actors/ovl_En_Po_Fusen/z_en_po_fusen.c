@@ -25,7 +25,7 @@ void EnPoFusen_InitFuse(EnPoFusen* this);
 void EnPoFusen_Pop(EnPoFusen* this, GlobalContext* globalCtx);
 void EnPoFusen_Idle(EnPoFusen* this, GlobalContext* globalCtx);
 void EnPoFusen_IdleFuse(EnPoFusen* this, GlobalContext* globalCtx);
-s32 EnPoFusen_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnPoFusen_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                struct Actor* actor);
 
 extern AnimationHeader D_06000040;
@@ -270,7 +270,7 @@ void EnPoFusen_Update(Actor* thisx, GameState* game) {
     }
 }
 
-s32 EnPoFusen_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnPoFusen_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                struct Actor* actor) {
     EnPoFusen* this = (EnPoFusen*)actor;
     f32 zScale;
@@ -307,10 +307,10 @@ s32 EnPoFusen_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dL
         rot->y += (s16)(this->limb9Rot * Math_SinS(this->randBaseRotChange));
         rot->z += (s16)(this->limb9Rot * Math_CosS(this->randBaseRotChange));
     }
-    return 0;
+    return false;
 }
 
-void EnPoFusen_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* actor) {
+void EnPoFusen_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* actor) {
 }
 
 void EnPoFusen_UnkActorDraw(GlobalContext* globalCtx, s32 limbIndex, Actor* actor) {

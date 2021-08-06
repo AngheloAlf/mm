@@ -729,8 +729,9 @@ void EnFirefly_Update(Actor* thisx, GameState* game) {
         10.0f * Math_SinS(this->actor.shape.rot.x) * Math_CosS(this->actor.shape.rot.y) + this->actor.world.pos.z;
 }
 
-s32 EnFirefly_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnFirefly_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                                Actor* thisx, Gfx** gfx) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnFirefly* this = THIS;
 
     if (this->isInvisible && (globalCtx->actorCtx.unk4 != 0x64)) {
@@ -741,7 +742,7 @@ s32 EnFirefly_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dL
     return false;
 }
 
-void EnFirefly_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx, Gfx** gfx) {
+void EnFirefly_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx, Gfx** gfx) {
     static Color_RGBA8 fireAuraPrimColor = { 255, 255, 100, 255 };
     static Color_RGBA8 fireAuraEnvColor = { 255, 50, 0, 0 };
     static Color_RGBA8 iceAuraPrimColor = { 100, 200, 255, 255 };
@@ -753,7 +754,7 @@ void EnFirefly_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList
     Color_RGBA8* auraEnvColor;
     s16 auraScaleStep;
     s16 auraLife;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnFirefly* this = THIS;
 
     if ((this->currentType != KEESE_FIRE) && (limbIndex == 27)) {
@@ -790,7 +791,7 @@ void EnFirefly_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList
             auraEnvColor = &iceAuraEnvColor;
         }
 
-        func_800B0F80(globalCtx, &auraPos, &auraVelocity, &auraAccel, auraPrimColor, auraEnvColor, 250, auraScaleStep,
+        func_800B0F80(game, &auraPos, &auraVelocity, &auraAccel, auraPrimColor, auraEnvColor, 250, auraScaleStep,
                       auraLife);
     }
 

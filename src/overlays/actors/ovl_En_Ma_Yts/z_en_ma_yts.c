@@ -522,7 +522,7 @@ void EnMaYts_Update(Actor* thisx, GameState* game) {
     func_80B8D12C(this, game);
 }
 
-s32 EnMaYts_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
+s32 EnMaYts_OverrideLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot,
                              Actor* thisx) {
     EnMaYts* this = THIS;
     Vec3s sp4;
@@ -542,16 +542,16 @@ s32 EnMaYts_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dLis
     return 0;
 }
 
-void EnMaYts_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnMaYts_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     EnMaYts* this = THIS;
 
     if (limbIndex == MA1_LIMB_HEAD) {
         SysMatrix_GetStateTranslation(&this->actor.focus.pos);
     } else if (limbIndex == MA1_LIMB_HAND_LEFT) {
         if (this->hasBow == true) {
-            OPEN_DISPS(globalCtx->state.gfxCtx);
+            OPEN_DISPS(game->gfxCtx);
             gSPDisplayList(POLY_OPA_DISP++, D_060003B0);
-            CLOSE_DISPS(globalCtx->state.gfxCtx);
+            CLOSE_DISPS(game->gfxCtx);
         }
     }
 }

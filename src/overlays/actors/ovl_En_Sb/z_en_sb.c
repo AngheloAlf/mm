@@ -388,14 +388,14 @@ void EnSb_Update(Actor* thisx, GameState* game) {
     }
 }
 
-void EnSb_PostLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
+void EnSb_PostLimbDraw(GameState* game, s32 limbIndex, Gfx** dList, Vec3s* rot, Actor* thisx) {
     s8 phi_a2;
     EnSb* this = THIS;
 
     if (this->isDrawn != false) {
         if (limbIndex < 7) {
             phi_a2 = (this->actor.yDistToWater > 0) ? 4 : 1;
-            func_800BBCEC(thisx, globalCtx, phi_a2, dList);
+            func_800BBCEC(thisx, game, phi_a2, dList);
         }
         if (limbIndex == 6) {
             this->isDrawn = false;
