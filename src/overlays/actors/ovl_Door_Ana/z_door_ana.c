@@ -104,7 +104,7 @@ void DoorAna_WaitClosed(DoorAna* this, GlobalContext* globalCtx) {
 
         } else {
             Collider_UpdateCylinder(&this->actor, &this->bombCollider);
-            CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->bombCollider.base);
+            CollisionCheck_SetAC(&globalCtx->state, &globalCtx->colChkCtx, &this->bombCollider.base);
         }
     }
 

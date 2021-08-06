@@ -151,7 +151,7 @@ void BgIcicle_Shiver(BgIcicle* this, GlobalContext* globalCtx) {
         this->dyna.actor.world.pos.x = this->dyna.actor.home.pos.x;
         this->dyna.actor.world.pos.z = this->dyna.actor.home.pos.z;
 
-        CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAT(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
         func_800C62BC(globalCtx, &globalCtx->colCtx.dyna, this->dyna.bgId);
         this->actionFunc = BgIcicle_Fall;
     } else {
@@ -188,7 +188,7 @@ void BgIcicle_Fall(BgIcicle* this, GlobalContext* globalCtx) {
         this->dyna.actor.world.pos.y += 40.0f;
         Actor_UpdateBgCheckInfo(globalCtx, &this->dyna.actor, 0.0f, 0.0f, 0.0f, 4);
         this->dyna.actor.world.pos.y -= 40.0f;
-        CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAT(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 

@@ -239,7 +239,7 @@ void func_808F32A0(EnIn* this, GlobalContext* globalCtx) {
     this->colliderCylinder.dim.pos.y = this->actor.world.pos.y;
     this->colliderCylinder.dim.pos.z = this->actor.world.pos.z;
     if (this->unk23D == 0) {
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->colliderCylinder.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->colliderCylinder.base);
     }
 }
 

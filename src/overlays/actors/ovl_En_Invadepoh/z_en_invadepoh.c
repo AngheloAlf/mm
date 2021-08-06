@@ -2383,19 +2383,19 @@ void func_80B47D30(Actor* thisx, GlobalContext* globalCtx) {
 
     Collider_UpdateCylinder(&this->actor, &this->collider);
     if (this->collider.base.atFlags & AT_ON) {
-        CollisionCheck_SetAT(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAT(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     } else {
         this->collider.base.atFlags &= ~AT_HIT;
     }
 
     if (this->collider.base.acFlags & AC_ON) {
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetAC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     } else {
         this->collider.base.acFlags &= ~AC_HIT;
     }
 
     if (this->collider.base.ocFlags1 & OC1_ON) {
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     } else {
         this->collider.base.ocFlags1 &= ~OC1_HIT;
     }
@@ -2802,7 +2802,7 @@ void func_80B490F0(Actor* thisx, GlobalContext* globalCtx) {
             func_800B8614(&this->actor, globalCtx, 100.0f);
         }
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
@@ -3185,7 +3185,7 @@ void func_80B4A1B8(Actor* thisx, GlobalContext* globalCtx) {
             func_800B8614(&this->actor, globalCtx, 350.0f);
         }
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
@@ -3414,7 +3414,7 @@ void func_80B4ABDC(Actor* thisx, GlobalContext* globalCtx) {
             func_800B8614(&this->actor, globalCtx, 100.0f);
         }
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
@@ -3567,7 +3567,7 @@ void func_80B4B218(Actor* thisx, GlobalContext* globalCtx) {
         substruct->unk26.y = CLAMP(temp_v1, -0x1F40, 0x1F40);
         func_80B45CE0(substruct);
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
@@ -3760,7 +3760,7 @@ void func_80B4BA84(Actor* thisx, GlobalContext* globalCtx) {
     if (sp34 && (this->actor.update != NULL)) {
         func_80B45CE0(&this->behaviorInfo);
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
@@ -3976,7 +3976,7 @@ void func_80B4C5C0(Actor* thisx, GlobalContext* globalCtx) {
             func_800B8614(&this->actor, globalCtx, 350.0f);
         }
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
@@ -4192,7 +4192,7 @@ void func_80B4D054(Actor* thisx, GlobalContext* globalCtx) {
             func_800B8614(thisx, globalCtx, 350.0f);
         }
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 

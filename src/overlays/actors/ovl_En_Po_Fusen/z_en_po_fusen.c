@@ -182,8 +182,8 @@ u16 EnPoFusen_CheckCollision(EnPoFusen* this, GlobalContext* globalCtx) {
         return 1;
     }
 
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-    CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
 
     return 0;
 }

@@ -873,7 +873,7 @@ void func_80BDA344(Actor* thisx, GameState* game) {
         func_80BD94E0(this, globalCtx);
         if (this->actionFunc == func_80BD994C) {
             Collider_UpdateCylinder(&this->actor, &this->collider);
-            CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
         }
         if (gSaveContext.weekEventReg[14] & 4) {
             globalCtx->roomCtx.unk7A[0]++;

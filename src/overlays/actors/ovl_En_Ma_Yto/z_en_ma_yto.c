@@ -1331,7 +1331,7 @@ void func_80B90C78(EnMaYto* this, GlobalContext* globalCtx) {
 void EnMaYto_UpdateCollision(EnMaYto* this, GlobalContext* globalCtx) {
     if (this->actionFunc != EnMaYto_WarmFuzzyFeelingCs) {
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 

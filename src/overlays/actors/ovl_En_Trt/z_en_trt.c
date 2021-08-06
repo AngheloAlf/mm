@@ -149,8 +149,8 @@ void EnTrt_SpawnShopItems(EnTrt* this, GlobalContext* globalCtx, ShopItem* shopI
 
 void EnTrt_UpdateCollider(EnTrt* this, GlobalContext* globalCtx) {
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
 }
 
 void EnTrt_UpdateCursorPos(GlobalContext* globalCtx, EnTrt* this) {
