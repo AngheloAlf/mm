@@ -94,7 +94,7 @@ If you make significant progress on decompiling a function, but can't get it to 
 
 ```c
 #ifdef NON_MATCHING
-void CollisionCheck_SpawnWaterDroplets(GlobalContext* globalCtx, Vec3f* v) {
+void CollisionCheck_SpawnWaterDroplets(GameState* game, Vec3f* v) {
     // ... 
 }
 #else
