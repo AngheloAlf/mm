@@ -55,11 +55,12 @@ void EnRsn_Destroy(Actor* thisx, GameState* game) {
 
 void EnRsn_Update(Actor* thisx, GameState* game) {
     EnRsn* this = THIS;
+    GlobalContext* globalCtx = (GlobalContext*)game;
 
-    this->actionFunc(this, game);
+    this->actionFunc(this, globalCtx);
     Actor_SetVelocityAndMoveYRotationAndGravity(&this->actor);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    func_800E9250(game, &this->actor, &this->unk1D8, &this->unk1DE, this->actor.focus.pos);
+    func_800E9250(globalCtx, &this->actor, &this->unk1D8, &this->unk1DE, this->actor.focus.pos);
 }
 
 s32 EnRsn_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {

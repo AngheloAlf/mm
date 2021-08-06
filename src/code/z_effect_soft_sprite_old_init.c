@@ -89,37 +89,37 @@ void EffectSsDust_Spawn(GameState* game, u16 drawFlags, Vec3f* pos, Vec3f* veloc
     EffectSs_Spawn(game, EFFECT_SS_DUST, 128, &initParams);
 }
 
-void func_800B0DE0(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B0DE0(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep) {
     EffectSsDust_Spawn(game, 0, pos, velocity, accel, primColor, envColor, scale, scaleStep, 10, 0);
 }
 
-void func_800B0E48(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B0E48(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep) {
     EffectSsDust_Spawn(game, 1, pos, velocity, accel, primColor, envColor, scale, scaleStep, 10, 0);
 }
 
-void func_800B0EB0(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B0EB0(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep, s16 life) {
     EffectSsDust_Spawn(game, 0, pos, velocity, accel, primColor, envColor, scale, scaleStep, life, 0);
 }
 
-void func_800B0F18(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B0F18(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep, s16 life) {
     EffectSsDust_Spawn(game, 1, pos, velocity, accel, primColor, envColor, scale, scaleStep, life, 0);
 }
 
-void func_800B0F80(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B0F80(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep, s16 life) {
     EffectSsDust_Spawn(game, 2, pos, velocity, accel, primColor, envColor, scale, scaleStep, life, 0);
 }
 
-void func_800B0FE8(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B0FE8(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep) {
     EffectSsDust_Spawn(game, 0, pos, velocity, accel, primColor, envColor, scale, scaleStep, 10, 1);
 }
 
-void func_800B1054(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B1054(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor, s16 scale, s16 scaleStep) {
     EffectSsDust_Spawn(game, 1, pos, velocity, accel, primColor, envColor, scale, scaleStep, 10, 1);
 }
@@ -127,37 +127,37 @@ void func_800B1054(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* acce
 extern Color_RGBA8 D_801AE3B0;
 extern Color_RGBA8 D_801AE3B4;
 
-void func_800B10C0(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel) {
+void func_800B10C0(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel) {
     EffectSsDust_Spawn(game, 4, pos, velocity, accel, &D_801AE3B0, &D_801AE3B4, 100, 5, 10, 0);
 }
 
-void func_800B1130(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel) {
+void func_800B1130(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel) {
     EffectSsDust_Spawn(game, 5, pos, velocity, accel, &D_801AE3B0, &D_801AE3B4, 100, 5, 10, 0);
 }
 
-void func_800B11A0(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep) {
+void func_800B11A0(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep) {
     EffectSsDust_Spawn(game, 4, pos, velocity, accel, &D_801AE3B0, &D_801AE3B4, scale, scaleStep, 10, 0);
 }
 
-void func_800B1210(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep) {
+void func_800B1210(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep) {
     EffectSsDust_Spawn(game, 5, pos, velocity, accel, &D_801AE3B0, &D_801AE3B4, scale, scaleStep, 10, 0);
 }
 
-void func_800B1280(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
+void func_800B1280(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
                    s16 life) {
     EffectSsDust_Spawn(game, 4, pos, velocity, accel, &D_801AE3B0, &D_801AE3B4, scale, scaleStep, life, 0);
 }
-void func_800B12F0(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
+void func_800B12F0(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
                    s16 life) {
     EffectSsDust_Spawn(game, 5, pos, velocity, accel, &D_801AE3B0, &D_801AE3B4, scale, scaleStep, life, 0);
 }
 
-void func_800B1360(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B1360(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor) {
     func_800B0DE0(game, pos, velocity, accel, primColor, envColor, 100, 5);
 }
 
-void func_800B139C(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
+void func_800B139C(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, Color_RGBA8* primColor,
                    Color_RGBA8* envColor) {
     func_800B0E48(game, pos, velocity, accel, primColor, envColor, 100, 5);
 }
@@ -182,7 +182,7 @@ void func_800B13D8(Vec3f* srcPos, f32 randScale, Vec3f* newPos, Vec3f* velocity,
     accel->z = 0.0f;
 }
 
-void func_800B14D4(GlobalContext* game, f32 randScale, Vec3f* srcPos) {
+void func_800B14D4(GameState* game, f32 randScale, Vec3f* srcPos) {
     s32 i;
     Vec3f pos;
     Vec3f velocity;
@@ -194,7 +194,7 @@ void func_800B14D4(GlobalContext* game, f32 randScale, Vec3f* srcPos) {
     }
 }
 
-void func_800B1598(GlobalContext* game, f32 randScale, Vec3f* srcPos) {
+void func_800B1598(GameState* game, f32 randScale, Vec3f* srcPos) {
     s32 i;
     Vec3f pos;
     Vec3f velocity;
@@ -594,7 +594,7 @@ void EffectSsHahen_SpawnBurst(GameState* game, Vec3f* pos, f32 burstScale, s16 u
 
 extern Vec3f D_801AE3E0;
 
-void func_800B2364(GlobalContext* game, Vec3f* pos, Gfx* dList) {
+void func_800B2364(GameState* game, Vec3f* pos, Gfx* dList) {
     Vec3f posVec = D_801AE3E0;
 
     EffectSsHahen_Spawn(game, pos, &D_801D15B0, &posVec, 1, 5, 1, 10, dList);
@@ -834,11 +834,11 @@ void EffectSsEnIce_SpawnFlyingVec3f(GameState* game, Actor* actor, Vec3f* pos, C
 extern Color_RGBA8 D_801AE47C;
 extern Color_RGBA8 D_801AE480;
 
-void func_800B2B44(GlobalContext* game, Actor* actor, Vec3f* pos, f32 scale) {
+void func_800B2B44(GameState* game, Actor* actor, Vec3f* pos, f32 scale) {
     EffectSsEnIce_SpawnFlyingVec3f(game, actor, pos, &D_801AE47C, &D_801AE480, scale);
 }
 
-void func_800B2B7C(GlobalContext* game, Actor* actor, Vec3s* arg2, f32 scale) {
+void func_800B2B7C(GameState* game, Actor* actor, Vec3s* arg2, f32 scale) {
     Vec3f dest;
 
     Math_Vec3s_ToVec3f(&dest, arg2);
@@ -992,7 +992,7 @@ void EffectSsDeadDb_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* a
 extern Color_RGBA8 D_801AE48C;
 extern Color_RGBA8 D_801AE490[4];
 
-void func_800B3030(GlobalContext* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
+void func_800B3030(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* accel, s16 scale, s16 scaleStep,
                    s32 colorIndex) {
     EffectSsDeadDb_Spawn(game, pos, velocity, accel, &D_801AE48C, &D_801AE490[colorIndex], scale, scaleStep, 9);
 }
@@ -1038,7 +1038,7 @@ void EffectSsDeadDs_Spawn(GameState* game, Vec3f* pos, Vec3f* velocity, Vec3f* a
     EffectSs_Spawn(game, EFFECT_SS_DEAD_DS, 100, &initParams);
 }
 
-void func_800B31BC(GlobalContext* game, Vec3f* pos, s16 scale, s16 scaleStep, s16 alpha, s32 life) {
+void func_800B31BC(GameState* game, Vec3f* pos, s16 scale, s16 scaleStep, s16 alpha, s32 life) {
     EffectSsDeadDs_Spawn(game, pos, &D_801D15B0, &D_801D15B0, scale, scaleStep, alpha, life);
 }
 

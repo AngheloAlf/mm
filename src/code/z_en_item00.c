@@ -4,10 +4,10 @@
 
 #define THIS ((EnItem00*)thisx)
 
-void EnItem00_Init(Actor* thisx, GlobalContext* globalCtx);
-void EnItem00_Destroy(Actor* thisx, GlobalContext* globalCtx);
-void EnItem00_Update(Actor* thisx, GlobalContext* globalCtx);
-void EnItem00_Draw(Actor* thisx, GlobalContext* globalCtx);
+void EnItem00_Init(Actor* thisx, GameState* game);
+void EnItem00_Destroy(Actor* thisx, GameState* game);
+void EnItem00_Update(Actor* thisx, GameState* game);
+void EnItem00_Draw(Actor* thisx, GameState* game);
 
 void EnItem00_WaitForHeartObject(EnItem00* this, GlobalContext* globalCtx);
 void func_800A640C(EnItem00* this, GlobalContext* globalCtx);
@@ -51,9 +51,9 @@ void EnItem00_SetObject(EnItem00* this, GlobalContext* globalCtx, f32* shadowOff
     this->actor.world.rot.x = 0x4000;
 }
 
-void EnItem00_Init(Actor* thisx, GlobalContext* globalCtx) {
+void EnItem00_Init(Actor* thisx, GameState* game) {
     EnItem00* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*) game;
     f32 shadowOffset = 980.0f;
     f32 shadowScale = 6.0f;
     s32 getItemId = GI_NONE;
@@ -78,7 +78,7 @@ void EnItem00_Init(Actor* thisx, GlobalContext* globalCtx) {
     }
 
     Actor_ProcessInitChain(&this->actor, sInitChain);
-    Collider_InitAndSetCylinder(globalCtx, &this->collider, &this->actor, &sCylinderInit);
+    Collider_InitAndSetCylinder(game, &this->collider, &this->actor, &sCylinderInit);
 
     this->unk150 = 1;
 
@@ -258,10 +258,10 @@ void EnItem00_Init(Actor* thisx, GlobalContext* globalCtx) {
     this->actionFunc(this, globalCtx);
 }
 
-void EnItem00_Destroy(Actor* thisx, GlobalContext* globalCtx) {
+void EnItem00_Destroy(Actor* thisx, GameState* game) {
     EnItem00* this = THIS;
 
-    Collider_DestroyCylinder(globalCtx, &this->collider);
+    Collider_DestroyCylinder(game, &this->collider);
 }
 
 void EnItem00_WaitForHeartObject(EnItem00* this, GlobalContext* globalCtx) {
@@ -335,7 +335,7 @@ void func_800A6650(EnItem00* this, GlobalContext* globalCtx) {
         pos.x = this->actor.world.pos.x + randPlusMinusPoint5Scaled(10.0f);
         pos.y = this->actor.world.pos.y + randPlusMinusPoint5Scaled(10.0f);
         pos.z = this->actor.world.pos.z + randPlusMinusPoint5Scaled(10.0f);
-        EffectSsKiraKira_SpawnSmall(globalCtx, &pos, &D_801ADF18, &D_801ADF24, &D_801ADF10, &D_801ADF14);
+        EffectSsKiraKira_SpawnSmall(&globalCtx->state, &pos, &D_801ADF18, &D_801ADF24, &D_801ADF10, &D_801ADF14);
     }
     if ((this->actor.bgCheckFlags & 3) != 0) {
         if (this->actor.velocity.y > -2.0f) {
@@ -392,7 +392,7 @@ void func_800A6780(EnItem00* this, GlobalContext* globalCtx) {
         pos.x = this->actor.world.pos.x + ((Rand_ZeroOne() - 0.5f) * 10.0f);
         pos.y = this->actor.world.pos.y + ((Rand_ZeroOne() - 0.5f) * 10.0f);
         pos.z = this->actor.world.pos.z + ((Rand_ZeroOne() - 0.5f) * 10.0f);
-        EffectSsKiraKira_SpawnSmall(globalCtx, &pos, &D_801ADF18, &D_801ADF24, &D_801ADF10, &D_801ADF14);
+        EffectSsKiraKira_SpawnSmall(&globalCtx->state, &pos, &D_801ADF18, &D_801ADF24, &D_801ADF10, &D_801ADF14);
     }
 
     if (this->actor.bgCheckFlags & 0x0003) {
@@ -436,9 +436,9 @@ void func_800A6A40(EnItem00* this, GlobalContext* globalCtx) {
 
 #ifdef NON_MATCHING
 // Minor regalloc issue where it uses v1 instead of v0
-void EnItem00_Update(Actor* thisx, GlobalContext* globalCtx) {
+void EnItem00_Update(Actor* thisx, GameState* game) {
     EnItem00* this = THIS;
-    s32 pad;
+    GlobalContext* globalCtx = (GlobalContext*)game;
     Player* player = PLAYER;
     s32 sp38 = player->stateFlags3 & 0x1000;
     s32 getItemId = GI_NONE;
@@ -469,7 +469,7 @@ void EnItem00_Update(Actor* thisx, GlobalContext* globalCtx) {
     }
 
     Collider_UpdateCylinder(&this->actor, &this->collider);
-    CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetAC(game, &globalCtx->colChkCtx, &this->collider.base);
 
     if ((this->actor.params == ITEM00_SHIELD_HERO) || (this->actor.params == ITEM00_MAP) ||
         (this->actor.params == ITEM00_COMPASS)) {
@@ -631,8 +631,8 @@ void EnItem00_DrawSprite(EnItem00* this, GlobalContext* globalCtx);
 void EnItem00_DrawHeartContainer(EnItem00* this, GlobalContext* globalCtx);
 void EnItem00_DrawHeartPiece(EnItem00* this, GlobalContext* globalCtx);
 
-void EnItem00_Draw(Actor* thisx, GlobalContext* globalCtx) {
-    s32 pad;
+void EnItem00_Draw(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnItem00* this = THIS;
 
     if (!(this->unk14E & this->unk150)) {
