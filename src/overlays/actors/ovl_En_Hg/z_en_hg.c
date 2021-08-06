@@ -246,10 +246,10 @@ void func_80BCF7D8(EnHg* this, GlobalContext* globalCtx) {
             func_80BCF68C(this);
         }
         Collider_UpdateCylinder(&this->actor, &this->collider);
-        CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+        CollisionCheck_SetOC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
         if (this->actionFunc != func_80BCF6D0 && this->actionFunc != func_80BCF8A0 &&
             this->actionFunc != func_80BCF95C) {
-            CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+            CollisionCheck_SetAC(&globalCtx->state, &globalCtx->colChkCtx, &this->collider.base);
         }
     }
 }
@@ -390,14 +390,15 @@ void func_80BCFC0C(EnHg* this, GlobalContext* globalCtx) {
 }
 
 void EnHg_Update(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnHg* this = THIS;
 
-    this->actionFunc(this, game);
+    this->actionFunc(this, globalCtx);
     SkelAnime_FrameUpdateMatrix(&this->skelAnime);
-    func_80BCF7D8(this, game);
-    func_80BCFC0C(this, game);
+    func_80BCF7D8(this, globalCtx);
+    func_80BCFC0C(this, globalCtx);
     Actor_UpdateBgCheckInfo(game, &this->actor, 30.0f, 25.0f, 0.0f, 5);
-    func_80BCF778(this, game);
+    func_80BCF778(this, globalCtx);
 }
 
 s32 EnHg_OverrideLimbDraw(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {

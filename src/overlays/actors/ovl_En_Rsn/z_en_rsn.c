@@ -53,6 +53,7 @@ void EnRsn_Destroy(Actor* thisx, GameState* game) {
     SkelAnime_Free(&this->skelAnime, game);
 }
 
+
 void EnRsn_Update(Actor* thisx, GameState* game) {
     EnRsn* this = THIS;
     GlobalContext* globalCtx = (GlobalContext*)game;

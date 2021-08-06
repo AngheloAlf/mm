@@ -107,18 +107,19 @@ void EnCha_Update(Actor* thisx, GameState* game) {
     EnCha* this = THIS;
     GlobalContext* globalCtx = (GlobalContext*)game;
 
-    CollisionCheck_SetOC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    CollisionCheck_SetOC(game, &globalCtx->colChkCtx, &this->collider.base);
     this->actionFunc(this, globalCtx);
-    if ((this->actor.shape.rot.z >= -0x1F3F) && (this->actor.shape.rot.z < 0x1F40)) {
-        CollisionCheck_SetAC(globalCtx, &globalCtx->colChkCtx, &this->collider.base);
+    if ((this->actor.shape.rot.z > -0x1F40) && (this->actor.shape.rot.z < 0x1F40)) {
+        CollisionCheck_SetAC(game, &globalCtx->colChkCtx, &this->collider.base);
     }
 }
 
 void EnCha_Draw(Actor* thisx, GameState* game) {
+    GlobalContext* globalCtx = (GlobalContext*)game;
     EnCha* this = THIS;
 
-    func_800BDFC0(game, D_06000710);
+    func_800BDFC0(globalCtx, D_06000710);
     SysMatrix_InsertTranslation(-1094.0f, 4950.0f, 9.0f, 1);
     SysMatrix_InsertXRotation_s(this->actor.home.rot.x, 1);
-    func_800BDFC0(game, D_06000958);
+    func_800BDFC0(globalCtx, D_06000958);
 }
