@@ -8,6 +8,8 @@
 #include "overlays/actors/ovl_En_In/z_en_in.h"
 #include "objects/gameplay_keep/gameplay_keep.h"
 
+// #define NOT_DEBUG_PRINT 1
+
 #define FLAGS (ACTOR_FLAG_1 | ACTOR_FLAG_8 | ACTOR_FLAG_10 | ACTOR_FLAG_20)
 
 #define THIS ((ObjUm*)thisx)
@@ -700,8 +702,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
 
     // if (!AliensDefeated)
     if (!(gSaveContext.save.weekEventReg[22] & 1)) {
-        Actor_MarkForDeath(&this->dyna.actor);
-        return;
+        //Actor_MarkForDeath(&this->dyna.actor);
+        //return;
     }
 
     if (this->type == OBJ_UM_TYPE_TERMINA_FIELD) {
@@ -721,8 +723,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
             if ((gSaveContext.save.weekEventReg[34] & 0x80) || gSaveContext.save.time >= CLOCK_TIME(19, 0) ||
                 gSaveContext.save.time <= CLOCK_TIME(6, 0) || (gSaveContext.save.weekEventReg[52] & 1) ||
                 (gSaveContext.save.weekEventReg[52] & 2)) {
-                Actor_MarkForDeath(&this->dyna.actor);
-                return;
+                //Actor_MarkForDeath(&this->dyna.actor);
+                //return;
             }
 
             this->dyna.actor.targetMode = 6;
@@ -731,8 +733,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
         }
     } else if (this->type == OBJ_UM_TYPE_PRE_MILK_RUN) {
         if (!(gSaveContext.save.weekEventReg[31] & 0x80) || (gSaveContext.save.weekEventReg[52] & 1)) {
-            Actor_MarkForDeath(&this->dyna.actor);
-            return;
+            //Actor_MarkForDeath(&this->dyna.actor);
+            //return;
         }
 
         if (!(gSaveContext.save.weekEventReg[52] & 2)) {
@@ -745,8 +747,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
         }
     } else if (this->type == OBJ_UM_TYPE_MILK_RUN_MINIGAME) {
         if (!(gSaveContext.save.weekEventReg[31] & 0x80)) {
-            Actor_MarkForDeath(&this->dyna.actor);
-            return;
+            //Actor_MarkForDeath(&this->dyna.actor);
+            //return;
         }
 
         this->pathIndex = this->initialPathIndex;
@@ -757,8 +759,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
         ObjUm_RotatePlayer(this, play, 0);
     } else if (this->type == OBJ_UM_TYPE_POST_MILK_RUN) {
         if (!(gSaveContext.save.weekEventReg[52] & 1) || (gSaveContext.save.weekEventReg[59] & 2)) {
-            Actor_MarkForDeath(&this->dyna.actor);
-            return;
+            //Actor_MarkForDeath(&this->dyna.actor);
+            //return;
         }
 
         this->pathIndex = this->initialPathIndex;
@@ -784,8 +786,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
     }
 
     if (this->dyna.bgId == 0x32) {
-        Actor_MarkForDeath(&this->dyna.actor);
-        return;
+        //Actor_MarkForDeath(&this->dyna.actor);
+        //return;
     }
 
     func_800C636C(play, &play->colCtx.dyna, this->dyna.bgId);
@@ -796,8 +798,8 @@ void ObjUm_Init(Actor* thisx, PlayState* play) {
                               this->dyna.actor.shape.rot.y, 0, ENHORSE_PARAMS(ENHORSE_PARAM_DONKEY, ENHORSE_18));
 
     if (this->donkey == NULL) {
-        Actor_MarkForDeath(&this->dyna.actor);
-        return;
+        //Actor_MarkForDeath(&this->dyna.actor);
+        //return;
     }
 
     Collider_InitAndSetCylinder(play, &this->banditsCollisions[0], &this->dyna.actor, &sCylinderInit);
@@ -820,10 +822,10 @@ void ObjUm_Destroy(Actor* thisx, PlayState* play) {
 
 // ObjUm_MarkMyDonkeyAndMyselfForDeath, ObjUm_TerminateMe, ObjUmn't, ObjUm_Asinucide
 void func_80B79524(ObjUm* this) {
-    Actor_MarkForDeath(&this->dyna.actor);
-    if (this->donkey != NULL) {
-        Actor_MarkForDeath(&this->donkey->actor);
-    }
+    //Actor_MarkForDeath(&this->dyna.actor);
+    //if (this->donkey != NULL) {
+    //    Actor_MarkForDeath(&this->donkey->actor);
+    //}
 }
 
 void func_80B79560(PlayState* play, ObjUm* this, s32 arg2, u16 textId) {
@@ -1727,6 +1729,8 @@ void ObjUm_UpdateAnim(ObjUm* this, PlayState* play, ObjUmAnimimations index) {
     }
 }
 
+static ObjUmAnimimations animState = OBJ_UM_ANIM_0;
+
 void ObjUm_Update(Actor* thisx, PlayState* play) {
     ObjUm* this = THIS;
 
@@ -1802,6 +1806,30 @@ void ObjUm_Update(Actor* thisx, PlayState* play) {
             this->eyeTexIndex = 0;
             break;
     }
+
+#if 0
+    {
+        Input *input = CONTROLLER1(&play->state);
+
+        if (CHECK_BTN_ALL(input->press.button, BTN_DLEFT)) {
+            if (animState > 0) {
+                animState--;
+            }
+        } else if (CHECK_BTN_ALL(input->press.button, BTN_DRIGHT)) {
+            if (animState < 3) {
+                animState++;
+            }
+        } else if (CHECK_BTN_ALL(input->press.button, BTN_DUP)) {
+            this->flags |= OBJ_UM_FLAG_0800;
+        } else if (CHECK_BTN_ALL(input->press.button, BTN_DDOWN)) {
+            this->flags &= ~OBJ_UM_FLAG_0800;
+        }
+
+        ObjUm_UpdateAnim(this, play, animState);
+
+        gSaveContext.save.time = CLOCK_TIME(18, 0) + 1;
+    }
+#endif
 }
 
 s32 ObjUm_OverrideLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3f* pos, Vec3s* rot, Actor* thisx) {
@@ -2023,6 +2051,180 @@ void func_80B7BEA4(Vec3f* cartBedPos, s16 arg1, Vec3f* arg2, u8 alpha, PlayState
     }
 }
 
+#ifndef NOT_DEBUG_PRINT
+#define BOOLSTR(x) ((x) ? "true" : "false")
+
+void ObjUm_PrintStruct(ObjUm* this, PlayState* play, GfxPrint* printer) {
+    s32 x = 31;
+    s32 y = 3;
+    s32 i;
+    uintptr_t actionFuncReloc;
+
+    GfxPrint_SetColor(printer, 255, 255, 255, 255);
+
+    GfxPrint_SetPos(printer, 28, 1);
+    GfxPrint_Printf(printer, "gTime:%X", gSaveContext.save.time);
+
+    GfxPrint_SetPos(printer, x - 7, ++y);
+    actionFuncReloc = (uintptr_t)this->actionFunc - (uintptr_t)func_80B77770 + SEGMENT_START(ovl_Obj_Um);
+    GfxPrint_Printf(printer, "actionFunc:%X", actionFuncReloc & 0x0000FFFF);
+
+    // GfxPrint_SetPos(printer, x-5, ++y);
+    // GfxPrint_Printf(printer, "wheelRot:%X", this->wheelRot);
+
+    GfxPrint_SetPos(printer, x - 1, ++y);
+    GfxPrint_Printf(printer, "type:%X", this->type);
+    // GfxPrint_SetPos(printer, x-8, ++y);
+    // GfxPrint_Printf(printer, "initialPath:%X", this->initialPathIdx);
+    GfxPrint_SetPos(printer, x - 2, ++y);
+    GfxPrint_Printf(printer, "! 2B4:%X", this->unk_2B4);
+
+    // GfxPrint_SetPos(printer, x-1, ++y);
+    // GfxPrint_Printf(printer, "path:%X", this->pathIdx);
+    GfxPrint_SetPos(printer, x - 5, ++y);
+    GfxPrint_Printf(printer, "pointIdx:%X", this->pointIndex);
+
+    // GfxPrint_SetPos(printer, x-2, ++y);
+    // GfxPrint_Printf(printer, "flags:%X", this->flags);
+
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "304:%i", this->unk_304);
+
+    // GfxPrint_SetPos(printer, x-2, ++y);
+    // GfxPrint_Printf(printer, "308.x:%f", this->unk_308.x);
+    // GfxPrint_SetPos(printer, x-2, ++y);
+    // GfxPrint_Printf(printer, "308.y:%f", this->unk_308.y);
+    // GfxPrint_SetPos(printer, x-2, ++y);
+    // GfxPrint_Printf(printer, "308.z:%f", this->unk_308.z);
+
+    if (this->type == OBJ_UM_TYPE_MILK_RUN_MINIGAME) {
+        GfxPrint_SetPos(printer, x - 8, ++y);
+        GfxPrint_Printf(printer, "potsLife[0]:%i", this->potsLife[0]);
+        GfxPrint_SetPos(printer, x - 8, ++y);
+        GfxPrint_Printf(printer, "potsLife[1]:%i", this->potsLife[1]);
+        GfxPrint_SetPos(printer, x - 8, ++y);
+        GfxPrint_Printf(printer, "potsLife[2]:%i", this->potsLife[2]);
+
+        // GfxPrint_SetPos(printer, x-9, ++y);
+        // GfxPrint_Printf(printer, "wasPotHit[0]:%i", this->wasPotHit[0]);
+        // GfxPrint_SetPos(printer, x-9, ++y);
+        // GfxPrint_Printf(printer, "wasPotHit[1]:%i", this->wasPotHit[1]);
+        // GfxPrint_SetPos(printer, x-9, ++y);
+        // GfxPrint_Printf(printer, "wasPotHit[2]:%i", this->wasPotHit[2]);
+    }
+
+    GfxPrint_SetPos(printer, x - 1, ++y);
+    GfxPrint_Printf(printer, "time:%X", this->lastTime);
+
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "4CC:%X", this->unk_4CC);
+
+    // GfxPrint_SetPos(printer, x, ++y);
+    // GfxPrint_Printf(printer, "4D8:%X", this->unk_4D8);
+
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "4DC:%X", this->unk_4DC);
+
+    if (this->type == OBJ_UM_TYPE_MILK_RUN_MINIGAME) {
+        GfxPrint_SetPos(printer, x - 10, ++y);
+        GfxPrint_Printf(printer, "arePotsBroken:%s", BOOLSTR(this->arePotsBroken));
+    }
+
+    GfxPrint_SetPos(printer, x-6, ++y);
+    GfxPrint_Printf(printer, "animState:%X", animState);
+
+
+    y = 20;
+
+    GfxPrint_SetPos(printer, 1, ++y);
+    GfxPrint_Printf(printer, "Flags:");
+    GfxPrint_SetPos(printer, 1, ++y);
+    GfxPrint_Printf(printer, "   8 4 2 1");
+    GfxPrint_SetPos(printer, 1, ++y);
+    GfxPrint_Printf(printer, "1  %i %i %i %i", (this->flags & 0x08) >> 3, (this->flags & 0x04) >> 2,
+                    (this->flags & 0x02) >> 1, this->flags & 0x01);
+    GfxPrint_SetPos(printer, 1, ++y);
+    GfxPrint_Printf(printer, "2  %i %i %i %i", (this->flags & 0x80) >> 7, (this->flags & 0x40) >> 6,
+                    (this->flags & 0x20) >> 5, (this->flags & 0x10) >> 4);
+    GfxPrint_SetPos(printer, 1, ++y);
+    GfxPrint_Printf(printer, "3  %i %i %i %i", (this->flags & 0x800) >> 11, (this->flags & 0x400) >> 10,
+                    (this->flags & 0x200) >> 9, (this->flags & 0x100) >> 8);
+    GfxPrint_SetPos(printer, 1, ++y);
+    GfxPrint_Printf(printer, "4      %i %i", (this->flags & 0x2000) >> 13, (this->flags & 0x1000) >> 12);
+
+    y = 0;
+    for (i = 0; i < 16; i++) {
+        static char* flagsMap[] = {
+            "OBJ_UM_FLAG_0001", "OBJ_UM_FLAG_MOVING",
+            "OBJ_UM_FLAG_0004", "OBJ_UM_FLAG_WAITING",
+            "OBJ_UM_FLAG_0010", "OBJ_UM_FLAG_DRAWN_FLOOR",
+            "OBJ_UM_FLAG_0040", "OBJ_UM_FLAG_PLAYING_MINIGAME",
+            "OBJ_UM_FLAG_0100", "OBJ_UM_FLAG_0200",
+            "OBJ_UM_FLAG_0400", "OBJ_UM_FLAG_0800",
+            "OBJ_UM_FLAG_1000", "OBJ_UM_FLAG_MINIGAME_FINISHED",
+        };
+
+        if (this->flags & (1 << i)) {
+            GfxPrint_SetPos(printer, 1, ++y);
+            GfxPrint_Printf(printer, "%s", &flagsMap[i][7]);
+        }
+    }
+
+    y = 20;
+    x = 29;
+
+    GfxPrint_SetPos(printer, x - 2, ++y);
+    GfxPrint_Printf(printer, "weekEvent");
+    // GfxPrint_SetPos(printer, x, ++y);
+    // GfxPrint_Printf(printer, "[22]&1: %i", gSaveContext.save.weekEventReg[22] & 1);
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "[31]&40:%i", gSaveContext.save.weekEventReg[31] & 0x40 ? 1 : 0);
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "[31]&80:%i", gSaveContext.save.weekEventReg[31] & 0x80 ? 1 : 0);
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "[34]&80:%i", gSaveContext.save.weekEventReg[34] & 0x80 ? 1 : 0);
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "[52]&01:%i", gSaveContext.save.weekEventReg[52] & 1 ? 1 : 0);
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "[52]&02:%i", gSaveContext.save.weekEventReg[52] & 2 ? 1 : 0);
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "[59]&02:%i", gSaveContext.save.weekEventReg[59] & 2 ? 1 : 0);
+
+
+}
+
+void ObjUm_DrawStruct(ObjUm* this, PlayState* play) {
+    GraphicsContext* gfxCtx = play->state.gfxCtx;
+    GfxPrint printer;
+    Gfx* gfxRef;
+    Gfx* gfx;
+
+    OPEN_DISPS(gfxCtx);
+
+    func_8012C4C0(gfxCtx);
+
+    GfxPrint_Init(&printer);
+
+    gfxRef = POLY_OPA_DISP;
+    gfx = Graph_GfxPlusOne(gfxRef);
+    gSPDisplayList(OVERLAY_DISP++, gfx);
+
+    GfxPrint_Open(&printer, gfx);
+
+    ObjUm_PrintStruct(this, play, &printer);
+
+    gfx = GfxPrint_Close(&printer);
+
+    gSPEndDisplayList(gfx++);
+    Graph_BranchDlist(gfxRef, gfx);
+    POLY_OPA_DISP = gfx;
+
+    GfxPrint_Destroy(&printer);
+
+    CLOSE_DISPS(gfxCtx);
+}
+#endif
+
 void ObjUm_Draw(Actor* thisx, PlayState* play) {
     s32 pad;
     ObjUm* this = THIS;
@@ -2036,4 +2238,8 @@ void ObjUm_Draw(Actor* thisx, PlayState* play) {
     sp34.z = 0.7f;
     func_80B7BEA4(&this->cartBedPos, this->dyna.actor.shape.rot.y, &sp34, 180, play);
     func_80B77770(this, play);
+
+#ifndef NOT_DEBUG_PRINT
+    ObjUm_DrawStruct(this, play);
+#endif
 }

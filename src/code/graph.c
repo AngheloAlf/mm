@@ -322,11 +322,20 @@ void Graph_ExecuteAndDraw(GraphicsContext* gfxCtx, GameState* gameState) {
     }
 }
 
+#include "overlays/gamestates/ovl_select/z_select.h"
+
 void Graph_Update(GraphicsContext* gfxCtx, GameState* gameState) {
     gameState->unk_A3 = 0;
 
     Graph_UpdateGame(gameState);
     Graph_ExecuteAndDraw(gfxCtx, gameState);
+
+    if (CHECK_BTN_ALL(gameState->input[0].press.button, BTN_Z) &&
+        CHECK_BTN_ALL(gameState->input[0].cur.button, BTN_L | BTN_R)) {
+        gSaveContext.gameMode = 0;
+        SET_NEXT_GAMESTATE(gameState, Select_Init, SelectContext);
+        gameState->running = false;
+    }
 }
 
 void Graph_ThreadEntry(void* arg) {

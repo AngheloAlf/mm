@@ -822,7 +822,7 @@ void Sram_InitDebugSave(void) {
     gSaveContext.save.horseData.yaw = -0x7554;
 
     gSaveContext.save.entranceIndex = 0x1C00;
-    gSaveContext.save.isFirstCycle = true;
+    //gSaveContext.save.isFirstCycle = true;
 
     //
     gSaveContext.save.weekEventReg[0x0F] |= 0x20;
@@ -1430,6 +1430,7 @@ void Sram_InitSave(FileChooseContext* fileChooseCtx2, SramContext* sramCtx) {
 
     if (gSaveContext.unk_3F3F) {
         Sram_InitNewSave();
+        Sram_InitDebugSave();
         if (fileChooseCtx->unk_24480 == 0) {
             gSaveContext.save.cutscene = 0xFFF0;
         }
