@@ -327,6 +327,20 @@ void Graph_Update(GraphicsContext* gfxCtx, GameState* gameState) {
 
     Graph_UpdateGame(gameState);
     Graph_ExecuteAndDraw(gfxCtx, gameState);
+
+
+#ifdef AZ
+    {
+        Input* controller1 = CONTROLLER1(gameState);
+
+        if (CHECK_BTN_ALL(controller1->press.button, BTN_Z) &&
+            CHECK_BTN_ALL(controller1->cur.button, BTN_L | BTN_R)) {
+            gSaveContext.gameMode = 0;
+            SET_NEXT_GAMESTATE(gameState, Select_Init, SelectContext);
+            gameState->running = false;
+        }
+    }
+#endif
 }
 
 void Graph_ThreadEntry(void* arg) {
