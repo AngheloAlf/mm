@@ -25,12 +25,21 @@ RUN_CC_CHECK ?= 1
 OBJDUMP_BUILD ?= 0
 # Number of threads to disassmble, extract, and compress with
 N_THREADS ?= $(shell nproc)
+# 
+AZ ?= 1
 
 #### Setup ####
 
+ifneq ($(AZ), 0)
+	NON_MATCHING := 1
+	COMPARE := 1
+	CFLAGS += -DAZ=1
+	CPPFLAGS += -DAZ=1
+endif
+
 ifeq ($(NON_MATCHING),1)
-  CFLAGS := -DNON_MATCHING
-  CPPFLAGS := -DNON_MATCHING
+  CFLAGS += -DNON_MATCHING
+  CPPFLAGS += -DNON_MATCHING
   COMPARE := 0
 endif
 
