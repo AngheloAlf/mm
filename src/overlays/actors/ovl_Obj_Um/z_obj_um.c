@@ -41,7 +41,7 @@
  * - gSaveContext.save.weekEventReg[52] |= 1: Won Milk Run minigame
  *     At least one pot is safe. Turns off the "Lose Milk Run minigame"
  * - gSaveContext.save.weekEventReg[52] |= 2: Lose Milk Run minigame
- *     Every pot was broken by bandits. Turns off the ""Win" Milk Run minigame"
+ *     Every pot was broken by bandits. Turns off the "Win Milk Run minigame"
  * - gSaveContext.save.weekEventReg[59] |= 2: ?
  *     Passed through Milk Road after winning the Milk Run
  *
@@ -76,15 +76,15 @@ const ActorInit Obj_Um_InitVars = {
 };
 
 static TexturePtr sEyeTextures[] = {
-    gUmCremiaEyeOpenTex,    gUmCremiaEyeHalfTex,  gUmCremiaEyeClosedTex,
-    gUmCremiaEyePleasedTex, gUmCremiaEyeAngryTex, gUmCremiaEyeSadTex,
+    gUmCremiaEyeOpenTex,  gUmCremiaEyeHalfTex,  gUmCremiaEyeClosedTex,
+    gUmCremiaEyeHappyTex, gUmCremiaEyeAngryTex, gUmCremiaEyeSadTex,
 };
 
 static TexturePtr sMouthTextures[] = {
-    gUmMouthNeutralTex,
+    gUmMouthNormalTex,
     gUmMouthHappyTex,
-    gUmMouthOpenTex,
-    gUmMouthSadTex,
+    gUmMouthHangingOpenTex,
+    gUmMouthFrownTex,
 };
 
 static ColliderCylinderInit sCylinderInit = {
@@ -276,7 +276,6 @@ s32 ObjUm_InitBandits(ObjUm* this, PlayState* play) {
 
     return 0;
 }
-
 typedef struct {
     /* 0x00 */ s32 unk_00;
     /* 0x04 */ s32 unk_04;
@@ -512,7 +511,7 @@ s32 func_80B78764(ObjUm* this, PlayState* play, EnHorse* bandit1, EnHorse* bandi
     return 0;
 }
 
-// ObjUm_UpdateBandits...something
+// ObjUm_UpdateBanditsDamage?
 s32 func_80B78A54(ObjUm* this, PlayState* play, s32 arg2, EnHorse* arg3, EnHorse* arg4) {
     if (this->banditsCollisions[arg2].base.acFlags & AC_HIT) {
         if (arg3->unk_550 == 3) {
@@ -836,12 +835,12 @@ s32 func_80B795A0(PlayState* play, ObjUm* this, s32 arg2) {
                 func_8019F208();
                 gSaveContext.save.weekEventReg[31] |= 0x80;
                 play->nextEntranceIndex = 0x64B0;
-                if (player->stateFlags1 & 0x800000) {
+                if (player->stateFlags1 & PLAYER_STATE1_800000) {
                     D_801BDAA0 = 1;
                 }
-                play->unk_1887F = 0x40;
-                gSaveContext.nextTransition = 3;
-                play->sceneLoadFlag = 0x14;
+                play->transitionType = TRANS_TYPE_64;
+                gSaveContext.nextTransitionType = TRANS_TYPE_03;
+                play->transitionTrigger = TRANS_TRIGGER_START;
                 phi_v1 = true;
             } else {
                 Actor_ContinueText(play, &this->dyna.actor, 0x33B5);
@@ -890,12 +889,12 @@ s32 func_80B79734(PlayState* play, ObjUm* this, s32 arg2) {
     s32 ret = false;
 
     switch (Message_GetState(msgCtx)) {
-        case 2:
+        case TEXT_STATE_CLOSING:
             func_80B79560(play, this, arg2, this->dyna.actor.textId);
             return true;
 
-        case 4:
-        case 5:
+        case TEXT_STATE_CHOICE:
+        case TEXT_STATE_5:
             if (Message_ShouldAdvance(play) && func_80B795A0(play, this, arg2)) {
                 msgCtx->msgMode = 0x43;
                 ret = true;
@@ -997,7 +996,7 @@ void ObjUm_RanchWait(ObjUm* this, PlayState* play) {
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_IDLE);
     this->flags |= OBJ_UM_FLAG_WAITING;
     if ((gSaveContext.save.time > CLOCK_TIME(18, 0)) && (gSaveContext.save.time <= CLOCK_TIME(19, 0))) {
-        if (!(player->stateFlags1 & 0x800000)) {
+        if (!(player->stateFlags1 & PLAYER_STATE1_800000)) {
             func_80B7984C(play, this, 0, &this->unk_2B4);
         }
     } else if (!func_80B79A24(this->unk_2B4) && (gSaveContext.save.time > CLOCK_TIME(19, 0))) {
@@ -1133,7 +1132,7 @@ ObjUmPathState ObjUm_UpdatePath(ObjUm* this, PlayState* play) {
 }
 
 void ObjUm_RanchWaitPathFinished(ObjUm* this, PlayState* play) {
-    this->wheelRot += 1000;
+    this->wheelRot += 0x3E8;
     this->flags &= ~OBJ_UM_FLAG_WAITING;
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_TROT);
 
@@ -1143,9 +1142,9 @@ void ObjUm_RanchWaitPathFinished(ObjUm* this, PlayState* play) {
             if (gSaveContext.save.weekEventReg[31] & 0x80) {
                 ActorCutscene_Stop(this->dyna.actor.cutscene);
                 play->nextEntranceIndex = 0x3E50;
-                play->unk_1887F = 0x40;
-                gSaveContext.nextTransition = 3;
-                play->sceneLoadFlag = 0x14;
+                play->transitionType = TRANS_TYPE_64;
+                gSaveContext.nextTransitionType = TRANS_TYPE_03;
+                play->transitionTrigger = TRANS_TRIGGER_START;
             } else {
                 func_80B79524(this);
             }
@@ -1200,7 +1199,7 @@ void func_80B7A144(ObjUm* this, PlayState* play) {
     ObjUm_SetPlayerPosition(this, play);
     this->flags |= OBJ_UM_FLAG_0100;
     this->flags |= OBJ_UM_FLAG_0004;
-    player->stateFlags1 |= 0x20;
+    player->stateFlags1 |= PLAYER_STATE1_20;
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_IDLE);
     ObjUm_SetupAction(this, ObjUm_RanchStartCs);
 }
@@ -1239,16 +1238,16 @@ void func_80B7A240(ObjUm* this, PlayState* play) {
 }
 
 void func_80B7A2AC(ObjUm* this, PlayState* play) {
-    this->wheelRot += 1000;
+    this->wheelRot += 0x3E8;
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_TROT);
 
     switch (ObjUm_UpdatePath(this, play)) {
         case OBJUM_PATH_STATE_1:
         case OBJUM_PATH_STATE_FINISH:
             play->nextEntranceIndex = 0xCE40;
-            play->unk_1887F = 0x40;
-            gSaveContext.nextTransition = 3;
-            play->sceneLoadFlag = 0x14;
+            play->transitionType = TRANS_TYPE_64;
+            gSaveContext.nextTransitionType = TRANS_TYPE_03;
+            play->transitionTrigger = TRANS_TRIGGER_START;
             break;
 
         default:
@@ -1277,7 +1276,7 @@ void ObjUm_PreMilkRunStartCs(ObjUm* this, PlayState* play) {
 
     ObjUm_SetPlayerPosition(this, play);
     this->flags |= OBJ_UM_FLAG_0004;
-    player->stateFlags1 |= 0x20;
+    player->stateFlags1 |= PLAYER_STATE1_20;
     if (ActorCutscene_GetCanPlayNext(this->dyna.actor.cutscene)) {
         ActorCutscene_StartAndSetUnkLinkFields(this->dyna.actor.cutscene, &this->dyna.actor);
         this->lastTime = gSaveContext.save.time;
@@ -1290,7 +1289,7 @@ void ObjUm_PreMilkRunStartCs(ObjUm* this, PlayState* play) {
 void ObjUm_RunMinigame(ObjUm* this, PlayState* play) {
     ObjUm_SetPlayerPosition(this, play);
     ObjUm_RotatePlayer(this, play, 0x7FFF);
-    this->wheelRot += 2000;
+    this->wheelRot += 0x7D0;
     this->flags |= OBJ_UM_FLAG_0010;
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_GALLOP);
 
@@ -1302,18 +1301,18 @@ void ObjUm_RunMinigame(ObjUm* this, PlayState* play) {
             gSaveContext.nightSeqIndex = 0xFF;
 
             if (!(gSaveContext.save.weekEventReg[52] & 1) && !(gSaveContext.save.weekEventReg[52] & 2)) {
-                if (this->arePotsBroken == false) {
+                if (!this->areAllPotsBroken) {
                     play->nextEntranceIndex = 0x3E60;
-                    play->unk_1887F = 0x40;
-                    gSaveContext.nextTransition = 3;
-                    play->sceneLoadFlag = 0x14;
+                    play->transitionType = TRANS_TYPE_64;
+                    gSaveContext.nextTransitionType = TRANS_TYPE_03;
+                    play->transitionTrigger = TRANS_TRIGGER_START;
                     gSaveContext.save.weekEventReg[52] |= 1;
                     gSaveContext.save.weekEventReg[52] &= (u8)~2;
                 } else {
                     play->nextEntranceIndex = 0x6480;
-                    play->unk_1887F = 0x40;
-                    gSaveContext.nextTransition = 3;
-                    play->sceneLoadFlag = 0x14;
+                    play->transitionType = TRANS_TYPE_64;
+                    gSaveContext.nextTransitionType = TRANS_TYPE_03;
+                    play->transitionTrigger = TRANS_TRIGGER_START;
                     gSaveContext.save.weekEventReg[52] |= 2;
                     gSaveContext.save.weekEventReg[52] &= (u8)~1;
                 }
@@ -1332,7 +1331,7 @@ void func_80B7A614(ObjUm* this, PlayState* play) {
 
     ObjUm_SetPlayerPosition(this, play);
     ObjUm_RotatePlayer(this, play, 0x7FFF);
-    this->wheelRot += 2000;
+    this->wheelRot += 0x7D0;
     this->flags |= OBJ_UM_FLAG_0010;
     this->flags |= OBJ_UM_FLAG_PLAYING_MINIGAME;
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_GALLOP);
@@ -1343,18 +1342,16 @@ void func_80B7A614(ObjUm* this, PlayState* play) {
         if (this->unk_4DC == 1) {
             s32 i;
 
-            this->arePotsBroken = true;
+            this->areAllPotsBroken = true;
 
             for (i = 0; i < ARRAY_COUNT(this->potsLife); i++) {
                 if (this->potsLife[i] != 1) {
-                    this->arePotsBroken = false;
+                    this->areAllPotsBroken = false;
                     break;
                 }
             }
 
             this->flags |= OBJ_UM_FLAG_MINIGAME_FINISHED;
-
-        dummy_label:;
         }
 
         this->unk_4DC++;
@@ -1363,7 +1360,7 @@ void func_80B7A614(ObjUm* this, PlayState* play) {
     if (this->flags & OBJ_UM_FLAG_MINIGAME_FINISHED) {
         s32 sp20 = ActorCutscene_GetAdditionalCutscene(this->dyna.actor.cutscene);
 
-        if (this->arePotsBroken) {
+        if (this->areAllPotsBroken) {
             sp20 = ActorCutscene_GetAdditionalCutscene(sp20);
         }
         if (ActorCutscene_GetCanPlayNext(sp20)) {
@@ -1383,8 +1380,8 @@ void func_80B7A7AC(ObjUm* this, PlayState* play) {
     Player* player = GET_PLAYER(play);
 
     this->unk_4DC = 0;
-    this->arePotsBroken = false;
-    player->stateFlags1 &= ~0x20;
+    this->areAllPotsBroken = false;
+    player->stateFlags1 &= ~PLAYER_STATE1_20;
     ObjUm_SetPlayerPosition(this, play);
     ObjUm_RotatePlayer(this, play, 0x7FFF);
     func_80B78EBC(this, play);
@@ -1502,7 +1499,7 @@ void func_80B7AB78(ObjUm* this, PlayState* play) {
 }
 
 void func_80B7ABE4(ObjUm* this, PlayState* play) {
-    this->wheelRot += 1000;
+    this->wheelRot += 0x3E8;
 
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_TROT);
     switch (ObjUm_UpdatePath(this, play)) {
@@ -1525,7 +1522,7 @@ void func_80B7ABE4(ObjUm* this, PlayState* play) {
 void ObjUm_StartCs(ObjUm* this, PlayState* play) {
     Player* player = GET_PLAYER(play);
 
-    player->stateFlags1 |= 0x20;
+    player->stateFlags1 |= PLAYER_STATE1_20;
     ObjUm_SetPlayerPosition(this, play);
     ObjUm_RotatePlayer(this, play, 0);
     this->flags |= OBJ_UM_FLAG_0004;
@@ -1542,11 +1539,11 @@ void ObjUm_StartCs(ObjUm* this, PlayState* play) {
 void ObjUm_PostMilkRunWaitPathFinished(ObjUm* this, PlayState* play) {
     Player* player = GET_PLAYER(play);
 
-    player->stateFlags1 |= 0x20;
+    player->stateFlags1 |= PLAYER_STATE1_20;
     ObjUm_SetPlayerPosition(this, play);
     ObjUm_RotatePlayer(this, play, 0);
     this->flags |= OBJ_UM_FLAG_0004;
-    this->wheelRot += 1000;
+    this->wheelRot += 0x3E8;
     ObjUm_UpdateAnim(this, play, OBJ_UM_ANIM_TROT);
 
     if ((ObjUm_UpdatePath(this, play) == OBJUM_PATH_STATE_4) && !(gSaveContext.save.weekEventReg[59] & 2)) {
@@ -1555,9 +1552,9 @@ void ObjUm_PostMilkRunWaitPathFinished(ObjUm* this, PlayState* play) {
         gSaveContext.save.weekEventReg[59] |= 2;
         gSaveContext.nextCutsceneIndex = 0xFFF3;
         play->nextEntranceIndex = 0x5400;
-        play->unk_1887F = 0x40;
-        gSaveContext.nextTransition = 3;
-        play->sceneLoadFlag = 0x14;
+        play->transitionType = TRANS_TYPE_64;
+        gSaveContext.nextTransitionType = TRANS_TYPE_03;
+        play->transitionTrigger = TRANS_TRIGGER_START;
         gSaveContext.save.time += CLOCK_TIME(1, 0) + 2;
     }
     Actor_MoveWithGravity(&this->dyna.actor);
@@ -1566,7 +1563,7 @@ void ObjUm_PostMilkRunWaitPathFinished(ObjUm* this, PlayState* play) {
 void ObjUm_PostMilkRunStartCs(ObjUm* this, PlayState* play) {
     Player* player = GET_PLAYER(play);
 
-    player->stateFlags1 |= 0x20;
+    player->stateFlags1 |= PLAYER_STATE1_20;
     ObjUm_SetPlayerPosition(this, play);
     ObjUm_RotatePlayer(this, play, 0);
     this->flags |= OBJ_UM_FLAG_0004;
@@ -1636,8 +1633,8 @@ void ObjUm_DefaultAnim(ObjUm* this, PlayState* play) {
 
 typedef struct {
     /* 0x00 */ AnimationHeader* anim;
-    /* 0x04 */ s32 doesMove;
-} struct_80B7C25C; // size = 0x08
+    /* 0x04 */ s32 doesMove; // `true` if the animation is intended to be used while the actor is moving
+} struct_80B7C25C;           // size = 0x08
 
 struct_80B7C25C sUmAnims[] = {
     { &gUmTrotAnim, true },      // OBJ_UM_ANIM_TROT
@@ -1848,7 +1845,7 @@ s32 ObjUm_OverrideLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3f* p
         }
         Matrix_MultVec3f(&sp50, &this->unk_2DC);
     } else if ((limbIndex == UM_LIMB_CREMIA_HEAD) && (this->flags & OBJ_UM_FLAG_WAITING)) {
-        if ((SubS_AngleDiffLessEqual(this->dyna.actor.shape.rot.y, 0x4E20, this->dyna.actor.yawTowardsPlayer) != 0) &&
+        if (SubS_AngleDiffLessEqual(this->dyna.actor.shape.rot.y, 0x4E20, this->dyna.actor.yawTowardsPlayer) &&
             (this->dyna.actor.xzDistToPlayer < 500.0f)) {
             s16 sp3E;
             Vec3f sp30 = player->actor.world.pos;
@@ -1889,7 +1886,7 @@ void ObjUm_SpawnFragments(PlayState* play, Vec3f* potPos) {
     s32 i;
     Vec3f sp70;
 
-    EffectSsHitMark_SpawnFixedScale(play, 0, potPos);
+    EffectSsHitmark_SpawnFixedScale(play, 0, potPos);
 
     for (i = 0; i < 20; i++) {
         sp70.x = (Rand_ZeroOne() * 20.0f) - 10.0f;
@@ -1965,7 +1962,7 @@ void ObjUm_PostLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3s* rot,
                 if (this->potsLife[i] == 1) {
                     ObjUm_SpawnFragments(play, &calcPotPos);
                 } else {
-                    EffectSsHitMark_SpawnFixedScale(play, 0, &calcPotPos);
+                    EffectSsHitmark_SpawnFixedScale(play, 0, &calcPotPos);
                 }
             }
             Matrix_Pop();
@@ -1984,7 +1981,7 @@ void ObjUm_PostLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3s* rot,
                     }
                 }
             } else {
-                // !@bug: skips CLOSE_DISPS
+                //! @bug skips CLOSE_DISPS
                 return;
             }
         }
