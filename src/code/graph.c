@@ -336,7 +336,7 @@ void Graph_Update(GraphicsContext* gfxCtx, GameState* gameState) {
         if (CHECK_BTN_ALL(controller1->press.button, BTN_Z) &&
             CHECK_BTN_ALL(controller1->cur.button, BTN_L | BTN_R)) {
             gSaveContext.gameMode = 0;
-            SET_NEXT_GAMESTATE(gameState, Select_Init, SelectContext);
+            SET_NEXT_GAMESTATE(gameState, MapSelect_Init, MapSelectState);
             gameState->running = false;
         }
     }
