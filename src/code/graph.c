@@ -328,7 +328,6 @@ void Graph_Update(GraphicsContext* gfxCtx, GameState* gameState) {
     Graph_UpdateGame(gameState);
     Graph_ExecuteAndDraw(gfxCtx, gameState);
 
-
 #ifdef AZ
     {
         Input* controller1 = CONTROLLER1(gameState);

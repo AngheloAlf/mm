@@ -29,4 +29,14 @@
     } \
     (void)0
 
+#ifndef AZ_TRANSLATE_STR
+#define AZ_TRANSLATE_STR 0
+#endif
+
+#if AZ_TRANSLATE_STR == 0
+#define AZ_MULTILANG_STR(orig, translation) orig
+#else
+#define AZ_MULTILANG_STR(orig, translation) translation
+#endif
+
 #endif
