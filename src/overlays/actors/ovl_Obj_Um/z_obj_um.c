@@ -2108,7 +2108,7 @@ void ObjUm_PrintStruct(ObjUm* this, PlayState* play, GfxPrint* printer) {
 
     if (this->type == OBJ_UM_TYPE_MILK_RUN_MINIGAME) {
         GfxPrint_SetPos(printer, x - 10, ++y);
-        GfxPrint_Printf(printer, "arePotsBroken:%s", BOOLSTR(this->arePotsBroken));
+        GfxPrint_Printf(printer, "arePotsBroken:%s", BOOLSTR(this->areAllPotsBroken));
     }
 
     ++y;
