@@ -21,6 +21,7 @@ void az_ActorMenu_CallbackReturn(GameState *gameState, void* param, void** data)
 }
 
 typedef enum az_MenuElementType {
+    AZ_MENUELE_NONE = 0,
     AZ_MENUELE_LABEL,
     AZ_MENUELE_BUTTON,
     AZ_MENUELE_INPUT_U8,
@@ -30,8 +31,8 @@ typedef enum az_MenuElementType {
 } az_MenuElementType;
 
 typedef struct {
-    const char *label;
     az_MenuElementType type;
+    const char *label;
     az_MenuElementFunc callback;
     void* param;
     void* data;
@@ -77,13 +78,13 @@ void az_ActorMenu_CallbackFetchFromPlayer(GameState *gameState, void* param, voi
 }
 
 az_MenuElement2 sAzActorMenuElements[][AZ_MENU_COLUMN_MAX] = {
-    { { "Return", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackReturn, NULL, NULL }, },
+    { { AZ_MENUELE_BUTTON, "Return", az_ActorMenu_CallbackReturn, NULL, NULL }, },
     { 0 },
-    { { "Actor ID", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_ActorId } },
-    { { "Params  ", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Params } },
-    { { "Position", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.x }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.y }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.z } },
-    { { "Rotation", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.x }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.y }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.z } },
-    { { "Spawn   ", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackSpawn, NULL, NULL }, { "Fetch from Player", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackFetchFromPlayer, NULL, NULL } },
+    { { AZ_MENUELE_LABEL,  "Actor ID", NULL, NULL, NULL }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_ActorId } },
+    { { AZ_MENUELE_LABEL,  "Params  ", NULL, NULL, NULL }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Params } },
+    { { AZ_MENUELE_LABEL,  "Position", NULL, NULL, NULL }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Position.x }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Position.y }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Position.z } },
+    { { AZ_MENUELE_LABEL,  "Rotation", NULL, NULL, NULL }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Rotation.x }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Rotation.y }, { AZ_MENUELE_INPUT_U16, NULL, NULL, NULL, &sAzActorMenu_Rotation.z } },
+    { { AZ_MENUELE_BUTTON, "Spawn   ", az_ActorMenu_CallbackSpawn, NULL, NULL }, { AZ_MENUELE_BUTTON, "Fetch from Player", az_ActorMenu_CallbackFetchFromPlayer, NULL, NULL } },
 };
 
 void az_ActorMenu_Update(GameState *gameState) {
@@ -99,6 +100,9 @@ void az_ActorMenu_Update(GameState *gameState) {
 
         if (CHECK_BTN_ALL(controller1->press.button, BTN_DUP)) {
             switch (entry->type) {
+                case AZ_MENUELE_NONE:
+                    break;
+
                 case AZ_MENUELE_LABEL:
                 case AZ_MENUELE_BUTTON:
                     break;
@@ -123,6 +127,9 @@ void az_ActorMenu_Update(GameState *gameState) {
             }
         } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DDOWN)) {
             switch (entry->type) {
+                case AZ_MENUELE_NONE:
+                    break;
+
                 case AZ_MENUELE_LABEL:
                 case AZ_MENUELE_BUTTON:
                     break;
@@ -149,6 +156,9 @@ void az_ActorMenu_Update(GameState *gameState) {
             sAzActorMenuState.subSelectionIndex--;
             if (sAzActorMenuState.subSelectionIndex < 0) {
                 switch (entry->type) {
+                case AZ_MENUELE_NONE:
+                    break;
+
                     case AZ_MENUELE_LABEL:
                     case AZ_MENUELE_BUTTON:
                         break;
@@ -172,6 +182,9 @@ void az_ActorMenu_Update(GameState *gameState) {
         } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DLEFT)) {
             sAzActorMenuState.subSelectionIndex++;
             switch (entry->type) {
+                case AZ_MENUELE_NONE:
+                    break;
+
                 case AZ_MENUELE_LABEL:
                 case AZ_MENUELE_BUTTON:
                     break;
@@ -213,11 +226,11 @@ void az_ActorMenu_Update(GameState *gameState) {
                 sAzActorMenuState.ySelection = ARRAY_COUNT(sAzActorMenuElements) -1;
             }
 
-            if (sAzActorMenuElements[sAzActorMenuState.ySelection][0].label == NULL) {
+            if (sAzActorMenuElements[sAzActorMenuState.ySelection][0].type == AZ_MENUELE_NONE) {
                 continue;
             }
 
-            while (sAzActorMenuState.xSelection > 0 && sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].label == NULL) {
+            while (sAzActorMenuState.xSelection > 0 && sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].type == AZ_MENUELE_NONE) {
                 sAzActorMenuState.xSelection--;
             }
             break;
@@ -227,25 +240,25 @@ void az_ActorMenu_Update(GameState *gameState) {
             sAzActorMenuState.ySelection++;
             sAzActorMenuState.ySelection %= ARRAY_COUNT(sAzActorMenuElements);
 
-            if (sAzActorMenuElements[sAzActorMenuState.ySelection][0].label == NULL) {
+            if (sAzActorMenuElements[sAzActorMenuState.ySelection][0].type == AZ_MENUELE_NONE) {
                 continue;
             }
 
-            while (sAzActorMenuState.xSelection > 0 && sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].label == NULL) {
+            while (sAzActorMenuState.xSelection > 0 && sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].type == AZ_MENUELE_NONE) {
                 sAzActorMenuState.xSelection--;
             }
             break;
         }
     } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DRIGHT)) {
         sAzActorMenuState.xSelection++;
-        if (sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].label == NULL) {
+        if (sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].type == AZ_MENUELE_NONE) {
             sAzActorMenuState.xSelection = 0;
         }
     } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DLEFT)) {
         sAzActorMenuState.xSelection--;
         if (sAzActorMenuState.xSelection < 0) {
             sAzActorMenuState.xSelection = AZ_MENU_COLUMN_MAX-1;
-            while (sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].label == NULL) {
+            while (sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].type == AZ_MENUELE_NONE) {
                 sAzActorMenuState.xSelection--;
             }
         }
@@ -255,6 +268,9 @@ void az_ActorMenu_Update(GameState *gameState) {
         az_MenuElement2* entry = &sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection];
 
         switch (entry->type) {
+            case AZ_MENUELE_NONE:
+                break;
+
             case AZ_MENUELE_BUTTON:
                 if (entry->callback != NULL){
                     entry->callback(gameState, entry->param, &entry->data);
@@ -281,14 +297,10 @@ void az_ActorMenu_PrintElements(GameState *gameState, GfxPrint *printer) {
     s32 i;
     s32 j;
 
-    //GfxPrint_SetPos(printer, 1, 1);
-    //GfxPrint_SetColor(printer, 200, 200, 55, 255);
-    //GfxPrint_Printf(printer, "%i", sAzActorMenuState.subSelectionIndex);
-
     for (j = 0; j < ARRAY_COUNT(sAzActorMenuElements); j++) {
         GfxPrint_SetPos(printer, x, y+j);
 
-        for (i = 0; i < AZ_MENU_COLUMN_MAX && sAzActorMenuElements[j][i].label != NULL; i++) {
+        for (i = 0; i < AZ_MENU_COLUMN_MAX && sAzActorMenuElements[j][i].type != AZ_MENUELE_NONE; i++) {
             az_MenuElement2* entry = &sAzActorMenuElements[j][i];
 
             if (j == sAzActorMenuState.ySelection && i == sAzActorMenuState.xSelection) {
@@ -301,6 +313,9 @@ void az_ActorMenu_PrintElements(GameState *gameState, GfxPrint *printer) {
                     s32 k;
 
                     switch (entry->type) {
+                        case AZ_MENUELE_NONE:
+                            break;
+
                         case AZ_MENUELE_LABEL:
                         case AZ_MENUELE_BUTTON:
                             break;
@@ -347,6 +362,9 @@ void az_ActorMenu_PrintElements(GameState *gameState, GfxPrint *printer) {
             }
 
             switch (entry->type) {
+                case AZ_MENUELE_NONE:
+                    break;
+
                 case AZ_MENUELE_LABEL:
                 case AZ_MENUELE_BUTTON:
                     GfxPrint_Printf(printer, "%s ", entry->label);
