@@ -2,6 +2,8 @@
 #include "system_malloc.h"
 #include "z64rumble.h"
 
+#include "az/az.h"
+
 s32 gFramerateDivisor = 1;
 f32 gFramerateDivisorF = 1.0f;
 f32 gFramerateDivisorHalf = 1.0f / 2.0f;
@@ -139,6 +141,8 @@ void Game_Update(GameState* gameState) {
     GameState_SetFrameBuffer(gameState->gfxCtx);
 
     gameState->main(gameState);
+
+    AZ_MAIN(gameState);
 
     if (R_PAUSE_MENU_MODE != 2) {
         GameState_Draw(gameState, gfxCtx);

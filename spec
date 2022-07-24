@@ -647,6 +647,11 @@ beginseg
     include "build/data/code/gspF3DZEX2.NoN.PosLight.fifo.rodata.o"
     include "build/data/code/gspS2DEX2.fifo.rodata.o"
     include "build/data/code/njpgdspMain.rodata.o"
+#if AZ != 0
+    include "build/src/code/az/az_Main.o"
+    include "build/src/code/az/az_Menus.o"
+    include "build/src/code/az/menus/az_MainMenu.o"
+#endif
 endseg
 
 beginseg
