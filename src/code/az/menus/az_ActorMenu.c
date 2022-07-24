@@ -10,6 +10,7 @@ typedef struct az_MenuState2 {
     s32 ySelection;
     s32 xSelection;
     s32 inSelection;
+    s32 subSelectionIndex;
 } az_MenuState2;
 
 az_MenuState2 sAzActorMenuState;
@@ -69,7 +70,16 @@ void az_ActorMenu_Update(GameState *gameState) {
                     break;
 
                 case AZ_MENUELE_INPUT_U16:
-                    (*(u16*)entry->data)++;
+                    // TODO: do some bitwise magic
+                    if (sAzActorMenuState.subSelectionIndex == 0) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0xFFF0) | (((*(u16*)entry->data) + 0x0001 ) & 0x000F);
+                    } else if (sAzActorMenuState.subSelectionIndex == 1) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0xFF0F) | (((*(u16*)entry->data) + 0x0010 ) & 0x00F0);
+                    } else if (sAzActorMenuState.subSelectionIndex == 2) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0xF0FF) | (((*(u16*)entry->data) + 0x0100 ) & 0x0F00);
+                    } else if (sAzActorMenuState.subSelectionIndex == 3) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0x0FFF) | (((*(u16*)entry->data) + 0x1000 ) & 0xF000);
+                    }
                     break;
 
                 case AZ_MENUELE_INPUT_U32:
@@ -90,11 +100,73 @@ void az_ActorMenu_Update(GameState *gameState) {
                     break;
 
                 case AZ_MENUELE_INPUT_U16:
-                    (*(u16*)entry->data)--;
+                    //(*(u16*)entry->data)--;
+                    // TODO: do some bitwise magic
+                    if (sAzActorMenuState.subSelectionIndex == 0) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0xFFF0) | (((*(u16*)entry->data) - 0x0001 ) & 0x000F);
+                    } else if (sAzActorMenuState.subSelectionIndex == 1) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0xFF0F) | (((*(u16*)entry->data) - 0x0010 ) & 0x00F0);
+                    } else if (sAzActorMenuState.subSelectionIndex == 2) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0xF0FF) | (((*(u16*)entry->data) - 0x0100 ) & 0x0F00);
+                    } else if (sAzActorMenuState.subSelectionIndex == 3) {
+                        (*(u16*)entry->data) = ((*(u16*)entry->data) & 0x0FFF) | (((*(u16*)entry->data) - 0x1000 ) & 0xF000);
+                    }
                     break;
 
                 case AZ_MENUELE_INPUT_U32:
                     (*(u32*)entry->data)--;
+                    break;
+
+                case AZ_MENUELE_INPUT_LIST:
+                    break;
+            }
+        } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DRIGHT)) {
+            sAzActorMenuState.subSelectionIndex--;
+            if (sAzActorMenuState.subSelectionIndex < 0) {
+                switch (entry->type) {
+                    case AZ_MENUELE_LABEL:
+                    case AZ_MENUELE_BUTTON:
+                        break;
+
+                    case AZ_MENUELE_INPUT_U8:
+                        sAzActorMenuState.subSelectionIndex = 1;
+                        break;
+
+                    case AZ_MENUELE_INPUT_U16:
+                        sAzActorMenuState.subSelectionIndex = 3;
+                        break;
+
+                    case AZ_MENUELE_INPUT_U32:
+                        sAzActorMenuState.subSelectionIndex = 7;
+                        break;
+
+                    case AZ_MENUELE_INPUT_LIST:
+                        break;
+                }
+            }
+        } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DLEFT)) {
+            sAzActorMenuState.subSelectionIndex++;
+            switch (entry->type) {
+                case AZ_MENUELE_LABEL:
+                case AZ_MENUELE_BUTTON:
+                    break;
+
+                case AZ_MENUELE_INPUT_U8:
+                    if (sAzActorMenuState.subSelectionIndex >= 2) {
+                        sAzActorMenuState.subSelectionIndex = 0;
+                    }
+                    break;
+
+                case AZ_MENUELE_INPUT_U16:
+                    if (sAzActorMenuState.subSelectionIndex >= 4) {
+                        sAzActorMenuState.subSelectionIndex = 0;
+                    }
+                    break;
+
+                case AZ_MENUELE_INPUT_U32:
+                    if (sAzActorMenuState.subSelectionIndex >= 8) {
+                        sAzActorMenuState.subSelectionIndex = 0;
+                    }
                     break;
 
                 case AZ_MENUELE_INPUT_LIST:
@@ -169,6 +241,7 @@ void az_ActorMenu_Update(GameState *gameState) {
             case AZ_MENUELE_INPUT_U32:
             case AZ_MENUELE_INPUT_LIST:
                 sAzActorMenuState.inSelection = true;
+                sAzActorMenuState.subSelectionIndex = 0;
                 break;
 
             case AZ_MENUELE_LABEL:
@@ -183,6 +256,10 @@ void az_ActorMenu_PrintElements(GameState *gameState, GfxPrint *printer) {
     s32 i;
     s32 j;
 
+    //GfxPrint_SetPos(printer, 1, 1);
+    //GfxPrint_SetColor(printer, 200, 200, 55, 255);
+    //GfxPrint_Printf(printer, "%i", sAzActorMenuState.subSelectionIndex);
+
     for (j = 0; j < ARRAY_COUNT(sAzActorMenuElements); j++) {
         GfxPrint_SetPos(printer, x, y+j);
 
@@ -191,6 +268,49 @@ void az_ActorMenu_PrintElements(GameState *gameState, GfxPrint *printer) {
 
             if (j == sAzActorMenuState.ySelection && i == sAzActorMenuState.xSelection) {
                 GfxPrint_SetColor(printer, 255, 20, 20, 255);
+
+                if (sAzActorMenuState.inSelection) {
+                    u32 value = 0;
+                    u32 exp = 0;
+                    u32 digit;
+                    s32 k;
+
+                    switch (entry->type) {
+                        case AZ_MENUELE_LABEL:
+                        case AZ_MENUELE_BUTTON:
+                            break;
+
+                        case AZ_MENUELE_INPUT_U8:
+                            value = *(u8*)entry->data;
+                            break;
+
+                        case AZ_MENUELE_INPUT_U16:
+                            value = *(u16*)entry->data;
+                            exp = 0x1000;
+                            for (k = 3; k >= 0; k--) {
+                                if (k == sAzActorMenuState.subSelectionIndex) {
+                                    GfxPrint_SetColor(printer, 20, 20, 255, 255);
+                                } else {
+                                    GfxPrint_SetColor(printer, 200, 200, 55, 255);
+                                }
+                                digit = value / exp;
+                                GfxPrint_Printf(printer, "%X", digit);
+                                value -= digit * exp;
+                                exp /= 0x10;
+                            }
+                            break;
+
+                        case AZ_MENUELE_INPUT_U32:
+                            value = *(u32*)entry->data;
+                            break;
+
+                        case AZ_MENUELE_INPUT_LIST:
+                            break;
+                    }
+
+                    GfxPrint_Printf(printer, " ");
+                    continue;
+                }
             } else {
                 GfxPrint_SetColor(printer, 200, 200, 55, 255);
             }
