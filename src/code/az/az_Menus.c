@@ -7,11 +7,12 @@
 
 #define AZ_MENU_OVL_ENTRY(name) \
     { \
-        az_ ## name ## _Init, az_ ## name ## _Destroy, az_ ## name ## _Update, az_ ## name ## _Draw\
+        az_ ## name ## _Update, az_ ## name ## _Draw \
     }
 
 az_MenuOverlay gAzMenusOverlayTable[] = {
     AZ_MENU_OVL_ENTRY(MainMenu),
+    AZ_MENU_OVL_ENTRY(ActorMenu),
 };
 
 void az_Menus_Handle(GameState* gameState) {

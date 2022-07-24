@@ -651,6 +651,7 @@ beginseg
     include "build/src/code/az/az_Main.o"
     include "build/src/code/az/az_Menus.o"
     include "build/src/code/az/menus/az_MainMenu.o"
+    include "build/src/code/az/menus/az_ActorMenu.o"
 #endif
 endseg
 

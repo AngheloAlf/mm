@@ -6,17 +6,6 @@
 #include "az/az_printer.h"
 
 
-typedef struct az_MenuState {
-    s32 selectedElement;
-} az_MenuState;
-
-typedef struct {
-    const char *label;
-    s32 xOffset;
-    s32 yOffset;
-    az_MenuFunc callback;
-} az_MenuElement;
-
 az_MenuState sAzMainMenuState;
 
 
@@ -24,18 +13,14 @@ void az_MainMenu_CallbackReturn(GameState *gameState) {
     gAzState.isMenuActive = false;
 }
 
+void az_MainMenu_CallbackActors(GameState *gameState) {
+    gAzState.menuType = AZ_MENU_TYPE_ACTOR;
+}
+
 az_MenuElement sAzMainMenuElements[] = {
     { "return", 0, 0, az_MainMenu_CallbackReturn },
-    { "actors", 0, 1, az_Menus_Nop },
+    { "actors", 0, 1, az_MainMenu_CallbackActors },
 };
-
-void az_MainMenu_Init(GameState *gameState) {
-
-}
-
-void az_MainMenu_Destroy(GameState *gameState) {
-
-}
 
 void az_MainMenu_Update(GameState *gameState) {
     Input* controller1 = CONTROLLER1(gameState);
