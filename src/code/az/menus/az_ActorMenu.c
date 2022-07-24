@@ -44,13 +44,46 @@ u16 sAzActorMenu_Params;
 Vec3s sAzActorMenu_Position;
 Vec3s sAzActorMenu_Rotation;
 
+void az_ActorMenu_CallbackSpawn(GameState *gameState, void* param, void** data) {
+    PlayState* play = (PlayState*)gameState;
+
+    // Ensure current State is Play
+    if (gameState->destroy != Play_Fini) {
+        return;
+    }
+
+    if (sAzActorMenu_ActorId >= ACTOR_ID_MAX) {
+        return;
+    }
+
+    Actor_Spawn(&play->actorCtx, play, sAzActorMenu_ActorId, sAzActorMenu_Position.x, sAzActorMenu_Position.y, sAzActorMenu_Position.z, sAzActorMenu_Rotation.x, sAzActorMenu_Rotation.y, sAzActorMenu_Rotation.z, sAzActorMenu_Params);
+}
+
+void az_ActorMenu_CallbackFetchFromPlayer(GameState *gameState, void* param, void** data) {
+    PlayState* play = (PlayState*)gameState;
+    Player* player;
+
+    // Ensure current State is Play
+    if (gameState->destroy != Play_Fini) {
+        return;
+    }
+
+    player = GET_PLAYER(play);
+
+    sAzActorMenu_Position.x = player->actor.world.pos.x;
+    sAzActorMenu_Position.y = player->actor.world.pos.y;
+    sAzActorMenu_Position.z = player->actor.world.pos.z;
+    sAzActorMenu_Rotation = player->actor.world.rot;
+}
+
 az_MenuElement2 sAzActorMenuElements[][AZ_MENU_COLUMN_MAX] = {
-    { { "return", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackReturn, NULL, NULL }, },
+    { { "Return", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackReturn, NULL, NULL }, },
     { 0 },
-    { { "actor id", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_ActorId } },
-    { { "params  ", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Params } },
-    { { "position", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.x }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.y }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.z } },
-    { { "rotation", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.x }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.y }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.z } },
+    { { "Actor ID", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_ActorId } },
+    { { "Params  ", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Params } },
+    { { "Position", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.x }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.y }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Position.z } },
+    { { "Rotation", AZ_MENUELE_LABEL, NULL, NULL, NULL }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.x }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.y }, { "", AZ_MENUELE_INPUT_U16, NULL, NULL, &sAzActorMenu_Rotation.z } },
+    { { "Spawn   ", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackSpawn, NULL, NULL }, { "Fetch from Player", AZ_MENUELE_BUTTON, az_ActorMenu_CallbackFetchFromPlayer, NULL, NULL } },
 };
 
 void az_ActorMenu_Update(GameState *gameState) {
@@ -64,7 +97,7 @@ void az_ActorMenu_Update(GameState *gameState) {
         u16* halfPtr;
         u32* wordPtr;
 
-        if (CHECK_BTN_ALL(controller1->cur.button, BTN_DUP)) {
+        if (CHECK_BTN_ALL(controller1->press.button, BTN_DUP)) {
             switch (entry->type) {
                 case AZ_MENUELE_LABEL:
                 case AZ_MENUELE_BUTTON:
@@ -88,7 +121,7 @@ void az_ActorMenu_Update(GameState *gameState) {
                 case AZ_MENUELE_INPUT_LIST:
                     break;
             }
-        } else if (CHECK_BTN_ALL(controller1->cur.button, BTN_DDOWN)) {
+        } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DDOWN)) {
             switch (entry->type) {
                 case AZ_MENUELE_LABEL:
                 case AZ_MENUELE_BUTTON:
@@ -112,7 +145,7 @@ void az_ActorMenu_Update(GameState *gameState) {
                 case AZ_MENUELE_INPUT_LIST:
                     break;
             }
-        } else if (CHECK_BTN_ALL(controller1->cur.button, BTN_DRIGHT)) {
+        } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DRIGHT)) {
             sAzActorMenuState.subSelectionIndex--;
             if (sAzActorMenuState.subSelectionIndex < 0) {
                 switch (entry->type) {
@@ -136,7 +169,7 @@ void az_ActorMenu_Update(GameState *gameState) {
                         break;
                 }
             }
-        } else if (CHECK_BTN_ALL(controller1->cur.button, BTN_DLEFT)) {
+        } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DLEFT)) {
             sAzActorMenuState.subSelectionIndex++;
             switch (entry->type) {
                 case AZ_MENUELE_LABEL:
@@ -173,7 +206,7 @@ void az_ActorMenu_Update(GameState *gameState) {
         return;
     }
 
-    if (CHECK_BTN_ALL(controller1->cur.button, BTN_DUP)) {
+    if (CHECK_BTN_ALL(controller1->press.button, BTN_DUP)) {
         while (true) {
             sAzActorMenuState.ySelection--;
             if (sAzActorMenuState.ySelection < 0) {
@@ -189,7 +222,7 @@ void az_ActorMenu_Update(GameState *gameState) {
             }
             break;
         }
-    } else if (CHECK_BTN_ALL(controller1->cur.button, BTN_DDOWN)) {
+    } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DDOWN)) {
         while (true) {
             sAzActorMenuState.ySelection++;
             sAzActorMenuState.ySelection %= ARRAY_COUNT(sAzActorMenuElements);
@@ -203,12 +236,12 @@ void az_ActorMenu_Update(GameState *gameState) {
             }
             break;
         }
-    } else if (CHECK_BTN_ALL(controller1->cur.button, BTN_DRIGHT)) {
+    } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DRIGHT)) {
         sAzActorMenuState.xSelection++;
         if (sAzActorMenuElements[sAzActorMenuState.ySelection][sAzActorMenuState.xSelection].label == NULL) {
             sAzActorMenuState.xSelection = 0;
         }
-    } else if (CHECK_BTN_ALL(controller1->cur.button, BTN_DLEFT)) {
+    } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DLEFT)) {
         sAzActorMenuState.xSelection--;
         if (sAzActorMenuState.xSelection < 0) {
             sAzActorMenuState.xSelection = AZ_MENU_COLUMN_MAX-1;
