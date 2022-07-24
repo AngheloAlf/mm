@@ -9,59 +9,28 @@
 az_MenuState sAzMainMenuState;
 
 
-void az_MainMenu_CallbackReturn(GameState *gameState) {
+void az_MainMenu_CallbackReturn(GameState *gameState, void* param, void** data) {
     gAzState.isMenuActive = false;
 }
 
-void az_MainMenu_CallbackActors(GameState *gameState) {
+void az_MainMenu_CallbackActors(GameState *gameState, void* param, void** data) {
     gAzState.menuType = AZ_MENU_TYPE_ACTOR;
 }
 
-az_MenuElement sAzMainMenuElements[] = {
-    { "return", 0, 0, az_MainMenu_CallbackReturn },
-    { "actors", 0, 1, az_MainMenu_CallbackActors },
+az_MenuElement sAzMainMenuElements[][AZ_MENU_COLUMN_MAX] = {
+    { { AZ_MENUELE_BUTTON, "return", az_MainMenu_CallbackReturn, NULL, NULL }, },
+    { { AZ_MENUELE_BUTTON, "actors", az_MainMenu_CallbackActors, NULL, NULL }, },
 };
 
 void az_MainMenu_Update(GameState *gameState) {
-    Input* controller1 = CONTROLLER1(gameState);
-
-    if (CHECK_BTN_ALL(controller1->press.button, BTN_DUP)) {
-        sAzMainMenuState.selectedElement--;
-        if (sAzMainMenuState.selectedElement < 0) {
-            sAzMainMenuState.selectedElement = ARRAY_COUNT(sAzMainMenuElements) -1;
-        }
-    } else if (CHECK_BTN_ALL(controller1->press.button, BTN_DDOWN)) {
-        sAzMainMenuState.selectedElement++;
-        sAzMainMenuState.selectedElement %= ARRAY_COUNT(sAzMainMenuElements);
-    }
-
-    if (CHECK_BTN_ALL(controller1->press.button, BTN_L)) {
-        az_MenuElement* entry = &sAzMainMenuElements[sAzMainMenuState.selectedElement];
-
-        if (entry->callback != NULL){
-            entry->callback(gameState);
-        }
-    }
+    az_Menus_CommonUpdate(gameState, &sAzMainMenuState, ARRAY_COUNT(sAzMainMenuElements), sAzMainMenuElements);
 }
 
 void az_MainMenu_PrintElements(GameState *gameState, GfxPrint *printer) {
     s32 x = 3;
     s32 y = 3;
-    s32 i;
 
-    for (i = 0; i < ARRAY_COUNT(sAzMainMenuElements); i++) {
-        az_MenuElement* entry = &sAzMainMenuElements[i];
-
-        GfxPrint_SetPos(printer, x + entry->xOffset, y + entry->yOffset);
-
-        if (i == sAzMainMenuState.selectedElement) {
-            GfxPrint_SetColor(printer, 255, 20, 20, 255);
-        } else {
-            GfxPrint_SetColor(printer, 200, 200, 55, 255);
-        }
-
-        GfxPrint_Printf(printer, entry->label);
-    }
+    az_Menus_PrintAllElements(gameState, &sAzMainMenuState, ARRAY_COUNT(sAzMainMenuElements), sAzMainMenuElements, printer, x, y);
 }
 
 void az_MainMenu_Draw(GameState *gameState) {
