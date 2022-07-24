@@ -8,7 +8,7 @@
 #include "libc/alloca.h"
 #include "overlays/gamestates/ovl_title/z_title.h"
 
-#include "az.h"
+#include "az/az.h"
 
 void MapSelect_LoadTitle(MapSelectState* this) {
     {
