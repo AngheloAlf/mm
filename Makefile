@@ -21,6 +21,8 @@ KEEP_MDEBUG ?= 0
 FULL_DISASM ?= 0
 # Check code syntax with host compiler
 RUN_CC_CHECK ?= 1
+# Use automatically generated #include dependencies. Requieres RUN_CC_CHECK=1 to work properly
+USE_INC_DEP ?= 0
 # Dump build object files
 OBJDUMP_BUILD ?= 0
 # Number of threads to disassmble, extract, and compress with
@@ -103,7 +105,7 @@ endif
 # Check code syntax with host compiler
 ifneq ($(RUN_CC_CHECK),0)
   CHECK_WARNINGS := -Wall -Wextra -Wno-format-security -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-int-conversion -Wno-unused-but-set-variable -Wno-unused-label
-  CC_CHECK   := gcc -MMD -fno-builtin -fsyntax-only -funsigned-char -fdiagnostics-color -std=gnu89 -D _LANGUAGE_C -D NON_MATCHING $(IINC) -nostdinc $(CHECK_WARNINGS)
+  CC_CHECK   := gcc -MMD -MP -fno-builtin -fsyntax-only -funsigned-char -fdiagnostics-color -std=gnu89 -D _LANGUAGE_C -D NON_MATCHING $(IINC) -nostdinc $(CHECK_WARNINGS)
   ifneq ($(WERROR), 0)
     CC_CHECK += -Werror
   endif
@@ -191,8 +193,10 @@ O_FILES       := $(foreach f,$(S_FILES:.s=.o),build/$f) \
 OVL_RELOC_FILES := $(shell $(CPP) $(CPPFLAGS) $(SPEC) | grep -o '[^"]*_reloc.o' )
 
 # Automatic dependency files
-# (Only asm_processor dependencies and reloc dependencies are handled for now)
 DEP_FILES := $(O_FILES:.o=.asmproc.d) $(OVL_RELOC_FILES:.o=.d)
+ifneq ($(USE_INC_DEP),0)
+	DEP_FILES += $(O_FILES:.o=.d)
+endif
 
 # create build directories
 $(shell mkdir -p build/baserom $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(ASSET_BIN_DIRS),build/$(dir)))
