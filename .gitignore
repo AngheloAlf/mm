@@ -52,3 +52,6 @@ docs/doxygen/
 # Per-user configuration
 .python-version
 .make_options
+
+mm.ld
+*_auto.ld
