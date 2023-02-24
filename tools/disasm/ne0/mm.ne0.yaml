@@ -338,31 +338,31 @@ segments:
       - [0x1A460, rodata, xldtob]
       - [0x1A4C0, rodata, llcvt]
       - [0x1A4D0, rodata, build]
-      - [0x1A500, bss, boot_main]
-      - [0x1AEF0, bss, idle]
-      - [0x1C2A0, bss, z_std_dma]
-      - [0x1CA10, bss, yaz0]
-      - [0x1CE30, bss, CIC6105]
-      - [0x1CE50, bss, fault]
-      - [0x1DCD0, bss, fault_drawer]
-      - [0x1DD10, bss, boot_80086760]
-      - [0x1DD20, bss, system_malloc]
-      - [0x1DD50, bss, rand]
-      - [0x1DD60, bss, __osMalloc]
-      - [0x1DD70, bss, sptask]
-      - [0x1DDB0, bss, motor]
-      - [0x1DEB0, bss, siacs]
-      - [0x1DED0, bss, controller]
-      - [0x1DF60, bss, voicegetreaddata]
-      - [0x1DF70, bss, initialize]
-      - [0x1DF80, bss, threadsave]
-      - [0x1E130, bss, pimgr]
-      - [0x1F3F0, bss, piacs]
-      - [0x1F410, bss, contpfs]
-      - [0x1F510, bss, seteventmesg]
-      - [0x1F590, bss, timerintr]
-      - [0x1F610, bss, cartrominit]
-      - [0x1F690, bss, vimgr]
+      - { start: 0x1A500, type: bss, vram: 0x80099500, name: boot_main }
+      - { start: 0x1A500, type: bss, vram: 0x80099EF0, name: idle }
+      - { start: 0x1A500, type: bss, vram: 0x8009B2A0, name: z_std_dma }
+      - { start: 0x1A500, type: bss, vram: 0x8009BA10, name: yaz0 }
+      - { start: 0x1A500, type: bss, vram: 0x8009BE30, name: CIC6105 }
+      - { start: 0x1A500, type: bss, vram: 0x8009BE50, name: fault }
+      - { start: 0x1A500, type: bss, vram: 0x8009CCD0, name: fault_drawer }
+      - { start: 0x1A500, type: bss, vram: 0x8009CD10, name: boot_80086760 }
+      - { start: 0x1A500, type: bss, vram: 0x8009CD20, name: system_malloc }
+      - { start: 0x1A500, type: bss, vram: 0x8009CD50, name: rand }
+      - { start: 0x1A500, type: bss, vram: 0x8009CD60, name: __osMalloc }
+      - { start: 0x1A500, type: bss, vram: 0x8009CD70, name: sptask }
+      - { start: 0x1A500, type: bss, vram: 0x8009CDB0, name: motor }
+      - { start: 0x1A500, type: bss, vram: 0x8009CEB0, name: siacs }
+      - { start: 0x1A500, type: bss, vram: 0x8009CED0, name: controller }
+      - { start: 0x1A500, type: bss, vram: 0x8009CF60, name: voicegetreaddata }
+      - { start: 0x1A500, type: bss, vram: 0x8009CF70, name: initialize }
+      - { start: 0x1A500, type: bss, vram: 0x8009CF80, name: threadsave }
+      - { start: 0x1A500, type: bss, vram: 0x8009D130, name: pimgr }
+      - { start: 0x1A500, type: bss, vram: 0x8009E3F0, name: piacs }
+      - { start: 0x1A500, type: bss, vram: 0x8009E410, name: contpfs }
+      - { start: 0x1A500, type: bss, vram: 0x8009E510, name: seteventmesg }
+      - { start: 0x1A500, type: bss, vram: 0x8009E590, name: timerintr }
+      - { start: 0x1A500, type: bss, vram: 0x8009E610, name: cartrominit }
+      - { start: 0x1A500, type: bss, vram: 0x8009E690, name: vimgr }
 
   - name: dmadata
     type: bin
@@ -713,63 +713,3148 @@ segments:
       - [0xC786A0, rodata, gspF3DZEX2.NoN.PosLight.fifo]
       - [0xC7A0F0, rodata, gspS2DEX2.fifo]
       - [0xC7A480, rodata, njpgdspMain]
-      - [0xC7A4E0, bss, code_801E3FA0]
-      - [0xC7A4F0, bss, z_effect]
-      - [0xC83DD0, bss, flg_set]
-      - [0xC83DE0, bss, z_actor]
-      - [0xC83E70, bss, z_actor_dlftbls]
-      - [0xC83E90, bss, z_bgcheck]
-      - [0xC84130, bss, z_camera]
-      - [0xC84340, bss, z_collision_check]
-      - [0xC85BB0, bss, z_common_data]
-      - [0xC8A4A0, bss, z_debug]
-      - [0xC8A4B0, bss, z_debug_display]
-      - [0xC8A4C0, bss, z_debug_mode]
-      - [0xC8B280, bss, z_demo]
-      - [0xC8B330, bss, z_eventmgr]
-      - [0xC8B370, bss, z_kankyo]
-      - [0xC8B480, bss, z_lifemeter]
-      - [0xC8B4B0, bss, z_lights]
-      - [0xC8B640, bss, z_malloc]
-      - [0xC8B670, bss, z_map_disp]
-      - [0xC8BD80, bss, z_nmi_buff]
-      - [0xC8BD90, bss, z_parameter]
-      - [0xC8BDF0, bss, z_player_lib]
-      - [0xC8BF40, bss, z_quake]
-      - [0xC8BFE0, bss, z_scene_proc]
-      - [0xC8BFF0, bss, z_skelanime]
-      - [0xC8C000, bss, z_skin]
-      - [0xC8CF10, bss, z_rumble]
-      - [0xC8D020, bss, z_vr_box_draw]
-      - [0xC8D030, bss, z_sram_NES]
-      - [0xC8D040, bss, z_message]
-      - [0xC8D070, bss, z_player_call]
-      - [0xC8D080, bss, z_shrink_window]
-      - [0xC8D090, bss, db_camera]
-      - [0xC8D130, bss, z_kaleido_manager]
-      - [0xC8D140, bss, z_kaleido_scope_call]
-      - [0xC8D150, bss, z_play]
-      - [0xC8D340, bss, PreRender]
-      - [0xC8E530, bss, game]
-      - [0xC8E610, bss, graph]
-      - [0xC8E6A0, bss, main]
-      - [0xC91FE0, bss, sched]
-      - [0xC92020, bss, speed_meter]
-      - [0xC92070, bss, sys_cfb]
-      - [0xC92120, bss, sys_cmpdma]
-      - [0xC92130, bss, sys_math3d]
-      - [0xC92340, bss, sys_matrix]
-      - [0xC92350, bss, sys_flashrom]
-      - [0xC93580, bss, osFlash]
-      - [0xC93660, bss, audio_heap]
-      - [0xC93680, bss, audio_load]
-      - [0xC93730, bss, code_8019AF00]
-      - [0xC93AE0, bss, code_801A51F0]
-      - [0xC93C50, bss, code_801A5BD0]
-      - [0xC96240, bss, code_801A7B10]
-      - [0xC9F3D0, bss, jpegdecoder]
-      - [0xC9F3E0, bss, gfxbuffers]
-      - [0xCE0A00, bss, buffers]
+      - { start: 0xC7A4E0, type: bss, vram: 0x801E3FA0, name: code_801E3FA0 }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801E3FB0, name: z_effect }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801ED890, name: flg_set }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801ED8A0, name: z_actor }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801ED930, name: z_actor_dlftbls }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801ED950, name: z_bgcheck }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801EDBF0, name: z_camera }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801EDE00, name: z_collision_check }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801EF670, name: z_common_data }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F3F60, name: z_debug }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F3F70, name: z_debug_display }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F3F80, name: z_debug_mode }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F4D40, name: z_demo }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F4DF0, name: z_eventmgr }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F4E30, name: z_kankyo }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F4F40, name: z_lifemeter }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F4F70, name: z_lights }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5100, name: z_malloc }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5130, name: z_map_disp }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5840, name: z_nmi_buff }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5850, name: z_parameter }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F58B0, name: z_player_lib }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5A00, name: z_quake }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5AA0, name: z_scene_proc }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5AB0, name: z_skelanime }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F5AC0, name: z_skin }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F69D0, name: z_rumble }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6AE0, name: z_vr_box_draw }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6AF0, name: z_sram_NES }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6B00, name: z_message }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6B30, name: z_player_call }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6B40, name: z_shrink_window }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6B50, name: db_camera }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6BF0, name: z_kaleido_manager }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6C00, name: z_kaleido_scope_call }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6C10, name: z_play }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F6E00, name: PreRender }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F7FF0, name: game }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F80D0, name: graph }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801F8160, name: main }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBAA0, name: sched }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBAE0, name: speed_meter }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBB30, name: sys_cfb }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBBE0, name: sys_cmpdma }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBBF0, name: sys_math3d }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBE00, name: sys_matrix }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FBE10, name: sys_flashrom }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FD040, name: osFlash }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FD120, name: audio_heap }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FD140, name: audio_load }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FD1F0, name: code_8019AF00 }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FD5A0, name: code_801A51F0 }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FD710, name: code_801A5BD0 }
+      - { start: 0xC7A4E0, type: bss, vram: 0x801FFD00, name: code_801A7B10 }
+      - { start: 0xC7A4E0, type: bss, vram: 0x80208E90, name: jpegdecoder }
+      - { start: 0xC7A4E0, type: bss, vram: 0x80208EA0, name: gfxbuffers }
+      - { start: 0xC7A4E0, type: bss, vram: 0x8024A4C0, name: buffers }
 
-  - [0xC7A4E0]
+  - name: ovl_title
+    type: overlay
+    start: 0x0c7a4e0
+    vram: 0x80800000
+
+  - name: ovl_select
+    type: overlay
+    start: 0x0c7adf0
+    vram: 0x80800910
+
+  - name: ovl_opening
+    type: overlay
+    start: 0x0c7e2d0
+    vram: 0x80803df0
+
+  - name: ovl_file_choose
+    type: overlay
+    start: 0x0c7e4f0
+    vram: 0x80804010
+
+  - name: ovl_daytelop
+    type: overlay
+    start: 0x0c8f360
+    vram: 0x80814eb0
+
+  - name: ovl_kaleido_scope
+    type: overlay
+    start: 0x0c90550
+    vram: 0x808160a0
+
+  - name: ovl_player_actor
+    type: overlay
+    start: 0x0ca7f00
+    vram: 0x8082da90
+
+  - name: ovl_En_Test
+    type: overlay
+    start: 0x0cdcf60
+    vram: 0x80862b70
+
+  - name: ovl_En_GirlA
+    type: overlay
+    start: 0x0cddc60
+    vram: 0x80863870
+
+  - name: ovl_En_Part
+    type: overlay
+    start: 0x0cdf760
+    vram: 0x80865370
+
+  - name: ovl_En_Light
+    type: overlay
+    start: 0x0cdfd80
+    vram: 0x80865990
+
+  - name: ovl_En_Door
+    type: overlay
+    start: 0x0ce0bf0
+    vram: 0x80866800
+
+  - name: ovl_En_Box
+    type: overlay
+    start: 0x0ce1fb0
+    vram: 0x80867bd0
+
+  - name: ovl_En_Pametfrog
+    type: overlay
+    start: 0x0ce4170
+    vram: 0x80869d90
+
+  - name: ovl_En_Okuta
+    type: overlay
+    start: 0x0ce8200
+    vram: 0x8086de20
+
+  - name: ovl_En_Bom
+    type: overlay
+    start: 0x0ceb190
+    vram: 0x80870db0
+
+  - name: ovl_En_Wallmas
+    type: overlay
+    start: 0x0ceea30
+    vram: 0x80874810
+
+  - name: ovl_En_Dodongo
+    type: overlay
+    start: 0x0cf0890
+    vram: 0x80876670
+
+  - name: ovl_En_Firefly
+    type: overlay
+    start: 0x0cf3910
+    vram: 0x808796f0
+
+  - name: ovl_En_Horse
+    type: overlay
+    start: 0x0cf5950
+    vram: 0x8087b730
+
+  - name: ovl_En_Arrow
+    type: overlay
+    start: 0x0d04460
+    vram: 0x8088a240
+
+  - name: ovl_En_Elf
+    type: overlay
+    start: 0x0d06730
+    vram: 0x8088c510
+
+  - name: ovl_En_Niw
+    type: overlay
+    start: 0x0d0b280
+    vram: 0x80891060
+
+  - name: ovl_En_Tite
+    type: overlay
+    start: 0x0d0da10
+    vram: 0x808937f0
+
+  - name: ovl_En_Peehat
+    type: overlay
+    start: 0x0d11150
+    vram: 0x80896f30
+
+  - name: ovl_En_Holl
+    type: overlay
+    start: 0x0d13b80
+    vram: 0x80899960
+
+  - name: ovl_En_Dinofos
+    type: overlay
+    start: 0x0d14900
+    vram: 0x8089a6e0
+
+  - name: ovl_En_Hata
+    type: overlay
+    start: 0x0d18b00
+    vram: 0x8089e8e0
+
+  - name: ovl_En_Zl1
+    type: overlay
+    start: 0x0d18fb0
+    vram: 0x8089ed90
+
+  - name: ovl_En_Viewer
+    type: overlay
+    start: 0x0d19040
+    vram: 0x8089ee20
+
+  - name: ovl_En_Bubble
+    type: overlay
+    start: 0x0d196f0
+    vram: 0x8089f4e0
+
+  - name: ovl_Door_Shutter
+    type: overlay
+    start: 0x0d1ab00
+    vram: 0x808a08f0
+
+  - name: ovl_En_Boom
+    type: overlay
+    start: 0x0d1c6e0
+    vram: 0x808a24d0
+
+  - name: ovl_En_Torch2
+    type: overlay
+    start: 0x0d1d3c0
+    vram: 0x808a31b0
+
+  - name: ovl_En_Minifrog
+    type: overlay
+    start: 0x0d1d880
+    vram: 0x808a3670
+
+  - name: ovl_En_St
+    type: overlay
+    start: 0x0d1f260
+    vram: 0x808a5050
+
+  - name: ovl_Obj_Wturn
+    type: overlay
+    start: 0x0d21b40
+    vram: 0x808a7930
+
+  - name: ovl_En_River_Sound
+    type: overlay
+    start: 0x0d22040
+    vram: 0x808a7e30
+
+  - name: ovl_En_Ossan
+    type: overlay
+    start: 0x0d222b0
+    vram: 0x808a80a0
+
+  - name: ovl_En_Famos
+    type: overlay
+    start: 0x0d26b30
+    vram: 0x808ac920
+
+  - name: ovl_En_Bombf
+    type: overlay
+    start: 0x0d28ad0
+    vram: 0x808ae8c0
+
+  - name: ovl_En_Am
+    type: overlay
+    start: 0x0d29ee0
+    vram: 0x808afcd0
+
+  - name: ovl_En_Dekubaba
+    type: overlay
+    start: 0x0d2b540
+    vram: 0x808b1330
+
+  - name: ovl_En_M_Fire1
+    type: overlay
+    start: 0x0d2f440
+    vram: 0x808b5230
+
+  - name: ovl_En_M_Thunder
+    type: overlay
+    start: 0x0d2f5d0
+    vram: 0x808b53c0
+
+  - name: ovl_Bg_Breakwall
+    type: overlay
+    start: 0x0d31570
+    vram: 0x808b7360
+
+  - name: ovl_Door_Warp1
+    type: overlay
+    start: 0x0d326a0
+    vram: 0x808b8490
+
+  - name: ovl_Obj_Syokudai
+    type: overlay
+    start: 0x0d36210
+    vram: 0x808bc010
+
+  - name: ovl_Item_B_Heart
+    type: overlay
+    start: 0x0d36fe0
+    vram: 0x808bcdf0
+
+  - name: ovl_En_Dekunuts
+    type: overlay
+    start: 0x0d373d0
+    vram: 0x808bd1e0
+
+  - name: ovl_En_Bbfall
+    type: overlay
+    start: 0x0d39410
+    vram: 0x808bf220
+
+  - name: ovl_Arms_Hook
+    type: overlay
+    start: 0x0d3b220
+    vram: 0x808c1030
+
+  - name: ovl_En_Bb
+    type: overlay
+    start: 0x0d3bf30
+    vram: 0x808c1d40
+
+  - name: ovl_Bg_Keikoku_Spr
+    type: overlay
+    start: 0x0d3dc40
+    vram: 0x808c3a50
+
+  - name: ovl_En_Wood02
+    type: overlay
+    start: 0x0d3ddf0
+    vram: 0x808c3c00
+
+  - name: ovl_En_Death
+    type: overlay
+    start: 0x0d3f160
+    vram: 0x808c4f80
+
+  - name: ovl_En_Minideath
+    type: overlay
+    start: 0x0d44290
+    vram: 0x808ca0b0
+
+  - name: ovl_En_Vm
+    type: overlay
+    start: 0x0d46430
+    vram: 0x808cc260
+
+  - name: ovl_Demo_Effect
+    type: overlay
+    start: 0x0d47910
+    vram: 0x808cd740
+
+  - name: ovl_Demo_Kankyo
+    type: overlay
+    start: 0x0d48620
+    vram: 0x808ce450
+
+  - name: ovl_En_Floormas
+    type: overlay
+    start: 0x0d4a850
+    vram: 0x808d0680
+
+  - name: ovl_En_Rd
+    type: overlay
+    start: 0x0d4dff0
+    vram: 0x808d3e20
+
+  - name: ovl_Bg_F40_Flift
+    type: overlay
+    start: 0x0d51720
+    vram: 0x808d7550
+
+  - name: ovl_Obj_Mure
+    type: overlay
+    start: 0x0d51aa0
+    vram: 0x808d78d0
+
+  - name: ovl_En_Sw
+    type: overlay
+    start: 0x0d52b10
+    vram: 0x808d8940
+
+  - name: ovl_Object_Kankyo
+    type: overlay
+    start: 0x0d56050
+    vram: 0x808dbe80
+
+  - name: ovl_En_Horse_Link_Child
+    type: overlay
+    start: 0x0d58780
+    vram: 0x808de5c0
+
+  - name: ovl_Door_Ana
+    type: overlay
+    start: 0x0d5a360
+    vram: 0x808e01a0
+
+  - name: ovl_En_Encount1
+    type: overlay
+    start: 0x0d5a9f0
+    vram: 0x808e0830
+
+  - name: ovl_Demo_Tre_Lgt
+    type: overlay
+    start: 0x0d5b000
+    vram: 0x808e0e40
+
+  - name: ovl_En_Encount2
+    type: overlay
+    start: 0x0d5b720
+    vram: 0x808e1560
+
+  - name: ovl_En_Fire_Rock
+    type: overlay
+    start: 0x0d5c1a0
+    vram: 0x808e1fe0
+
+  - name: ovl_Bg_Ctower_Rot
+    type: overlay
+    start: 0x0d5c230
+    vram: 0x808e2070
+
+  - name: ovl_Mir_Ray
+    type: overlay
+    start: 0x0d5c7c0
+    vram: 0x808e2600
+
+  - name: ovl_En_Sb
+    type: overlay
+    start: 0x0d5e0b0
+    vram: 0x808e3ef0
+
+  - name: ovl_En_Bigslime
+    type: overlay
+    start: 0x0d5f180
+    vram: 0x808e4fc0
+
+  - name: ovl_En_Karebaba
+    type: overlay
+    start: 0x0d6b3c0
+    vram: 0x808f1200
+
+  - name: ovl_En_In
+    type: overlay
+    start: 0x0d6d270
+    vram: 0x808f30b0
+
+  - name: ovl_En_Bom_Chu
+    type: overlay
+    start: 0x0d71670
+    vram: 0x808f74b0
+
+  - name: ovl_En_Horse_Game_Check
+    type: overlay
+    start: 0x0d72c60
+    vram: 0x808f8aa0
+
+  - name: ovl_En_Rr
+    type: overlay
+    start: 0x0d73fc0
+    vram: 0x808f9e00
+
+  - name: ovl_En_Fr
+    type: overlay
+    start: 0x0d76710
+    vram: 0x808fc550
+
+  - name: ovl_En_Fishing
+    type: overlay
+    start: 0x0d76880
+    vram: 0x808fc6c0
+
+  - name: ovl_Obj_Oshihiki
+    type: overlay
+    start: 0x0d8a370
+    vram: 0x80917290
+
+  - name: ovl_Eff_Dust
+    type: overlay
+    start: 0x0d8bc20
+    vram: 0x80918b40
+
+  - name: ovl_Bg_Umajump
+    type: overlay
+    start: 0x0d8d010
+    vram: 0x80919f30
+
+  - name: ovl_En_Insect
+    type: overlay
+    start: 0x0d8d980
+    vram: 0x8091a8a0
+
+  - name: ovl_En_Butte
+    type: overlay
+    start: 0x0d8f180
+    vram: 0x8091c0a0
+
+  - name: ovl_En_Fish
+    type: overlay
+    start: 0x0d90710
+    vram: 0x8091d630
+
+  - name: ovl_Item_Etcetera
+    type: overlay
+    start: 0x0d92fd0
+    vram: 0x8091fef0
+
+  - name: ovl_Arrow_Fire
+    type: overlay
+    start: 0x0d93420
+    vram: 0x80920340
+
+  - name: ovl_Arrow_Ice
+    type: overlay
+    start: 0x0d95500
+    vram: 0x80922430
+
+  - name: ovl_Arrow_Light
+    type: overlay
+    start: 0x0d973c0
+    vram: 0x80924300
+
+  - name: ovl_Obj_Kibako
+    type: overlay
+    start: 0x0d99260
+    vram: 0x809261b0
+
+  - name: ovl_Obj_Tsubo
+    type: overlay
+    start: 0x0d9a670
+    vram: 0x809275c0
+
+  - name: ovl_En_Ik
+    type: overlay
+    start: 0x0d9c9c0
+    vram: 0x80929910
+
+  - name: ovl_Demo_Shd
+    type: overlay
+    start: 0x0d9f5e0
+    vram: 0x8092c530
+
+  - name: ovl_En_Dns
+    type: overlay
+    start: 0x0d9f670
+    vram: 0x8092c5c0
+
+  - name: ovl_Elf_Msg
+    type: overlay
+    start: 0x0da1040
+    vram: 0x8092df90
+
+  - name: ovl_En_Honotrap
+    type: overlay
+    start: 0x0da15c0
+    vram: 0x8092e510
+
+  - name: ovl_En_Tubo_Trap
+    type: overlay
+    start: 0x0da3890
+    vram: 0x809307e0
+
+  - name: ovl_Obj_Ice_Poly
+    type: overlay
+    start: 0x0da4610
+    vram: 0x80931560
+
+  - name: ovl_En_Fz
+    type: overlay
+    start: 0x0da5540
+    vram: 0x80932490
+
+  - name: ovl_En_Kusa
+    type: overlay
+    start: 0x0da7a90
+    vram: 0x809349e0
+
+  - name: ovl_Obj_Bean
+    type: overlay
+    start: 0x0da9b80
+    vram: 0x80936cf0
+
+  - name: ovl_Obj_Bombiwa
+    type: overlay
+    start: 0x0dac240
+    vram: 0x809393b0
+
+  - name: ovl_Obj_Switch
+    type: overlay
+    start: 0x0dada60
+    vram: 0x8093abd0
+
+  - name: ovl_Obj_Lift
+    type: overlay
+    start: 0x0db0240
+    vram: 0x8093d3c0
+
+  - name: ovl_Obj_Hsblock
+    type: overlay
+    start: 0x0db0d20
+    vram: 0x8093dea0
+
+  - name: ovl_En_Okarina_Tag
+    type: overlay
+    start: 0x0db12a0
+    vram: 0x8093e420
+
+  - name: ovl_En_Goroiwa
+    type: overlay
+    start: 0x0db1720
+    vram: 0x8093e8a0
+
+  - name: ovl_En_Daiku
+    type: overlay
+    start: 0x0db6330
+    vram: 0x809434b0
+
+  - name: ovl_En_Nwc
+    type: overlay
+    start: 0x0db7060
+    vram: 0x809441e0
+
+  - name: ovl_Item_Inbox
+    type: overlay
+    start: 0x0db8370
+    vram: 0x809454f0
+
+  - name: ovl_En_Ge1
+    type: overlay
+    start: 0x0db84d0
+    vram: 0x80945650
+
+  - name: ovl_Obj_Blockstop
+    type: overlay
+    start: 0x0db9520
+    vram: 0x809466a0
+
+  - name: ovl_En_Sda
+    type: overlay
+    start: 0x0db9750
+    vram: 0x809468d0
+
+  - name: ovl_En_Clear_Tag
+    type: overlay
+    start: 0x0dbad20
+    vram: 0x80947f60
+
+  - name: ovl_En_Gm
+    type: overlay
+    start: 0x0dc0ca0
+    vram: 0x8094dee0
+
+  - name: ovl_En_Ms
+    type: overlay
+    start: 0x0dc53e0
+    vram: 0x80952620
+
+  - name: ovl_En_Hs
+    type: overlay
+    start: 0x0dc5a10
+    vram: 0x80952c50
+
+  - name: ovl_Bg_Ingate
+    type: overlay
+    start: 0x0dc6850
+    vram: 0x80953a90
+
+  - name: ovl_En_Kanban
+    type: overlay
+    start: 0x0dc7720
+    vram: 0x80954960
+
+  - name: ovl_En_Attack_Niw
+    type: overlay
+    start: 0x0dcae80
+    vram: 0x809580c0
+
+  - name: ovl_En_Mk
+    type: overlay
+    start: 0x0dcc0a0
+    vram: 0x809592e0
+
+  - name: ovl_En_Owl
+    type: overlay
+    start: 0x0dcd2d0
+    vram: 0x8095a510
+
+  - name: ovl_En_Ishi
+    type: overlay
+    start: 0x0dd04a0
+    vram: 0x8095d6e0
+
+  - name: ovl_Obj_Hana
+    type: overlay
+    start: 0x0dd28d0
+    vram: 0x8095fb10
+
+  - name: ovl_Obj_Lightswitch
+    type: overlay
+    start: 0x0dd29b0
+    vram: 0x8095fbf0
+
+  - name: ovl_Obj_Mure2
+    type: overlay
+    start: 0x0dd3ab0
+    vram: 0x80960cf0
+
+  - name: ovl_En_Fu
+    type: overlay
+    start: 0x0dd44a0
+    vram: 0x809616e0
+
+  - name: ovl_En_Stream
+    type: overlay
+    start: 0x0dd8410
+    vram: 0x80965650
+
+  - name: ovl_En_Mm
+    type: overlay
+    start: 0x0dd8970
+    vram: 0x80965bb0
+
+  - name: ovl_En_Weather_Tag
+    type: overlay
+    start: 0x0dd91d0
+    vram: 0x80966410
+
+  - name: ovl_En_Ani
+    type: overlay
+    start: 0x0dda790
+    vram: 0x809679d0
+
+  - name: ovl_En_Js
+    type: overlay
+    start: 0x0ddb570
+    vram: 0x809687b0
+
+  - name: ovl_En_Okarina_Effect
+    type: overlay
+    start: 0x0ddde60
+    vram: 0x8096b0a0
+
+  - name: ovl_En_Mag
+    type: overlay
+    start: 0x0dde0d0
+    vram: 0x8096b310
+
+  - name: ovl_Elf_Msg2
+    type: overlay
+    start: 0x0de1a00
+    vram: 0x8096ec40
+
+  - name: ovl_Bg_F40_Swlift
+    type: overlay
+    start: 0x0de1f20
+    vram: 0x8096f160
+
+  - name: ovl_En_Kakasi
+    type: overlay
+    start: 0x0de2390
+    vram: 0x8096f5e0
+
+  - name: ovl_Obj_Makeoshihiki
+    type: overlay
+    start: 0x0de5100
+    vram: 0x80972350
+
+  - name: ovl_Oceff_Spot
+    type: overlay
+    start: 0x0de5430
+    vram: 0x80972680
+
+  - name: ovl_En_Torch
+    type: overlay
+    start: 0x0de6300
+    vram: 0x80973550
+
+  - name: ovl_Shot_Sun
+    type: overlay
+    start: 0x0de63f0
+    vram: 0x80973640
+
+  - name: ovl_Obj_Roomtimer
+    type: overlay
+    start: 0x0de6a00
+    vram: 0x80973c50
+
+  - name: ovl_En_Ssh
+    type: overlay
+    start: 0x0de6ca0
+    vram: 0x80973ef0
+
+  - name: ovl_Oceff_Wipe
+    type: overlay
+    start: 0x0de9260
+    vram: 0x809764b0
+
+  - name: ovl_Effect_Ss_Dust
+    type: overlay
+    start: 0x0de9fb0
+    vram: 0x80977210
+
+  - name: ovl_Effect_Ss_Kirakira
+    type: overlay
+    start: 0x0dea7a0
+    vram: 0x80977a00
+
+  - name: ovl_Effect_Ss_Bomb2
+    type: overlay
+    start: 0x0deae10
+    vram: 0x80978070
+
+  - name: ovl_Effect_Ss_Blast
+    type: overlay
+    start: 0x0deb670
+    vram: 0x809788d0
+
+  - name: ovl_Effect_Ss_G_Spk
+    type: overlay
+    start: 0x0deb9d0
+    vram: 0x80978c30
+
+  - name: ovl_Effect_Ss_D_Fire
+    type: overlay
+    start: 0x0debf50
+    vram: 0x809791b0
+
+  - name: ovl_Effect_Ss_Bubble
+    type: overlay
+    start: 0x0dec360
+    vram: 0x809795c0
+
+  - name: ovl_Effect_Ss_G_Ripple
+    type: overlay
+    start: 0x0dec8d0
+    vram: 0x80979b30
+
+  - name: ovl_Effect_Ss_G_Splash
+    type: overlay
+    start: 0x0decdf0
+    vram: 0x8097a050
+
+  - name: ovl_Effect_Ss_G_Fire
+    type: overlay
+    start: 0x0ded210
+    vram: 0x8097a470
+
+  - name: ovl_Effect_Ss_Lightning
+    type: overlay
+    start: 0x0ded420
+    vram: 0x8097a680
+
+  - name: ovl_Effect_Ss_Dt_Bubble
+    type: overlay
+    start: 0x0dedb00
+    vram: 0x8097ad60
+
+  - name: ovl_Effect_Ss_Hahen
+    type: overlay
+    start: 0x0dee010
+    vram: 0x8097b270
+
+  - name: ovl_Effect_Ss_Stick
+    type: overlay
+    start: 0x0dee5b0
+    vram: 0x8097b810
+
+  - name: ovl_Effect_Ss_Sibuki
+    type: overlay
+    start: 0x0dee870
+    vram: 0x8097bad0
+
+  - name: ovl_Effect_Ss_Stone1
+    type: overlay
+    start: 0x0deeed0
+    vram: 0x8097c130
+
+  - name: ovl_Effect_Ss_Hitmark
+    type: overlay
+    start: 0x0def230
+    vram: 0x8097c490
+
+  - name: ovl_Effect_Ss_Fhg_Flash
+    type: overlay
+    start: 0x0def730
+    vram: 0x8097c990
+
+  - name: ovl_Effect_Ss_K_Fire
+    type: overlay
+    start: 0x0df01b0
+    vram: 0x8097d410
+
+  - name: ovl_Effect_Ss_Solder_Srch_Ball
+    type: overlay
+    start: 0x0df05f0
+    vram: 0x8097d850
+
+  - name: ovl_Effect_Ss_Kakera
+    type: overlay
+    start: 0x0df0a40
+    vram: 0x8097dca0
+
+  - name: ovl_Effect_Ss_Ice_Piece
+    type: overlay
+    start: 0x0df1a70
+    vram: 0x8097ecd0
+
+  - name: ovl_Effect_Ss_En_Ice
+    type: overlay
+    start: 0x0df1e70
+    vram: 0x8097f0d0
+
+  - name: ovl_Effect_Ss_Fire_Tail
+    type: overlay
+    start: 0x0df2620
+    vram: 0x8097f880
+
+  - name: ovl_Effect_Ss_En_Fire
+    type: overlay
+    start: 0x0df2d00
+    vram: 0x8097ff60
+
+  - name: ovl_Effect_Ss_Extra
+    type: overlay
+    start: 0x0df3370
+    vram: 0x809805d0
+
+  - name: ovl_Effect_Ss_Dead_Db
+    type: overlay
+    start: 0x0df36e0
+    vram: 0x80980940
+
+  - name: ovl_Effect_Ss_Dead_Dd
+    type: overlay
+    start: 0x0df3af0
+    vram: 0x80980d50
+
+  - name: ovl_Effect_Ss_Dead_Ds
+    type: overlay
+    start: 0x0df4080
+    vram: 0x809812e0
+
+  - name: ovl_Oceff_Storm
+    type: overlay
+    start: 0x0df4500
+    vram: 0x80981760
+
+  - name: ovl_Obj_Demo
+    type: overlay
+    start: 0x0df62c0
+    vram: 0x80983520
+
+  - name: ovl_En_Minislime
+    type: overlay
+    start: 0x0df6690
+    vram: 0x809838f0
+
+  - name: ovl_En_Nutsball
+    type: overlay
+    start: 0x0df89e0
+    vram: 0x80985c40
+
+  - name: ovl_Oceff_Wipe2
+    type: overlay
+    start: 0x0df9010
+    vram: 0x80986270
+
+  - name: ovl_Oceff_Wipe3
+    type: overlay
+    start: 0x0dfa770
+    vram: 0x809879e0
+
+  - name: ovl_En_Dg
+    type: overlay
+    start: 0x0dfbec0
+    vram: 0x80989140
+
+  - name: ovl_En_Si
+    type: overlay
+    start: 0x0dff7a0
+    vram: 0x8098ca20
+
+  - name: ovl_Obj_Comb
+    type: overlay
+    start: 0x0dffbc0
+    vram: 0x8098ce40
+
+  - name: ovl_Obj_Kibako2
+    type: overlay
+    start: 0x0e01340
+    vram: 0x8098e5c0
+
+  - name: ovl_En_Hs2
+    type: overlay
+    start: 0x0e01ce0
+    vram: 0x8098ef60
+
+  - name: ovl_Obj_Mure3
+    type: overlay
+    start: 0x0e01dc0
+    vram: 0x8098f040
+
+  - name: ovl_En_Tg
+    type: overlay
+    start: 0x0e02580
+    vram: 0x8098f800
+
+  - name: ovl_En_Wf
+    type: overlay
+    start: 0x0e03090
+    vram: 0x80990310
+
+  - name: ovl_En_Skb
+    type: overlay
+    start: 0x0e07530
+    vram: 0x809947b0
+
+  - name: ovl_En_Gs
+    type: overlay
+    start: 0x0e0a810
+    vram: 0x80997a90
+
+  - name: ovl_Obj_Sound
+    type: overlay
+    start: 0x0e0d6a0
+    vram: 0x8099a920
+
+  - name: ovl_En_Crow
+    type: overlay
+    start: 0x0e0d8b0
+    vram: 0x8099ab30
+
+  - name: ovl_En_Cow
+    type: overlay
+    start: 0x0e0f010
+    vram: 0x8099c290
+
+  - name: ovl_Oceff_Wipe4
+    type: overlay
+    start: 0x0e10500
+    vram: 0x8099d780
+
+  - name: ovl_En_Zo
+    type: overlay
+    start: 0x0e11500
+    vram: 0x8099e790
+
+  - name: ovl_Effect_Ss_Ice_Smoke
+    type: overlay
+    start: 0x0e124a0
+    vram: 0x8099f730
+
+  - name: ovl_Obj_Makekinsuta
+    type: overlay
+    start: 0x0e127b0
+    vram: 0x8099fa40
+
+  - name: ovl_En_Ge3
+    type: overlay
+    start: 0x0e12c20
+    vram: 0x8099feb0
+
+  - name: ovl_Obj_Hamishi
+    type: overlay
+    start: 0x0e13c90
+    vram: 0x809a0f20
+
+  - name: ovl_En_Zl4
+    type: overlay
+    start: 0x0e14920
+    vram: 0x809a1bb0
+
+  - name: ovl_En_Mm2
+    type: overlay
+    start: 0x0e14da0
+    vram: 0x809a2030
+
+  - name: ovl_Door_Spiral
+    type: overlay
+    start: 0x0e158d0
+    vram: 0x809a2b60
+
+  - name: ovl_Obj_Pzlblock
+    type: overlay
+    start: 0x0e16150
+    vram: 0x809a33e0
+
+  - name: ovl_Obj_Toge
+    type: overlay
+    start: 0x0e16f30
+    vram: 0x809a41c0
+
+  - name: ovl_Obj_Armos
+    type: overlay
+    start: 0x0e17b70
+    vram: 0x809a4e00
+
+  - name: ovl_Obj_Boyo
+    type: overlay
+    start: 0x0e18a80
+    vram: 0x809a5d10
+
+  - name: ovl_En_Grasshopper
+    type: overlay
+    start: 0x0e18ff0
+    vram: 0x809a6280
+
+  - name: ovl_Obj_Grass
+    type: overlay
+    start: 0x0e1be80
+    vram: 0x809a9110
+
+  - name: ovl_Obj_Grass_Carry
+    type: overlay
+    start: 0x0e1db10
+    vram: 0x809aae60
+
+  - name: ovl_Obj_Grass_Unit
+    type: overlay
+    start: 0x0e1ea90
+    vram: 0x809abde0
+
+  - name: ovl_Bg_Fire_Wall
+    type: overlay
+    start: 0x0e1f160
+    vram: 0x809ac4b0
+
+  - name: ovl_En_Bu
+    type: overlay
+    start: 0x0e1fa40
+    vram: 0x809acd90
+
+  - name: ovl_En_Encount3
+    type: overlay
+    start: 0x0e1fbf0
+    vram: 0x809acf40
+
+  - name: ovl_En_Jso
+    type: overlay
+    start: 0x0e20590
+    vram: 0x809ad8e0
+
+  - name: ovl_Obj_Chikuwa
+    type: overlay
+    start: 0x0e24200
+    vram: 0x809b1550
+
+  - name: ovl_En_Knight
+    type: overlay
+    start: 0x0e24da0
+    vram: 0x809b20f0
+
+  - name: ovl_En_Warp_tag
+    type: overlay
+    start: 0x0e31c80
+    vram: 0x809c0760
+
+  - name: ovl_En_Aob_01
+    type: overlay
+    start: 0x0e325d0
+    vram: 0x809c10b0
+
+  - name: ovl_En_Boj_01
+    type: overlay
+    start: 0x0e352a0
+    vram: 0x809c3d80
+
+  - name: ovl_En_Boj_02
+    type: overlay
+    start: 0x0e35330
+    vram: 0x809c3e10
+
+  - name: ovl_En_Boj_03
+    type: overlay
+    start: 0x0e353c0
+    vram: 0x809c3ea0
+
+  - name: ovl_En_Encount4
+    type: overlay
+    start: 0x0e35450
+    vram: 0x809c3f30
+
+  - name: ovl_En_Bom_Bowl_Man
+    type: overlay
+    start: 0x0e35cb0
+    vram: 0x809c4790
+
+  - name: ovl_En_Syateki_Man
+    type: overlay
+    start: 0x0e379e0
+    vram: 0x809c64c0
+
+  - name: ovl_Bg_Icicle
+    type: overlay
+    start: 0x0e3af80
+    vram: 0x809c9a60
+
+  - name: ovl_En_Syateki_Crow
+    type: overlay
+    start: 0x0e3b910
+    vram: 0x809ca3f0
+
+  - name: ovl_En_Boj_04
+    type: overlay
+    start: 0x0e3c720
+    vram: 0x809cb200
+
+  - name: ovl_En_Cne_01
+    type: overlay
+    start: 0x0e3c7b0
+    vram: 0x809cb290
+
+  - name: ovl_En_Bba_01
+    type: overlay
+    start: 0x0e3d580
+    vram: 0x809cc060
+
+  - name: ovl_En_Bji_01
+    type: overlay
+    start: 0x0e3e300
+    vram: 0x809ccde0
+
+  - name: ovl_Bg_Spdweb
+    type: overlay
+    start: 0x0e3f3e0
+    vram: 0x809cdec0
+
+  - name: ovl_En_Mt_tag
+    type: overlay
+    start: 0x0e40870
+    vram: 0x809cf350
+
+  - name: ovl_Boss_01
+    type: overlay
+    start: 0x0e41a50
+    vram: 0x809d0530
+
+  - name: ovl_Boss_02
+    type: overlay
+    start: 0x0e49f30
+    vram: 0x809da1d0
+
+  - name: ovl_Boss_03
+    type: overlay
+    start: 0x0e50180
+    vram: 0x809e2760
+
+  - name: ovl_Boss_04
+    type: overlay
+    start: 0x0e57260
+    vram: 0x809ec040
+
+  - name: ovl_Boss_05
+    type: overlay
+    start: 0x0e596f0
+    vram: 0x809ee4e0
+
+  - name: ovl_Boss_06
+    type: overlay
+    start: 0x0e5d320
+    vram: 0x809f2120
+
+  - name: ovl_Boss_07
+    type: overlay
+    start: 0x0e5f570
+    vram: 0x809f4980
+
+  - name: ovl_Bg_Dy_Yoseizo
+    type: overlay
+    start: 0x0e74630
+    vram: 0x80a0a8a0
+
+  - name: ovl_En_Boj_05
+    type: overlay
+    start: 0x0e76510
+    vram: 0x80a0c780
+
+  - name: ovl_En_Sob1
+    type: overlay
+    start: 0x0e765a0
+    vram: 0x80a0c810
+
+  - name: ovl_En_Go
+    type: overlay
+    start: 0x0e7ad60
+    vram: 0x80a10fd0
+
+  - name: ovl_En_Raf
+    type: overlay
+    start: 0x0e80ad0
+    vram: 0x80a16d40
+
+  - name: ovl_Obj_Funen
+    type: overlay
+    start: 0x0e834d0
+    vram: 0x80a19740
+
+  - name: ovl_Obj_Raillift
+    type: overlay
+    start: 0x0e836a0
+    vram: 0x80a19910
+
+  - name: ovl_Bg_Numa_Hana
+    type: overlay
+    start: 0x0e84290
+    vram: 0x80a1a500
+
+  - name: ovl_Obj_Flowerpot
+    type: overlay
+    start: 0x0e85160
+    vram: 0x80a1b3d0
+
+  - name: ovl_Obj_Spinyroll
+    type: overlay
+    start: 0x0e875c0
+    vram: 0x80a1da50
+
+  - name: ovl_Dm_Hina
+    type: overlay
+    start: 0x0e88f80
+    vram: 0x80a1f410
+
+  - name: ovl_En_Syateki_Wf
+    type: overlay
+    start: 0x0e899c0
+    vram: 0x80a1fe50
+
+  - name: ovl_Obj_Skateblock
+    type: overlay
+    start: 0x0e8acc0
+    vram: 0x80a21150
+
+  - name: ovl_Effect_En_Ice_Block
+    type: overlay
+    start: 0x0e8c8b0
+    vram: 0x80a22d40
+
+  - name: ovl_Obj_Iceblock
+    type: overlay
+    start: 0x0e8cc00
+    vram: 0x80a23090
+
+  - name: ovl_En_Bigpamet
+    type: overlay
+    start: 0x0e91090
+    vram: 0x80a27520
+
+  - name: ovl_Bg_Dblue_Movebg
+    type: overlay
+    start: 0x0e935f0
+    vram: 0x80a29a80
+
+  - name: ovl_En_Syateki_Dekunuts
+    type: overlay
+    start: 0x0e95760
+    vram: 0x80a2bc00
+
+  - name: ovl_Elf_Msg3
+    type: overlay
+    start: 0x0e96870
+    vram: 0x80a2cd10
+
+  - name: ovl_En_Fg
+    type: overlay
+    start: 0x0e96de0
+    vram: 0x80a2d280
+
+  - name: ovl_Dm_Ravine
+    type: overlay
+    start: 0x0e98300
+    vram: 0x80a2e7a0
+
+  - name: ovl_Dm_Sa
+    type: overlay
+    start: 0x0e984c0
+    vram: 0x80a2e960
+
+  - name: ovl_En_Slime
+    type: overlay
+    start: 0x0e98900
+    vram: 0x80a2eda0
+
+  - name: ovl_En_Pr
+    type: overlay
+    start: 0x0e9bd60
+    vram: 0x80a32210
+
+  - name: ovl_Obj_Toudai
+    type: overlay
+    start: 0x0e9d650
+    vram: 0x80a33b00
+
+  - name: ovl_Obj_Entotu
+    type: overlay
+    start: 0x0e9e250
+    vram: 0x80a34700
+
+  - name: ovl_Obj_Bell
+    type: overlay
+    start: 0x0e9f060
+    vram: 0x80a35510
+
+  - name: ovl_En_Syateki_Okuta
+    type: overlay
+    start: 0x0e9fb40
+    vram: 0x80a35ff0
+
+  - name: ovl_Obj_Shutter
+    type: overlay
+    start: 0x0ea1a20
+    vram: 0x80a37ed0
+
+  - name: ovl_Dm_Zl
+    type: overlay
+    start: 0x0ea1ce0
+    vram: 0x80a38190
+
+  - name: ovl_En_Ru
+    type: overlay
+    start: 0x0ea24f0
+    vram: 0x80a389a0
+
+  - name: ovl_En_Elfgrp
+    type: overlay
+    start: 0x0ea3200
+    vram: 0x80a396b0
+
+  - name: ovl_Dm_Tsg
+    type: overlay
+    start: 0x0ea47b0
+    vram: 0x80a3ac60
+
+  - name: ovl_En_Baguo
+    type: overlay
+    start: 0x0ea4bd0
+    vram: 0x80a3b080
+
+  - name: ovl_Obj_Vspinyroll
+    type: overlay
+    start: 0x0ea6030
+    vram: 0x80a3c4e0
+
+  - name: ovl_Obj_Smork
+    type: overlay
+    start: 0x0ea71d0
+    vram: 0x80a3d680
+
+  - name: ovl_En_Test2
+    type: overlay
+    start: 0x0ea7ee0
+    vram: 0x80a3e390
+
+  - name: ovl_En_Test3
+    type: overlay
+    start: 0x0ea8330
+    vram: 0x80a3e7e0
+
+  - name: ovl_En_Test4
+    type: overlay
+    start: 0x0eab870
+    vram: 0x80a41d70
+
+  - name: ovl_En_Bat
+    type: overlay
+    start: 0x0eacfd0
+    vram: 0x80a434e0
+
+  - name: ovl_En_Sekihi
+    type: overlay
+    start: 0x0eae760
+    vram: 0x80a44c80
+
+  - name: ovl_En_Wiz
+    type: overlay
+    start: 0x0eaee40
+    vram: 0x80a45360
+
+  - name: ovl_En_Wiz_Brock
+    type: overlay
+    start: 0x0eb2ac0
+    vram: 0x80a48fe0
+
+  - name: ovl_En_Wiz_Fire
+    type: overlay
+    start: 0x0eb3180
+    vram: 0x80a496a0
+
+  - name: ovl_Eff_Change
+    type: overlay
+    start: 0x0eb5f70
+    vram: 0x80a4c490
+
+  - name: ovl_Dm_Statue
+    type: overlay
+    start: 0x0eb6490
+    vram: 0x80a4c9b0
+
+  - name: ovl_Obj_Fireshield
+    type: overlay
+    start: 0x0eb6570
+    vram: 0x80a4ca90
+
+  - name: ovl_Bg_Ladder
+    type: overlay
+    start: 0x0eb74d0
+    vram: 0x80a4d9f0
+
+  - name: ovl_En_Mkk
+    type: overlay
+    start: 0x0eb79b0
+    vram: 0x80a4ded0
+
+  - name: ovl_Demo_Getitem
+    type: overlay
+    start: 0x0eb9520
+    vram: 0x80a4fa40
+
+  - name: ovl_En_Dnb
+    type: overlay
+    start: 0x0eb98b0
+    vram: 0x80a4fdd0
+
+  - name: ovl_En_Dnh
+    type: overlay
+    start: 0x0eba820
+    vram: 0x80a50d40
+
+  - name: ovl_En_Dnk
+    type: overlay
+    start: 0x0ebafd0
+    vram: 0x80a514f0
+
+  - name: ovl_En_Dnq
+    type: overlay
+    start: 0x0ebc010
+    vram: 0x80a52530
+
+  - name: ovl_Bg_Keikoku_Saku
+    type: overlay
+    start: 0x0ebd2b0
+    vram: 0x80a537d0
+
+  - name: ovl_Obj_Hugebombiwa
+    type: overlay
+    start: 0x0ebd6c0
+    vram: 0x80a53be0
+
+  - name: ovl_En_Firefly2
+    type: overlay
+    start: 0x0ebfba0
+    vram: 0x80a560c0
+
+  - name: ovl_En_Rat
+    type: overlay
+    start: 0x0ebfc30
+    vram: 0x80a56150
+
+  - name: ovl_En_Water_Effect
+    type: overlay
+    start: 0x0ec2280
+    vram: 0x80a587a0
+
+  - name: ovl_En_Kusa2
+    type: overlay
+    start: 0x0ec4c40
+    vram: 0x80a5b160
+
+  - name: ovl_Bg_Spout_Fire
+    type: overlay
+    start: 0x0ec8ca0
+    vram: 0x80a60b20
+
+  - name: ovl_En_Dy_Extra
+    type: overlay
+    start: 0x0ec9430
+    vram: 0x80a612b0
+
+  - name: ovl_En_Bal
+    type: overlay
+    start: 0x0ec9990
+    vram: 0x80a61810
+
+  - name: ovl_En_Ginko_Man
+    type: overlay
+    start: 0x0ecc620
+    vram: 0x80a644a0
+
+  - name: ovl_En_Warp_Uzu
+    type: overlay
+    start: 0x0ece300
+    vram: 0x80a66180
+
+  - name: ovl_Obj_Driftice
+    type: overlay
+    start: 0x0ece6f0
+    vram: 0x80a66570
+
+  - name: ovl_En_Look_Nuts
+    type: overlay
+    start: 0x0ecfa30
+    vram: 0x80a678b0
+
+  - name: ovl_En_Mushi2
+    type: overlay
+    start: 0x0ed0920
+    vram: 0x80a687a0
+
+  - name: ovl_En_Fall
+    type: overlay
+    start: 0x0ed4110
+    vram: 0x80a6bf90
+
+  - name: ovl_En_Mm3
+    type: overlay
+    start: 0x0ed6b10
+    vram: 0x80a6f0a0
+
+  - name: ovl_Bg_Crace_Movebg
+    type: overlay
+    start: 0x0ed8160
+    vram: 0x80a706f0
+
+  - name: ovl_En_Dno
+    type: overlay
+    start: 0x0ed8c20
+    vram: 0x80a711d0
+
+  - name: ovl_En_Pr2
+    type: overlay
+    start: 0x0edb9f0
+    vram: 0x80a73fa0
+
+  - name: ovl_En_Prz
+    type: overlay
+    start: 0x0edd810
+    vram: 0x80a75dc0
+
+  - name: ovl_En_Jso2
+    type: overlay
+    start: 0x0edee10
+    vram: 0x80a773c0
+
+  - name: ovl_Obj_Etcetera
+    type: overlay
+    start: 0x0ee36c0
+    vram: 0x80a7bc70
+
+  - name: ovl_En_Egol
+    type: overlay
+    start: 0x0ee43e0
+    vram: 0x80a7c990
+
+  - name: ovl_Obj_Mine
+    type: overlay
+    start: 0x0ee8c20
+    vram: 0x80a811d0
+
+  - name: ovl_Obj_Purify
+    type: overlay
+    start: 0x0eec420
+    vram: 0x80a84cd0
+
+  - name: ovl_En_Tru
+    type: overlay
+    start: 0x0eecd70
+    vram: 0x80a85620
+
+  - name: ovl_En_Trt
+    type: overlay
+    start: 0x0ef2ec0
+    vram: 0x80a8b770
+
+  - name: ovl_En_Test5
+    type: overlay
+    start: 0x0ef7b00
+    vram: 0x80a903b0
+
+  - name: ovl_En_Test6
+    type: overlay
+    start: 0x0ef7e80
+    vram: 0x80a90730
+
+  - name: ovl_En_Az
+    type: overlay
+    start: 0x0efc060
+    vram: 0x80a94a30
+
+  - name: ovl_En_Estone
+    type: overlay
+    start: 0x0f014b0
+    vram: 0x80a99ea0
+
+  - name: ovl_Bg_Hakugin_Post
+    type: overlay
+    start: 0x0f022e0
+    vram: 0x80a9acd0
+
+  - name: ovl_Dm_Opstage
+    type: overlay
+    start: 0x0f053d0
+    vram: 0x80a9f950
+
+  - name: ovl_Dm_Stk
+    type: overlay
+    start: 0x0f05830
+    vram: 0x80a9fdb0
+
+  - name: ovl_Dm_Char00
+    type: overlay
+    start: 0x0f0b000
+    vram: 0x80aa5580
+
+  - name: ovl_Dm_Char01
+    type: overlay
+    start: 0x0f0dc60
+    vram: 0x80aa81e0
+
+  - name: ovl_Dm_Char02
+    type: overlay
+    start: 0x0f108a0
+    vram: 0x80aaae30
+
+  - name: ovl_Dm_Char03
+    type: overlay
+    start: 0x0f10f10
+    vram: 0x80aab4a0
+
+  - name: ovl_Dm_Char04
+    type: overlay
+    start: 0x0f116b0
+    vram: 0x80aabc40
+
+  - name: ovl_Dm_Char05
+    type: overlay
+    start: 0x0f12010
+    vram: 0x80aac5a0
+
+  - name: ovl_Dm_Char06
+    type: overlay
+    start: 0x0f140f0
+    vram: 0x80aae680
+
+  - name: ovl_Dm_Char07
+    type: overlay
+    start: 0x0f14430
+    vram: 0x80aae9c0
+
+  - name: ovl_Dm_Char08
+    type: overlay
+    start: 0x0f14ac0
+    vram: 0x80aaf050
+
+  - name: ovl_Dm_Char09
+    type: overlay
+    start: 0x0f17880
+    vram: 0x80ab1e10
+
+  - name: ovl_Obj_Tokeidai
+    type: overlay
+    start: 0x0f18200
+    vram: 0x80ab2790
+
+  - name: ovl_En_Mnk
+    type: overlay
+    start: 0x0f1a780
+    vram: 0x80ab4d10
+
+  - name: ovl_En_Egblock
+    type: overlay
+    start: 0x0f20210
+    vram: 0x80aba7a0
+
+  - name: ovl_En_Guard_Nuts
+    type: overlay
+    start: 0x0f20b50
+    vram: 0x80abb0e0
+
+  - name: ovl_Bg_Hakugin_Bombwall
+    type: overlay
+    start: 0x0f21a30
+    vram: 0x80abbfc0
+
+  - name: ovl_Obj_Tokei_Tobira
+    type: overlay
+    start: 0x0f22c40
+    vram: 0x80abd1d0
+
+  - name: ovl_Bg_Hakugin_Elvpole
+    type: overlay
+    start: 0x0f232a0
+    vram: 0x80abd830
+
+  - name: ovl_En_Ma4
+    type: overlay
+    start: 0x0f23710
+    vram: 0x80abdca0
+
+  - name: ovl_En_Twig
+    type: overlay
+    start: 0x0f262a0
+    vram: 0x80ac0830
+
+  - name: ovl_En_Po_Fusen
+    type: overlay
+    start: 0x0f26ca0
+    vram: 0x80ac1270
+
+  - name: ovl_En_Door_Etc
+    type: overlay
+    start: 0x0f27900
+    vram: 0x80ac1ed0
+
+  - name: ovl_En_Bigokuta
+    type: overlay
+    start: 0x0f28120
+    vram: 0x80ac26f0
+
+  - name: ovl_Bg_Icefloe
+    type: overlay
+    start: 0x0f2a320
+    vram: 0x80ac48f0
+
+  - name: ovl_fbdemo_triforce
+    type: overlay
+    start: 0x0f2aa90
+    vram: 0x80ac5070
+
+  - name: ovl_fbdemo_wipe1
+    type: overlay
+    start: 0x0f2b1d0
+    vram: 0x80ac57b0
+
+  - name: ovl_fbdemo_wipe3
+    type: overlay
+    start: 0x0f2c160
+    vram: 0x80ac6740
+
+  - name: ovl_fbdemo_wipe4
+    type: overlay
+    start: 0x0f2de50
+    vram: 0x80ac8430
+
+  - name: ovl_fbdemo_wipe5
+    type: overlay
+    start: 0x0f2e110
+    vram: 0x80ac86f0
+
+  - name: ovl_Effect_Ss_Sbn
+    type: overlay
+    start: 0x0f2e570
+    vram: 0x80ac8b50
+
+  - name: ovl_Obj_Ocarinalift
+    type: overlay
+    start: 0x0f2eee0
+    vram: 0x80ac94c0
+
+  - name: ovl_En_Time_Tag
+    type: overlay
+    start: 0x0f2f8c0
+    vram: 0x80ac9ea0
+
+  - name: ovl_Bg_Open_Shutter
+    type: overlay
+    start: 0x0f30530
+    vram: 0x80acab10
+
+  - name: ovl_Bg_Open_Spot
+    type: overlay
+    start: 0x0f30c00
+    vram: 0x80acb1e0
+
+  - name: ovl_Bg_Fu_Kaiten
+    type: overlay
+    start: 0x0f30e20
+    vram: 0x80acb400
+
+  - name: ovl_Obj_Aqua
+    type: overlay
+    start: 0x0f310c0
+    vram: 0x80acb6a0
+
+  - name: ovl_En_Elforg
+    type: overlay
+    start: 0x0f31e90
+    vram: 0x80acc470
+
+  - name: ovl_En_Elfbub
+    type: overlay
+    start: 0x0f336f0
+    vram: 0x80acdcd0
+
+  - name: ovl_En_Fu_Mato
+    type: overlay
+    start: 0x0f33d50
+    vram: 0x80ace330
+
+  - name: ovl_En_Fu_Kago
+    type: overlay
+    start: 0x0f351a0
+    vram: 0x80acf780
+
+  - name: ovl_En_Osn
+    type: overlay
+    start: 0x0f36250
+    vram: 0x80ad0830
+
+  - name: ovl_Bg_Ctower_Gear
+    type: overlay
+    start: 0x0f38590
+    vram: 0x80ad2b70
+
+  - name: ovl_En_Trt2
+    type: overlay
+    start: 0x0f38da0
+    vram: 0x80ad3380
+
+  - name: ovl_Obj_Tokei_Step
+    type: overlay
+    start: 0x0f3b5d0
+    vram: 0x80ad5bb0
+
+  - name: ovl_Bg_Lotus
+    type: overlay
+    start: 0x0f3c180
+    vram: 0x80ad6760
+
+  - name: ovl_En_Kame
+    type: overlay
+    start: 0x0f3c7f0
+    vram: 0x80ad6dd0
+
+  - name: ovl_Obj_Takaraya_Wall
+    type: overlay
+    start: 0x0f3ec60
+    vram: 0x80ad9240
+
+  - name: ovl_Bg_Fu_Mizu
+    type: overlay
+    start: 0x0f3fe70
+    vram: 0x80adaaf0
+
+  - name: ovl_En_Sellnuts
+    type: overlay
+    start: 0x0f40150
+    vram: 0x80adadd0
+
+  - name: ovl_Bg_Dkjail_Ivy
+    type: overlay
+    start: 0x0f435b0
+    vram: 0x80ade230
+
+  - name: ovl_Obj_Visiblock
+    type: overlay
+    start: 0x0f43df0
+    vram: 0x80adea70
+
+  - name: ovl_En_Takaraya
+    type: overlay
+    start: 0x0f43f10
+    vram: 0x80adeb90
+
+  - name: ovl_En_Tsn
+    type: overlay
+    start: 0x0f45020
+    vram: 0x80adfca0
+
+  - name: ovl_En_Ds2n
+    type: overlay
+    start: 0x0f469d0
+    vram: 0x80ae1650
+
+  - name: ovl_En_Fsn
+    type: overlay
+    start: 0x0f46ef0
+    vram: 0x80ae1b70
+
+  - name: ovl_En_Shn
+    type: overlay
+    start: 0x0f4b4b0
+    vram: 0x80ae6130
+
+  - name: ovl_En_Stop_heishi
+    type: overlay
+    start: 0x0f4c720
+    vram: 0x80ae73a0
+
+  - name: ovl_Obj_Bigicicle
+    type: overlay
+    start: 0x0f4def0
+    vram: 0x80ae8b70
+
+  - name: ovl_En_Lift_Nuts
+    type: overlay
+    start: 0x0f4eda0
+    vram: 0x80ae9a20
+
+  - name: ovl_En_Tk
+    type: overlay
+    start: 0x0f517e0
+    vram: 0x80aec460
+
+  - name: ovl_Bg_Market_Step
+    type: overlay
+    start: 0x0f553d0
+    vram: 0x80af0060
+
+  - name: ovl_Obj_Lupygamelift
+    type: overlay
+    start: 0x0f554e0
+    vram: 0x80af0170
+
+  - name: ovl_En_Test7
+    type: overlay
+    start: 0x0f55b90
+    vram: 0x80af0820
+
+  - name: ovl_Obj_Lightblock
+    type: overlay
+    start: 0x0f58c20
+    vram: 0x80af3910
+
+  - name: ovl_Mir_Ray2
+    type: overlay
+    start: 0x0f59280
+    vram: 0x80af3f70
+
+  - name: ovl_En_Wdhand
+    type: overlay
+    start: 0x0f59700
+    vram: 0x80af43f0
+
+  - name: ovl_En_Gamelupy
+    type: overlay
+    start: 0x0f5ba70
+    vram: 0x80af6760
+
+  - name: ovl_Bg_Danpei_Movebg
+    type: overlay
+    start: 0x0f5c0f0
+    vram: 0x80af6de0
+
+  - name: ovl_En_Snowwd
+    type: overlay
+    start: 0x0f5c950
+    vram: 0x80af7640
+
+  - name: ovl_En_Pm
+    type: overlay
+    start: 0x0f5ce50
+    vram: 0x80af7b40
+
+  - name: ovl_En_Gakufu
+    type: overlay
+    start: 0x0f61c70
+    vram: 0x80afc960
+
+  - name: ovl_Elf_Msg4
+    type: overlay
+    start: 0x0f62690
+    vram: 0x80afd380
+
+  - name: ovl_Elf_Msg5
+    type: overlay
+    start: 0x0f62ca0
+    vram: 0x80afd990
+
+  - name: ovl_En_Col_Man
+    type: overlay
+    start: 0x0f62f50
+    vram: 0x80afdc40
+
+  - name: ovl_En_Talk_Gibud
+    type: overlay
+    start: 0x0f63bb0
+    vram: 0x80afe8a0
+
+  - name: ovl_En_Giant
+    type: overlay
+    start: 0x0f66ca0
+    vram: 0x80b01990
+
+  - name: ovl_Obj_Snowball
+    type: overlay
+    start: 0x0f67fe0
+    vram: 0x80b02cd0
+
+  - name: ovl_Boss_Hakugin
+    type: overlay
+    start: 0x0f6a5a0
+    vram: 0x80b05290
+
+  - name: ovl_En_Gb2
+    type: overlay
+    start: 0x0f748f0
+    vram: 0x80b0f5e0
+
+  - name: ovl_En_Onpuman
+    type: overlay
+    start: 0x0f77170
+    vram: 0x80b11e60
+
+  - name: ovl_Bg_Tobira01
+    type: overlay
+    start: 0x0f77740
+    vram: 0x80b12430
+
+  - name: ovl_En_Tag_Obj
+    type: overlay
+    start: 0x0f77b80
+    vram: 0x80b12870
+
+  - name: ovl_Obj_Dhouse
+    type: overlay
+    start: 0x0f77c90
+    vram: 0x80b12980
+
+  - name: ovl_Obj_Hakaisi
+    type: overlay
+    start: 0x0f79490
+    vram: 0x80b14180
+
+  - name: ovl_Bg_Hakugin_Switch
+    type: overlay
+    start: 0x0f7aaa0
+    vram: 0x80b15790
+
+  - name: ovl_En_Snowman
+    type: overlay
+    start: 0x0f7be00
+    vram: 0x80b16b00
+
+  - name: ovl_TG_Sw
+    type: overlay
+    start: 0x0f7f260
+    vram: 0x80b19f60
+
+  - name: ovl_En_Po_Sisters
+    type: overlay
+    start: 0x0f7f6b0
+    vram: 0x80b1a3b0
+
+  - name: ovl_En_Pp
+    type: overlay
+    start: 0x0f831b0
+    vram: 0x80b1deb0
+
+  - name: ovl_En_Hakurock
+    type: overlay
+    start: 0x0f86e00
+    vram: 0x80b21b00
+
+  - name: ovl_En_Hanabi
+    type: overlay
+    start: 0x0f87f00
+    vram: 0x80b22c00
+
+  - name: ovl_Obj_Dowsing
+    type: overlay
+    start: 0x0f89050
+    vram: 0x80b23d50
+
+  - name: ovl_Obj_Wind
+    type: overlay
+    start: 0x0f891d0
+    vram: 0x80b23ed0
+
+  - name: ovl_En_Racedog
+    type: overlay
+    start: 0x0f89930
+    vram: 0x80b24630
+
+  - name: ovl_En_Kendo_Js
+    type: overlay
+    start: 0x0f8b5a0
+    vram: 0x80b262a0
+
+  - name: ovl_Bg_Botihasira
+    type: overlay
+    start: 0x0f8d380
+    vram: 0x80b28080
+
+  - name: ovl_En_Fish2
+    type: overlay
+    start: 0x0f8d670
+    vram: 0x80b28370
+
+  - name: ovl_En_Pst
+    type: overlay
+    start: 0x0f90b30
+    vram: 0x80b2b830
+
+  - name: ovl_En_Poh
+    type: overlay
+    start: 0x0f919f0
+    vram: 0x80b2c6f0
+
+  - name: ovl_Obj_Spidertent
+    type: overlay
+    start: 0x0f94e10
+    vram: 0x80b2fb10
+
+  - name: ovl_En_Zoraegg
+    type: overlay
+    start: 0x0f96890
+    vram: 0x80b31590
+
+  - name: ovl_En_Kbt
+    type: overlay
+    start: 0x0f99030
+    vram: 0x80b33d30
+
+  - name: ovl_En_Gg
+    type: overlay
+    start: 0x0f9a270
+    vram: 0x80b34f70
+
+  - name: ovl_En_Maruta
+    type: overlay
+    start: 0x0f9c380
+    vram: 0x80b37080
+
+  - name: ovl_Obj_Snowball2
+    type: overlay
+    start: 0x0f9e120
+    vram: 0x80b38e20
+
+  - name: ovl_En_Gg2
+    type: overlay
+    start: 0x0f9ff50
+    vram: 0x80b3ac50
+
+  - name: ovl_Obj_Ghaka
+    type: overlay
+    start: 0x0fa1560
+    vram: 0x80b3c260
+
+  - name: ovl_En_Dnp
+    type: overlay
+    start: 0x0fa1d20
+    vram: 0x80b3ca20
+
+  - name: ovl_En_Dai
+    type: overlay
+    start: 0x0fa32f0
+    vram: 0x80b3dff0
+
+  - name: ovl_Bg_Goron_Oyu
+    type: overlay
+    start: 0x0fa5380
+    vram: 0x80b40080
+
+  - name: ovl_En_Kgy
+    type: overlay
+    start: 0x0fa5b00
+    vram: 0x80b40800
+
+  - name: ovl_En_Invadepoh
+    type: overlay
+    start: 0x0fa8cb0
+    vram: 0x80b439b0
+
+  - name: ovl_En_Gk
+    type: overlay
+    start: 0x0fb55a0
+    vram: 0x80b50410
+
+  - name: ovl_En_An
+    type: overlay
+    start: 0x0fb89d0
+    vram: 0x80b53840
+
+  - name: ovl_En_Bee
+    type: overlay
+    start: 0x0fbf8b0
+    vram: 0x80b5a720
+
+  - name: ovl_En_Ot
+    type: overlay
+    start: 0x0fc0470
+    vram: 0x80b5b2e0
+
+  - name: ovl_En_Dragon
+    type: overlay
+    start: 0x0fc3a10
+    vram: 0x80b5e890
+
+  - name: ovl_Obj_Dora
+    type: overlay
+    start: 0x0fc5c50
+    vram: 0x80b60ad0
+
+  - name: ovl_En_Bigpo
+    type: overlay
+    start: 0x0fc6760
+    vram: 0x80b615e0
+
+  - name: ovl_Obj_Kendo_Kanban
+    type: overlay
+    start: 0x0fca640
+    vram: 0x80b654c0
+
+  - name: ovl_Obj_Hariko
+    type: overlay
+    start: 0x0fcbba0
+    vram: 0x80b66a20
+
+  - name: ovl_En_Sth
+    type: overlay
+    start: 0x0fcbeb0
+    vram: 0x80b66d30
+
+  - name: ovl_Bg_Sinkai_Kabe
+    type: overlay
+    start: 0x0fd27e0
+    vram: 0x80b6d660
+
+  - name: ovl_Bg_Haka_Curtain
+    type: overlay
+    start: 0x0fd2d60
+    vram: 0x80b6dbe0
+
+  - name: ovl_Bg_Kin2_Bombwall
+    type: overlay
+    start: 0x0fd31a0
+    vram: 0x80b6e020
+
+  - name: ovl_Bg_Kin2_Fence
+    type: overlay
+    start: 0x0fd39a0
+    vram: 0x80b6e820
+
+  - name: ovl_Bg_Kin2_Picture
+    type: overlay
+    start: 0x0fd4120
+    vram: 0x80b6efa0
+
+  - name: ovl_Bg_Kin2_Shelf
+    type: overlay
+    start: 0x0fd4cb0
+    vram: 0x80b6fb30
+
+  - name: ovl_En_Rail_Skb
+    type: overlay
+    start: 0x0fd5a40
+    vram: 0x80b708c0
+
+  - name: ovl_En_Jg
+    type: overlay
+    start: 0x0fd8c10
+    vram: 0x80b73a90
+
+  - name: ovl_En_Tru_Mt
+    type: overlay
+    start: 0x0fdb1b0
+    vram: 0x80b76030
+
+  - name: ovl_Obj_Um
+    type: overlay
+    start: 0x0fdc8f0
+    vram: 0x80b77770
+
+  - name: ovl_En_Neo_Reeba
+    type: overlay
+    start: 0x0fe1a10
+    vram: 0x80b7c890
+
+  - name: ovl_Bg_Mbar_Chair
+    type: overlay
+    start: 0x0fe3ab0
+    vram: 0x80b7e930
+
+  - name: ovl_Bg_Ikana_Block
+    type: overlay
+    start: 0x0fe3be0
+    vram: 0x80b7ea60
+
+  - name: ovl_Bg_Ikana_Mirror
+    type: overlay
+    start: 0x0fe48b0
+    vram: 0x80b7f730
+
+  - name: ovl_Bg_Ikana_Rotaryroom
+    type: overlay
+    start: 0x0fe5460
+    vram: 0x80b802e0
+
+  - name: ovl_Bg_Dblue_Balance
+    type: overlay
+    start: 0x0fe7530
+    vram: 0x80b823b0
+
+  - name: ovl_Bg_Dblue_Waterfall
+    type: overlay
+    start: 0x0fe8df0
+    vram: 0x80b83c80
+
+  - name: ovl_En_Kaizoku
+    type: overlay
+    start: 0x0fea700
+    vram: 0x80b85590
+
+  - name: ovl_En_Ge2
+    type: overlay
+    start: 0x0ff0440
+    vram: 0x80b8b2d0
+
+  - name: ovl_En_Ma_Yts
+    type: overlay
+    start: 0x0ff21a0
+    vram: 0x80b8d030
+
+  - name: ovl_En_Ma_Yto
+    type: overlay
+    start: 0x0ff3690
+    vram: 0x80b8e520
+
+  - name: ovl_Obj_Tokei_Turret
+    type: overlay
+    start: 0x0ff6e30
+    vram: 0x80b91cc0
+
+  - name: ovl_Bg_Dblue_Elevator
+    type: overlay
+    start: 0x0ff7090
+    vram: 0x80b91f20
+
+  - name: ovl_Obj_Warpstone
+    type: overlay
+    start: 0x0ff7c80
+    vram: 0x80b92b10
+
+  - name: ovl_En_Zog
+    type: overlay
+    start: 0x0ff8480
+    vram: 0x80b93310
+
+  - name: ovl_Obj_Rotlift
+    type: overlay
+    start: 0x0ffaf80
+    vram: 0x80b95e20
+
+  - name: ovl_Obj_Jg_Gakki
+    type: overlay
+    start: 0x0ffb340
+    vram: 0x80b961e0
+
+  - name: ovl_Bg_Inibs_Movebg
+    type: overlay
+    start: 0x0ffb570
+    vram: 0x80b96410
+
+  - name: ovl_En_Zot
+    type: overlay
+    start: 0x0ffb730
+    vram: 0x80b965d0
+
+  - name: ovl_Obj_Tree
+    type: overlay
+    start: 0x0fff210
+    vram: 0x80b9a0b0
+
+  - name: ovl_Obj_Y2lift
+    type: overlay
+    start: 0x0fff7b0
+    vram: 0x80b9a650
+
+  - name: ovl_Obj_Y2shutter
+    type: overlay
+    start: 0x0fffae0
+    vram: 0x80b9a980
+
+  - name: ovl_Obj_Boat
+    type: overlay
+    start: 0x10000b0
+    vram: 0x80b9af50
+
+  - name: ovl_Obj_Taru
+    type: overlay
+    start: 0x1000840
+    vram: 0x80b9b6e0
+
+  - name: ovl_Obj_Hunsui
+    type: overlay
+    start: 0x10015b0
+    vram: 0x80b9c450
+
+  - name: ovl_En_Jc_Mato
+    type: overlay
+    start: 0x1003030
+    vram: 0x80b9dee0
+
+  - name: ovl_Mir_Ray3
+    type: overlay
+    start: 0x1003410
+    vram: 0x80b9e2c0
+
+  - name: ovl_En_Zob
+    type: overlay
+    start: 0x10046c0
+    vram: 0x80b9f570
+
+  - name: ovl_Elf_Msg6
+    type: overlay
+    start: 0x10066f0
+    vram: 0x80ba15a0
+
+  - name: ovl_Obj_Nozoki
+    type: overlay
+    start: 0x1007570
+    vram: 0x80ba2420
+
+  - name: ovl_En_Toto
+    type: overlay
+    start: 0x1008800
+    vram: 0x80ba36c0
+
+  - name: ovl_En_Railgibud
+    type: overlay
+    start: 0x100a540
+    vram: 0x80ba5400
+
+  - name: ovl_En_Baba
+    type: overlay
+    start: 0x100d960
+    vram: 0x80ba8820
+
+  - name: ovl_En_Suttari
+    type: overlay
+    start: 0x100f810
+    vram: 0x80baa6d0
+
+  - name: ovl_En_Zod
+    type: overlay
+    start: 0x10140b0
+    vram: 0x80baef70
+
+  - name: ovl_En_Kujiya
+    type: overlay
+    start: 0x1015a20
+    vram: 0x80bb08e0
+
+  - name: ovl_En_Geg
+    type: overlay
+    start: 0x1016810
+    vram: 0x80bb16d0
+
+  - name: ovl_Obj_Kinoko
+    type: overlay
+    start: 0x1019840
+    vram: 0x80bb4700
+
+  - name: ovl_Obj_Yasi
+    type: overlay
+    start: 0x1019c30
+    vram: 0x80bb4af0
+
+  - name: ovl_En_Tanron1
+    type: overlay
+    start: 0x1019f40
+    vram: 0x80bb4e00
+
+  - name: ovl_En_Tanron2
+    type: overlay
+    start: 0x101b910
+    vram: 0x80bb67d0
+
+  - name: ovl_En_Tanron3
+    type: overlay
+    start: 0x101d590
+    vram: 0x80bb85a0
+
+  - name: ovl_Obj_Chan
+    type: overlay
+    start: 0x101e8d0
+    vram: 0x80bb98e0
+
+  - name: ovl_En_Zos
+    type: overlay
+    start: 0x101fc80
+    vram: 0x80bbaca0
+
+  - name: ovl_En_S_Goro
+    type: overlay
+    start: 0x1021a60
+    vram: 0x80bbca80
+
+  - name: ovl_En_Nb
+    type: overlay
+    start: 0x1024d90
+    vram: 0x80bbfdb0
+
+  - name: ovl_En_Ja
+    type: overlay
+    start: 0x10268e0
+    vram: 0x80bc1900
+
+  - name: ovl_Bg_F40_Block
+    type: overlay
+    start: 0x1028960
+    vram: 0x80bc3980
+
+  - name: ovl_Bg_F40_Switch
+    type: overlay
+    start: 0x1029790
+    vram: 0x80bc47b0
+
+  - name: ovl_En_Po_Composer
+    type: overlay
+    start: 0x1029f00
+    vram: 0x80bc4f30
+
+  - name: ovl_En_Guruguru
+    type: overlay
+    start: 0x102bbc0
+    vram: 0x80bc6bf0
+
+  - name: ovl_Oceff_Wipe5
+    type: overlay
+    start: 0x102caa0
+    vram: 0x80bc7ad0
+
+  - name: ovl_En_Stone_heishi
+    type: overlay
+    start: 0x102e230
+    vram: 0x80bc9270
+
+  - name: ovl_Oceff_Wipe6
+    type: overlay
+    start: 0x102f560
+    vram: 0x80bca5a0
+
+  - name: ovl_En_Scopenuts
+    type: overlay
+    start: 0x102fbb0
+    vram: 0x80bcabf0
+
+  - name: ovl_En_Scopecrow
+    type: overlay
+    start: 0x1031fc0
+    vram: 0x80bcd000
+
+  - name: ovl_Oceff_Wipe7
+    type: overlay
+    start: 0x1032c70
+    vram: 0x80bcdcb0
+
+  - name: ovl_Eff_Kamejima_Wave
+    type: overlay
+    start: 0x1033ad0
+    vram: 0x80bceb20
+
+  - name: ovl_En_Hg
+    type: overlay
+    start: 0x1034170
+    vram: 0x80bcf1d0
+
+  - name: ovl_En_Hgo
+    type: overlay
+    start: 0x1035250
+    vram: 0x80bd02b0
+
+  - name: ovl_En_Zov
+    type: overlay
+    start: 0x1036180
+    vram: 0x80bd11e0
+
+  - name: ovl_En_Ah
+    type: overlay
+    start: 0x10379d0
+    vram: 0x80bd2a30
+
+  - name: ovl_Obj_Hgdoor
+    type: overlay
+    start: 0x1039030
+    vram: 0x80bd4090
+
+  - name: ovl_Bg_Ikana_Bombwall
+    type: overlay
+    start: 0x10396c0
+    vram: 0x80bd4720
+
+  - name: ovl_Bg_Ikana_Ray
+    type: overlay
+    start: 0x103a360
+    vram: 0x80bd53c0
+
+  - name: ovl_Bg_Ikana_Shutter
+    type: overlay
+    start: 0x103a630
+    vram: 0x80bd5690
+
+  - name: ovl_Bg_Haka_Bombwall
+    type: overlay
+    start: 0x103ada0
+    vram: 0x80bd5e00
+
+  - name: ovl_Bg_Haka_Tomb
+    type: overlay
+    start: 0x103b520
+    vram: 0x80bd6580
+
+  - name: ovl_En_Sc_Ruppe
+    type: overlay
+    start: 0x103b8b0
+    vram: 0x80bd6910
+
+  - name: ovl_Bg_Iknv_Doukutu
+    type: overlay
+    start: 0x103beb0
+    vram: 0x80bd6f10
+
+  - name: ovl_Bg_Iknv_Obj
+    type: overlay
+    start: 0x103ca50
+    vram: 0x80bd7ab0
+
+  - name: ovl_En_Pamera
+    type: overlay
+    start: 0x103d250
+    vram: 0x80bd82b0
+
+  - name: ovl_Obj_HsStump
+    type: overlay
+    start: 0x103f9d0
+    vram: 0x80bdaa30
+
+  - name: ovl_En_Hidden_Nuts
+    type: overlay
+    start: 0x103ffe0
+    vram: 0x80bdb040
+
+  - name: ovl_En_Zow
+    type: overlay
+    start: 0x1041210
+    vram: 0x80bdc270
+
+  - name: ovl_En_Talk
+    type: overlay
+    start: 0x1042f80
+    vram: 0x80bddfe0
+
+  - name: ovl_En_Al
+    type: overlay
+    start: 0x1043140
+    vram: 0x80bde1a0
+
+  - name: ovl_En_Tab
+    type: overlay
+    start: 0x1045480
+    vram: 0x80be04e0
+
+  - name: ovl_En_Nimotsu
+    type: overlay
+    start: 0x1046c20
+    vram: 0x80be1c80
+
+  - name: ovl_En_Hit_Tag
+    type: overlay
+    start: 0x1046fd0
+    vram: 0x80be2030
+
+  - name: ovl_En_Ruppecrow
+    type: overlay
+    start: 0x1047200
+    vram: 0x80be2260
+
+  - name: ovl_En_Tanron4
+    type: overlay
+    start: 0x1048b20
+    vram: 0x80be3b80
+
+  - name: ovl_En_Tanron5
+    type: overlay
+    start: 0x10498d0
+    vram: 0x80be4930
+
+  - name: ovl_En_Tanron6
+    type: overlay
+    start: 0x104afe0
+    vram: 0x80be6040
+
+  - name: ovl_En_Daiku2
+    type: overlay
+    start: 0x104b170
+    vram: 0x80be61d0
+
+  - name: ovl_En_Muto
+    type: overlay
+    start: 0x104caa0
+    vram: 0x80be7b00
+
+  - name: ovl_En_Baisen
+    type: overlay
+    start: 0x104d490
+    vram: 0x80be84f0
+
+  - name: ovl_En_Heishi
+    type: overlay
+    start: 0x104dec0
+    vram: 0x80be8f20
+
+  - name: ovl_En_Demo_heishi
+    type: overlay
+    start: 0x104e4b0
+    vram: 0x80be9510
+
+  - name: ovl_En_Dt
+    type: overlay
+    start: 0x104eac0
+    vram: 0x80be9b20
+
+  - name: ovl_En_Cha
+    type: overlay
+    start: 0x10504c0
+    vram: 0x80beb520
+
+  - name: ovl_Obj_Dinner
+    type: overlay
+    start: 0x10508e0
+    vram: 0x80beb940
+
+  - name: ovl_Eff_Lastday
+    type: overlay
+    start: 0x1050a60
+    vram: 0x80bebac0
+
+  - name: ovl_Bg_Ikana_Dharma
+    type: overlay
+    start: 0x10511e0
+    vram: 0x80bec240
+
+  - name: ovl_En_Akindonuts
+    type: overlay
+    start: 0x1051b70
+    vram: 0x80becbe0
+
+  - name: ovl_Eff_Stk
+    type: overlay
+    start: 0x1055d20
+    vram: 0x80bf0d90
+
+  - name: ovl_En_Ig
+    type: overlay
+    start: 0x10560e0
+    vram: 0x80bf1150
+
+  - name: ovl_En_Rg
+    type: overlay
+    start: 0x10588b0
+    vram: 0x80bf3920
+
+  - name: ovl_En_Osk
+    type: overlay
+    start: 0x105aba0
+    vram: 0x80bf5c20
+
+  - name: ovl_En_Sth2
+    type: overlay
+    start: 0x105c460
+    vram: 0x80bf74e0
+
+  - name: ovl_En_Yb
+    type: overlay
+    start: 0x105f080
+    vram: 0x80bfa100
+
+  - name: ovl_En_Rz
+    type: overlay
+    start: 0x1060400
+    vram: 0x80bfb480
+
+  - name: ovl_En_Scopecoin
+    type: overlay
+    start: 0x1061f20
+    vram: 0x80bfcfa0
+
+  - name: ovl_En_Bjt
+    type: overlay
+    start: 0x1062260
+    vram: 0x80bfd2e0
+
+  - name: ovl_En_Bomjima
+    type: overlay
+    start: 0x10630f0
+    vram: 0x80bfe170
+
+  - name: ovl_En_Bomjimb
+    type: overlay
+    start: 0x1065e20
+    vram: 0x80c00ea0
+
+  - name: ovl_En_Bombers
+    type: overlay
+    start: 0x10684b0
+    vram: 0x80c03530
+
+  - name: ovl_En_Bombers2
+    type: overlay
+    start: 0x10698b0
+    vram: 0x80c04930
+
+  - name: ovl_En_Bombal
+    type: overlay
+    start: 0x106a9f0
+    vram: 0x80c05a70
+
+  - name: ovl_Obj_Moon_Stone
+    type: overlay
+    start: 0x106b490
+    vram: 0x80c06510
+
+  - name: ovl_Obj_Mu_Pict
+    type: overlay
+    start: 0x106ba20
+    vram: 0x80c06aa0
+
+  - name: ovl_Bg_Ikninside
+    type: overlay
+    start: 0x106c090
+    vram: 0x80c07110
+
+  - name: ovl_Eff_Zoraband
+    type: overlay
+    start: 0x106c6c0
+    vram: 0x80c07740
+
+  - name: ovl_Obj_Kepn_Koya
+    type: overlay
+    start: 0x106caa0
+    vram: 0x80c07b20
+
+  - name: ovl_Obj_Usiyane
+    type: overlay
+    start: 0x106cc00
+    vram: 0x80c07c80
+
+  - name: ovl_En_Nnh
+    type: overlay
+    start: 0x106d6e0
+    vram: 0x80c08760
+
+  - name: ovl_Obj_Kzsaku
+    type: overlay
+    start: 0x106da00
+    vram: 0x80c08a80
+
+  - name: ovl_Obj_Milk_Bin
+    type: overlay
+    start: 0x106ddc0
+    vram: 0x80c08e40
+
+  - name: ovl_En_Kitan
+    type: overlay
+    start: 0x106e050
+    vram: 0x80c090d0
+
+  - name: ovl_Bg_Astr_Bombwall
+    type: overlay
+    start: 0x106ee50
+    vram: 0x80c09ed0
+
+  - name: ovl_Bg_Iknin_Susceil
+    type: overlay
+    start: 0x106f6c0
+    vram: 0x80c0a740
+
+  - name: ovl_En_Bsb
+    type: overlay
+    start: 0x1070210
+    vram: 0x80c0b290
+
+  - name: ovl_En_Recepgirl
+    type: overlay
+    start: 0x1074f50
+    vram: 0x80c0ffd0
+
+  - name: ovl_En_Thiefbird
+    type: overlay
+    start: 0x10756f0
+    vram: 0x80c10770
+
+  - name: ovl_En_Jgame_Tsn
+    type: overlay
+    start: 0x10788a0
+    vram: 0x80c13930
+
+  - name: ovl_Obj_Jgame_Light
+    type: overlay
+    start: 0x107a260
+    vram: 0x80c152f0
+
+  - name: ovl_Obj_Yado
+    type: overlay
+    start: 0x107b150
+    vram: 0x80c161e0
+
+  - name: ovl_Demo_Syoten
+    type: overlay
+    start: 0x107b3e0
+    vram: 0x80c16480
+
+  - name: ovl_Demo_Moonend
+    type: overlay
+    start: 0x107c970
+    vram: 0x80c17a10
+
+  - name: ovl_Bg_Lbfshot
+    type: overlay
+    start: 0x107d080
+    vram: 0x80c18120
+
+  - name: ovl_Bg_Last_Bwall
+    type: overlay
+    start: 0x107d1a0
+    vram: 0x80c18240
+
+  - name: ovl_En_And
+    type: overlay
+    start: 0x107daf0
+    vram: 0x80c18b90
+
+  - name: ovl_En_Invadepoh_Demo
+    type: overlay
+    start: 0x107e200
+    vram: 0x80c192a0
+
+  - name: ovl_Obj_Danpeilift
+    type: overlay
+    start: 0x107fca0
+    vram: 0x80c1adc0
+
+  - name: ovl_En_Fall2
+    type: overlay
+    start: 0x1080520
+    vram: 0x80c1b640
+
+  - name: ovl_Dm_Al
+    type: overlay
+    start: 0x1080c70
+    vram: 0x80c1bd90
+
+  - name: ovl_Dm_An
+    type: overlay
+    start: 0x10812f0
+    vram: 0x80c1c410
+
+  - name: ovl_Dm_Ah
+    type: overlay
+    start: 0x10822f0
+    vram: 0x80c1d410
+
+  - name: ovl_Dm_Nb
+    type: overlay
+    start: 0x1082db0
+    vram: 0x80c1ded0
+
+  - name: ovl_En_Drs
+    type: overlay
+    start: 0x1083170
+    vram: 0x80c1e290
+
+  - name: ovl_En_Ending_Hero
+    type: overlay
+    start: 0x1083570
+    vram: 0x80c1e690
+
+  - name: ovl_Dm_Bal
+    type: overlay
+    start: 0x10838c0
+    vram: 0x80c1e9e0
+
+  - name: ovl_En_Paper
+    type: overlay
+    start: 0x10842b0
+    vram: 0x80c1f3d0
+
+  - name: ovl_En_Hint_Skb
+    type: overlay
+    start: 0x1084bd0
+    vram: 0x80c1fcf0
+
+  - name: ovl_Dm_Tag
+    type: overlay
+    start: 0x1087230
+    vram: 0x80c22350
+
+  - name: ovl_En_Bh
+    type: overlay
+    start: 0x1087c20
+    vram: 0x80c22d40
+
+  - name: ovl_En_Ending_Hero2
+    type: overlay
+    start: 0x1088110
+    vram: 0x80c23230
+
+  - name: ovl_En_Ending_Hero3
+    type: overlay
+    start: 0x1088340
+    vram: 0x80c23460
+
+  - name: ovl_En_Ending_Hero4
+    type: overlay
+    start: 0x1088570
+    vram: 0x80c23690
+
+  - name: ovl_En_Ending_Hero5
+    type: overlay
+    start: 0x10887a0
+    vram: 0x80c238c0
+
+  - name: ovl_En_Ending_Hero6
+    type: overlay
+    start: 0x1088b70
+    vram: 0x80c23c90
+
+  - name: ovl_Dm_Gm
+    type: overlay
+    start: 0x1089240
+    vram: 0x80c24360
+
+  - name: ovl_Obj_Swprize
+    type: overlay
+    start: 0x108a240
+    vram: 0x80c25360
+
+  - name: ovl_En_Invisible_Ruppe
+    type: overlay
+    start: 0x108a780
+    vram: 0x80c258a0
+
+  - name: ovl_Obj_Ending
+    type: overlay
+    start: 0x108aaa0
+    vram: 0x80c25bc0
+
+  - name: ovl_En_Rsn
+    type: overlay
+    start: 0x108ac20
+    vram: 0x80c25d40
+
+  - [0x108AF80]
   - [0x108B000]
