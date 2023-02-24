@@ -15,7 +15,7 @@ options:
     - linker_scripts/ne0/functions.txt
     - linker_scripts/ne0/variables.txt
   reloc_addrs_path:
-    - relocs/reloc_addrs.us.txt
+    - relocs/reloc_addrs.ne0.txt
   asm_path: asm
   src_path: src
   build_path: build
