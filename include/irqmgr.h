@@ -24,4 +24,18 @@ typedef struct {
     /* 0x278 */ OSTime lastFrameTime;
 } IrqMgr; // size = 0x280
 
+
+void IrqMgr_AddClient(IrqMgr* irqmgr, IrqMgrClient* client, OSMesgQueue* msgQueue);
+void IrqMgr_RemoveClient(IrqMgr* irqmgr, IrqMgrClient* remove);
+void IrqMgr_SendMesgForClient(IrqMgr* irqmgr, OSMesg msg);
+void IrqMgr_JamMesgForClient(IrqMgr* irqmgr, OSMesg msg);
+void IrqMgr_HandlePreNMI(IrqMgr* irqmgr);
+void IrqMgr_CheckStack(void);
+void IrqMgr_HandlePRENMI450(IrqMgr* irqmgr);
+void IrqMgr_HandlePRENMI480(IrqMgr* irqmgr);
+void IrqMgr_HandlePRENMI500(IrqMgr* irqmgr);
+void IrqMgr_HandleRetrace(IrqMgr* irqmgr);
+void IrqMgr_ThreadEntry(IrqMgr* irqmgr);
+void IrqMgr_Init(IrqMgr* irqmgr, void* stack, OSPri pri, u8 retraceCount);
+
 #endif

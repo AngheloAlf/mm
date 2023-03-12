@@ -8,7 +8,7 @@ u32 sYaz0CurSize;
 u8* sYaz0MaxPtr;
 void* gYaz0DecompressDstEnd;
 
-void* Yaz0_FirstDMA() {
+void* Yaz0_FirstDMA(void) {
     u32 pad0;
     u32 dmaSize;
     u32 curSize;
