@@ -26,7 +26,7 @@ extern u32 gViConfigFeatures;
 extern f32 gViConfigXScale;
 extern f32 gViConfigYScale;
 extern OSPiHandle* gCartHandle;
-extern u32 sDmaMgrDmaBuffSize;
+
 extern vs32 gIrqMgrResetStatus;
 extern volatile OSTime sIrqMgrResetTime;
 extern volatile OSTime sIrqMgrRetraceTime;
@@ -44,7 +44,7 @@ extern StackEntry* sStackInfoListEnd;
 // extern UNK_TYPE1 sGfxPrintRainbowData;
 // extern UNK_TYPE1 sGfxPrintFontData;
 // extern UNK_TYPE4 D_80097524;
-// extern u32 sRandInt;
+
 extern OSViMode osViModeNtscHpf1;
 extern OSViMode osViModePalLan1;
 extern s16 sintable[0x400];
@@ -288,12 +288,6 @@ extern IrqMgr gIrqMgr;
 extern OSViMode gViConfigMode;
 extern u8 D_8009B290;
 
-extern u8 sYaz0DataBuffer[0x400];
-extern u8* sYaz0CurDataEnd;
-extern u32 sYaz0CurRomStart;
-extern u32 sYaz0CurSize;
-extern u8* sYaz0MaxPtr;
-extern void* gYaz0DecompressDstEnd;
 // extern UNK_TYPE4 D_8009BE30;
 // extern UNK_TYPE4 D_8009BE34;
 // extern FaultClient romInfoFaultClient;
@@ -302,7 +296,7 @@ extern FaultThreadStruct gFaultStruct;
 
 extern FaultDrawer sFaultDrawerStruct;
 // extern UNK_TYPE4 D_8009CD10;
-extern u32 sRandFloat;
+
 // extern UNK_TYPE4 sArenaLockMsg;
 extern OSTask tmp_task;
 

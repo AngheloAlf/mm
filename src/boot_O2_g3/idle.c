@@ -58,8 +58,8 @@ void Idle_InitCodeAndMemory(void) {
 
     osCreateMesgQueue(&queue, &mesg, 1);
 
-    oldSize = sDmaMgrDmaBuffSize;
-    sDmaMgrDmaBuffSize = 0;
+    oldSize = gDmaMgrDmaBuffSize;
+    gDmaMgrDmaBuffSize = 0;
 
     DmaMgr_SendRequestImpl(&dmaReq, SEGMENT_START(code), SEGMENT_ROM_START(code),
                            SEGMENT_ROM_END(code) - SEGMENT_ROM_START(code), 0, &queue, 0);
@@ -67,7 +67,7 @@ void Idle_InitCodeAndMemory(void) {
     Idle_InitMemory();
     osRecvMesg(&queue, NULL, OS_MESG_BLOCK);
 
-    sDmaMgrDmaBuffSize = oldSize;
+    gDmaMgrDmaBuffSize = oldSize;
 
     Idle_ClearMemory(SEGMENT_BSS_START(code), SEGMENT_BSS_END(code));
 }

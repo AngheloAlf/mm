@@ -3,6 +3,7 @@
 
 #include "ultra64.h"
 #include "libc/stddef.h"
+#include "libc/stdint.h"
 #include "unk.h"
 
 
@@ -37,5 +38,9 @@ s32 DmaMgr_SendRequestImpl(DmaRequest* request, void* vramStart, uintptr_t vromS
 s32 DmaMgr_SendRequest0(void* vramStart, uintptr_t vromStart, size_t size);
 void DmaMgr_Start(void);
 void DmaMgr_Stop(void);
+
+
+extern size_t gDmaMgrDmaBuffSize;
+
 
 #endif

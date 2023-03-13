@@ -1,6 +1,8 @@
 #include "prevent_bss_reordering.h"
+#include "yaz0.h"
 #include "global.h"
 #include "sleep.h"
+#include "z64dma.h"
 
 u8 sYaz0DataBuffer[0x400];
 u8* sYaz0CurDataEnd;
@@ -22,6 +24,7 @@ void* Yaz0_FirstDMA(void) {
     DmaMgr_DmaRomToRam(sYaz0CurRomStart, sYaz0DataBuffer, dmaSize);
     sYaz0CurRomStart += dmaSize;
     sYaz0CurSize -= dmaSize;
+
     return sYaz0DataBuffer;
 }
 

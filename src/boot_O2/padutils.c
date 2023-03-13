@@ -1,3 +1,4 @@
+#include "padutils.h"
 #include "global.h"
 
 void PadUtils_Init(Input* input) {

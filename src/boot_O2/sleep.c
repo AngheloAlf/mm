@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sleep.h"
 
 void Sleep_Cycles(u64 time) {
     OSMesgQueue mq;

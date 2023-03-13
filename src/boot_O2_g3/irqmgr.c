@@ -1,4 +1,5 @@
 #include "global.h"
+#include "irqmgr.h"
 
 vs32 gIrqMgrResetStatus = 0;
 volatile OSTime sIrqMgrResetTime = 0;

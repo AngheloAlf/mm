@@ -13,5 +13,6 @@ u32 Rand_Next_Variable(u32* rndNum);
 f32 Rand_ZeroOne_Variable(u32* rndNum);
 f32 Rand_Centered_Variable(u32* rndNum);
 
+extern u32 sRandFloat;
 
 #endif

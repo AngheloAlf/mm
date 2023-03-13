@@ -153,7 +153,7 @@ extern u8 __osMaxControllers;
 // extern OSMesgQueue D_8009CF38;
 // extern OSMesg D_8009CF50;
 
-typedef struct {
+typedef struct Input {
     /* 0x00 */ OSContPad cur;
     /* 0x06 */ OSContPad prev;
     /* 0x0C */ OSContPad press; // X/Y store delta from last frame
