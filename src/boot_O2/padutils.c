@@ -12,19 +12,19 @@ void PadUtils_ResetPressRel(Input* input) {
     input->rel.button = 0;
 }
 
-u32 PadUtils_CheckCurExact(Input* input, u16 value) {
+bool PadUtils_CheckCurExact(Input* input, u16 value) {
     return value == input->cur.button;
 }
 
-u32 PadUtils_CheckCur(Input* input, u16 key) {
+bool PadUtils_CheckCur(Input* input, u16 key) {
     return key == (input->cur.button & key);
 }
 
-u32 PadUtils_CheckPressed(Input* input, u16 key) {
+bool PadUtils_CheckPressed(Input* input, u16 key) {
     return key == (input->press.button & key);
 }
 
-u32 PadUtils_CheckReleased(Input* input, u16 key) {
+bool PadUtils_CheckReleased(Input* input, u16 key) {
     return key == (input->rel.button & key);
 }
 
@@ -66,11 +66,10 @@ s8 PadUtils_GetRelY(Input* input) {
 }
 
 void PadUtils_UpdateRelXY(Input* input) {
-    s32 curX, curY;
-    s32 relX, relY;
-
-    curX = PadUtils_GetCurX(input);
-    curY = PadUtils_GetCurY(input);
+    s32 curX = PadUtils_GetCurX(input);
+    s32 curY = PadUtils_GetCurY(input);
+    s32 relX;
+    s32 relY;
 
     if (curX > 7) {
         relX = (curX < 0x43) ? curX - 7 : 0x43 - 7;
@@ -82,7 +81,6 @@ void PadUtils_UpdateRelXY(Input* input) {
 
     if (curY > 7) {
         relY = (curY < 0x43) ? curY - 7 : 0x43 - 7;
-
     } else if (curY < -7) {
         relY = (curY > -0x43) ? curY + 7 : -0x43 + 7;
     } else {

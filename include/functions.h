@@ -78,31 +78,11 @@ void FaultDrawer_Init(void);
 void func_80084940(void);
 void func_80084968(void);
 
-void PadUtils_Init(Input* input);
-void func_80085150(void);
-void PadUtils_ResetPressRel(Input* input);
-u32 PadUtils_CheckCurExact(Input* input, u16 value);
-u32 PadUtils_CheckCur(Input* input, u16 key);
-u32 PadUtils_CheckPressed(Input* input, u16 key);
-u32 PadUtils_CheckReleased(Input* input, u16 key);
-u16 PadUtils_GetCurButton(Input* input);
-u16 PadUtils_GetPressButton(Input* input);
-s8 PadUtils_GetCurX(Input* input);
-s8 PadUtils_GetCurY(Input* input);
-void PadUtils_SetRelXY(Input* input, s32 x, s32 y);
-s8 PadUtils_GetRelXImpl(Input* input);
-s8 PadUtils_GetRelYImpl(Input* input);
-s8 PadUtils_GetRelX(Input* input);
-s8 PadUtils_GetRelY(Input* input);
-void PadUtils_UpdateRelXY(Input* input);
 void StackCheck_Init(StackEntry* entry, void* stackTop, void* stackBottom, u32 initValue, s32 minSpace, const char* name);
 void StackCheck_Cleanup(StackEntry* entry);
 StackStatus StackCheck_GetState(StackEntry* entry);
 u32 StackCheck_CheckAll(void);
 u32 StackCheck_Check(StackEntry* entry);
-
-void MtxConv_F2L(Mtx* mtx, MtxF* mf);
-void MtxConv_L2F(MtxF* mtx, Mtx* mf);
 
 void __assert(const char* file, u32 lineNum);
 // void func_800862B4(void);
@@ -150,11 +130,7 @@ s32 vsprintf(char* dst, char* fmt, va_list args);
 s32 sprintf(char* dst, char* fmt, ...);
 s32 PrintUtils_VPrintf(PrintCallback* pfn, const char* fmt, va_list args);
 s32 PrintUtils_Printf(PrintCallback* pfn, const char* fmt, ...);
-void Sleep_Cycles(OSTime time);
-void Sleep_Nsec(u32 nsec);
-void Sleep_Usec(u32 usec);
-void Sleep_Msec(u32 ms);
-void Sleep_Sec(u32 sec);
+
 // void __osSetCause(void);
 s32 osSendMesg(OSMesgQueue* mq, OSMesg msg, s32 flags);
 s32 osPfsFreeBlocks(OSPfs* pfs, s32* leftoverBytes);
