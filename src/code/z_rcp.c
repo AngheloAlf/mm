@@ -1,4 +1,5 @@
 #include "global.h"
+#include "gfx.h"
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"
 
 Gfx gSetupDL[438] = {

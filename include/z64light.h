@@ -2,8 +2,8 @@
 #define Z64LIGHT_H
 
 #include "ultra64.h"
-#include "PR/gbi.h"
 #include "color.h"
+#include "z64math.h"
 
 struct PlayState;
 

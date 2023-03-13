@@ -3,6 +3,9 @@
 
 #include "ultra64.h"
 
+struct PlayState;
+
+
 typedef struct {
     /* 0x000 */ Gfx taskStart[9];
     /* 0x048 */ Gfx clearZBuffer[8];       // original name: clear_zb_dl
@@ -130,7 +133,7 @@ void func_8012C1C0(GraphicsContext* gfxCtx);
 Gfx* func_8012C1EC(Gfx* gfx);
 void func_8012C214(GraphicsContext* gfxCtx);
 void func_8012C240(GraphicsContext* gfxCtx);
-void func_8012C268(PlayState* play);
+void func_8012C268(struct PlayState* play);
 void func_8012C28C(GraphicsContext* gfxCtx);
 Gfx* func_8012C2B4(Gfx* gfx);
 void func_8012C2DC(GraphicsContext* gfxCtx);

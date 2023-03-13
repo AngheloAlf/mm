@@ -227,7 +227,7 @@ typedef struct {
 
 typedef void(*fault_update_input_func)(Input* input);
 
-typedef struct {
+typedef struct PauseContext {
     /* 0x000 */ View view;
     /* 0x168 */ u8* iconItemSegment;
     /* 0x16C */ u8* iconItem24Segment;
@@ -538,7 +538,7 @@ typedef enum {
     /* 24 */ GAMEOVER_REVIVE_FADE_OUT       // fade out the game over lights as player is revived and gets back up
 } GameOverState;
 
-typedef struct {
+typedef struct GameOverContext {
     /* 0x0 */ u16 state;
 } GameOverContext; // size = 0x2
 
