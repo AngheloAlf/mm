@@ -27,10 +27,6 @@ extern f32 gViConfigXScale;
 extern f32 gViConfigYScale;
 extern OSPiHandle* gCartHandle;
 
-extern vs32 gIrqMgrResetStatus;
-extern volatile OSTime sIrqMgrResetTime;
-extern volatile OSTime sIrqMgrRetraceTime;
-extern s32 sIrqMgrRetraceCount;
 extern const char* sCpuExceptions[18];
 extern const char* sFpuExceptions[6];
 extern FaultDrawer* sFaultDrawContext;
@@ -2458,10 +2454,7 @@ extern OSThread gGraphThread;
 extern PadMgr gPadMgr;
 
 extern FaultClient sSchedFaultClient;
-extern OSTime sRSPGFXStartTime;
-extern OSTime sRSPAudioStartTime;
-extern OSTime sRSPOtherStartTime;
-extern OSTime sRDPStartTime;
+
 extern u64* gAudioSPDataPtr;
 extern u32 gAudioSPDataSize;
 extern volatile OSTime D_801FBAE0;

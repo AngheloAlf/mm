@@ -1,3 +1,5 @@
+#include "prevent_bss_reordering.h"
+#include "scheduler.h"
 #include "global.h"
 #include "sleep.h"
 

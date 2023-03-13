@@ -7,9 +7,7 @@ volatile OSTime sIrqMgrRetraceTime = 0;
 s32 sIrqMgrRetraceCount = 0;
 
 void IrqMgr_AddClient(IrqMgr* irqmgr, IrqMgrClient* client, OSMesgQueue* msgQueue) {
-    u32 saveMask;
-
-    saveMask = osSetIntMask(1);
+    OSIntMask saveMask = osSetIntMask(1);
 
     client->queue = msgQueue;
     client->next = irqmgr->callbacks;
@@ -26,14 +24,9 @@ void IrqMgr_AddClient(IrqMgr* irqmgr, IrqMgrClient* client, OSMesgQueue* msgQueu
 }
 
 void IrqMgr_RemoveClient(IrqMgr* irqmgr, IrqMgrClient* remove) {
-    IrqMgrClient* iter;
-    IrqMgrClient* last;
-    u32 saveMask;
-
-    iter = irqmgr->callbacks;
-    last = NULL;
-
-    saveMask = osSetIntMask(1);
+    IrqMgrClient* iter = irqmgr->callbacks;
+    IrqMgrClient* last = NULL;
+    OSIntMask saveMask = osSetIntMask(1);
 
     while (iter != NULL) {
         if (iter == remove) {
@@ -107,6 +100,7 @@ void IrqMgr_HandlePRENMI480(IrqMgr* irqmgr) {
 void IrqMgr_HandlePRENMI500(IrqMgr* irqmgr) {
     IrqMgr_CheckStack();
 }
+
 void IrqMgr_HandleRetrace(IrqMgr* irqmgr) {
     if (sIrqMgrRetraceTime == 0) {
         if (irqmgr->lastFrameTime == 0) {
@@ -121,14 +115,11 @@ void IrqMgr_HandleRetrace(IrqMgr* irqmgr) {
 }
 
 void IrqMgr_ThreadEntry(IrqMgr* irqmgr) {
-    u32 interrupt;
-    u32 stop;
+    u32 interrupt = 0;
+    u32 stop = false;
 
-    interrupt = 0;
-    stop = 0;
-    while (stop == 0) {
+    while (!stop) {
         if (stop) {
-            ;
         }
 
         osRecvMesg(&irqmgr->irqQueue, (OSMesg*)&interrupt, OS_MESG_BLOCK);

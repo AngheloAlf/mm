@@ -10,15 +10,15 @@
 
 #include "ultra64.h"
 #include "ultra64/gs2dex.h"
+#include "PR/sched.h"
 #include "io/controller.h"
 #include "osint.h"
 #include "os.h"
-#include "irqmgr.h"
-#include "scheduler.h"
 #include "xstdio.h"
 
 #include "color.h"
 #include "ichain.h"
+#include "padmgr.h"
 #include "rand.h"
 #include "sequence.h"
 #include "sfx.h"
@@ -59,6 +59,9 @@
 #include "z64transition.h"
 #include "z64view.h"
 #include "regs.h"
+
+struct IrqMgr;
+struct SchedContext;
 
 #define Z_THREAD_ID_IDLE     1
 #define Z_THREAD_ID_SLOWLY   2
@@ -553,29 +556,6 @@ typedef void (*ColChkApplyFunc)(struct PlayState*, CollisionCheckContext*, Colli
 typedef void (*ColChkVsFunc)(struct PlayState*, CollisionCheckContext*, Collider*, Collider*);
 typedef s32 (*ColChkLineFunc)(struct PlayState*, CollisionCheckContext*, Collider*, Vec3f*, Vec3f*);
 
-typedef struct {
-    /* 0x000 */ u8 controllers; // bit 0 is set if controller 1 is plugged in, etc.
-    /* 0x001 */ UNK_TYPE1 pad1[0x13];
-    /* 0x014 */ OSContStatus statuses[4];
-    /* 0x024 */ UNK_TYPE4 unk24;
-    /* 0x028 */ OSMesg lockMesg[1];
-    /* 0x02C */ OSMesg interrupts[8];
-    /* 0x04C */ OSMesgQueue sSiIntMsgQ;
-    /* 0x064 */ OSMesgQueue lock;
-    /* 0x07C */ OSMesgQueue irqmgrCallbackQueue;
-    /* 0x094 */ IrqMgrClient irqmgrCallbackQueueNode;
-    /* 0x09C */ IrqMgr* irqmgr;
-    /* 0x0A0 */ OSThread thread;
-    /* 0x250 */ Input input[4];
-    /* 0x2B0 */ OSContPad controllerState1[4];
-    /* 0x2C8 */ u8 maxNumControllers;
-    /* 0x2C9 */ UNK_TYPE1 pad2C9[0x1B3];
-    /* 0x47C */ u8 unk47C;
-    /* 0x47D */ u8 unk47D;
-    /* 0x47E */ u8 hasStopped;
-    /* 0x47F */ UNK_TYPE1 pad47F[0x1];
-} PadMgr; // size = 0x480
-
 typedef struct StackEntry {
     /* 0x00 */ struct StackEntry* next;
     /* 0x04 */ struct StackEntry* prev;
@@ -598,8 +578,8 @@ typedef enum {
 #define OS_SC_PRE_NMI_MSG       4
 
 typedef struct {
-    /* 0x000 */ IrqMgr* irqMgr;
-    /* 0x004 */ SchedContext* sched;
+    /* 0x000 */ struct IrqMgr* irqMgr;
+    /* 0x004 */ struct SchedContext* sched;
     /* 0x008 */ OSScTask audioTask;
     /* 0x060 */ AudioTask* rspTask;
     /* 0x064 */ OSMesgQueue interruptMsgQ;
