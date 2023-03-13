@@ -323,6 +323,10 @@ extern OSPiHandle CartRomHandle;
 
 extern DmaEntry dmadata[1568];
 // extern UNK_TYPE1 D_80186028;
+
+
+// code
+
 extern u64 aspMainTextStart[];
 
 extern u8 sDropTable[DROP_TABLE_SIZE * DROP_TABLE_NUMBER];
