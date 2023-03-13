@@ -36,6 +36,7 @@
 #include "z64dma.h"
 #include "z64eff_footmark.h"
 #include "z64effect.h"
+#include "z64environment.h"
 #include "z64frameadvance.h"
 #include "z64interface.h"
 #include "z64item.h"
@@ -388,66 +389,6 @@ typedef enum {
     /* 0x01 */ KALEIDO_OVL_PLAYER_ACTOR,
     /* 0x02 */ KALEID_OVL_MAX
 } KaleidoMgrOverlayType;
-
-typedef struct {
-    /* 0x00 */ u16 unk_0;
-    /* 0x02 */ u16 sceneTimeSpeed;
-    /* 0x04 */ Vec3f sunPos;
-    /* 0x10 */ u8 unk_10;
-    /* 0x11 */ u8 unk_11;
-    /* 0x12 */ u8 unk_12;
-    /* 0x13 */ u8 unk_13;
-    /* 0x14 */ u8 unk_14;
-    /* 0x15 */ u8 skyboxDisabled;
-    /* 0x16 */ u8 sunMoonDisabled;
-    /* 0x17 */ u8 unk_17;
-    /* 0x18 */ u8 unk_18;
-    /* 0x19 */ u8 unk_19;
-    /* 0x1A */ u16 unk_1A;
-    /* 0x1C */ u16 unk_1C;
-    /* 0x1E */ u8 unk_1E;
-    /* 0x1F */ u8 unk_1F;
-    /* 0x20 */ u8 unk_20;
-    /* 0x21 */ u8 unk_21;
-    /* 0x22 */ u16 unk_22;
-    /* 0x24 */ u16 unk_24;
-    /* 0x26 */ u8 unk_26;
-    /* 0x28 */ LightInfo dirLight1; // sun 1
-    /* 0x36 */ LightInfo unk_36; // sun 2
-    /* 0x44 */ s8 unk_44;
-    /* 0x48 */ DmaRequest unk_48;
-    /* 0x68 */ OSMesgQueue unk_68;
-    /* 0x80 */ OSMesg unk_80;
-    /* 0x84 */ f32 unk_84;
-    /* 0x88 */ f32 unk_88;
-    /* 0x8C */ EnvLightSettings lightSettings;
-    /* 0xA8 */ f32 unk_A8;
-    /* 0xAC */ Vec3s windDir;
-    /* 0xB4 */ f32 windSpeed;
-    /* 0xB8 */ u8 numLightSettings;
-    /* 0xBC */ LightSettings* lightSettingsList;
-    /* 0xC0 */ u8 unk_C0;
-    /* 0xC1 */ u8 unk_C1;
-    /* 0xC2 */ u8 unk_C2;
-    /* 0xC3 */ u8 lightSettingOverride;
-    /* 0xC4 */ LightSettings unk_C4;
-    /* 0xDA */ u16 unk_DA;
-    /* 0xDC */ f32 lightBlend;
-    /* 0xE0 */ u8 unk_E0;
-    /* 0xE1 */ u8 unk_E1;
-    /* 0xE2 */ s8 unk_E2;
-    /* 0xE3 */ u8 unk_E3; // modified by unused func in EnWeatherTag
-    /* 0xE4 */ u8 unk_E4;
-    /* 0xE5 */ u8 fillScreen;
-    /* 0xE6 */ u8 screenFillColor[4];
-    /* 0xEA */ u8 sandstormState;
-    /* 0xEB */ u8 sandstormPrimA;
-    /* 0xEC */ u8 sandstormEnvA;
-    /* 0xED */ u8 unk_ED;
-    /* 0xEE */ u8 unk_EE[4];
-    /* 0xF2 */ u8 unk_F2[8]; // [3] is used by both DemoKankyo and ObjectKankyo effect count
-    /* 0xFA */ u8 unk_FA[4];
-} EnvironmentContext; // size = 0x100
 
 typedef struct ListAlloc {
     /* 0x0 */ struct ListAlloc* prev;
