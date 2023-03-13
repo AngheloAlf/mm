@@ -1,5 +1,6 @@
 #include "global.h"
 #include "system_malloc.h"
+#include "yaz0.h"
 
 typedef struct {
     union {

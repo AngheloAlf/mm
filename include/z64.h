@@ -19,6 +19,7 @@
 
 #include "color.h"
 #include "ichain.h"
+#include "rand.h"
 #include "sequence.h"
 #include "sfx.h"
 #include "message_data_static.h"
