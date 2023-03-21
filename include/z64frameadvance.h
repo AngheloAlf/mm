@@ -3,6 +3,8 @@
 
 #include "ultra64.h"
 #include "io/controller.h"
+#include "padutils.h"
+
 
 typedef struct FrameAdvanceContext {
     /* 0x0 */ s32 enabled;

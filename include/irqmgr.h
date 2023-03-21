@@ -2,6 +2,7 @@
 #define IRQMGR_H
 
 #include "ultra64.h"
+#include "os.h"
 #include "PR/sched.h"
 #include "ultra64/message.h"
 
@@ -11,7 +12,7 @@ typedef struct IrqMgrClient {
     /* 0x4 */ OSMesgQueue* queue;
 } IrqMgrClient; // size = 0x8
 
-typedef struct {
+typedef struct IrqMgr {
     /* 0x000 */ OSScMsg verticalRetraceMesg;
     /* 0x020 */ OSScMsg prenmiMsg;
     /* 0x040 */ OSScMsg nmiMsg;

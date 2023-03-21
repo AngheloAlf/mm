@@ -27,6 +27,10 @@ extern f32 gViConfigXScale;
 extern f32 gViConfigYScale;
 extern OSPiHandle* gCartHandle;
 
+extern vs32 gIrqMgrResetStatus;
+
+extern volatile OSTime gIrqMgrRetraceTime;
+
 extern const char* sCpuExceptions[18];
 extern const char* sFpuExceptions[6];
 extern FaultDrawer* sFaultDrawContext;
@@ -283,6 +287,8 @@ extern IrqMgr gIrqMgr;
 
 extern OSViMode gViConfigMode;
 extern u8 D_8009B290;
+
+extern void* gYaz0DecompressDstEnd;
 
 // extern UNK_TYPE4 D_8009BE30;
 // extern UNK_TYPE4 D_8009BE34;
@@ -2452,8 +2458,6 @@ extern u32 gSegments[NUM_SEGMENTS];
 extern SchedContext gSchedContext;
 extern OSThread gGraphThread;
 extern PadMgr gPadMgr;
-
-extern FaultClient sSchedFaultClient;
 
 extern u64* gAudioSPDataPtr;
 extern u32 gAudioSPDataSize;

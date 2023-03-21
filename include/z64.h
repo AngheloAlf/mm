@@ -20,6 +20,7 @@
 #include "ichain.h"
 #include "padmgr.h"
 #include "rand.h"
+#include "scheduler.h"
 #include "sequence.h"
 #include "sfx.h"
 #include "message_data_static.h"
