@@ -119,8 +119,7 @@ void IrqMgr_ThreadEntry(IrqMgr* irqmgr) {
     u32 stop = false;
 
     while (!stop) {
-        if (stop) {
-        }
+        if (stop) {}
 
         osRecvMesg(&irqmgr->irqQueue, (OSMesg*)&interrupt, OS_MESG_BLOCK);
         switch (interrupt) {
