@@ -1,6 +1,6 @@
-#include "prevent_bss_reordering.h"
 #include "yaz0.h"
 #include "global.h"
+#include "prevent_bss_reordering.h"
 #include "sleep.h"
 #include "z64dma.h"
 
