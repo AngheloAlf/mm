@@ -143,7 +143,7 @@ void Yaz0_Decompress(uintptr_t romStart, void* dst, size_t size) {
     if (status != 0) {
         sprintf(sp80, "slidma slidstart_szs ret=%d", status);
         sprintf(sp30, "src:%08lx dst:%08lx siz:%08lx", romStart, dst, size);
-        Fault_AddHungupAndCrashImpl(sp80, sp30);
+        HANGUP_MESSAGE(sp80, sp30);
     }
 
     sYaz0CurDataEnd = NULL;

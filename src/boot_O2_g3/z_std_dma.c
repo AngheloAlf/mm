@@ -131,7 +131,7 @@ void DmaMgr_ProcessMsg(DmaRequest* req) {
         dmaEntry = &dmadata[index];
         if (dmaEntry->romEnd == 0) {
             if (dmaEntry->vromEnd < (vrom + size)) {
-                Fault_AddHungupAndCrash("../z_std_dma.c", 499);
+                HANGUP("../z_std_dma.c", 499);
             }
             DmaMgr_DmaRomToRam((dmaEntry->romStart + vrom) - dmaEntry->vromStart, (u8*)ram, size);
             return;
@@ -141,18 +141,18 @@ void DmaMgr_ProcessMsg(DmaRequest* req) {
         romStart = dmaEntry->romStart;
 
         if (vrom != dmaEntry->vromStart) {
-            Fault_AddHungupAndCrash("../z_std_dma.c", 518);
+            HANGUP("../z_std_dma.c", 518);
         }
 
         if (size != (dmaEntry->vromEnd - dmaEntry->vromStart)) {
-            Fault_AddHungupAndCrash("../z_std_dma.c", 525);
+            HANGUP("../z_std_dma.c", 525);
         }
 
         osSetThreadPri(NULL, 10);
         Yaz0_Decompress(romStart, ram, romSize);
         osSetThreadPri(NULL, 17);
     } else {
-        Fault_AddHungupAndCrash("../z_std_dma.c", 558);
+        HANGUP("../z_std_dma.c", 558);
     }
 }
 

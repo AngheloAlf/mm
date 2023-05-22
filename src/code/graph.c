@@ -166,7 +166,7 @@ retry:
         } else {
             // graph.c: No more! die!
             osSyncPrintf("graph.c:もうダメ！死ぬ！\n");
-            Fault_AddHungupAndCrashImpl("RCP is HUNG UP!!", "Oh! MY GOD!!");
+            HANGUP_MESSAGE("RCP is HUNG UP!!", "Oh! MY GOD!!");
         }
     }
 
@@ -286,10 +286,10 @@ void Graph_ExecuteAndDraw(GraphicsContext* gfxCtx, GameState* gameState) {
         GfxPool* pool = &gGfxPools[gfxCtx->gfxPoolIdx % 2];
 
         if (pool->headMagic != GFXPOOL_HEAD_MAGIC) {
-            Fault_AddHungupAndCrash("../graph.c", 1054);
+            HANGUP("../graph.c", 1054);
         }
         if (pool->tailMagic != GFXPOOL_TAIL_MAGIC) {
-            Fault_AddHungupAndCrash("../graph.c", 1066);
+            HANGUP("../graph.c", 1066);
         }
     }
 

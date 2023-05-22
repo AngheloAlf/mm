@@ -1602,7 +1602,7 @@ void BgCheck_Allocate(CollisionContext* colCtx, PlayState* play, CollisionHeader
         &play->state.heap,
         colCtx->subdivAmount.x * sizeof(StaticLookup) * colCtx->subdivAmount.y * colCtx->subdivAmount.z, ~1);
     if (colCtx->lookupTbl == NULL) {
-        Fault_AddHungupAndCrash("../z_bgcheck.c", 3955);
+        HANGUP("../z_bgcheck.c", 3955);
     }
     colCtx->minBounds.x = colCtx->colHeader->minBounds.x;
     colCtx->minBounds.y = colCtx->colHeader->minBounds.y;
@@ -1626,7 +1626,7 @@ void BgCheck_Allocate(CollisionContext* colCtx, PlayState* play, CollisionHeader
         tblMax = customNodeListMax;
     } else {
         if (colCtx->memSize < memSize) {
-            Fault_AddHungupAndCrash("../z_bgcheck.c", 4011);
+            HANGUP("../z_bgcheck.c", 4011);
         }
         tblMax = (colCtx->memSize - memSize) / sizeof(SSNode);
     }
@@ -2491,7 +2491,7 @@ void SSNodeList_Alloc(PlayState* play, SSNodeList* this, s32 tblMax, s32 numPoly
     if (this->polyCheckTbl == NULL) {
         sprintf(D_801ED950, "this->polygon_check == NULL(game_alloc() MemoryAllocationError.)\n");
         sprintf(D_801ED9A0, "short_slist_node_size = %d/polygon_num = %d\n", tblMax, numPolys);
-        Fault_AddHungupAndCrashImpl(D_801ED950, D_801ED9A0);
+        HANGUP_MESSAGE(D_801ED950, D_801ED9A0);
     }
 }
 
@@ -2907,19 +2907,19 @@ void DynaPoly_AddBgActorToLookup(PlayState* play, DynaCollisionContext* dyna, s3
     if (*waterBoxStartIndex + pbgdata->numWaterBoxes > DYNA_WATERBOX_MAX) {
         sprintf(D_801EDAA8, "water_poly Error:[MoveBG OSUGI!!!]");
         sprintf(D_801EDAF8, "num = %d > %d\n", *waterBoxStartIndex + pbgdata->numWaterBoxes, DYNA_WATERBOX_MAX);
-        Fault_AddHungupAndCrashImpl(D_801EDAA8, D_801EDAF8);
+        HANGUP_MESSAGE(D_801EDAA8, D_801EDAF8);
     }
 
     if (*polyStartIndex + pbgdata->numPolygons > dyna->polyListMax) {
         sprintf(D_801EDAA8, "bg_poly Error:[MoveBG OSUGI!!!]");
         sprintf(D_801EDAF8, "num = %d > %d\n", *polyStartIndex + pbgdata->numPolygons, dyna->polyListMax);
-        Fault_AddHungupAndCrashImpl(D_801EDAA8, D_801EDAF8);
+        HANGUP_MESSAGE(D_801EDAA8, D_801EDAF8);
     }
 
     if (*vtxStartIndex + pbgdata->numVertices > dyna->vtxListMax) {
         sprintf(D_801EDAA8, "bg_vert Error:[MoveBG OSUGI!!!]");
         sprintf(D_801EDAF8, "num = %d > %d\n", *vtxStartIndex + pbgdata->numVertices, dyna->vtxListMax);
-        Fault_AddHungupAndCrashImpl(D_801EDAA8, D_801EDAF8);
+        HANGUP_MESSAGE(D_801EDAA8, D_801EDAF8);
     }
 
     if (!(dyna->bitFlag & DYNAPOLY_INVALIDATE_LOOKUP) && BgActor_IsTransformUnchanged(&dyna->bgActors[bgId])) {

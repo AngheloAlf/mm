@@ -104,5 +104,12 @@ typedef struct FaultMgr {
 
 extern FaultMgr gFaultMgr;
 
+#ifdef __GNUC__
+#define HANGUP(...) Fault_AddHungupAndCrash(__FILE__, __LINE__)
+#else
+#define HANGUP(file, line) Fault_AddHungupAndCrash(file, line)
+#endif
+#define HANGUP_MESSAGE(exp1, exp2) Fault_AddHungupAndCrashImpl(exp1, exp2)
+
 
 #endif
