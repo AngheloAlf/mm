@@ -3,6 +3,7 @@
 
 #include "ultra64.h"
 #include "z64item.h"
+#include "z64sram.h"
 #include "z64math.h"
 #include "os.h"
 
@@ -59,6 +60,9 @@ typedef enum {
 #define MAGIC_DBG_SET_UPGRADE_NO_ACTION 0
 #define MAGIC_DBG_SET_UPGRADE_NORMAL_METER -1
 #define MAGIC_DBG_SET_UPGRADE_DOUBLE_METER 1
+
+// To be used with `Magic_Add`, but ensures enough magic is added to fill the magic bar to capacity
+#define MAGIC_FILL_TO_CAPACITY (((void)0, gSaveContext.magicFillTarget) + (gSaveContext.save.saveInfo.playerData.isDoubleMagicAcquired + 1) * MAGIC_NORMAL_METER)
 
 #define ENV_HAZARD_TEXT_TRIGGER_HOTROOM (1 << 0)
 #define ENV_HAZARD_TEXT_TRIGGER_UNDERWATER (1 << 1)
@@ -155,19 +159,6 @@ typedef enum {
 
 #define PICTO_PHOTO_SIZE (PICTO_PHOTO_WIDTH * PICTO_PHOTO_HEIGHT)
 #define PICTO_PHOTO_COMPRESSED_SIZE (PICTO_PHOTO_SIZE * 5 / 8)
-
-typedef struct SramContext {
-    /* 0x00 */ u8* readBuff;
-    /* 0x04 */ u8 *saveBuf;
-    /* 0x08 */ char unk_08[4];
-    /* 0x0C */ s16 status;
-    /* 0x10 */ u32 curPage;
-    /* 0x14 */ u32 numPages;
-    /* 0x18 */ OSTime unk_18;
-    /* 0x20 */ s16 unk_20;
-    /* 0x22 */ s16 unk_22;
-    /* 0x24 */ s16 unk_24;
-} SramContext; // size = 0x28
 
 typedef struct ItemEquips {
     /* 0x00 */ u8 buttonItems[4][4];                    // "register_item"
@@ -1583,5 +1574,7 @@ extern s32 D_801C67F0[];
 extern s32 D_801C6818[];
 extern s32 D_801C6840[];
 extern s32 D_801C6850[];
+
+extern SaveContext gSaveContext;
 
 #endif

@@ -56,6 +56,7 @@
 #include "z64schedule.h"
 #include "z64skin.h"
 #include "z64skybox.h"
+#include "z64sram.h"
 #include "z64subs.h"
 #include "z64transition.h"
 #include "z64view.h"

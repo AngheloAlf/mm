@@ -2279,7 +2279,7 @@ extern TriNorm D_801EF590;
 extern TriNorm D_801EF5C8;
 extern TriNorm D_801EF600;
 extern TriNorm D_801EF638;
-extern SaveContext gSaveContext;
+
 // extern UNK_TYPE2 D_801F3F38;
 // extern UNK_TYPE1 D_801F3F3A;
 // extern UNK_TYPE1 D_801F3F3B;
