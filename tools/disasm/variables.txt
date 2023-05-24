@@ -3568,7 +3568,7 @@
     0x801DFC58:("D_801DFC58","f32","",0x4),
     0x801DFC5C:("D_801DFC5C","f32","",0x4),
     0x801DFC60:("D_801DFC60","char","[]",0x7),
-    0x801DFC70:("D_801DFC70","u8","[7]",0x7),
+    0x801DFC70:("sSfxBankIds","u8","[7]",0x7),
     0x801DFC77:("D_801DFC77","UNK_TYPE1","",0x1),
     0x801DFC80:("D_801DFC80","char","[]",0x1c),
     0x801DFC9C:("D_801DFC9C","char","[]",0x1d),
