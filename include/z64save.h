@@ -1560,12 +1560,7 @@ void Sram_InitSram(struct GameState* gameState, SramContext* sramCtx);
 void Sram_Alloc(struct GameState* gameState, SramContext* sramCtx);
 void Sram_SaveSpecialEnterClockTown(struct PlayState* play);
 void Sram_SaveSpecialNewDay(struct PlayState* play);
-void func_80147008(SramContext* sramCtx, u32 curPage, u32 numPages);
-void func_80147020(SramContext* sramCtx);
-void func_80147068(SramContext* sramCtx);
-void func_80147138(SramContext* sramCtx, s32 curPage, s32 numPages);
-void func_80147150(SramContext* sramCtx);
-void func_80147198(SramContext* sramCtx);
+
 
 extern s32 D_801C6798[];
 extern u8 gAmmoItems[];

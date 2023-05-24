@@ -18,4 +18,13 @@ typedef struct SramContext {
 } SramContext; // size = 0x28
 
 
+void func_80147008(SramContext* sramCtx, u32 curPage, u32 numPages);
+void func_80147020(SramContext* sramCtx);
+void func_80147068(SramContext* sramCtx);
+void func_80147138(SramContext* sramCtx, s32 curPage, s32 numPages);
+void func_80147150(SramContext* sramCtx);
+void func_80147198(SramContext* sramCtx);
+void func_80147314(SramContext* sramCtx, s32 fileNum);
+void func_80147414(SramContext* sramCtx, s32 fileNum, s32 arg2);
+
 #endif
