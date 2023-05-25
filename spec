@@ -241,6 +241,7 @@ beginseg
     include "build/src/boot_O2/__osStrcmp.o"
     include "build/src/boot_O2/__osStrcpy.o"
     include "build/src/boot_O2/__osMemcpy.o"
+    include "build/src/gcc_fix/missing_gcc_functions.o"
     include "build/src/boot_O2_g3/build.o"
 endseg
 

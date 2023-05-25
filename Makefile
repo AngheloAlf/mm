@@ -262,6 +262,14 @@ endif
 .DEFAULT_GOAL := uncompressed
 all: uncompressed compressed
 
+# goal:
+# 	echo $(MAKECMDGOALS)
+
+# ifeq (,$(filter clean assetclean distclean distclean assets disasm setup,$(MAKECMDGOALS)))
+# $(shell make -f moderngcc.mak)
+# endif
+
+
 $(ROM): $(ELF)
 	$(ELF2ROM) -cic 6105 $< $@
 
@@ -392,3 +400,6 @@ build/assets/%.jpg.inc.c: assets/%.jpg
 	$(ZAPD) bren -eh -i $< -o $@
 
 -include $(DEP_FILES)
+
+# Print target for debugging
+print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
