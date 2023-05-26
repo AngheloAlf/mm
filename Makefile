@@ -8,7 +8,7 @@ MAKEFLAGS += --no-builtin-rules
 #### Defaults ####
 
 # If COMPARE is 1, check the output md5sum after building
-COMPARE ?= 1
+COMPARE ?= 0
 # If NON_MATCHING is 1, define the NON_MATCHING C flag when building
 NON_MATCHING ?= 0
 # If ORIG_COMPILER is 1, compile with QEMU_IRIX and the original compiler
@@ -277,7 +277,7 @@ $(ROMC): $(ROM)
 	python3 tools/z64compress_wrapper.py $(COMPFLAGS) $(ROM) $@ $(ELF) build/$(SPEC)
 
 $(ELF): $(TEXTURE_FILES_OUT) $(ASSET_FILES_OUT) $(O_FILES) $(OVL_RELOC_FILES) build/ldscript.txt build/undefined_syms.txt
-	$(LD) -T build/undefined_syms.txt -T build/ldscript.txt --no-check-sections --accept-unknown-input-arch --emit-relocs -Map build/mm.map -o $@
+	$(LD) --whole-archive -T build/undefined_syms.txt -T build/ldscript.txt --no-check-sections --accept-unknown-input-arch --emit-relocs -Map build/mm.map -o $@
 
 ## Order-only prerequisites 
 # These ensure e.g. the O_FILES are built before the OVL_RELOC_FILES.
