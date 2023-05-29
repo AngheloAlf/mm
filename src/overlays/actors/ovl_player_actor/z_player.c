@@ -12134,10 +12134,52 @@ Gfx* D_8085D574[] = {
 Color_RGB8 D_8085D580 = { 255, 255, 255 };
 Color_RGB8 D_8085D584 = { 80, 80, 200 };
 
+void Player_PrintStruct(Player* this, PlayState* play, GfxPrint* printer) {
+    s32 x = 32;
+    s32 y = 3;
+
+    GfxPrint_SetPos(printer, x, ++y);
+    GfxPrint_Printf(printer, "init:%X", PLAYER_GET_INITMODE(&this->actor));
+}
+
+void Player_DrawStuff(Player* this, PlayState* play) {
+    GraphicsContext* gfxCtx = play->state.gfxCtx;
+    GfxPrint printer;
+    Gfx* gfxRef;
+    Gfx* gfx;
+
+    OPEN_DISPS(gfxCtx);
+
+    Gfx_SetupDL28_Opa(gfxCtx);
+
+    GfxPrint_Init(&printer);
+
+    gfxRef = POLY_OPA_DISP;
+    gfx = Graph_GfxPlusOne(gfxRef);
+    gSPDisplayList(OVERLAY_DISP++, gfx);
+
+    GfxPrint_Open(&printer, gfx);
+
+    GfxPrint_SetColor(&printer, 255, 255, 255, 255);
+    Player_PrintStruct(this, play, &printer);
+
+    gfx = GfxPrint_Close(&printer);
+
+    gSPEndDisplayList(gfx++);
+    Graph_BranchDlist(gfxRef, gfx);
+    POLY_OPA_DISP = gfx;
+
+    GfxPrint_Destroy(&printer);
+
+    CLOSE_DISPS(gfxCtx);
+}
+
 void Player_Draw(Actor* thisx, PlayState* play) {
     Player* this = THIS;
     f32 one = 1.0f;
     s32 spEC = false;
+
+    Player_DrawStuff(this, play);
 
     Math_Vec3f_Copy(&this->unk_D6C, &this->bodyPartsPos[PLAYER_BODYPART_WAIST]);
     if (this->stateFlags3 & (PLAYER_STATE3_100 | PLAYER_STATE3_40000)) {
