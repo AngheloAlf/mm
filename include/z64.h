@@ -119,15 +119,6 @@ typedef struct {
     /* 0x10 */ OSTime resetTime;
 } NmiBuff; // size >= 0x18
 
-typedef struct {
-    /* 0x00 */ s32 requestType;
-    /* 0x04 */ OSMesg response;
-    /* 0x08 */ void* addr;
-    /* 0x0C */ s32 pageNum;
-    /* 0x10 */ s32 pageCount;
-    /* 0x14 */ OSMesgQueue messageQueue;
-} FlashromRequest; // size = 0x2C
-
 // End of RDRAM without the Expansion Pak installed
 #define NORMAL_RDRAM_END 0x80400000
 // End of RDRAM with the Expansion Pak installed
@@ -643,19 +634,6 @@ typedef struct {
 #define FRAM_BASE_ADDRESS 0x08000000           // FRAM Base Address in Cart Memory
 #define FRAM_STATUS_REGISTER FRAM_BASE_ADDRESS // FRAM Base Address in Cart Memory
 #define FRAM_COMMAND_REGISTER 0x10000          // Located at 0x08010000 on the Cart
-
-#define FLASH_VERSION_MX_PROTO_A 0x00C20000
-#define FLASH_VERSION_MX_A       0x00C20001
-#define FLASH_VERSION_MX_C       0x00C2001E
-#define FLASH_VERSION_MX_B_AND_D 0x00C2001D
-#define FLASH_VERSION_MEI        0x003200F1
-
-#define FLASH_TYPE_MAGIC 0x11118001
-
-#define FLASH_PAGE_SIZE 128
-
-#define FLASHROM_REQUEST_WRITE 1
-#define FLASHROM_REQUEST_READ 2
 
 enum fram_command {
     /* Does nothing for FRAM_COMMAND_SET_MODE_READ_AND_STATUS, FRAM_MODE_NOP, FRAM_COMMAND_SET_MODE_STATUS_AND_STATUS
