@@ -259,7 +259,7 @@ void func_809542A0(BgIngate* this, PlayState* play) {
 }
 
 void func_80954340(BgIngate* this, PlayState* play) {
-    if (!DECR(this->unk16A)) {
+    if (DECR(this->unk16A) == 0) {
         if (this->timePath != NULL) {
             func_800B7298(play, &this->dyna.actor, PLAYER_CSMODE_END);
             this->timePath = &play->setupPathList[this->timePath->unk1];
@@ -384,7 +384,7 @@ void BgIngate_Update(Actor* thisx, PlayState* play) {
 void BgIngate_Draw(Actor* thisx, PlayState* play) {
     OPEN_DISPS(play->state.gfxCtx);
 
-    func_8012C28C(play->state.gfxCtx);
+    Gfx_SetupDL25_Opa(play->state.gfxCtx);
     gSPMatrix(POLY_OPA_DISP++, Matrix_NewMtx(play->state.gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
     gSPDisplayList(POLY_OPA_DISP++, gSichitaiBoat);
 

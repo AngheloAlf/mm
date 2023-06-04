@@ -15,7 +15,7 @@ Vec3f gOneVec3f = { 1.0f, 1.0f, 1.0f };
 s32 D_801C5DBC[] = { 0, 1 }; // Unused
 
 /**
- * Finds the first EnDoor instance with unk_1A4 == 5 and the specified switchFlag.
+ * Finds the first EnDoor instance with doorType == ENDOOR_TYPE_5 and the specified switchFlag.
  */
 EnDoor* SubS_FindDoor(PlayState* play, s32 switchFlag) {
     Actor* actor = NULL;
@@ -29,7 +29,7 @@ EnDoor* SubS_FindDoor(PlayState* play, s32 switchFlag) {
             break;
         }
 
-        if ((door->unk_1A4 == 5) && (door->switchFlag == (u8)switchFlag)) {
+        if ((door->doorType == ENDOOR_TYPE_5) && (door->switchFlag == (u8)switchFlag)) {
             break;
         }
 
@@ -128,7 +128,7 @@ Gfx* SubS_DrawTransformFlex(PlayState* play, void** skeleton, Vec3s* jointTable,
     newDlist = rootLimb->dList;
     limbDList = rootLimb->dList;
 
-    if (overrideLimbDraw == NULL || !overrideLimbDraw(play, 1, &newDlist, &pos, &rot, actor, &gfx)) {
+    if ((overrideLimbDraw == NULL) || !overrideLimbDraw(play, 1, &newDlist, &pos, &rot, actor, &gfx)) {
         Matrix_TranslateRotateZYX(&pos, &rot);
         Matrix_Push();
 
@@ -994,7 +994,7 @@ void SubS_DrawShadowTex(Actor* actor, GameState* gameState, u8* tex) {
 
     OPEN_DISPS(gfxCtx);
 
-    func_8012C28C(gfxCtx);
+    Gfx_SetupDL25_Opa(gfxCtx);
     gDPSetPrimColor(POLY_OPA_DISP++, 0, 0, 0, 0, 0, 100);
     gDPSetEnvColor(POLY_OPA_DISP++, 0, 0, 0, 0);
     Matrix_Translate(actor->world.pos.x, 0.0f, actor->world.pos.z, MTXMODE_NEW);
@@ -1179,7 +1179,7 @@ Actor* SubS_FindActor(PlayState* play, Actor* actorListStart, u8 actorCategory, 
         actor = play->actorCtx.actorLists[actorCategory].first;
     }
 
-    while (actor != NULL && actorId != actor->id) {
+    while ((actor != NULL) && (actorId != actor->id)) {
         actor = actor->next;
     }
 
@@ -1503,10 +1503,10 @@ Actor* SubS_FindActorCustom(PlayState* play, Actor* actor, Actor* actorListStart
         actorIter = play->actorCtx.actorLists[actorCategory].first;
     }
 
-    while (actorIter != NULL &&
-           (actorId != actorIter->id ||
-            (actorId == actorIter->id &&
-             (verifyActor == NULL || (verifyActor != NULL && !verifyActor(play, actor, actorIter, verifyData)))))) {
+    while ((actorIter != NULL) &&
+           ((actorId != actorIter->id) ||
+            ((actorId == actorIter->id) &&
+             ((verifyActor == NULL) || ((verifyActor != NULL) && !verifyActor(play, actor, actorIter, verifyData)))))) {
         actorIter = actorIter->next;
     }
 

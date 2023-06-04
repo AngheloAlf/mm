@@ -2058,11 +2058,11 @@ const char sAudioOcarinaUnusedText6[] = "last key step is too short !!! %d:%d %d
 const char sAudioOcarinaUnusedText7[] = "check is over!!! %d %d %d\n";
 
 void AudioOcarina_ReadControllerInput(void) {
-    Input inputs[4];
+    Input inputs[MAXCONTROLLERS];
     Input* input = &inputs[0];
     u32 ocarinaInputButtonPrev = sOcarinaInputButtonCur;
 
-    Padmgr_GetInput2(inputs, 0);
+    PadMgr_GetInput2(inputs, false);
     sOcarinaInputButtonCur = input->cur.button;
     sOcarinaInputButtonPrev = ocarinaInputButtonPrev;
     sOcarinaInputStickRel.x = input->rel.stick_x;
@@ -2543,8 +2543,8 @@ void AudioOcarina_CheckSongsWithoutMusicStaff(void) {
             if ((u32)sOcarinaAvailableSongFlags & (1 << songIndex)) {
                 // Loops through all possible starting indices?
                 // Loops through the notes of the song?
-                for (j = 0, k = 0; j < gOcarinaSongButtons[songIndex].numButtons && k == 0 &&
-                                   sOcarinaWithoutMusicStaffPos >= gOcarinaSongButtons[songIndex].numButtons;) {
+                for (j = 0, k = 0; (j < gOcarinaSongButtons[songIndex].numButtons) && (k == 0) &&
+                                   (sOcarinaWithoutMusicStaffPos >= gOcarinaSongButtons[songIndex].numButtons);) {
 
                     pitch = sCurOcarinaSongWithoutMusicStaff[(sOcarinaWithoutMusicStaffPos -
                                                               gOcarinaSongButtons[songIndex].numButtons) +
@@ -2953,7 +2953,7 @@ void AudioOcarina_SetRecordingSong(u8 isRecordingComplete) {
 
     i = sRecordSongPos;
     pitch = OCARINA_PITCH_NONE;
-    while (i != 0 && pitch == OCARINA_PITCH_NONE) {
+    while ((i != 0) && (pitch == OCARINA_PITCH_NONE)) {
         i--;
         pitch = recordedSong[i].pitch;
     }

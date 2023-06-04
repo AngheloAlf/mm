@@ -441,6 +441,9 @@ void EnGe1_PostLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3s* rot,
             gSPDisplayList(POLY_OPA_DISP++, sHairstyleDLs[this->hairstyle]);
             Matrix_MultVec3f(&sInitialFocusPos, &this->picto.actor.focus.pos);
             break;
+
+        default:
+            break;
     }
 
     CLOSE_DISPS(play->state.gfxCtx);
@@ -457,7 +460,7 @@ void EnGe1_Draw(Actor* thisx, PlayState* play) {
 
     OPEN_DISPS(play->state.gfxCtx);
 
-    func_8012C5B0(play->state.gfxCtx);
+    Gfx_SetupDL37_Opa(play->state.gfxCtx);
     gSPSegment(POLY_OPA_DISP++, 0x08, Lib_SegmentedToVirtual(sEyeTextures[this->eyeIndex]));
     SkelAnime_DrawFlexOpa(play, this->skelAnime.skeleton, this->skelAnime.jointTable, this->skelAnime.dListCount,
                           EnGe1_OverrideLimbDraw, EnGe1_PostLimbDraw, &this->picto.actor);
