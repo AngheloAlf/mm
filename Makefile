@@ -154,10 +154,10 @@ ifeq ($(COMPILER),ido)
 else ifeq ($(COMPILER),gcc)
   OPTFLAGS := -Os -g3 -ffast-math -fno-unsafe-math-optimizations
   MIPS_VERSION := -mips3
-  ABI := -mabi=32
+  ABIFLAG := -mabi=32
   # TODO: consider removing
   CHAR_SIGN := -funsigned-char
-  CFLAGS += -G0 -nostdinc $(INC) -march=vr4300 -mfix4300 $(ABI) -mno-abicalls -fexec-charset=euc-jp
+  CFLAGS += -G0 -nostdinc $(INC) -march=vr4300 -mfix4300 $(ABIFLAG) -mno-abicalls -fexec-charset=euc-jp
   CFLAGS += -mno-abicalls -mdivide-breaks -fno-toplevel-reorder -ffreestanding -fno-common $(CHAR_SIGN) $(CHECK_WARNINGS)
   CFLAGS += -fno-zero-initialized-in-bss
   LDFLAGS += -lgcc_vr4300
