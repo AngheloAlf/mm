@@ -1,6 +1,9 @@
 #ifndef Z64_H
 #define Z64_H
 
+// TODO: move out
+#include "include_asm.h"
+
 #include "libc/math.h"
 #include "libc/stdarg.h"
 #include "libc/stdbool.h"

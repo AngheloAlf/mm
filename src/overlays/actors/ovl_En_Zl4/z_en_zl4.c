@@ -35,23 +35,34 @@ ActorInit En_Zl4_InitVars = {
 extern UNK_TYPE D_06013328;
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1BB0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1BB0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/EnZl4_Init.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", EnZl4_Init);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/EnZl4_Destroy.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", EnZl4_Destroy);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1D0C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1D0C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/EnZl4_Update.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", EnZl4_Update);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1D60.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1D60);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1DA4.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1DA4);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1DBC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1DBC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1DD0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1DD0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/func_809A1E28.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", func_809A1E28);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Zl4/EnZl4_Draw.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Zl4", EnZl4_Draw);

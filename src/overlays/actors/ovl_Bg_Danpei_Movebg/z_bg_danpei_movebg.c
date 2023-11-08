@@ -40,25 +40,37 @@ static InitChainEntry D_80AF753C[] = {
 extern InitChainEntry D_80AF753C[];
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF6DE0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF6DE0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/BgDanpeiMovebg_Init.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", BgDanpeiMovebg_Init);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF6EA8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF6EA8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/BgDanpeiMovebg_Destroy.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", BgDanpeiMovebg_Destroy);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/BgDanpeiMovebg_Update.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", BgDanpeiMovebg_Update);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF705C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF705C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF70FC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF70FC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF71FC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF71FC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF72F8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF72F8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF7354.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF7354);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF746C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF746C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg/func_80AF74CC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Bg_Danpei_Movebg", func_80AF74CC);

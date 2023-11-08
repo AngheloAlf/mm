@@ -3041,6 +3041,7 @@ void Message_Decode(PlayState* play) {
 #else
 void Message_Decode(PlayState* play);
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_message/Message_Decode.s")
+INCLUDE_ASM("asm/non_matchings/code/z_message", Message_Decode);
 #endif
 
 void func_80150A84(PlayState* play) {

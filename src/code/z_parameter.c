@@ -2468,8 +2468,10 @@ void Interface_InitMinigame(PlayState* play) {
 }
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/Interface_LoadItemIconImpl.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", Interface_LoadItemIconImpl);
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/Interface_LoadItemIcon.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", Interface_LoadItemIcon);
 
 /**
  * @param play PlayState
@@ -3243,6 +3245,7 @@ void Inventory_UpdateItem(PlayState* play, s16 slot, s16 item) {
 }
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/func_801153C8.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", func_801153C8);
 
 TexturePtr sDoActionTextures[] = {
     gDoActionAttackENGTex,
@@ -3251,14 +3254,19 @@ TexturePtr sDoActionTextures[] = {
 
 void func_80115428(InterfaceContext* interfaceCtx, u16 doAction, s16 loadOffset);
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/func_80115428.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", func_80115428);
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/func_8011552C.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", func_8011552C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/func_801155B4.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", func_801155B4);
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/func_80115764.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", func_80115764);
 
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_parameter/func_80115844.s")
+INCLUDE_ASM("asm/non_matchings/code/z_parameter", func_80115844);
 
 /**
  * @return false if player is out of health

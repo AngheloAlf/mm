@@ -119,69 +119,103 @@ extern UNK_TYPE D_06006E08;
 extern UNK_TYPE D_06006FD8;
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/EnPoComposer_Init.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", EnPoComposer_Init);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/EnPoComposer_Destroy.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", EnPoComposer_Destroy);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5250.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5250);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5294.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5294);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC52D4.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC52D4);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC52F0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC52F0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC538C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC538C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC53A0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC53A0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC53B0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC53B0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5404.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5404);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC552C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC552C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5570.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5570);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5580.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5580);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC55E0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC55E0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC562C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC562C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5670.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5670);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5680.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5680);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC56D0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC56D0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5738.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5738);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5780.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5780);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC57E8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC57E8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5830.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5830);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5898.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5898);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC58E0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC58E0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC59BC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC59BC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC59EC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC59EC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5CC8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5CC8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5D34.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5D34);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5DEC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5DEC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC5FE8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC5FE8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/EnPoComposer_Update.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", EnPoComposer_Update);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC60BC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC60BC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/func_80BC617C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", func_80BC617C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer/EnPoComposer_Draw.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Po_Composer", EnPoComposer_Draw);

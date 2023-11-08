@@ -1887,4 +1887,5 @@ void Message_DecodeNES(PlayState* play) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_message_nes/Message_DecodeNES.s")
+INCLUDE_ASM("asm/non_matchings/code/z_message_nes", Message_DecodeNES);
 #endif

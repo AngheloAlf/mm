@@ -1571,6 +1571,7 @@ void Environment_UpdateLights(PlayState* play, EnvironmentContext* envCtx, Light
 #else
 void Environment_UpdateLights(PlayState* play, EnvironmentContext* envCtx, LightContext* lightCtx);
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_kankyo/Environment_UpdateLights.s")
+INCLUDE_ASM("asm/non_matchings/code/z_kankyo", Environment_UpdateLights);
 #endif
 
 void Environment_UpdateSun(PlayState* play) {
@@ -3276,6 +3277,7 @@ void Environment_DrawSkyboxStarsImpl(PlayState* play, Gfx** gfxP) {
 #else
 void Environment_DrawSkyboxStarsImpl(PlayState* play, Gfx** gfxP);
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_kankyo/Environment_DrawSkyboxStarsImpl.s")
+INCLUDE_ASM("asm/non_matchings/code/z_kankyo", Environment_DrawSkyboxStarsImpl);
 #endif
 
 void Environment_Draw(PlayState* play) {

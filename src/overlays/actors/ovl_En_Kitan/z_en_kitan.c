@@ -42,35 +42,52 @@ extern UNK_TYPE D_06000CE8;
 extern UNK_TYPE D_06002770;
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/EnKitan_Init.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", EnKitan_Init);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/EnKitan_Destroy.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", EnKitan_Destroy);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C0923C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C0923C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09390.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09390);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09418.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09418);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C094A8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C094A8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09518.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09518);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C095C8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C095C8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09648.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09648);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09708.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09708);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09990.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09990);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09AA4.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09AA4);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09B50.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09B50);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/EnKitan_Update.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", EnKitan_Update);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09C74.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09C74);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09C90.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09C90);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_En_Kitan/func_80C09CD0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_En_Kitan", func_80C09CD0);

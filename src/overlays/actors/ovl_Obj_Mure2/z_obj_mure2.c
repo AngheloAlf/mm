@@ -42,31 +42,46 @@ static InitChainEntry D_809615F4[] = {
 extern InitChainEntry D_809615F4[];
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_80960CF0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_80960CF0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_80960E0C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_80960E0C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_80960F0C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_80960F0C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_80961018.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_80961018);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_8096104C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_8096104C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_809611BC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_809611BC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_809612BC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_809612BC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/ObjMure2_Init.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", ObjMure2_Init);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_809613B0.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_809613B0);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_809613C4.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_809613C4);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_809613E8.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_809613E8);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_809613FC.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_809613FC);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_8096147C.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_8096147C);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/func_80961490.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", func_80961490);
 
 #pragma GLOBAL_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2/ObjMure2_Update.s")
+INCLUDE_ASM("asm/non_matchings/overlays/ovl_Obj_Mure2", ObjMure2_Update);

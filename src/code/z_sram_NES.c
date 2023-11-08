@@ -1675,6 +1675,7 @@ void func_801457CC(GameState* gameState, SramContext* sramCtx) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_sram_NES/func_801457CC.s")
+INCLUDE_ASM("asm/non_matchings/code/z_sram_NES", func_801457CC);
 #endif
 
 void Sram_EraseSave(FileSelectState* fileSelect2, SramContext* sramCtx, s32 fileNum) {

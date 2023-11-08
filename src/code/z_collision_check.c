@@ -1443,6 +1443,7 @@ void CollisionCheck_BlueBlood(PlayState* play, Collider* collider, Vec3f* v) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_collision_check/CollisionCheck_BlueBlood.s")
+INCLUDE_ASM("asm/non_matchings/code/z_collision_check", CollisionCheck_BlueBlood);
 #endif
 
 /**
@@ -1500,6 +1501,7 @@ void CollisionCheck_GreenBlood(PlayState* play, Collider* collider, Vec3f* v) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_collision_check/CollisionCheck_GreenBlood.s")
+INCLUDE_ASM("asm/non_matchings/code/z_collision_check", CollisionCheck_GreenBlood);
 #endif
 
 /**
@@ -3679,6 +3681,7 @@ void Collider_UpdateSpheres(s32 limb, ColliderJntSph* collider) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_collision_check/Collider_UpdateSpheres.s")
+INCLUDE_ASM("asm/non_matchings/code/z_collision_check", Collider_UpdateSpheres);
 #endif
 
 /**
@@ -3719,6 +3722,7 @@ void Collider_UpdateSphere(s32 limb, ColliderSphere* collider) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_collision_check/Collider_UpdateSphere.s")
+INCLUDE_ASM("asm/non_matchings/code/z_collision_check", Collider_UpdateSphere);
 #endif
 
 /**
@@ -3777,6 +3781,7 @@ void CollisionCheck_SpawnRedBlood(PlayState* play, Vec3f* v) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_collision_check/CollisionCheck_SpawnRedBlood.s")
+INCLUDE_ASM("asm/non_matchings/code/z_collision_check", CollisionCheck_SpawnRedBlood);
 #endif
 
 /**
@@ -3835,6 +3840,7 @@ void CollisionCheck_SpawnWaterDroplets(PlayState* play, Vec3f* v) {
 }
 #else
 #pragma GLOBAL_ASM("asm/non_matchings/code/z_collision_check/CollisionCheck_SpawnWaterDroplets.s")
+INCLUDE_ASM("asm/non_matchings/code/z_collision_check", CollisionCheck_SpawnWaterDroplets);
 #endif
 
 /**
