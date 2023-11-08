@@ -27,15 +27,26 @@ OBJDUMP_BUILD ?= 0
 ASM_PROC_FORCE ?= 0
 # Number of threads to disassmble, extract, and compress with
 N_THREADS ?= $(shell nproc)
+# 
+COMPILER ?= gcc
 
 #### Setup ####
 
 # Ensure the map file being created using English localization
 export LANG := C
 
-ifeq ($(NON_MATCHING),1)
-  CFLAGS := -DNON_MATCHING
-  CPPFLAGS := -DNON_MATCHING
+CFLAGS ?=
+CPPFLAGS ?=
+
+ifeq ($(COMPILER),gcc)
+  CFLAGS += -DCOMPILER_GCC
+  CPPFLAGS += -DCOMPILER_GCC
+  NON_MATCHING := 1
+endif
+
+ifneq ($(NON_MATCHING),0)
+  CFLAGS += -DNON_MATCHING -DAVOID_UB
+  CPPFLAGS += -DNON_MATCHING -DAVOID_UB
   COMPARE := 0
 endif
 
@@ -44,7 +55,7 @@ ifneq ($(FULL_DISASM), 0)
   DISASM_FLAGS += --all
 endif
 
-PROJECT_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+# PROJECT_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
 MAKE = make
 CPPFLAGS += -P
@@ -65,14 +76,20 @@ endif
 
 #### Tools ####
 
-ifeq ($(shell type mips-linux-gnu-ld >/dev/null 2>/dev/null; echo $$?), 0)
-  MIPS_BINUTILS_PREFIX := mips-linux-gnu-
-else
-  $(error Please install or build mips-linux-gnu)
+MIPS_BINUTILS_PREFIX := mips-linux-gnu-
+ifneq ($(shell type $(MIPS_BINUTILS_PREFIX)ld >/dev/null 2>/dev/null; echo $$?), 0)
+  $(error Please install a MIPS cross compiler and set MIPS_BINUTILS_PREFIX)
 endif
 
+# Detect compiler and error if no valid compiler was set
+ifeq ($(COMPILER),ido)
 CC       := tools/ido_recomp/$(DETECTED_OS)/7.1/cc
 CC_OLD   := tools/ido_recomp/$(DETECTED_OS)/5.3/cc
+else ifeq ($(COMPILER),gcc)
+CC       := $(MIPS_BINUTILS_PREFIX)gcc
+else
+$(error Unsupported compiler. Please use either `ido` or `gcc` as the COMPILER variable.)
+endif
 
 # if ORIG_COMPILER is 1, check that either QEMU_IRIX is set or qemu-irix package installed
 ifeq ($(ORIG_COMPILER),1)
@@ -106,13 +123,14 @@ else
   RM_MDEBUG = @:
 endif
 
+CHECK_WARNINGS := -Wall -Wextra -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-unused-but-set-variable -Wno-unused-label -Wno-sign-compare -Wno-tautological-compare
+ifneq ($(WERROR), 0)
+CHECK_WARNINGS += -Werror
+endif
+
 # Check code syntax with host compiler
 ifneq ($(RUN_CC_CHECK),0)
-  CHECK_WARNINGS := -Wall -Wextra -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-unused-but-set-variable -Wno-unused-label -Wno-sign-compare -Wno-tautological-compare
   CC_CHECK   := gcc -fno-builtin -fsyntax-only -funsigned-char -fdiagnostics-color -std=gnu89 -D _LANGUAGE_C -D NON_MATCHING $(IINC) -nostdinc $(CHECK_WARNINGS)
-  ifneq ($(WERROR), 0)
-    CC_CHECK += -Werror
-  endif
 else
   CC_CHECK := @:
 endif
@@ -125,12 +143,25 @@ ZAPD       := tools/ZAPD/ZAPD.out
 FADO       := tools/fado/fado.elf
 MAKEYAR    := tools/buildtools/makeyar
 
-OPTFLAGS := -O2 -g3
-ASFLAGS := -march=vr4300 -32 -Iinclude
-MIPS_VERSION := -mips2
+ASFLAGS := -march=vr4300 -mabi=32 -no-pad-sections -Iinclude
+LDFLAGS := --no-check-sections --accept-unknown-input-arch --emit-relocs
 
+ifeq ($(COMPILER),ido)
+  OPTFLAGS := -O2 -g3
+  MIPS_VERSION := -mips2
 # we support Microsoft extensions such as anonymous structs, which the compiler does support but warns for their usage. Suppress the warnings with -woff.
-CFLAGS += -G 0 -non_shared -fullwarn -verbose -Xcpluscomm $(IINC) -nostdinc -Wab,-r4300_mul -woff 649,838,712,516
+  CFLAGS += -G0 -non_shared -fullwarn -verbose -Xcpluscomm $(IINC) -nostdinc -Wab,-r4300_mul -woff 649,838,712,516
+else ifeq ($(COMPILER),gcc)
+  OPTFLAGS := -Os -g3 -ffast-math -fno-unsafe-math-optimizations
+  MIPS_VERSION := -mips3
+  ABI := -mabi=32
+  # TODO: consider removing
+  CHAR_SIGN := -funsigned-char
+  CFLAGS += -G0 -nostdinc $(INC) -march=vr4300 -mfix4300 $(ABI) -mno-abicalls -fexec-charset=euc-jp
+  CFLAGS += -mno-abicalls -mdivide-breaks -fno-toplevel-reorder -ffreestanding -fno-common $(CHAR_SIGN) $(CHECK_WARNINGS)
+  CFLAGS += -fno-zero-initialized-in-bss
+  LDFLAGS += -lgcc_vr4300
+endif
 
 # Use relocations and abi fpr names in the dump
 OBJDUMP_FLAGS := --disassemble --reloc --disassemble-zeroes -Mreg-names=32
@@ -153,7 +184,7 @@ endif
 
 # rom compression flags
 COMPFLAGS := --threads $(N_THREADS)
-ifneq ($(NON_MATCHING),1)
+ifeq ($(NON_MATCHING),0)
   COMPFLAGS += --matching
 endif
 
@@ -204,7 +235,10 @@ DEP_FILES := $(O_FILES:.o=.asmproc.d) $(OVL_RELOC_FILES:.o=.d)
 # create build directories
 $(shell mkdir -p build/baserom $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(ASSET_BIN_DIRS) $(ASSET_BIN_DIRS_C_FILES),build/$(dir)))
 
+
+ifeq ($(COMPILER),ido)
 # directory flags
+
 build/src/boot/O2/%.o: OPTFLAGS := -O2
 
 build/src/libultra/os/%.o: OPTFLAGS := -O1
@@ -222,6 +256,7 @@ build/assets/%.o: OPTFLAGS := -O1
 build/assets/%.o: ASM_PROC_FLAGS := 
 
 # file flags
+
 build/src/boot/fault.o: CFLAGS += -trapuv
 build/src/boot/fault_drawer.o: CFLAGS += -trapuv
 
@@ -249,6 +284,9 @@ build/src/audio/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASFLAG
 build/src/overlays/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --
 
 build/assets/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --
+else ifeq ($(COMPILER),gcc)
+build/src/overlays/%.o: CFLAGS += -fno-merge-constants -mno-explicit-relocs -mno-split-addresses
+endif
 
 #### Main Targets ###
 
@@ -275,7 +313,7 @@ $(ROMC): $(ROM)
 	python3 tools/z64compress_wrapper.py $(COMPFLAGS) $(ROM) $@ $(ELF) build/$(SPEC)
 
 $(ELF): $(TEXTURE_FILES_OUT) $(ASSET_FILES_OUT) $(O_FILES) $(OVL_RELOC_FILES) build/ldscript.txt build/undefined_syms.txt
-	$(LD) -T build/undefined_syms.txt -T build/ldscript.txt --no-check-sections --accept-unknown-input-arch --emit-relocs -Map build/mm.map -o $@
+	$(LD) -T build/undefined_syms.txt -T build/ldscript.txt -L tools/libs -Map build/mm.map -o $@
 
 ## Order-only prerequisites 
 # These ensure e.g. the O_FILES are built before the OVL_RELOC_FILES.
