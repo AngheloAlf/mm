@@ -161,7 +161,7 @@ else ifeq ($(COMPILER),gcc)
   ABIFLAG := -mabi=32
   # TODO: consider removing
   CHAR_SIGN := -funsigned-char
-  CFLAGS += -G0 -nostdinc $(IINC) -march=vr4300 -mfix4300 $(ABIFLAG) -mno-abicalls -fexec-charset=euc-jp
+  CFLAGS += -G0 -nostdinc $(IINC) -march=vr4300 -mfix4300 $(ABIFLAG) -fno-PIC -mno-abicalls -fexec-charset=euc-jp
   CFLAGS += -mno-abicalls -mdivide-breaks -fno-toplevel-reorder -ffreestanding -fno-common $(CHAR_SIGN) $(CHECK_WARNINGS)
   CFLAGS += -fno-zero-initialized-in-bss
   LDFLAGS += -lgcc_vr4300
