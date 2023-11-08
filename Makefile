@@ -128,11 +128,15 @@ ifneq ($(WERROR), 0)
 CHECK_WARNINGS += -Werror
 endif
 
+ifeq ($(COMPILER),ido)
 # Check code syntax with host compiler
-ifneq ($(RUN_CC_CHECK),0)
-  CC_CHECK   := gcc -fno-builtin -fsyntax-only -funsigned-char -fdiagnostics-color -std=gnu89 -D _LANGUAGE_C -D NON_MATCHING $(IINC) -nostdinc $(CHECK_WARNINGS)
+  ifneq ($(RUN_CC_CHECK),0)
+    CC_CHECK   := gcc -fno-builtin -fsyntax-only -funsigned-char -fdiagnostics-color -std=gnu89 -D _LANGUAGE_C -D NON_MATCHING $(IINC) -nostdinc $(CHECK_WARNINGS)
+  else
+    CC_CHECK := @:
+  endif
 else
-  CC_CHECK := @:
+  CC_CHECK  = @:
 endif
 
 CPP        := cpp
