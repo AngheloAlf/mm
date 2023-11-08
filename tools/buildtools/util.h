@@ -1,6 +1,7 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -20,5 +21,7 @@ void util_write_whole_file(const char* filename, const void* data, size_t size);
 uint32_t util_read_uint32_be(const uint8_t* data);
 
 void util_write_uint32_be(uint8_t* data, uint32_t val);
+
+bool str_ends_with(const char* string, const char* suffix);
 
 #endif

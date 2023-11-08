@@ -215,6 +215,8 @@ bool parse_segment_statement(struct Segment* currSeg, STMTId stmt, char* args, i
                 util_fatal_error("line %i: invalid filename", lineNum);
 
             currSeg->includes[currSeg->includesCount - 1].linkerPadding = 0;
+            currSeg->includes[currSeg->includesCount - 1].isLib =
+                str_ends_with(currSeg->includes[currSeg->includesCount - 1].fpath, ".a");
             currSeg->includes[currSeg->includesCount - 1].dataWithRodata = (stmt == STMT_include_data_with_rodata);
             break;
         case STMT_increment:

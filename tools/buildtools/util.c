@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <errno.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -76,4 +77,20 @@ void util_write_uint32_be(uint8_t* data, uint32_t val) {
     data[1] = val >> 16;
     data[2] = val >> 8;
     data[3] = val >> 0;
+}
+
+bool str_ends_with(const char* string, const char* suffix) {
+    size_t string_len;
+    size_t suffix_len;
+
+    assert(string != NULL);
+    assert(suffix != NULL);
+
+    string_len = strlen(string);
+    suffix_len = strlen(suffix);
+
+    if (suffix_len > string_len)
+        return false;
+
+    return strncmp(string + string_len - suffix_len, suffix, suffix_len) == 0;
 }

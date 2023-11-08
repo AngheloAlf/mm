@@ -71,7 +71,7 @@ static void write_ld_script(FILE* fout) {
             fprintf(fout, "        . = ALIGN(0x%X);\n", seg->align);
 
         for (j = 0; j < seg->includesCount; j++) {
-            fprintf(fout, "            %s (.text)\n", seg->includes[j].fpath);
+            fprintf(fout, "            %s%s (.text)\n", seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
             if (seg->includes[j].linkerPadding != 0)
                 fprintf(fout, "            . += 0x%X;\n", seg->includes[j].linkerPadding);
             fprintf(fout, "        . = ALIGN(0x10);\n");
@@ -87,18 +87,10 @@ static void write_ld_script(FILE* fout) {
         for (j = 0; j < seg->includesCount; j++) {
             if (!seg->includes[j].dataWithRodata)
                 fprintf(fout,
-                        "            %s (.data)\n"
+                        "            %s%s (.data)\n"
                         "        . = ALIGN(0x10);\n",
-                        seg->includes[j].fpath);
+                        seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
         }
-
-        /*
-         for (j = 0; j < seg->includesCount; j++)
-            fprintf(fout, "            %s (.rodata)\n", seg->includes[j].fpath);
-
-          for (j = 0; j < seg->includesCount; j++)
-            fprintf(fout, "            %s (.sdata)\n", seg->includes[j].fpath);
-        */
 
         // fprintf(fout, "        . = ALIGN(0x10);\n");
         fprintf(fout, "        _%sSegmentDataEnd = .;\n", seg->name);
@@ -111,14 +103,14 @@ static void write_ld_script(FILE* fout) {
         for (j = 0; j < seg->includesCount; j++) {
             if (seg->includes[j].dataWithRodata)
                 fprintf(fout,
-                        "            %s (.data)\n"
+                        "            %s%s (.data)\n"
                         "        . = ALIGN(0x10);\n",
-                        seg->includes[j].fpath);
+                        seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
             fprintf(fout,
-                    "            %s (.rodata)\n"
+                    "            %s%s (.rodata)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
             // Compilers other than IDO, such as GCC, produce different sections such as
             // the ones named directly below. These sections do not contain values that
             // need relocating, but we need to ensure that the base .rodata section
@@ -128,17 +120,17 @@ static void write_ld_script(FILE* fout) {
             // Inconsistencies will lead to various .rodata reloc crashes as a result of
             // either missing relocs or wrong relocs.
             fprintf(fout,
-                    "            %s (.rodata.str1.4)\n"
+                    "            %s%s (.rodata.str1.4)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
             fprintf(fout,
-                    "            %s (.rodata.cst4)\n"
+                    "            %s%s (.rodata.cst4)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
             fprintf(fout,
-                    "            %s (.rodata.cst8)\n"
+                    "            %s%s (.rodata.cst8)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
         }
 
         fprintf(fout, "        _%sSegmentRoDataEnd = .;\n", seg->name);
@@ -150,16 +142,16 @@ static void write_ld_script(FILE* fout) {
 
         for (j = 0; j < seg->includesCount; j++)
             fprintf(fout,
-                    "            %s (.sdata)\n"
+                    "            %s%s (.sdata)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
         fprintf(fout, "        _%sSegmentSDataEnd = .;\n", seg->name);
 
         fprintf(fout, "        _%sSegmentOvlStart = .;\n", seg->name);
 
         for (j = 0; j < seg->includesCount; j++)
-            fprintf(fout, "            %s (.ovl)\n", seg->includes[j].fpath);
+            fprintf(fout, "            %s%s (.ovl)\n", seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
         fprintf(fout, "        _%sSegmentOvlEnd = .;\n", seg->name);
 
@@ -193,27 +185,27 @@ static void write_ld_script(FILE* fout) {
 
         for (j = 0; j < seg->includesCount; j++)
             fprintf(fout,
-                    "            %s (.sbss)\n"
+                    "            %s%s (.sbss)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
         for (j = 0; j < seg->includesCount; j++)
             fprintf(fout,
-                    "            %s (.scommon)\n"
+                    "            %s%s (.scommon)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
         for (j = 0; j < seg->includesCount; j++)
             fprintf(fout,
-                    "            %s (.bss)\n"
+                    "            %s%s (.bss)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
         for (j = 0; j < seg->includesCount; j++)
             fprintf(fout,
-                    "            %s (COMMON)\n"
+                    "            %s%s (COMMON)\n"
                     "        . = ALIGN(0x10);\n",
-                    seg->includes[j].fpath);
+                    seg->includes[j].fpath, seg->includes[j].isLib ? ":*" : "");
 
         fprintf(fout,
                 "        . = ALIGN(0x10);\n"
@@ -247,7 +239,9 @@ static void write_ld_script(FILE* fout) {
 
     // Debugging sections
     fputs(
-        // mdebug debug sections
+        // mdebug sections
+        "    .pdr              : { *(.pdr) }"
+        "\n"
         "    .mdebug           : { *(.mdebug) }"
         "\n"
         "    .mdebug.abi32     : { *(.mdebug.abi32) }"
@@ -298,9 +292,23 @@ static void write_ld_script(FILE* fout) {
         "\n"
         "    .debug_ranges   0 : { *(.debug_ranges) }"
         "\n"
-        // DWARF Extension
+        // DWARF 5
+        "    .debug_addr     0 : { *(.debug_addr) }"
+        "\n"
+        "    .debug_line_str 0 : { *(.debug_line_str) }"
+        "\n"
+        "    .debug_loclists 0 : { *(.debug_loclists) }"
+        "\n"
         "    .debug_macro    0 : { *(.debug_macro) }"
         "\n"
+        "    .debug_names    0 : { *(.debug_names) }"
+        "\n"
+        "    .debug_rnglists 0 : { *(.debug_rnglists) }"
+        "\n"
+        "    .debug_str_offsets 0 : { *(.debug_str_offsets) }"
+        "\n"
+        "    .debug_sup      0 : { *(.debug_sup) }\n"
+        // gnu attributes
         "    .gnu.attributes 0 : { KEEP (*(.gnu.attributes)) }"
         "\n",
         fout);
