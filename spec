@@ -237,6 +237,9 @@ beginseg
     include "build/src/boot/O2/__osStrcmp.o"
     include "build/src/boot/O2/__osStrcpy.o"
     include "build/src/boot/O2/__osMemcpy.o"
+#ifdef COMPILER_GCC
+    include "tools/libs/libgcc_vr4300.a"
+#endif
     include "build/src/boot/build.o"
 endseg
 

@@ -157,7 +157,7 @@ else ifeq ($(COMPILER),gcc)
   ABIFLAG := -mabi=32
   # TODO: consider removing
   CHAR_SIGN := -funsigned-char
-  CFLAGS += -G0 -nostdinc $(INC) -march=vr4300 -mfix4300 $(ABIFLAG) -mno-abicalls -fexec-charset=euc-jp
+  CFLAGS += -G0 -nostdinc $(IINC) -march=vr4300 -mfix4300 $(ABIFLAG) -mno-abicalls -fexec-charset=euc-jp
   CFLAGS += -mno-abicalls -mdivide-breaks -fno-toplevel-reorder -ffreestanding -fno-common $(CHAR_SIGN) $(CHECK_WARNINGS)
   CFLAGS += -fno-zero-initialized-in-bss
   LDFLAGS += -lgcc_vr4300
@@ -286,6 +286,7 @@ build/src/overlays/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASF
 build/assets/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --
 else ifeq ($(COMPILER),gcc)
 build/src/overlays/%.o: CFLAGS += -fno-merge-constants -mno-explicit-relocs -mno-split-addresses
+build/src/libultra/libc/ll.o: OPTFLAGS := -Ofast
 endif
 
 #### Main Targets ###
@@ -313,7 +314,7 @@ $(ROMC): $(ROM)
 	python3 tools/z64compress_wrapper.py $(COMPFLAGS) $(ROM) $@ $(ELF) build/$(SPEC)
 
 $(ELF): $(TEXTURE_FILES_OUT) $(ASSET_FILES_OUT) $(O_FILES) $(OVL_RELOC_FILES) build/ldscript.txt build/undefined_syms.txt
-	$(LD) -T build/undefined_syms.txt -T build/ldscript.txt -L tools/libs -Map build/mm.map -o $@
+	$(LD) -T build/undefined_syms.txt -T build/ldscript.txt -L tools/libs -Map build/mm.map $(LDFLAGS) -o $@
 
 ## Order-only prerequisites 
 # These ensure e.g. the O_FILES are built before the OVL_RELOC_FILES.
