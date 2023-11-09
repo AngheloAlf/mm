@@ -1,4 +1,4 @@
-#include "global.h"
+#include "z_en_item00.h"
 #include "overlays/actors/ovl_En_Elforg/z_en_elforg.h"
 #include "objects/gameplay_keep/gameplay_keep.h"
 #include "objects/object_gi_hearts/object_gi_hearts.h"
