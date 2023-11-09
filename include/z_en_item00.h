@@ -1,9 +1,10 @@
 #ifndef Z_EN_ITEM00_H
 #define Z_EN_ITEM00_H
 
-#include "global.h"
+#include "z64actor.h"
 
 struct EnItem00;
+struct PlayState;
 
 typedef void (*EnItem00ActionFunc)(struct EnItem00*, struct PlayState*);
 
@@ -58,11 +59,11 @@ typedef enum Item00Type {
 #define ENITEM00_GET_8000(thisx) ((thisx)->params & 0x8000)
 #define ENITEM00_GET_7F00(thisx) (((thisx)->params & 0x7F00) >> 8)
 
-Actor* Item_DropCollectible(PlayState* play, Vec3f* spawnPos, u32 params);
-Actor* Item_DropCollectible2(PlayState* play, Vec3f* spawnPos, s32 params);
-void Item_DropCollectibleRandom(PlayState* play, Actor* fromActor, Vec3f* spawnPos, s16 params);
+Actor* Item_DropCollectible(struct PlayState* play, Vec3f* spawnPos, u32 params);
+Actor* Item_DropCollectible2(struct PlayState* play, Vec3f* spawnPos, s32 params);
+void Item_DropCollectibleRandom(struct PlayState* play, Actor* fromActor, Vec3f* spawnPos, s16 params);
 s32 func_800A8150(s32 index);
 s32 func_800A817C(s32 index);
-s32 Item_CanDropBigFairy(PlayState* play, s32 index, s32 collectibleFlag);
+s32 Item_CanDropBigFairy(struct PlayState* play, s32 index, s32 collectibleFlag);
 
 #endif // Z_EN_ITEM00_H
