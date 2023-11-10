@@ -124,6 +124,7 @@ else
 endif
 
 CHECK_WARNINGS := -Wall -Wextra -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-variable -Wno-missing-braces -Wno-unused-but-set-variable -Wno-unused-label -Wno-sign-compare -Wno-tautological-compare
+CHECK_WARNINGS += -Wno-implicit-fallthrough
 ifneq ($(WERROR), 0)
 CHECK_WARNINGS += -Werror
 endif

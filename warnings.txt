@@ -1,0 +1,329 @@
+src/audio/code_8019AF00.c: In function 'AudioOcarina_PlaybackSong':
+src/audio/code_8019AF00.c:2862:32: warning: 'nextNoteTimerStep' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 2862 |             sPlaybackNoteTimer -= nextNoteTimerStep;
+      |                                ^~
+src/audio/code_8019AF00.c: In function 'AudioSfx_SetProperties':
+src/audio/code_8019AF00.c:4035:26: warning: 'behindScreenZ' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 4035 |                 filter = AudioSfx_ComputeSurroundSoundFilter(behindScreenZ, entry, panSigned);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from include/z64.h:23,
+                 from include/global.h:4,
+                 from src/audio/code_8019AF00.c:1:
+src/audio/code_8019AF00.c: In function 'Audio_SetFileSelectSettings':
+include/seqcmd.h:490:100: warning: 'soundMode' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  490 |     AudioSeq_QueueSeqCmd((SEQCMD_OP_GLOBAL_CMD << 28) | (SEQCMD_SUB_OP_GLOBAL_SET_SOUND_MODE << 8) | (soundMode))
+      |                                                                                                    ^
+src/audio/code_8019AF00.c:6024:8: note: 'soundMode' was declared here
+ 6024 |     s8 soundMode;
+      |        ^~~~~~~~~
+src/audio/lib/heap.c: In function 'AudioHeap_PopPersistentCache':
+src/audio/lib/heap.c:314:15: warning: 'loadStatus' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  314 |     loadStatus[persistent->entries[persistent->numEntries - 1].id] = LOAD_STATUS_NOT_LOADED;
+      |               ^
+src/audio/lib/heap.c:304:29: warning: 'loadedCache' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  304 |     persistentHeap->curAddr = entryAddr;
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+src/audio/lib/heap.c: In function 'AudioHeap_AllocCached':
+src/audio/lib/heap.c:601:31: warning: 'loadStatus' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  601 |                     loadStatus[temporaryCache->entries[0].id] = LOAD_STATUS_NOT_LOADED;
+      |                               ^
+src/audio/lib/heap.c:624:34: warning: 'loadedCache' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  624 |         temporaryCache->nextSide ^= 1;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+src/audio/lib/heap.c: In function 'AudioHeap_SearchRegularCaches':
+src/audio/lib/heap.c:700:42: warning: 'loadedCache' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  700 |             return persistent->entries[i].addr;
+      |                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~
+src/audio/lib/load.c: In function 'AudioLoad_SyncLoadSample':
+src/audio/lib/load.c:443:1: warning: control reaches end of non-void function [-Wreturn-type]
+  443 | }
+      | ^
+src/audio/lib/load.c: In function 'AudioLoad_SyncLoadInstrument':
+src/audio/lib/load.c:470:1: warning: control reaches end of non-void function [-Wreturn-type]
+  470 | }
+      | ^
+src/audio/lib/load.c: In function 'AudioLoad_SyncInitSeqPlayer':
+src/audio/lib/load.c:564:1: warning: control reaches end of non-void function [-Wreturn-type]
+  564 | }
+      | ^
+src/audio/lib/load.c: In function 'AudioLoad_SyncInitSeqPlayerSkipTicks':
+src/audio/lib/load.c:574:1: warning: control reaches end of non-void function [-Wreturn-type]
+  574 | }
+      | ^
+src/audio/lib/load.c: In function 'AudioLoad_SyncInitSeqPlayerInternal':
+src/audio/lib/load.c:622:1: warning: control reaches end of non-void function [-Wreturn-type]
+  622 | }
+      | ^
+src/audio/lib/load.c: In function 'AudioLoad_SyncLoadSeqFonts':
+src/audio/lib/load.c:382:20: warning: 'fontData' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  382 |     SoundFontData* fontData;
+      |                    ^~~~~~~~
+src/audio/lib/load.c: In function 'AudioLoad_PreloadSamplesForFont':
+src/audio/lib/load.c:2147:12: warning: 'addr' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 2147 |         if (addr == NULL) {
+      |            ^
+src/audio/lib/seqplayer.c: In function 'AudioScript_SeqLayerProcessScriptStep4':
+src/audio/lib/seqplayer.c:1009:35: warning: 'portamento' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1009 |                 portamento->speed = speed2;
+      |                 ~~~~~~~~~~~~~~~~~~^~~~~~~~
+src/audio/lib/seqplayer.c: In function 'AudioScript_SeqLayerProcessScriptStep3':
+src/audio/lib/seqplayer.c:1098:41: warning: 'delay' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1098 |     layer->gateDelay = (layer->gateTime * delay) >> 8;
+      |                        ~~~~~~~~~~~~~~~~~^~~~~~~~
+src/audio/lib/seqplayer.c:1019:9: warning: 'velocity' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1019 |     s32 velocity;
+      |         ^~~~~~~~
+src/audio/lib/synthesis.c: In function 'AudioSynth_ProcessSample':
+src/audio/lib/synthesis.c:1348:11: warning: 'sampleDmemBeforeResampling' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1348 |     cmd = AudioSynth_FinalResample(cmd, synthState, numSamplesPerUpdate * SAMPLE_SIZE, frequencyFixedPoint,
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1349 |                                    sampleDmemBeforeResampling, flags);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/audio/lib/synthesis.c:1186:70: warning: 'frameSize' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1186 |                     sampleDataChunkSize = ALIGN16((numFramesToDecode * frameSize) + SAMPLES_PER_FRAME);
+      |                                                                      ^
+src/overlays/gamestates/ovl_file_choose/z_file_choose_NES.c: In function 'FileSelect_InitContext':
+src/overlays/gamestates/ovl_file_choose/z_file_choose_NES.c:2456:52: warning: array subscript 3 is above array bounds of 's16[2]' {aka 'short int[2]'} [-Warray-bounds]
+ 2456 |                             this->actionButtonAlpha[3] = this->optionButtonAlpha = this->nameEntryBoxAlpha =
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~^~~
+In file included from src/overlays/gamestates/ovl_file_choose/z_file_choose_NES.c:7:
+src/overlays/gamestates/ovl_file_choose/z_file_select.h:238:23: note: while referencing 'actionButtonAlpha'
+  238 |     /* 0x244DA */ s16 actionButtonAlpha[2];
+      |                       ^~~~~~~~~~~~~~~~~
+src/overlays/gamestates/ovl_file_choose/z_file_choose_NES.c:2455:95: warning: array subscript 2 is above array bounds of 's16[2]' {aka 'short int[2]'} [-Warray-bounds]
+ 2455 |                         this->actionButtonAlpha[FS_BTN_ACTION_ERASE] = this->actionButtonAlpha[2] =
+      |                                                                        ~~~~~~~~~~~~~~~~~~~~~~~^~~
+In file included from src/overlays/gamestates/ovl_file_choose/z_file_choose_NES.c:7:
+src/overlays/gamestates/ovl_file_choose/z_file_select.h:238:23: note: while referencing 'actionButtonAlpha'
+  238 |     /* 0x244DA */ s16 actionButtonAlpha[2];
+      |                       ^~~~~~~~~~~~~~~~~
+In file included from include/PR/mbi.h:61,
+                 from include/PR/gbi.h:1,
+                 from include/ultra64.h:5,
+                 from include/z64.h:14,
+                 from include/global.h:4,
+                 from src/overlays/gamestates/ovl_file_choose/z_file_select.h:4,
+                 from src/overlays/gamestates/ovl_file_choose/z_file_nameset_NES.c:7:
+src/overlays/gamestates/ovl_file_choose/z_file_nameset_NES.c: In function 'FileSelect_DrawOptionsImpl':
+src/overlays/gamestates/ovl_file_choose/z_file_nameset_NES.c:1031:82: warning: iteration 1 invokes undefined behavior [-Waggressive-loop-optimizations]
+ 1031 |                             gOptionsMenuSettings[i].width, gOptionsMenuHeaders[i].height, 0, G_TX_NOMIRROR | G_TX_WRAP,
+include/PR/gbi.h:13:24: note: in definition of macro '_DW'
+   13 | #define _DW(macro) do {macro} while (0)
+      |                        ^~~~~
+include/PR/gbi.h:3552:1: note: in expansion of macro '_DW'
+ 3552 | _DW({         \
+      | ^~~
+include/PR/gbi.h:3558:4: note: in expansion of macro '_SHIFTL'
+ 3558 |    _SHIFTL((MIN(lrs,G_TX_LDBLK_MAX_TXL)), 12, 12) |\
+      |    ^~~~~~~
+include/PR/gbi.h:3558:13: note: in expansion of macro 'MIN'
+ 3558 |    _SHIFTL((MIN(lrs,G_TX_LDBLK_MAX_TXL)), 12, 12) |\
+      |             ^~~
+include/PR/gbi.h:3592:2: note: in expansion of macro 'gDPLoadBlock'
+ 3592 |  gDPLoadBlock(pkt, G_TX_LOADTILE, 0, 0,     \
+      |  ^~~~~~~~~~~~
+src/overlays/gamestates/ovl_file_choose/z_file_nameset_NES.c:1030:9: note: in expansion of macro 'gDPLoadTextureBlock'
+ 1030 |         gDPLoadTextureBlock(POLY_OPA_DISP++, gOptionsMenuSettings[i].texture, G_IM_FMT_IA, G_IM_SIZ_8b,
+      |         ^~~~~~~~~~~~~~~~~~~
+src/overlays/gamestates/ovl_file_choose/z_file_nameset_NES.c:1013:5: note: within this loop
+ 1013 |     for (; i < 6; i++, vtx += 4) {
+      |     ^~~
+src/overlays/actors/ovl_En_Dnh/z_en_dnh.c: In function 'func_80A50EC0':
+src/overlays/actors/ovl_En_Dnh/z_en_dnh.c:121:1: warning: control reaches end of non-void function [-Wreturn-type]
+  121 | }
+      | ^
+src/overlays/actors/ovl_En_Tanron2/z_en_tanron2.c: In function 'func_80BB6BD8':
+src/overlays/actors/ovl_En_Tanron2/z_en_tanron2.c:264:13: warning: 'sp32' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  264 |             Matrix_RotateYS(sp32, MTXMODE_NEW);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c: In function 'EnFishing_UpdateLine':
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c:1424:13: warning: 'spA4.z' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1424 |             Math_ApproachF(&pos[i].z, (sp8C * temp_f20) + spA4.z, 1.0f, 20.0f);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c:1423:13: warning: 'spA4.y' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1423 |             Math_ApproachF(&pos[i].y, (sp90 * temp_f20) + spA4.y, 1.0f, 20.0f);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c:1422:13: warning: 'spA4.x' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1422 |             Math_ApproachF(&pos[i].x, (sp94 * temp_f20) + spA4.x, 1.0f, 20.0f);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c:1424:45: warning: 'sp8C' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1424 |             Math_ApproachF(&pos[i].z, (sp8C * temp_f20) + spA4.z, 1.0f, 20.0f);
+      |                                       ~~~~~~^~~~~~~~~~~
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c:1423:45: warning: 'sp90' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1423 |             Math_ApproachF(&pos[i].y, (sp90 * temp_f20) + spA4.y, 1.0f, 20.0f);
+      |                                       ~~~~~~^~~~~~~~~~~
+src/overlays/actors/ovl_En_Fishing/z_en_fishing.c:1422:45: warning: 'sp94' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1422 |             Math_ApproachF(&pos[i].x, (sp94 * temp_f20) + spA4.x, 1.0f, 20.0f);
+      |                                       ~~~~~~^~~~~~~~~~~
+In file included from include/variables.h:6,
+                 from include/global.h:6,
+                 from src/overlays/actors/ovl_En_Egol/z_en_egol.h:4,
+                 from src/overlays/actors/ovl_En_Egol/z_en_egol.c:7:
+src/overlays/actors/ovl_En_Egol/z_en_egol.c: In function 'EnEgol_Stop':
+include/macros.h:89:36: warning: 'angleToHome' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   89 | #define ABS_ALT(x) ((x) < 0 ? -(x) : (x))
+      |                                    ^
+src/overlays/actors/ovl_En_Egol/z_en_egol.c:864:9: note: 'angleToHome' was declared here
+  864 |     s16 angleToHome;
+      |         ^~~~~~~~~~~
+src/overlays/actors/ovl_En_Test3/z_en_test3.c: In function 'EnTest3_OverrideLimbDraw':
+src/overlays/actors/ovl_En_Test3/z_en_test3.c:1101:22: warning: array subscript -1 is below array bounds of 'Vec3f[18]' [-Warray-bounds]
+ 1101 |         D_80A41D6C = &this->player.bodyPartsPos[-1];
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from include/z64.h:58,
+                 from include/global.h:4,
+                 from src/overlays/actors/ovl_En_Test3/z_en_test3.h:4,
+                 from src/overlays/actors/ovl_En_Test3/z_en_test3.c:7:
+include/z64player.h:1288:23: note: while referencing 'bodyPartsPos'
+ 1288 |     /* 0xBEC */ Vec3f bodyPartsPos[PLAYER_BODYPART_MAX];
+      |                       ^~~~~~~~~~~~
+src/overlays/actors/ovl_En_Tk/z_en_tk.c: In function 'func_80AECE60':
+src/overlays/actors/ovl_En_Tk/z_en_tk.c:434:32: warning: 'sp74' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  434 |         this->timePathWaypoint = sp74;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/overlays/actors/ovl_En_Tk/z_en_tk.c:433:35: warning: 'sp78' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  433 |         this->timePathElapsedTime = sp78;
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+src/overlays/actors/ovl_En_Sda/z_en_sda.c: In function 'func_809469C0':
+src/overlays/actors/ovl_En_Sda/z_en_sda.c:128:58: warning: 'j' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  128 |                 lerp.x = D_80947EA0[i].x + (D_80947EA0[j].x - D_80947EA0[i].x) * arg2;
+      |                                             ~~~~~~~~~~~~~^~
+src/overlays/actors/ovl_En_Tanron5/z_en_tanron5.c: In function 'EnTanron5_Update':
+src/overlays/actors/ovl_En_Tanron5/z_en_tanron5.c:428:57: warning: 'xzFactor' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  428 |                         fragmentAndDustPos.z = pos.z + (Rand_CenteredFloat(xzFactor) * sGiantModeScaleFactor);
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/overlays/actors/ovl_En_Tanron5/z_en_tanron5.c:411:70: warning: 'yFactor' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  411 |                     this->actor.world.pos.y -= sGiantModeScaleFactor * yFactor;
+      |                                                ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+src/libultra/voice/voicecheckword.c: In function 'osVoiceCheckWord':
+src/libultra/voice/voicecheckword.c:102:33: warning: 'curSyllable' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  102 |     if ((curSyllable == 0x82C1) || (curSyllable == 0x8362)) {
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+src/libultra/libc/xprintf.c: In function '_Putfld':
+src/libultra/libc/xprintf.c:177:18: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+  177 |             if (*(u16*)&px->v.ll & 0x8000) {
+      |                  ^~~~~~~~~~~~~~~
+src/libultra/gu/cosf.c: In function '__cosf':
+src/libultra/gu/cosf.c:38:15: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   38 |     s32 ix = *(s32*)&x;   // Type-pun x into an s32, i.e. its IEEE-754 hex representation
+      |               ^~~~~~~~
+src/libultra/gu/sinf.c: In function '__sinf':
+src/libultra/gu/sinf.c:36:15: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   36 |     s32 ix = *(s32*)&x;   // Type-pun x into an s32, i.e. its IEEE-754 hex representation
+      |               ^~~~~~~~
+src/code/z_actor.c: In function 'Actor_GetClosestPosOnPath':
+src/code/z_actor.c:4154:13: warning: 'closestPointPrev.z' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 4154 |             Math3D_PointDistToLine2D(srcPos->x, srcPos->z, closestPointPrev.x, closestPointPrev.z, closestPoint.x,
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4155 |                                      closestPoint.z, &closestPos[0].x, &closestPos[0].z, &distSq);
+      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/code/z_actor.c:4154:13: warning: 'closestPointPrev.x' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/code/z_camera.c: In function 'Camera_Fixed1':
+src/code/z_camera.c:4837:26: warning: 'bgCamFuncData' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 4837 |         if (bgCamFuncData->unk_0E != (s32)negOne) {
+      |             ~~~~~~~~~~~~~^~~~~~~~
+src/code/z_kankyo.c: In function 'Environment_DrawSkyboxStarsImpl':
+src/code/z_kankyo.c:3204:25: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 3204 |             temp_f4 = *((f32*)&gRandFloat) - 1.0f;
+      |                        ~^~~~~~~~~~~~~~~~~~
+src/code/z_kankyo.c:3209:28: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 3209 |             temp_f20 = ((*((f32*)&gRandFloat) - 1.0f) + temp_f4) * 0.5f;
+      |                           ~^~~~~~~~~~~~~~~~~~
+src/code/z_kankyo.c:3222:25: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 3222 |             temp_f2 = *((f32*)&gRandFloat) - 1.0f;
+      |                        ~^~~~~~~~~~~~~~~~~~
+src/code/z_message.c: In function 'Message_Decode':
+src/code/z_message.c:2730:31: warning: iteration 4 invokes undefined behavior [-Waggressive-loop-optimizations]
+ 2730 |                     digits[i] = gSaveContext.save.saveInfo.bomberCode[i];
+      |                     ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/code/z_message.c:2729:17: note: within this loop
+ 2729 |                 for (i = 0; i < 5; i++) {
+      |                 ^~~
+In file included from include/z64camera.h:6,
+                 from include/z64.h:39,
+                 from include/global.h:4,
+                 from src/code/z_message.c:1:
+include/z64save.h:533:64: warning: array subscript 770 is above array bounds of 'u32[7]' {aka 'unsigned int[7]'} [-Warray-bounds]
+  533 | #define HIGH_SCORE(type) (gSaveContext.save.saveInfo.highScores[(type)])
+      |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+src/code/z_message.c:2789:40: note: in expansion of macro 'HIGH_SCORE'
+ 2789 |                         value = (s16)((HIGH_SCORE(font->msgBuf.wchar[msgCtx->msgBufPos]) & 0xFF000000) >> 0x18) & 0x7F;
+      |                                        ^~~~~~~~~~
+include/z64save.h:303:21: note: while referencing 'highScores'
+  303 |     /* 0xEB8 */ u32 highScores[HS_MAX];
+      |                     ^~~~~~~~~~
+src/code/z_message.c:2297:42: warning: iteration 1 invokes undefined behavior [-Waggressive-loop-optimizations]
+ 2297 |                     if ((i == 1) || (spAC[i + 3] != 0)) {
+      |                                      ~~~~^~~~~~~
+src/code/z_message.c:2296:17: note: within this loop
+ 2296 |                 for (i = 0; i < 5; i++) {
+      |                 ^~~
+src/code/z_message.c: In function 'Message_DrawMain':
+src/code/z_message.c:4726:57: warning: array subscript 23 is above array bounds of 's16[15]' {aka 'short int[15]'} [-Warray-bounds]
+ 4726 |                     Item_Give(play, (gOcarinaSongItemMap[msgCtx->ocarinaStaff->state] + ITEM_SONG_SONATA) & 0xFF);
+      |                                      ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/code/z_message.c:75:5: note: while referencing 'gOcarinaSongItemMap'
+   75 | s16 gOcarinaSongItemMap[] = {
+      |     ^~~~~~~~~~~~~~~~~~~
+src/code/z_message_nes.c: In function 'Message_DecodeNES':
+src/code/z_message_nes.c:1586:27: warning: iteration 4 invokes undefined behavior [-Waggressive-loop-optimizations]
+ 1586 |                 digits[i] = gSaveContext.save.saveInfo.bomberCode[i];
+      |                 ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/code/z_message_nes.c:1585:13: note: within this loop
+ 1585 |             for (i = 0; i < 5; i++) {
+      |             ^~~
+In file included from include/z64camera.h:6,
+                 from include/z64.h:39,
+                 from include/global.h:4,
+                 from src/code/z_message_nes.c:1:
+include/z64save.h:533:64: warning: array subscript 242 is above array bounds of 'u32[7]' {aka 'unsigned int[7]'} [-Warray-bounds]
+  533 | #define HIGH_SCORE(type) (gSaveContext.save.saveInfo.highScores[(type)])
+      |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+src/code/z_message_nes.c:1657:36: note: in expansion of macro 'HIGH_SCORE'
+ 1657 |                     value = (s16)((HIGH_SCORE((u8)font->msgBuf.schar[msgCtx->msgBufPos]) & 0xFF000000) >> 0x18) & 0x7F;
+      |                                    ^~~~~~~~~~
+include/z64save.h:303:21: note: while referencing 'highScores'
+  303 |     /* 0xEB8 */ u32 highScores[HS_MAX];
+      |                     ^~~~~~~~~~
+src/code/z_player_lib.c: In function 'Player_OverrideLimbDrawGameplayCommon':
+src/code/z_player_lib.c:2039:33: warning: array subscript -1 is below array bounds of 'Vec3f[18]' [-Warray-bounds]
+ 2039 |         sPlayerCurBodyPartPos = &player->bodyPartsPos[-1];
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from include/z64.h:58,
+                 from include/global.h:4,
+                 from src/code/z_player_lib.c:7:
+include/z64player.h:1288:23: note: while referencing 'bodyPartsPos'
+ 1288 |     /* 0xBEC */ Vec3f bodyPartsPos[PLAYER_BODYPART_MAX];
+      |                       ^~~~~~~~~~~~
+src/code/z_sram_NES.c: In function 'Sram_OpenSave':
+src/code/z_sram_NES.c:1251:80: warning: 'phi_t1' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1251 |             SysFlashrom_ReadData(sramCtx->saveBuf, gFlashSaveStartPages[phi_t1 + 1], gFlashSaveNumPages[phi_t1 + 1]);
+      |                                                                         ~~~~~~~^~~
+src/boot/O2/rand.c: In function 'Rand_ZeroOne':
+src/boot/O2/rand.c:41:14: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   41 |     return *((f32*)&gRandFloat) - 1.0f;
+      |             ~^~~~~~~~~~~~~~~~~~
+src/boot/O2/rand.c: In function 'Rand_Centered':
+src/boot/O2/rand.c:50:14: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   50 |     return *((f32*)&gRandFloat) - 1.5f;
+      |             ~^~~~~~~~~~~~~~~~~~
+src/boot/O2/rand.c: In function 'Rand_ZeroOne_Variable':
+src/boot/O2/rand.c:83:14: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   83 |     return *((f32*)&gRandFloat) - 1.0f;
+      |             ~^~~~~~~~~~~~~~~~~~
+src/boot/O2/rand.c: In function 'Rand_Centered_Variable':
+src/boot/O2/rand.c:95:14: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   95 |     return *((f32*)&gRandFloat) - 1.5f;
+      |             ~^~~~~~~~~~~~~~~~~~
+assets/objects/object_dmask/object_dmask.c:145:5: warning: initialization of 'Gfx *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  145 |     0x04005A10
+      |     ^~~~~~~~~~
+assets/objects/object_dmask/object_dmask.c:145:5: note: (near initialization for 'object_dmask_Standardlimb_010A0.dList')
+assets/objects/object_dmask/object_dmask.c:370:5: warning: initialization of 'Gfx *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+  370 |     0x04005360
+      |     ^~~~~~~~~~
+assets/objects/object_dmask/object_dmask.c:370:5: note: (near initialization for 'object_dmask_Standardlimb_042A0.dList')
+assets/objects/object_osn/object_osn.c:4888:5: warning: initialization of 'Gfx *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+ 4888 |     0x040056C0
+      |     ^~~~~~~~~~
+assets/objects/object_osn/object_osn.c:4888:5: note: (near initialization for 'gDekuMaskLimb.dList')
