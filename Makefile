@@ -196,7 +196,7 @@ endif
 #### Files ####
 
 # ROM image
-ROMC := mm.us.rev1.rom.z64
+ROMC := mm_gcc.rom.z64
 ROM := $(ROMC:.rom.z64=.rom_uncompressed.z64)
 ELF := $(ROM:.z64=.elf)
 # description of ROM segments
