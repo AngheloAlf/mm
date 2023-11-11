@@ -290,6 +290,8 @@ build/src/overlays/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASF
 
 build/assets/%.o: CC := $(ASM_PROC) $(ASM_PROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --
 else ifeq ($(COMPILER),gcc)
+# The / is intentionally left out to capture other directories starting with "assets"
+build/assets%.o: CFLAGS += -fno-zero-initialized-in-bss -fno-toplevel-reorder
 build/src/overlays/%.o: CFLAGS += -fno-merge-constants -mno-explicit-relocs -mno-split-addresses
 build/src/libultra/libc/ll.o: OPTFLAGS := -Ofast
 endif
