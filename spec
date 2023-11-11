@@ -17,7 +17,7 @@ beginseg
     include "build/data/boot/rspboot.data.o"
     include "build/src/boot/idle.o"
     include "build/src/boot/viconfig.o"
-    include "build/data/boot/viconfig.data.o"
+    include "build/src/boot/carthandle.o"
     include "build/src/boot/z_std_dma.o"
     include "build/src/boot/yaz0.o"
     include "build/src/boot/irqmgr.o"
@@ -42,7 +42,7 @@ beginseg
     include "build/src/boot/O2/system_malloc.o"
     include "build/src/boot/O2/rand.o"
     include "build/src/boot/O2/__osMalloc.o"
-    include "build/src/libultra/libc/sprintf.o"
+    include "build/src/boot/O2/sprintf.o"
     include "build/src/boot/O2/printutils.o"
     include "build/src/boot/O2/sleep.o"
     include "build/asm/boot/setcause.text.o"
@@ -3811,12 +3811,7 @@ beginseg
     name "ovl_En_An"
     compress
     include "build/src/overlays/actors/ovl_En_An/z_en_an.o"
-    include "build/data/ovl_En_An/ovl_En_An.data.o"
-#ifdef NON_MATCHING
     include "build/src/overlays/actors/ovl_En_An/ovl_En_An_reloc.o"
-#else
-    include "build/data/ovl_En_An/ovl_En_An.reloc.o"
-#endif
 endseg
 
 beginseg
@@ -4297,12 +4292,7 @@ beginseg
     name "ovl_En_Po_Composer"
     compress
     include "build/src/overlays/actors/ovl_En_Po_Composer/z_en_po_composer.o"
-    include "build/data/ovl_En_Po_Composer/ovl_En_Po_Composer.data.o"
-#ifdef NON_MATCHING
     include "build/src/overlays/actors/ovl_En_Po_Composer/ovl_En_Po_Composer_reloc.o"
-#else
-    include "build/data/ovl_En_Po_Composer/ovl_En_Po_Composer.reloc.o"
-#endif
 endseg
 
 beginseg
