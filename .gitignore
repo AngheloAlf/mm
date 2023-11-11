@@ -40,6 +40,7 @@ tools/**/*dSYM/
 tools/decomp-permuter/
 tools/mips_to_c/
 *.flash
+*.bs1
 
 # Assets
 *.png
