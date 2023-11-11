@@ -869,6 +869,7 @@ void EnEgol_Stop(EnEgol* this, PlayState* play) {
         this->actor.world.rot.y = this->actor.shape.rot.y;
         angleToHome = this->actor.world.rot.y - this->actor.home.rot.y;
     }
+
     if (!this->isRetreating) {
         isHome = true;
     } else if (ABS_ALT(angleToHome) < 0x64) {

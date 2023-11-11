@@ -832,6 +832,9 @@ OptionsMenuTextureInfo gOptionsMenuHeaders[] = {
     { gFileSelOptionsENGTex, 128, 16 },          { gFileSelSoundENGTex, 64, 16 },
     { gFileSelTargetingENGTex, 64, 16 },         { gFileSelCheckBrightnessENGTex, 96, 16 },
     { gFileSelDolbySurroundLogoENGTex, 48, 17 },
+    #ifdef AVOID_UB
+    { gFileSelStereoENGTex, 48, 16 },
+    #endif
 };
 
 OptionsMenuTextureInfo gOptionsMenuSettings[] = {
@@ -1027,6 +1030,7 @@ void FileSelect_DrawOptionsImpl(GameState* thisx) {
             gDPSetEnvColor(POLY_OPA_DISP++, 0, 0, 0, 255);
         }
 
+        //! @bug the gOptionsMenuHeaders usage here will produce an OoB read for i == 5. It reads the first element of `gOptionsMenuSettings`
         gDPLoadTextureBlock(POLY_OPA_DISP++, gOptionsMenuSettings[i].texture, G_IM_FMT_IA, G_IM_SIZ_8b,
                             gOptionsMenuSettings[i].width, gOptionsMenuHeaders[i].height, 0, G_TX_NOMIRROR | G_TX_WRAP,
                             G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD, G_TX_NOLOD);
