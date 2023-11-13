@@ -41,6 +41,7 @@ tools/decomp-permuter/
 tools/mips_to_c/
 *.flash
 *.bs1
+# .gdbinit
 
 # Assets
 *.png
