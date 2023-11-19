@@ -87,7 +87,7 @@ void func_80BDC2D8(EnZow* this, EnZowStruct* ptr, Vec3f* arg2) {
             ptr->unk_14 = *arg2;
             ptr->unk_20 = *arg2;
             ptr->unk_2C = D_80BDDD1C;
-            ptr->unk_04 = ((Rand_ZeroOne() - 0.5f) * 0.02f) + 0.12f;
+            ptr->unk_04 = ((fqrand() - 0.5f) * 0.02f) + 0.12f;
             break;
         }
     }
@@ -102,7 +102,7 @@ void func_80BDC3C0(EnZowStruct* ptr, Vec3f* arg1, Vec3f* arg2, f32 arg3) {
             ptr->unk_14 = *arg1;
             ptr->unk_20 = D_80BDDD28;
             ptr->unk_2C = *arg2;
-            ptr->unk_0F = (Rand_ZeroOne() * 100.0f) + 100.0f;
+            ptr->unk_0F = (fqrand() * 100.0f) + 100.0f;
             ptr->unk_04 = arg3;
             break;
         }
@@ -135,8 +135,8 @@ void func_80BDC5C8(EnZow* this, EnZowStruct* ptr) {
 
     for (i = 0; i < ARRAY_COUNT(this->unk_2D0); i++, ptr++) {
         if (ptr->unk_00 == 3) {
-            ptr->unk_14.x = ((Rand_ZeroOne() * 0.5f) - 0.25f) + ptr->unk_20.x;
-            ptr->unk_14.z = ((Rand_ZeroOne() * 0.5f) - 0.25f) + ptr->unk_20.z;
+            ptr->unk_14.x = ((fqrand() * 0.5f) - 0.25f) + ptr->unk_20.x;
+            ptr->unk_14.z = ((fqrand() * 0.5f) - 0.25f) + ptr->unk_20.z;
             ptr->unk_14.y += ptr->unk_2C.y;
 
             temp_f2 = this->actor.world.pos.y + this->actor.depthInWater;
@@ -290,10 +290,10 @@ void func_80BDCDA8(EnZow* this, EnZowStruct* ptr) {
     s32 i;
 
     for (i = 0; i < 10; i++) {
-        temp_f20 = (Rand_ZeroOne() * 1.5f) + 0.5f;
-        temp_f22 = Rand_ZeroOne() * 6.28f;
+        temp_f20 = (fqrand() * 1.5f) + 0.5f;
+        temp_f22 = fqrand() * 6.28f;
 
-        sp78.y = (Rand_ZeroOne() * 3.0f) + 3.0f;
+        sp78.y = (fqrand() * 3.0f) + 3.0f;
         sp78.x = sinf(temp_f22) * temp_f20;
         sp78.z = cosf(temp_f22) * temp_f20;
 
@@ -569,9 +569,9 @@ void EnZow_Update(Actor* thisx, PlayState* play) {
     if (this->unk_2CE != 0) {
         if ((play->state.frames & 8) != 0) {
             sp34 = this->actor.world.pos;
-            sp34.y += ((Rand_ZeroOne() - 0.5f) * 10.0f) + 18.0f;
-            sp34.x += (Rand_ZeroOne() - 0.5f) * 28.0f;
-            sp34.z += (Rand_ZeroOne() - 0.5f) * 28.0f;
+            sp34.y += ((fqrand() - 0.5f) * 10.0f) + 18.0f;
+            sp34.x += (fqrand() - 0.5f) * 28.0f;
+            sp34.z += (fqrand() - 0.5f) * 28.0f;
             func_80BDC2D8(this, this->unk_2D0, &sp34);
         }
 

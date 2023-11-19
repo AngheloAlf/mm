@@ -110,14 +110,14 @@ void BgIcicle_Break(BgIcicle* this, PlayState* play, f32 arg2) {
     for (i = 0; i < 2; i++) {
         for (j = 0; j < 10; j++) {
             pos.x = this->dyna.actor.world.pos.x + Rand_CenteredFloat(8.0f);
-            pos.y = this->dyna.actor.world.pos.y + (Rand_ZeroOne() * arg2) + (i * arg2);
+            pos.y = this->dyna.actor.world.pos.y + (fqrand() * arg2) + (i * arg2);
             pos.z = this->dyna.actor.world.pos.z + Rand_CenteredFloat(8.0f);
 
             velocity.x = Rand_CenteredFloat(7.0f);
             velocity.z = Rand_CenteredFloat(7.0f);
-            velocity.y = (Rand_ZeroOne() * 4.0f) + 8.0f;
+            velocity.y = (fqrand() * 4.0f) + 8.0f;
 
-            EffectSsEnIce_Spawn(play, &pos, (Rand_ZeroOne() * 0.2f) + 0.1f, &velocity, &accel, &primColor, &envColor,
+            EffectSsEnIce_Spawn(play, &pos, (fqrand() * 0.2f) + 0.1f, &velocity, &accel, &primColor, &envColor,
                                 30);
         }
     }
@@ -153,11 +153,11 @@ void BgIcicle_Shiver(BgIcicle* this, PlayState* play) {
         DynaPoly_DisableCollision(play, &play->colCtx.dyna, this->dyna.bgId);
         this->actionFunc = BgIcicle_Fall;
     } else {
-        rand = Rand_ZeroOne();
-        randSign = (Rand_ZeroOne() < 0.5f ? -1 : 1);
+        rand = fqrand();
+        randSign = (fqrand() < 0.5f ? -1 : 1);
         this->dyna.actor.world.pos.x = (randSign * ((0.5f * rand) + 0.5f)) + this->dyna.actor.home.pos.x;
-        rand = Rand_ZeroOne();
-        randSign = (Rand_ZeroOne() < 0.5f ? -1 : 1);
+        rand = fqrand();
+        randSign = (fqrand() < 0.5f ? -1 : 1);
         this->dyna.actor.world.pos.z = (randSign * ((0.5f * rand) + 0.5f)) + this->dyna.actor.home.pos.z;
     }
 }

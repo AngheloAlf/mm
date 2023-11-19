@@ -39,13 +39,13 @@ void EnPart_Destroy(Actor* thisx, PlayState* play) {
 
 void func_80865390(EnPart* this, PlayState* play) {
     this->actionFuncIndex = 1;
-    this->actor.world.rot.y = Rand_ZeroOne() * 20000.0f;
+    this->actor.world.rot.y = fqrand() * 20000.0f;
     switch (this->actor.params) {
         case ENPART_TYPE_1:
         case ENPART_TYPE_4:
-            this->unk146 += (s16)(Rand_ZeroOne() * 17.0f) + 5;
-            this->actor.velocity.y = Rand_ZeroOne() * 5.0f + 4.0f;
-            this->actor.gravity = -0.6f - (Rand_ZeroOne() * 0.5f);
+            this->unk146 += (s16)(fqrand() * 17.0f) + 5;
+            this->actor.velocity.y = fqrand() * 5.0f + 4.0f;
+            this->actor.gravity = -0.6f - (fqrand() * 0.5f);
             this->unk14C = 0.15f;
             break;
         case ENPART_TYPE_15:
@@ -94,7 +94,7 @@ void func_808654C4(EnPart* this, PlayState* play) {
                     effectPos.y = Rand_CenteredFloat(50.0f) +
                                   (this->actor.world.pos.y + (this->actor.shape.yOffset * this->actor.scale.y));
                     effectPos.z = Rand_CenteredFloat(60.0f) + this->actor.world.pos.z;
-                    effectVelocity.y = Rand_ZeroOne() + 1.0f;
+                    effectVelocity.y = fqrand() + 1.0f;
                     effectScale = Rand_S16Offset(80, 100);
                     EffectSsDtBubble_SpawnColorProfile(play, &effectPos, &effectVelocity, &gZeroVec3f, effectScale, 25,
                                                        DTBUBBLE_COLOR_PROFILE_RED, true);

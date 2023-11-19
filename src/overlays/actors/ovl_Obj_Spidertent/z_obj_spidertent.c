@@ -477,7 +477,7 @@ void func_80B300F4(ObjSpidertent* thisx, PlayState* play, TriNorm* triNorm, Vec3
         temp_f24 = (2 * M_PI) / sp80->unk_0F;
 
         for (i = 0; i < sp80->unk_0F; i++) {
-            temp_f2 = (Rand_ZeroOne() * temp_f24) + phi_f22;
+            temp_f2 = (fqrand() * temp_f24) + phi_f22;
             Matrix_RotateAxisF(temp_f2, &spAC, MTXMODE_NEW);
             Matrix_MultVec3f(&spA0, &sp94);
 
@@ -486,7 +486,7 @@ void func_80B300F4(ObjSpidertent* thisx, PlayState* play, TriNorm* triNorm, Vec3
                 spC4.y = (sp94.y * arg4) + arg3->y;
                 spC4.z = (sp94.z * arg4) + arg3->z;
             } else {
-                temp_f0 = Rand_ZeroOne();
+                temp_f0 = fqrand();
                 temp_f0 = (1.0f - SQ(temp_f0)) * arg4;
                 spC4.x = (sp94.x * temp_f0) + arg3->x;
                 spC4.y = (sp94.y * temp_f0) + arg3->y;

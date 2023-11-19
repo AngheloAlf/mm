@@ -138,12 +138,12 @@ void func_80ABBFC0(BgHakuginBombwall* this, PlayState* play) {
     for (i = 0; i < 6; i++) {
         temp = (i + 1) * (80.0f / 3.0f);
         for (j = 0; j < ARRAY_COUNT(D_80ABD020); j++) {
-            spD8.x = D_80ABD020[j] + (s32)(Rand_Next() >> 0x1C);
-            spD8.y = ((Rand_ZeroOne() - 0.5f) * 15.0f) + temp;
-            spD8.z = (Rand_ZeroOne() * 20.0f) - 10.0f;
+            spD8.x = D_80ABD020[j] + (s32)(qrand() >> 0x1C);
+            spD8.y = ((fqrand() - 0.5f) * 15.0f) + temp;
+            spD8.z = (fqrand() * 20.0f) - 10.0f;
 
-            spCC.x = ((Rand_ZeroOne() - 0.5f) * 7.0f) + (spD8.x * (7.0f / 90.0f));
-            spCC.y = (Rand_ZeroOne() * 7.0f) - 2.0f;
+            spCC.x = ((fqrand() - 0.5f) * 7.0f) + (spD8.x * (7.0f / 90.0f));
+            spCC.y = (fqrand() * 7.0f) - 2.0f;
             spCC.z = spD8.z * 0.3f;
 
             Matrix_MultVec3f(&spD8, &spF0);
@@ -153,22 +153,22 @@ void func_80ABBFC0(BgHakuginBombwall* this, PlayState* play) {
             spF0.y += this->dyna.actor.world.pos.y;
             spF0.z += this->dyna.actor.world.pos.z;
 
-            if ((Rand_Next() % 4) == 0) {
+            if ((qrand() % 4) == 0) {
                 phi_s0 = 32;
             } else {
                 phi_s0 = 64;
             }
 
-            if ((s32)Rand_Next() > 0) {
+            if ((s32)qrand() > 0) {
                 phi_s0 |= 1;
                 phi_s1 = 1;
                 func_800B0E48(play, &spF0, &gZeroVec3f, &D_80ABCFB4, &D_80ABCFAC, &D_80ABCFB0,
-                              (Rand_Next() >> 0x1B) + 70, (Rand_Next() >> 0x1A) + 60);
+                              (qrand() >> 0x1B) + 70, (qrand() >> 0x1A) + 60);
             } else {
                 phi_s1 = 0;
             }
 
-            EffectSsKakera_Spawn(play, &spF0, &spE4, &spF0, -550, phi_s0, 30, 0, 0, (s32)(Rand_ZeroOne() * 22.0f) + 5,
+            EffectSsKakera_Spawn(play, &spF0, &spE4, &spF0, -550, phi_s0, 30, 0, 0, (s32)(fqrand() * 22.0f) + 5,
                                  phi_s1, 0, 50, -1, OBJECT_HAKUGIN_OBJ, object_hakugin_obj_DL_009830);
         }
     }
@@ -197,13 +197,13 @@ void func_80ABC2E0(BgHakuginBombwall* this, PlayState* play) {
         spC8.y = this->dyna.actor.world.pos.y;
         spC8.z = this->dyna.actor.world.pos.z + temp_f24;
 
-        spBC.x = ((Rand_ZeroOne() - 0.5f) * 10.0f) + (temp_f22 * 0.13333334f);
-        spBC.y = (Rand_ZeroOne() * 17.0f) + 7.0f;
-        spBC.z = ((Rand_ZeroOne() - 0.5f) * 10.0f) + (temp_f24 * 0.13333334f);
+        spBC.x = ((fqrand() - 0.5f) * 10.0f) + (temp_f22 * 0.13333334f);
+        spBC.y = (fqrand() * 17.0f) + 7.0f;
+        spBC.z = ((fqrand() - 0.5f) * 10.0f) + (temp_f24 * 0.13333334f);
 
-        temp_s1 = (Rand_Next() & 3) + (i >> 2) + 4;
+        temp_s1 = (qrand() & 3) + (i >> 2) + 4;
 
-        if ((Rand_Next() % 4) == 0) {
+        if ((qrand() % 4) == 0) {
             phi_v0 = 32;
         } else {
             phi_v0 = 64;
@@ -222,8 +222,8 @@ void func_80ABC2E0(BgHakuginBombwall* this, PlayState* play) {
                              OBJECT_HAKUGIN_OBJ, object_hakugin_obj_DL_009830);
 
         if ((i & 1) == 0) {
-            func_800B0E48(play, &spC8, &D_80ABD034, &D_80ABCFB4, &D_80ABCFAC, &D_80ABCFB0, (Rand_Next() >> 0x1B) + 60,
-                          (Rand_Next() >> 0x1A) + 50);
+            func_800B0E48(play, &spC8, &D_80ABD034, &D_80ABCFB4, &D_80ABCFAC, &D_80ABCFB0, (qrand() >> 0x1B) + 60,
+                          (qrand() >> 0x1A) + 50);
         }
     }
 }
@@ -251,11 +251,11 @@ void func_80ABC58C(BgHakuginBombwall* this, PlayState* play) {
         temp_f22 = Math_CosS(phi_s1);
 
         sp9C.x = (i - 10) * 9.0f;
-        sp9C.y = (Rand_ZeroOne() * 40.0f) + 15.0f;
+        sp9C.y = (fqrand() * 40.0f) + 15.0f;
         sp9C.z = temp_f20 * 10.0f;
 
-        spA8.x = ((Rand_ZeroOne() - 0.5f) * 7.0f) + (temp_f22 * -12.0f);
-        spA8.z = ((Rand_ZeroOne() - 0.5f) * 7.0f) + (temp_f20 * 16.0f);
+        spA8.x = ((fqrand() - 0.5f) * 7.0f) + (temp_f22 * -12.0f);
+        spA8.z = ((fqrand() - 0.5f) * 7.0f) + (temp_f20 * 16.0f);
 
         spB4.x = spA8.x * -0.09f;
         spB4.z = spA8.z * -0.09f;
@@ -268,8 +268,8 @@ void func_80ABC58C(BgHakuginBombwall* this, PlayState* play) {
         spC0.y += this->dyna.actor.world.pos.y;
         spC0.z += this->dyna.actor.world.pos.z;
 
-        func_800B0E48(play, &spC0, &spCC, &spD8, &D_80ABCFAC, &D_80ABCFB0, (Rand_Next() >> 0x1A) + 60,
-                      (Rand_Next() >> 0x1B) + 60);
+        func_800B0E48(play, &spC0, &spCC, &spD8, &D_80ABCFAC, &D_80ABCFB0, (qrand() >> 0x1A) + 60,
+                      (qrand() >> 0x1B) + 60);
     }
 }
 
@@ -290,20 +290,20 @@ void func_80ABC7FC(BgHakuginBombwall* this, PlayState* play) {
     for (i = 0, phi_s0 = 0; i < 20; i++, phi_s0 += 0xCCC) {
         temp_f20 = Math_SinS(phi_s0);
         temp_f22 = Math_CosS(phi_s0);
-        temp_f24 = Rand_ZeroOne() * 60.0f;
+        temp_f24 = fqrand() * 60.0f;
 
         spA0.x = (temp_f22 * temp_f24) + this->dyna.actor.world.pos.x;
-        spA0.y = (Rand_ZeroOne() * 20.0f) + this->dyna.actor.world.pos.y;
+        spA0.y = (fqrand() * 20.0f) + this->dyna.actor.world.pos.y;
         spA0.z = (temp_f20 * temp_f24) + this->dyna.actor.world.pos.z;
 
-        spAC.x = ((Rand_ZeroOne() - 0.5f) * 7.0f) + (temp_f20 * 15.0f);
-        spAC.z = ((Rand_ZeroOne() - 0.5f) * 7.0f) + (temp_f22 * 15.0f);
+        spAC.x = ((fqrand() - 0.5f) * 7.0f) + (temp_f20 * 15.0f);
+        spAC.z = ((fqrand() - 0.5f) * 7.0f) + (temp_f22 * 15.0f);
 
         spB8.x = spAC.x * -0.095f;
         spB8.z = spAC.z * -0.095f;
 
-        func_800B0E48(play, &spA0, &spAC, &spB8, &D_80ABCFAC, &D_80ABCFB0, (Rand_Next() >> 0x1A) + 60,
-                      (Rand_Next() >> 0x1B) + 60);
+        func_800B0E48(play, &spA0, &spAC, &spB8, &D_80ABCFAC, &D_80ABCFB0, (qrand() >> 0x1A) + 60,
+                      (qrand() >> 0x1B) + 60);
     }
 }
 

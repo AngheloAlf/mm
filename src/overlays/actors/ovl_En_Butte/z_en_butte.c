@@ -112,7 +112,7 @@ s32 D_8091D3F0 = 1500;
 
 void func_8091C0A0(EnButte* this, EnButteStruct* arg1) {
     if (this->unk_24E == 0) {
-        if (Rand_ZeroOne() < 0.6f) {
+        if (fqrand() < 0.6f) {
             this->unk_24E = 1;
         } else {
             this->unk_24E = 2;
@@ -169,7 +169,7 @@ void EnButte_Init(Actor* thisx, PlayState* play) {
         this->actor.params = BUTTERFLY_0;
     }
 
-    this->actor.world.rot.y = Rand_Next();
+    this->actor.world.rot.y = qrand();
     this->actor.home.rot.y = this->actor.world.rot.y;
     this->actor.shape.rot.y = this->actor.world.rot.y;
     Actor_ProcessInitChain(&this->actor, sInitChain);
@@ -187,9 +187,9 @@ void EnButte_Init(Actor* thisx, PlayState* play) {
         this->collider.elements[0].dim.scale * this->collider.elements[0].dim.modelSphere.radius;
 
     this->actor.colChkInfo.mass = 0;
-    this->unk_254 = Rand_ZeroOne() * 0xFFFF;
-    this->unk_256 = Rand_ZeroOne() * 0xFFFF;
-    this->unk_258 = Rand_ZeroOne() * 0xFFFF;
+    this->unk_254 = fqrand() * 0xFFFF;
+    this->unk_256 = fqrand() * 0xFFFF;
+    this->unk_258 = fqrand() * 0xFFFF;
 
     Animation_Change(&this->skelAnime, &gameplay_field_keep_Anim_001D20, 1.0f, 0.0f, 0.0f, ANIMMODE_LOOP_INTERP, 0.0f);
     func_8091C748(this);
@@ -267,7 +267,7 @@ void func_8091C794(EnButte* this, PlayState* play) {
         }
     } else if (this->unk_24F == 1) {
         if (!Math_ScaledStepToS(&this->actor.world.rot.y,
-                                (s32)((Rand_ZeroOne() - 0.5f) * 0x6000) + this->actor.yawTowardsPlayer + 0x8000,
+                                (s32)((fqrand() - 0.5f) * 0x6000) + this->actor.yawTowardsPlayer + 0x8000,
                                 sp32)) {
             sp38 = 0.4f;
         }
@@ -277,7 +277,7 @@ void func_8091C794(EnButte* this, PlayState* play) {
 
     func_8091C6B4(this);
 
-    playSpeed = (((this->actor.speed * 0.5f) + (Rand_ZeroOne() * 0.2f)) + ((1.0f - Math_SinS(this->unk_258)) * 0.15f)) +
+    playSpeed = (((this->actor.speed * 0.5f) + (fqrand() * 0.2f)) + ((1.0f - Math_SinS(this->unk_258)) * 0.15f)) +
                 ((1.0f - Math_SinS(this->unk_256)) * 0.3f) + sp38;
     this->skelAnime.playSpeed = CLAMP(playSpeed, 0.2f, 1.5f);
 
@@ -327,7 +327,7 @@ void func_8091CBB4(EnButte* this, PlayState* play) {
         sp48.z = player->meleeWeaponInfo[0].tip.z + (Math_CosS(player->actor.shape.rot.y) * 10.0f);
 
         yaw = Math_Vec3f_Yaw(&this->actor.world.pos, &sp48);
-        if (Math_ScaledStepToS(&this->actor.world.rot.y, yaw + (s32)(Rand_ZeroOne() * D_8091D3F0), 0x7D0)) {
+        if (Math_ScaledStepToS(&this->actor.world.rot.y, yaw + (s32)(fqrand() * D_8091D3F0), 0x7D0)) {
             if ((play->gameplayFrames & 0x30) == 0x30) {
                 this->actor.world.rot.y += (s16)(Math_SinS(this->unk_254) * 60.0f);
             }
@@ -344,7 +344,7 @@ void func_8091CBB4(EnButte* this, PlayState* play) {
 
     func_8091C6B4(this);
 
-    playSpeed = ((this->actor.speed * 0.5f) + (Rand_ZeroOne() * 0.2f) + ((1.0f - Math_SinS(this->unk_258)) * 0.15f)) +
+    playSpeed = ((this->actor.speed * 0.5f) + (fqrand() * 0.2f) + ((1.0f - Math_SinS(this->unk_258)) * 0.15f)) +
                 ((1.0f - Math_SinS(this->unk_256)) * 0.3f) + sp40;
     this->skelAnime.playSpeed = CLAMP(playSpeed, 0.2f, 1.5f);
     SkelAnime_Update(&this->skelAnime);

@@ -66,7 +66,7 @@ void EnLight_Init(Actor* thisx, PlayState* play) {
 
     Actor_SetScale(&this->actor, D_808666D0[ENLIGHT_GET_F(&this->actor)].unk_07 * 0.0001f);
 
-    this->unk_144 = (s8)(Rand_ZeroOne() * 255.0f);
+    this->unk_144 = (s8)(fqrand() * 255.0f);
 
     if (ENLIGHT_GET_800(&this->actor)) {
         this->actor.update = func_80865F38;
@@ -102,7 +102,7 @@ void EnLight_Update(Actor* thisx, PlayState* play) {
 
     if (!ENLIGHT_GET_4000(&this->actor)) {
         EnLightStruct* sp28 = &D_808666D0[ENLIGHT_GET_F(&this->actor)];
-        f32 temp_f2 = (Rand_ZeroOne() * 0.5f) + 0.5f;
+        f32 temp_f2 = (fqrand() * 0.5f) + 0.5f;
         s32 radius = (this->actor.params < 0) ? 100 : ENLIGHT_GET_2000(&this->actor) ? 730 : 300;
 
         Lights_PointSetColorAndRadius(&this->lightInfo, (u8)(sp28->unk_00.r * temp_f2), (u8)(sp28->unk_00.g * temp_f2),
@@ -148,7 +148,7 @@ void func_80865F38(Actor* thisx, PlayState* play) {
     Actor_SetScale(&this->actor, sp38->unk_07 * 0.0001f * sp30);
 
     if (!ENLIGHT_GET_4000(&this->actor)) {
-        temp_f2 = (Rand_ZeroOne() * 0.5f) + 0.5f;
+        temp_f2 = (fqrand() * 0.5f) + 0.5f;
         Lights_PointSetColorAndRadius(&this->lightInfo, (u8)(sp38->unk_00.r * temp_f2), (u8)(sp38->unk_00.g * temp_f2),
                                       (u8)(sp38->unk_00.b * temp_f2), 300.0f * sp30);
     }

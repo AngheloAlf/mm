@@ -198,11 +198,11 @@ void func_80AC0D2C(EnTwig* this, PlayState* play) {
         Vec3f sp6C;
 
         for (j = 0; j < 7; j++) {
-            sp6C.x = (Rand_Centered() * 10.0f) + this->dyna.actor.world.pos.x;
-            sp6C.y = (Rand_Centered() * 10.0f) + this->dyna.actor.world.pos.y;
-            sp6C.z = (Rand_Centered() * 10.0f) + this->dyna.actor.world.pos.z;
+            sp6C.x = (fqrand2() * 10.0f) + this->dyna.actor.world.pos.x;
+            sp6C.y = (fqrand2() * 10.0f) + this->dyna.actor.world.pos.y;
+            sp6C.z = (fqrand2() * 10.0f) + this->dyna.actor.world.pos.z;
             EffectSsKirakira_SpawnDispersed(play, &sp6C, &sKiraVel, &sKiraAccel, &sColorWhite, &sColorYellow, 1000,
-                                            (s32)(Rand_ZeroOne() * 10.0f) + 20);
+                                            (s32)(fqrand() * 10.0f) + 20);
         }
         Audio_PlaySfx(NA_SE_SY_GET_ITEM);
         play->interfaceCtx.minigamePoints--;

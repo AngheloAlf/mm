@@ -444,9 +444,9 @@ void EnTanron5_Update(Actor* thisx, PlayState* play2) {
                 // To better sell the illusion of the ruin being partially destroyed when it's hit
                 // rather than just being pushed into the ground (which is what actually happens),
                 // this code will rotate the ruin in a somewhat-random way.
-                if (Rand_ZeroOne() < 0.333f) {
+                if (fqrand() < 0.333f) {
                     yawDiff = 0x4000;
-                } else if (Rand_ZeroOne() < 0.5f) {
+                } else if (fqrand() < 0.5f) {
                     yawDiff = -0x8000;
                 } else {
                     yawDiff = -0x4000;

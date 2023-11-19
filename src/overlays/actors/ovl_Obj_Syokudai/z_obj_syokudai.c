@@ -116,7 +116,7 @@ void ObjSyokudai_Init(Actor* thisx, PlayState* play) {
     } else {
         sNumLitTorchesInGroup = 0;
     }
-    this->flameTexScroll = (u32)(Rand_ZeroOne() * OBJ_SYOKUDAI_SNUFF_DEFAULT);
+    this->flameTexScroll = (u32)(fqrand() * OBJ_SYOKUDAI_SNUFF_DEFAULT);
     Actor_SetFocus(thisx, 60.0f);
 }
 
@@ -281,7 +281,7 @@ void ObjSyokudai_Update(Actor* thisx, PlayState* play2) {
         } else {
             lightRadius = (f32)this->snuffTimer * OBJ_SYOKUDAI_LIGHT_RADIUS_MAX / OBJ_SYOKUDAI_SNUFF_DEFAULT;
         }
-        lightIntensity = Rand_ZeroOne() * 127;
+        lightIntensity = fqrand() * 127;
         lightIntensity += 128;
         Actor_PlaySfx_Flagged(thisx, NA_SE_EV_TORCH - SFX_FLAG);
     }

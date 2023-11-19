@@ -84,9 +84,9 @@ void EnBubble_SetDimensions(EnBubble* this, f32 dim) {
     this->modelEllipticity = 0.08f;
     this->modelWidth = dim;
     this->modelHeight = dim;
-    x = Rand_ZeroOne();
-    y = Rand_ZeroOne();
-    z = Rand_ZeroOne();
+    x = fqrand();
+    y = fqrand();
+    z = fqrand();
     this->unk_210 = 1.0f;
     this->unk_214 = 1.0f;
     norm = SQ(x) + SQ(y) + SQ(z);
@@ -137,9 +137,9 @@ s32 EnBubble_Explosion(EnBubble* this, PlayState* play) {
     effectPos.y = this->actor.world.pos.y + this->actor.shape.yOffset;
     effectPos.z = this->actor.world.pos.z;
     for (i = 0; i < 20; i++) {
-        effectVel.x = (Rand_ZeroOne() - 0.5f) * 7.0f;
-        effectVel.y = Rand_ZeroOne() * 7.0f;
-        effectVel.z = (Rand_ZeroOne() - 0.5f) * 7.0f;
+        effectVel.x = (fqrand() - 0.5f) * 7.0f;
+        effectVel.y = fqrand() * 7.0f;
+        effectVel.z = (fqrand() - 0.5f) * 7.0f;
         EffectSsDtBubble_SpawnCustomColor(play, &effectPos, &effectVel, &effectAccel, &sEffectPrimColor,
                                           &sEffectEnvColor, Rand_S16Offset(100, 50), 25, 0);
     }
@@ -238,7 +238,7 @@ void EnBubble_Fly(EnBubble* this, PlayState* play) {
         this->bounceDirection = bounceDirection;
         bounceCount = this->bounceCount;
         this->bounceCount = ++bounceCount;
-        if (bounceCount > (s16)(Rand_ZeroOne() * 10.0f)) {
+        if (bounceCount > (s16)(fqrand() * 10.0f)) {
             this->bounceCount = 0;
         }
         bounceSpeed = (this->bounceCount == 0) ? 3.6000001f : 3.0f;
@@ -257,7 +257,7 @@ void EnBubble_Fly(EnBubble* this, PlayState* play) {
         this->bounceDirection = bounceDirection;
         bounceCount = this->bounceCount;
         this->bounceCount = ++bounceCount;
-        if (bounceCount > (s16)(Rand_ZeroOne() * 10.0f)) {
+        if (bounceCount > (s16)(fqrand() * 10.0f)) {
             this->bounceCount = 0;
         }
         bounceSpeed = (this->bounceCount == 0) ? 3.6000001f : 3.0f;
@@ -334,9 +334,9 @@ void EnBubble_Init(Actor* thisx, PlayState* play) {
     Collider_SetJntSph(play, &this->colliderSphere, &this->actor, &sJntSphInit, this->colliderElements);
     CollisionCheck_SetInfo2(&this->actor.colChkInfo, DamageTable_Get(9), &sColChkInfoInit);
     this->actor.hintId = 0x16;
-    this->bounceDirection.x = Rand_ZeroOne();
-    this->bounceDirection.y = Rand_ZeroOne();
-    this->bounceDirection.z = Rand_ZeroOne();
+    this->bounceDirection.x = fqrand();
+    this->bounceDirection.y = fqrand();
+    this->bounceDirection.z = fqrand();
     EnBubble_Vec3fNormalize(&this->bounceDirection);
     this->velocityFromBounce.x = this->bounceDirection.x * 3.0f;
     this->velocityFromBounce.y = this->bounceDirection.y * 3.0f;

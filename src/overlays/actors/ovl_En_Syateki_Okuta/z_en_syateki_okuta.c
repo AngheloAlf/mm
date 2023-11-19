@@ -329,9 +329,9 @@ void EnSyatekiOkuta_Die(EnSyatekiOkuta* this, PlayState* play) {
         if (Math_StepToF(&this->actor.scale.x, 0.0f, 0.002f)) {
             SoundSource_PlaySfxAtFixedWorldPos(play, &this->actor.world.pos, 30, NA_SE_EN_COMMON_WATER_MID);
             for (i = 0; i < 10; i++) {
-                velocity.x = (Rand_ZeroOne() - 0.5f) * 7.0f;
-                velocity.y = Rand_ZeroOne() * 7.0f;
-                velocity.z = (Rand_ZeroOne() - 0.5f) * 7.0f;
+                velocity.x = (fqrand() - 0.5f) * 7.0f;
+                velocity.y = fqrand() * 7.0f;
+                velocity.z = (fqrand() - 0.5f) * 7.0f;
                 EffectSsDtBubble_SpawnCustomColor(play, &this->actor.world.pos, &velocity, &sBubbleAccel,
                                                   &sBubblePrimColor, &sBubbleEnvColor, Rand_S16Offset(100, 50), 25,
                                                   false);

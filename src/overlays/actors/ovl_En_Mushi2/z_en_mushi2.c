@@ -617,14 +617,14 @@ void func_80A69ADC(Actor* thisx) {
         sp3C = Math3D_XZLength(sp44, sp40);
 
         if (fabsf(sp3C) > 0.1f) {
-            this->unk_360 = (Rand_ZeroOne() * 3000.0f * (this->unk_358 - 1.0f)) + (((sp40 / sp3C) - 1.0f) * -1500.0f);
+            this->unk_360 = (fqrand() * 3000.0f * (this->unk_358 - 1.0f)) + (((sp40 / sp3C) - 1.0f) * -1500.0f);
             this->unk_364 = 0;
-            if (Rand_ZeroOne() < this->unk_358) {
+            if (fqrand() < this->unk_358) {
                 this->unk_366 = (sp44 >= 0.0f) ? 2000 : -2000;
             } else {
-                this->unk_366 = ((s32)Rand_Next() > 0) ? 2000 : -2000;
+                this->unk_366 = ((s32)qrand() > 0) ? 2000 : -2000;
             }
-            this->unk_366 += (s16)(((Rand_ZeroOne() * (1.0f - this->unk_358)) - 0.5f) * 0x400);
+            this->unk_366 += (s16)(((fqrand() * (1.0f - this->unk_358)) - 0.5f) * 0x400);
         } else {
             this->unk_360 = 0.0f;
             this->unk_364 = -0x8000;
@@ -636,9 +636,9 @@ void func_80A69ADC(Actor* thisx) {
 void func_80A69CE0(Actor* thisx) {
     EnMushi2* this = THIS;
 
-    this->unk_360 = Rand_ZeroOne() * 1500.0f;
+    this->unk_360 = fqrand() * 1500.0f;
     this->unk_364 = 0;
-    if ((s32)Rand_Next() > 0) {
+    if ((s32)qrand() > 0) {
         this->unk_366 = 2000;
     } else {
         this->unk_366 = -2000;
@@ -699,7 +699,7 @@ void func_80A69F5C(Actor* thisx, PlayState* play) {
     s32 i;
 
     for (i = 0; i < 7; i++) {
-        EffectSsBubble_Spawn(play, &this->actor.world.pos, -10.0f, 10.0f, 10.0f, (Rand_ZeroOne() * 0.09f) + 0.05f);
+        EffectSsBubble_Spawn(play, &this->actor.world.pos, -10.0f, 10.0f, 10.0f, (fqrand() * 0.09f) + 0.05f);
     }
 }
 
@@ -774,7 +774,7 @@ void EnMushi2_Init(Actor* thisx, PlayState* play) {
 
     if (sp3C != 0) {
         func_80A69F5C(&this->actor, play);
-        this->actor.world.rot.y = Rand_Next() >> 0x10;
+        this->actor.world.rot.y = qrand() >> 0x10;
         func_80A6AE14(this);
     } else {
         func_80A6A300(this);
@@ -841,9 +841,9 @@ void func_80A6A508(Actor* thisx) {
     EnMushi2* this = THIS;
 
     if (this->unk_36A > 100) {
-        this->unk_35C = Rand_ZeroOne() + 1.0f;
+        this->unk_35C = fqrand() + 1.0f;
     } else {
-        this->unk_35C = (Rand_ZeroOne() * 0.8f) + 1.5f;
+        this->unk_35C = (fqrand() * 0.8f) + 1.5f;
     }
 
     this->unk_368 = Rand_S16Offset(10, 30);
@@ -895,7 +895,7 @@ void func_80A6A794(EnMushi2* this) {
         this->unk_368 = Rand_S16Offset(5, 10);
     }
 
-    this->unk_35C = Rand_ZeroOne() * 0.4f;
+    this->unk_35C = fqrand() * 0.4f;
     this->actionFunc = func_80A6A824;
 }
 
@@ -910,7 +910,7 @@ void func_80A6A824(EnMushi2* this, PlayState* play) {
         func_80A69388(this);
     }
 
-    this->skelAnime.playSpeed = (Rand_ZeroOne() * 0.8f) + (thisx->speed * 1.2f);
+    this->skelAnime.playSpeed = (fqrand() * 0.8f) + (thisx->speed * 1.2f);
     this->skelAnime.playSpeed = CLAMP(this->skelAnime.playSpeed, 0.0f, 1.9f);
 
     if ((this->unk_36A <= 0) || func_80A68BA0(this)) {
@@ -925,7 +925,7 @@ void func_80A6A824(EnMushi2* this, PlayState* play) {
 }
 
 void func_80A6A984(EnMushi2* this) {
-    if (Rand_Next() & 1) {
+    if (qrand() & 1) {
         this->unk_370 = 0x800;
     } else {
         this->unk_370 = -0x800;
@@ -998,7 +998,7 @@ void func_80A6AB08(EnMushi2* this, PlayState* play) {
     Math_ScaledStepToS(&this->actor.world.rot.z, 0, 0xBB8);
     this->actor.shape.rot.z = this->actor.world.rot.z;
 
-    if ((this->actor.flags & ACTOR_FLAG_40) && (Rand_ZeroOne() < 0.03f)) {
+    if ((this->actor.flags & ACTOR_FLAG_40) && (fqrand() < 0.03f)) {
         Vec3f sp3C;
 
         sp3C.x = this->actor.world.pos.x;
@@ -1031,19 +1031,19 @@ void func_80A6AE7C(EnMushi2* this, PlayState* play) {
 
     this->actor.shape.rot.x -= 0x1F4;
     this->actor.shape.rot.y += 0xC8;
-    this->actor.speed += (Rand_ZeroOne() - 0.5f) * 0.16f;
+    this->actor.speed += (fqrand() - 0.5f) * 0.16f;
     this->actor.speed *= 0.9f;
-    this->actor.world.rot.y += (s16)((Rand_ZeroOne() - 0.5f) * 2000.0f);
-    this->actor.gravity = -0.04f - (Rand_ZeroOne() * 0.02f);
+    this->actor.world.rot.y += (s16)((fqrand() - 0.5f) * 2000.0f);
+    this->actor.gravity = -0.04f - (fqrand() * 0.02f);
     this->actor.velocity.y *= 0.95f;
     Actor_MoveWithGravity(&this->actor);
     func_80A69424(this, play);
     temp_f2 = this->actor.scale.x - (1.0f / 20000.0f);
     Actor_SetScale(&this->actor, CLAMP_MIN(temp_f2, 0.001f));
     if ((this->actor.flags & ACTOR_FLAG_40) && (this->actor.depthInWater > 5.0f) &&
-        (this->actor.depthInWater < 30.0f) && ((s32)(Rand_Next() & 0x1FF) < this->unk_368)) {
+        (this->actor.depthInWater < 30.0f) && ((s32)(qrand() & 0x1FF) < this->unk_368)) {
         EffectSsBubble_Spawn(play, &this->actor.world.pos, -5.0f, 5.0f, 5.0f,
-                             ((Rand_ZeroOne() * 4.0f) + 2.0f) * this->actor.scale.x);
+                             ((fqrand() * 4.0f) + 2.0f) * this->actor.scale.x);
     }
 
     if (this->unk_368 <= 0) {
@@ -1089,7 +1089,7 @@ void func_80A6B0D8(EnMushi2* this, PlayState* play) {
     this->actor.velocity.z =
         (this->actor.speed * this->unk_328.z) + (-0.01f * this->unk_31C.z) + (this->unk_310.z * temp_f2);
 
-    if ((this->actor.flags & ACTOR_FLAG_40) && (this->unk_368 > 20) && (Rand_ZeroOne() < 0.15f)) {
+    if ((this->actor.flags & ACTOR_FLAG_40) && (this->unk_368 > 20) && (fqrand() < 0.15f)) {
         Vec3f sp48;
         s32 sp44 = 0;
 
@@ -1104,7 +1104,7 @@ void func_80A6B0D8(EnMushi2* this, PlayState* play) {
         sp48.y = (this->unk_328.y * -0.6f) + (this->unk_31C.y * 0.1f);
         sp48.z = (this->unk_328.z * -0.6f) + (this->unk_31C.z * 0.1f);
         func_800B0E48(play, &this->actor.world.pos, &sp48, &gZeroVec3f, &D_80A6B984[sp44], &D_80A6B98C[sp44],
-                      (Rand_ZeroOne() * 5.0f) + 8.0f, (Rand_ZeroOne() * 5.0f) + 8.0f);
+                      (fqrand() * 5.0f) + 8.0f, (fqrand() * 5.0f) + 8.0f);
     }
 
     if (this->unk_368 <= 0) {

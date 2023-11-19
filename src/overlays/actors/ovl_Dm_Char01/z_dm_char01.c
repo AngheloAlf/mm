@@ -524,17 +524,17 @@ void DmChar01_Draw(Actor* thisx, PlayState* play) {
                         f32 phi_f2 = D_80AAAABC;
                         s16 temp;
 
-                        spBC = Rand_ZeroOne() * D_80AAAAC8;
+                        spBC = fqrand() * D_80AAAAC8;
                         if ((play->state.frames % 2) != 0) {
-                            sp44.x = (Rand_ZeroOne() - 0.5f) * (2.0f * phi_f2);
+                            sp44.x = (fqrand() - 0.5f) * (2.0f * phi_f2);
                             sp44.y = D_80AAAAB8;
-                            sp44.z = (Rand_ZeroOne() * D_80AAAAC4) + phi_f2;
+                            sp44.z = (fqrand() * D_80AAAAC4) + phi_f2;
                             temp = (s16)spBC + D_80AAAACC;
                             EffectSsGSplash_Spawn(play, &sp44, NULL, NULL, 0, temp);
                         } else {
-                            sp44.x = -phi_f2 - (Rand_ZeroOne() * D_80AAAAC4);
+                            sp44.x = -phi_f2 - (fqrand() * D_80AAAAC4);
                             sp44.y = D_80AAAAB8;
-                            sp44.z = (Rand_ZeroOne() - 0.5f) * (2.0f * phi_f2);
+                            sp44.z = (fqrand() - 0.5f) * (2.0f * phi_f2);
                             temp = (s16)spBC + D_80AAAACC;
                             EffectSsGSplash_Spawn(play, &sp44, NULL, NULL, 0, temp);
                         }

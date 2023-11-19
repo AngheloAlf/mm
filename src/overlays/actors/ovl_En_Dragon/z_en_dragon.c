@@ -663,7 +663,7 @@ void EnDragon_Dead(EnDragon* this, PlayState* play) {
     if ((this->timer != 0) && (fabsf(this->actor.world.pos.x - this->actor.home.pos.x) > 121.0f) &&
         (fabsf(this->actor.world.pos.z - this->actor.home.pos.z) > 121.0f)) {
         this->actor.speed = -120.0f;
-        if (((this->pythonIndex & 1) == 0) && (Rand_ZeroOne() < 0.5f)) {
+        if (((this->pythonIndex & 1) == 0) && (fqrand() < 0.5f)) {
             //! @bug: !play->gameplayFrames is 0 essentially all the time, so this code never runs.
             if (((!play->gameplayFrames) & 0x1F)) {
                 Item_DropCollectibleRandom(play, NULL, &this->jawPos, 0x90);

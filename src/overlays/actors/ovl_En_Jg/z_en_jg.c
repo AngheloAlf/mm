@@ -885,7 +885,7 @@ s32 EnJg_GetStartingConversationTextId(EnJg* this, PlayState* play) {
 }
 
 void EnJg_SpawnBreath(EnJg* this, PlayState* play) {
-    s16 scale = (Rand_ZeroOne() * 20.0f) + 30.0f;
+    s16 scale = (fqrand() * 20.0f) + 30.0f;
 
     if (play->state.frames % 8 == 0) {
         EffectSsIceSmoke_Spawn(play, &this->breathPos, &this->breathVelocity, &this->breathAccel, scale);

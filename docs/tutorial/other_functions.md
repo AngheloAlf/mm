@@ -572,7 +572,7 @@ void func_80C100DC(EnRecepgirl *this) {
         // Duplicate return node #5. Try simplifying control flow for better match
         return;
     }
-    if (Rand_ZeroOne() < 0.02f) {
+    if (fqrand() < 0.02f) {
         this->unk_2AC += 1;
     }
 }
@@ -621,7 +621,7 @@ void func_80C100DC(EnRecepgirl *this) {
         }
         return;
     }
-    if (Rand_ZeroOne() < 0.02f) {
+    if (fqrand() < 0.02f) {
         this->unk_2AC++;
     }
 }
@@ -640,7 +640,7 @@ void func_80C100DC(EnRecepgirl *this) {
         if (this->unk_2AC == 4) {
             this->unk_2AC = 0;
         }
-    } else if (Rand_ZeroOne() < 0.02f) {
+    } else if (fqrand() < 0.02f) {
         this->unk_2AC++;
     }
 }

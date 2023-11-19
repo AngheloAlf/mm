@@ -133,16 +133,16 @@ void func_80C0A120(BgAstrBombwall* this, PlayState* play) {
 
     Matrix_RotateYS(this->dyna.actor.shape.rot.y, MTXMODE_NEW);
     for (i = 0; i < 30; i++) {
-        vec.x = Rand_Centered() * 140.0f;
-        vec.y = Rand_ZeroOne() * 200.0f;
+        vec.x = fqrand2() * 140.0f;
+        vec.y = fqrand() * 200.0f;
         vec.z = 0.0f;
         Matrix_MultVec3f(&vec, &pos);
         Math_Vec3f_Sum(&this->dyna.actor.world.pos, &pos, &pos);
-        func_800BBFB0(play, &pos, 50.0f, 2, Rand_ZeroOne() * 120.0f + 20.0f, Rand_ZeroOne() * 240.0f + 20.0f, 0);
-        velocity.x = Rand_ZeroOne() * 2.5f;
-        velocity.y = (Rand_ZeroOne() * 2.5f) + 1.0f;
-        velocity.z = Rand_ZeroOne() * 2.5f;
-        rand = Rand_ZeroOne();
+        func_800BBFB0(play, &pos, 50.0f, 2, fqrand() * 120.0f + 20.0f, fqrand() * 240.0f + 20.0f, 0);
+        velocity.x = fqrand() * 2.5f;
+        velocity.y = (fqrand() * 2.5f) + 1.0f;
+        velocity.z = fqrand() * 2.5f;
+        rand = fqrand();
 
         if (rand < 0.2f) {
             var_v0 = 0x60;

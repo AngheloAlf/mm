@@ -991,7 +991,7 @@ void EnOwl_Update(Actor* thisx, PlayState* play) {
                 this->unk_40A--;
             } else {
                 if (this->unk_408 == 0) {
-                    if (Rand_ZeroOne() < 0.3f) {
+                    if (fqrand() < 0.3f) {
                         this->unk_408 = 4;
                         this->unk_409 = 12;
                     } else {

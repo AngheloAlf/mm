@@ -170,8 +170,8 @@ void func_80B83EA4(BgDblueWaterfall* this, PlayState* play) {
         spBC.y = -1.4f;
 
         for (i = 0, phi_s3 = 0; i < 15; i++, phi_s3 += 0x1111) {
-            temp_s1 = (s32)(Rand_ZeroOne() * 4369.0f) + phi_s3;
-            temp_f0_2 = Rand_ZeroOne();
+            temp_s1 = (s32)(fqrand() * 4369.0f) + phi_s3;
+            temp_f0_2 = fqrand();
             temp_f20 = 1.0f - SQ(temp_f0_2);
 
             sp98.x = Math_SinS(temp_s1) * temp_f20;
@@ -179,17 +179,17 @@ void func_80B83EA4(BgDblueWaterfall* this, PlayState* play) {
             temp_f20 *= 5.0f;
 
             spD4.x = (sp98.x * temp_f20) + spB0.x;
-            spD4.y = ((Rand_ZeroOne() * 16.0f) - 8.0f) + spB0.y;
+            spD4.y = ((fqrand() * 16.0f) - 8.0f) + spB0.y;
             spD4.z = (sp98.z * temp_f20) + spB0.z;
 
-            spC8.x = ((2.0f * Rand_ZeroOne()) - 1.0f) + ((spA4.x * 3.0f) + (sp98.x * 5.0f));
-            spC8.y = (Rand_ZeroOne() * 10.0f) + 5.0f;
-            spC8.z = ((2.0f * Rand_ZeroOne()) - 1.0f) + ((spA4.z * 3.0f) + (sp98.z * 5.0f));
+            spC8.x = ((2.0f * fqrand()) - 1.0f) + ((spA4.x * 3.0f) + (sp98.x * 5.0f));
+            spC8.y = (fqrand() * 10.0f) + 5.0f;
+            spC8.z = ((2.0f * fqrand()) - 1.0f) + ((spA4.z * 3.0f) + (sp98.z * 5.0f));
 
             spBC.x = spC8.x * -0.02f;
             spBC.z = spC8.z * -0.02f;
 
-            EffectSsEnIce_Spawn(play, &spD4, (Rand_ZeroOne() * 0.3f) + 0.1f, &spC8, &spBC, &D_80B8539C, &D_80B853A0,
+            EffectSsEnIce_Spawn(play, &spD4, (fqrand() * 0.3f) + 0.1f, &spC8, &spBC, &D_80B8539C, &D_80B853A0,
                                 30);
         }
     }
@@ -212,12 +212,12 @@ void func_80B841A0(BgDblueWaterfall* this, PlayState* play) {
         temp_f26 = this->collider.info.bumper.hitPos.z;
 
         for (i = 0, phi_s2 = 0; i < 10; i++, phi_s2 += 0x1999) {
-            temp_s3 = (s32)(Rand_ZeroOne() * 6553.0f) + phi_s2;
-            temp_f0 = Rand_ZeroOne();
+            temp_s3 = (s32)(fqrand() * 6553.0f) + phi_s2;
+            temp_f0 = fqrand();
             temp_f20 = (1.0f - SQ(temp_f0)) * 14.0f;
 
             sp94.x = (Math_SinS(temp_s3) * temp_f20) + temp_f22;
-            sp94.y = ((Rand_ZeroOne() * 20.0f) - 10.0f) + temp_f24;
+            sp94.y = ((fqrand() * 20.0f) - 10.0f) + temp_f24;
             sp94.z = (Math_CosS(temp_s3) * temp_f20) + temp_f26;
 
             EffectSsGSplash_Spawn(play, &sp94, NULL, NULL, 0, 250);
@@ -247,12 +247,12 @@ void func_80B84348(BgDblueWaterfall* this, PlayState* play, f32 arg2, f32 arg3, 
         D_80B853A4 += 0x4E20;
 
         temp_f20 = Math_SinS(D_80B853A4);
-        temp_f24 = (Rand_ZeroOne() * (arg2 - arg3)) + (spB8 * i);
+        temp_f24 = (fqrand() * (arg2 - arg3)) + (spB8 * i);
         temp_f22 = Math_CosS(D_80B853A4);
-        temp_f26 = ((Rand_ZeroOne() * 0.8f) + 0.2f) * arg4;
+        temp_f26 = ((fqrand() * 0.8f) + 0.2f) * arg4;
 
         sp8C.x = temp_f20 * temp_f26;
-        sp8C.y = (Rand_ZeroOne() * 4.0f) + arg5;
+        sp8C.y = (fqrand() * 4.0f) + arg5;
         sp8C.z = temp_f22 * temp_f26;
 
         sp80.x = sp8C.x * -0.016f;
@@ -263,7 +263,7 @@ void func_80B84348(BgDblueWaterfall* this, PlayState* play, f32 arg2, f32 arg3, 
         sp98.y = temp_f24 + spB0;
         sp98.z = (temp_f22 * 50.0f) + this->actor.world.pos.z;
 
-        EffectSsIceSmoke_Spawn(play, &sp98, &sp8C, &sp80, (Rand_ZeroOne() * arg7) + arg6);
+        EffectSsIceSmoke_Spawn(play, &sp98, &sp8C, &sp80, (fqrand() * arg7) + arg6);
     }
 }
 
@@ -294,18 +294,18 @@ void func_80B84610(BgDblueWaterfall* this, PlayState* play) {
     if (this->unk_1A7 <= 0) {
         this->unk_1A7 = 16;
     } else {
-        this->unk_1A7 -= (s8)(Rand_Next() >> 0x1F);
+        this->unk_1A7 -= (s8)(qrand() >> 0x1F);
     }
 
     if (this->unk_1A7 >= 6) {
-        this->unk_1A8 += Rand_ZeroOne() * 0.1f;
+        this->unk_1A8 += fqrand() * 0.1f;
         if (this->unk_1A8 > 0.5f) {
             this->unk_1A8 = 0.5f;
         } else {
             this->unk_1A8 = this->unk_1A8;
         }
     } else {
-        this->unk_1A8 -= Rand_ZeroOne() * 0.2f;
+        this->unk_1A8 -= fqrand() * 0.2f;
         if (this->unk_1A8 > -0.5f) {
             this->unk_1A8 = -0.5f;
         } else {

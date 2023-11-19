@@ -3709,7 +3709,7 @@ s16 func_800BBC20(BlinkInfo* info, s16 arg1, s16 arg2, s16 arg3) {
         info->blinkTimer = Rand_S16Offset(arg1, arg2);
         info->eyeTexIndex++;
         if ((info->eyeTexIndex % 3) == 0) {
-            info->eyeTexIndex = (s32)(Rand_ZeroOne() * arg3) * 3;
+            info->eyeTexIndex = (s32)(fqrand() * arg3) * 3;
         }
     }
 
@@ -3744,15 +3744,15 @@ void Actor_SpawnFloorDustRing(PlayState* play, Actor* actor, Vec3f* posXZ, f32 r
     f32 angle;
     s32 i;
 
-    angle = (Rand_ZeroOne() - 0.5f) * (2.0f * 3.14f);
+    angle = (fqrand() - 0.5f) * (2.0f * 3.14f);
     pos.y = actor->floorHeight;
-    accel.y += (Rand_ZeroOne() - 0.5f) * 0.2f;
+    accel.y += (fqrand() - 0.5f) * 0.2f;
 
     for (i = countMinusOne; i >= 0; i--) {
         pos.x = (Math_SinF(angle) * radius) + posXZ->x;
         pos.z = (Math_CosF(angle) * radius) + posXZ->z;
-        accel.x = (Rand_ZeroOne() - 0.5f) * randAccelWeight;
-        accel.z = (Rand_ZeroOne() - 0.5f) * randAccelWeight;
+        accel.x = (fqrand() - 0.5f) * randAccelWeight;
+        accel.z = (fqrand() - 0.5f) * randAccelWeight;
 
         if (scale == 0) {
             func_800B10C0(play, &pos, &gZeroVec3f, &accel);
@@ -3773,11 +3773,11 @@ void func_800BBFB0(PlayState* play, Vec3f* position, f32 arg2, s32 arg3, s16 arg
     for (i = arg3; i >= 0; i--) {
         s16 scale;
 
-        pos.x = ((Rand_ZeroOne() - 0.5f) * arg2) + position->x;
-        pos.y = ((Rand_ZeroOne() - 0.5f) * arg2) + position->y;
-        pos.z = ((Rand_ZeroOne() - 0.5f) * arg2) + position->z;
+        pos.x = ((fqrand() - 0.5f) * arg2) + position->x;
+        pos.y = ((fqrand() - 0.5f) * arg2) + position->y;
+        pos.z = ((fqrand() - 0.5f) * arg2) + position->z;
 
-        scale = (s32)(Rand_ZeroOne() * arg4 * 0.2f);
+        scale = (s32)(fqrand() * arg4 * 0.2f);
         scale += arg4;
 
         if (arg6) {
@@ -5099,7 +5099,7 @@ void Actor_SpawnIceEffects(PlayState* play, Actor* actor, Vec3f bodyPartsPos[], 
         yaw = Actor_WorldYawTowardPoint(actor, bodyPartsPos);
 
         for (j = 0; j < effectsPerBodyPart; j++) {
-            randomYaw = ((s32)Rand_Next() >> 0x13) + yaw;
+            randomYaw = ((s32)qrand() >> 0x13) + yaw;
 
             velocity.z = Rand_ZeroFloat(5.0f);
 

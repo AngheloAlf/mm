@@ -209,10 +209,10 @@ void func_80919230(EffDust* this, PlayState* play) {
             theta = Rand_CenteredFloat(0x10000);
             switch (this->actor.params) {
                 case EFF_DUST_TYPE_SPIN_ATTACK_CHARGE:
-                    this->initialPositions[i].x = (Rand_ZeroOne() * 4500.0f) + 700.0f;
+                    this->initialPositions[i].x = (fqrand() * 4500.0f) + 700.0f;
                     if (this->initialPositions[i].x > 3000.0f) {
-                        this->initialPositions[i].y = (3000.0f * Rand_ZeroOne()) * Math_SinS(theta);
-                        this->initialPositions[i].z = (3000.0f * Rand_ZeroOne()) * Math_CosS(theta);
+                        this->initialPositions[i].y = (3000.0f * fqrand()) * Math_SinS(theta);
+                        this->initialPositions[i].z = (3000.0f * fqrand()) * Math_CosS(theta);
                     } else {
                         this->initialPositions[i].y = 3000.0f * Math_SinS(theta);
                         this->initialPositions[i].z = 3000.0f * Math_CosS(theta);
@@ -220,10 +220,10 @@ void func_80919230(EffDust* this, PlayState* play) {
                     break;
 
                 case EFF_DUST_TYPE_3:
-                    this->initialPositions[i].x = (Rand_ZeroOne() * 2500.0f) + 700.0f;
+                    this->initialPositions[i].x = (fqrand() * 2500.0f) + 700.0f;
                     if (this->initialPositions[i].x > 2000.0f) {
-                        this->initialPositions[i].y = (2000.0f * Rand_ZeroOne()) * Math_SinS(theta);
-                        this->initialPositions[i].z = (2000.0f * Rand_ZeroOne()) * Math_CosS(theta);
+                        this->initialPositions[i].y = (2000.0f * fqrand()) * Math_SinS(theta);
+                        this->initialPositions[i].z = (2000.0f * fqrand()) * Math_CosS(theta);
                     } else {
                         this->initialPositions[i].y = 2000.0f * Math_SinS(theta);
                         this->initialPositions[i].z = 2000.0f * Math_CosS(theta);
@@ -231,10 +231,10 @@ void func_80919230(EffDust* this, PlayState* play) {
                     break;
 
                 case EFF_DUST_TYPE_4:
-                    this->initialPositions[i].x = (Rand_ZeroOne() * 8500.0f) + 1700.0f;
+                    this->initialPositions[i].x = (fqrand() * 8500.0f) + 1700.0f;
                     if (this->initialPositions[i].x > 5000.0f) {
-                        this->initialPositions[i].y = (4000.0f * Rand_ZeroOne()) * Math_SinS(theta);
-                        this->initialPositions[i].z = (4000.0f * Rand_ZeroOne()) * Math_CosS(theta);
+                        this->initialPositions[i].y = (4000.0f * fqrand()) * Math_SinS(theta);
+                        this->initialPositions[i].z = (4000.0f * fqrand()) * Math_CosS(theta);
                     } else {
                         this->initialPositions[i].y = 4000.0f * Math_SinS(theta);
                         this->initialPositions[i].z = 4000.0f * Math_CosS(theta);

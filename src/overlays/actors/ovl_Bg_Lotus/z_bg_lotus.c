@@ -41,7 +41,7 @@ void BgLotus_Init(Actor* thisx, PlayState* play) {
     this->dyna.actor.floorHeight = BgCheck_EntityRaycastFloor5(&play->colCtx, &this->dyna.actor.floorPoly, &sp2C,
                                                                &this->dyna.actor, &this->dyna.actor.world.pos);
     this->unk168 = 0x60;
-    this->dyna.actor.world.rot.y = (s32)Rand_Next() >> 0x10;
+    this->dyna.actor.world.rot.y = (s32)qrand() >> 0x10;
     this->actionFunc = func_80AD68DC;
 }
 
@@ -72,7 +72,7 @@ void func_80AD68DC(BgLotus* this, PlayState* play) {
         this->dyna.actor.world.pos.z = (Math_CosS(this->dyna.actor.world.rot.y) * sp34) + this->dyna.actor.home.pos.z;
         if (this->unk168 == 0) {
             this->unk168 = 0x60;
-            this->dyna.actor.world.rot.y += (s16)((s32)Rand_Next() >> 0x12);
+            this->dyna.actor.world.rot.y += (s16)((s32)qrand() >> 0x12);
         }
     }
     if (this->unk160 < this->dyna.actor.floorHeight) {

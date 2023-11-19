@@ -813,13 +813,13 @@ void Boss01_SelectAttack(Boss01* this, PlayState* play, u8 mustAttack) {
 
     if (player->actor.world.pos.y > 200.0f) {
         Boss01_SetupWait(this, play, ODOLWA_WAIT_RANDOM);
-    } else if ((Rand_ZeroOne() < 0.2f) && !mustAttack) {
+    } else if ((fqrand() < 0.2f) && !mustAttack) {
         // When Odolwa is done dancing, this function calls Boss01_SelectAttack with mustAttack set to true, so he will
         // be guaranteed to choose an attack later, so long as the player isn't too far off the ground.
         Boss01_SetupDanceBeforeAttack(this, play);
     } else if (this->actor.xzDistToPlayer <= 250.0f) {
         if (this->actor.xzDistToPlayer <= 150.0f) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 Boss01_SetupKick(this, play);
             } else {
                 Boss01_SetupShieldBash(this, play);
@@ -827,7 +827,7 @@ void Boss01_SelectAttack(Boss01* this, PlayState* play, u8 mustAttack) {
         } else {
             Boss01_SetupHorizontalSlash(this, play);
         }
-    } else if (((s8)this->actor.colChkInfo.health < 8) && (Rand_ZeroOne() < 0.75f)) {
+    } else if (((s8)this->actor.colChkInfo.health < 8) && (fqrand() < 0.75f)) {
         Boss01_SetupSpinAttack(this, play);
     } else {
         Boss01_SetupVerticalSlash(this, play);
@@ -1293,7 +1293,7 @@ void Boss01_SetupWait(Boss01* this, PlayState* play, u8 waitType) {
         }
 
         if (waitType == ODOLWA_WAIT_RANDOM) {
-            if (Rand_ZeroOne() < 0.3f) {
+            if (fqrand() < 0.3f) {
                 Boss01_SetupSummonMoths(this, play);
                 return;
             }
@@ -1384,7 +1384,7 @@ void Boss01_Wait(Boss01* this, PlayState* play) {
          ((this->waitType == ODOLWA_WAIT_THRUST_ATTACK) || (this->waitType == ODOLWA_WAIT_DOUBLE_SLASH)))) {
         if (this->actor.xzDistToPlayer <= 450.0f) {
             Boss01_SelectAttack(this, play, false);
-        } else if (Rand_ZeroOne() < 0.5f) {
+        } else if (fqrand() < 0.5f) {
             Boss01_SetupJump(this, play, true);
         } else {
             Boss01_SetupRun(this, play);
@@ -1408,7 +1408,7 @@ void Boss01_Wait(Boss01* this, PlayState* play) {
         Player* player2 = GET_PLAYER(play);
         s32 pad;
 
-        if (Rand_ZeroOne() < 0.2f) {
+        if (fqrand() < 0.2f) {
             pos = player2->actor.world.pos;
         } else {
             pos.x = Rand_CenteredFloat(1200.0f);
@@ -1532,7 +1532,7 @@ void Boss01_SetupRun(Boss01* this, PlayState* play) {
     this->timers[TIMER_CURRENT_ACTION] = Rand_ZeroFloat(100.0f) + 50.0f;
     this->runTargetPosAngularVelocityY = 0.07f;
 
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         this->runTargetPosAngularVelocityY *= -1.0f;
     }
 
@@ -2440,7 +2440,7 @@ void Boss01_Update(Actor* thisx, PlayState* play2) {
     if (this->canGuardOrEvade &&
         ((player->unk_D57 != 0) || ((player->unk_ADC != 0) && (this->actor.xzDistToPlayer <= 120.0f))) &&
         Boss01_ArePlayerAndOdolwaFacing(this, play)) {
-        if ((Rand_ZeroOne() < 0.25f) && (this->actionFunc != Boss01_Guard)) {
+        if ((fqrand() < 0.25f) && (this->actionFunc != Boss01_Guard)) {
             Boss01_SetupJump(this, play, false);
             this->disableCollisionTimer = 10;
         } else if ((player->unk_ADC != 0) && (this->actor.xzDistToPlayer <= 120.0f)) {

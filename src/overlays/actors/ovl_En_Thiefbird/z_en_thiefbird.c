@@ -200,11 +200,11 @@ void func_80C10984(EnThiefbird* this, s32 arg1) {
             ptr->unk_00.y = Rand_CenteredFloat(30.0f) + this->actor.focus.pos.y;
             ptr->unk_00.z = Rand_CenteredFloat(30.0f) + this->actor.focus.pos.z;
             ptr->unk_0C.x = Rand_CenteredFloat(5.0f);
-            ptr->unk_0C.y = Rand_ZeroOne() + 2.0f;
+            ptr->unk_0C.y = fqrand() + 2.0f;
             ptr->unk_0C.z = Rand_CenteredFloat(5.0f);
             ptr->unk_1C = Rand_ZeroFloat(1000.0f);
             ptr->unk_18 = (Rand_ZeroFloat(20.0f) + 40.0f) * 0.0001f;
-            ptr->unk_1E = (s32)Rand_Next() >> 0x10;
+            ptr->unk_1E = (s32)qrand() >> 0x10;
             arg1--;
             if (arg1 == 0) {
                 break;
@@ -242,7 +242,7 @@ s32 func_80C10B0C(EnThiefbird* this, PlayState* play) {
     }
 
     if (isItemFound && (phi_a3 != 0)) {
-        if (Rand_ZeroOne() < 0.6f) {
+        if (fqrand() < 0.6f) {
             isItemFound = false;
         } else {
             phi_a3 = 0;
@@ -258,7 +258,7 @@ s32 func_80C10B0C(EnThiefbird* this, PlayState* play) {
         itemId1 = ITEM_BOTTLE;
     } else if (phi_a3 != 0) {
         if (phi_a3 >= 5) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 phi_a3 -= 4;
             } else {
                 phi_a3 = 4;
@@ -356,7 +356,7 @@ s32 func_80C10E98(PlayState* play) {
     phi_s2 = phi_s0_2;
 
     for (i = 0; i < phi_s2; i++) {
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             phi_s0_2--;
         }
     }
@@ -485,7 +485,7 @@ void func_80C11590(EnThiefbird* this, PlayState* play) {
 
     SkelAnime_Update(&this->skelAnime);
     onAnimFirstFrame = Animation_OnFrame(&this->skelAnime, 0.0f);
-    this->actor.speed = (Rand_ZeroOne() * 1.5f) + 3.0f;
+    this->actor.speed = (fqrand() * 1.5f) + 3.0f;
 
     if (this->actor.bgCheckFlags & BGCHECKFLAG_WALL) {
         this->unk_192 = this->actor.wallYaw;
@@ -496,7 +496,7 @@ void func_80C11590(EnThiefbird* this, PlayState* play) {
     }
 
     if (!Math_SmoothStepToS(&this->actor.shape.rot.y, this->unk_192, 5, 0x300, 0x10) && onAnimFirstFrame &&
-        (Rand_ZeroOne() < 0.1f)) {
+        (fqrand() < 0.1f)) {
         s16 yaw = Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos) - this->actor.shape.rot.y;
 
         if (yaw > 0) {
@@ -516,7 +516,7 @@ void func_80C11590(EnThiefbird* this, PlayState* play) {
     }
 
     if (!Math_SmoothStepToS(&this->actor.shape.rot.x, this->unk_190, 10, 0x100, 8) && onAnimFirstFrame &&
-        (Rand_ZeroOne() < 0.1f)) {
+        (fqrand() < 0.1f)) {
         if (this->actor.home.pos.y < this->actor.world.pos.y) {
             this->unk_190 -= Rand_S16Offset(0x400, 0x400);
         } else {
@@ -584,7 +584,7 @@ void func_80C1193C(EnThiefbird* this, PlayState* play) {
             if (!(this->collider.base.atFlags & AT_BOUNCED)) {
                 if ((D_80C1392C != 0) && CUR_UPG_VALUE(UPG_QUIVER) &&
                     ((STOLEN_ITEM_1 == STOLEN_ITEM_NONE) || (STOLEN_ITEM_2 == STOLEN_ITEM_NONE)) &&
-                    (Rand_ZeroOne() < 0.5f) && func_80C10B0C(this, play)) {
+                    (fqrand() < 0.5f) && func_80C10B0C(this, play)) {
                     func_80C1242C(this);
                 } else if (func_80C10E98(play)) {
                     func_80C11338(this, play);
@@ -704,15 +704,15 @@ void func_80C11F6C(EnThiefbird* this, PlayState* play) {
     }
 
     this->unk_18E = 40;
-    if (Rand_ZeroOne() < 0.9f) {
+    if (fqrand() < 0.9f) {
         Item_DropCollectible(play, &this->actor.focus.pos, ITEM00_RUPEE_GREEN);
     }
 
-    if (Rand_ZeroOne() < 0.6f) {
+    if (fqrand() < 0.6f) {
         Item_DropCollectible(play, &this->actor.focus.pos, ITEM00_RUPEE_GREEN);
     }
 
-    if (Rand_ZeroOne() < 0.3f) {
+    if (fqrand() < 0.3f) {
         Item_DropCollectible(play, &this->actor.focus.pos, ITEM00_RUPEE_GREEN);
     }
     this->actionFunc = func_80C1215C;

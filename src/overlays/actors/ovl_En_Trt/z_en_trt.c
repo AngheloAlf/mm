@@ -1353,7 +1353,7 @@ void EnTrt_Blink(EnTrt* this) {
     eyeTexIndex = this->eyeTexIndex + 1;
     if (eyeTexIndex > 2) {
         this->eyeTexIndex = 0;
-        this->blinkTimer = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->blinkTimer = (s32)(fqrand() * 60.0f) + 20;
     } else {
         this->eyeTexIndex = eyeTexIndex;
         this->blinkTimer = 1;

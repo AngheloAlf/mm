@@ -312,7 +312,7 @@ void func_80C1418C(EnJgameTsn* this, PlayState* play) {
 }
 
 void func_80C141DC(EnJgameTsn* this) {
-    this->unk_218 = Rand_Next() & 3;
+    this->unk_218 = qrand() & 3;
     this->unk_2FC = 0;
     *this->unk_208[this->unk_218] |= OBJLUPYGAMELIFT_IGNITE_FIRE;
     this->actionFunc = func_80C14230;
@@ -324,7 +324,7 @@ void func_80C14230(EnJgameTsn* this, PlayState* play) {
     s32 rand;
 
     if ((this->unk_2FC > 100) || func_80C14BCC(this, play)) {
-        rand = Rand_Next() % 3;
+        rand = qrand() % 3;
 
         this->unk_2FC = 0;
         if (rand < this->unk_218) {

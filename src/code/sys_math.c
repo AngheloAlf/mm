@@ -87,12 +87,12 @@ f32 Math_CosF(f32 rad) {
  * Returns a pseudo-random floating-point number between 0.0f and scale. Originally in z_actor in OoT.
  */
 f32 Rand_ZeroFloat(f32 scale) {
-    return Rand_ZeroOne() * scale;
+    return fqrand() * scale;
 }
 
 /**
  * Returns a pseudo-random floating-point number between (- scale / 2) and (scale / 2). Originally in z_actor in OoT.
  */
 f32 Rand_CenteredFloat(f32 scale) {
-    return Rand_Centered() * scale;
+    return fqrand2() * scale;
 }

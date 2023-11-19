@@ -251,7 +251,7 @@ void func_80897258(PlayState* play, EnPeehat* this, Vec3f* arg2, f32 arg3, f32 a
     static Vec3f D_80899558 = { 0.0f, 8.0f, 0.0f };
     static Vec3f D_80899564 = { 0.0f, -1.5f, 0.0f };
     Vec3f sp44;
-    s16 sp42 = (s32)Rand_Next() >> 0x10;
+    s16 sp42 = (s32)qrand() >> 0x10;
     s32 temp_v1;
 
     sp44.y = this->actor.floorHeight;
@@ -370,7 +370,7 @@ void func_80897864(EnPeehat* this) {
     if (this->actionFunc == func_80898338) {
         this->unk_2AD = -this->unk_2AD;
     } else {
-        this->unk_2AD = (Rand_ZeroOne() < 0.5f) ? 1 : -1;
+        this->unk_2AD = (fqrand() < 0.5f) ? 1 : -1;
     }
     this->colliderTris.base.atFlags |= AT_ON;
     this->actionFunc = func_80897910;

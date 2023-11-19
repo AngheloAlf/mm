@@ -110,9 +110,9 @@ void EnElfbub_Pop(EnElfbub* this, PlayState* play) {
         pos.z = this->actor.world.pos.z;
 
         for (effectCounter = 0; effectCounter < 20; effectCounter++) {
-            velocity.x = (Rand_ZeroOne() - 0.5f) * 7.0f;
-            velocity.y = Rand_ZeroOne() * 7.0f;
-            velocity.z = (Rand_ZeroOne() - 0.5f) * 7.0f;
+            velocity.x = (fqrand() - 0.5f) * 7.0f;
+            velocity.y = fqrand() * 7.0f;
+            velocity.z = (fqrand() - 0.5f) * 7.0f;
             EffectSsDtBubble_SpawnCustomColor(play, &pos, &velocity, &sAccel, &sPrimColor, &sEnvColor,
                                               Rand_S16Offset(100, 50), 25, false);
         }

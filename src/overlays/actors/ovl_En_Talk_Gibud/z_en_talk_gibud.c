@@ -869,11 +869,11 @@ void EnTalkGibud_Disappear(EnTalkGibud* this, PlayState* play) {
         numFlamesToSpawn = CLAMP_MAX(this->disappearanceTimer, 3);
         for (i = 0; i < numFlamesToSpawn; i++) {
             pos = this->actor.world.pos;
-            pos.x += Rand_Centered() * 20.0f;
-            pos.y += 50.0f + (Rand_Centered() * 50.0f);
-            pos.z += Rand_Centered() * 20.0f;
-            velocity.x += Rand_Centered() * 1.5f;
-            velocity.z += Rand_Centered() * 1.5f;
+            pos.x += fqrand2() * 20.0f;
+            pos.y += 50.0f + (fqrand2() * 50.0f);
+            pos.z += fqrand2() * 20.0f;
+            velocity.x += fqrand2() * 1.5f;
+            velocity.z += fqrand2() * 1.5f;
             func_800B3030(play, &pos, &velocity, &accel, 100, 0, 1);
         }
         Actor_PlaySfx_Flagged(&this->actor, NA_SE_EN_COMMON_EXTINCT_LEV - SFX_FLAG);

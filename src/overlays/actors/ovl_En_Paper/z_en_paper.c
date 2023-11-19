@@ -88,25 +88,25 @@ void EnPaper_FlyConfettiGroup(EnPaper* this, PlayState* play) {
 
 void EnPaper_InitConfettiPiece(EnPaper* this, EnPaperConfetto* piece) {
     // Pick rotation axis randomly (significantly biased towards the z = 0 plane)
-    Matrix_RotateZYX(Rand_Next(), Rand_Next(), Rand_Next(), MTXMODE_NEW);
+    Matrix_RotateZYX(qrand(), qrand(), qrand(), MTXMODE_NEW);
     Matrix_MultVec3f(&sUnitVecZ, &piece->rotAxis);
 
     // copy actor position and distribute uniformly in a cube of side 2 around it
     piece->pos = this->actor.world.pos;
-    piece->pos.x += Rand_Centered() * 4.0f;
-    piece->pos.y += Rand_Centered() * 4.0f;
-    piece->pos.z += Rand_Centered() * 4.0f;
+    piece->pos.x += fqrand2() * 4.0f;
+    piece->pos.y += fqrand2() * 4.0f;
+    piece->pos.z += fqrand2() * 4.0f;
 
     // copy actor velocity and distrbute uniformly in a cuboid with sides 9, 6, 9 with actor.velocity in the middle
     // of the base.
     piece->vel = this->actor.velocity;
-    piece->vel.x += Rand_Centered() * 9.0f;
-    piece->vel.y += Rand_ZeroOne() * 6.0f;
-    piece->vel.z += Rand_Centered() * 9.0f;
+    piece->vel.x += fqrand2() * 9.0f;
+    piece->vel.y += fqrand() * 6.0f;
+    piece->vel.z += fqrand2() * 9.0f;
 
     // Choose random starting angle and angular velocity
-    piece->angle = Rand_Next();
-    piece->angVel = (Rand_Next() >> 4) + (0x10000 / 180);
+    piece->angle = qrand();
+    piece->angVel = (qrand() >> 4) + (0x10000 / 180);
 
     // Rotate the unit Z-vector by the random starting axis and angle
     Matrix_RotateAxisS(piece->angle, &piece->rotAxis, MTXMODE_NEW);
@@ -169,7 +169,7 @@ void EnPaper_FlyConfettiPiece(EnPaper* this, EnPaperConfetto* piece) {
  * for the next frame.
  */
 void EnPaper_UpdateWind(EnPaper* this) {
-    f32 strength = (Rand_Centered() * 4.0f) + 6.0f;
+    f32 strength = (fqrand2() * 4.0f) + 6.0f;
     f32 cosX;
 
     this->windForce.y = Math_SinS(this->actor.shape.rot.x) * -strength;
@@ -179,8 +179,8 @@ void EnPaper_UpdateWind(EnPaper* this) {
 
     // New random wind direction. A uniform distribution of the angles in spherical coordinates is not uniformly
     // distributed on the sphere, so this is biased more towards up and down.
-    this->actor.shape.rot.x += (s16)(Rand_Next() >> 8);
-    this->actor.shape.rot.y += (s16)(Rand_Next() >> 6);
+    this->actor.shape.rot.x += (s16)(qrand() >> 8);
+    this->actor.shape.rot.y += (s16)(qrand() >> 6);
 
     // Essentially a clamp
     if (ABS_ALT(this->actor.shape.rot.x) > WIND_PITCH_BOUND) {

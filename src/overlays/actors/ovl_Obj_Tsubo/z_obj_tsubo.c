@@ -142,7 +142,7 @@ void ObjTsubo_SpawnGoldSkulltula(ObjTsubo* this, PlayState* play, s32 arg2) {
     if (func_809275C0(this, play)) {
         params = (OBJ_TSUBO_P001F(&this->actor) << 2) | 0xFF01;
         child = Actor_Spawn(&play->actorCtx, play, ACTOR_EN_SW, this->actor.world.pos.x, this->actor.world.pos.y,
-                            this->actor.world.pos.z, 0, Rand_Next() >> 0x10, 0, params);
+                            this->actor.world.pos.z, 0, qrand() >> 0x10, 0, params);
         if (child != NULL) {
             child->parent = &this->actor;
             child->velocity.y = 0.0f;
@@ -230,13 +230,13 @@ void ObjTsubo_PotBreak1(ObjTsubo* this, PlayState* play) {
         sin = Math_SinS(rot);
         cos = Math_CosS(rot);
         pos.x = sin * 8.0f;
-        pos.y = Rand_ZeroOne() * 12.0f + 2.0f;
+        pos.y = fqrand() * 12.0f + 2.0f;
         pos.z = cos * 8.0f;
         vel.x = pos.x * 0.23f;
-        vel.y = Rand_ZeroOne() * 5.0f + 2.5f;
+        vel.y = fqrand() * 5.0f + 2.5f;
         vel.z = pos.z * 0.23f;
         Math_Vec3f_Sum(&pos, &this->actor.world.pos, &pos);
-        randf = Rand_ZeroOne();
+        randf = fqrand();
         if (randf < 0.2f) {
             phi_s0 = 0x60;
         } else if (randf < 0.6f) {
@@ -244,7 +244,7 @@ void ObjTsubo_PotBreak1(ObjTsubo* this, PlayState* play) {
         } else {
             phi_s0 = 0x20;
         }
-        scale = Rand_ZeroOne() * 110.0f + 15.0f;
+        scale = fqrand() * 110.0f + 15.0f;
         EffectSsKakera_Spawn(play, &pos, &vel, &this->actor.world.pos, -260, phi_s0, 20, 0, 0, scale, 0, 0, 50, -1,
                              typeData->objectId, typeData->shardDL);
     }
@@ -269,13 +269,13 @@ void ObjTsubo_MagicPotBreak1(ObjTsubo* this, PlayState* play) {
         sin = Math_SinS(rot);
         cos = Math_CosS(rot);
         pos.x = sin * 10.0f;
-        pos.y = Rand_ZeroOne() * 20.0f + 2.0f;
+        pos.y = fqrand() * 20.0f + 2.0f;
         pos.z = cos * 10.0f;
         vel.x = pos.x * 0.3f;
-        vel.y = Rand_ZeroOne() * 10.0f + 2.0f;
+        vel.y = fqrand() * 10.0f + 2.0f;
         vel.z = pos.z * 0.3f;
         Math_Vec3f_Sum(&pos, &this->actor.world.pos, &pos);
-        randf = Rand_ZeroOne();
+        randf = fqrand();
         if (randf < 0.2f) {
             phi_s0 = 0xE0;
         } else if (randf < 0.6f) {
@@ -283,7 +283,7 @@ void ObjTsubo_MagicPotBreak1(ObjTsubo* this, PlayState* play) {
         } else {
             phi_s0 = 0xA0;
         }
-        scale = Rand_ZeroOne() * 160.0f + 15.0f;
+        scale = fqrand() * 160.0f + 15.0f;
         EffectSsKakera_Spawn(play, &pos, &vel, &this->actor.world.pos, -340, phi_s0, 20, 0, 0, scale, 0, 0, 50, -1,
                              typeData->objectId, typeData->shardDL);
     }
@@ -307,8 +307,8 @@ void ObjTsubo_PotBreak2(ObjTsubo* this, PlayState* play2) {
     pos.y = worldPos->y + this->actor.depthInWater;
 
     for (rot = 0, i = 0; i < 5; i++, rot += 0x10000 / 5) {
-        pos.x = Math_SinS((s32)(Rand_ZeroOne() * 6000) + rot) * 15.0f + worldPos->x;
-        pos.z = Math_CosS((s32)(Rand_ZeroOne() * 6000) + rot) * 15.0f + worldPos->z;
+        pos.x = Math_SinS((s32)(fqrand() * 6000) + rot) * 15.0f + worldPos->x;
+        pos.z = Math_CosS((s32)(fqrand() * 6000) + rot) * 15.0f + worldPos->z;
         EffectSsGSplash_Spawn(play, &pos, NULL, NULL, 0, 350);
     }
     pos.x = worldPos->x;
@@ -318,18 +318,18 @@ void ObjTsubo_PotBreak2(ObjTsubo* this, PlayState* play2) {
         sin = Math_SinS(rot);
         cos = Math_CosS(rot);
         pos.x = sin * 8.0f;
-        pos.y = (Rand_ZeroOne() * 5.0f) + 2.0f;
+        pos.y = (fqrand() * 5.0f) + 2.0f;
         pos.z = cos * 8.0f;
         vel.x = pos.x * 0.2f;
-        vel.y = (Rand_ZeroOne() * 4.0f) + 2.0f;
+        vel.y = (fqrand() * 4.0f) + 2.0f;
         vel.z = pos.z * 0.2f;
         Math_Vec3f_Sum(&pos, worldPos, &pos);
-        if (Rand_ZeroOne() < .2f) {
+        if (fqrand() < .2f) {
             phi_s0 = 0x40;
         } else {
             phi_s0 = 0x20;
         }
-        scale = Rand_ZeroOne() * 105.0f + 10.0f;
+        scale = fqrand() * 105.0f + 10.0f;
         EffectSsKakera_Spawn(play, &pos, &vel, worldPos, -170, phi_s0, 50, 5, 0, scale, 0, 0, 70, -1,
                              typeData->objectId, typeData->shardDL);
     }
@@ -352,8 +352,8 @@ void ObjTsubo_MagicPotBreak2(ObjTsubo* this, PlayState* play2) {
     pos.y = this->actor.world.pos.y + this->actor.depthInWater;
 
     for (rot = 0, i = 0; i < 5; i++, rot += 0x10000 / 5) {
-        pos.x = Math_SinS((s32)(Rand_ZeroOne() * 6000) + rot) * 30.0f + worldPos->x;
-        pos.z = Math_CosS((s32)(Rand_ZeroOne() * 6000) + rot) * 30.0f + worldPos->z;
+        pos.x = Math_SinS((s32)(fqrand() * 6000) + rot) * 30.0f + worldPos->x;
+        pos.z = Math_CosS((s32)(fqrand() * 6000) + rot) * 30.0f + worldPos->z;
         EffectSsGSplash_Spawn(play, &pos, NULL, NULL, 0, 350);
     }
     pos.x = worldPos->x;
@@ -363,18 +363,18 @@ void ObjTsubo_MagicPotBreak2(ObjTsubo* this, PlayState* play2) {
         sin = Math_SinS(rot);
         cos = Math_CosS(rot);
         pos.x = sin * 10.0f;
-        pos.y = (Rand_ZeroOne() * 15.0f) + 2.0f;
+        pos.y = (fqrand() * 15.0f) + 2.0f;
         pos.z = cos * 10.0f;
         vel.x = pos.x * 0.3f;
-        vel.y = (Rand_ZeroOne() * 4.0f) + 2.0f;
+        vel.y = (fqrand() * 4.0f) + 2.0f;
         vel.z = pos.z * 0.3f;
         Math_Vec3f_Sum(&pos, worldPos, &pos);
-        if (Rand_ZeroOne() < 0.2f) {
+        if (fqrand() < 0.2f) {
             phi_s0 = 0xC0;
         } else {
             phi_s0 = 0xA0;
         }
-        scale = (Rand_ZeroOne() * 150.0f) + 10.0f;
+        scale = (fqrand() * 150.0f) + 10.0f;
         EffectSsKakera_Spawn(play, &pos, &vel, worldPos, -170, phi_s0, 50, 5, 0, scale, 0, 0, 70, -1,
                              typeData->objectId, typeData->shardDL);
     }
@@ -394,29 +394,29 @@ void ObjTsubo_PotBreak3(ObjTsubo* this, PlayState* play2) {
     f32 sin;
 
     for (i = 0, rot = 0; i < 13; i++, rot += 0x4E20) {
-        randf = Rand_ZeroOne();
+        randf = fqrand();
         temp_f20 = (1.0f - SQ(randf)) * 4.8f + 3.2f;
         if (this) {}
         sin = Math_SinS(rot);
         cos = Math_CosS(rot);
         pos.x = sin * temp_f20;
-        pos.y = (Rand_ZeroOne() * 15.0f) + 2.0f;
+        pos.y = (fqrand() * 15.0f) + 2.0f;
         pos.z = cos * temp_f20;
         vel.x = pos.x * 0.4f;
-        vel.y = (Rand_ZeroOne() * 4.0f) + 4.0f;
+        vel.y = (fqrand() * 4.0f) + 4.0f;
         vel.z = pos.z * 0.4f;
         Math_Vec3f_Sum(&pos, &this->actor.world.pos, &pos);
-        if (Rand_ZeroOne() < 0.2f) {
+        if (fqrand() < 0.2f) {
             phi_s0 = 0x40;
         } else {
             phi_s0 = 0x20;
         }
         EffectSsKakera_Spawn(play, &pos, &vel, &this->actor.world.pos, -170, phi_s0, 50, 3, 0,
-                             (Rand_ZeroOne() * 105.0f) + 10.0f, 0, 0, 70, -1, typeData->objectId, typeData->shardDL);
+                             (fqrand() * 105.0f) + 10.0f, 0, 0, 70, -1, typeData->objectId, typeData->shardDL);
     }
     for (i = 0; i < 7; i++) {
-        EffectSsBubble_Spawn(play, &this->actor.world.pos, 20.0f, 30.0f, 40.0f, (Rand_ZeroOne() * 0.06f) + 0.09f);
-        EffectSsBubble_Spawn(play, &this->actor.world.pos, 10.0f, 10.0f, 10.0f, (Rand_ZeroOne() * 0.08f) + 0.09f);
+        EffectSsBubble_Spawn(play, &this->actor.world.pos, 20.0f, 30.0f, 40.0f, (fqrand() * 0.06f) + 0.09f);
+        EffectSsBubble_Spawn(play, &this->actor.world.pos, 10.0f, 10.0f, 10.0f, (fqrand() * 0.08f) + 0.09f);
     }
 }
 
@@ -547,8 +547,8 @@ void func_80928D80(ObjTsubo* this, PlayState* play) {
 void func_80928E74(ObjTsubo* this) {
     this->unk_194 = 80;
     this->actor.colChkInfo.mass = 180;
-    D_80929500 = (Rand_ZeroOne() - 0.78f) * 4500.0f;
-    D_80929508 = (Rand_ZeroOne() - 0.5f) * 2000.0f;
+    D_80929500 = (fqrand() - 0.78f) * 4500.0f;
+    D_80929508 = (fqrand() - 0.5f) * 2000.0f;
     D_80929504 = 0;
     D_8092950C = 0;
     this->actionFunc = func_80928F18;
@@ -679,7 +679,7 @@ void ObjTsubo_Update(Actor* thisx, PlayState* play) {
         if (this->unk_19A >= 0) {
             if (this->unk_19A == 0) {
                 Actor_PlaySfx(&this->actor, NA_SE_EN_STALGOLD_ROLL);
-                if (Rand_ZeroOne() < 0.1f) {
+                if (fqrand() < 0.1f) {
                     this->unk_19A = Rand_S16Offset(40, 80);
                 } else {
                     this->unk_19A = 8;

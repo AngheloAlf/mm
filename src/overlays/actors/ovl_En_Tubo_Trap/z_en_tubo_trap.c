@@ -100,18 +100,18 @@ void EnTuboTrap_SpawnEffectsOnLand(EnTuboTrap* this, PlayState* play) {
         sin = Math_SinS(var);
         cos = Math_CosS(var);
         pos.x = sin * 8.0f;
-        pos.y = (Rand_ZeroOne() * 5.0f) + 2.0f;
+        pos.y = (fqrand() * 5.0f) + 2.0f;
         pos.z = cos * 8.0f;
 
         vel.x = pos.x * 0.23f;
-        vel.y = (Rand_ZeroOne() * 5.0f) + 2.0f;
+        vel.y = (fqrand() * 5.0f) + 2.0f;
         vel.z = pos.z * 0.23f;
 
         pos.x += actorPos->x;
         pos.y += actorPos->y;
         pos.z += actorPos->z;
 
-        rand = Rand_ZeroOne();
+        rand = fqrand();
         if (rand < 0.2f) {
             arg5 = 0x60;
         } else if (rand < 0.6f) {
@@ -119,7 +119,7 @@ void EnTuboTrap_SpawnEffectsOnLand(EnTuboTrap* this, PlayState* play) {
         } else {
             arg5 = 0x20;
         }
-        EffectSsKakera_Spawn(play, &pos, &vel, actorPos, -0xF0, arg5, 0x14, 0, 0, ((Rand_ZeroOne() * 85.0f) + 15.0f), 0,
+        EffectSsKakera_Spawn(play, &pos, &vel, actorPos, -0xF0, arg5, 0x14, 0, 0, ((fqrand() * 85.0f) + 15.0f), 0,
                              0, 0x3C, -1, GAMEPLAY_DANGEON_KEEP, gameplay_dangeon_keep_DL_018090);
     }
 
@@ -146,25 +146,25 @@ void EnTuboTrap_SpawnEffectsInWater(EnTuboTrap* this, PlayState* play) {
         sin = Math_SinS(var);
         cos = Math_CosS(var);
         pos.x = sin * 8.0f;
-        pos.y = (Rand_ZeroOne() * 5.0f) + 2.0f;
+        pos.y = (fqrand() * 5.0f) + 2.0f;
         pos.z = cos * 8.0f;
 
         vel.x = pos.x * 0.20f;
-        vel.y = (Rand_ZeroOne() * 4.0f) + 2.0f;
+        vel.y = (fqrand() * 4.0f) + 2.0f;
         vel.z = pos.z * 0.20f;
 
         pos.x += actorPos->x;
         pos.y += actorPos->y;
         pos.z += actorPos->z;
 
-        rand = Rand_ZeroOne();
+        rand = fqrand();
         if (rand < 0.2f) {
             arg5 = 64;
         } else {
             arg5 = 32;
         }
 
-        EffectSsKakera_Spawn(play, &pos, &vel, actorPos, -0xAA, arg5, 0x32, 5, 0, ((Rand_ZeroOne() * 85.0f) + 15.0f), 0,
+        EffectSsKakera_Spawn(play, &pos, &vel, actorPos, -0xAA, arg5, 0x32, 5, 0, ((fqrand() * 85.0f) + 15.0f), 0,
                              0, 0x46, -1, GAMEPLAY_DANGEON_KEEP, gameplay_dangeon_keep_DL_018090);
     }
 }

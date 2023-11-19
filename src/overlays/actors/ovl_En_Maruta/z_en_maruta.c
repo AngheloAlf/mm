@@ -413,8 +413,8 @@ void func_80B37590(EnMaruta* this, PlayState* play) {
 
     sp38 = D_80B38850[this->unk_210];
 
-    func_80B3828C(&sp38, &this->unk_194, Rand_Next() & 0xFFF, Rand_Next() & 0xFFF, 0);
-    this->unk_21A = Rand_Next() & 0x7FF;
+    func_80B3828C(&sp38, &this->unk_194, qrand() & 0xFFF, qrand() & 0xFFF, 0);
+    this->unk_21A = qrand() & 0x7FF;
 
     if (this->unk_210 == 7) {
         this->unk_21A |= 0x3F;
@@ -675,9 +675,9 @@ void func_80B382E4(PlayState* play, Vec3f arg1) {
     sp84.y += 15.0f;
 
     for (i = 0; i < 10; i++) {
-        sp78.x = Rand_Centered() * 10.0f;
-        sp78.y = 2.0f * Rand_ZeroOne();
-        sp78.z = Rand_Centered() * 10.0f;
+        sp78.x = fqrand2() * 10.0f;
+        sp78.y = 2.0f * fqrand();
+        sp78.z = fqrand2() * 10.0f;
         sp6C.x = -0.2f * sp78.x;
         sp6C.z = -0.2f * sp78.z;
         func_800B0EB0(play, &sp84, &sp78, &sp6C, &sp68, &sp64, 60, 20, 10);

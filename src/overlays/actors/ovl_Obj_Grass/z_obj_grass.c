@@ -117,24 +117,24 @@ void ObjGrass_SpawnFragments(Vec3f* basePos, PlayState* play) {
         pos.y = basePos->y + (dir->y * 8.0f) + 10.0f;
         pos.z = basePos->z + (dir->z * 8.0f);
 
-        velocity.x = (Rand_ZeroOne() - 0.5f) * 8.0f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * 8.0f;
+        velocity.x = (fqrand() - 0.5f) * 8.0f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = (fqrand() - 0.5f) * 8.0f;
 
         EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -100, 64, 40, 3, 0,
-                             sFragmentScales[(s32)(Rand_ZeroOne() * 111.1f) & 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
+                             sFragmentScales[(s32)(fqrand() * 111.1f) & 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
                              gKakeraLeafMiddleDL);
 
         pos.x = basePos->x + (dir->x * 16.0f);
         pos.y = basePos->y + (dir->y * 16.0f) + 10.0f;
         pos.z = basePos->z + (dir->z * 16.0f);
 
-        velocity.x = (Rand_ZeroOne() - 0.5f) * 6.0f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * 6.0f;
+        velocity.x = (fqrand() - 0.5f) * 6.0f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = (fqrand() - 0.5f) * 6.0f;
 
         EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -100, 64, 40, 3, 0,
-                             sFragmentScales[(s32)(Rand_ZeroOne() * 111.1f) % 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
+                             sFragmentScales[(s32)(fqrand() * 111.1f) % 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
                              gKakeraLeafTipDL);
     }
 }
@@ -151,11 +151,11 @@ void ObjGrass_Init(Actor* thisx, PlayState* play) {
     }
 
     this->actor.colChkInfo.mass = MASS_IMMOVABLE;
-    this->unk_3288 = Rand_Next() >> 0x10;
-    this->unk_328A = Rand_Next() >> 0x10;
-    this->unk_328C = Rand_Next() >> 0x10;
-    this->unk_328E = Rand_Next() >> 0x10;
-    this->unk_3290 = Rand_Next() >> 0x10;
+    this->unk_3288 = qrand() >> 0x10;
+    this->unk_328A = qrand() >> 0x10;
+    this->unk_328C = qrand() >> 0x10;
+    this->unk_328E = qrand() >> 0x10;
+    this->unk_3290 = qrand() >> 0x10;
 }
 
 void ObjGrass_Destroy(Actor* thisx, PlayState* play) {

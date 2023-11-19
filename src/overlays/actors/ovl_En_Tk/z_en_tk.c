@@ -142,7 +142,7 @@ void func_80AEC460(EnTk* this) {
             if (this->unk_2C0 < 0) {
                 this->unk_2C4 = Rand_S16Offset(30, 30);
                 this->unk_2C0 = 2;
-                if (Rand_ZeroOne() > 0.5f) {
+                if (fqrand() > 0.5f) {
                     this->unk_2C0++;
                 }
             }
@@ -1134,7 +1134,7 @@ void func_80AEEB88(EnTk* this, PlayState* play) {
     }
 
     if (i == 8) {
-        this->unk_2CC = BINANG_ROT180((Rand_Centered() * 0x8000) + this->actor.yawTowardsPlayer);
+        this->unk_2CC = BINANG_ROT180((fqrand2() * 0x8000) + this->actor.yawTowardsPlayer);
     } else {
         this->unk_2CC = this->actor.world.rot.y + (i * 0x2000);
     }

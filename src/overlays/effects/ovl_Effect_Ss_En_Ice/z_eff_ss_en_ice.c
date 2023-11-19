@@ -134,8 +134,8 @@ void EffectSsEnIce_UpdateFlying(PlayState* play, u32 index, EffectSs* this) {
             Math_Vec3f_Sum(&this->actor->world.pos, &this->vec, &this->pos);
             this->life++;
         } else if (this->life == 9) {
-            this->accel.x = Math_SinS(Math_Vec3f_Yaw(&this->actor->world.pos, &this->pos)) * (Rand_ZeroOne() + 1.0f);
-            this->accel.z = Math_CosS(Math_Vec3f_Yaw(&this->actor->world.pos, &this->pos)) * (Rand_ZeroOne() + 1.0f);
+            this->accel.x = Math_SinS(Math_Vec3f_Yaw(&this->actor->world.pos, &this->pos)) * (fqrand() + 1.0f);
+            this->accel.z = Math_CosS(Math_Vec3f_Yaw(&this->actor->world.pos, &this->pos)) * (fqrand() + 1.0f);
             this->accel.y = -1.5f;
             this->velocity.y = 5.0f;
         }
@@ -143,8 +143,8 @@ void EffectSsEnIce_UpdateFlying(PlayState* play, u32 index, EffectSs* this) {
         this->actor = NULL;
         if (this->life >= 9) {
             rand = Rand_CenteredFloat(0xFFFF);
-            this->accel.x = Math_SinS(rand) * (Rand_ZeroOne() + 1.0f);
-            this->accel.z = Math_CosS(rand) * (Rand_ZeroOne() + 1.0f);
+            this->accel.x = Math_SinS(rand) * (fqrand() + 1.0f);
+            this->accel.z = Math_CosS(rand) * (fqrand() + 1.0f);
             this->life = 8;
             this->accel.y = -1.5f;
             this->velocity.y = 5.0f;

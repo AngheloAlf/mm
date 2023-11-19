@@ -660,7 +660,7 @@ void EnGrasshopper_ApproachPlayer(EnGrasshopper* this, PlayState* play) {
                 Math_Vec3f_Copy(&splashPos, &this->tailTipPos);
                 splashPos.x += Rand_CenteredFloat(20.0f);
                 splashPos.z += Rand_CenteredFloat(20.0f);
-                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (((s32)Rand_ZeroOne() * 100) + 400));
+                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (((s32)fqrand() * 100) + 400));
                 SoundSource_PlaySfxAtFixedWorldPos(play, &this->actor.world.pos, 50, NA_SE_EV_BOMB_DROP_WATER);
             }
         } else {
@@ -710,7 +710,7 @@ void EnGrasshopper_Attack(EnGrasshopper* this, PlayState* play) {
                 Math_Vec3f_Copy(&splashPos, &this->tailTipPos);
                 splashPos.x += Rand_CenteredFloat(20.0f);
                 splashPos.z += Rand_CenteredFloat(20.0f);
-                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, ((s32)Rand_ZeroOne() * 100) + 400);
+                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, ((s32)fqrand() * 100) + 400);
                 SoundSource_PlaySfxAtFixedWorldPos(play, &this->actor.world.pos, 50, NA_SE_EV_BOMB_DROP_WATER);
             }
         } else {
@@ -873,7 +873,7 @@ void EnGrasshopper_Fall(EnGrasshopper* this, PlayState* play) {
                 Math_Vec3f_Copy(&splashPos, &this->actor.world.pos);
                 splashPos.x += Rand_CenteredFloat((i * 5.0f) + 20.0f);
                 splashPos.z += Rand_CenteredFloat((i * 5.0f) + 20.0f);
-                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (((s32)Rand_ZeroOne() * 100) + 400));
+                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (((s32)fqrand() * 100) + 400));
             }
 
             SoundSource_PlaySfxAtFixedWorldPos(play, &this->actor.world.pos, 50, NA_SE_EV_BOMB_DROP_WATER);

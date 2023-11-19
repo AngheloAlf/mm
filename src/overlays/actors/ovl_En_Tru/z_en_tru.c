@@ -379,17 +379,17 @@ s32 func_80A86460(EnTru* this) {
     Math_Vec3f_Copy(&sp8C, &gZeroVec3f);
     Math_Vec3f_Copy(&spA4, &gZeroVec3f);
     Math_Vec3f_Copy(&sp98, &gZeroVec3f);
-    phi_s1 = (Rand_ZeroOne() * 360.0f) * 182.0f;
+    phi_s1 = (fqrand() * 360.0f) * 182.0f;
     spB0.z = 20.0f;
     Lib_Vec3f_TranslateAndRotateY(&this->actor.world.pos, this->actor.world.rot.y, &spB0, &sp8C);
 
     for (i = 0; i < 8; i++, phi_s1 += 0x1FFE) {
         Math_Vec3f_Copy(&spB0, &gZeroVec3f);
         spB0.y = 1.0f;
-        spB0.z = Rand_ZeroOne() + 3.0f;
+        spB0.z = fqrand() + 3.0f;
         Lib_Vec3f_TranslateAndRotateY(&gZeroVec3f, phi_s1, &spB0, &sp98);
         Math_Vec3f_Copy(&spB0, &gZeroVec3f);
-        spB0.z = (Rand_ZeroOne() * 4.0f) + 12.0f;
+        spB0.z = (fqrand() * 4.0f) + 12.0f;
         Lib_Vec3f_TranslateAndRotateY(&sp8C, phi_s1, &spB0, &spA4);
         func_80A85E2C(this->unk_394, &spA4, &gZeroVec3f, &sp98, 0.4f, 0.06f, 12.0f, 4);
     }
@@ -418,14 +418,14 @@ s32 func_80A86770(EnTru* this) {
     Vec3f sp98;
     Vec3f sp8C;
     s32 i;
-    s16 phi_s0 = Rand_ZeroOne() * 360.0f * 182.0f;
+    s16 phi_s0 = fqrand() * 360.0f * 182.0f;
 
     for (i = 0; i < 4; i++, phi_s0 += 0x3FFC) {
         Lib_Vec3f_TranslateAndRotateY(&this->actor.world.pos, phi_s0, &gZeroVec3f, &sp98);
         sp98.y = this->actor.floorHeight + 1.0f;
-        sp8C.x = Rand_ZeroOne() - 0.5f;
-        sp8C.z = Rand_ZeroOne() - 0.5f;
-        sp8C.y = Rand_ZeroOne() * 0.2f;
+        sp8C.x = fqrand() - 0.5f;
+        sp8C.z = fqrand() - 0.5f;
+        sp8C.y = fqrand() * 0.2f;
         func_80A85E2C(this->unk_394, &sp98, &sp8C, &gZeroVec3f, 1.0f, 0.04f, 28.0f, 4);
     }
 

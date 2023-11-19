@@ -604,10 +604,10 @@ void EnWizFire_Update(Actor* thisx, PlayState* play2) {
             static Color_RGBA8 sSteamEnvColor = { 180, 180, 180, 255 };
 
             randomScale = Rand_S16Offset(20, 20);
-            pos.x = ((f32)((Rand_ZeroOne() < 0.5f) ? -1 : 1) * randomScale) + this->actor.world.pos.x;
-            pos.y = (Rand_ZeroOne() * 20.0f) + this->actor.floorHeight;
+            pos.x = ((f32)((fqrand() < 0.5f) ? -1 : 1) * randomScale) + this->actor.world.pos.x;
+            pos.y = (fqrand() * 20.0f) + this->actor.floorHeight;
             randomScale = Rand_S16Offset(20, 20);
-            pos.z = ((f32)((Rand_ZeroOne() < .5f) ? -1 : 1) * randomScale) + this->actor.world.pos.z;
+            pos.z = ((f32)((fqrand() < .5f) ? -1 : 1) * randomScale) + this->actor.world.pos.z;
             func_800B0DE0(play, &pos, &velocity, &accel, &sSteamPrimColor, &sSteamEnvColor, Rand_S16Offset(350, 100),
                           scaleStep);
         }

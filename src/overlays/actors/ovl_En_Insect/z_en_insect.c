@@ -123,7 +123,7 @@ void EnInsect_Init(Actor* thisx, PlayState* play) {
     EnInsect* this = THIS;
     f32 rand;
 
-    this->actor.world.rot.y = Rand_Next() & 0xFFFF;
+    this->actor.world.rot.y = qrand() & 0xFFFF;
     this->actor.home.rot.y = this->actor.world.rot.y;
     this->actor.shape.rot.y = this->actor.world.rot.y;
 
@@ -154,7 +154,7 @@ void EnInsect_Init(Actor* thisx, PlayState* play) {
         this->actor.flags |= ACTOR_FLAG_10;
     }
 
-    rand = Rand_ZeroOne();
+    rand = fqrand();
     if (rand < 0.3f) {
         func_8091AC78(this);
     } else if (rand < 0.4f) {
@@ -182,7 +182,7 @@ void func_8091ACC4(EnInsect* this, PlayState* play) {
 
     Math_SmoothStepToF(&this->actor.speed, 0.0f, 0.1f, 0.5f, 0.0f);
 
-    temp_f2 = (Rand_ZeroOne() * 0.8f) + (this->actor.speed * 1.2f);
+    temp_f2 = (fqrand() * 0.8f) + (this->actor.speed * 1.2f);
     if (temp_f2 < 0.0f) {
         this->skelAnime.playSpeed = 0.0f;
     } else {
@@ -342,17 +342,17 @@ void func_8091B440(EnInsect* this, PlayState* play) {
     Actor_SetScale(&this->actor, CLAMP_MIN(this->actor.scale.x - 0.0002f, 0.001f));
 
     this->actor.shape.yOffset -= 0.8f;
-    this->actor.world.pos.x = (Rand_ZeroOne() + this->actor.home.pos.x) - 0.5f;
-    this->actor.world.pos.z = (Rand_ZeroOne() + this->actor.home.pos.z) - 0.5f;
+    this->actor.world.pos.x = (fqrand() + this->actor.home.pos.x) - 0.5f;
+    this->actor.world.pos.z = (fqrand() + this->actor.home.pos.z) - 0.5f;
 
     SkelAnime_Update(&this->skelAnime);
 
-    if ((this->unk_312 > 20) && (Rand_ZeroOne() < 0.1f)) {
+    if ((this->unk_312 > 20) && (fqrand() < 0.1f)) {
         sp34.x = Math_SinS(this->actor.shape.rot.y) * -0.6f;
         sp34.y = Math_SinS(this->actor.shape.rot.x) * 0.6f;
         sp34.z = Math_CosS(this->actor.shape.rot.y) * -0.6f;
-        func_800B1210(play, &this->actor.world.pos, &sp34, &D_8091BDCC, (Rand_ZeroOne() * 5.0f) + 8.0f,
-                      (Rand_ZeroOne() * 5.0f) + 8.0f);
+        func_800B1210(play, &this->actor.world.pos, &sp34, &D_8091BDCC, (fqrand() * 5.0f) + 8.0f,
+                      (fqrand() * 5.0f) + 8.0f);
     }
 
     if (this->unk_312 <= 0) {
@@ -401,7 +401,7 @@ void func_8091B670(EnInsect* this, PlayState* play) {
     Math_ScaledStepToS(&this->actor.world.rot.x, 0, 0xBB8);
     this->actor.shape.rot.x = this->actor.world.rot.x;
 
-    if (Rand_ZeroOne() < 0.03f) {
+    if (fqrand() < 0.03f) {
         sp40.x = this->actor.world.pos.x;
         sp40.y = this->actor.world.pos.y + this->actor.depthInWater;
         sp40.z = this->actor.world.pos.z;
@@ -432,8 +432,8 @@ void func_8091B984(EnInsect* this, PlayState* play) {
     this->actor.shape.rot.y += 0xC8;
     Actor_SetScale(&this->actor, CLAMP_MIN(this->actor.scale.x - 0.00005f, 0.001f));
 
-    if ((this->actor.depthInWater > 5.0f) && (this->actor.depthInWater < 30.0f) && (Rand_ZeroOne() < 0.3f)) {
-        EffectSsBubble_Spawn(play, &this->actor.world.pos, -5.0f, 5.0f, 5.0f, (Rand_ZeroOne() * 0.04f) + 0.02f);
+    if ((this->actor.depthInWater > 5.0f) && (this->actor.depthInWater < 30.0f) && (fqrand() < 0.3f)) {
+        EffectSsBubble_Spawn(play, &this->actor.world.pos, -5.0f, 5.0f, 5.0f, (fqrand() * 0.04f) + 0.02f);
     }
 
     if (this->unk_312 <= 0) {

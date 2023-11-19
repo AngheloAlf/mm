@@ -204,13 +204,13 @@ void EnBombal_InitEffects(EnBombal* this, Vec3f* pos, s16 fadeDelay) {
             effect->alphaFadeDelay = fadeDelay;
             effect->alpha = 255;
 
-            effect->accel.x = (Rand_ZeroOne() - 0.5f) * 10.0f;
-            effect->accel.y = (Rand_ZeroOne() - 0.5f) * 10.0f;
-            effect->accel.z = (Rand_ZeroOne() - 0.5f) * 10.0f;
+            effect->accel.x = (fqrand() - 0.5f) * 10.0f;
+            effect->accel.y = (fqrand() - 0.5f) * 10.0f;
+            effect->accel.z = (fqrand() - 0.5f) * 10.0f;
 
-            effect->velocity.x = Rand_ZeroOne() - 0.5f;
-            effect->velocity.y = Rand_ZeroOne() - 0.5f;
-            effect->velocity.z = Rand_ZeroOne() - 0.5f;
+            effect->velocity.x = fqrand() - 0.5f;
+            effect->velocity.y = fqrand() - 0.5f;
+            effect->velocity.z = fqrand() - 0.5f;
 
             effect->scale = (Rand_ZeroFloat(1.0f) * 0.5f) + 2.0f;
             return;

@@ -312,7 +312,7 @@ void func_80ADB254(EnSellnuts* this, PlayState* play) {
             SubS_ChangeAnimationByInfoS(&this->skelAnime, sAnimationInfo, 16);
         } else if (this->unk_34C == 17) {
             if (DECR(this->unk_34E) == 0) {
-                this->unk_34E = Rand_ZeroOne() * 10.0f;
+                this->unk_34E = fqrand() * 10.0f;
                 this->unk_34C = 2;
                 this->collider.dim.height = 32;
                 SubS_ChangeAnimationByInfoS(&this->skelAnime, sAnimationInfo, 2);
@@ -880,7 +880,7 @@ void func_80ADCD3C(EnSellnuts* this, PlayState* play) {
         this->actor.gravity = -1.0f;
         this->actor.draw = EnSellnuts_Draw;
         this->unk_34A = 50;
-        this->unk_34E = Rand_ZeroOne() * 10.0f;
+        this->unk_34E = fqrand() * 10.0f;
         this->collider.dim.height = 64;
         this->unk_34C = 3;
         this->unk_350 = 4;

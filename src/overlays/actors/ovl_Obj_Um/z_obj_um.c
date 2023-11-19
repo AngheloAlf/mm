@@ -316,7 +316,7 @@ s32 func_80B781DC(ObjUm* this, EnHorse* bandit1, EnHorse* bandit2, PlayState* pl
                     phi_s3 = D_80B7C164[i].unk_04;
                     phi_s4 = D_80B7C164[i].unk_08;
                     phi_f20 = D_80B7C164[i].unk_0C;
-                    if ((2.0f * Rand_ZeroOne()) < 1.0f) {
+                    if ((2.0f * fqrand()) < 1.0f) {
                         phi_f20 *= -1.0f;
                     }
                     phi_s2 = D_80B7C164[i].unk_10;
@@ -340,7 +340,7 @@ s32 func_80B781DC(ObjUm* this, EnHorse* bandit1, EnHorse* bandit2, PlayState* pl
     bandit1->unk_568 = phi_f20;
 
     if (phi_s3 == 3) {
-        f32 rand = Rand_ZeroOne();
+        f32 rand = fqrand();
 
         bandit1->unk_558 = (s32)(rand * 3.0f);
     } else {
@@ -455,13 +455,13 @@ s32 func_80B78764(ObjUm* this, PlayState* play, EnHorse* bandit1, EnHorse* bandi
             }
 
             if (this->potsLife[1] != 1) {
-                if ((potIndex == -1) || ((potIndex == 0) && (Rand_ZeroOne() < 0.3f))) {
+                if ((potIndex == -1) || ((potIndex == 0) && (fqrand() < 0.3f))) {
                     potIndex = 1;
                 }
             }
 
             if (this->potsLife[2] != 1) {
-                if ((potIndex == -1) || ((potIndex != -1) && (Rand_ZeroOne() < 0.3f))) {
+                if ((potIndex == -1) || ((potIndex != -1) && (fqrand() < 0.3f))) {
                     potIndex = 2;
                 }
             }
@@ -1622,8 +1622,8 @@ void func_80B7AF30(ObjUm* this, PlayState* play) {
         this->dyna.actor.shape.rot.z = (s16)-Math_Atan2S(
             sp30.y - this->unk_2D0.y, sqrtf(SQ(sp30.x - this->unk_2D0.x) + SQ(sp30.z - this->unk_2D0.z)));
         if (this->flags & OBJ_UM_FLAG_MOVING) {
-            this->dyna.actor.shape.rot.x += BINANG_SUB((Rand_ZeroOne() * 100.0f), 50.0f);
-            this->dyna.actor.shape.rot.z += BINANG_SUB((Rand_ZeroOne() * 100.0f), 50.0f);
+            this->dyna.actor.shape.rot.x += BINANG_SUB((fqrand() * 100.0f), 50.0f);
+            this->dyna.actor.shape.rot.z += BINANG_SUB((fqrand() * 100.0f), 50.0f);
         }
     }
 }
@@ -1744,19 +1744,19 @@ void ObjUm_Update(Actor* thisx, PlayState* play) {
         case 0:
             switch (this->eyeTexIndex) {
                 case 0:
-                    if (Rand_ZeroOne() < 0.025f) {
+                    if (fqrand() < 0.025f) {
                         this->eyeTexIndex = 1;
                     }
                     break;
 
                 case 1:
-                    if (Rand_ZeroOne() < 0.6f) {
+                    if (fqrand() < 0.6f) {
                         this->eyeTexIndex = 2;
                     }
                     break;
 
                 case 2:
-                    if (Rand_ZeroOne() < 0.6f) {
+                    if (fqrand() < 0.6f) {
                         this->eyeTexIndex = 0;
                     }
                     break;
@@ -1871,11 +1871,11 @@ void ObjUm_SpawnFragments(PlayState* play, Vec3f* potPos) {
     EffectSsHitmark_SpawnFixedScale(play, 0, potPos);
 
     for (i = 0; i < 20; i++) {
-        sp70.x = (Rand_ZeroOne() * 20.0f) - 10.0f;
-        sp70.y = -((Rand_ZeroOne() * 20.0f) - 10.0f);
-        sp70.z = (Rand_ZeroOne() * 20.0f) - 10.0f;
+        sp70.x = (fqrand() * 20.0f) - 10.0f;
+        sp70.y = -((fqrand() * 20.0f) - 10.0f);
+        sp70.z = (fqrand() * 20.0f) - 10.0f;
         EffectSsHahen_Spawn(play, potPos, &sp70, &sp8C, 1, 100, OBJECT_UM, 10,
-                            potFragments[(s32)(Rand_ZeroOne() * ARRAY_COUNT(potFragments))]);
+                            potFragments[(s32)(fqrand() * ARRAY_COUNT(potFragments))]);
     }
 }
 

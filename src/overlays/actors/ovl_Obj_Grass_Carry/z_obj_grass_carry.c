@@ -89,7 +89,7 @@ void ObjGrassCarry_UpdateVelY(ObjGrassCarry* this) {
 }
 
 void ObjGrassCarry_RandScaleVecToZero(Vec3f* velocity, f32 scale) {
-    scale += ((Rand_ZeroOne() * 0.2f) - 0.1f) * scale;
+    scale += ((fqrand() * 0.2f) - 0.1f) * scale;
 
     velocity->x -= velocity->x * scale;
     velocity->y -= velocity->y * scale;
@@ -127,24 +127,24 @@ void ObjGrassCarry_SpawnFragments(Vec3f* basePos, PlayState* play) {
         pos.y = basePos->y + (dir->y * 8.0f) + 10.0f;
         pos.z = basePos->z + (dir->z * 8.0f);
 
-        velocity.x = (Rand_ZeroOne() - 0.5f) * 8.0f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * 8.0f;
+        velocity.x = (fqrand() - 0.5f) * 8.0f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = (fqrand() - 0.5f) * 8.0f;
 
         EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -100, 64, 40, 3, 0,
-                             sFragmentScales[(s32)(Rand_ZeroOne() * 111.1f) & 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
+                             sFragmentScales[(s32)(fqrand() * 111.1f) & 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
                              gKakeraLeafMiddleDL);
 
         pos.x = basePos->x + (dir->x * 16.0f);
         pos.y = basePos->y + (dir->y * 16.0f) + 10.0f;
         pos.z = basePos->z + (dir->z * 16.0f);
 
-        velocity.x = (Rand_ZeroOne() - 0.5f) * 6.0f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * 6.0f;
+        velocity.x = (fqrand() - 0.5f) * 6.0f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = (fqrand() - 0.5f) * 6.0f;
 
         EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -100, 64, 40, 3, 0,
-                             sFragmentScales[(s32)(Rand_ZeroOne() * 111.1f) % 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
+                             sFragmentScales[(s32)(fqrand() * 111.1f) % 7], 0, 0, 80, -1, GAMEPLAY_KEEP,
                              gKakeraLeafTipDL);
     }
 }
@@ -266,7 +266,7 @@ void ObjGrassCarry_LiftedUp(ObjGrassCarry* this, PlayState* play) {
 void ObjGrassCarry_SetupFall(ObjGrassCarry* this) {
     this->actionFunc = ObjGrassCarry_Fall;
     sRotSpeedXTarget = -0xBB8;
-    sRotSpeedYTarget = (Rand_ZeroOne() - 0.5f) * 1600.0f;
+    sRotSpeedYTarget = (fqrand() - 0.5f) * 1600.0f;
     sRotSpeedX = 0;
     sRotSpeedY = 0;
     this->fallTimer = 60;
@@ -307,8 +307,8 @@ void ObjGrassCarry_Fall(ObjGrassCarry* this, PlayState* play) {
         pos.y = this->actor.world.pos.y + this->actor.depthInWater;
 
         for (angle = 0, i = 0; i < 4; i++, angle += 0x4000) {
-            pos.x = (Math_SinS((s32)(Rand_ZeroOne() * 7200.0f) + angle) * 15.0f) + this->actor.world.pos.x;
-            pos.z = (Math_CosS((s32)(Rand_ZeroOne() * 7200.0f) + angle) * 15.0f) + this->actor.world.pos.z;
+            pos.x = (Math_SinS((s32)(fqrand() * 7200.0f) + angle) * 15.0f) + this->actor.world.pos.x;
+            pos.z = (Math_CosS((s32)(fqrand() * 7200.0f) + angle) * 15.0f) + this->actor.world.pos.z;
             EffectSsGSplash_Spawn(play, &pos, NULL, NULL, 0, 190);
         }
 

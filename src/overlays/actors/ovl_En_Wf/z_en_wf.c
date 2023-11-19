@@ -388,7 +388,7 @@ void EnWf_Blink(EnWf* this) {
         if (this->eyeIndex == 4) {
             this->eyeIndex = 0;
         }
-    } else if (Rand_ZeroOne() < 0.05f) {
+    } else if (fqrand() < 0.05f) {
         this->eyeIndex = 1;
     }
 }
@@ -626,7 +626,7 @@ void func_80991280(EnWf* this, PlayState* play) {
             this->unk_2A0--;
             if (this->unk_2A0 == 0) {
                 if (Actor_IsFacingPlayer(&this->actor, 0x1555)) {
-                    if (Rand_ZeroOne() > 0.3f) {
+                    if (fqrand() > 0.3f) {
                         func_80991438(this);
                     } else {
                         func_80991948(this);
@@ -672,7 +672,7 @@ void func_8099149C(EnWf* this, PlayState* play) {
             (player->meleeWeaponState != PLAYER_MELEE_WEAPON_STATE_0) && (sp28 >= 0x1F40)) {
             this->actor.shape.rot.y = this->actor.yawTowardsPlayer;
             this->actor.world.rot.y = this->actor.yawTowardsPlayer;
-            if (Rand_ZeroOne() > 0.7f) {
+            if (fqrand() > 0.7f) {
                 func_80991948(this);
                 return;
             }
@@ -681,16 +681,16 @@ void func_8099149C(EnWf* this, PlayState* play) {
         SkelAnime_Update(&this->skelAnime);
         if (!func_80990948(play, this, 0)) {
             if (!Actor_IsFacingPlayer(&this->actor, 0x11C7)) {
-                if (Rand_ZeroOne() > 0.5f) {
+                if (fqrand() > 0.5f) {
                     func_80991948(this);
                 } else {
                     func_80991200(this);
                 }
             } else if (this->actor.xzDistToPlayer < (90.0f + sp2C)) {
                 if (!Actor_OtherIsTargeted(play, &this->actor) &&
-                    ((Rand_ZeroOne() > 0.03f) || ((this->actor.xzDistToPlayer <= 80.0f) && (sp28 < 0x38E0)))) {
+                    ((fqrand() > 0.03f) || ((this->actor.xzDistToPlayer <= 80.0f) && (sp28 < 0x38E0)))) {
                     func_80991C04(this);
-                } else if (Actor_OtherIsTargeted(play, &this->actor) && (Rand_ZeroOne() > 0.5f)) {
+                } else if (Actor_OtherIsTargeted(play, &this->actor) && (fqrand() > 0.5f)) {
                     func_8099223C(this);
                 } else {
                     func_80991948(this);
@@ -745,7 +745,7 @@ void func_8099177C(EnWf* this, PlayState* play) {
         this->skelAnime.playSpeed = -phi_f2;
         SkelAnime_Update(&this->skelAnime);
         if (Actor_IsFacingPlayer(&this->actor, 0x1555)) {
-            if (Rand_ZeroOne() > 0.8f) {
+            if (fqrand() > 0.8f) {
                 func_80991948(this);
             } else {
                 func_80991438(this);
@@ -760,7 +760,7 @@ void func_8099177C(EnWf* this, PlayState* play) {
 void func_80991948(EnWf* this) {
     this->collider2.base.acFlags |= AC_ON;
     Animation_MorphToLoop(&this->skelAnime, &gWolfosRunAnim, -4.0f);
-    if (Rand_ZeroOne() > 0.5f) {
+    if (fqrand() > 0.5f) {
         this->unk_29A = 16000;
     } else {
         this->unk_29A = -16000;
@@ -800,7 +800,7 @@ void func_809919F4(EnWf* this, PlayState* play) {
         } else {
             this->unk_2A0--;
             if (this->unk_2A0 == 0) {
-                if (Actor_OtherIsTargeted(play, &this->actor) && (Rand_ZeroOne() > 0.5f)) {
+                if (Actor_OtherIsTargeted(play, &this->actor) && (fqrand() > 0.5f)) {
                     func_8099223C(this);
                 } else {
                     func_80991200(this);
@@ -856,12 +856,12 @@ void func_80991C80(EnWf* this, PlayState* play) {
             if (sp30 >= 0x32C9) {
                 this->unk_298 = 7;
             }
-        } else if ((Rand_ZeroOne() > 0.7f) || (this->actor.xzDistToPlayer >= 120.0f)) {
+        } else if ((fqrand() > 0.7f) || (this->actor.xzDistToPlayer >= 120.0f)) {
             func_80991200(this);
             this->unk_2A0 = (s32)Rand_ZeroFloat(5.0f) + 5;
         } else {
             this->actor.world.rot.y = this->actor.yawTowardsPlayer;
-            if (Rand_ZeroOne() > 0.7f) {
+            if (fqrand() > 0.7f) {
                 func_80992A74(this, play);
             } else if (ABS_ALT(sp2A) < 0x2711) {
                 if (sp30 >= 0x3E81) {
@@ -904,12 +904,12 @@ void func_80992068(EnWf* this, PlayState* play) {
             if (sp28 > 0x32C8) {
                 this->unk_298 = 30;
             }
-        } else if ((Rand_ZeroOne() > 0.7f) || (this->actor.xzDistToPlayer >= 120.0f)) {
+        } else if ((fqrand() > 0.7f) || (this->actor.xzDistToPlayer >= 120.0f)) {
             func_80991200(this);
             this->unk_2A0 = (s32)Rand_ZeroFloat(5.0f) + 5;
         } else {
             this->actor.world.rot.y = this->actor.yawTowardsPlayer;
-            if (Rand_ZeroOne() > 0.7f) {
+            if (fqrand() > 0.7f) {
                 func_80992A74(this, play);
             } else if (ABS_ALT(sp26) < 0x2711) {
                 if (sp28 > 0x3E80) {
@@ -939,7 +939,7 @@ void func_8099223C(EnWf* this) {
 void func_809922B4(EnWf* this, PlayState* play) {
     if (SkelAnime_Update(&this->skelAnime)) {
         if (!Actor_OtherIsTargeted(play, &this->actor) && (this->actor.xzDistToPlayer < 170.0f) &&
-            (this->actor.xzDistToPlayer > 140.0f) && (Rand_ZeroOne() < 0.2f)) {
+            (this->actor.xzDistToPlayer > 140.0f) && (fqrand() < 0.2f)) {
             func_80991438(this);
         } else if ((play->gameplayFrames % 2) != 0) {
             func_80992A74(this, play);
@@ -1013,7 +1013,7 @@ void func_809924EC(EnWf* this, PlayState* play) {
             if ((this->actor.xzDistToPlayer <= 80.0f) && !Actor_OtherIsTargeted(play, &this->actor) &&
                 ((play->gameplayFrames % 8) != 0)) {
                 func_80991C04(this);
-            } else if (Rand_ZeroOne() > 0.5f) {
+            } else if (fqrand() > 0.5f) {
                 func_80991200(this);
                 this->unk_2A0 = (s32)Rand_ZeroFloat(5.0f) + 5;
                 this->unk_298 = 30;
@@ -1104,7 +1104,7 @@ void func_80992A74(EnWf* this, PlayState* play) {
         this->unk_29A = 16000;
     } else if (temp_f0 < 0.0f) {
         this->unk_29A = -16000;
-    } else if (Rand_ZeroOne() > 0.5f) {
+    } else if (fqrand() > 0.5f) {
         this->unk_29A = 16000;
     } else {
         this->unk_29A = -16000;
@@ -1622,7 +1622,7 @@ s32 func_8099408C(PlayState* play, EnWf* this) {
     if (temp_v0 != NULL) {
         temp_v1 = (Actor_WorldYawTowardActor(&this->actor, temp_v0) - this->actor.shape.rot.y) - this->unk_29E;
         if (ABS_ALT(temp_v1) < 0x3000) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 func_8099223C(this);
             } else {
                 func_8099282C(this);

@@ -355,7 +355,7 @@ void EnRd_SetupIdle(EnRd* this) {
     }
 
     this->action = EN_RD_ACTION_IDLE;
-    this->animationJudderTimer = (Rand_ZeroOne() * 10.0f) + 5.0f;
+    this->animationJudderTimer = (fqrand() * 10.0f) + 5.0f;
     this->actor.speed = 0.0f;
     this->actor.world.rot.y = this->actor.shape.rot.y;
     this->actionFunc = EnRd_Idle;
@@ -367,7 +367,7 @@ void EnRd_Idle(EnRd* this, PlayState* play) {
     Math_SmoothStepToS(&this->upperBodyYRotation, 0, 1, 100, 0);
 
     if ((EN_RD_GET_TYPE(&this->actor) == EN_RD_TYPE_CRYING) && Animation_OnFrame(&this->skelAnime, 0.0f)) {
-        if (Rand_ZeroOne() >= 0.5f) {
+        if (fqrand() >= 0.5f) {
             Animation_PlayLoop(&this->skelAnime, &gGibdoRedeadSobbingAnim);
         } else {
             Animation_PlayLoop(&this->skelAnime, &gGibdoRedeadWipingTearsAnim);
@@ -377,7 +377,7 @@ void EnRd_Idle(EnRd* this, PlayState* play) {
         if (this->animationJudderTimer == 0) {
             // This resets the idle animation back to its first frame, making the
             // Redead/Gibdo appear to "judder" in place.
-            this->animationJudderTimer = (Rand_ZeroOne() * 10.0f) + 10.0f;
+            this->animationJudderTimer = (fqrand() * 10.0f) + 10.0f;
             this->skelAnime.curFrame = 0.0f;
         }
     }
@@ -417,7 +417,7 @@ void EnRd_Idle(EnRd* this, PlayState* play) {
 void EnRd_SetupSquattingDance(EnRd* this) {
     Animation_MorphToLoop(&this->skelAnime, &gGibdoRedeadSquattingDanceAnim, -6.0f);
     this->action = EN_RD_ACTION_SQUATTING_DANCE;
-    this->animationJudderTimer = (Rand_ZeroOne() * 10.0f) + 5.0f;
+    this->animationJudderTimer = (fqrand() * 10.0f) + 5.0f;
     this->danceEndTimer = 0;
     this->actor.speed = 0.0f;
     this->actor.world.rot.y = this->actor.shape.rot.y;
@@ -461,7 +461,7 @@ void EnRd_SquattingDance(EnRd* this, PlayState* play) {
 void EnRd_SetupClappingDance(EnRd* this) {
     Animation_MorphToLoop(&this->skelAnime, &gGibdoRedeadClappingDanceAnim, -6.0f);
     this->action = EN_RD_ACTION_CLAPPING_DANCE;
-    this->animationJudderTimer = (Rand_ZeroOne() * 10.0f) + 5.0f;
+    this->animationJudderTimer = (fqrand() * 10.0f) + 5.0f;
     this->danceEndTimer = 0;
     this->actor.speed = 0.0f;
     this->actor.world.rot.y = this->actor.shape.rot.y;
@@ -522,7 +522,7 @@ void EnRd_EndClappingOrSquattingDanceWhenPlayerIsClose(EnRd* this, PlayState* pl
 void EnRd_SetupPirouette(EnRd* this) {
     Animation_MorphToLoop(&this->skelAnime, &gGibdoRedeadPirouetteAnim, -6.0f);
     this->action = EN_RD_ACTION_PIROUETTE;
-    this->animationJudderTimer = (Rand_ZeroOne() * 10.0f) + 5.0f;
+    this->animationJudderTimer = (fqrand() * 10.0f) + 5.0f;
     this->pirouetteAngularVelocity = 0x1112;
     this->actor.speed = 0.0f;
     this->actor.world.rot.y = this->actor.shape.rot.y;

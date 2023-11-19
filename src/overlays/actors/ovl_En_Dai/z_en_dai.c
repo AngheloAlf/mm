@@ -38,7 +38,7 @@ EnDaiEffect* func_80B3DFF0(EnDaiEffect* effect, Vec3f arg1, Vec3f arg2, Vec3f ar
     for (i = 0; i < EN_DAI_EFFECT_COUNT; i++, effect++) {
         if (!effect->isEnabled) {
             effect->isEnabled = true;
-            effect->unk_01 = (Rand_ZeroOne() * (2.0f * (arg6 / 3.0f))) + (arg6 / 3.0f);
+            effect->unk_01 = (fqrand() * (2.0f * (arg6 / 3.0f))) + (arg6 / 3.0f);
             effect->unk_02 = effect->unk_01;
             effect->unk_10 = arg1;
             effect->unk_1C = arg2;

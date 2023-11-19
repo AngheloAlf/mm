@@ -1478,7 +1478,7 @@ void EnHorse_StartRearing(EnHorse* this) {
     this->animIndex = ENHORSE_ANIM_REARING;
 
     if (sAnimationHeaders[this->type][this->animIndex] == NULL) {
-        if (Rand_ZeroOne() > 0.5f) {
+        if (fqrand() > 0.5f) {
             if (this->stateFlags & ENHORSE_DRAW) {
                 if (this->type == HORSE_TYPE_2) {
                     Audio_PlaySfx_AtPos(&this->unk_218, NA_SE_EV_KID_HORSE_NEIGH);
@@ -1552,7 +1552,7 @@ void EnHorse_StartBraking(EnHorse* this, PlayState* play) {
     this->action = ENHORSE_ACTION_STOPPING;
     this->animIndex = ENHORSE_ANIM_STOPPING;
     if (sAnimationHeaders[this->type][this->animIndex] == NULL) {
-        if (Rand_ZeroOne() > 0.5f) {
+        if (fqrand() > 0.5f) {
             if (this->stateFlags & ENHORSE_DRAW) {
                 if (this->type == HORSE_TYPE_2) {
                     Audio_PlaySfx_AtPos(&this->unk_218, NA_SE_EV_KID_HORSE_NEIGH);
@@ -1588,7 +1588,7 @@ void EnHorse_Stopping(EnHorse* this, PlayState* play) {
 
     if ((this->stateFlags & ENHORSE_STOPPING_NEIGH_SOUND) && (this->skin.skelAnime.curFrame > 29.0f)) {
         this->actor.speed = 0.0f;
-        if ((Rand_ZeroOne() > 0.5f) &&
+        if ((fqrand() > 0.5f) &&
             ((gSaveContext.save.entrance != ENTRANCE(ROMANI_RANCH, 0)) || (Cutscene_GetSceneLayer(play) == 0))) {
             if (this->stateFlags & ENHORSE_DRAW) {
                 if (this->type == HORSE_TYPE_2) {
@@ -2019,7 +2019,7 @@ void EnHorse_Idle(EnHorse* this, PlayState* play) {
             }
         }
         // Play one of the two other idle animations
-        EnHorse_PlayIdleAnimation(this, sIdleAnimIndices[((Rand_ZeroOne() > 0.5f) ? 0 : 1) + idleAnimIndex * 2], 0.0f,
+        EnHorse_PlayIdleAnimation(this, sIdleAnimIndices[((fqrand() > 0.5f) ? 0 : 1) + idleAnimIndex * 2], 0.0f,
                                   0.0f);
     }
 }
@@ -3038,7 +3038,7 @@ void EnHorse_FleePlayer(EnHorse* this, PlayState* play) {
         nextAnimIndex = ENHORSE_ANIM_WALK;
         EnHorse_PlayWalkingSound(this);
     } else {
-        if (Rand_ZeroOne() > 0.5f) {
+        if (fqrand() > 0.5f) {
             nextAnimIndex = ENHORSE_ANIM_WHINNY;
         } else {
             nextAnimIndex = ENHORSE_ANIM_IDLE;
@@ -3093,7 +3093,7 @@ void EnHorse_FleePlayer(EnHorse* this, PlayState* play) {
                                  Animation_GetLastFrame(sAnimationHeaders[this->type][this->animIndex]), ANIMMODE_ONCE,
                                  -3.0f);
             } else {
-                if (Rand_ZeroOne() > 0.5f) {
+                if (fqrand() > 0.5f) {
                     this->animIndex = ENHORSE_ANIM_IDLE;
                     this->stateFlags &= ~ENHORSE_SANDDUST_SOUND;
                 } else {
@@ -3381,7 +3381,7 @@ void func_80884A40(EnHorse* this, PlayState* play) {
 
     if (SkelAnime_Update(&this->skin.skelAnime) || sp40) {
         this->animIndex = sp44[this->unk_538];
-        if ((this->animIndex == ENHORSE_ANIM_IDLE) && (Rand_ZeroOne() < 0.5f)) {
+        if ((this->animIndex == ENHORSE_ANIM_IDLE) && (fqrand() < 0.5f)) {
             this->animIndex = ENHORSE_ANIM_WHINNY;
         }
 
@@ -4039,7 +4039,7 @@ void func_80886C00(EnHorse* this, PlayState* play) {
             } else {
                 this->boostRegenTime = 70;
             }
-        } else if ((this->stateFlags & ENHORSE_DRAW) && (Rand_ZeroOne() < 0.1f)) {
+        } else if ((this->stateFlags & ENHORSE_DRAW) && (fqrand() < 0.1f)) {
             if (this->type == HORSE_TYPE_2) {
                 Audio_PlaySfx_AtPos(&this->unk_218, NA_SE_EV_KID_HORSE_NEIGH);
             } else {
@@ -4078,7 +4078,7 @@ void EnHorse_RegenBoost(EnHorse* this, PlayState* play) {
     }
 
     if (this->boostTimer == 8) {
-        if ((Rand_ZeroOne() < 0.25f) && (this->stateFlags & ENHORSE_DRAW)) {
+        if ((fqrand() < 0.25f) && (this->stateFlags & ENHORSE_DRAW)) {
             if (this->type == HORSE_TYPE_2) {
                 Audio_PlaySfx_AtPos(&this->unk_218, NA_SE_EV_KID_HORSE_NEIGH);
             } else {
@@ -4161,7 +4161,7 @@ s32 EnHorse_UpdateConveyors(EnHorse* this, PlayState* play) {
 }
 
 s32 EnHorse_RandInt(f32 arg0) {
-    return Rand_ZeroOne() * arg0;
+    return fqrand() * arg0;
 }
 
 static EnHorseActionFunc sActionFuncs[] = {
@@ -4366,7 +4366,7 @@ void EnHorse_Update(Actor* thisx, PlayState* play2) {
         thisx->focus.pos = thisx->world.pos;
         thisx->focus.pos.y += 70.0f;
 
-        if ((Rand_ZeroOne() < 0.025f) && (this->blinkTimer == 0)) {
+        if ((fqrand() < 0.025f) && (this->blinkTimer == 0)) {
             this->blinkTimer++;
         } else if (this->blinkTimer > 0) {
             this->blinkTimer++;
@@ -4461,9 +4461,9 @@ s32 EnHorse_GetMountSide(EnHorse* this, PlayState* play) {
 }
 
 void EnHorse_RandomOffset(Vec3f* src, f32 dist, Vec3f* dst) {
-    dst->x = ((Rand_ZeroOne() * (2.0f * dist)) + src->x) - dist;
-    dst->y = ((Rand_ZeroOne() * (2.0f * dist)) + src->y) - dist;
-    dst->z = ((Rand_ZeroOne() * (2.0f * dist)) + src->z) - dist;
+    dst->x = ((fqrand() * (2.0f * dist)) + src->x) - dist;
+    dst->y = ((fqrand() * (2.0f * dist)) + src->y) - dist;
+    dst->z = ((fqrand() * (2.0f * dist)) + src->z) - dist;
 }
 
 void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
@@ -4506,7 +4506,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
     if ((this->animIndex == ENHORSE_ANIM_IDLE) && (this->action != ENHORSE_ACTION_FROZEN) &&
         (((curFrame > 40.0f) && (curFrame < 45.0f) && (this->type == 0)) ||
          ((curFrame > 28.0f) && (curFrame < 33.0f) && (this->type == 1)))) {
-        if (Rand_ZeroOne() < 0.02f) {
+        if (fqrand() < 0.02f) {
             this->dustFlags |= 1;
             Skin_GetLimbPos(skin, 28, &hoofOffset, &this->frontRightHoof);
             this->frontRightHoof.y -= 5.0f;
@@ -4514,7 +4514,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
     } else {
         if (this->action == ENHORSE_ACTION_STOPPING) {
             if (((curFrame > 10.0f) && (curFrame < 13.0f)) || ((curFrame > 25.0f) && (curFrame < 33.0f))) {
-                if (Rand_ZeroOne() < 0.02f) {
+                if (fqrand() < 0.02f) {
                     this->dustFlags |= 2;
                     if (this->type == HORSE_TYPE_2) {
                         Skin_GetLimbPos(skin, 20, &hoofOffset, &sp64);
@@ -4524,7 +4524,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                     EnHorse_RandomOffset(&sp64, 10.0f, &this->frontLeftHoof);
                 }
 
-                if (Rand_ZeroOne() < 0.02f) {
+                if (fqrand() < 0.02f) {
                     this->dustFlags |= 1;
                     if (this->type == HORSE_TYPE_2) {
                         Skin_GetLimbPos(skin, 28, &hoofOffset, &sp64);
@@ -4536,7 +4536,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
             }
 
             if (((curFrame > 6.0f) && (curFrame < 10.0f)) || ((curFrame > 23.0f) && (curFrame < 29.0f))) {
-                if (Rand_ZeroOne() < 0.02f) {
+                if (fqrand() < 0.02f) {
                     this->dustFlags |= 8;
                     if (this->type == HORSE_TYPE_2) {
                         Skin_GetLimbPos(skin, 36, &hoofOffset, &sp64);
@@ -4548,7 +4548,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
             }
 
             if ((((curFrame > 7.0f) && (curFrame < 14.0f)) || ((curFrame > 26.0f) && (curFrame < 30.0f))) &&
-                (Rand_ZeroOne() < 0.02f)) {
+                (fqrand() < 0.02f)) {
                 this->dustFlags |= 4;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 44, &hoofOffset, &sp64);
@@ -4558,7 +4558,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                 EnHorse_RandomOffset(&sp64, 10.0f, &this->backRightHoof);
             }
         } else if (this->animIndex == ENHORSE_ANIM_GALLOP) {
-            if ((curFrame > 14.0f) && (curFrame < 16.0f) && (Rand_ZeroOne() < 0.02f)) {
+            if ((curFrame > 14.0f) && (curFrame < 16.0f) && (fqrand() < 0.02f)) {
                 this->dustFlags |= 1;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 28, &hoofOffset, &sp64);
@@ -4566,7 +4566,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                     Skin_GetLimbPos(skin, 28, &hoofOffset, &sp64);
                 }
                 EnHorse_RandomOffset(&sp64, 5.0f, &this->frontRightHoof);
-            } else if ((curFrame > 8.0f) && (curFrame < 10.0f) && (Rand_ZeroOne() < 0.02f)) {
+            } else if ((curFrame > 8.0f) && (curFrame < 10.0f) && (fqrand() < 0.02f)) {
                 this->dustFlags |= 2;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 20, &hoofOffset, &sp64);
@@ -4574,7 +4574,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                     Skin_GetLimbPos(skin, 20, &hoofOffset, &sp64);
                 }
                 EnHorse_RandomOffset(&sp64, 10.0f, &this->frontLeftHoof);
-            } else if ((curFrame > 1.0f) && (curFrame < 3.0f) && (Rand_ZeroOne() < 0.02f)) {
+            } else if ((curFrame > 1.0f) && (curFrame < 3.0f) && (fqrand() < 0.02f)) {
                 this->dustFlags |= 4;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 44, &hoofOffset, &sp64);
@@ -4582,7 +4582,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                     Skin_GetLimbPos(skin, 45, &hoofOffset, &sp64);
                 }
                 EnHorse_RandomOffset(&sp64, 10.0f, &this->backRightHoof);
-            } else if ((curFrame > 26.0f) && (curFrame < 28.0f) && (Rand_ZeroOne() < 0.02f)) {
+            } else if ((curFrame > 26.0f) && (curFrame < 28.0f) && (fqrand() < 0.02f)) {
                 this->dustFlags |= 8;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 36, &hoofOffset, &sp64);
@@ -4592,8 +4592,8 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                 EnHorse_RandomOffset(&sp64, 10.0f, &this->backLeftHoof);
             }
         } else if ((this->action == ENHORSE_ACTION_LOW_JUMP) && (curFrame > 6.0f) &&
-                   (Rand_ZeroOne() < (1.0f - ((curFrame - 6.0f) * (1.0f / 17.0f))))) {
-            if (Rand_ZeroOne() < 0.05f) {
+                   (fqrand() < (1.0f - ((curFrame - 6.0f) * (1.0f / 17.0f))))) {
+            if (fqrand() < 0.05f) {
                 this->dustFlags |= 8;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 36, &hoofOffset, &sp64);
@@ -4602,7 +4602,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                 }
                 EnHorse_RandomOffset(&sp64, 10.0f, &this->backLeftHoof);
             }
-            if (Rand_ZeroOne() < 0.02f) {
+            if (fqrand() < 0.02f) {
                 this->dustFlags |= 4;
                 if (this->type == HORSE_TYPE_2) {
                     Skin_GetLimbPos(skin, 44, &hoofOffset, &sp64);
@@ -4612,8 +4612,8 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                 EnHorse_RandomOffset(&sp64, 10.0f, &this->backRightHoof);
             }
         } else if ((this->action == ENHORSE_ACTION_HIGH_JUMP) && (curFrame > 5.0f)) {
-            if (Rand_ZeroOne() < (1.0f - ((curFrame - 5.0f) * 0.04f))) {
-                if (Rand_ZeroOne() < 0.05f) {
+            if (fqrand() < (1.0f - ((curFrame - 5.0f) * 0.04f))) {
+                if (fqrand() < 0.05f) {
                     this->dustFlags |= 8;
                     if (this->type == HORSE_TYPE_2) {
                         Skin_GetLimbPos(skin, 36, &hoofOffset, &sp64);
@@ -4623,7 +4623,7 @@ void EnHorse_PostDraw(Actor* thisx, PlayState* play, Skin* skin) {
                     EnHorse_RandomOffset(&sp64, 10.0f, &this->backLeftHoof);
                 }
 
-                if (Rand_ZeroOne() < 0.02f) {
+                if (fqrand() < 0.02f) {
                     this->dustFlags |= 4;
                     if (this->type == HORSE_TYPE_2) {
                         Skin_GetLimbPos(skin, 44, &hoofOffset, &sp64);

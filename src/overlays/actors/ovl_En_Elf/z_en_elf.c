@@ -230,7 +230,7 @@ void func_8088C9CC(EnElf* this, PlayState* play) {
         xzDistToPlayer = this->actor.xzDistToPlayer;
 
         if (xzDistToPlayer < 50.0f) {
-            if (Rand_ZeroOne() < 0.2f) {
+            if (fqrand() < 0.2f) {
                 this->unk_244 = 2;
                 this->unk_248 = 0x400;
                 this->unk_254 = 2.0f;
@@ -247,7 +247,7 @@ void func_8088C9CC(EnElf* this, PlayState* play) {
 
             xzDistToPlayer = ((xzDistToPlayer - 50.0f) * 0.95f) + 0.05f;
 
-            if (Rand_ZeroOne() < xzDistToPlayer) {
+            if (fqrand() < xzDistToPlayer) {
                 this->unk_244 = 3;
                 this->unk_248 = 0x200;
                 this->unk_254 = (2.0f * xzDistToPlayer) + 1.0f;
@@ -259,7 +259,7 @@ void func_8088C9CC(EnElf* this, PlayState* play) {
         }
     }
 
-    if (Rand_ZeroOne() < 0.1f) {
+    if (fqrand() < 0.1f) {
         this->unk_244 = 1;
         this->unk_248 = 128;
         this->unk_254 = Rand_ZeroFloat(0.5f) + 0.5f;
@@ -647,7 +647,7 @@ void func_8088DD34(EnElf* this, PlayState* play) {
 
     SkelAnime_Update(&this->skelAnime);
 
-    if (Rand_ZeroOne() < 0.05f) {
+    if (fqrand() < 0.05f) {
         this->unk_250 = Rand_ZeroFloat(10.0f) + 10.0f;
         this->unk_24A = (s32)Rand_ZeroFloat(0x400) + 0x200;
     }
@@ -1250,7 +1250,7 @@ void func_8088F5F4(EnElf* this, PlayState* play, s32 sparkleLife) {
 
     if (!(this->fairyFlags & 8)) {
         sparklePos.x = Rand_CenteredFloat(6.0f) + this->actor.world.pos.x;
-        sparklePos.y = (Rand_ZeroOne() * 6.0f) + this->actor.world.pos.y;
+        sparklePos.y = (fqrand() * 6.0f) + this->actor.world.pos.y;
         sparklePos.z = Rand_CenteredFloat(6.0f) + this->actor.world.pos.z;
 
         primColor.r = this->innerColor.r;

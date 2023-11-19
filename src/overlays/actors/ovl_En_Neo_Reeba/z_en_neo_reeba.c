@@ -678,9 +678,9 @@ void EnNeoReeba_SpawnIce(EnNeoReeba* this, PlayState* play) {
         zVel = Math_CosS(yaw) * 3.0f;
 
         for (j = 0; j < 4; j++) {
-            iceVel.x = (Rand_Centered() * 3.0f) + xVel;
-            iceVel.z = (Rand_Centered() * 3.0f) + zVel;
-            iceVel.y = (Rand_ZeroOne() * 6.0f) + 4.0f;
+            iceVel.x = (fqrand2() * 3.0f) + xVel;
+            iceVel.z = (fqrand2() * 3.0f) + zVel;
+            iceVel.y = (fqrand() * 6.0f) + 4.0f;
             EffectSsEnIce_Spawn(play, &this->bodyPartsPos[i], 0.7f, &iceVel, &sIceAccel, &sIcePrimColor, &sIceEnvColor,
                                 30);
         }

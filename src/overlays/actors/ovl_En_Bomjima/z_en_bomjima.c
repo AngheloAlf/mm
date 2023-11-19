@@ -355,7 +355,7 @@ void func_80BFE67C(EnBomjima* this, PlayState* play) {
                 if (BgCheck_EntityLineTest1(&play->colCtx, &this->actor.world.pos, &sp60, &sp6C, &sp50, true, false,
                                             false, true, &sp4C)) {
                     this->unk_2C0 = 0;
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         EnBomjima_ChangeAnim(this, ENBOMJIMA_ANIM_19, 1.0f);
                     } else {
                         EnBomjima_ChangeAnim(this, ENBOMJIMA_ANIM_0, 1.0f);
@@ -474,7 +474,7 @@ void func_80BFEB64(EnBomjima* this, PlayState* play) {
             if (this->unk_2C0 == 1) {
                 s16 sp3E = Math_Vec3f_Yaw(&this->actor.world.pos, &this->bombal->actor.world.pos);
 
-                if (Rand_ZeroOne() < 0.5f) {
+                if (fqrand() < 0.5f) {
                     sp3E += 0x4000;
                 } else {
                     sp3E += 0xC000;

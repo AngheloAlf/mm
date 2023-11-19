@@ -972,7 +972,7 @@ void EnFishing_Init(Actor* thisx, PlayState* play2) {
 
         this->unk_1A4 += Rand_ZeroFloat(4.99999f);
 
-        if ((this->unk_1A4 >= 65.0f) && (Rand_ZeroOne() < 0.05f)) {
+        if ((this->unk_1A4 >= 65.0f) && (fqrand() < 0.05f)) {
             this->unk_1A4 += Rand_ZeroFloat(7.99999f);
         }
 
@@ -1047,7 +1047,7 @@ void EnFishing_UpdateEffects(FishingEffect* effect, PlayState* play) {
                 if (effect->pos.y >= rippleY) {
                     effect->type = FS_EFF_NONE;
 
-                    if (Rand_ZeroOne() < 0.3f) {
+                    if (fqrand() < 0.3f) {
                         Vec3f pos = effect->pos;
                         pos.y = rippleY;
                         EnFishing_SpawnRipple(NULL, play->specialEffects, &pos, 20.0f, 60.0f, 150, 90);
@@ -1061,7 +1061,7 @@ void EnFishing_UpdateEffects(FishingEffect* effect, PlayState* play) {
 
                 if (effect->pos.y <= WATER_SURFACE_Y(play)) {
                     effect->type = FS_EFF_NONE;
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         Vec3f pos = effect->pos;
                         pos.y = WATER_SURFACE_Y(play);
                         EnFishing_SpawnRipple(NULL, play->specialEffects, &pos, 40.0f, 110.0f, 150, 90);
@@ -1079,7 +1079,7 @@ void EnFishing_UpdateEffects(FishingEffect* effect, PlayState* play) {
                     } else {
                         effect->pos.y = WATER_SURFACE_Y(play) + 3.0f;
                         effect->timer = 0;
-                        if (Rand_ZeroOne() < 0.75f) {
+                        if (fqrand() < 0.75f) {
                             effect->type = FS_EFF_RAIN_RIPPLE;
                             effect->vel = sZeroVec;
                             effect->unk_30 = 30 * 0.001f;
@@ -1303,7 +1303,7 @@ void EnFishing_DrawEffects(FishingEffect* effect, PlayState* play) {
                 flag++;
             }
 
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 rotY = 0.0f;
             } else {
                 rotY = M_PI;
@@ -3323,8 +3323,8 @@ void EnFishing_UpdateFish(Actor* thisx, PlayState* play2) {
                 sp11C *= 5.0f;
             }
 
-            if (((this->unk_172[0] == 1) || (Rand_ZeroOne() < sp11C)) &&
-                (Rand_ZeroOne() < (this->unk_1A0 * multiplier))) {
+            if (((this->unk_172[0] == 1) || (fqrand() < sp11C)) &&
+                (fqrand() < (this->unk_1A0 * multiplier))) {
                 if (this->unk_148 == 0) {
                     this->unk_150 = 3;
                     this->unk_188 = 1.2f;
@@ -3572,7 +3572,7 @@ void EnFishing_UpdateFish(Actor* thisx, PlayState* play2) {
                     phi_v0_2 = 0xF;
                 }
 
-                if (((this->unk_154 & phi_v0_2) == 0) && (Rand_ZeroOne() < 0.75f) && (D_809171F4 == 0)) {
+                if (((this->unk_154 & phi_v0_2) == 0) && (fqrand() < 0.75f) && (D_809171F4 == 0)) {
                     if (this->unk_1A4 >= 70.0f) {
                         spA4 = 255.0f;
                     } else if (this->unk_1A4 >= 60.0f) {
@@ -3615,7 +3615,7 @@ void EnFishing_UpdateFish(Actor* thisx, PlayState* play2) {
                             }
                         }
 
-                        if ((Rand_ZeroOne() < 0.1f) && (this->unk_172[3] == 0)) {
+                        if ((fqrand() < 0.1f) && (this->unk_172[3] == 0)) {
                             u8 phi_a1;
 
                             if (this->unk_1A4 >= 60.0f) {
@@ -3742,7 +3742,7 @@ void EnFishing_UpdateFish(Actor* thisx, PlayState* play2) {
 
             if ((D_8090CD14 < 3) || ((D_809171C8 != 0) && (D_809171D4 > 50)) || (D_809171D4 >= 6000) ||
                 ((D_80917272 == 0) && (D_80917274 == 0)) || (D_80917266 == 0) ||
-                (((D_809171FE & 0x7F) == 0) && (Rand_ZeroOne() < 0.05f) && (D_80917206 != 2))) {
+                (((D_809171FE & 0x7F) == 0) && (fqrand() < 0.05f) && (D_80917206 != 2))) {
                 // Assignment of OoT's D_80B7A67C here removed in MM
 
                 if ((D_80917272 == 0) && (D_80917274 == 0)) {
@@ -4126,13 +4126,13 @@ void EnFishing_UpdateFish(Actor* thisx, PlayState* play2) {
                     Actor_PlaySfx(&this->actor, NA_SE_EV_FISH_LEAP);
                     func_809036BC(this, play);
 
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         this->unk_162 = 0x4000;
                     } else {
                         this->unk_162 = -0x4000;
                     }
 
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         this->unk_15E = 0;
                     } else {
                         this->unk_15E = (s16)(s32)Rand_CenteredFloat(0x20) + 0x8000;
@@ -4575,7 +4575,7 @@ void EnFishing_UpdateGroupFishes(PlayState* play) {
             dist = sqrtf(SQ(dx) + SQ(dz));
             spD6 = Math_Atan2S_XY(dist, dy);
 
-            if ((dist < 10.0f) || (((fish->timer % 32) == 0) && (Rand_ZeroOne() > 0.5f))) {
+            if ((dist < 10.0f) || (((fish->timer % 32) == 0) && (fqrand() > 0.5f))) {
                 fish->unk_10.y = basePos[groupIndex].y + Rand_CenteredFloat(10.0f);
 
                 if (D_8090CF18 != 0) {
@@ -5112,7 +5112,7 @@ void EnFishing_UpdateOwner(Actor* thisx, PlayState* play2) {
 
     Math_ApproachS(&this->unk_15C, headRotTarget, 3, 0x1388);
 
-    if (((play->gameplayFrames % 32) == 0) && (Rand_ZeroOne() < 0.3f)) {
+    if (((play->gameplayFrames % 32) == 0) && (fqrand() < 0.3f)) {
         this->unk_15A = 4;
     }
 
@@ -5531,7 +5531,7 @@ void EnFishing_UpdateOwner(Actor* thisx, PlayState* play2) {
     if ((D_809171CB == 1) && (Message_GetState(&play->msgCtx) == TEXT_STATE_NONE) && ((D_8090CD00 & 0xFFF) == 0xFFF)) {
         D_809171CB = 200;
 
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             D_8090CCD4 = Rand_ZeroFloat(10.0f) + 5.0f;
             play->envCtx.stormRequest = STORM_REQUEST_START;
         } else {

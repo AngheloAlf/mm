@@ -1285,7 +1285,7 @@ void func_80BEEB20(EnAkindonuts* this, PlayState* play) {
         } else if (this->animIndex == ENAKINDONUTS_ANIM_17) {
             phi_v0 = DECR(this->unk_33A);
             if (phi_v0 == 0) {
-                this->unk_33A = Rand_ZeroOne() * 10.0f;
+                this->unk_33A = fqrand() * 10.0f;
                 this->animIndex = ENAKINDONUTS_ANIM_2;
                 this->collider.dim.height = 32;
                 SubS_ChangeAnimationByInfoS(&this->skelAnime, sAnimationInfo, ENAKINDONUTS_ANIM_2);

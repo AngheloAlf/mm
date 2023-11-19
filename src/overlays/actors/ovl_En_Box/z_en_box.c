@@ -117,7 +117,7 @@ void func_80867C8C(struct_80867BDC_a0* arg0, PlayState* play) {
             f32 temp_f0 = (f32)i / temp_s6;
             s16 temp_s0 = ((f32)arg0->unk_18 - arg0->unk_1C) * temp_f0 + arg0->unk_1C;
             f32 temp_f24 = 1.0f - (temp_s0 * (1 / 85.0f));
-            f32 temp_f26 = Rand_ZeroOne() * 0.03f * temp_f0 * temp_f24;
+            f32 temp_f26 = fqrand() * 0.03f * temp_f0 * temp_f24;
             f32 temp_f28;
             f32 temp_f30 = Math_SinS(temp_s0 * 0x9A6) * 45.0f + arg0->pos.x;
             f32 phi_f24;
@@ -128,8 +128,8 @@ void func_80867C8C(struct_80867BDC_a0* arg0, PlayState* play) {
                 phi_f24 = arg0->pos.y + (0.03f * temp_s0) + (0.01f * temp_s0 * temp_s0);
             }
             temp_f28 = (Math_CosS(temp_s0 * 0x9A6) * 45.0f) + arg0->pos.z;
-            Matrix_Translate(2.0f * Rand_Centered() + temp_f30, 2.0f * Rand_Centered() + phi_f24,
-                             2.0f * Rand_Centered() + temp_f28, MTXMODE_NEW);
+            Matrix_Translate(2.0f * fqrand2() + temp_f30, 2.0f * fqrand2() + phi_f24,
+                             2.0f * fqrand2() + temp_f28, MTXMODE_NEW);
             Matrix_Scale(temp_f26, temp_f26, temp_f26, MTXMODE_APPLY);
             gDPSetPrimColor(POLY_XLU_DISP++, 0, 0x80, 255, 255, 255, 255);
             gDPSetEnvColor(POLY_XLU_DISP++, 255, 150, 0, 255);
@@ -220,7 +220,7 @@ void EnBox_Init(Actor* thisx, PlayState* play) {
     } else if (((this->type == ENBOX_TYPE_BIG_SWITCH_FLAG_FALL) || (this->type == ENBOX_TYPE_SMALL_SWITCH_FLAG_FALL)) &&
                !Flags_GetSwitch(play, this->switchFlag)) {
         DynaPoly_DisableCollision(play, &play->colCtx.dyna, this->dyna.bgId);
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             this->movementFlags |= ENBOX_MOVE_FALL_ANGLE_SIDE;
         }
         this->unk_1A0 = -12;
@@ -303,8 +303,8 @@ void EnBox_Destroy(Actor* thisx, PlayState* play) {
 }
 
 void EnBox_RandomDustKinematic(EnBox* this, Vec3f* pos, Vec3f* velocity, Vec3f* accel) {
-    f32 randomRadius = Rand_ZeroOne() * 25.0f;
-    s16 randomAngle = Rand_ZeroOne() * 0x10000;
+    f32 randomRadius = fqrand() * 25.0f;
+    s16 randomAngle = fqrand() * 0x10000;
 
     *pos = this->dyna.actor.world.pos;
     pos->x += Math_SinS(randomAngle) * randomRadius;
@@ -583,13 +583,13 @@ void EnBox_SpawnIceSmoke(EnBox* this, PlayState* play) {
     this->iceSmokeTimer++;
     //! @bug sfxId should be NA_SE_EN_MIMICK_BREATH, but uses OoT's sfxId value
     Actor_PlaySfx_Flagged(&this->dyna.actor, NA_SE_EN_LAST3_COIL_ATTACK_OLD - SFX_FLAG);
-    if (Rand_ZeroOne() < 0.3f) {
-        randomf = 2.0f * Rand_ZeroOne() - 1.0f;
+    if (fqrand() < 0.3f) {
+        randomf = 2.0f * fqrand() - 1.0f;
         pos = this->dyna.actor.world.pos;
         pos.x += randomf * 20.0f * Math_SinS(this->dyna.actor.world.rot.y + 0x4000);
         pos.z += randomf * 20.0f * Math_CosS(this->dyna.actor.world.rot.y + 0x4000);
 
-        randomf = 2.0f * Rand_ZeroOne() - 1.0f;
+        randomf = 2.0f * fqrand() - 1.0f;
         velocity.x = randomf * 1.6f * Math_SinS(this->dyna.actor.world.rot.y);
         velocity.y = 1.8f;
         velocity.z = randomf * 1.6f * Math_CosS(this->dyna.actor.world.rot.y);

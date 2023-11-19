@@ -125,19 +125,19 @@ void BgGoronOyu_SpawnEffects(BgGoronOyu* this, PlayState* play) {
         vel1.x = 0.0f;
         vel1.y = 2.5f;
         vel1.z = 0.0f;
-        scale = -200 - (s32)(Rand_ZeroOne() * 50.0f);
+        scale = -200 - (s32)(fqrand() * 50.0f);
 
         if (BgCheck_EntityRaycastFloor2(play, &play->colCtx, &poly, &pos1) < this->waterBoxPos.y) {
             pos1.y = this->waterBoxPos.y + 10.0f;
             EffectSsIceSmoke_Spawn(play, &pos1, &vel1, &gZeroVec3f, scale);
         }
-        pos2.x = (Rand_ZeroOne() * this->waterBoxXLength) + this->waterBoxPos.x;
+        pos2.x = (fqrand() * this->waterBoxXLength) + this->waterBoxPos.x;
         pos2.y = this->waterBoxPos.y + 100.0f;
-        pos2.z = (Rand_ZeroOne() * this->waterBoxZLength) + this->waterBoxPos.z;
+        pos2.z = (fqrand() * this->waterBoxZLength) + this->waterBoxPos.z;
         vel2.x = 0.0f;
         vel2.y = 0.5f;
         vel2.z = 0.0f;
-        scale = -200 - (s32)(Rand_ZeroOne() * 50.0f);
+        scale = -200 - (s32)(fqrand() * 50.0f);
 
         if (BgCheck_EntityRaycastFloor2(play, &play->colCtx, &poly, &pos2) < this->waterBoxPos.y) {
             pos2.y = this->waterBoxPos.y + 10.0f;

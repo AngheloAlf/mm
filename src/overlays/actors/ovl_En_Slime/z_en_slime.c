@@ -281,7 +281,7 @@ void EnSlime_Blink(EnSlime* this) {
         if (this->eyeTexIndex == EN_SLIME_EYETEX_MAX) {
             this->eyeTexIndex = EN_SLIME_EYETEX_OPEN;
         }
-    } else if (Rand_ZeroOne() < 0.05f) {
+    } else if (fqrand() < 0.05f) {
         this->eyeTexIndex = EN_SLIME_EYETEX_HALF;
     }
 }
@@ -364,7 +364,7 @@ void EnSlime_SetupMoveInDirection(EnSlime* this) {
     // Otherwise, the new direction to move is pretty much random.
     if (Actor_WorldDistXZToPoint(&this->actor, &this->actor.home.pos) > 120.0f) {
         this->idleRotY = Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos);
-    } else if (Rand_ZeroOne() < 0.7f) {
+    } else if (fqrand() < 0.7f) {
         this->idleRotY = (s32)Rand_CenteredFloat(0x4000) + this->actor.shape.rot.y;
     }
     this->actor.world.rot.y = this->actor.shape.rot.y;
@@ -674,8 +674,8 @@ void EnSlime_SetupDamaged(EnSlime* this, PlayState* play, s32 arg2) {
 
     this->eyeTexIndex = EN_SLIME_EYETEX_OPEN;
     Actor_SetScale(&this->actor, 0.01f);
-    this->wobbleRot.x = Rand_ZeroOne() * (M_PI * 2.0f);
-    this->wobbleRot.z = Rand_ZeroOne() * (M_PI * 2.0f);
+    this->wobbleRot.x = fqrand() * (M_PI * 2.0f);
+    this->wobbleRot.z = fqrand() * (M_PI * 2.0f);
     ySin = Math_SinS(this->actor.world.rot.y) * 10.0f;
     yCos = Math_CosS(this->actor.world.rot.y) * 10.0f;
     effectPos.x = this->actor.world.pos.x + ySin;
@@ -688,10 +688,10 @@ void EnSlime_SetupDamaged(EnSlime* this, PlayState* play, s32 arg2) {
         effectPos.y = Rand_CenteredFloat(10.0f) + this->actor.world.pos.y + 40.0f;
         effectPos.z = Rand_CenteredFloat(40.0f) + this->actor.world.pos.z + yCos;
 
-        effectVelocity.x = ((Rand_ZeroOne() * 3.5f) + 1.0f) * -Math_SinS(this->actor.world.rot.y);
-        effectVelocity.z = ((Rand_ZeroOne() * 3.5f) + 1.0f) * -Math_CosS(this->actor.world.rot.y);
+        effectVelocity.x = ((fqrand() * 3.5f) + 1.0f) * -Math_SinS(this->actor.world.rot.y);
+        effectVelocity.z = ((fqrand() * 3.5f) + 1.0f) * -Math_CosS(this->actor.world.rot.y);
 
-        effectVelocity.y = (Rand_ZeroOne() * 6.0f) + 2.0f;
+        effectVelocity.y = (fqrand() * 6.0f) + 2.0f;
         EffectSsDtBubble_SpawnCustomColor(play, &effectPos, &effectVelocity, &sBubbleAccel, &sBubblePrimColor,
                                           &sBubbleEnvColor, Rand_S16Offset(40, 20), 20, 0);
     }
@@ -713,8 +713,8 @@ void EnSlime_Damaged(EnSlime* this, PlayState* play) {
     this->timer--;
     Math_StepToF(&this->actor.speed, 0.0f, 1.0f);
     if ((this->timer % 5) == 0) {
-        this->wobbleRot.x = Rand_ZeroOne() * (M_PI * 2.0f);
-        this->wobbleRot.z = Rand_ZeroOne() * (M_PI * 2.0f);
+        this->wobbleRot.x = fqrand() * (M_PI * 2.0f);
+        this->wobbleRot.z = fqrand() * (M_PI * 2.0f);
     }
     if (this->timer == 0) {
         if (this->actor.colChkInfo.health != 0) {
@@ -764,15 +764,15 @@ void EnSlime_Dead(EnSlime* this, PlayState* play) {
         EffectSsGSplash_Spawn(play, &effectPos, NULL, NULL, 1, 800);
 
         for (i = 0; i < 15; i++) {
-            randFloat = Rand_ZeroOne();
-            randSign = Rand_ZeroOne() < 0.5f ? -1 : 1;
+            randFloat = fqrand();
+            randSign = fqrand() < 0.5f ? -1 : 1;
             velocity.x = randSign * ((randFloat * 2.5f) + 2.0f);
 
-            randFloat = Rand_ZeroOne();
-            randSign = Rand_ZeroOne() < 0.5f ? -1 : 1;
+            randFloat = fqrand();
+            randSign = fqrand() < 0.5f ? -1 : 1;
             velocity.z = randSign * ((randFloat * 2.5f) + 2.0f);
 
-            velocity.y = (Rand_ZeroOne() * 6.0f) + 2.0f;
+            velocity.y = (fqrand() * 6.0f) + 2.0f;
             EffectSsDtBubble_SpawnCustomColor(play, &effectPos, &velocity, &sBubbleAccel, &sBubblePrimColor,
                                               &sBubbleEnvColor, Rand_S16Offset(40, 20), 20, 0);
         }

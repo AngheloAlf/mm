@@ -121,8 +121,8 @@ void EffectSsKirakira_Draw(PlayState* play, u32 index, EffectSs* this) {
 }
 
 void func_80977DB4(PlayState* play, u32 index, EffectSs* this) {
-    this->accel.x = (Rand_ZeroOne() * 0.4f) - 0.2f;
-    this->accel.z = (Rand_ZeroOne() * 0.4f) - 0.2f;
+    this->accel.x = (fqrand() * 0.4f) - 0.2f;
+    this->accel.z = (fqrand() * 0.4f) - 0.2f;
     this->rEnvColorA += this->rAlphaStep;
 
     if (this->rEnvColorA < 0) {

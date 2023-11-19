@@ -635,8 +635,8 @@ void func_80B274BC(EnKendoJs* this, PlayState* play) {
         }
 
         Audio_PlaySfx(NA_SE_SY_FOUND);
-        func_80B279F0(this, play, ((u8)Rand_Next() % 3) + 1);
-        func_80B279F0(this, play, ((u8)Rand_Next() % 3) + 4);
+        func_80B279F0(this, play, ((u8)qrand() % 3) + 1);
+        func_80B279F0(this, play, ((u8)qrand() % 3) + 4);
         this->unk_290 = 0;
         this->unk_284++;
     } else if (this->unk_290 == 120) {

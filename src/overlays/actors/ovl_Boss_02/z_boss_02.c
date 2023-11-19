@@ -806,7 +806,7 @@ void func_809DAB78(Boss02* this, PlayState* play) {
             return;
 
         case 0:
-            if ((TWINMOLD_GET_TYPE(&this->actor) == TWINMOLD_TYPE_RED) && (Rand_ZeroOne() < 0.75f)) {
+            if ((TWINMOLD_GET_TYPE(&this->actor) == TWINMOLD_TYPE_RED) && (fqrand() < 0.75f)) {
                 this->actor.world.pos.x = player->actor.world.pos.x;
                 this->actor.world.pos.z = player->actor.world.pos.z;
                 this->actor.world.pos.y = player->actor.world.pos.y - (600.0f * sGiantModeScaleFactor);
@@ -834,7 +834,7 @@ void func_809DAB78(Boss02* this, PlayState* play) {
 
         case 1:
             if (this->unk_0146[0] == 0) {
-                if (Rand_ZeroOne() < 0.3f) {
+                if (fqrand() < 0.3f) {
                     this->unk_0144 = 5;
                     this->unk_0146[0] = 150;
                 } else {
@@ -978,7 +978,7 @@ void func_809DAB78(Boss02* this, PlayState* play) {
                 sTwinmoldStatic->unk_1D20 = 102;
                 sTwinmoldStatic->subCamAtVel = 0.0f;
                 Audio_PlaySfx(NA_SE_EN_INBOSS_DEAD_PRE2_OLD);
-            } else if (!(this->unk_0146[1] & 0xF) && (Rand_ZeroOne() < 0.5f)) {
+            } else if (!(this->unk_0146[1] & 0xF) && (fqrand() < 0.5f)) {
                 Actor_PlaySfx(&this->actor, NA_SE_EN_INBOSS_DAMAGE_OLD);
             }
             return;

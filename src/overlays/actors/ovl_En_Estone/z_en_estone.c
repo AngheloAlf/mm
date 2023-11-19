@@ -87,13 +87,13 @@ void EnEstone_Init(Actor* thisx, PlayState* play) {
     this->collider.dim.yShift = this->scale * -1300.0f;
 
     for (i = 0; i < 7; i++) {
-        accel.x = 0.5f * (Rand_ZeroOne() - 0.5f);
+        accel.x = 0.5f * (fqrand() - 0.5f);
         accel.y = -1.0f;
-        accel.z = 0.5f * (Rand_ZeroOne() - 0.5f);
+        accel.z = 0.5f * (fqrand() - 0.5f);
 
-        velocity.x = 2.0f * (Rand_ZeroOne() - 0.5f);
-        velocity.y = 8.0f + (Rand_ZeroOne() * 10.0f);
-        velocity.z = 2.0f * (Rand_ZeroOne() - 0.5f);
+        velocity.x = 2.0f * (fqrand() - 0.5f);
+        velocity.y = 8.0f + (fqrand() * 10.0f);
+        velocity.z = 2.0f * (fqrand() - 0.5f);
 
         scale = (Rand_ZeroFloat(1.0f) * 0.001f) + 0.001f;
 
@@ -126,12 +126,12 @@ void EnEstone_Active(EnEstone* this, PlayState* play) {
         this->collider.base.atFlags &= ~AT_BOUNCED;
         if (this->actor.params == ENESTONE_TYPE_LARGE) {
             for (i = 0; i < 2; i++) {
-                accel.x = 2.0f * (Rand_ZeroOne() - 0.5f);
+                accel.x = 2.0f * (fqrand() - 0.5f);
                 accel.y = -1.0f;
-                accel.z = 2.0f * (Rand_ZeroOne() - 0.5f);
-                velocity.x = 3.0f * (Rand_ZeroOne() - 0.5f);
-                velocity.y = 5.0f + (Rand_ZeroOne() * 10.0f);
-                velocity.z = 3.0f * (Rand_ZeroOne() - 0.5f);
+                accel.z = 2.0f * (fqrand() - 0.5f);
+                velocity.x = 3.0f * (fqrand() - 0.5f);
+                velocity.y = 5.0f + (fqrand() * 10.0f);
+                velocity.z = 3.0f * (fqrand() - 0.5f);
                 EnEstone_SpawnEffect(this, &this->actor.world.pos, &velocity, &accel,
                                      0.003f + (0.002f * Rand_ZeroFloat(1.0f)), 20);
             }

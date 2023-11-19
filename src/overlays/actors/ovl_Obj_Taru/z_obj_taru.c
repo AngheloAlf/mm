@@ -85,22 +85,22 @@ void func_80B9B74C(ObjTaru* this, PlayState* play) {
     for (i = 0, angle = 0; i < 0x10; i++, angle += 0x4E20) {
         f32 sin = Math_SinS(angle);
         f32 cos = Math_CosS(angle);
-        f32 tempRand = Rand_ZeroOne() * 30.0f;
+        f32 tempRand = fqrand() * 30.0f;
         s32 phi_s0;
 
         pos.x = sin * tempRand;
-        pos.y = (Rand_ZeroOne() * 10.0f) + 2.0f;
+        pos.y = (fqrand() * 10.0f) + 2.0f;
         pos.z = cos * tempRand;
 
         velocity.x = pos.x * 0.2f;
-        velocity.y = (Rand_ZeroOne() * 10.0f) + 2.0f;
+        velocity.y = (fqrand() * 10.0f) + 2.0f;
         velocity.z = pos.z * 0.2f;
 
         pos.x += thisPos->x;
         pos.y += thisPos->y;
         pos.z += thisPos->z;
 
-        tempRand = Rand_ZeroOne();
+        tempRand = fqrand();
         if (tempRand < 0.05f) {
             phi_s0 = 0x60;
         } else if (tempRand < 0.7f) {
@@ -108,7 +108,7 @@ void func_80B9B74C(ObjTaru* this, PlayState* play) {
         } else {
             phi_s0 = 0x20;
         }
-        EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -200, phi_s0, 28, 2, 0, (Rand_ZeroOne() * 30.0f) + 5.0f, 0, 0,
+        EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -200, phi_s0, 28, 2, 0, (fqrand() * 30.0f) + 5.0f, 0, 0,
                              70, KAKERA_COLOR_NONE, OBJECT_KIBAKO2, gLargeCrateFragment1DL);
     }
     func_800BBFB0(play, thisPos, 90.0f, 6, 100, 160, 1);
@@ -152,7 +152,7 @@ void func_80B9B9C8(ObjTaru* this, PlayState* play) {
             spD8.x += thisPos->x;
             spD8.y += thisPos->y;
             spD8.z += thisPos->z;
-            EffectSsKakera_Spawn(play, &spD8, &spCC, &spD8, -0x64, 0x20, 0x1C, 4, 0, (Rand_ZeroOne() * 30.0f) + 5.0f, 0,
+            EffectSsKakera_Spawn(play, &spD8, &spCC, &spD8, -0x64, 0x20, 0x1C, 4, 0, (fqrand() * 30.0f) + 5.0f, 0,
                                  0, 0x5A, KAKERA_COLOR_NONE, OBJECT_KIBAKO2, gLargeCrateFragment2DL);
         }
     }
@@ -175,7 +175,7 @@ void func_80B9BCBC(ObjTaru* this, PlayState* play) {
 
     if (func_80B9B6E0(this, play)) {
         params1F = (OBJ_TARU_GET_1F(&this->dyna.actor) * 4) | 0xFF01;
-        rotY = (Rand_Next() >> 0x11) + this->dyna.actor.yawTowardsPlayer + 0xC000;
+        rotY = (qrand() >> 0x11) + this->dyna.actor.yawTowardsPlayer + 0xC000;
         spawnedActor = Actor_Spawn(&play->actorCtx, play, ACTOR_EN_SW, this->dyna.actor.world.pos.x,
                                    this->dyna.actor.world.pos.y, this->dyna.actor.world.pos.z, 0, rotY, 0, params1F);
         if (spawnedActor != NULL) {
@@ -317,7 +317,7 @@ void ObjTaru_Update(Actor* thisx, PlayState* play) {
             switch (this->unk_1AD) {
                 case 0:
                     Actor_PlaySfx(&this->dyna.actor, NA_SE_EN_STALGOLD_ROLL);
-                    if (Rand_ZeroOne() < 0.1f) {
+                    if (fqrand() < 0.1f) {
                         this->unk_1AD = Rand_S16Offset(40, 80);
                     } else {
                         this->unk_1AD = 8;

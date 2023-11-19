@@ -84,7 +84,7 @@ void func_80C22DEC(EnBh* this, PlayState* play) {
         if (this->timer == 0) {
             this->skelAnime.playSpeed = 1.0f;
             this->timer = Rand_ZeroFloat(70.0f) + 50.0f;
-        } else if (((this->timer & 7) == 7) && (Rand_ZeroOne() < 0.5f)) {
+        } else if (((this->timer & 7) == 7) && (fqrand() < 0.5f)) {
             this->unk1E4 = Rand_CenteredFloat(3000.0f);
         }
     } else {

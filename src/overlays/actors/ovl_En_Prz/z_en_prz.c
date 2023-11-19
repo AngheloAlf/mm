@@ -273,7 +273,7 @@ void func_80A763E8(EnPrz* this, PlayState* play) {
 
     if (1) {}
 
-    if ((Rand_ZeroOne() < 0.1f) && (this->unk_1C8 == 0)) {
+    if ((fqrand() < 0.1f) && (this->unk_1C8 == 0)) {
         this->unk_1C8 = 1;
     }
 
@@ -355,7 +355,7 @@ void func_80A767A8(EnPrz* this, PlayState* play) {
         Math_Vec3f_Copy(&this->unk_1D8, &player->actor.world.pos);
     }
 
-    if ((Rand_ZeroOne() < 0.1f) && (this->unk_1C8 == 0)) {
+    if ((fqrand() < 0.1f) && (this->unk_1C8 == 0)) {
         this->unk_1C8 = 1;
     }
 
@@ -374,7 +374,7 @@ void func_80A76A1C(EnPrz* this) {
     this->unk_1EE = Rand_S16Offset(100, 30);
     this->unk_1FC = 0x4000;
 
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         this->unk_1FC = -0x4000;
     }
 

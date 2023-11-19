@@ -153,14 +153,14 @@ void func_808D8940(EnSw* this, PlayState* play) {
     s32 temp_f4;
     s16 temp_s0;
 
-    temp_s0 = (Rand_ZeroOne() - 0.5f) * 0x10000;
+    temp_s0 = (fqrand() - 0.5f) * 0x10000;
     spA0.y = this->actor.floorHeight;
 
     for (i = 0; i < 8; i++, temp_s0 += 0x1FFE) {
-        temp_f4 = (Rand_ZeroOne() * 4.0f) + 8.0f;
+        temp_f4 = (fqrand() * 4.0f) + 8.0f;
         sp94.x = 0.0f;
-        sp94.y = (Rand_ZeroOne() * 0.2f) + 0.1f;
-        sp94.z = Rand_ZeroOne() + 1.0f;
+        sp94.y = (fqrand() * 0.2f) + 0.1f;
+        sp94.z = fqrand() + 1.0f;
         Lib_Vec3f_TranslateAndRotateY(&gZeroVec3f, temp_s0, &sp94, &spAC);
         sp94.x = 0.0f;
         sp94.y = 0.7f;
@@ -173,12 +173,12 @@ void func_808D8940(EnSw* this, PlayState* play) {
 }
 
 s32 func_808D8B58(EnSw* this) {
-    s16 phi_s2 = (s16)(TRUNCF_BINANG(Rand_ZeroOne() * 1000.0f) % ENSW_BODYPART_MAX) * 0x1555;
+    s16 phi_s2 = (s16)(TRUNCF_BINANG(fqrand() * 1000.0f) % ENSW_BODYPART_MAX) * 0x1555;
     s32 i;
 
     for (i = 0; i < ENSW_BODYPART_MAX; i++, phi_s2 += 0x1555) {
         if (this->drawDmgEffType != ACTOR_DRAW_DMGEFF_FROZEN_NO_SFX) {
-            this->unk_464[i] = (Rand_ZeroOne() * 16.0f) + 8.0f;
+            this->unk_464[i] = (fqrand() * 16.0f) + 8.0f;
         } else {
             this->unk_464[i] = 80;
         }
@@ -186,9 +186,9 @@ s32 func_808D8B58(EnSw* this) {
         this->drawDmgEffFrozenSteamScales[i] = 0.45000002f;
         if ((this->drawDmgEffType == ACTOR_DRAW_DMGEFF_FIRE) || (this->drawDmgEffType == ACTOR_DRAW_DMGEFF_BLUE_FIRE) ||
             (this->drawDmgEffType == ACTOR_DRAW_DMGEFF_FROZEN_NO_SFX)) {
-            this->bodyPartsPos[i].y = (Rand_ZeroOne() - 0.5f) * 20.0f;
+            this->bodyPartsPos[i].y = (fqrand() - 0.5f) * 20.0f;
         } else {
-            this->bodyPartsPos[i].y = ((Rand_ZeroOne() - 0.5f) * 20.0f) + 10.0f;
+            this->bodyPartsPos[i].y = ((fqrand() - 0.5f) * 20.0f) + 10.0f;
         }
         this->bodyPartsPos[i].x = Math_SinS(phi_s2) * 10.0f;
         this->bodyPartsPos[i].z = Math_CosS(phi_s2) * 10.0f;
@@ -530,11 +530,11 @@ s32 func_808D9A70(EnSw* this, PlayState* play) {
                 this->skelAnime.curFrame = 0.0f;
             } else {
                 this->unk_454 = Rand_S16Offset(20, 20);
-                this->unk_456 = (Rand_ZeroOne() * 10.0f) + 3.0f;
+                this->unk_456 = (fqrand() * 10.0f) + 3.0f;
             }
 
             if (this->unk_456 % 2) {
-                if (Rand_ZeroOne() < 0.5f) {
+                if (fqrand() < 0.5f) {
                     this->unk_450 = -1.0f;
                 } else {
                     this->unk_450 = 1.0f;
@@ -622,7 +622,7 @@ void func_808D9E44(EnSw* this) {
 
 void func_808D9F08(EnSw* this) {
     this->unk_454 = Rand_S16Offset(20, 20);
-    this->unk_456 = (Rand_ZeroOne() * 10.0f) + 3.0f;
+    this->unk_456 = (fqrand() * 10.0f) + 3.0f;
     this->unk_414 = 0.0f;
     this->unk_45E = this->unk_460;
 }
@@ -837,7 +837,7 @@ void func_808DA6FC(EnSw* this, PlayState* play) {
     if (((s32)this->unk_414 != 0) && ((s32)this->unk_414 < (s32)sp4C)) {
         Math_Vec3f_Copy(&this->actor.world.pos, &this->unk_374);
         this->unk_454 = Rand_S16Offset(20, 20);
-        this->unk_456 = (Rand_ZeroOne() * 10.0f) + 3.0f;
+        this->unk_456 = (fqrand() * 10.0f) + 3.0f;
         this->actionFunc = func_808DA350;
         this->skelAnime.curFrame = 0.0f;
     }
@@ -933,14 +933,14 @@ void func_808DAA60(EnSw* this, PlayState* play) {
                 this->skelAnime.curFrame = 0.0f;
             } else {
                 this->unk_454 = Rand_S16Offset(20, 20);
-                this->unk_456 = (Rand_ZeroOne() * 10.0f) + 3.0f;
+                this->unk_456 = (fqrand() * 10.0f) + 3.0f;
                 if (this->unk_45E != 0) {
                     this->unk_45E--;
                 }
             }
 
             if (this->unk_456 % 2) {
-                if (Rand_ZeroOne() < 0.5f) {
+                if (fqrand() < 0.5f) {
                     this->unk_450 = -1.0f;
                 } else {
                     this->unk_450 = 1.0f;
@@ -1082,7 +1082,7 @@ void func_808DB100(EnSw* this, PlayState* play) {
             this->skelAnime.curFrame = 0.0f;
         } else {
             this->unk_454 = Rand_S16Offset(20, 20);
-            this->unk_456 = (Rand_ZeroOne() * 10.0f) + 3.0f;
+            this->unk_456 = (fqrand() * 10.0f) + 3.0f;
         }
     }
 }

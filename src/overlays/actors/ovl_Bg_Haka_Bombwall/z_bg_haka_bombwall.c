@@ -95,7 +95,7 @@ void func_80BD5E6C(BgHakaBombwall* this, PlayState* play) {
     offsetPosY = 0.0f;
 
     for (i = 0; i < 30; i++) {
-        offsetPosX += 60.0f + (Rand_ZeroOne() * 20.0f);
+        offsetPosX += 60.0f + (fqrand() * 20.0f);
 
         if (offsetPosX > 75.0f) {
             offsetPosX -= 150.0f;
@@ -105,11 +105,11 @@ void func_80BD5E6C(BgHakaBombwall* this, PlayState* play) {
 
         posOffset.x = offsetPosX;
         posOffset.y = offsetPosY;
-        posOffset.z = (Rand_ZeroOne() * 20.0f) - 10.0f;
+        posOffset.z = (fqrand() * 20.0f) - 10.0f;
 
-        velOffset.x = ((Rand_ZeroOne() - 0.5f) * 5.0f) + (offsetPosX * (4.0f / 75.0f));
-        velOffset.y = (Rand_ZeroOne() * 7.0f) - 2.0f;
-        velOffset.z = (Rand_ZeroOne() * 4.0f) - 2.0f;
+        velOffset.x = ((fqrand() - 0.5f) * 5.0f) + (offsetPosX * (4.0f / 75.0f));
+        velOffset.y = (fqrand() * 7.0f) - 2.0f;
+        velOffset.z = (fqrand() * 4.0f) - 2.0f;
 
         Matrix_MultVec3f(&posOffset, &pos);
         Matrix_MultVec3f(&velOffset, &vel);

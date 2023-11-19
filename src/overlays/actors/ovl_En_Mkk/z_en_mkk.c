@@ -221,7 +221,7 @@ void func_80A4E100(EnMkk* this, PlayState* play) {
 }
 
 void func_80A4E190(EnMkk* this) {
-    this->unk_14E = (s32)(Rand_ZeroOne() * 20.0f) + 10;
+    this->unk_14E = (s32)(fqrand() * 20.0f) + 10;
     if (this->unk_149 != 0) {
         this->unk_149--;
     }
@@ -408,7 +408,7 @@ void EnMkk_Update(Actor* thisx, PlayState* play) {
 
     if (this->primColorSelect > 0) {
         this->primColorSelect--;
-    } else if ((Rand_ZeroOne() < 0.075f) && (this->actor.params != 1)) {
+    } else if ((fqrand() < 0.075f) && (this->actor.params != 1)) {
         this->primColorSelect = 6;
     }
     func_80A4EBBC(this, play);
@@ -493,14 +493,14 @@ void func_80A4EF74(EnMkk* this, PlayState* play) {
         }
     } else {
         this->alpha = newAlpha;
-        this->actor.world.pos.x += 0.3f + (3.0f * Rand_ZeroOne());
-        this->actor.world.pos.y += 0.5f + (3.5f * Rand_ZeroOne());
-        this->unk_16C.x -= 0.3f + (3.0f * Rand_ZeroOne());
-        this->unk_16C.y += 0.5f + (3.5f * Rand_ZeroOne());
-        this->unk_154.z += 0.3f + (3.0f * Rand_ZeroOne());
-        this->unk_154.y += 0.5f + (3.5f * Rand_ZeroOne());
-        this->unk_160.z -= 0.3f + (3.0f * Rand_ZeroOne());
-        this->unk_160.y += 0.5f + (3.5f * Rand_ZeroOne());
+        this->actor.world.pos.x += 0.3f + (3.0f * fqrand());
+        this->actor.world.pos.y += 0.5f + (3.5f * fqrand());
+        this->unk_16C.x -= 0.3f + (3.0f * fqrand());
+        this->unk_16C.y += 0.5f + (3.5f * fqrand());
+        this->unk_154.z += 0.3f + (3.0f * fqrand());
+        this->unk_154.y += 0.5f + (3.5f * fqrand());
+        this->unk_160.z -= 0.3f + (3.0f * fqrand());
+        this->unk_160.y += 0.5f + (3.5f * fqrand());
     }
 }
 

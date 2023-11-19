@@ -235,7 +235,7 @@ void func_809CE234(BgSpdweb* this, PlayState* play) {
     }
 
     if ((this->unk_162 % 3) == 0) {
-        phi_s2 = Rand_ZeroOne() * 10922.0f;
+        phi_s2 = fqrand() * 10922.0f;
         spB4.y = 0.0f;
         spA8.y = this->dyna.actor.world.pos.y;
 
@@ -378,7 +378,7 @@ void func_809CE830(BgSpdweb* this, PlayState* play) {
     }
 
     if ((this->unk_162 % 3) == 0) {
-        temp_s3 = Rand_ZeroOne() * 0x2AAA;
+        temp_s3 = fqrand() * 0x2AAA;
         cosQ = Math_CosS(this->dyna.actor.shape.rot.x);
         sinQ = Math_SinS(this->dyna.actor.shape.rot.x);
         cosF1 = Math_CosS(this->dyna.actor.shape.rot.y);

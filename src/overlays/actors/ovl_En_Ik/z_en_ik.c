@@ -340,13 +340,13 @@ s32 EnIk_ChooseAttack(EnIk* this) {
         absYawDiff = ABS_ALT(BINANG_SUB(this->actor.yawTowardsPlayer, this->actor.shape.rot.y));
 
         if (detectionThreshold >= absYawDiff) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 EnIk_SetupVerticalAttack(this);
                 return true;
             }
             EnIk_SetupHorizontalDoubleAttack(this);
             return true;
-        } else if ((this->drawArmorFlags) || ((absYawDiff > 0x4000) && (Rand_ZeroOne() < 0.1f))) {
+        } else if ((this->drawArmorFlags) || ((absYawDiff > 0x4000) && (fqrand() < 0.1f))) {
             EnIk_SetupSingleHorizontalAttack(this);
             return true;
         }
@@ -1030,7 +1030,7 @@ void EnIk_PostLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3s* rot, 
             Matrix_MtxFToYXZRot(mf, &ikEffect->rot, false);
             ikEffect->enabled = true;
             sp76 =
-                sIronKnuckleArmorMarkings[armorBodyPart].unk04 + (((s32)Rand_Next() >> 0x13) + this->actor.shape.rot.y);
+                sIronKnuckleArmorMarkings[armorBodyPart].unk04 + (((s32)qrand() >> 0x13) + this->actor.shape.rot.y);
             ikEffect->vel.x = Math_SinS(sp76) * 5.0f;
             ikEffect->vel.y = 6.0f;
             ikEffect->vel.z = Math_CosS(sp76) * 5.0f;

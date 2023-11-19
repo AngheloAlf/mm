@@ -250,9 +250,9 @@ void func_80B12E7C(ObjDhouse* this, PlayState* play, ObjDhouseStruct1* ptr, ObjD
     for (i = 0; i < 15; i++) {
         ptr2 = &this->unk_240[func_80B12D78(this)];
 
-        ptr2->unk_00.x = Rand_ZeroOne() - 0.5f;
-        ptr2->unk_00.y = Rand_ZeroOne();
-        ptr2->unk_00.z = Rand_ZeroOne() - 0.5f;
+        ptr2->unk_00.x = fqrand() - 0.5f;
+        ptr2->unk_00.y = fqrand();
+        ptr2->unk_00.z = fqrand() - 0.5f;
 
         ptr2->unk_0C.x = ptr2->unk_00.x * 24.0f;
         ptr2->unk_0C.y = ptr2->unk_00.y * 34.0f;
@@ -262,25 +262,25 @@ void func_80B12E7C(ObjDhouse* this, PlayState* play, ObjDhouseStruct1* ptr, ObjD
         ptr2->unk_00.y = ((ptr2->unk_00.y - 0.2f) * 50.0f) + spA0.y;
         ptr2->unk_00.z = (ptr2->unk_00.z * 140.0f) + spA0.z;
 
-        ptr2->unk_18 = (Rand_ZeroOne() * 0.057f) + 0.003f;
+        ptr2->unk_18 = (fqrand() * 0.057f) + 0.003f;
 
-        ptr2->unk_1C.x = Rand_Next() >> 0x10;
-        ptr2->unk_1C.y = Rand_Next() >> 0x10;
-        ptr2->unk_1C.z = Rand_Next() >> 0x10;
+        ptr2->unk_1C.x = qrand() >> 0x10;
+        ptr2->unk_1C.y = qrand() >> 0x10;
+        ptr2->unk_1C.z = qrand() >> 0x10;
 
-        ptr2->unk_22 = (Rand_Next() >> 0x11) - 0x3FFF;
-        ptr2->unk_24 = (Rand_Next() >> 0x13) - 0xFFF;
-        ptr2->unk_26 = (Rand_Next() >> 0x12) - 0x1FFF;
+        ptr2->unk_22 = (qrand() >> 0x11) - 0x3FFF;
+        ptr2->unk_24 = (qrand() >> 0x13) - 0xFFF;
+        ptr2->unk_26 = (qrand() >> 0x12) - 0x1FFF;
         ptr2->unk_29 = 0;
         ptr2->unk_28 = 40;
 
         if ((i % 2) != 0) {
-            sp88.x = ((Rand_ZeroOne() - 0.5f) * sp94.x) + ptr2->unk_00.x;
-            sp88.y = ((Rand_ZeroOne() - 0.3f) * sp94.y) + ptr2->unk_00.y;
-            sp88.z = ((Rand_ZeroOne() - 0.5f) * sp94.z) + ptr2->unk_00.z;
+            sp88.x = ((fqrand() - 0.5f) * sp94.x) + ptr2->unk_00.x;
+            sp88.y = ((fqrand() - 0.3f) * sp94.y) + ptr2->unk_00.y;
+            sp88.z = ((fqrand() - 0.5f) * sp94.z) + ptr2->unk_00.z;
 
-            func_800B1210(play, &sp88, &gZeroVec3f, &D_80B13FA8, (s32)(Rand_ZeroOne() * 130.0f) + 20,
-                          (s32)(Rand_ZeroOne() * 140.0f) + 60);
+            func_800B1210(play, &sp88, &gZeroVec3f, &D_80B13FA8, (s32)(fqrand() * 130.0f) + 20,
+                          (s32)(fqrand() * 140.0f) + 60);
         }
     }
 }
@@ -296,9 +296,9 @@ void func_80B13170(ObjDhouse* this, PlayState* play, ObjDhouseStruct1* ptr, ObjD
     for (i = 0; i < 11; i++) {
         ptr2 = &this->unk_240[func_80B12D78(this)];
 
-        ptr2->unk_00.x = Rand_ZeroOne() - 0.5f;
-        ptr2->unk_00.y = Rand_ZeroOne();
-        ptr2->unk_00.z = Rand_ZeroOne() - 0.5f;
+        ptr2->unk_00.x = fqrand() - 0.5f;
+        ptr2->unk_00.y = fqrand();
+        ptr2->unk_00.z = fqrand() - 0.5f;
 
         ptr2->unk_0C.x = ptr2->unk_00.x * 23.0f;
         ptr2->unk_0C.y = (ptr2->unk_00.y * 19.0f) + 5.0f;
@@ -308,31 +308,31 @@ void func_80B13170(ObjDhouse* this, PlayState* play, ObjDhouseStruct1* ptr, ObjD
         ptr2->unk_00.y = (ptr2->unk_00.y * 23.0f) + sp98.y + 15.0f;
         ptr2->unk_00.z = (ptr2->unk_00.z * 80.0f) + sp98.z;
 
-        ptr2->unk_1C.x = Rand_Next() >> 0x10;
-        ptr2->unk_1C.y = Rand_Next() >> 0x10;
-        ptr2->unk_1C.z = Rand_Next() >> 0x10;
+        ptr2->unk_1C.x = qrand() >> 0x10;
+        ptr2->unk_1C.y = qrand() >> 0x10;
+        ptr2->unk_1C.z = qrand() >> 0x10;
 
-        ptr2->unk_22 = (Rand_Next() >> 0x12) - 0x1FFF;
-        ptr2->unk_24 = (Rand_Next() >> 0x13) - 0xFFF;
-        ptr2->unk_26 = (Rand_Next() >> 0x12) - 0x1FFF;
+        ptr2->unk_22 = (qrand() >> 0x12) - 0x1FFF;
+        ptr2->unk_24 = (qrand() >> 0x13) - 0xFFF;
+        ptr2->unk_26 = (qrand() >> 0x12) - 0x1FFF;
 
         ptr2->unk_28 = 40;
 
         if (i < 3) {
-            ptr2->unk_18 = (Rand_ZeroOne() * 0.06f) + 0.12f;
+            ptr2->unk_18 = (fqrand() * 0.06f) + 0.12f;
             ptr2->unk_29 = 1;
         } else {
-            ptr2->unk_18 = (Rand_ZeroOne() * 0.05f) + 0.003f;
+            ptr2->unk_18 = (fqrand() * 0.05f) + 0.003f;
             ptr2->unk_29 = 0;
         }
 
         if ((i % 2) != 0) {
-            sp8C.x = ((Rand_ZeroOne() - 0.5f) * 160.0f) + ptr2->unk_00.x;
-            sp8C.y = (Rand_ZeroOne() * 120.0f) + ptr2->unk_00.y;
-            sp8C.z = ((Rand_ZeroOne() - 0.5f) * 160.0f) + ptr2->unk_00.z;
+            sp8C.x = ((fqrand() - 0.5f) * 160.0f) + ptr2->unk_00.x;
+            sp8C.y = (fqrand() * 120.0f) + ptr2->unk_00.y;
+            sp8C.z = ((fqrand() - 0.5f) * 160.0f) + ptr2->unk_00.z;
 
-            func_800B1210(play, &sp8C, &gZeroVec3f, &D_80B13FA8, (s32)(Rand_ZeroOne() * 140.0f) + 20,
-                          (s32)(Rand_ZeroOne() * 140.0f) + 40);
+            func_800B1210(play, &sp8C, &gZeroVec3f, &D_80B13FA8, (s32)(fqrand() * 140.0f) + 20,
+                          (s32)(fqrand() * 140.0f) + 40);
         }
     }
 }
@@ -345,9 +345,9 @@ void func_80B13474(ObjDhouse* this, PlayState* play, Vec3f* arg2) {
     for (i = 0; i < 5; i++) {
         ptr2 = &this->unk_240[func_80B12D78(this)];
 
-        ptr2->unk_00.x = Rand_ZeroOne() - 0.5f;
-        ptr2->unk_00.y = Rand_ZeroOne();
-        ptr2->unk_00.z = Rand_ZeroOne() - 0.5f;
+        ptr2->unk_00.x = fqrand() - 0.5f;
+        ptr2->unk_00.y = fqrand();
+        ptr2->unk_00.z = fqrand() - 0.5f;
 
         ptr2->unk_0C.x = ptr2->unk_00.x * 18.0f;
         ptr2->unk_0C.y = ptr2->unk_00.y * 23.0f;
@@ -357,24 +357,24 @@ void func_80B13474(ObjDhouse* this, PlayState* play, Vec3f* arg2) {
         ptr2->unk_00.y = ((ptr2->unk_00.y - 0.4f) * 20.0f) + arg2->y;
         ptr2->unk_00.z = (ptr2->unk_00.z * 40.0f) + arg2->z;
 
-        ptr2->unk_1C.x = Rand_Next() >> 0x10;
-        ptr2->unk_1C.y = Rand_Next() >> 0x10;
-        ptr2->unk_1C.z = Rand_Next() >> 0x10;
+        ptr2->unk_1C.x = qrand() >> 0x10;
+        ptr2->unk_1C.y = qrand() >> 0x10;
+        ptr2->unk_1C.z = qrand() >> 0x10;
 
-        ptr2->unk_22 = (Rand_Next() >> 0x12) - 0x1FFF;
-        ptr2->unk_24 = (Rand_Next() >> 0x13) - 0xFFF;
-        ptr2->unk_26 = (Rand_Next() >> 0x12) - 0x1FFF;
+        ptr2->unk_22 = (qrand() >> 0x12) - 0x1FFF;
+        ptr2->unk_24 = (qrand() >> 0x13) - 0xFFF;
+        ptr2->unk_26 = (qrand() >> 0x12) - 0x1FFF;
 
         ptr2->unk_28 = 40;
-        ptr2->unk_18 = (Rand_ZeroOne() * 0.07f) + 0.003f;
+        ptr2->unk_18 = (fqrand() * 0.07f) + 0.003f;
         ptr2->unk_29 = 0;
 
-        sp88.x = ((Rand_ZeroOne() * 70.0f) - 35.0f) + ptr2->unk_00.x;
-        sp88.y = (Rand_ZeroOne() * 60.0f) + ptr2->unk_00.y;
-        sp88.z = ((Rand_ZeroOne() * 70.0f) - 35.0f) + ptr2->unk_00.z;
+        sp88.x = ((fqrand() * 70.0f) - 35.0f) + ptr2->unk_00.x;
+        sp88.y = (fqrand() * 60.0f) + ptr2->unk_00.y;
+        sp88.z = ((fqrand() * 70.0f) - 35.0f) + ptr2->unk_00.z;
 
-        func_800B1210(play, &sp88, &gZeroVec3f, &D_80B13FA8, (s32)(Rand_ZeroOne() * 80.0f) + 20,
-                      (s32)(Rand_ZeroOne() * 90.0f) + 40);
+        func_800B1210(play, &sp88, &gZeroVec3f, &D_80B13FA8, (s32)(fqrand() * 80.0f) + 20,
+                      (s32)(fqrand() * 90.0f) + 40);
     }
 }
 

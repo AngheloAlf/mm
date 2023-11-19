@@ -3079,7 +3079,7 @@ void Player_DrawStrayFairyParticles(PlayState* play, Vec3f* arg1) {
 
     D_801C0BE0.y = Rand_ZeroFloat(0.07f) + -0.1f;
     D_801C0BEC.y = Rand_ZeroFloat(0.1f) + 0.04f;
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         sp28 = -1.0f;
     } else {
         sp28 = 1.0f;
@@ -3087,7 +3087,7 @@ void Player_DrawStrayFairyParticles(PlayState* play, Vec3f* arg1) {
 
     D_801C0BE0.x = (Rand_ZeroFloat(0.2f) + 0.1f) * sp28;
     D_801C0BEC.x = 0.1f * sp28;
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         sp28 = -1.0f;
     } else {
         sp28 = 1.0f;

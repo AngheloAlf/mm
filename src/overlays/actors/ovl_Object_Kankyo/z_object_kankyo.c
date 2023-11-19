@@ -53,14 +53,14 @@ void func_808DBEB0(ObjectKankyo* this, PlayState* play) {
     s32 i;
 
     D_808DE5B0 = 0.0f;
-    this->unk_144 = Rand_ZeroOne() * 360.0f;
-    this->unk_148 = Rand_ZeroOne() * 360.0f;
+    this->unk_144 = fqrand() * 360.0f;
+    this->unk_148 = fqrand() * 360.0f;
     if (play->envCtx.precipitation[PRECIP_SNOW_CUR] == 128) {
         D_808DE5B0 = 1.0f;
         this->unk_114E = 1;
 
         for (i = 0; i < play->envCtx.precipitation[PRECIP_SNOW_CUR]; i++) {
-            this->unk_14C[i].unk_10 = Rand_ZeroOne() * -200.0f;
+            this->unk_14C[i].unk_10 = fqrand() * -200.0f;
         }
     } else {
         this->unk_114E = 0;
@@ -71,8 +71,8 @@ void func_808DBEB0(ObjectKankyo* this, PlayState* play) {
 void func_808DBFB0(ObjectKankyo* this, PlayState* play) {
     D_808DE5B0 = 0.0f;
     this->unk_114E = 0;
-    this->unk_144 = Rand_ZeroOne() * 360.0f;
-    this->unk_148 = Rand_ZeroOne() * 360.0f;
+    this->unk_144 = fqrand() * 360.0f;
+    this->unk_148 = fqrand() * 360.0f;
     this->unk_114C = D_808DE340;
     D_808DE340++;
     ObjectKankyo_SetupAction(this, func_808DCBF8);
@@ -81,8 +81,8 @@ void func_808DBFB0(ObjectKankyo* this, PlayState* play) {
 void func_808DC038(ObjectKankyo* this, PlayState* play) {
     s16 i;
 
-    this->unk_144 = Rand_ZeroOne() * 360.0f;
-    this->unk_148 = Rand_ZeroOne() * 360.0f;
+    this->unk_144 = fqrand() * 360.0f;
+    this->unk_148 = fqrand() * 360.0f;
     this->unk_114C = 0;
 
     for (i = 0; i < ARRAY_COUNT(this->unk_14C); i++) {
@@ -220,7 +220,7 @@ void func_808DC454(ObjectKankyo* this, PlayState* play) {
                 this->unk_14C[i].unk_00 = play->view.eye.x + (spD0 * 120.0f);
                 this->unk_14C[i].unk_04 = play->view.eye.y + (spCC * 120.0f);
                 this->unk_14C[i].unk_08 = play->view.eye.z + (spC8 * 120.0f);
-                this->unk_14C[i].unk_0C = (Rand_ZeroOne() - 0.5f) * (2.0f * temp_120);
+                this->unk_14C[i].unk_0C = (fqrand() - 0.5f) * (2.0f * temp_120);
 
                 temp_f22 = (Camera_GetCamDirPitch(GET_ACTIVE_CAM(play)) * 0.004f) + 60.0f;
                 if (temp_f22 < 20.0f) {
@@ -236,11 +236,11 @@ void func_808DC454(ObjectKankyo* this, PlayState* play) {
                     }
                 }
 
-                this->unk_14C[i].unk_14 = (Rand_ZeroOne() - 0.5f) * (2.0f * temp_120);
+                this->unk_14C[i].unk_14 = (fqrand() - 0.5f) * (2.0f * temp_120);
                 if (play->envCtx.precipitation[PRECIP_SOS_MAX] == 0) {
-                    this->unk_14C[i].unk_18 = (Rand_ZeroOne() * 3.0f) + 1.0f;
+                    this->unk_14C[i].unk_18 = (fqrand() * 3.0f) + 1.0f;
                 } else {
-                    this->unk_14C[i].unk_18 = (Rand_ZeroOne() * 3.0f) + 8.0f;
+                    this->unk_14C[i].unk_18 = (fqrand() * 3.0f) + 8.0f;
                 }
                 this->unk_14C[i].unk_1C++;
                 break;
@@ -260,8 +260,8 @@ void func_808DC454(ObjectKankyo* this, PlayState* play) {
                 spBC = -play->envCtx.windDirection.z / magnitude;
 
                 if (i == 0) {
-                    this->unk_144 += 0.049999997f * Rand_ZeroOne();
-                    this->unk_148 += 0.049999997f * Rand_ZeroOne();
+                    this->unk_144 += 0.049999997f * fqrand();
+                    this->unk_148 += 0.049999997f * fqrand();
                 }
 
                 phi_f20 = play->envCtx.windSpeed / 120.0f;
@@ -395,14 +395,14 @@ void func_808DCDB4(ObjectKankyo* this, PlayState* play) {
                 this->unk_14C[i].unk_00 = play->view.eye.x + (spAC * 120.0f);
                 this->unk_14C[i].unk_04 = play->view.eye.y + (spA8 * 120.0f);
                 this->unk_14C[i].unk_08 = play->view.eye.z + (spA4 * 120.0f);
-                this->unk_14C[i].unk_0C = (Rand_ZeroOne() - 0.5f) * (temp_120 * 2.0f);
+                this->unk_14C[i].unk_0C = (fqrand() - 0.5f) * (temp_120 * 2.0f);
                 if ((i % 2) == 0) {
                     this->unk_14C[i].unk_10 = -100.0f;
                 } else {
                     this->unk_14C[i].unk_10 = 100.0f;
                 }
-                this->unk_14C[i].unk_14 = (Rand_ZeroOne() - 0.5f) * (temp_120 * 2.0f);
-                this->unk_14C[i].unk_18 = Rand_ZeroOne() + 0.2f;
+                this->unk_14C[i].unk_14 = (fqrand() - 0.5f) * (temp_120 * 2.0f);
+                this->unk_14C[i].unk_18 = fqrand() + 0.2f;
                 this->unk_14C[i].unk_1C++;
                 break;
 
@@ -422,8 +422,8 @@ void func_808DCDB4(ObjectKankyo* this, PlayState* play) {
                 sp9C = -play->envCtx.windDirection.z / magnitude;
 
                 if (i == 0) {
-                    this->unk_144 += 0.049999997f * Rand_ZeroOne();
-                    this->unk_148 += 0.049999997f * Rand_ZeroOne();
+                    this->unk_144 += 0.049999997f * fqrand();
+                    this->unk_148 += 0.049999997f * fqrand();
                 }
                 temp_f20 = play->envCtx.windSpeed / 120.0f;
                 temp_f20 = CLAMP(temp_f20, 0.0f, 1.0f);
@@ -645,7 +645,7 @@ void func_808DD970(Actor* thisx, PlayState* play2) {
 }
 
 f32 func_808DDE74(void) {
-    return Rand_ZeroOne() - 0.5f;
+    return fqrand() - 0.5f;
 }
 
 void func_808DDE9C(Actor* thisx, PlayState* play2) {
@@ -669,9 +669,9 @@ void func_808DDE9C(Actor* thisx, PlayState* play2) {
     }
 
     for (i = 0; i < end; i++) {
-        temp_f20 = this->unk_14C[0].unk_00 + ((Rand_ZeroOne() - 0.7f) * this->unk_144);
-        temp_f22 = this->unk_14C[0].unk_04 + ((Rand_ZeroOne() - 0.7f) * this->unk_144);
-        temp_f2 = this->unk_14C[0].unk_08 + ((Rand_ZeroOne() - 0.7f) * this->unk_144);
+        temp_f20 = this->unk_14C[0].unk_00 + ((fqrand() - 0.7f) * this->unk_144);
+        temp_f22 = this->unk_14C[0].unk_04 + ((fqrand() - 0.7f) * this->unk_144);
+        temp_f2 = this->unk_14C[0].unk_08 + ((fqrand() - 0.7f) * this->unk_144);
 
         if (!((temp_f20 < -252.0f) && (temp_f20 > -500.0f) && (temp_f2 > 3820.0f) && (temp_f2 < 4150.0f))) {
             Matrix_Translate(temp_f20, temp_f22, temp_f2, MTXMODE_NEW);
@@ -709,7 +709,7 @@ void func_808DDE9C(Actor* thisx, PlayState* play2) {
 
             if (!((temp_f20 < -252.0f) && (temp_f20 > -500.0f) && (temp_f2 > 3820.0f) && (temp_f2 < 4150.0f))) {
                 Matrix_Translate(temp_f20, temp_f22, temp_f2, MTXMODE_NEW);
-                temp_f12 = (Rand_ZeroOne() * 0.05f) + 0.05f;
+                temp_f12 = (fqrand() * 0.05f) + 0.05f;
                 Matrix_Scale(temp_f12, temp_f12, temp_f12, MTXMODE_APPLY);
 
                 gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(play->state.gfxCtx),

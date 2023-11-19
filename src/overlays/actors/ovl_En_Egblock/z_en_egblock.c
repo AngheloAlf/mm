@@ -139,12 +139,12 @@ void EnEgblock_SpawnEffect(EnEgblock* this, Vec3f* pos, s16 lifetime, s16 arg3) 
             effect->timer = lifetime;
             effect->alpha = 255;
             effect->type = arg3;
-            effect->accel.x = Rand_ZeroOne() - 0.5f;
+            effect->accel.x = fqrand() - 0.5f;
             effect->accel.y = -1.0f;
-            effect->accel.z = Rand_ZeroOne() - 0.5f;
-            effect->velocity.x = 2.0f * (Rand_ZeroOne() - 0.5f);
-            effect->velocity.y = 5.0f + (10.0f * Rand_ZeroOne());
-            effect->velocity.z = 2.0f * (Rand_ZeroOne() - 0.5f);
+            effect->accel.z = fqrand() - 0.5f;
+            effect->velocity.x = 2.0f * (fqrand() - 0.5f);
+            effect->velocity.y = 5.0f + (10.0f * fqrand());
+            effect->velocity.z = 2.0f * (fqrand() - 0.5f);
             effect->scale = 0.5f + (0.2f * Rand_ZeroFloat(1.0f));
             effect->rot.x = Rand_CenteredFloat(0x7530);
             effect->rot.y = Rand_CenteredFloat(0x7530);

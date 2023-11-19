@@ -429,7 +429,7 @@ void EnBji01_Update(Actor* thisx, PlayState* play) {
         this->blinkSeqIndex--;
         if (this->blinkSeqIndex < 0) {
             this->blinkSeqIndex = 4;
-            this->blinkTimer = (Rand_ZeroOne() * 60.0f) + 20.0f;
+            this->blinkTimer = (fqrand() * 60.0f) + 20.0f;
         } else {
             this->eyeTexIndex = sBlinkSequence[this->blinkSeqIndex];
         }

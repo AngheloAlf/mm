@@ -121,7 +121,7 @@ void ObjLightswitch_SpawnEffects(ObjLightswitch* this, PlayState* play) {
 
     if (alpha >= (100 << 6)) {
         tempResult = (1.0f - (alpha * (1.0f / (255 << 6)))) * 400.0f;
-        tempResult = ((CLAMP_MAX(tempResult, 60.0f) - 30.0f) + 30.0f) * Rand_ZeroOne();
+        tempResult = ((CLAMP_MAX(tempResult, 60.0f) - 30.0f) + 30.0f) * fqrand();
         tempResultDiff = tempResult - 30.0f;
 
         if (tempResult > 30.0f) {
@@ -132,8 +132,8 @@ void ObjLightswitch_SpawnEffects(ObjLightswitch* this, PlayState* play) {
             tempResult = sqrtf(tempResult);
         }
 
-        tempResult = 2.0f * ((Rand_ZeroOne() - 0.5f) * tempResult);
-        rand = ((30.0f - fabsf(tempResult)) * 0.5f) + (Rand_ZeroOne() * 10.0f);
+        tempResult = 2.0f * ((fqrand() - 0.5f) * tempResult);
+        rand = ((30.0f - fabsf(tempResult)) * 0.5f) + (fqrand() * 10.0f);
 
         effectPos.x = this->actor.world.pos.x + ((rand * sinResult) + (tempResult * cosResult));
         effectPos.y = this->actor.world.pos.y + tempResultDiff + 10.0f;

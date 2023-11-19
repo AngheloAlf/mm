@@ -138,8 +138,8 @@ void EffectSsLightning_Update(PlayState* play, u32 index, EffectSs* this) {
     s32 sign;
 
     if ((this->rNumBolts != 0) && ((this->life + 1) == this->rLifespan)) {
-        sign = (Rand_ZeroOne() < 0.5f) ? -1 : 1;
-        yaw = this->rYaw + sign * ((s32)((Rand_ZeroOne() * 3640.0f)) + 0xE38);
+        sign = (fqrand() < 0.5f) ? -1 : 1;
+        yaw = this->rYaw + sign * ((s32)((fqrand() * 3640.0f)) + 0xE38);
         scale = (this->rScale * 0.01f) * 80.0f;
 
         pos.y = this->pos.y + (Math_SinS(this->rYaw - 0x4000) * scale);
@@ -150,7 +150,7 @@ void EffectSsLightning_Update(PlayState* play, u32 index, EffectSs* this) {
 
         EffectSsLightning_NewLightning(play, &pos, yaw, this);
 
-        if (Rand_ZeroOne() < 0.1f) {
+        if (fqrand() < 0.1f) {
             EffectSsLightning_NewLightning(play, &pos, (this->rYaw * 2) - yaw, this);
         }
     }

@@ -1125,7 +1125,7 @@ void func_808BB8D4(DoorWarp1* this, PlayState* play, s32 arg2) {
     s32 life;
 
     for (i = 0; i < arg2; i++) {
-        rand = (Rand_ZeroOne() * 0x10000);
+        rand = (fqrand() * 0x10000);
 
         pos.x = (-Math_SinS(rand - 0x8000) * 35.0f) + this->dyna.actor.world.pos.x;
         pos.y = this->dyna.actor.world.pos.y;
@@ -1142,7 +1142,7 @@ void func_808BB8D4(DoorWarp1* this, PlayState* play, s32 arg2) {
         sVelocity.x = 0.0f;
         sVelocity.z = 0.0f;
 
-        scale = (Rand_ZeroOne() * 1000.0f) + 800.0f;
+        scale = (fqrand() * 1000.0f) + 800.0f;
 
         life = 27;
         if (arg2 >= 2) {

@@ -70,8 +70,8 @@ u32 EffectSsKakera_Init(PlayState* play, u32 index, EffectSs* this, void* initPa
     this->vec = initParams->unk_18;
     this->rReg0 = initParams->unk_2C;
     this->rGravity = initParams->gravity;
-    this->rPitch = Rand_ZeroOne() * 0x8000;
-    this->rYaw = Rand_ZeroOne() * 0x8000;
+    this->rPitch = fqrand() * 0x8000;
+    this->rYaw = fqrand() * 0x8000;
     this->rReg4 = initParams->unk_26;
     this->rReg5 = initParams->unk_28;
     this->rReg6 = initParams->unk_2A;
@@ -83,7 +83,7 @@ u32 EffectSsKakera_Init(PlayState* play, u32 index, EffectSs* this, void* initPa
 }
 
 f32 func_8097DE30(f32 center, f32 range) {
-    return (2.0f * (Rand_ZeroOne() * range) - range) + center;
+    return (2.0f * (fqrand() * range) - range) + center;
 }
 
 void EffectSsKakera_Draw(PlayState* play, u32 index, EffectSs* this) {

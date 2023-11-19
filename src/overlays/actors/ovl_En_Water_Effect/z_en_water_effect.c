@@ -158,7 +158,7 @@ void EnWaterEffect_Update(Actor* thisx, PlayState* play2) {
     if (!Flags_GetSwitch(play, this->actor.params)) {
         this->unk_DC4++;
         if ((this->unk_DC4 % 32) == 0) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 Actor_UpdateBgCheckInfo(play, &this->actor, 20.0f, 10.0f, 40.0f, UPDBGCHECKINFO_FLAG_4);
                 sp88.x = Rand_CenteredFloat(50.0f) + this->actor.world.pos.x;
                 sp88.y = this->actor.world.pos.y;

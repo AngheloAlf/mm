@@ -107,8 +107,8 @@ void EffectSsGSpk_Draw(PlayState* play, u32 index, EffectSs* this) {
 }
 
 void EffectSsGSpk_Update(PlayState* play, u32 index, EffectSs* this) {
-    this->accel.x = (Rand_ZeroOne() - 0.5f) * 3.0f;
-    this->accel.z = (Rand_ZeroOne() - 0.5f) * 3.0f;
+    this->accel.x = (fqrand() - 0.5f) * 3.0f;
+    this->accel.z = (fqrand() - 0.5f) * 3.0f;
 
     if (this->actor != NULL) {
         if ((this->actor->category == ACTORCAT_EXPLOSIVES) && (this->actor->update != NULL)) {

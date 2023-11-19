@@ -467,7 +467,7 @@ void EnBal_SetupGroundIdle(EnBal* this) {
         this->eyeTexIndex = TINGLE_EYETEX_OPEN;
         this->idleAnimStage = TINGLE_IDLESTAGE_WAIT;
         Actor_ChangeAnimationByInfo(&this->skelAnime, sAnimationInfo, TINGLE_ANIM_IDLE);
-    } else if (Rand_Next() & 1) {
+    } else if (qrand() & 1) {
         this->idleAnimStage = TINGLE_IDLESTAGE_ACTIVITY;
         Actor_ChangeAnimationByInfo(&this->skelAnime, sAnimationInfo, TINGLE_ANIM_TALK);
     } else {
@@ -561,7 +561,7 @@ void EnBal_GroundIdle(EnBal* this, PlayState* play) {
                 Actor_ChangeAnimationByInfo(&this->skelAnime, sAnimationInfo, TINGLE_ANIM_IDLE);
                 this->idleAnimStage++;
             } else if (this->idleAnimStage == TINGLE_IDLESTAGE_WAIT) {
-                if (Rand_Next() & 1) {
+                if (qrand() & 1) {
                     this->forceEyesShut = false;
                     this->eyeTexIndex = TINGLE_EYETEX_OPEN;
                     Actor_ChangeAnimationByInfo(&this->skelAnime, sAnimationInfo, TINGLE_ANIM_TALK);
@@ -713,8 +713,8 @@ void EnBal_ThrowMagicSparkles(EnBal* this, PlayState* play) {
     sSparkleVelocity.y = 5.5f;
 
     for (i = 0; i < 20; i++) {
-        sSparkleVelocity.x = Rand_Centered() * 3.0f;
-        sSparkleVelocity.z = Rand_Centered() * 3.0f;
+        sSparkleVelocity.x = fqrand2() * 3.0f;
+        sSparkleVelocity.z = fqrand2() * 3.0f;
         EffectSsKirakira_SpawnDispersed(play, &pos, &sSparkleVelocity, &sSparkleAccel, &sSparklePrimColor,
                                         &sSparkleEnvColor, 2500, 40);
     }

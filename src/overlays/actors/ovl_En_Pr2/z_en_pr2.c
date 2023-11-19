@@ -381,7 +381,7 @@ void func_80A748E8(EnPr2* this, PlayState* play) {
         if (!sp4C) {
             this->unk_21C.y = this->actor.world.pos.y;
             if (this->unk_1DA != 0) {
-                if ((Rand_ZeroOne() < 0.3f) && !this->unk_1D6) {
+                if ((fqrand() < 0.3f) && !this->unk_1D6) {
                     this->unk_1D6 = true;
                 }
 
@@ -467,7 +467,7 @@ void func_80A74E90(EnPr2* this, PlayState* play) {
             Math_Vec3f_Copy(&this->unk_21C, &player->actor.world.pos);
         }
 
-        if ((Rand_ZeroOne() < 0.3f) && !this->unk_1D6) {
+        if ((fqrand() < 0.3f) && !this->unk_1D6) {
             this->unk_1D6 = true;
             this->unk_20C = Rand_ZeroFloat(30.0f);
         }
@@ -527,7 +527,7 @@ void func_80A751B4(EnPr2* this) {
                          0.0f);
         this->unk_1D8 = Rand_S16Offset(20, 30);
         this->unk_1E4 = 0x4000;
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             this->unk_1E4 = -0x4000;
         }
         this->unk_1E6 = this->actor.world.rot.y;
@@ -572,7 +572,7 @@ void func_80A75310(EnPr2* this, PlayState* play) {
         Math_SmoothStepToS(&this->actor.shape.rot.z, this->unk_1E4, 5, 10000, 1000);
         Math_SmoothStepToS(&this->actor.shape.rot.y, this->unk_1E6, 5, 10000, 1000);
 
-        if ((Rand_ZeroOne() < 0.3f) && !this->unk_1D6) {
+        if ((fqrand() < 0.3f) && !this->unk_1D6) {
             this->unk_1D6 = true;
         }
 

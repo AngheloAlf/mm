@@ -148,9 +148,9 @@ void BgDyYoseizo_SpawnEffects(BgDyYoseizo* this, s16 trajectoryType, s32 count) 
     }
 
     spawnHeightVariation = this->actor.scale.y * 3500.0f;
-    accel.x = Rand_ZeroOne() - 0.5f;
-    accel.y = Rand_ZeroOne() - 0.5f;
-    accel.z = Rand_ZeroOne() - 0.5f;
+    accel.x = fqrand() - 0.5f;
+    accel.y = fqrand() - 0.5f;
+    accel.z = fqrand() - 0.5f;
     velocity.x = accel.x * 10.0f;
     velocity.y = accel.y * 10.0f;
     velocity.z = accel.z * 10.0f;
@@ -169,7 +169,7 @@ void BgDyYoseizo_SpawnEffects(BgDyYoseizo* this, s16 trajectoryType, s32 count) 
 
                 pos.x = this->actor.world.pos.x;
                 pos.y = this->actor.world.pos.y + spawnHeightVariation +
-                        (Rand_ZeroOne() - 0.5f) * (spawnHeightVariation * 0.5f);
+                        (fqrand() - 0.5f) * (spawnHeightVariation * 0.5f);
                 pos.z = this->actor.world.pos.z + 30.0f;
                 break;
 
@@ -181,7 +181,7 @@ void BgDyYoseizo_SpawnEffects(BgDyYoseizo* this, s16 trajectoryType, s32 count) 
 
                 pos.x = this->actor.world.pos.x;
                 pos.y = this->actor.world.pos.y + spawnHeightVariation +
-                        (Rand_ZeroOne() - 0.5f) * (spawnHeightVariation * 0.5f);
+                        (fqrand() - 0.5f) * (spawnHeightVariation * 0.5f);
                 pos.z = this->actor.world.pos.z + 30.0f;
                 break;
 
@@ -193,7 +193,7 @@ void BgDyYoseizo_SpawnEffects(BgDyYoseizo* this, s16 trajectoryType, s32 count) 
 
                 pos.x = Rand_CenteredFloat(10.0f) + this->actor.world.pos.x;
                 pos.y = this->actor.world.pos.y + spawnHeightVariation + 50.0f +
-                        (Rand_ZeroOne() - 0.5f) * (spawnHeightVariation * 0.1f);
+                        (fqrand() - 0.5f) * (spawnHeightVariation * 0.1f);
                 pos.z = this->actor.world.pos.z + 30.0f;
                 break;
         }

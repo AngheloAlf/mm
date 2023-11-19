@@ -1380,7 +1380,7 @@ void EnOssan_Blink(EnOssan* this) {
     eyeTexIndexTemp = this->eyeTexIndex + 1;
     if (eyeTexIndexTemp > 2) {
         this->eyeTexIndex = 0;
-        this->blinkTimer = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->blinkTimer = (s32)(fqrand() * 60.0f) + 20;
         this->blinkFunc = EnOssan_WaitForBlink;
     } else {
         this->eyeTexIndex = eyeTexIndexTemp;

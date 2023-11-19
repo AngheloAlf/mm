@@ -666,14 +666,14 @@ void EnRailgibud_SpawnEffectsForSinkingIntoTheGround(EnRailgibud* this, PlayStat
     s32 pad;
 
     if ((play->gameplayFrames & arg2) == 0) {
-        rand = Rand_Next();
+        rand = qrand();
         rockFragmentPos.x += 15.0f * Math_SinS(rand);
         rockFragmentPos.z += 15.0f * Math_CosS(rand);
-        rockFragmentAccel.x = Rand_Centered();
-        rockFragmentAccel.z = Rand_Centered();
-        rockFragmentVelocity.y += Rand_Centered() * 4.0f;
+        rockFragmentAccel.x = fqrand2();
+        rockFragmentAccel.z = fqrand2();
+        rockFragmentVelocity.y += fqrand2() * 4.0f;
         EffectSsHahen_Spawn(play, &rockFragmentPos, &rockFragmentVelocity, &rockFragmentAccel, 0,
-                            (Rand_Next() & 7) + 10, HAHEN_OBJECT_DEFAULT, 10, NULL);
+                            (qrand() & 7) + 10, HAHEN_OBJECT_DEFAULT, 10, NULL);
         EnRailgibud_SpawnDust(play, &rockFragmentPos, 10.0f, 10, 150, 0);
     }
 }
@@ -689,16 +689,16 @@ void EnRailgibud_SpawnDust(PlayState* play, Vec3f* basePos, f32 randomnessScale,
     dustVelocity.y = 2.5f;
 
     for (i = dustCount; i >= 0; i--) {
-        dustVelocity.x = (Rand_ZeroOne() - 0.5f) * randomnessScale;
-        dustVelocity.z = (Rand_ZeroOne() - 0.5f) * randomnessScale;
+        dustVelocity.x = (fqrand() - 0.5f) * randomnessScale;
+        dustVelocity.z = (fqrand() - 0.5f) * randomnessScale;
 
         dustPos.x = basePos->x + dustVelocity.x;
-        dustPos.y = ((Rand_ZeroOne() - 0.5f) * randomnessScale) + basePos->y;
+        dustPos.y = ((fqrand() - 0.5f) * randomnessScale) + basePos->y;
         dustPos.z = basePos->z + dustVelocity.z;
 
         dustVelocity.x *= 0.5f;
         dustVelocity.z *= 0.5f;
-        func_800B1210(play, &dustPos, &dustVelocity, &dustAccel, (s16)(Rand_ZeroOne() * dustScale * 0.2f) + dustScale,
+        func_800B1210(play, &dustPos, &dustVelocity, &dustAccel, (s16)(fqrand() * dustScale * 0.2f) + dustScale,
                       scaleStep);
     }
 }

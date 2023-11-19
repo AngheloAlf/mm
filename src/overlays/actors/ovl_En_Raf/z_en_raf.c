@@ -521,12 +521,12 @@ void EnRaf_Explode(EnRaf* this, PlayState* play) {
 
     this->petalScaleType = EN_RAF_PETAL_SCALE_TYPE_DEAD;
     for (i = 0; i < BREG(57) + 30; i++) {
-        accel.x = (Rand_ZeroOne() - 0.5f) * 0.5f;
+        accel.x = (fqrand() - 0.5f) * 0.5f;
         accel.y = -0.3f;
-        accel.z = (Rand_ZeroOne() - 0.5f) * 0.5f;
-        velocity.x = Rand_ZeroOne() - 0.5f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = Rand_ZeroOne() - 0.5f;
+        accel.z = (fqrand() - 0.5f) * 0.5f;
+        velocity.x = fqrand() - 0.5f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = fqrand() - 0.5f;
         EnRaf_InitializeEffect(this, &this->dyna.actor.world.pos, &velocity, &accel,
                                (Rand_ZeroFloat(1.0f) / 500.0f) + 0.002f, 90);
     }

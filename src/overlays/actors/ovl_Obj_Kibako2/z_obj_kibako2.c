@@ -79,19 +79,19 @@ void ObjKibako2_Break(ObjKibako2* this, PlayState* play) {
     for (i = 0, angle = 0; i < 0x10; i++, angle += 0x4E20) {
         f32 sin = Math_SinS(angle);
         f32 cos = Math_CosS(angle);
-        f32 tempRand = Rand_ZeroOne() * 30.0f;
+        f32 tempRand = fqrand() * 30.0f;
         s32 phi_s0;
 
         pos.x = sin * tempRand;
-        pos.y = (Rand_ZeroOne() * 10.0f) + 2.0f;
+        pos.y = (fqrand() * 10.0f) + 2.0f;
         pos.z = cos * tempRand;
         velocity.x = pos.x * 0.2f;
-        velocity.y = (Rand_ZeroOne() * 10.0f) + 2.0f;
+        velocity.y = (fqrand() * 10.0f) + 2.0f;
         velocity.z = pos.z * 0.2f;
         pos.x += thisPos->x;
         pos.y += thisPos->y;
         pos.z += thisPos->z;
-        tempRand = Rand_ZeroOne();
+        tempRand = fqrand();
         if (tempRand < 0.05f) {
             phi_s0 = 0x60;
         } else if (tempRand < 0.7f) {
@@ -99,7 +99,7 @@ void ObjKibako2_Break(ObjKibako2* this, PlayState* play) {
         } else {
             phi_s0 = 0x20;
         }
-        EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -200, phi_s0, 28, 2, 0, (Rand_ZeroOne() * 30.0f) + 5.0f, 0, 0,
+        EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -200, phi_s0, 28, 2, 0, (fqrand() * 30.0f) + 5.0f, 0, 0,
                              70, KAKERA_COLOR_NONE, OBJECT_KIBAKO2, gLargeCrateFragment1DL);
     }
     func_800BBFB0(play, thisPos, 90.0f, 6, 100, 160, 1);
@@ -121,7 +121,7 @@ void ObjKibako2_SpawnSkulltula(ObjKibako2* this, PlayState* play) {
 
     if (ObjKibako2_ContainsSkulltula(this, play)) {
         actorSpawnParam = KIBAKO2_SKULLTULA_SPAWN_PARAM(&this->dyna.actor);
-        yRotation = (Rand_Next() >> 0x11) + this->dyna.actor.yawTowardsPlayer + 0xC000;
+        yRotation = (qrand() >> 0x11) + this->dyna.actor.yawTowardsPlayer + 0xC000;
         skulltula =
             Actor_Spawn(&play->actorCtx, play, ACTOR_EN_SW, this->dyna.actor.world.pos.x, this->dyna.actor.world.pos.y,
                         this->dyna.actor.world.pos.z, 0, yRotation, 0, actorSpawnParam);
@@ -234,7 +234,7 @@ void ObjKibako2_Update(Actor* thisx, PlayState* play) {
     if (this->skulltulaNoiseTimer >= 0) {
         if (this->skulltulaNoiseTimer == 0) {
             Actor_PlaySfx(&this->dyna.actor, NA_SE_EN_STALGOLD_ROLL);
-            if (Rand_ZeroOne() < 0.1f) {
+            if (fqrand() < 0.1f) {
                 this->skulltulaNoiseTimer = Rand_S16Offset(40, 80);
             } else {
                 this->skulltulaNoiseTimer = 8;

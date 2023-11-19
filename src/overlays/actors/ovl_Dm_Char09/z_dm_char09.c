@@ -62,8 +62,8 @@ void DmChar09_Init(Actor* thisx, PlayState* play) {
                    OBJECT_BEE_LIMB_MAX);
     DmChar09_ChangeAnim(&this->skelAnime, &sAnimationInfo[DMCHAR09_ANIM_FLYING], 0);
     Actor_SetScale(&this->actor, 0.01f);
-    this->unk_228 = Rand_ZeroOne() * 65535.0f;
-    this->unk_22A = Rand_ZeroOne() * 65535.0f;
+    this->unk_228 = fqrand() * 65535.0f;
+    this->unk_22A = fqrand() * 65535.0f;
     this->actionFunc = DmChar09_DoNothing;
 }
 

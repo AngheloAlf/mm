@@ -151,7 +151,7 @@ void EnTanron2_Init(Actor* thisx, PlayState* play) {
 
     this->unk_14A = Rand_ZeroFloat(0x10000);
     this->unk_14C = Rand_ZeroFloat(800.0f) + 1400.0f;
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         this->unk_14C = -this->unk_14C;
     }
 
@@ -235,7 +235,7 @@ void func_80BB6BD8(EnTanron2* this, PlayState* play) {
 
             switch (this->unk_158) {
                 case 0:
-                    if (Rand_ZeroOne() > 0.2f) {
+                    if (fqrand() > 0.2f) {
                         sp32 = Rand_ZeroFloat(0x10000);
                     } else {
                         sp32 = Math_Atan2S(sp2C, sp28);
@@ -458,7 +458,7 @@ void func_80BB7578(EnTanron2* this, PlayState* play) {
     }
 
     if ((this->actionFunc == func_80BB69FC) &&
-        ((D_80BB8450->unk_1F6 == 1) || ((D_80BB8450->unk_1F7 != 0) && (Rand_ZeroOne() < 0.1f)))) {
+        ((D_80BB8450->unk_1F6 == 1) || ((D_80BB8450->unk_1F7 != 0) && (fqrand() < 0.1f)))) {
         if (D_80BB8450->unk_1F7 != 0) {
             D_80BB8450->unk_1F7--;
         }

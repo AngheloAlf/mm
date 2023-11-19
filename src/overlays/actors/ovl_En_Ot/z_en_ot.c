@@ -153,7 +153,7 @@ void EnOt_Init(Actor* thisx, PlayState* play) {
                        this->morphTable, 19);
     Collider_InitAndSetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
     Animation_Change(&this->skelAnime, sAnimations[0].animation, 1.0f,
-                     Animation_GetLastFrame(&sAnimations[0].animation->common) * Rand_ZeroOne(),
+                     Animation_GetLastFrame(&sAnimations[0].animation->common) * fqrand(),
                      Animation_GetLastFrame(&sAnimations[0].animation->common), sAnimations[0].mode,
                      sAnimations[0].morphFrames);
     this->pathIndex = SEAHORSE_GET_PATH_INDEX(&this->actor);
@@ -164,7 +164,7 @@ void EnOt_Init(Actor* thisx, PlayState* play) {
     this->actor.gravity = 0.0f;
     SubS_FillCutscenesList(&this->actor, this->csIdList, ARRAY_COUNT(this->csIdList));
     SubS_ChangeAnimationBySpeedInfo(&this->skelAnime, sAnimations, 0, &this->animIndex);
-    this->skelAnime.curFrame = Rand_ZeroOne() * this->skelAnime.endFrame;
+    this->skelAnime.curFrame = fqrand() * this->skelAnime.endFrame;
     this->lightNode = LightContext_InsertLight(play, &play->lightCtx, &this->lightInfo);
     this->unk_744.r = 255;
     this->unk_744.g = 200;
@@ -295,7 +295,7 @@ void func_80B5BAAC(LightInfo* lightInfo, Vec3f* arg1, Color_RGB8* arg2, s16 radi
 }
 
 void func_80B5BB38(Color_RGB8* arg0, Color_RGB8* arg1, f32 arg2) {
-    f32 rand = Rand_ZeroOne();
+    f32 rand = fqrand();
 
     arg0->r = (arg1->r * arg2) + (arg1->r * (1.0f - arg2) * rand);
     arg0->g = (arg1->g * arg2) + (arg1->g * (1.0f - arg2) * rand);
@@ -953,7 +953,7 @@ void EnOt_Update(Actor* thisx, PlayState* play) {
                 for (i = 0; i < 2; i++) {
                     EffectSsBubble_Spawn(play, &this->actor.world.pos, 0.0f, 20.0f, 5.0f, 0.1f);
                 }
-                this->unk_354 = (Rand_ZeroOne() * 10.0f) + 10.0f;
+                this->unk_354 = (fqrand() * 10.0f) + 10.0f;
             }
         }
     }

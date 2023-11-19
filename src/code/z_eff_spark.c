@@ -63,9 +63,9 @@ void EffectSpark_Init(void* thisx, void* initParamsx) {
             elem->position.x = this->position.x;
             elem->position.y = this->position.y;
             elem->position.z = this->position.z;
-            elem->velocity.x = Rand_ZeroOne() - 0.5f;
-            elem->velocity.y = Rand_ZeroOne() - 0.5f;
-            elem->velocity.z = Rand_ZeroOne() - 0.5f;
+            elem->velocity.x = fqrand() - 0.5f;
+            elem->velocity.y = fqrand() - 0.5f;
+            elem->velocity.z = fqrand() - 0.5f;
 
             velocityNorm = sqrtf(SQXYZ(elem->velocity));
 
@@ -78,12 +78,12 @@ void EffectSpark_Init(void* thisx, void* initParamsx) {
                 elem->velocity.y = this->speed;
             }
 
-            elem->unkVelocity.x = 30000.0f - Rand_ZeroOne() * 15000.0f;
-            elem->unkVelocity.y = 30000.0f - Rand_ZeroOne() * 15000.0f;
-            elem->unkVelocity.z = 30000.0f - Rand_ZeroOne() * 15000.0f;
-            elem->unkPosition.x = Rand_ZeroOne() * 65534.0f;
-            elem->unkPosition.y = Rand_ZeroOne() * 65534.0f;
-            elem->unkPosition.z = Rand_ZeroOne() * 65534.0f;
+            elem->unkVelocity.x = 30000.0f - fqrand() * 15000.0f;
+            elem->unkVelocity.y = 30000.0f - fqrand() * 15000.0f;
+            elem->unkVelocity.z = 30000.0f - fqrand() * 15000.0f;
+            elem->unkPosition.x = fqrand() * 65534.0f;
+            elem->unkPosition.y = fqrand() * 65534.0f;
+            elem->unkPosition.z = fqrand() * 65534.0f;
         }
 
         this->timer = 0;
@@ -197,7 +197,7 @@ void EffectSpark_Draw(void* thisx, GraphicsContext* gfxCtx) {
             f32 temp;
 
             SkinMatrix_SetTranslate(&spEC, elem->position.x, elem->position.y, elem->position.z);
-            temp = ((Rand_ZeroOne() * 2.5f) + 1.5f) / 64.0f;
+            temp = ((fqrand() * 2.5f) + 1.5f) / 64.0f;
             SkinMatrix_SetScale(&spAC, temp, temp, 1.0f);
             SkinMatrix_MtxFMtxFMult(&spEC, &play->billboardMtxF, &sp6C);
             SkinMatrix_MtxFMtxFMult(&sp6C, &spAC, &sp12C);

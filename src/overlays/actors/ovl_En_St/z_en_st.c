@@ -175,16 +175,16 @@ void func_808A5050(EnSt* this, PlayState* play) {
     Vec3f spA0;
     Vec3f sp94;
     s32 rand;
-    s16 temp_s0 = (Rand_ZeroOne() - 0.5f) * 0x10000;
+    s16 temp_s0 = (fqrand() - 0.5f) * 0x10000;
 
     spA0.y = this->actor.floorHeight;
 
     for (i = 0; i < 16; i++, temp_s0 += 0xFFF) {
-        rand = (Rand_ZeroOne() * 4.0f) + 8.0f;
+        rand = (fqrand() * 4.0f) + 8.0f;
 
         sp94.x = 0.0f;
-        sp94.y = (Rand_ZeroOne() * 0.2f) + 0.1f;
-        sp94.z = Rand_ZeroOne() + 1.0f;
+        sp94.y = (fqrand() * 0.2f) + 0.1f;
+        sp94.z = fqrand() + 1.0f;
         Lib_Vec3f_TranslateAndRotateY(&gZeroVec3f, temp_s0, &sp94, &spAC);
         sp94.x = 0.0f;
         sp94.y = 1.0f;
@@ -212,17 +212,17 @@ void func_808A52A8(EnSt* this, PlayState* play) {
     Vec3f spA0;
     Vec3f sp94;
     s32 i;
-    s16 temp_s0 = (Rand_ZeroOne() - 0.5f) * 0x10000;
+    s16 temp_s0 = (fqrand() - 0.5f) * 0x10000;
     s32 rand;
 
     spA0.y = this->actor.floorHeight;
 
     for (i = 0; i < 8; i++, temp_s0 += 0x1FFE) {
-        rand = (Rand_ZeroOne() * 4.0f) + 8.0f;
+        rand = (fqrand() * 4.0f) + 8.0f;
 
         sp94.x = 0.0f;
-        sp94.y = (Rand_ZeroOne() * 0.2f) + 0.1f;
-        sp94.z = Rand_ZeroOne() + 1.0f;
+        sp94.y = (fqrand() * 0.2f) + 0.1f;
+        sp94.z = fqrand() + 1.0f;
 
         Lib_Vec3f_TranslateAndRotateY(&gZeroVec3f, temp_s0, &sp94, &spAC);
 
@@ -272,11 +272,11 @@ void func_808A54B0(EnSt* this, PlayState* play) {
 
 s32 func_808A576C(EnSt* this) {
     s32 i;
-    s16 phi_s2 = (s16)((s16)(Rand_ZeroOne() * 1000.0f) % 12) * 0x1555;
+    s16 phi_s2 = (s16)((s16)(fqrand() * 1000.0f) % 12) * 0x1555;
 
     for (i = 0; i < ENST_BODYPART_MAX; i++, phi_s2 += 0x1555) {
         if (this->drawDmgEffType != ACTOR_DRAW_DMGEFF_FROZEN_NO_SFX) {
-            this->unk_31C[i] = (Rand_ZeroOne() * 16.0f) + 8.0f;
+            this->unk_31C[i] = (fqrand() * 16.0f) + 8.0f;
         } else {
             this->unk_31C[i] = 80;
         }
@@ -284,9 +284,9 @@ s32 func_808A576C(EnSt* this) {
         this->drawDmgEffFrozenSteamScales[i] = 0.90000004f;
 
         if ((this->drawDmgEffType == ACTOR_DRAW_DMGEFF_FIRE) || (this->drawDmgEffType == ACTOR_DRAW_DMGEFF_BLUE_FIRE)) {
-            this->bodyPartsPos[i].y = ((Rand_ZeroOne() - 0.5f) * 40.0f) - 10.0f;
+            this->bodyPartsPos[i].y = ((fqrand() - 0.5f) * 40.0f) - 10.0f;
         } else {
-            this->bodyPartsPos[i].y = ((Rand_ZeroOne() - 0.5f) * 30.0f) + 10.0f;
+            this->bodyPartsPos[i].y = ((fqrand() - 0.5f) * 30.0f) + 10.0f;
         }
 
         this->bodyPartsPos[i].x = Math_SinS(phi_s2) * 18.0f;

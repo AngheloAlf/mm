@@ -317,26 +317,26 @@ void func_809375F4(ObjBean* this, PlayState* play) {
 
     for (i = 0; i < 36; i++) {
         temp_s1 += 0x4E20;
-        temp_f20 = Rand_ZeroOne() * 60.0f;
+        temp_f20 = fqrand() * 60.0f;
 
         spC4.x = (Math_SinS(temp_s1) * temp_f20) + this->dyna.actor.world.pos.x;
         spC4.y = this->dyna.actor.world.pos.y;
         spC4.z = (Math_CosS(temp_s1) * temp_f20) + this->dyna.actor.world.pos.z;
 
         spB8.x = Math_SinS(temp_s1) * 3.5f;
-        spB8.y = Rand_ZeroOne() * 13.0f;
+        spB8.y = fqrand() * 13.0f;
         spB8.z = Math_CosS(temp_s1) * 3.5f;
 
         spB8.x += this->dyna.actor.world.pos.x - this->dyna.actor.prevPos.x;
         spB8.y += this->dyna.actor.world.pos.y - this->dyna.actor.prevPos.y;
         spB8.z += this->dyna.actor.world.pos.z - this->dyna.actor.prevPos.z;
 
-        temp_s2 = (s32)(Rand_ZeroOne() * 180.0f) + 30;
+        temp_s2 = (s32)(fqrand() * 180.0f) + 30;
 
         phi_v0 = 0x40;
         if (temp_s2 < 0x5A) {
             phi_s3 = -0x50;
-            if (Rand_ZeroOne() < 0.1f) {
+            if (fqrand() < 0.1f) {
                 phi_v0 = 0x60;
             } else {
                 phi_v0 = 0x40;

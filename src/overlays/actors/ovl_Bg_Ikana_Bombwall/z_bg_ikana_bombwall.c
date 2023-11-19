@@ -115,7 +115,7 @@ void func_80BD4720(BgIkanaBombwall* this, PlayState* play) {
     offsetPosY = 0.0f;
 
     for (i = 0; i < 30; i++) {
-        offsetPosX += 60.0f + (Rand_ZeroOne() * 20.0f);
+        offsetPosX += 60.0f + (fqrand() * 20.0f);
         if (offsetPosX > 75.0f) {
             offsetPosX -= 150.0f;
         }
@@ -124,11 +124,11 @@ void func_80BD4720(BgIkanaBombwall* this, PlayState* play) {
 
         posOffset.x = offsetPosX;
         posOffset.y = offsetPosY;
-        posOffset.z = (Rand_ZeroOne() * 20.0f) - 10.0f;
+        posOffset.z = (fqrand() * 20.0f) - 10.0f;
 
-        velOffset.x = ((Rand_ZeroOne() - 0.5f) * 5.0f) + (offsetPosX * (4.0f / 75.0f));
-        velOffset.y = (Rand_ZeroOne() * 7.0f) - 2.0f;
-        velOffset.z = (Rand_ZeroOne() * 4.0f) - 2.0f;
+        velOffset.x = ((fqrand() - 0.5f) * 5.0f) + (offsetPosX * (4.0f / 75.0f));
+        velOffset.y = (fqrand() * 7.0f) - 2.0f;
+        velOffset.z = (fqrand() * 4.0f) - 2.0f;
 
         Matrix_MultVec3f(&posOffset, &pos);
         Matrix_MultVec3f(&velOffset, &vel);
@@ -188,7 +188,7 @@ void func_80BD4A14(BgIkanaBombwall* this, PlayState* play) {
     temp_fs3 = 0.0f;
 
     for (i = 0, angle = 0; i < 28; i++, angle += 0x924) {
-        temp_fs3 += 20.0f + (Rand_ZeroOne() * 10.0f);
+        temp_fs3 += 20.0f + (fqrand() * 10.0f);
         if (temp_fs3 > 60.0f) {
             temp_fs3 -= 60.0f;
         }
@@ -200,11 +200,11 @@ void func_80BD4A14(BgIkanaBombwall* this, PlayState* play) {
         pos.y = this->dyna.actor.world.pos.y;
         pos.z = (temp_fs1 * temp_fs3) + this->dyna.actor.world.pos.z;
 
-        vel.x = ((Rand_ZeroOne() - 0.5f) * 3.0f * temp_fs0) + ((temp_fs0 * temp_fs3) * (1.0f / 30.0f));
-        vel.y = (Rand_ZeroOne() * 18.0f) + 4.0f;
-        vel.z = ((Rand_ZeroOne() - 0.5f) * 3.0f * temp_fs1) + ((temp_fs1 * temp_fs3) * (1.0f / 30.0f));
+        vel.x = ((fqrand() - 0.5f) * 3.0f * temp_fs0) + ((temp_fs0 * temp_fs3) * (1.0f / 30.0f));
+        vel.y = (fqrand() * 18.0f) + 4.0f;
+        vel.z = ((fqrand() - 0.5f) * 3.0f * temp_fs1) + ((temp_fs1 * temp_fs3) * (1.0f / 30.0f));
 
-        scale = (Rand_Next() & 3) + (i >> 1) + 6;
+        scale = (qrand() & 3) + (i >> 1) + 6;
 
         if ((i & 3) == 0) {
             phi_v0 = 32;

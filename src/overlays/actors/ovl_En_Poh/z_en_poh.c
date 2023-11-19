@@ -261,7 +261,7 @@ void func_80B2CBBC(EnPoh* this, PlayState* play) {
     if ((this->actor.xzDistToPlayer < 200.0f) && (this->unk_18E < 19)) {
         func_80B2CD14(this);
     } else if (this->unk_18E == 0) {
-        if (Rand_ZeroOne() < 0.1f) {
+        if (fqrand() < 0.1f) {
             func_80B2D694(this);
         } else {
             func_80B2CA4C(this);
@@ -786,7 +786,7 @@ void func_80B2E8E0(EnPoh* this) {
         this->unk_198 = this->unk_199 = this->unk_19A = (this->skelAnime.curFrame * 16.66f) + 55.0f;
         this->unk_19B = this->skelAnime.curFrame * 16.666666f;
     } else {
-        f32 rand = Rand_ZeroOne();
+        f32 rand = fqrand();
 
         this->unk_198 = (s32)(rand * 30.0f) + 225;
         this->unk_199 = (s32)(rand * 100.0f) + 155;

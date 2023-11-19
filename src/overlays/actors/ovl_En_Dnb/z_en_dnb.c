@@ -69,14 +69,14 @@ s32 func_80A4FEBC(EnDnbEffect* effect, f32 arg1) {
 
 void func_80A4FFE8(EnDnbEffect* effect, s16 arg1) {
     effect->unk_0C = effect->unk_00;
-    effect->unk_1E.x = (Rand_ZeroOne() - 0.5f) * 400.0f;
-    effect->unk_1E.y = (Rand_ZeroOne() - 0.5f) * 400.0f;
-    effect->unk_1E.z = (Rand_ZeroOne() - 0.5f) * 400.0f;
+    effect->unk_1E.x = (fqrand() - 0.5f) * 400.0f;
+    effect->unk_1E.y = (fqrand() - 0.5f) * 400.0f;
+    effect->unk_1E.z = (fqrand() - 0.5f) * 400.0f;
     effect->unk_18 = gZeroVec3s;
     effect->unk_30 = 40.0f;
     effect->unk_2C = 0.0f;
     effect->unk_26 = arg1;
-    effect->unk_34 = (Rand_ZeroOne() * -2.0f) - 2.0f;
+    effect->unk_34 = (fqrand() * -2.0f) - 2.0f;
 }
 
 s32 func_80A500F8(EnDnb* this) {
@@ -89,10 +89,10 @@ s32 func_80A500F8(EnDnb* this) {
 
     for (i = 0; i < 16; i++) {
         Lib_Vec3f_TranslateAndRotateY(&actor->world.pos, i * 4096, &D_80A50CB0, &spA8);
-        temp_f20 = Rand_ZeroOne() * 240.0f;
+        temp_f20 = fqrand() * 240.0f;
         sp9C.x = Math_SinS(i * 4096) * temp_f20;
         sp9C.z = Math_CosS(i * 4096) * temp_f20;
-        sp9C.y = Rand_ZeroOne() * 180.0f;
+        sp9C.y = fqrand() * 180.0f;
         func_80A507C0(this->unk_0D38, spA8, sp9C, 16, 50.0f, 30.0f);
     }
 

@@ -437,7 +437,7 @@ void func_809ECD18(Boss04* this, PlayState* play) {
     if (this->unk_1F8 == 0) {
         this->unk_1F8 = Rand_ZeroFloat(100.0f) + 50.0f;
         this->unk_6D4 = Rand_ZeroFloat(3.0f);
-        if (Rand_ZeroOne() < 0.1f) {
+        if (fqrand() < 0.1f) {
             Math_Vec3f_Copy(&this->unk_6C8, &player->actor.world.pos);
         } else {
             this->unk_6C8.x = Rand_CenteredFloat(600.0f) + this->unk_6E8;
@@ -470,7 +470,7 @@ void func_809ECF58(Boss04* this, PlayState* play) {
 
     if ((this->unk_1FE == 14) || ((this->actor.bgCheckFlags & BGCHECKFLAG_WALL) && (this->unk_1F8 == 0))) {
         this->unk_1F8 = 20;
-        if ((Rand_ZeroOne() < 0.2f) && (this->unk_1FE == 0)) {
+        if ((fqrand() < 0.2f) && (this->unk_1FE == 0)) {
             this->actor.world.rot.y = this->actor.yawTowardsPlayer;
             this->unk_2D0 = 10000.0f;
             this->unk_2C8 = 100;

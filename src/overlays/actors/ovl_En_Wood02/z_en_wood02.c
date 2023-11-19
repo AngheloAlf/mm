@@ -265,7 +265,7 @@ void EnWood02_Init(Actor* thisx, PlayState* play) {
             actorScale = 0.02f;
             this->actor.velocity.x = Rand_CenteredFloat(6.0f);
             this->actor.velocity.z = Rand_CenteredFloat(6.0f);
-            this->actor.velocity.y = (Rand_ZeroOne() * 1.25f) + -3.1f;
+            this->actor.velocity.y = (fqrand() * 1.25f) + -3.1f;
             break;
     }
 

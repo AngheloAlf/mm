@@ -545,7 +545,7 @@ void func_80AD4608(EnTrt2* this) {
     temp = this->unk_3B8 + 1;
     if (temp >= 3) {
         this->unk_3B8 = 0;
-        this->unk_3B6 = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->unk_3B6 = (s32)(fqrand() * 60.0f) + 20;
     } else {
         this->unk_3B8 = temp;
         this->unk_3B6 = 1;

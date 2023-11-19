@@ -135,7 +135,7 @@ void func_80B3ADD8(EnGg2* this) {
         this->unk_2EC = temp_v0;
     } else if (temp_v0 == 0) {
         this->unk_2EA = 2;
-        this->unk_2EC = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->unk_2EC = (s32)(fqrand() * 60.0f) + 20;
     } else {
         this->unk_2EA = 1;
         this->unk_2EC = temp_v0;
@@ -294,9 +294,9 @@ void func_80B3B4B0(EnGg2* this, PlayState* play) {
     s32 i;
 
     for (i = 0; i < 5; i++) {
-        sp64.x = (Rand_Centered() * 50.0f) + this->unk_304.x;
+        sp64.x = (fqrand2() * 50.0f) + this->unk_304.x;
         sp64.y = this->unk_304.y;
-        sp64.z = (Rand_Centered() * 50.0f) + this->unk_304.z;
+        sp64.z = (fqrand2() * 50.0f) + this->unk_304.z;
         EffectSsKirakira_SpawnDispersed(play, &sp64, &D_80B3C088, &D_80B3C094, &sp60, &sp5C, 3000, 40);
     }
 }

@@ -326,7 +326,7 @@ void EnRat_ChooseDirection(EnRat* this) {
 
             angle += (s16)(s32)Rand_CenteredFloat(0x800);
         } else {
-            angle = (Rand_ZeroOne() < 0.1f) ? (s16)(s32)Rand_CenteredFloat(0x800) : 0;
+            angle = (fqrand() < 0.1f) ? (s16)(s32)Rand_CenteredFloat(0x800) : 0;
         }
     }
 
@@ -592,7 +592,7 @@ void EnRat_Idle(EnRat* this, PlayState* play) {
         }
     }
 
-    if ((this->animLoopCounter == 0) && (Rand_ZeroOne() < 0.05f)) {
+    if ((this->animLoopCounter == 0) && (fqrand() < 0.05f)) {
         Actor_PlaySfx(&this->actor, NA_SE_EN_BOMCHU_VOICE);
         this->animLoopCounter = 5;
     }
@@ -686,7 +686,7 @@ void EnRat_ChasePlayer(EnRat* this, PlayState* play) {
 
     EnRat_SpawnSmoke(this, play);
     this->visualJitter =
-        (5.0f + (Rand_ZeroOne() * 3.0f)) * Math_SinS(((Rand_ZeroOne() * 0x200) + 0x3000) * this->timer);
+        (5.0f + (fqrand() * 3.0f)) * Math_SinS(((fqrand() * 0x200) + 0x3000) * this->timer);
 
     if (EN_RAT_GET_TYPE(&this->actor) == EN_RAT_TYPE_DUNGEON) {
         EnRat_ActorCoordsToWorld(this, &sBlureP1Offset, &blureP1);
@@ -704,7 +704,7 @@ void EnRat_ChasePlayer(EnRat* this, PlayState* play) {
         EnRat_SpawnWaterEffects(this, play);
     }
 
-    if ((this->animLoopCounter == 0) && (Rand_ZeroOne() < 0.05f)) {
+    if ((this->animLoopCounter == 0) && (fqrand() < 0.05f)) {
         Actor_PlaySfx(&this->actor, NA_SE_EN_BOMCHU_AIM);
         this->animLoopCounter = 5;
     }

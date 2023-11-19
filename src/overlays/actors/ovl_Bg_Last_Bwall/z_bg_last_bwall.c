@@ -189,25 +189,25 @@ void func_80C184EC(BgLastBwall* this, PlayState* play) {
         switch (this->type) {
             case BGLASTBWALL_TYPE_0:
                 spD0.x = 280.0f;
-                spD0.y = Rand_Centered() * 160.0f + 320.0f;
-                spD0.z = Rand_Centered() * 160.0f;
+                spD0.y = fqrand2() * 160.0f + 320.0f;
+                spD0.z = fqrand2() * 160.0f;
                 Matrix_MultVec3f(&spD0, &effectPosAndAccel);
                 Math_Vec3f_Sum(&this->dyna.actor.world.pos, &effectPosAndAccel, &effectPosAndAccel);
                 break;
             case BGLASTBWALL_TYPE_1:
-                spD0.x = Rand_Centered() * 160.0f;
+                spD0.x = fqrand2() * 160.0f;
                 spD0.y = 400.0f;
-                spD0.z = Rand_Centered() * 160.0f;
+                spD0.z = fqrand2() * 160.0f;
                 Matrix_MultVec3f(&spD0, &effectPosAndAccel);
                 Math_Vec3f_Sum(&this->dyna.actor.world.pos, &effectPosAndAccel, &effectPosAndAccel);
                 break;
         }
-        func_800BBFB0(play, &effectPosAndAccel, 50.0f, 2, Rand_ZeroOne() * 120.0f + 20.0f,
-                      Rand_ZeroOne() * 240.0f + 20.0f, 0);
-        effectVelocity.x = Rand_ZeroOne() * 2.5f;
-        effectVelocity.y = Rand_ZeroOne() * 2.5f + 1.0f;
-        effectVelocity.z = Rand_ZeroOne() * 2.5f;
-        randVar = Rand_ZeroOne();
+        func_800BBFB0(play, &effectPosAndAccel, 50.0f, 2, fqrand() * 120.0f + 20.0f,
+                      fqrand() * 240.0f + 20.0f, 0);
+        effectVelocity.x = fqrand() * 2.5f;
+        effectVelocity.y = fqrand() * 2.5f + 1.0f;
+        effectVelocity.z = fqrand() * 2.5f;
+        randVar = fqrand();
         if (randVar < 0.2f) {
             var_v0 = 0x60;
         } else if (randVar < 0.6f) {

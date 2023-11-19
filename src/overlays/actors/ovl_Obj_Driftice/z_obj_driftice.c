@@ -108,7 +108,7 @@ f32 func_80A665EC(ObjDrifticeStruct* arg0, ObjDriftice* this) {
         } else {
             arg0->unk_00.unk_00 = Rand_S16Offset(30, 70);
             arg0->unk_00.unk_04 = Rand_S16Offset(1000, 1000);
-            arg0->unk_00.unk_0C = (Rand_ZeroOne() * 1.5f) + 1.0f;
+            arg0->unk_00.unk_0C = (fqrand() * 1.5f) + 1.0f;
             arg0->unk_00.unk_10 = fabsf(arg0->unk_00.unk_0C - arg0->unk_00.unk_08) * 0.05f;
         }
     } else {
@@ -137,7 +137,7 @@ f32 func_80A667F0(ObjDrifticeStruct3* arg0, ObjDriftice* this) {
         } else {
             temp_s0->unk_00 = Rand_S16Offset(30, 70);
             temp_s0->unk_04 = Rand_S16Offset(D_80A67694[i].unk_00, D_80A67694[i].unk_02);
-            temp_s0->unk_0C = D_80A67694[i].unk_04 + (D_80A67694[i].unk_08 * Rand_ZeroOne());
+            temp_s0->unk_0C = D_80A67694[i].unk_04 + (D_80A67694[i].unk_08 * fqrand());
             temp_s0->unk_10 = fabsf(temp_s0->unk_0C - temp_s0->unk_08) * 0.05f;
         }
         temp_s0->unk_02 += temp_s0->unk_04;
@@ -185,7 +185,7 @@ void func_80A66930(ObjDrifticeStruct2* arg0, ObjDriftice* this, s16* arg2, s16* 
         } else {
             temp_s0->unk_00 = Rand_S16Offset(30, 70);
             temp_s0->unk_04 = Rand_S16Offset(D_80A676B8[i].unk_00, D_80A676B8[i].unk_02);
-            temp_s0->unk_0C = D_80A676B8[i].unk_04 + (D_80A676B8[i].unk_08 * Rand_ZeroOne());
+            temp_s0->unk_0C = D_80A676B8[i].unk_04 + (D_80A676B8[i].unk_08 * fqrand());
             temp_s0->unk_10 = fabsf(temp_s0->unk_0C - temp_s0->unk_08) * 0.033333335f;
         }
         temp_s0->unk_02 += temp_s0->unk_04;
@@ -224,7 +224,7 @@ void func_80A66C4C(ObjDrifticeStruct4* arg0, ObjDriftice* this, s16* arg2, s16* 
         } else {
             temp_s0->unk_00 = Rand_S16Offset(30, 70);
             temp_s0->unk_04 = Rand_S16Offset(D_80A676D0[i].unk_00, D_80A676D0[i].unk_02);
-            temp_s0->unk_0C = D_80A676D0[i].unk_04 + (D_80A676D0[i].unk_08 * Rand_ZeroOne());
+            temp_s0->unk_0C = D_80A676D0[i].unk_04 + (D_80A676D0[i].unk_08 * fqrand());
             temp_s0->unk_10 = fabsf(temp_s0->unk_0C - temp_s0->unk_08) * 0.033333335f;
         }
         temp_s0->unk_02 += temp_s0->unk_04;

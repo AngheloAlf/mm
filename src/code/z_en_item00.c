@@ -442,9 +442,9 @@ void func_800A6780(EnItem00* this, PlayState* play) {
     }
 
     if ((play->gameplayFrames & 1) == 0) {
-        pos.x = this->actor.world.pos.x + ((Rand_ZeroOne() - 0.5f) * 10.0f);
-        pos.y = this->actor.world.pos.y + ((Rand_ZeroOne() - 0.5f) * 10.0f);
-        pos.z = this->actor.world.pos.z + ((Rand_ZeroOne() - 0.5f) * 10.0f);
+        pos.x = this->actor.world.pos.x + ((fqrand() - 0.5f) * 10.0f);
+        pos.y = this->actor.world.pos.y + ((fqrand() - 0.5f) * 10.0f);
+        pos.z = this->actor.world.pos.z + ((fqrand() - 0.5f) * 10.0f);
         EffectSsKirakira_SpawnSmall(play, &pos, &sEffectVelocity, &sEffectAccel, &sEffectPrimColor, &sEffectEnvColor);
     }
 
@@ -1322,7 +1322,7 @@ void Item_DropCollectibleRandom(PlayState* play, Actor* fromActor, Vec3f* spawnP
     EnItem00* spawnedActor;
     u8 dropId;
     s32 dropQuantity;
-    s16 dropTableIndex = Rand_ZeroOne() * 16.0f;
+    s16 dropTableIndex = fqrand() * 16.0f;
     s16 param8000 = params & 0x8000;
     u8 dropFlag;
 
@@ -1427,7 +1427,7 @@ void Item_DropCollectibleRandom(PlayState* play, Actor* fromActor, Vec3f* spawnP
                             spawnedActor->actor.velocity.y = 8.0f;
                             spawnedActor->actor.speed = 2.0f;
                             spawnedActor->actor.gravity = -0.9f;
-                            spawnedActor->actor.world.rot.y = Rand_ZeroOne() * 40000.0f;
+                            spawnedActor->actor.world.rot.y = fqrand() * 40000.0f;
                             Actor_SetScale(&spawnedActor->actor, 0.0f);
                             spawnedActor->actionFunc = func_800A6780;
                             spawnedActor->actor.flags = spawnedActor->actor.flags | ACTOR_FLAG_10;

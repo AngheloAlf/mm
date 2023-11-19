@@ -1047,9 +1047,9 @@ void EnLiftNuts_SpawnDust(EnLiftNuts* this, PlayState* play) {
     accel.y = 0.0f;
 
     for (i = 0; i < 30; i++) {
-        velocity.x = Rand_Centered() * 15.0f;
-        velocity.y = Rand_ZeroOne() * 2.0f;
-        velocity.z = Rand_Centered() * 15.0f;
+        velocity.x = fqrand2() * 15.0f;
+        velocity.y = fqrand() * 2.0f;
+        velocity.z = fqrand2() * 15.0f;
 
         accel.x = -0.2f * velocity.x;
         accel.z = -0.2f * velocity.z;

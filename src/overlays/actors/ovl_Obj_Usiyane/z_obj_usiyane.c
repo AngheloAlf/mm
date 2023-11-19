@@ -120,7 +120,7 @@ void func_80C07F30(ObjUsiyane* this, PlayState* play) {
             }
             func_800B12F0(play, &this->unk_168[j][i].unk_00, &gZeroVec3f, &gZeroVec3f, 100, 30, 7);
 
-            this->unk_168[j][i].unk_18.y = (s32)Rand_Next() >> 0x10;
+            this->unk_168[j][i].unk_18.y = (s32)qrand() >> 0x10;
 
             sp94.x = this->unk_168[j][i].unk_00.x - this->unk_708;
             sp94.y = 0.0f;
@@ -133,9 +133,9 @@ void func_80C07F30(ObjUsiyane* this, PlayState* play) {
 
             this->unk_168[j][i].unk_0C = sp94;
 
-            this->unk_168[j][i].unk_1E.x = Rand_Centered() * 4000.0f;
-            this->unk_168[j][i].unk_1E.y = Rand_Centered() * 4000.0f;
-            this->unk_168[j][i].unk_1E.z = Rand_Centered() * 4000.0f;
+            this->unk_168[j][i].unk_1E.x = fqrand2() * 4000.0f;
+            this->unk_168[j][i].unk_1E.y = fqrand2() * 4000.0f;
+            this->unk_168[j][i].unk_1E.z = fqrand2() * 4000.0f;
         }
     }
 

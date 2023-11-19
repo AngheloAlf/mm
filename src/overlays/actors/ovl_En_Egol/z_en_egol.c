@@ -1563,15 +1563,15 @@ void EnEgol_SpawnEffect(EnEgol* this, Vec3f* pos, Vec3s* rot, s16 lifetime, f32 
             effect->rot.z = Rand_CenteredFloat(0x7530);
             if ((effect->type == EYEGORE_EFFECT_PIECE_LARGE) || (effect->type == EYEGORE_EFFECT_PIECE_SMALL)) {
                 effect->accel.y = -1.0f;
-                effect->velocity.x = 4.0f * (Rand_ZeroOne() - 0.5f);
-                effect->velocity.y = 10.0f + (10.0f * Rand_ZeroOne());
-                effect->velocity.z = 4.0f * (Rand_ZeroOne() - 0.5f);
+                effect->velocity.x = 4.0f * (fqrand() - 0.5f);
+                effect->velocity.y = 10.0f + (10.0f * fqrand());
+                effect->velocity.z = 4.0f * (fqrand() - 0.5f);
                 break;
             } else if (effect->type == EYEGORE_EFFECT_DEBRIS) {
                 effect->accel.y = -1.0f;
-                effect->velocity.x = 0.5f * (Rand_ZeroOne() - 0.5f);
-                effect->velocity.y = 5.0f + (5.0f * Rand_ZeroOne());
-                effect->velocity.z = 0.5f * (Rand_ZeroOne() - 0.5f);
+                effect->velocity.x = 0.5f * (fqrand() - 0.5f);
+                effect->velocity.y = 5.0f + (5.0f * fqrand());
+                effect->velocity.z = 0.5f * (fqrand() - 0.5f);
                 effect->timer = 20.0f + Rand_ZeroFloat(10.0f);
                 break;
             } else if (effect->type == EYEGORE_EFFECT_IMPACT) {

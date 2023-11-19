@@ -313,7 +313,7 @@ void func_808F374C(EnIn* this, PlayState* play) {
         (this->skelAnime.animation == &object_in_Anim_0170DC)) {
         if (Animation_OnFrame(&this->skelAnime, 8.0f)) {
             Audio_PlaySfx_Randomized(&this->actor.projectedPos, NA_SE_VO_IN_LASH_0, 2);
-            if (Rand_ZeroOne() < 0.3f) {
+            if (fqrand() < 0.3f) {
                 Audio_PlaySfx_AtPos(&this->actor.projectedPos, NA_SE_IT_INGO_HORSE_NEIGH);
             }
             Audio_PlaySfx_AtPos(&this->actor.projectedPos, NA_SE_IT_LASH);
@@ -1540,7 +1540,7 @@ void EnIn_Init(Actor* thisx, PlayState* play) {
                     EnIn_ChangeAnim(&this->skelAnime, ENIN_ANIM_4);
                 }
                 if (GET_WEEKEVENTREG_HORSE_RACE_STATE == WEEKEVENTREG_HORSE_RACE_STATE_2) {
-                    this->skelAnime.curFrame = ((Rand_ZeroOne() * 0.6f) + 0.2f) * this->skelAnime.endFrame;
+                    this->skelAnime.curFrame = ((fqrand() * 0.6f) + 0.2f) * this->skelAnime.endFrame;
                 }
                 if (this->unk4AC & 8) {
                     this->actionFunc = func_808F39DC;

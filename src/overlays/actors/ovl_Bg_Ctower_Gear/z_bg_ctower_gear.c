@@ -78,15 +78,15 @@ void BgCtowerGear_Splash(BgCtowerGear* this, PlayState* play) {
         Matrix_RotateXS(this->dyna.actor.home.rot.x, MTXMODE_APPLY);
         Matrix_RotateZS(this->dyna.actor.home.rot.z, MTXMODE_APPLY);
         for (i = 0; i < 4; i++) {
-            if (Rand_Next() >= 0x40000000) {
-                splashOffset.x = sExitSplashOffsets[i].x - (Rand_ZeroOne() * 30.0f);
+            if (qrand() >= 0x40000000) {
+                splashOffset.x = sExitSplashOffsets[i].x - (fqrand() * 30.0f);
                 splashOffset.y = sExitSplashOffsets[i].y;
                 splashOffset.z = sExitSplashOffsets[i].z;
                 Matrix_MultVec3f(&splashOffset, &splashSpawnPos);
-                splashSpawnPos.x += this->dyna.actor.world.pos.x + ((Rand_ZeroOne() * 20.0f) - 10.0f);
+                splashSpawnPos.x += this->dyna.actor.world.pos.x + ((fqrand() * 20.0f) - 10.0f);
                 splashSpawnPos.y += this->dyna.actor.world.pos.y;
-                splashSpawnPos.z += this->dyna.actor.world.pos.z + ((Rand_ZeroOne() * 20.0f) - 10.0f);
-                EffectSsGSplash_Spawn(play, &splashSpawnPos, NULL, NULL, 0, (Rand_Next() >> 25) + 340);
+                splashSpawnPos.z += this->dyna.actor.world.pos.z + ((fqrand() * 20.0f) - 10.0f);
+                EffectSsGSplash_Spawn(play, &splashSpawnPos, NULL, NULL, 0, (qrand() >> 25) + 340);
             }
         }
     }
@@ -97,14 +97,14 @@ void BgCtowerGear_Splash(BgCtowerGear* this, PlayState* play) {
             Matrix_RotateZS(this->dyna.actor.home.rot.z, MTXMODE_APPLY);
             for (i = 0; i < 3; i++) {
                 for (j = 0; j < 2; j++) {
-                    splashOffset.x = sEnterSplashOffsets[i].x + (Rand_ZeroOne() * 10.0f);
+                    splashOffset.x = sEnterSplashOffsets[i].x + (fqrand() * 10.0f);
                     splashOffset.y = sEnterSplashOffsets[i].y;
                     splashOffset.z = sEnterSplashOffsets[i].z;
                     Matrix_MultVec3f(&splashOffset, &splashSpawnPos);
-                    splashSpawnPos.x += this->dyna.actor.world.pos.x + ((Rand_ZeroOne() * 20.0f) - 10.0f);
+                    splashSpawnPos.x += this->dyna.actor.world.pos.x + ((fqrand() * 20.0f) - 10.0f);
                     splashSpawnPos.y += this->dyna.actor.world.pos.y;
-                    splashSpawnPos.z += this->dyna.actor.world.pos.z + ((Rand_ZeroOne() * 20.0f) - 10.0f);
-                    EffectSsGSplash_Spawn(play, &splashSpawnPos, NULL, NULL, 0, (Rand_Next() >> 25) + 280);
+                    splashSpawnPos.z += this->dyna.actor.world.pos.z + ((fqrand() * 20.0f) - 10.0f);
+                    EffectSsGSplash_Spawn(play, &splashSpawnPos, NULL, NULL, 0, (qrand() >> 25) + 280);
                 }
             }
         }

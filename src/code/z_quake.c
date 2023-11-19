@@ -41,7 +41,7 @@ static s16 sQuakeUnused = 1;
 static s16 sQuakeRequestCount = 0;
 
 f32 Quake_Random(void) {
-    return 2.0f * (Rand_ZeroOne() - 0.5f);
+    return 2.0f * (fqrand() - 0.5f);
 }
 
 void Quake_UpdateShakeInfo(QuakeRequest* req, ShakeInfo* shake, f32 yOffset, f32 xOffset) {
@@ -93,7 +93,7 @@ s16 Quake_CallbackType1(QuakeRequest* req, ShakeInfo* shake) {
     if (req->timer > 0) {
         f32 xyOffset = Math_SinS(req->speed * req->timer);
 
-        Quake_UpdateShakeInfo(req, shake, xyOffset, Rand_ZeroOne() * xyOffset);
+        Quake_UpdateShakeInfo(req, shake, xyOffset, fqrand() * xyOffset);
         req->timer--;
     }
     return req->timer;
@@ -114,7 +114,7 @@ s16 Quake_CallbackType6(QuakeRequest* req, ShakeInfo* shake) {
 
     req->timer--;
     xyOffset = Math_SinS(req->speed * ((req->timer & 0xF) + 500));
-    Quake_UpdateShakeInfo(req, shake, xyOffset, Rand_ZeroOne() * xyOffset);
+    Quake_UpdateShakeInfo(req, shake, xyOffset, fqrand() * xyOffset);
 
     // Not returning the timer ensures quake type 6 continues indefinitely until manually removed
     return 1;
@@ -134,7 +134,7 @@ s16 Quake_CallbackType2(QuakeRequest* req, ShakeInfo* shake) {
     if (req->timer > 0) {
         f32 xyOffset = Quake_Random();
 
-        Quake_UpdateShakeInfo(req, shake, xyOffset, Rand_ZeroOne() * xyOffset);
+        Quake_UpdateShakeInfo(req, shake, xyOffset, fqrand() * xyOffset);
         req->timer--;
     }
     return req->timer;
@@ -144,7 +144,7 @@ s16 Quake_CallbackType4(QuakeRequest* req, ShakeInfo* shake) {
     if (req->timer > 0) {
         f32 xyOffset = Quake_Random() * ((f32)req->timer / req->duration);
 
-        Quake_UpdateShakeInfo(req, shake, xyOffset, Rand_ZeroOne() * xyOffset);
+        Quake_UpdateShakeInfo(req, shake, xyOffset, fqrand() * xyOffset);
         req->timer--;
     }
     return req->timer;
@@ -183,7 +183,7 @@ QuakeRequest* Quake_RequestImpl(Camera* camera, u32 type) {
 
     // Add a unique random identifier to the upper bits of the index
     // The `~3` assumes there are only 4 requests
-    req->index = index + ((s16)(Rand_ZeroOne() * 0x10000) & ~3);
+    req->index = index + ((s16)(fqrand() * 0x10000) & ~3);
 
     sQuakeRequestCount++;
 

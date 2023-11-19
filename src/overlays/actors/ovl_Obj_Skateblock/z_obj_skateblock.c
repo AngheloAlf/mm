@@ -460,10 +460,10 @@ void func_80A21F74(ObjSkateblock* this, PlayState* play) {
         sp9C.y = 12.0f;
 
         for (i = 0; i < 2; i++) {
-            if (phi_f22 < (Rand_ZeroOne() * 1.2f)) {
+            if (phi_f22 < (fqrand() * 1.2f)) {
                 continue;
             }
-            this->unk_180 += Rand_ZeroOne();
+            this->unk_180 += fqrand();
 
             if (this->unk_180 > 1.0f) {
                 this->unk_180 -= 1.0f;
@@ -478,9 +478,9 @@ void func_80A21F74(ObjSkateblock* this, PlayState* play) {
             spA8.y += this->dyna.actor.world.pos.y;
             spA8.z += this->dyna.actor.world.pos.z;
 
-            temp = ((Rand_ZeroOne() * 800.0f) + (1600.0f * this->dyna.actor.scale.x)) * phi_f22;
+            temp = ((fqrand() * 800.0f) + (1600.0f * this->dyna.actor.scale.x)) * phi_f22;
             func_800B0E48(play, &spA8, &gZeroVec3f, &D_80A22ACC, &D_80A22AD8, &D_80A22ADC, temp,
-                          (Rand_ZeroOne() * 20.0f) + 30.0f);
+                          (fqrand() * 20.0f) + 30.0f);
         }
     }
 }

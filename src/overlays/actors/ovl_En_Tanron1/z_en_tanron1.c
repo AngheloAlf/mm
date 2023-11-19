@@ -61,7 +61,7 @@ void func_80BB4E50(EnTanron1Struct* arg0, Vec3f* arg1, s16 arg2) {
             arg0->unk_1A = arg2;
             arg0->unk_26 = Rand_ZeroFloat(100.0f);
             arg0->unk_28 = 0;
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 arg0->unk_2A = 0xC00;
             } else {
                 arg0->unk_2A = -0xC00;
@@ -335,7 +335,7 @@ void func_80BB5318(EnTanron1* this, PlayState* play) {
                     } else {
                         Math_ApproachF(&ptr->unk_30, ptr->unk_34, 1.0f, 0.5f);
                         if ((ptr->unk_26 & 0xF) == 0) {
-                            if (Rand_ZeroOne() < 0.5f) {
+                            if (fqrand() < 0.5f) {
                                 ptr->unk_34 = Rand_CenteredFloat(12.0f);
                             }
                             ptr->unk_3C = BgCheck_EntityRaycastFloor1(&play->colCtx, &sp98, &ptr->unk_00);

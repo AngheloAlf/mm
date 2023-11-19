@@ -75,8 +75,8 @@ void BgIkanaDharma_SpawnEffects(BgIkanaDharma* this, PlayState* play) {
     f32 initialY = this->dyna.actor.scale.y * 50.0f;
 
     for (i = 0; i < 4; i++) {
-        f32 speed = (Rand_ZeroOne() * 5.0f) + 5.0f;
-        s16 angle = (Rand_Next() >> 0x12) + this->dyna.actor.world.rot.y + 0x6000;
+        f32 speed = (fqrand() * 5.0f) + 5.0f;
+        s16 angle = (qrand() >> 0x12) + this->dyna.actor.world.rot.y + 0x6000;
         f32 dirX = Math_SinS(angle);
         f32 dirZ = Math_CosS(angle);
 
@@ -84,7 +84,7 @@ void BgIkanaDharma_SpawnEffects(BgIkanaDharma* this, PlayState* play) {
         pos.y = this->dyna.actor.world.pos.y + initialY;
         pos.z = (dirZ * initialRadius) + this->dyna.actor.world.pos.z;
         velocity.x = speed * dirX;
-        velocity.y = Rand_ZeroOne() + 0.5f;
+        velocity.y = fqrand() + 0.5f;
         velocity.z = speed * dirZ;
         accel.x = velocity.x * -0.05f;
         accel.y = -0.15f;

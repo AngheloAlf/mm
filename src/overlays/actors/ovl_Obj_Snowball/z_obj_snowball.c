@@ -143,20 +143,20 @@ void func_80B02EE4(ObjSnowball* this, PlayState* play) {
     s32 i;
 
     for (i = 0; i < 4; i++) {
-        sp94.x = ((Rand_ZeroOne() * 14.0f) - 7.0f) + hitPos->x;
-        sp94.y = ((Rand_ZeroOne() * 14.0f) - 7.0f) + hitPos->y;
-        sp94.z = ((Rand_ZeroOne() * 14.0f) - 7.0f) + hitPos->z;
+        sp94.x = ((fqrand() * 14.0f) - 7.0f) + hitPos->x;
+        sp94.y = ((fqrand() * 14.0f) - 7.0f) + hitPos->y;
+        sp94.z = ((fqrand() * 14.0f) - 7.0f) + hitPos->z;
 
-        spA0.x = (Rand_ZeroOne() - 0.5f) * 1.6f;
+        spA0.x = (fqrand() - 0.5f) * 1.6f;
         spA0.y = -0.8f;
-        spA0.z = (Rand_ZeroOne() - 0.5f) * 1.6f;
+        spA0.z = (fqrand() - 0.5f) * 1.6f;
 
         spAC.x = spA0.x * -0.06f;
         spAC.y = spA0.y * -0.06f;
         spAC.z = spA0.z * -0.06f;
 
-        func_800B0E48(play, &sp94, &spA0, &spAC, &D_80B04FB4, &D_80B04FB8, (s32)(Rand_ZeroOne() * 30.0f) + 15,
-                      (s32)(Rand_ZeroOne() * 40.0f) + 30);
+        func_800B0E48(play, &sp94, &spA0, &spAC, &D_80B04FB4, &D_80B04FB8, (s32)(fqrand() * 30.0f) + 15,
+                      (s32)(fqrand() * 40.0f) + 30);
     }
 }
 
@@ -194,7 +194,7 @@ void func_80B030F8(ObjSnowball* this, PlayState* play) {
             gravity = -340;
             phi_s4 = 0;
             phi_f22 = 0.9f;
-            if (Rand_ZeroOne() < 0.4f) {
+            if (fqrand() < 0.4f) {
                 phi_s0 = 0x20;
             } else {
                 phi_s0 = 0x40;
@@ -204,38 +204,38 @@ void func_80B030F8(ObjSnowball* this, PlayState* play) {
             gravity = -400;
             phi_s4 = 1;
             phi_f22 = 0.8f;
-            if ((s32)Rand_Next() > 0) {
+            if ((s32)qrand() > 0) {
                 phi_s0 = 0x21;
             } else {
                 phi_s0 = 0x41;
             }
         }
 
-        temp_f20 = (Rand_ZeroOne() * (40.0f * this->unk_20C)) + 20.0f;
+        temp_f20 = (fqrand() * (40.0f * this->unk_20C)) + 20.0f;
 
-        spFC.x = Math_SinS((s32)(Rand_ZeroOne() * 2621.44f) + phi_s6) * temp_f20;
-        spFC.y = (Rand_ZeroOne() - 0.4f) * temp_f20 * 1.6666666f;
-        spFC.z = Math_CosS((s32)(Rand_ZeroOne() * 2621.44f) + phi_s6) * temp_f20;
+        spFC.x = Math_SinS((s32)(fqrand() * 2621.44f) + phi_s6) * temp_f20;
+        spFC.y = (fqrand() - 0.4f) * temp_f20 * 1.6666666f;
+        spFC.z = Math_CosS((s32)(fqrand() * 2621.44f) + phi_s6) * temp_f20;
 
         spF0.x = spFC.x * 0.16f * phi_f22;
-        spF0.y = (Rand_ZeroOne() * 16.0f) + 3.0f;
+        spF0.y = (fqrand() * 16.0f) + 3.0f;
         spF0.z = spFC.z * 0.16f * phi_f22;
 
         spFC.x += this->actor.world.pos.x;
         spFC.y += this->actor.world.pos.y;
         spFC.z += this->actor.world.pos.z;
 
-        scale = ((Rand_ZeroOne() * 15.0f) + 30.0f) * this->unk_20C;
+        scale = ((fqrand() * 15.0f) + 30.0f) * this->unk_20C;
 
         EffectSsKakera_Spawn(play, &spFC, &spF0, &spFC, gravity, phi_s0, 30, 0, 0, scale, phi_s4, 0, 50, -1,
                              OBJECT_GOROIWA, temp_s2);
         if ((this->unk_210 == 0) && (temp_s7 >= 3)) {
-            spFC.x += (Rand_ZeroOne() * 120.0f) - 60.0f;
-            spFC.y += Rand_ZeroOne() * 80.0f;
-            spFC.z += (Rand_ZeroOne() * 120.0f) - 60.0f;
+            spFC.x += (fqrand() * 120.0f) - 60.0f;
+            spFC.y += fqrand() * 80.0f;
+            spFC.z += (fqrand() * 120.0f) - 60.0f;
 
-            temp_s0 = (s32)(Rand_ZeroOne() * 50.0f * temp_f28) + 40;
-            temp_s1 = (s32)(Rand_ZeroOne() * 60.0f * temp_f28) + 50;
+            temp_s0 = (s32)(fqrand() * 50.0f * temp_f28) + 40;
+            temp_s1 = (s32)(fqrand() * 60.0f * temp_f28) + 50;
             func_800B0E48(play, &spFC, &gZeroVec3f, &D_80B04FBC, &D_80B04FB4, &D_80B04FB8, temp_s0, temp_s1);
         }
     }
@@ -244,7 +244,7 @@ void func_80B030F8(ObjSnowball* this, PlayState* play) {
         temp_f26 = this->unk_20C * 60.0f;
 
         for (i = 0, phi_s6 = 0; i < 16; i++, phi_s6 += 0x1000) {
-            temp_s0 = Rand_Next() >> 0x10;
+            temp_s0 = qrand() >> 0x10;
             temp_f20 = Math_SinS(temp_s0);
             temp_f22 = Math_CosS(temp_s0);
 
@@ -252,7 +252,7 @@ void func_80B030F8(ObjSnowball* this, PlayState* play) {
             spFC.z = Math_CosS(phi_s6);
 
             spF0.x = 2.0f * spFC.x;
-            spF0.y = (2.0f * Rand_ZeroOne()) + 1.0f;
+            spF0.y = (2.0f * fqrand()) + 1.0f;
             spF0.z = 2.0f * spFC.z;
 
             spFC.x *= temp_f22 * temp_f26;
@@ -267,7 +267,7 @@ void func_80B030F8(ObjSnowball* this, PlayState* play) {
             spE4.y = spF0.y * -0.05f;
             spE4.z = spF0.z * -0.02f;
 
-            EffectSsIceSmoke_Spawn(play, &spFC, &spF0, &spE4, ((s32)(Rand_ZeroOne() * 170.0f) + 150) * temp_f28);
+            EffectSsIceSmoke_Spawn(play, &spFC, &spF0, &spE4, ((s32)(fqrand() * 170.0f) + 150) * temp_f28);
         }
     }
 }
@@ -285,11 +285,11 @@ void func_80B03688(ObjSnowball* this, PlayState* play) {
 
     if (this->unk_210 == 0) {
         for (i = 0, phi_s0 = 0; i < 10; i++, phi_s0 += 0x1999) {
-            temp_f20 = (Rand_ZeroOne() * (45.0f * this->unk_20C)) + 50.0f;
+            temp_f20 = (fqrand() * (45.0f * this->unk_20C)) + 50.0f;
 
-            spB8.x = Math_SinS((s32)(Rand_ZeroOne() * 6553.6f) + phi_s0) * temp_f20;
-            spB8.y = Rand_ZeroOne() * 20.0f;
-            spB8.z = Math_CosS((s32)(Rand_ZeroOne() * 6553.6f) + phi_s0) * temp_f20;
+            spB8.x = Math_SinS((s32)(fqrand() * 6553.6f) + phi_s0) * temp_f20;
+            spB8.y = fqrand() * 20.0f;
+            spB8.z = Math_CosS((s32)(fqrand() * 6553.6f) + phi_s0) * temp_f20;
 
             spAC.x = spB8.x * 0.06f;
             spAC.y = 0.0f;
@@ -303,17 +303,17 @@ void func_80B03688(ObjSnowball* this, PlayState* play) {
             spB8.y += this->actor.home.pos.y;
             spB8.z += this->actor.home.pos.z;
 
-            temp_s3 = (s32)(Rand_ZeroOne() * 60.0f * temp_f22) + 70;
+            temp_s3 = (s32)(fqrand() * 60.0f * temp_f22) + 70;
 
             func_800B0E48(play, &spB8, &spAC, &spA0, &D_80B04FB4, &D_80B04FB8, temp_s3,
-                          (s32)(Rand_ZeroOne() * 70.0f * temp_f22) + 70);
+                          (s32)(fqrand() * 70.0f * temp_f22) + 70);
         }
     } else {
         for (i = 0, phi_s0 = 0; i < 18; i++, phi_s0 += 0xE38) {
-            temp_f20 = (Rand_ZeroOne() * (45.0f * this->unk_20C)) + 50.0f;
+            temp_f20 = (fqrand() * (45.0f * this->unk_20C)) + 50.0f;
 
-            spB8.x = Math_SinS((s32)(Rand_ZeroOne() * 3640.889f) + phi_s0);
-            spB8.z = Math_CosS((s32)(Rand_ZeroOne() * 3640.889f) + phi_s0);
+            spB8.x = Math_SinS((s32)(fqrand() * 3640.889f) + phi_s0);
+            spB8.z = Math_CosS((s32)(fqrand() * 3640.889f) + phi_s0);
 
             spAC.x = spB8.x * 3.0f * temp_f22;
             spAC.y = 0.0f;
@@ -324,10 +324,10 @@ void func_80B03688(ObjSnowball* this, PlayState* play) {
             spA0.z = spAC.z * -0.02f;
 
             spB8.x = (spB8.x * temp_f20) + this->actor.home.pos.x;
-            spB8.y = (Rand_ZeroOne() * 20.0f) + this->actor.home.pos.y;
+            spB8.y = (fqrand() * 20.0f) + this->actor.home.pos.y;
             spB8.z = (spB8.z * temp_f20) + this->actor.home.pos.z;
 
-            EffectSsIceSmoke_Spawn(play, &spB8, &spAC, &spA0, (s32)(Rand_ZeroOne() * 140.0f * temp_f22) + 100);
+            EffectSsIceSmoke_Spawn(play, &spB8, &spAC, &spA0, (s32)(fqrand() * 140.0f * temp_f22) + 100);
         }
     }
 }
@@ -349,14 +349,14 @@ void func_80B03A80(PlayState* play, f32 arg1, Vec3f* arg2) {
     for (i = 0, phi_s5 = 0; i < 13; i++, phi_s5 += 0x1999) {
         tmp = i & 3;
 
-        temp_f20 = (Rand_ZeroOne() * (40.0f * arg1)) + 20.0f;
+        temp_f20 = (fqrand() * (40.0f * arg1)) + 20.0f;
 
-        spD8.x = Math_SinS((s32)(Rand_ZeroOne() * 6553.6f) + phi_s5) * temp_f20;
-        spD8.y = Rand_ZeroOne() * temp_f20;
-        spD8.z = Math_CosS((s32)(Rand_ZeroOne() * 6553.6f) + phi_s5) * temp_f20;
+        spD8.x = Math_SinS((s32)(fqrand() * 6553.6f) + phi_s5) * temp_f20;
+        spD8.y = fqrand() * temp_f20;
+        spD8.z = Math_CosS((s32)(fqrand() * 6553.6f) + phi_s5) * temp_f20;
 
         spCC.x = spD8.x * 0.17f;
-        spCC.y = (Rand_ZeroOne() * 14.0f) + 3.0f;
+        spCC.y = (fqrand() * 14.0f) + 3.0f;
         spCC.z = spD8.z * 0.17f;
 
         spD8.x += arg2->x;
@@ -367,7 +367,7 @@ void func_80B03A80(PlayState* play, f32 arg1, Vec3f* arg2) {
             temp_s1 = D_80B04FC8[0];
             phi_s2 = -400;
             phi_s3 = 1;
-            if ((s32)Rand_Next() > 0) {
+            if ((s32)qrand() > 0) {
                 phi_s0 = 0x21;
             } else {
                 phi_s0 = 0x41;
@@ -376,7 +376,7 @@ void func_80B03A80(PlayState* play, f32 arg1, Vec3f* arg2) {
             temp_s1 = D_80B04FC8[1];
             phi_s2 = -340;
             phi_s3 = 1;
-            if ((s32)Rand_Next() > 0) {
+            if ((s32)qrand() > 0) {
                 phi_s0 = 0x21;
             } else {
                 phi_s0 = 0x41;
@@ -389,16 +389,16 @@ void func_80B03A80(PlayState* play, f32 arg1, Vec3f* arg2) {
         }
 
         EffectSsKakera_Spawn(play, &spD8, &spCC, &spD8, phi_s2, phi_s0, 30, 0, 0,
-                             ((Rand_ZeroOne() * 15.0f) + 25.0f) * arg1, phi_s3, 0, 0x36, -1, OBJECT_GOROIWA, temp_s1);
+                             ((fqrand() * 15.0f) + 25.0f) * arg1, phi_s3, 0, 0x36, -1, OBJECT_GOROIWA, temp_s1);
 
-        spD8.x += (Rand_ZeroOne() * 80.0f) - 40.0f;
-        spD8.y += Rand_ZeroOne() * 55.0f;
-        spD8.z += (Rand_ZeroOne() * 80.0f) - 40.0f;
+        spD8.x += (fqrand() * 80.0f) - 40.0f;
+        spD8.y += fqrand() * 55.0f;
+        spD8.z += (fqrand() * 80.0f) - 40.0f;
 
-        phi_s0 = (s32)(Rand_ZeroOne() * 60.0f * temp_f30) + 60;
+        phi_s0 = (s32)(fqrand() * 60.0f * temp_f30) + 60;
 
         func_800B0E48(play, &spD8, &gZeroVec3f, &D_80B04FBC, &D_80B04FB4, &D_80B04FB8, phi_s0,
-                      (s32)(Rand_ZeroOne() * 30.0f * temp_f30) + 60);
+                      (s32)(fqrand() * 30.0f * temp_f30) + 60);
     }
 }
 
@@ -407,9 +407,9 @@ void func_80B03E2C(ObjSnowball* this, PlayState* play) {
     s32 i;
 
     this->unk_1A8[0].unk_1C.y = this->actor.yawTowardsPlayer - 0x4000;
-    this->unk_1A8[0].unk_24 = Rand_ZeroOne() * -600.0f;
+    this->unk_1A8[0].unk_24 = fqrand() * -600.0f;
     this->unk_1A8[1].unk_1C.y = this->actor.yawTowardsPlayer + 0x4000;
-    this->unk_1A8[1].unk_24 = Rand_ZeroOne() * 600.0f;
+    this->unk_1A8[1].unk_24 = fqrand() * 600.0f;
 
     for (i = 0; i < ARRAY_COUNT(this->unk_1A8); i++) {
         ptr = &this->unk_1A8[i];
@@ -417,15 +417,15 @@ void func_80B03E2C(ObjSnowball* this, PlayState* play) {
         ptr->unk_00.y = this->actor.home.pos.y + (61.0f * this->unk_20C);
         ptr->unk_00.z = this->actor.home.pos.z;
 
-        ptr->unk_0C = Math_SinS(ptr->unk_1C.y) * (Rand_ZeroOne() + 5.0f);
-        ptr->unk_10 = (Rand_ZeroOne() * 11.0f) + 20.0f;
-        ptr->unk_14 = Math_CosS(ptr->unk_1C.y) * (Rand_ZeroOne() + 5.0f);
+        ptr->unk_0C = Math_SinS(ptr->unk_1C.y) * (fqrand() + 5.0f);
+        ptr->unk_10 = (fqrand() * 11.0f) + 20.0f;
+        ptr->unk_14 = Math_CosS(ptr->unk_1C.y) * (fqrand() + 5.0f);
 
         ptr->unk_1C.x = 0;
         ptr->unk_1C.z = 0;
 
-        ptr->unk_22 = (s32)(Rand_ZeroOne() * 400.0f) + 1100;
-        ptr->unk_26 = Rand_ZeroOne() * -600.0f;
+        ptr->unk_22 = (s32)(fqrand() * 400.0f) + 1100;
+        ptr->unk_26 = fqrand() * -600.0f;
         ptr->unk_2D = 0;
         ptr->unk_2C = 0;
     }
@@ -473,7 +473,7 @@ void ObjSnowball_Init(Actor* thisx, PlayState* play) {
     this->actor.world.pos.y += 20.0f * phi_f20;
     this->actor.uncullZoneScale = 150.0f * phi_f20;
     this->actor.uncullZoneDownward = 300.0f * phi_f20;
-    this->actor.shape.rot.y = Rand_Next() >> 0x10;
+    this->actor.shape.rot.y = qrand() >> 0x10;
     this->unk_20C = phi_f20;
 
     if (sp34) {

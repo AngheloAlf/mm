@@ -274,7 +274,7 @@ void EnKusa_UpdateVelY(EnKusa* this) {
  * @param scaleFactor scale factor to be applied to vector
  */
 void EnKusa_RandScaleVecToZero(Vec3f* vec, f32 scaleFactor) {
-    scaleFactor += ((Rand_ZeroOne() * 0.2f) - 0.1f) * scaleFactor;
+    scaleFactor += ((fqrand() * 0.2f) - 0.1f) * scaleFactor;
     vec->x -= vec->x * scaleFactor;
     vec->y -= vec->y * scaleFactor;
     vec->z -= vec->z * scaleFactor;
@@ -300,11 +300,11 @@ void EnKusa_SpawnFragments(EnKusa* this, PlayState* play) {
         pos.x = this->actor.world.pos.x + (directon->x * this->actor.scale.x * 20.0f);
         pos.y = this->actor.world.pos.y + (directon->y * this->actor.scale.y * 20.0f) + 10.0f;
         pos.z = this->actor.world.pos.z + (directon->z * this->actor.scale.z * 20.0f);
-        velocity.x = (Rand_ZeroOne() - 0.5f) * 8.0f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * 8.0f;
+        velocity.x = (fqrand() - 0.5f) * 8.0f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = (fqrand() - 0.5f) * 8.0f;
 
-        scaleIndex = (s32)(Rand_ZeroOne() * 111.1f) & 7;
+        scaleIndex = (s32)(fqrand() * 111.1f) & 7;
 
         EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -100, 64, 40, 3, 0, sFragmentScales[scaleIndex], 0, 0, 0x50,
                              -1, 1, gKakeraLeafMiddleDL);
@@ -312,11 +312,11 @@ void EnKusa_SpawnFragments(EnKusa* this, PlayState* play) {
         pos.x = this->actor.world.pos.x + (directon->x * this->actor.scale.x * 40.0f);
         pos.y = this->actor.world.pos.y + (directon->y * this->actor.scale.y * 40.0f) + 10.0f;
         pos.z = this->actor.world.pos.z + (directon->z * this->actor.scale.z * 40.0f);
-        velocity.x = (Rand_ZeroOne() - 0.5f) * 6.0f;
-        velocity.y = Rand_ZeroOne() * 10.0f;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * 6.0f;
+        velocity.x = (fqrand() - 0.5f) * 6.0f;
+        velocity.y = fqrand() * 10.0f;
+        velocity.z = (fqrand() - 0.5f) * 6.0f;
 
-        scaleIndex = (s32)(Rand_ZeroOne() * 111.1f) % 7;
+        scaleIndex = (s32)(fqrand() * 111.1f) % 7;
 
         EffectSsKakera_Spawn(play, &pos, &velocity, &pos, -100, 64, 40, 3, 0, sFragmentScales[scaleIndex], 0, 0, 0x50,
                              -1, 1, gKakeraLeafTipDL);
@@ -381,7 +381,7 @@ void EnKusa_Init(Actor* thisx, PlayState* play) {
     }
 
     if (this->actor.shape.rot.y == 0) {
-        this->actor.shape.rot.y = (Rand_Next() >> 0x10);
+        this->actor.shape.rot.y = (qrand() >> 0x10);
         this->actor.home.rot.y = this->actor.shape.rot.y;
         this->actor.world.rot.y = this->actor.shape.rot.y;
     }
@@ -401,11 +401,11 @@ void EnKusa_Init(Actor* thisx, PlayState* play) {
 
     EnKusa_SetupWaitObject(this);
     if (D_809366B4) {
-        D_80936CD8 = Rand_Next() >> 0x10;
-        D_80936CDA = Rand_Next() >> 0x10;
-        D_80936CDC = Rand_Next() >> 0x10;
-        D_80936CDE = Rand_Next() >> 0x10;
-        D_80936CE0 = Rand_Next() >> 0x10;
+        D_80936CD8 = qrand() >> 0x10;
+        D_80936CDA = qrand() >> 0x10;
+        D_80936CDC = qrand() >> 0x10;
+        D_80936CDE = qrand() >> 0x10;
+        D_80936CE0 = qrand() >> 0x10;
         D_809366B4 = false;
         EnKusa_Sway();
         kusaGameplayFrames = play->gameplayFrames;
@@ -535,7 +535,7 @@ void EnKusa_LiftedUp(EnKusa* this, PlayState* play) {
 void EnKusa_SetupFall(EnKusa* this) {
     this->actionFunc = EnKusa_Fall;
     rotSpeedXtarget = -0xBB8;
-    rotSpeedYtarget = (Rand_ZeroOne() - 0.5f) * 1600.0f;
+    rotSpeedYtarget = (fqrand() - 0.5f) * 1600.0f;
     rotSpeedX = 0;
     rotSpeedY = 0;
     this->timer = 0;
@@ -581,9 +581,9 @@ void EnKusa_Fall(EnKusa* this, PlayState* play) {
             contactPos.y = this->actor.world.pos.y + this->actor.depthInWater;
             for (angleOffset = 0, i = 0; i < 4; i++, angleOffset += 0x4000) {
                 contactPos.x =
-                    (Math_SinS((s32)(Rand_ZeroOne() * 7200.0f) + angleOffset) * 15.0f) + this->actor.world.pos.x;
+                    (Math_SinS((s32)(fqrand() * 7200.0f) + angleOffset) * 15.0f) + this->actor.world.pos.x;
                 contactPos.z =
-                    (Math_CosS((s32)(Rand_ZeroOne() * 7200.0f) + angleOffset) * 15.0f) + this->actor.world.pos.z;
+                    (Math_CosS((s32)(fqrand() * 7200.0f) + angleOffset) * 15.0f) + this->actor.world.pos.z;
                 EffectSsGSplash_Spawn(play, &contactPos, NULL, NULL, 0, 190);
             }
             contactPos.x = this->actor.world.pos.x;

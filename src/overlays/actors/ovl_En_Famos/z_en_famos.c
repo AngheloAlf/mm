@@ -222,15 +222,15 @@ void EnFamos_SetupAttackDebris(EnFamos* this) {
     this->debrisTimer = 40;
     rock = &this->rocks[0];
     for (i = 0; i < ARRAY_COUNT(this->rocks); i++, rock++) {
-        randVelDirection = (s32)Rand_Next() >> 0x10;
+        randVelDirection = (s32)qrand() >> 0x10;
         randOffset = Rand_S16Offset(0x1800, 0x2800);
         randFloat = Rand_ZeroFloat(5.0f) + 5.0f;
         rock->velocity.x = randFloat * Math_CosS(randOffset) * Math_SinS(randVelDirection);
         rock->velocity.y = Math_SinS(randOffset) * randFloat + 3.0f;
         rock->velocity.z = randFloat * Math_CosS(randOffset) * Math_CosS(randVelDirection);
-        rock->rot.x = (s32)Rand_Next() >> 0x10;
-        rock->rot.y = (s32)Rand_Next() >> 0x10;
-        rock->rot.z = (s32)Rand_Next() >> 0x10;
+        rock->rot.x = (s32)qrand() >> 0x10;
+        rock->rot.y = (s32)qrand() >> 0x10;
+        rock->rot.z = (s32)qrand() >> 0x10;
         rock->pos.x = (Math_SinS(randVelDirection) * 20.0f) + this->actor.world.pos.x;
         rock->pos.y = this->actor.floorHeight;
         rock->pos.z = (Math_CosS(randVelDirection) * 20.0f) + this->actor.world.pos.z;
@@ -251,15 +251,15 @@ void EnFamos_SetupDeathDebris(EnFamos* this) {
     this->debrisTimer = 40;
     rock = &this->rocks[0];
     for (i = 0; i < ARRAY_COUNT(this->rocks); i++, rock++) {
-        randVelDirection = (s32)Rand_Next() >> 0x10;
-        randSmaller = Rand_Next() >> 0x12;
+        randVelDirection = (s32)qrand() >> 0x10;
+        randSmaller = qrand() >> 0x12;
         randFloat = Rand_ZeroFloat(6.0f) + 7.0f;
         rock->velocity.x = randFloat * Math_CosS(randSmaller) * Math_SinS(randVelDirection);
         rock->velocity.y = Math_SinS(randSmaller) * randFloat + 4.5f;
         rock->velocity.z = randFloat * Math_CosS(randSmaller) * Math_CosS(randVelDirection);
-        rock->rot.x = (s32)Rand_Next() >> 0x10;
-        rock->rot.y = (s32)Rand_Next() >> 0x10;
-        rock->rot.z = (s32)Rand_Next() >> 0x10;
+        rock->rot.x = (s32)qrand() >> 0x10;
+        rock->rot.y = (s32)qrand() >> 0x10;
+        rock->rot.z = (s32)qrand() >> 0x10;
         rock->pos.x = Math_SinS(randVelDirection) * 20.0f + this->actor.world.pos.x;
         rock->pos.y = Rand_CenteredFloat(60.0f) + (this->actor.world.pos.y + 40.0f);
         rock->pos.z = Math_CosS(randVelDirection) * 20.0f + this->actor.world.pos.z;
@@ -732,9 +732,9 @@ void EnFamos_UpdateDebrisPosRot(EnFamos* this) {
     for (i = 0; i < ARRAY_COUNT(this->rocks); i++, rock++) {
         rock->velocity.y -= 1.0f;
         Math_Vec3f_Sum(&rock->pos, &rock->velocity, &rock->pos);
-        rock->rot.x += (s16)((Rand_Next() >> 0x17) + 0x700);
-        rock->rot.y += (s16)((Rand_Next() >> 0x17) + 0x900);
-        rock->rot.z += (s16)((Rand_Next() >> 0x17) + 0xB00);
+        rock->rot.x += (s16)((qrand() >> 0x17) + 0x700);
+        rock->rot.y += (s16)((qrand() >> 0x17) + 0x900);
+        rock->rot.z += (s16)((qrand() >> 0x17) + 0xB00);
     }
 }
 

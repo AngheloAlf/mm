@@ -888,7 +888,7 @@ void DmStk_PlaySfxForCutsceneAfterPlayingOathToOrder(DmStk* this, PlayState* pla
     }
 
     if ((play->csCtx.curFrame >= 62) && (play->csCtx.curFrame < 273)) {
-        if ((Rand_ZeroOne() < 0.75f) && ((play->state.frames % 2) != 0)) {
+        if ((fqrand() < 0.75f) && ((play->state.frames % 2) != 0)) {
             Actor_PlaySfx(&this->actor, NA_SE_EN_STALKIDS_EARTHQUAKE);
         }
     }

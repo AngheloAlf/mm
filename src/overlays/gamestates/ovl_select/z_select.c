@@ -800,7 +800,7 @@ void MapSelect_PrintLoadingMessage(MapSelectState* this, GfxPrint* printer) {
     GfxPrint_SetPos(printer, 10, 15);
     GfxPrint_SetColor(printer, 255, 255, 255, 255);
 
-    randomMsg = Rand_ZeroOne() * ARRAY_COUNT(sLoadingMessages);
+    randomMsg = fqrand() * ARRAY_COUNT(sLoadingMessages);
     GfxPrint_Printf(printer, "%s", sLoadingMessages[randomMsg]);
 }
 

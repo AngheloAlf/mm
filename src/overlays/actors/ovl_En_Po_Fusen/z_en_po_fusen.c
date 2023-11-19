@@ -123,8 +123,8 @@ void EnPoFusen_Init(Actor* thisx, PlayState* play) {
         this->actor.home.pos.y = flyingHeightMin;
     }
 
-    this->randScaleChange = (Rand_Next() % 0xFFFE) - 0x7FFF;
-    this->randYRotChange = (Rand_Next() % 0x4B0) - 0x258;
+    this->randScaleChange = (qrand() % 0xFFFE) - 0x7FFF;
+    this->randYRotChange = (qrand() % 0x4B0) - 0x258;
     this->avgBaseRotation = 0x10000 / 12;
     this->limbRotYRightUpperArm = 0;
     this->limb46Rot = 0;

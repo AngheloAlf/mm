@@ -93,7 +93,7 @@ void func_809A42A0(ObjToge* this, PlayState* play) {
     for (i = 0, phi_s0 = 0; i < 5; i++, phi_s0 += 0x3333) {
         sp54.x = (Math_SinS(phi_s0) * 15.0f) + this->actor.world.pos.x;
         sp54.z = (Math_CosS(phi_s0) * 15.0f) + this->actor.world.pos.z;
-        func_800B2B44(play, &this->actor, &sp54, (Rand_ZeroOne() * 0.6f) + 2.8f);
+        func_800B2B44(play, &this->actor, &sp54, (fqrand() * 0.6f) + 2.8f);
     }
 }
 

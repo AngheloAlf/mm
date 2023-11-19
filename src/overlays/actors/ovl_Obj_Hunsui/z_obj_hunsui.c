@@ -137,7 +137,7 @@ void func_80B9C5E8(ObjHunsui* this, PlayState* play) {
                 sp40.z += Rand_CenteredFloat(10.0f);
                 sp40.y += Rand_ZeroFloat(2.0f);
 
-                EffectSsGSplash_Spawn(play, &sp40, NULL, NULL, 2.0f * Rand_ZeroOne(), 1);
+                EffectSsGSplash_Spawn(play, &sp40, NULL, NULL, 2.0f * fqrand(), 1);
             }
         } else {
             this->unk_172 |= 8;

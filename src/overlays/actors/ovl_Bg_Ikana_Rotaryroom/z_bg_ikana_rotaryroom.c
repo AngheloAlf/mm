@@ -862,7 +862,7 @@ void func_80B81BA0(Actor* thisx, PlayState* play) {
         s16 quakeIndex = Quake_Request(GET_ACTIVE_CAM(play), QUAKE_TYPE_3);
 
         Quake_SetSpeed(quakeIndex, 31536);
-        Quake_SetPerturbations(quakeIndex, (s32)(Rand_ZeroOne() * 2.5f) + 3, 0, 10, 0);
+        Quake_SetPerturbations(quakeIndex, (s32)(fqrand() * 2.5f) + 3, 0, 10, 0);
         Quake_SetDuration(quakeIndex, 15);
     }
 

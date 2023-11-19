@@ -269,9 +269,9 @@ void func_80B14A24(ObjHakaisi* this, PlayState* play, Vec3f vec) {
     func_80B14CF8(play, vec, 100, 30, 5);
 
     for (i = 0; i < 5; i++) {
-        vec.x += Rand_Centered() * 20.0f;
-        vec.y += Rand_ZeroOne() * 5.0f;
-        vec.z += Rand_Centered() * 20.0f;
+        vec.x += fqrand2() * 20.0f;
+        vec.y += fqrand() * 5.0f;
+        vec.z += fqrand2() * 20.0f;
         EffectSsHahen_SpawnBurst(play, &vec, 5.0f, 0, 20, 15, 3, OBJECT_HAKAISI, 10, object_hakaisi_DL_0021B0);
     }
 }
@@ -284,10 +284,10 @@ void func_80B14B6C(ObjHakaisi* this, PlayState* play, Vec3f vec, s16 arg3) {
     Actor_PlaySfx(&this->dyna.actor, NA_SE_EV_WALL_BROKEN);
 
     for (i = 0; i < 5; i++) {
-        temp_s1 = Rand_Next();
+        temp_s1 = qrand();
 
         sp6C.x = (Math_SinS(temp_s1) * 15.0f) + vec.x;
-        sp6C.y = (Rand_ZeroOne() * 3.0f) + vec.y;
+        sp6C.y = (fqrand() * 3.0f) + vec.y;
         sp6C.z = (Math_CosS(temp_s1) * 15.0f) + vec.z;
 
         EffectSsHahen_SpawnBurst(play, &sp6C, 10.0f, 0, arg3, 30, 2, OBJECT_HAKAISI, 15, object_hakaisi_DL_0021B0);
@@ -306,16 +306,16 @@ void func_80B14CF8(PlayState* play, Vec3f vec, s16 arg2, s16 arg3, s32 arg4) {
     f32 temp_f22;
 
     for (i = 0; i < arg4; i++) {
-        temp_f20 = Rand_ZeroOne() * 30.0f;
-        temp_f22 = Rand_ZeroOne() * 1.5f;
-        temp_s0 = Rand_Next();
+        temp_f20 = fqrand() * 30.0f;
+        temp_f22 = fqrand() * 1.5f;
+        temp_s0 = qrand();
 
         spAC.x = (Math_SinS(temp_s0) * temp_f20) + vec.x;
-        spAC.y = (Rand_Centered() * 4.0f) + vec.y;
+        spAC.y = (fqrand2() * 4.0f) + vec.y;
         spAC.z = (Math_CosS(temp_s0) * temp_f20) + vec.z;
 
         spA0.x += temp_f22 * Math_SinS(temp_s0);
-        spA0.y += Rand_Centered() + 0.5f;
+        spA0.y += fqrand2() + 0.5f;
         spA0.z += temp_f22 * Math_CosS(temp_s0);
 
         sp94.x = -0.1f * spA0.x;
@@ -384,12 +384,12 @@ void func_80B15254(Actor* thisx, PlayState* play) {
 
 void func_80B15264(ObjHakaisi* this) {
     s32 pad;
-    s16 sp32 = Rand_Next();
+    s16 sp32 = qrand();
 
-    Matrix_RotateZYX(Rand_Next(), Rand_Next(), Rand_Next(), MTXMODE_NEW);
+    Matrix_RotateZYX(qrand(), qrand(), qrand(), MTXMODE_NEW);
     Matrix_MultVec3f(&D_80B15600, &this->unk_184);
     this->dyna.actor.gravity = -1.0f;
-    this->unk_19C = (s32)Rand_Next() >> 0x12;
+    this->unk_19C = (s32)qrand() >> 0x12;
     this->dyna.actor.velocity.x = Math_SinS(sp32) * 4.0f;
     this->dyna.actor.velocity.z = Math_CosS(sp32) * 4.0f;
     this->dyna.actor.velocity.y = 7.0f;

@@ -698,7 +698,7 @@ s16 func_800CC260(Camera* camera, Vec3f* arg1, Vec3f* arg2, VecGeo* arg3, Actor*
         }
 
         sp90.yaw = D_801B9E18[i] + arg3->yaw;
-        rand = Rand_ZeroOne();
+        rand = fqrand();
         sp90.pitch = D_801B9E34[i] + (s16)(arg3->pitch * rand);
 
         if (sp90.pitch > 0x36B0) { // 76.9 degrees
@@ -2324,12 +2324,12 @@ s32 Camera_Normal1(Camera* camera) {
 
     if (roData->interfaceFlags & NORMAL1_FLAG_2) {
         spD4 = Math_SinS((s16)(spA4.yaw - spB4.yaw));
-        rand = Rand_ZeroOne() - 0.5f;
+        rand = fqrand() - 0.5f;
         camera->roll = Camera_ScaledStepToCeilS((rand * 500.0f * camera->speedRatio) + (spD4 * spD4 * spD4 * 10000.0f),
                                                 camera->roll, 0.1f, 5);
     } else {
         if (gSaveContext.save.saveInfo.playerData.health <= 0x10) {
-            rand = Rand_ZeroOne() - 0.5f;
+            rand = fqrand() - 0.5f;
             phi_v1_2 = rand * 100.0f * camera->speedRatio;
         } else {
             phi_v1_2 = 0.0f;
@@ -6237,7 +6237,7 @@ s32 Camera_Demo4(Camera* camera) {
             }
 
             camera->fov = 80.0f;
-            rwData->unk_10 = (Rand_ZeroOne() - 0.5f) * 40.0f;
+            rwData->unk_10 = (fqrand() - 0.5f) * 40.0f;
             // fallthrough
         case 1:
             // Camera fixed on human player as the mask moves from the pocket to the face
@@ -6393,7 +6393,7 @@ s32 Camera_Demo5(Camera* camera) {
             rwData->unk_14 = 80.0f;
             atToEye.r = 30.0f;
             camera->fov = 80.0f;
-            rwData->unk_10 = (Rand_ZeroOne() - 0.5f) * 40.0f;
+            rwData->unk_10 = (fqrand() - 0.5f) * 40.0f;
             camera->roll = 0;
             focalActorFocus.pos.x = focalActorPosRot->pos.x;
             focalActorFocus.pos.z = focalActorPosRot->pos.z;
@@ -6676,7 +6676,7 @@ s32 Camera_Special5(Camera* camera) {
             sp6C = OLib_Vec3fToVecGeo(&sp7C.norm);
             spA4 = BINANG_SUB(focalActorPosRot->rot.y, sp6C.yaw);
             sp74.r = roData->eyeDist;
-            rand = Rand_ZeroOne();
+            rand = fqrand();
             sp74.yaw =
                 BINANG_ROT180(focalActorPosRot->rot.y) +
                 (s16)((spA4 < 0) ? -(s16)(0x1553 + (s16)(rand * 2730.0f)) : (s16)(0x1553 + (s16)(rand * 2730.0f)));
@@ -6884,8 +6884,8 @@ s32 Camera_Special9(Camera* camera) {
                 s16 camEyeSide;
                 s16 randFloat;
 
-                spB0.pitch = ((s16)(Rand_ZeroOne() * 0x280) + 0xBB8);
-                randFloat = ((s16)(Rand_ZeroOne() * 0x4CE) + 0x5DC);
+                spB0.pitch = ((s16)(fqrand() * 0x280) + 0xBB8);
+                randFloat = ((s16)(fqrand() * 0x4CE) + 0x5DC);
 
                 // The camera will either position itself either to the left or to the right
                 // of the door when it jumps behind it. It's effectively 50/50 percent chance

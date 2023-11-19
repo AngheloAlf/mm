@@ -305,7 +305,7 @@ void EnMa4_RunInCircles(EnMa4* this, PlayState* play) {
         Math_SmoothStepToS(&this->actor.world.rot.y, sp2E, 10, 0x3000, 0x100);
         Math_SmoothStepToS(&this->actor.shape.rot.y, sp2E, 5, 0x3000, 0x100);
     } else {
-        if ((D_80AC0254 == 0) && ((Rand_Next() % 4) == 0)) {
+        if ((D_80AC0254 == 0) && ((qrand() % 4) == 0)) {
             this->actor.speed = 0.0f;
             D_80AC0254 = 2;
             EnMa4_ChangeAnim(this, ENMA4_ANIM_3);

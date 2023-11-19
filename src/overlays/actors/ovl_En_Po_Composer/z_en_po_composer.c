@@ -581,7 +581,7 @@ void EnPoComposer_UpdateEnvColor(EnPoComposer* this) {
         this->envColor.r = this->envColor.g = this->envColor.b = 55.0f + this->skelAnime.curFrame * 16.66f;
         this->envColor.a = this->skelAnime.curFrame * (200.0f / 12.0f);
     } else {
-        f32 rand = Rand_ZeroOne();
+        f32 rand = fqrand();
 
         this->envColor.r = 225 + (s32)(rand * 30.0f);
         this->envColor.g = 155 + (s32)(rand * 100.0f);

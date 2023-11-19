@@ -295,12 +295,12 @@ void ObjBigicicle_Update(Actor* thisx, PlayState* play) {
 
     this->actionFunc(this, play);
 
-    if (Rand_ZeroOne() < 0.05f) {
-        sp44.x = (((215.0f + Rand_ZeroFloat(65.0f)) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1)) * this->actor.scale.x) +
+    if (fqrand() < 0.05f) {
+        sp44.x = (((215.0f + Rand_ZeroFloat(65.0f)) * ((fqrand() < 0.5f) ? -1 : 1)) * this->actor.scale.x) +
                  this->actor.world.pos.x;
         sp44.y = ((((Rand_ZeroFloat(1400.0f) + -150.0f) - 2100.0f) + this->actor.shape.yOffset) * this->actor.scale.y) +
                  this->actor.world.pos.y;
-        sp44.z = (((215.0f + Rand_ZeroFloat(65.0f)) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1)) * this->actor.scale.z) +
+        sp44.z = (((215.0f + Rand_ZeroFloat(65.0f)) * ((fqrand() < 0.5f) ? -1 : 1)) * this->actor.scale.z) +
                  this->actor.world.pos.z;
 
         EffectSsKirakira_SpawnDispersed(play, &sp44, &gZeroVec3f, &gZeroVec3f, &D_80AE9894, &D_80AE9898, 2000, 5);

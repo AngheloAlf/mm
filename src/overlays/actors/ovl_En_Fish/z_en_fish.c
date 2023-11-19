@@ -131,7 +131,7 @@ void func_8091D840(Actor* thisx, PlayState* play, s32 arg2, f32 arg3) {
     s32 i;
 
     for (i = 0; i < arg2; i++) {
-        EffectSsBubble_Spawn(play, &this->actor.world.pos, 0.0f, arg3, arg3, (Rand_ZeroOne() * 0.09f) + 0.06f);
+        EffectSsBubble_Spawn(play, &this->actor.world.pos, 0.0f, arg3, arg3, (fqrand() * 0.09f) + 0.06f);
     }
 }
 
@@ -186,8 +186,8 @@ void EnFish_Init(Actor* thisx, PlayState* play) {
     this->unk_254 = 1.0f;
 
     if (sp36 == ENFISH_MINUS1) {
-        this->unk_258 = (Rand_ZeroOne() * 0.9f) + 0.6f;
-        this->unk_25C = ((Rand_ZeroOne() * 1.2f) + 0.6f) * 0.01f;
+        this->unk_258 = (fqrand() * 0.9f) + 0.6f;
+        this->unk_25C = ((fqrand() * 1.2f) + 0.6f) * 0.01f;
     } else {
         this->unk_258 = 1.0f;
         this->unk_25C = 0.01f;
@@ -209,8 +209,8 @@ void EnFish_Init(Actor* thisx, PlayState* play) {
     Collider_SetJntSph(play, &this->collider, &this->actor, &sJntSphInit, this->colliderElements);
 
     this->actor.colChkInfo.mass = this->unk_25C * 30.0f;
-    this->unk_244 = Rand_Next() >> 0x10;
-    this->unk_246 = Rand_Next() >> 0x10;
+    this->unk_244 = qrand() >> 0x10;
+    this->unk_246 = qrand() >> 0x10;
 
     if (sp36 == ENFISH_0) {
         this->actor.flags |= ACTOR_FLAG_10;
@@ -303,8 +303,8 @@ void func_8091E070(EnFish* this) {
     this->actor.gravity = 0.0f;
     this->actor.terminalVelocity = 0.0f;
 
-    if ((Rand_Next() & 3) == 0) {
-        if (((Rand_Next() & 7) == 0) && (this->unk_278 != 0)) {
+    if ((qrand() & 3) == 0) {
+        if (((qrand() & 7) == 0) && (this->unk_278 != 0)) {
             phi_a1 = 80;
         } else {
             phi_a1 = 45;
@@ -531,16 +531,16 @@ void func_8091E9A4(EnFish* this) {
     this->actor.gravity = -1.0f;
     this->actor.terminalVelocity = -10.0f;
 
-    temp_f0 = Rand_ZeroOne();
+    temp_f0 = fqrand();
     if (temp_f0 < 0.1f) {
-        this->actor.velocity.y = (Rand_ZeroOne() * 3.0f) + 2.5f;
+        this->actor.velocity.y = (fqrand() * 3.0f) + 2.5f;
         sp24 = true;
     } else if (temp_f0 < 0.2f) {
-        this->actor.velocity.y = (Rand_ZeroOne() * 1.2f) + 0.2f;
+        this->actor.velocity.y = (fqrand() * 1.2f) + 0.2f;
         sp24 = true;
     } else {
         this->actor.velocity.y = 0.0f;
-        if (Rand_ZeroOne() < 0.2f) {
+        if (fqrand() < 0.2f) {
             sp24 = true;
         } else {
             sp24 = false;
@@ -562,7 +562,7 @@ void func_8091EAF0(Actor* thisx, PlayState* play) {
     s32 sp40 = play->state.frames;
     s16 phi_v1;
 
-    Math_SmoothStepToF(&this->actor.speed, Rand_ZeroOne() * 0.2f, 0.1f, 0.1f, 0.0f);
+    Math_SmoothStepToF(&this->actor.speed, fqrand() * 0.2f, 0.1f, 0.1f, 0.0f);
     phi_v1 = (s16)((((sp40 >> 5) & 2) | ((sp40 >> 2) & 1)) << 0xB) * 0.3f;
     if (sp40 & 4) {
         phi_v1 *= -1;
@@ -571,7 +571,7 @@ void func_8091EAF0(Actor* thisx, PlayState* play) {
     this->unk_26E = 0xA6B;
     this->unk_26C = 0x4000;
     this->unk_272 = 0x29B;
-    this->unk_270 = ((Math_SinS(this->unk_244) * 1333.0f) + (Math_SinS(this->unk_246) * 667.0f)) * Rand_ZeroOne();
+    this->unk_270 = ((Math_SinS(this->unk_244) * 1333.0f) + (Math_SinS(this->unk_246) * 667.0f)) * fqrand();
 
     if (this->unk_270 >= 0) {
         this->unk_26A = BINANG_ADD(this->actor.world.rot.y, 0x4000);
@@ -709,13 +709,13 @@ void func_8091EFE8(Actor* thisx, PlayState* play) {
         this->actor.speed *= 0.5f;
     }
 
-    if (((Rand_Next() >> 0x1B) == 0) ||
-        ((this->actor.bgCheckFlags & BGCHECKFLAG_WALL) && ((Rand_Next() >> 0x1E) == 0)) ||
+    if (((qrand() >> 0x1B) == 0) ||
+        ((this->actor.bgCheckFlags & BGCHECKFLAG_WALL) && ((qrand() >> 0x1E) == 0)) ||
         !(this->actor.bgCheckFlags & BGCHECKFLAG_WATER)) {
-        temp_f0 = Rand_ZeroOne();
+        temp_f0 = fqrand();
         sp34 = (1.0f - SQ(temp_f0)) * sp3C->home.rot.x;
-        sp30 = Rand_ZeroOne() * sp3C->home.rot.z;
-        sp2E = Rand_Next() >> 0x10;
+        sp30 = fqrand() * sp3C->home.rot.z;
+        sp2E = qrand() >> 0x10;
         this->actor.home.pos.x = (Math_SinS(sp2E) * sp34) + sp3C->world.pos.x;
         this->actor.home.pos.y = sp3C->world.pos.y + sp30;
         this->actor.home.pos.z = (Math_CosS(sp2E) * sp34) + sp3C->world.pos.z;

@@ -172,7 +172,7 @@ void EnJs_Destroy(Actor* thisx, PlayState* play) {
 }
 
 void func_80968A5C(EnJs* this) {
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         Animation_MorphToLoop(&this->skelAnime, &gMoonChildRunningAnim, -10.0f);
         this->unk_2B4 = 5.0f;
     } else {

@@ -824,7 +824,7 @@ void func_80C21468(EnHintSkb* this, PlayState* play) {
 
         sp84.x = Math_SinS(temp_s1) * 3.0f;
         sp84.z = Math_CosS(temp_s1) * 3.0f;
-        sp84.y = (Rand_ZeroOne() * 4.0f) + 4.0f;
+        sp84.y = (fqrand() * 4.0f) + 4.0f;
 
         EffectSsEnIce_Spawn(play, &this->bodyPartsPos[i], 0.6f, &sp84, &D_80C21E4C, &D_80C21E44, &D_80C21E48, 30);
     }
@@ -834,7 +834,7 @@ void func_80C215E4(PlayState* play, EnHintSkb* this, Vec3f* arg2) {
     Vec3f sp5C;
     Vec3f sp50 = { 0.0f, 8.0f, 0.0f };
     Vec3f sp44 = { 0.0f, -1.5f, 0.0f };
-    f32 sp40 = (Rand_ZeroOne() - 0.5f) * 6.28f;
+    f32 sp40 = (fqrand() - 0.5f) * 6.28f;
     s32 pad;
 
     sp5C.y = this->actor.floorHeight;
@@ -844,9 +844,9 @@ void func_80C215E4(PlayState* play, EnHintSkb* this, Vec3f* arg2) {
     sp44.x = Rand_CenteredFloat(1.0f);
     sp44.z = Rand_CenteredFloat(1.0f);
 
-    sp50.y += (Rand_ZeroOne() - 0.5f) * 4.0f;
+    sp50.y += (fqrand() - 0.5f) * 4.0f;
 
-    EffectSsHahen_Spawn(play, &sp5C, &sp50, &sp44, 0, ((Rand_ZeroOne() * 5.0f) + 12.0f) * 0.8f, HAHEN_OBJECT_DEFAULT,
+    EffectSsHahen_Spawn(play, &sp5C, &sp50, &sp44, 0, ((fqrand() * 5.0f) + 12.0f) * 0.8f, HAHEN_OBJECT_DEFAULT,
                         10, NULL);
     func_800BBFB0(play, &sp5C, 10.0f, 1, 150, 0, 1);
 }

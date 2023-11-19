@@ -187,9 +187,9 @@ void func_8095D804(Actor* thisx, PlayState* play) {
     objectId = sObjectIds[ENISHI_GET_8(&this->actor)];
 
     for (i = 0; i < ARRAY_COUNT(D_8095F74C); i++) {
-        spB8.x = ((Rand_ZeroOne() - 0.5f) * 8.0f) + this->actor.world.pos.x;
-        spB8.y = (Rand_ZeroOne() * 5.0f) + this->actor.world.pos.y + 5.0f;
-        spB8.z = ((Rand_ZeroOne() - 0.5f) * 8.0f) + this->actor.world.pos.z;
+        spB8.x = ((fqrand() - 0.5f) * 8.0f) + this->actor.world.pos.x;
+        spB8.y = (fqrand() * 5.0f) + this->actor.world.pos.y + 5.0f;
+        spB8.z = ((fqrand() - 0.5f) * 8.0f) + this->actor.world.pos.z;
         Math_Vec3f_Copy(&spC4, &this->actor.velocity);
 
         if (this->actor.bgCheckFlags & BGCHECKFLAG_GROUND) {
@@ -202,11 +202,11 @@ void func_8095D804(Actor* thisx, PlayState* play) {
             spC4.z *= -0.5f;
         }
 
-        spC4.x += (Rand_ZeroOne() - 0.5f) * 11.0f;
-        spC4.y += (Rand_ZeroOne() * 7.0f) + 6.0f;
-        spC4.z += (Rand_ZeroOne() - 0.5f) * 11.0f;
+        spC4.x += (fqrand() - 0.5f) * 11.0f;
+        spC4.y += (fqrand() * 7.0f) + 6.0f;
+        spC4.z += (fqrand() - 0.5f) * 11.0f;
 
-        EffectSsKakera_Spawn(play, &spB8, &spC4, &spB8, -420, ((s32)Rand_Next() > 0) ? 65 : 33, 30, 5, 0, D_8095F74C[i],
+        EffectSsKakera_Spawn(play, &spB8, &spC4, &spB8, -420, ((s32)qrand() > 0) ? 65 : 33, 30, 5, 0, D_8095F74C[i],
                              3, 10, 40, -1, objectId, phi_s4);
     }
 }
@@ -223,10 +223,10 @@ void func_8095DABC(Actor* thisx, PlayState* play) {
 
     for (i = 0; i < ARRAY_COUNT(D_8095F758); i++) {
         temp_s1 += 0x4E20;
-        temp_f20 = Rand_ZeroOne() * 10.0f;
+        temp_f20 = fqrand() * 10.0f;
 
         spCC.x = (Math_SinS(temp_s1) * temp_f20) + this->actor.world.pos.x;
-        spCC.y = (Rand_ZeroOne() * 40.0f) + this->actor.world.pos.y + 5.0f;
+        spCC.y = (fqrand() * 40.0f) + this->actor.world.pos.y + 5.0f;
         spCC.z = (Math_CosS(temp_s1) * temp_f20) + this->actor.world.pos.z;
 
         Math_Vec3f_Copy(&spD8, &this->actor.velocity);
@@ -241,9 +241,9 @@ void func_8095DABC(Actor* thisx, PlayState* play) {
             spD8.z *= -0.9f;
         }
 
-        temp_f20 = Rand_ZeroOne() * 10.0f;
+        temp_f20 = fqrand() * 10.0f;
         spD8.x += temp_f20 * Math_SinS(temp_s1);
-        spD8.y += (Rand_ZeroOne() * 4.0f) + (Rand_ZeroOne() * i * 0.7f);
+        spD8.y += (fqrand() * 4.0f) + (fqrand() * i * 0.7f);
         spD8.z += temp_f20 * Math_CosS(temp_s1);
 
         if (i == 0) {
@@ -342,7 +342,7 @@ void func_8095E14C(EnIshi* this) {
 }
 
 void func_8095E180(Vec3f* arg0, f32 arg1) {
-    arg1 += ((Rand_ZeroOne() * 0.2f) - 0.1f) * arg1;
+    arg1 += ((fqrand() * 0.2f) - 0.1f) * arg1;
 
     arg0->x -= arg0->x * arg1;
     arg0->y -= arg0->y * arg1;
@@ -393,7 +393,7 @@ void EnIshi_Init(Actor* thisx, PlayState* play) {
     }
 
     if ((this->actor.shape.rot.y == 0) && !(this->unk_197 & 2)) {
-        this->actor.shape.rot.y = this->actor.world.rot.y = Rand_Next() >> 0x10;
+        this->actor.shape.rot.y = this->actor.world.rot.y = qrand() >> 0x10;
     }
 
     Actor_SetScale(&this->actor, D_8095F6B8[sp34]);
@@ -561,13 +561,13 @@ void func_8095EA70(EnIshi* this) {
     this->actor.velocity.x = Math_SinS(this->actor.world.rot.y) * this->actor.speed;
     this->actor.velocity.z = Math_CosS(this->actor.world.rot.y) * this->actor.speed;
     if (!ENISHI_GET_1(&this->actor)) {
-        sp24 = Rand_ZeroOne() - 0.9f;
+        sp24 = fqrand() - 0.9f;
         D_8095F690 = sp24 * 11000.0f;
-        D_8095F694 = ((Rand_ZeroOne() - 0.5f) * 3000.0f) * (fabsf(sp24) + 0.1f);
+        D_8095F694 = ((fqrand() - 0.5f) * 3000.0f) * (fabsf(sp24) + 0.1f);
     } else {
-        sp24 = Rand_ZeroOne() - 0.5f;
+        sp24 = fqrand() - 0.5f;
         D_8095F690 = sp24 * 6000.0f;
-        D_8095F694 = ((Rand_ZeroOne() - 0.5f) * 1200.0f) * (fabsf(sp24) + 0.5f);
+        D_8095F694 = ((fqrand() - 0.5f) * 1200.0f) * (fabsf(sp24) + 0.5f);
     }
     this->actor.colChkInfo.mass = 200;
     this->unk_194 = 100;
@@ -623,8 +623,8 @@ void func_8095EBDC(EnIshi* this, PlayState* play) {
             sp58.y = this->actor.world.pos.y + this->actor.depthInWater;
 
             for (phi_s0 = 0, i = 0; i < 11; i++, phi_s0 += 0x1746) {
-                sp58.x = (Math_SinS((s32)(Rand_ZeroOne() * 2000.0f) + phi_s0) * 50.0f) + this->actor.world.pos.x;
-                sp58.z = (Math_CosS((s32)(Rand_ZeroOne() * 2000.0f) + phi_s0) * 50.0f) + this->actor.world.pos.z;
+                sp58.x = (Math_SinS((s32)(fqrand() * 2000.0f) + phi_s0) * 50.0f) + this->actor.world.pos.x;
+                sp58.z = (Math_CosS((s32)(fqrand() * 2000.0f) + phi_s0) * 50.0f) + this->actor.world.pos.z;
                 EffectSsGSplash_Spawn(play, &sp58, NULL, NULL, 0, 350);
             }
 

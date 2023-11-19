@@ -279,9 +279,9 @@ void EnNiw_SpawnAttackNiw(EnNiw* this, PlayState* play) {
         xView = play->view.at.x - play->view.eye.x;
         yView = play->view.at.y - play->view.eye.y;
         zView = play->view.at.z - play->view.eye.z;
-        newNiwPos.x = ((Rand_ZeroOne() - 0.5f) * xView) + play->view.eye.x;
+        newNiwPos.x = ((fqrand() - 0.5f) * xView) + play->view.eye.x;
         newNiwPos.y = Rand_CenteredFloat(0.3f) + (play->view.eye.y + 50.0f + (yView * 0.5f));
-        newNiwPos.z = ((Rand_ZeroOne() - 0.5f) * zView) + play->view.eye.z;
+        newNiwPos.z = ((fqrand() - 0.5f) * zView) + play->view.eye.z;
         attackNiw = Actor_SpawnAsChild(&play->actorCtx, &this->actor, play, ACTOR_EN_ATTACK_NIW, newNiwPos.x,
                                        newNiwPos.y, newNiwPos.z, 0, 0, 0, ATTACK_NIW_REGULAR);
 

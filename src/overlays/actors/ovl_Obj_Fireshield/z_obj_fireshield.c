@@ -290,7 +290,7 @@ void ObjFireshield_Init(Actor* thisx, PlayState* play) {
     this->actor.scale.y = 0.05f;
 
     this->actor.uncullZoneScale = sp2C->unk_04;
-    this->unk_1A4 = Rand_ZeroOne() * 128.0f;
+    this->unk_1A4 = fqrand() * 128.0f;
 
     if ((this->actor.home.rot.z * 10) < 0) {
         this->unk_1A8 = 1;

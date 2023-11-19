@@ -288,8 +288,8 @@ void ObjMure_SetFollowTargets(ObjMure* this, f32 randMax) {
     for (i = 0; i < maxChildren; i++) {
         if (this->children[i] != NULL) {
             this->children[i]->child = NULL;
-            if (Rand_ZeroOne() <= randMax) {
-                index = Rand_ZeroOne() * (maxChildren - 0.5f);
+            if (fqrand() <= randMax) {
+                index = fqrand() * (maxChildren - 0.5f);
                 if (i != index) {
                     this->children[i]->child = this->children[index];
                 }
@@ -330,20 +330,20 @@ void ObjMure_GroupBehavior0(ObjMure* this, PlayState* play) {
     if (this->unk_19C <= 0) {
         if (this->unk_19E) {
             this->unk_19E = false;
-            ObjMure_SetFollowTargets(this, (Rand_ZeroOne() * 0.5f) + 0.1f);
+            ObjMure_SetFollowTargets(this, (fqrand() * 0.5f) + 0.1f);
             if (this->actor.xzDistToPlayer < 60.0f) {
-                this->unk_19C = (s32)(Rand_ZeroOne() * 5.5f) + 4;
+                this->unk_19C = (s32)(fqrand() * 5.5f) + 4;
             } else {
-                this->unk_19C = (s32)(Rand_ZeroOne() * 40.5f) + 4;
+                this->unk_19C = (s32)(fqrand() * 40.5f) + 4;
             }
         } else {
             this->unk_19E = true;
             if (this->actor.xzDistToPlayer < 60.0f) {
-                this->unk_19C = (s32)(Rand_ZeroOne() * 10.5f) + 4;
-                ObjMure_SetFollowTargets(this, (Rand_ZeroOne() * 0.2f) + 0.8f);
+                this->unk_19C = (s32)(fqrand() * 10.5f) + 4;
+                ObjMure_SetFollowTargets(this, (fqrand() * 0.2f) + 0.8f);
             } else {
-                this->unk_19C = (s32)(Rand_ZeroOne() * 10.5f) + 4;
-                ObjMure_SetFollowTargets(this, (Rand_ZeroOne() * 0.2f) + 0.6f);
+                this->unk_19C = (s32)(fqrand() * 10.5f) + 4;
+                ObjMure_SetFollowTargets(this, (fqrand() * 0.2f) + 0.6f);
             }
         }
     }
@@ -367,16 +367,16 @@ void ObjMure_GroupBehavior1(ObjMure* this, PlayState* play) {
     if (this->unk_19C <= 0) {
         if (this->unk_19E) {
             this->unk_19E = false;
-            ObjMure_SetFollowTargets(this, Rand_ZeroOne() * 0.2f);
+            ObjMure_SetFollowTargets(this, fqrand() * 0.2f);
             if (this->actor.xzDistToPlayer < 60.0f) {
-                this->unk_19C = (s32)(Rand_ZeroOne() * 5.5f) + 4;
+                this->unk_19C = (s32)(fqrand() * 5.5f) + 4;
             } else {
-                this->unk_19C = (s32)(Rand_ZeroOne() * 40.5f) + 4;
+                this->unk_19C = (s32)(fqrand() * 40.5f) + 4;
             }
         } else {
             this->unk_19E = true;
-            ObjMure_SetFollowTargets(this, Rand_ZeroOne() * 0.7f);
-            this->unk_19C = (s32)(Rand_ZeroOne() * 10.5f) + 4;
+            ObjMure_SetFollowTargets(this, fqrand() * 0.7f);
+            this->unk_19C = (s32)(fqrand() * 10.5f) + 4;
         }
     }
 

@@ -376,7 +376,7 @@ void DmChar08_SpawnBubbles(DmChar08* this, PlayState* play) {
     s32 i;
     Vec3f velocity;
 
-    velocity.x = (Rand_ZeroOne() - 0.5f) * 24.0f;
+    velocity.x = (fqrand() - 0.5f) * 24.0f;
     velocity.y = -5.2f;
     velocity.z = 4.0f;
     sLargeTurtleBubbleAccel.x = 0.0f;

@@ -213,7 +213,7 @@ void func_80BA383C(EnToto* this, PlayState* play) {
     if (SkelAnime_Update(&this->skelAnime) && (this->actionFuncIndex == 1) &&
         (this->skelAnime.animation != &object_zm_Anim_000C80)) {
         if ((play->msgCtx.currentTextId != 0x2A98) && (play->msgCtx.currentTextId != 0x2A99)) {
-            if ((this->unk2B4 & 1) || (Rand_ZeroOne() > 0.5f)) {
+            if ((this->unk2B4 & 1) || (fqrand() > 0.5f)) {
                 this->unk2B4 = (this->unk2B4 + 1) & 3;
             }
         }

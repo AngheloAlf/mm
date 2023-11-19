@@ -72,13 +72,13 @@ void func_80A53BE0(PlayState* play, Vec3f* arg1) {
     s16 phi_v1;
 
     for (i = 0, gravity = -300; i < 16; i++, gravity -= 30) {
-        spBC.x = (Rand_ZeroOne() - 0.5f) * 260.0f;
+        spBC.x = (fqrand() - 0.5f) * 260.0f;
         spBC.y = i * (40.0f / 3);
-        spBC.z = (Rand_ZeroOne() - 0.5f) * 260.0f;
+        spBC.z = (fqrand() - 0.5f) * 260.0f;
 
-        spB0.x = ((Rand_ZeroOne() - 0.5f) * 5.7f) + (spBC.x * 0.035f);
-        spB0.y = (Rand_ZeroOne() * 16.0f) + 5.0f + ((16 - i) * 0.25f);
-        spB0.z = ((Rand_ZeroOne() - 0.5f) * 5.7f) + (spBC.z * 0.035f);
+        spB0.x = ((fqrand() - 0.5f) * 5.7f) + (spBC.x * 0.035f);
+        spB0.y = (fqrand() * 16.0f) + 5.0f + ((16 - i) * 0.25f);
+        spB0.z = ((fqrand() - 0.5f) * 5.7f) + (spBC.z * 0.035f);
 
         spBC.x += arg1->x;
         spBC.y += arg1->y;
@@ -93,7 +93,7 @@ void func_80A53BE0(PlayState* play, Vec3f* arg1) {
                 life = 70;
             } else {
                 life = 40;
-                if (Rand_ZeroOne() < 0.7f) {
+                if (fqrand() < 0.7f) {
                     phi_v0 = 64;
                 } else {
                     phi_v0 = 32;
@@ -128,14 +128,14 @@ void func_80A53E60(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3) {
     s32 pad;
 
     for (phi_s2 = -300, i = 0; phi_s2 > -540; phi_s2 -= 60, i++) {
-        spDC.x = (Rand_ZeroOne() - 0.5f) * 11.0f;
-        spDC.y = (Rand_ZeroOne() - 0.2f) * 8.0f;
-        spDC.z = (Rand_ZeroOne() - 0.5f) * 11.0f;
+        spDC.x = (fqrand() - 0.5f) * 11.0f;
+        spDC.y = (fqrand() - 0.2f) * 8.0f;
+        spDC.z = (fqrand() - 0.5f) * 11.0f;
 
-        spD0.x = ((Rand_ZeroOne() - 0.5f) * 5.0f) + (spDC.x * 1.4f);
-        spD0.y = (Rand_ZeroOne() * 13.0f) + 8.2f + (arg2 * -0.26f);
+        spD0.x = ((fqrand() - 0.5f) * 5.0f) + (spDC.x * 1.4f);
+        spD0.y = (fqrand() * 13.0f) + 8.2f + (arg2 * -0.26f);
         if (1) {}
-        spD0.z = ((Rand_ZeroOne() - 0.5f) * 5.0f) + (spDC.z * 1.4f);
+        spD0.z = ((fqrand() - 0.5f) * 5.0f) + (spDC.z * 1.4f);
 
         spDC.x += arg1->x;
         spDC.y += arg1->y;
@@ -150,7 +150,7 @@ void func_80A53E60(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3) {
                 phi_s0 = 70;
             } else {
                 phi_s0 = 40;
-                if (Rand_ZeroOne() < 0.7f) {
+                if (fqrand() < 0.7f) {
                     phi_v0 = 64;
                 } else {
                     phi_v0 = 32;
@@ -168,12 +168,12 @@ void func_80A53E60(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3) {
         EffectSsKakera_Spawn(play, &spDC, &spD0, &spDC, phi_s2, phi_v0, 15, 0, 0, phi_v1, 1, 0, phi_s0, -1,
                              OBJECT_BOMBIWA, object_bombiwa_DL_001990);
 
-        spDC.x += (Rand_ZeroOne() - 0.5f) * 270.0f;
-        spDC.y += (Rand_ZeroOne() - 0.1f) * 150.0f;
-        spDC.z += (Rand_ZeroOne() - 0.5f) * 270.0f;
+        spDC.x += (fqrand() - 0.5f) * 270.0f;
+        spDC.y += (fqrand() - 0.1f) * 150.0f;
+        spDC.z += (fqrand() - 0.5f) * 270.0f;
 
-        phi_s0 = (Rand_ZeroOne() * 160.0f) + 140.0f;
-        phi_s1 = (Rand_ZeroOne() * 180.0f) + 120.0f;
+        phi_s0 = (fqrand() * 160.0f) + 140.0f;
+        phi_s1 = (fqrand() * 180.0f) + 120.0f;
         func_800B0E48(play, &spDC, &gZeroVec3f, &D_80A55D2C, &D_80A55D38, &D_80A55D3C, phi_s0, phi_s1);
     }
 }
@@ -196,7 +196,7 @@ void func_80A541F4(ObjHugebombiwa* this, PlayState* play) {
     f32 phi_f30;
 
     for (i = 0, phi_s2 = 0, phi_f30 = 0.0f; i < 13; i++, phi_s2 += 0x4E20, phi_f30 += (230.0f / 13)) {
-        temp_f0 = Rand_ZeroOne();
+        temp_f0 = fqrand();
         temp_f22 = (1.0f - SQ(temp_f0)) * 120.0f;
         temp_f20 = Math_SinS(phi_s2 & 0xFFFF);
         temp_f24 = Math_CosS(phi_s2 & 0xFFFF);
@@ -206,15 +206,15 @@ void func_80A541F4(ObjHugebombiwa* this, PlayState* play) {
         spF4.z = (temp_f24 * temp_f22) + this->actor.world.pos.z;
 
         spE8.x = temp_f20 * 10.0f;
-        spE8.y = (Rand_ZeroOne() * 18.0f) + 10.0f;
+        spE8.y = (fqrand() * 18.0f) + 10.0f;
         spE8.z = temp_f24 * 10.0f;
 
         EffectSsKakera_Spawn(play, &spF4, &spE8, &spF4, -650, 37, 15, 0, 0, D_80A55D50[i & 7], 1, 0, 60, -1,
                              OBJECT_BOMBIWA, object_bombiwa_DL_0009E0);
 
-        spDC.x = ((Rand_ZeroOne() - 0.5f) * 230.0f) + spF4.x;
-        spDC.y = ((Rand_ZeroOne() - 0.2f) * 200.0f) + spF4.y;
-        spDC.z = ((Rand_ZeroOne() - 0.5f) * 230.0f) + spF4.z;
+        spDC.x = ((fqrand() - 0.5f) * 230.0f) + spF4.x;
+        spDC.y = ((fqrand() - 0.2f) * 200.0f) + spF4.y;
+        spDC.z = ((fqrand() - 0.5f) * 230.0f) + spF4.z;
 
         spD0.x = temp_f20 * 7.0f;
         spD0.y = -7.0f;
@@ -224,11 +224,11 @@ void func_80A541F4(ObjHugebombiwa* this, PlayState* play) {
         spC4.y = 0.24f;
         spC4.z = temp_f24 * -0.07f;
 
-        func_800B12F0(play, &spDC, &spD0, &spC4, (s32)(Rand_ZeroOne() * 800.0f) + 1000, -49, 20);
+        func_800B12F0(play, &spDC, &spD0, &spC4, (s32)(fqrand() * 800.0f) + 1000, -49, 20);
 
-        spDC.x = ((Rand_ZeroOne() - 0.5f) * 160.0f) + spF4.x;
-        spDC.y = ((Rand_ZeroOne() - 0.2f) * 140.0f) + spF4.y;
-        spDC.z = ((Rand_ZeroOne() - 0.5f) * 160.0f) + spF4.z;
+        spDC.x = ((fqrand() - 0.5f) * 160.0f) + spF4.x;
+        spDC.y = ((fqrand() - 0.2f) * 140.0f) + spF4.y;
+        spDC.z = ((fqrand() - 0.5f) * 160.0f) + spF4.z;
 
         spD0.x = temp_f20 * 15.0f;
         spD0.y = 0.0f;
@@ -238,8 +238,8 @@ void func_80A541F4(ObjHugebombiwa* this, PlayState* play) {
         spC4.y = 0.3f;
         spC4.z = temp_f24 * -0.09f;
 
-        func_800B12F0(play, &spDC, &spD0, &spC4, (s32)(Rand_ZeroOne() * 100.0f) + 40,
-                      (s32)(Rand_ZeroOne() * 200.0f) + 20, 10);
+        func_800B12F0(play, &spDC, &spD0, &spC4, (s32)(fqrand() * 100.0f) + 40,
+                      (s32)(fqrand() * 200.0f) + 20, 10);
     }
 }
 
@@ -257,13 +257,13 @@ void func_80A54600(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3) {
     f32 temp;
 
     for (i = 0; i < 2; i++) {
-        spCC.x = (Rand_ZeroOne() - 0.5f) * 11.0f;
-        spCC.y = (Rand_ZeroOne() - 0.2f) * 8.0f;
-        spCC.z = (Rand_ZeroOne() - 0.5f) * 11.0f;
+        spCC.x = (fqrand() - 0.5f) * 11.0f;
+        spCC.y = (fqrand() - 0.2f) * 8.0f;
+        spCC.z = (fqrand() - 0.5f) * 11.0f;
 
-        spC0.x = ((Rand_ZeroOne() - 0.5f) * 5.0f) + (spCC.x * 1.4f);
-        spC0.y = (Rand_ZeroOne() * 13.0f) + 8.2f + (arg2 * -0.38f);
-        spC0.z = ((Rand_ZeroOne() - 0.5f) * 5.0f) + (spCC.z * 1.4f);
+        spC0.x = ((fqrand() - 0.5f) * 5.0f) + (spCC.x * 1.4f);
+        spC0.y = (fqrand() * 13.0f) + 8.2f + (arg2 * -0.38f);
+        spC0.z = ((fqrand() - 0.5f) * 5.0f) + (spCC.z * 1.4f);
 
         spCC.x += arg1->x;
         spCC.y += arg1->y;
@@ -283,12 +283,12 @@ void func_80A54600(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3) {
         EffectSsKakera_Spawn(play, &spCC, &spC0, &spCC, phi_v1, 33, 15, 0, 0, phi_v0, 1, 0, 70, -1, OBJECT_BOMBIWA,
                              object_bombiwa_DL_0009E0);
 
-        spCC.x += (Rand_ZeroOne() - 0.5f) * 270.0f;
-        spCC.y += (Rand_ZeroOne() - 0.1f) * 150.0f;
-        spCC.z += (Rand_ZeroOne() - 0.5f) * 270.0f;
+        spCC.x += (fqrand() - 0.5f) * 270.0f;
+        spCC.y += (fqrand() - 0.1f) * 150.0f;
+        spCC.z += (fqrand() - 0.5f) * 270.0f;
 
-        temp_s0 = (Rand_ZeroOne() * 160.0f) + 140.0f;
-        temp_s1 = (Rand_ZeroOne() * 180.0f) + 120.0f;
+        temp_s0 = (fqrand() * 160.0f) + 140.0f;
+        temp_s1 = (fqrand() * 180.0f) + 120.0f;
         func_800B1210(play, &spCC, &gZeroVec3f, &D_80A55D2C, temp_s0, temp_s1);
     }
 }
@@ -448,12 +448,12 @@ void func_80A54E10(ObjHugebombiwa* this) {
     for (i = 0, phi_s2 = 0x1000; i < 20; i++, phi_s2 += 0x4000) {
         ptr = &this->unk_190[i];
 
-        temp_f20 = (Rand_ZeroOne() * 0.06f) + 0.013f;
-        ptr->unk_00.x = ((Rand_ZeroOne() * 0.6f) + 0.6f) * temp_f20;
-        ptr->unk_00.y = ((Rand_ZeroOne() * 0.6f) + 0.4f) * temp_f20;
-        ptr->unk_00.z = ((Rand_ZeroOne() * 0.6f) + 0.6f) * temp_f20;
+        temp_f20 = (fqrand() * 0.06f) + 0.013f;
+        ptr->unk_00.x = ((fqrand() * 0.6f) + 0.6f) * temp_f20;
+        ptr->unk_00.y = ((fqrand() * 0.6f) + 0.4f) * temp_f20;
+        ptr->unk_00.z = ((fqrand() * 0.6f) + 0.6f) * temp_f20;
 
-        temp_f20_2 = (Rand_ZeroOne() * 55.0f) + 47.0f;
+        temp_f20_2 = (fqrand() * 55.0f) + 47.0f;
         sp84.x = Math_SinS(phi_s2) * temp_f20_2;
         sp84.y = (i + 1) * 10.0f;
         sp84.z = fabsf(Math_CosS(phi_s2)) * temp_f20_2;
@@ -466,7 +466,7 @@ void func_80A54E10(ObjHugebombiwa* this) {
 
         ptr->unk_18 = (i * 1.04f) + 2.4f;
         ptr->unk_1C.x = phi_s2;
-        ptr->unk_1C.y = Rand_Next() >> 0x10;
+        ptr->unk_1C.y = qrand() >> 0x10;
         ptr->unk_1C.z = 0;
         ptr->unk_22 = Rand_ZeroFloat(5000.0f);
         ptr->unk_24 = 0;
@@ -516,7 +516,7 @@ void func_80A55064(ObjHugebombiwa* this, PlayState* play) {
             ptr->unk_24 = 1;
             func_80A53E60(play, &ptr->unk_0C, ptr->unk_18, ptr->unk_00.y * 9.8f);
             if ((play->gameplayFrames % 4) == 0) {
-                ObjHugebombiwa_RequestQuakeAndRumble(this, play, (s32)(Rand_ZeroOne() * 5.5f) + 1);
+                ObjHugebombiwa_RequestQuakeAndRumble(this, play, (s32)(fqrand() * 5.5f) + 1);
             }
         }
     }
@@ -543,12 +543,12 @@ void func_80A55310(ObjHugebombiwa* this) {
     for (i = 0, phi_s2 = 0x1000; i < ARRAY_COUNT(this->unk_190); i++, phi_s2 += 0x4000) {
         ptr = &this->unk_190[i];
 
-        temp_f20 = (Rand_ZeroOne() * 0.09f) + 0.016f;
-        ptr->unk_00.x = ((Rand_ZeroOne() * 0.1f) + 0.95f) * temp_f20;
-        ptr->unk_00.y = ((Rand_ZeroOne() * 0.1f) + 0.95f) * temp_f20;
-        ptr->unk_00.z = ((Rand_ZeroOne() * 0.1f) + 0.95f) * temp_f20;
+        temp_f20 = (fqrand() * 0.09f) + 0.016f;
+        ptr->unk_00.x = ((fqrand() * 0.1f) + 0.95f) * temp_f20;
+        ptr->unk_00.y = ((fqrand() * 0.1f) + 0.95f) * temp_f20;
+        ptr->unk_00.z = ((fqrand() * 0.1f) + 0.95f) * temp_f20;
 
-        temp_f20_2 = (Rand_ZeroOne() * 85.0f) + 77.0f;
+        temp_f20_2 = (fqrand() * 85.0f) + 77.0f;
         sp84.x = Math_SinS(phi_s2) * temp_f20_2;
         sp84.y = (i + 1) * 14.0f;
         sp84.z = fabsf(Math_CosS(phi_s2)) * temp_f20_2;
@@ -561,7 +561,7 @@ void func_80A55310(ObjHugebombiwa* this) {
         ptr->unk_18 = (i * 1.04f) + 2.4f;
 
         ptr->unk_1C.x = phi_s2;
-        ptr->unk_1C.y = Rand_Next() >> 0x10;
+        ptr->unk_1C.y = qrand() >> 0x10;
         ptr->unk_1C.z = 0;
 
         ptr->unk_22 = Rand_ZeroFloat(5000.0f);
@@ -612,7 +612,7 @@ void func_80A55564(ObjHugebombiwa* this, PlayState* play) {
             ptr->unk_24 = 1;
             func_80A54600(play, &ptr->unk_0C, ptr->unk_18, ptr->unk_00.y * 10.1f);
             if ((play->gameplayFrames % 4) == 0) {
-                ObjHugebombiwa_RequestQuakeAndRumble(this, play, (s32)(Rand_ZeroOne() * 5.5f) + 1);
+                ObjHugebombiwa_RequestQuakeAndRumble(this, play, (s32)(fqrand() * 5.5f) + 1);
             }
         }
     }

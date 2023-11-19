@@ -694,7 +694,7 @@ void func_808952EC(EnTite* this) {
     this->unk_2BC = 400;
     this->actor.speed = 0.0f;
     this->actor.gravity = -1.0f;
-    this->unk_2B8 = Rand_ZeroOne() * 50.0f;
+    this->unk_2B8 = fqrand() * 50.0f;
     this->actor.bgCheckFlags &= ~BGCHECKFLAG_GROUND;
     this->actor.velocity.y = 11.0f;
     this->actionFunc = func_80895424;
@@ -705,8 +705,8 @@ void func_80895424(EnTite* this, PlayState* play) {
     if (this->unk_2B8 != 0) {
         this->unk_2B8--;
     } else {
-        this->unk_2B8 = Rand_ZeroOne() * 30.0f;
-        this->skelAnime.curFrame = Rand_ZeroOne() * 5.0f;
+        this->unk_2B8 = fqrand() * 30.0f;
+        this->skelAnime.curFrame = fqrand() * 5.0f;
     }
 
     SkelAnime_Update(&this->skelAnime);
@@ -822,7 +822,7 @@ void func_80895A10(EnTite* this) {
     Animation_Change(&this->skelAnime, &object_tite_Anim_000A14, 2.0f, 0.0f, 0.0f, ANIMMODE_LOOP, 4.0f);
     this->actor.speed = 0.0f;
     rand = Rand_S16Offset(20, 20);
-    this->unk_2BC = ((Rand_ZeroOne() < 0.5f) ? -1 : 1) * rand;
+    this->unk_2BC = ((fqrand() < 0.5f) ? -1 : 1) * rand;
     this->actionFunc = func_80895AC0;
 }
 
@@ -832,7 +832,7 @@ void func_80895AC0(EnTite* this, PlayState* play) {
 
     SkelAnime_Update(&this->skelAnime);
     if (Animation_OnFrame(&this->skelAnime, 7.0f)) {
-        if (Rand_ZeroOne() < 0.25f) {
+        if (fqrand() < 0.25f) {
             func_8089595C(this, play);
         }
         Actor_PlaySfx(&this->actor, NA_SE_EN_TEKU_WALK);
@@ -878,7 +878,7 @@ void func_80895CB0(EnTite* this) {
 void func_80895D08(EnTite* this, PlayState* play) {
     SkelAnime_Update(&this->skelAnime);
     if (Animation_OnFrame(&this->skelAnime, 7.0f)) {
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             func_8089595C(this, play);
         }
         Actor_PlaySfx(&this->actor, NA_SE_EN_TEKU_WALK);

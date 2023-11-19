@@ -87,21 +87,21 @@ void DemoKakyo_LostWoodsSparkleActionFunc(DemoKankyo* this, PlayState* play) {
                 this->effects[i].posBase.y = play->view.eye.y + (eyeToAtNormY * 80.0f);
                 this->effects[i].posBase.z = play->view.eye.z + (eyeToAtNormZ * 80.0f);
 
-                this->effects[i].posOffset.x = (Rand_ZeroOne() - 0.5f) * 160.0f;
+                this->effects[i].posOffset.x = (fqrand() - 0.5f) * 160.0f;
                 this->effects[i].posOffset.y = 30.0f;
-                this->effects[i].posOffset.z = (Rand_ZeroOne() - 0.5f) * 160.0f;
+                this->effects[i].posOffset.z = (fqrand() - 0.5f) * 160.0f;
 
-                this->effects[i].speedTarget = (Rand_ZeroOne() * 1.6f) + 0.5f;
+                this->effects[i].speedTarget = (fqrand() * 1.6f) + 0.5f;
                 this->effects[i].alpha = 0;
-                this->effects[i].alphaClock = Rand_ZeroOne() * 65535; // random 0 to max of u16
+                this->effects[i].alphaClock = fqrand() * 65535; // random 0 to max of u16
                 this->effects[i].scale = 0.1f;
 
                 // speedClock is angles in radians,
-                // should have used Rand_ZeroOne() * 2 * M_PI
+                // should have used fqrand() * 2 * M_PI
                 // however, due to properties of sine waves, this is effectively still random
-                this->effects[i].speedClock.x = Rand_ZeroOne() * 360.0f;
-                this->effects[i].speedClock.y = Rand_ZeroOne() * 360.0f;
-                this->effects[i].speedClock.z = Rand_ZeroOne() * 360.0f;
+                this->effects[i].speedClock.x = fqrand() * 360.0f;
+                this->effects[i].speedClock.y = fqrand() * 360.0f;
+                this->effects[i].speedClock.z = fqrand() * 360.0f;
                 this->effects[i].pad50 = 0;
                 this->effects[i].state += DEMO_KANKYO_STATE_SINGLE;
                 break;
@@ -121,17 +121,17 @@ void DemoKakyo_LostWoodsSparkleActionFunc(DemoKankyo* this, PlayState* play) {
                     // The first 32 effects will become skyfish particles
                     // This block is also init code and only runs once
                     if (i < 32) {
-                        if (Rand_ZeroOne() < 0.5f) {
-                            this->effects[i].LostWoodsSkyFishSpeedXZ = (s16)(Rand_ZeroOne() * 200.0f) + 200;
+                        if (fqrand() < 0.5f) {
+                            this->effects[i].LostWoodsSkyFishSpeedXZ = (s16)(fqrand() * 200.0f) + 200;
                         } else {
-                            this->effects[i].LostWoodsSkyFishSpeedXZ = -200 - (s16)(Rand_ZeroOne() * 200.0f);
+                            this->effects[i].LostWoodsSkyFishSpeedXZ = -200 - (s16)(fqrand() * 200.0f);
                         }
-                        this->effects[i].LostWoodsSkyFishPosOffsetMax = (s16)(Rand_ZeroOne() * 50.0f) + 15;
-                        this->effects[i].LostWoodsSkyFishSpeedY = ((Rand_ZeroOne() * 10.0f) + 10.0f) * 0.01f;
+                        this->effects[i].LostWoodsSkyFishPosOffsetMax = (s16)(fqrand() * 50.0f) + 15;
+                        this->effects[i].LostWoodsSkyFishSpeedY = ((fqrand() * 10.0f) + 10.0f) * 0.01f;
 
                         // Only the 31st particle matters as sLostWoodsSkyFishParticleNum will be overwritten
                         // every particle until the last skyfish particle is initialized
-                        randSkyfishParticleNum = Rand_ZeroOne();
+                        randSkyfishParticleNum = fqrand();
                         if (randSkyfishParticleNum < 0.2f) {
                             sLostWoodsSkyFishParticleNum = 1;
                         } else if (randSkyfishParticleNum < 0.2f) {
@@ -160,26 +160,26 @@ void DemoKakyo_LostWoodsSparkleActionFunc(DemoKankyo* this, PlayState* play) {
                     switch ((i >> 1) & 3) {
                         case 0:
                             this->effects[i].speedClock.x += 0.008f;
-                            this->effects[i].speedClock.y += 0.05f * Rand_ZeroOne();
+                            this->effects[i].speedClock.y += 0.05f * fqrand();
                             this->effects[i].speedClock.z += 0.015f;
                             break;
 
                         case 1:
-                            this->effects[i].speedClock.x += 0.01f * Rand_ZeroOne();
-                            this->effects[i].speedClock.y += 0.05f * Rand_ZeroOne();
-                            this->effects[i].speedClock.z += 0.005f * Rand_ZeroOne();
+                            this->effects[i].speedClock.x += 0.01f * fqrand();
+                            this->effects[i].speedClock.y += 0.05f * fqrand();
+                            this->effects[i].speedClock.z += 0.005f * fqrand();
                             break;
 
                         case 2:
-                            this->effects[i].speedClock.x += 0.01f * Rand_ZeroOne();
-                            this->effects[i].speedClock.y += 0.4f * Rand_ZeroOne();
-                            this->effects[i].speedClock.z += 0.004f * Rand_ZeroOne();
+                            this->effects[i].speedClock.x += 0.01f * fqrand();
+                            this->effects[i].speedClock.y += 0.4f * fqrand();
+                            this->effects[i].speedClock.z += 0.004f * fqrand();
                             break;
 
                         case 3:
-                            this->effects[i].speedClock.x += 0.01f * Rand_ZeroOne();
-                            this->effects[i].speedClock.y += 0.08f * Rand_ZeroOne();
-                            this->effects[i].speedClock.z += 0.05f * Rand_ZeroOne();
+                            this->effects[i].speedClock.x += 0.01f * fqrand();
+                            this->effects[i].speedClock.y += 0.08f * fqrand();
+                            this->effects[i].speedClock.z += 0.05f * fqrand();
                             break;
                     }
 
@@ -203,9 +203,9 @@ void DemoKakyo_LostWoodsSparkleActionFunc(DemoKankyo* this, PlayState* play) {
                                            0.5f, 2.0f, 0.2f);
                         this->effects[i].LostWoodsSkyFishSpeedXZClock += this->effects[i].LostWoodsSkyFishSpeedXZ;
                         this->effects[i].posOffset.y += sinf(this->effects[i].speedClock.y);
-                        this->effects[i].speedClock.x += 0.2f * Rand_ZeroOne(); // unused calculation
+                        this->effects[i].speedClock.x += 0.2f * fqrand(); // unused calculation
                         this->effects[i].speedClock.y += this->effects[i].LostWoodsSkyFishSpeedY;
-                        this->effects[i].speedClock.z += 0.1f * Rand_ZeroOne(); // unused calculation
+                        this->effects[i].speedClock.z += 0.1f * fqrand(); // unused calculation
 
                         this->effects[i].posOffset.x =
                             Math_SinS(this->effects[i].LostWoodsSkyFishSpeedXZClock - 0x8000) *
@@ -325,21 +325,21 @@ void DemoKakyo_MoonSparklesActionFunc(DemoKankyo* this, PlayState* play) {
                 this->effects[i].posBase.y = play->view.eye.y + (eyeToAtNormY * halfScreenHeight);
                 this->effects[i].posBase.z = play->view.eye.z + (eyeToAtNormZ * halfScreenHeight);
 
-                this->effects[i].posOffset.x = (Rand_ZeroOne() - 0.5f) * (2.0f * halfScreenHeight);
-                this->effects[i].posOffset.y = (Rand_ZeroOne() - 0.5f) * (2.0f * halfScreenHeight);
-                this->effects[i].posOffset.z = (Rand_ZeroOne() - 0.5f) * (2.0f * halfScreenHeight);
+                this->effects[i].posOffset.x = (fqrand() - 0.5f) * (2.0f * halfScreenHeight);
+                this->effects[i].posOffset.y = (fqrand() - 0.5f) * (2.0f * halfScreenHeight);
+                this->effects[i].posOffset.z = (fqrand() - 0.5f) * (2.0f * halfScreenHeight);
 
-                this->effects[i].speedTarget = (Rand_ZeroOne() * 1.6f) + 0.5f;
+                this->effects[i].speedTarget = (fqrand() * 1.6f) + 0.5f;
                 this->effects[i].alpha = 0;
-                this->effects[i].alphaClock = (Rand_ZeroOne() * 65535);
+                this->effects[i].alphaClock = (fqrand() * 65535);
                 this->effects[i].scale = 0.2f;
 
                 // speedClock is angles in radians,
-                // should have used Rand_ZeroOne() * 2 * M_PI
+                // should have used fqrand() * 2 * M_PI
                 // however, due to properties of sine waves, this is effectively still random
-                this->effects[i].speedClock.x = Rand_ZeroOne() * 360.0f;
-                this->effects[i].speedClock.y = Rand_ZeroOne() * 360.0f;
-                this->effects[i].speedClock.z = Rand_ZeroOne() * 360.0f;
+                this->effects[i].speedClock.x = fqrand() * 360.0f;
+                this->effects[i].speedClock.y = fqrand() * 360.0f;
+                this->effects[i].speedClock.z = fqrand() * 360.0f;
 
                 this->effects[i].pad50 = 0;
                 this->effects[i].state += DEMO_KANKYO_STATE_SINGLE;
@@ -368,26 +368,26 @@ void DemoKakyo_MoonSparklesActionFunc(DemoKankyo* this, PlayState* play) {
                 switch ((i >> 1) & 3) {
                     case 0:
                         this->effects[i].speedClock.x += 0.008f;
-                        this->effects[i].speedClock.y += 0.05f * Rand_ZeroOne();
+                        this->effects[i].speedClock.y += 0.05f * fqrand();
                         this->effects[i].speedClock.z += 0.015f;
                         break;
 
                     case 1:
-                        this->effects[i].speedClock.x += 0.01f * Rand_ZeroOne();
-                        this->effects[i].speedClock.y += 0.05f * Rand_ZeroOne();
-                        this->effects[i].speedClock.z += 0.005f * Rand_ZeroOne();
+                        this->effects[i].speedClock.x += 0.01f * fqrand();
+                        this->effects[i].speedClock.y += 0.05f * fqrand();
+                        this->effects[i].speedClock.z += 0.005f * fqrand();
                         break;
 
                     case 2:
-                        this->effects[i].speedClock.x += 0.01f * Rand_ZeroOne();
-                        this->effects[i].speedClock.y += 0.4f * Rand_ZeroOne();
-                        this->effects[i].speedClock.z += 0.004f * Rand_ZeroOne();
+                        this->effects[i].speedClock.x += 0.01f * fqrand();
+                        this->effects[i].speedClock.y += 0.4f * fqrand();
+                        this->effects[i].speedClock.z += 0.004f * fqrand();
                         break;
 
                     case 3:
-                        this->effects[i].speedClock.x += 0.01f * Rand_ZeroOne();
-                        this->effects[i].speedClock.y += 0.08f * Rand_ZeroOne();
-                        this->effects[i].speedClock.z += 0.05f * Rand_ZeroOne();
+                        this->effects[i].speedClock.x += 0.01f * fqrand();
+                        this->effects[i].speedClock.y += 0.08f * fqrand();
+                        this->effects[i].speedClock.z += 0.05f * fqrand();
                         break;
                 }
 

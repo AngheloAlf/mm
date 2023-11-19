@@ -54,7 +54,7 @@ u32 EffectSsDust_Init(PlayState* play, u32 index, EffectSs* this, void* initPara
     this->draw = EffectSsDust_Draw;
 
     if (initParams->drawFlags & DUST_DRAWFLAG_RAND_COLOR_OFFSET) {
-        s32 randColorOffset = Rand_ZeroOne() * 20.0f - 10.0f;
+        s32 randColorOffset = fqrand() * 20.0f - 10.0f;
 
         this->rPrimColorR = initParams->primColor.r + randColorOffset;
         this->rPrimColorG = initParams->primColor.g + randColorOffset;
@@ -132,8 +132,8 @@ void EffectSsDust_Draw(PlayState* play, u32 index, EffectSs* this) {
 }
 
 void EffectSsDust_Update(PlayState* play, u32 index, EffectSs* this) {
-    this->accel.x = (Rand_ZeroOne() * 0.4f) - 0.2f;
-    this->accel.z = (Rand_ZeroOne() * 0.4f) - 0.2f;
+    this->accel.x = (fqrand() * 0.4f) - 0.2f;
+    this->accel.z = (fqrand() * 0.4f) - 0.2f;
 
     if ((this->life <= this->rLifespan) && (this->life >= (this->rLifespan - 7))) {
         if (this->rLifespan >= 5) {
@@ -150,8 +150,8 @@ void EffectSsDust_Update(PlayState* play, u32 index, EffectSs* this) {
 
 // this update mode is unused in the original game
 void EffectSsDust_UpdateFire(PlayState* play, u32 index, EffectSs* this) {
-    this->accel.x = (Rand_ZeroOne() * 0.4f) - 0.2f;
-    this->accel.z = (Rand_ZeroOne() * 0.4f) - 0.2f;
+    this->accel.x = (fqrand() * 0.4f) - 0.2f;
+    this->accel.z = (fqrand() * 0.4f) - 0.2f;
 
     switch (this->rTexIndex) {
         case 0:

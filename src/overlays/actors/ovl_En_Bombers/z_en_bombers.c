@@ -314,7 +314,7 @@ void func_80C03AF4(EnBombers* this, PlayState* play) {
                 if (BgCheck_EntityLineTest1(&play->colCtx, &this->actor.world.pos, &sp54, &sp6C, &colPoly, true, false,
                                             false, true, &sp48)) {
                     this->unk_2A8 = 0;
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         EnBombers_ChangeAnim(this, ENBOMBERS_ANIM_16, 1.0f);
                     } else {
                         EnBombers_ChangeAnim(this, ENBOMBERS_ANIM_0, 1.0f);

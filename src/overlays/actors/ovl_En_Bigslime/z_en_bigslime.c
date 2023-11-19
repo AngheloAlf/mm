@@ -650,12 +650,12 @@ void EnBigslime_AddWavySurface(EnBigslime* this) {
     s32 i;
 
     this->wavySurfaceTimer = 24;
-    randInt = (s32)(Rand_ZeroOne() * 6.0f) >> 1;
-    randFloat = (Rand_ZeroOne() * 40.0f) + 50.0f;
+    randInt = (s32)(fqrand() * 6.0f) >> 1;
+    randFloat = (fqrand() * 40.0f) + 50.0f;
 
     for (i = 0; i < BIGSLIME_NUM_VTX; i++) {
         if ((i % 6) == 0) {
-            randFloat = (Rand_ZeroOne() * 40.0f) + 50.0f;
+            randFloat = (fqrand() * 40.0f) + 50.0f;
         }
 
         this->vtxSurfacePerturbation[i] = Math_SinF((randInt + i) * (M_PI / 3)) * randFloat * 0.001f;
@@ -1626,7 +1626,7 @@ void EnBigslime_AttackPlayerInBigslime(EnBigslime* this, PlayState* play) {
 
             play->damagePlayer(play, -4);
             Player_PlaySfx(player, player->ageProperties->voiceSfxIdOffset + NA_SE_VO_LI_DAMAGE_S);
-            this->gekkoRot.y += (s16)(Rand_S16Offset(0x4000, 0x4000) * (Rand_ZeroOne() < 0.5f ? -1 : 1));
+            this->gekkoRot.y += (s16)(Rand_S16Offset(0x4000, 0x4000) * (fqrand() < 0.5f ? -1 : 1));
             this->gekkoPosOffset.x = Math_SinS(this->gekkoRot.y) * -50.0f;
             this->gekkoPosOffset.z = Math_CosS(this->gekkoRot.y) * -50.0f;
             this->numGekkoMeleeAttacks = (s32)Rand_ZeroFloat(3.0f) + 1;
@@ -1938,12 +1938,12 @@ void EnBigslime_FrozenGround(EnBigslime* this, PlayState* play) {
 
         // clang-format off
         randFloat = Rand_ZeroFloat(4.0f * invFreezerTimer);
-        randSign = Rand_ZeroOne() < 0.5f ? -1 : 1; \
+        randSign = fqrand() < 0.5f ? -1 : 1; \
         this->actor.world.pos.x = randSign * (1.0f + invFreezerTimer + randFloat) + this->frozenPos.x;
         // clang-format on
 
         randFloat = Rand_ZeroFloat(4.0f * invFreezerTimer);
-        randSign = Rand_ZeroOne() < 0.5f ? -1 : 1;
+        randSign = fqrand() < 0.5f ? -1 : 1;
         this->actor.world.pos.z = randSign * (1.0f + invFreezerTimer + randFloat) + this->frozenPos.z;
     }
 }
@@ -2091,9 +2091,9 @@ void EnBigslime_SetupIdleLookAround(EnBigslime* this) {
     this->idleTimer = 60;
     this->actor.speed = 0.0f;
     if (BINANG_SUB(Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos), this->gekkoRot.y) > 0) {
-        this->gekkoYaw = this->gekkoRot.y + (Rand_Next() >> 20) + 0x2000;
+        this->gekkoYaw = this->gekkoRot.y + (qrand() >> 20) + 0x2000;
     } else {
-        this->gekkoYaw = this->gekkoRot.y - (Rand_Next() >> 20) - 0x2000;
+        this->gekkoYaw = this->gekkoRot.y - (qrand() >> 20) - 0x2000;
     }
     this->actionFunc = EnBigslime_IdleLookAround;
 }
@@ -2103,7 +2103,7 @@ void EnBigslime_IdleLookAround(EnBigslime* this, PlayState* play) {
 
     this->idleTimer--;
     if (this->isAnimFinished) {
-        if (Rand_ZeroOne() < 0.25f) {
+        if (fqrand() < 0.25f) {
             Animation_PlayOnce(&this->skelAnime, &gGekkoLookAroundAnim);
         } else {
             Animation_PlayOnce(&this->skelAnime, &gGekkoNervousIdleAnim);
@@ -2113,9 +2113,9 @@ void EnBigslime_IdleLookAround(EnBigslime* this, PlayState* play) {
     if ((this->skelAnime.animation == &gGekkoNervousIdleAnim) &&
         Math_ScaledStepToS(&this->gekkoRot.y, this->gekkoYaw, 0x400)) {
         if (BINANG_SUB(Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos), this->gekkoRot.y) > 0) {
-            this->gekkoYaw = this->gekkoRot.y + (Rand_Next() >> 20) + 0x2000;
+            this->gekkoYaw = this->gekkoRot.y + (qrand() >> 20) + 0x2000;
         } else {
-            this->gekkoYaw = this->gekkoRot.y - (Rand_Next() >> 20) - 0x2000;
+            this->gekkoYaw = this->gekkoRot.y - (qrand() >> 20) - 0x2000;
         }
     }
 
@@ -2597,7 +2597,7 @@ void EnBigslime_ApplyDamageEffectBigslime(EnBigslime* this, PlayState* play) {
                 }
 
                 if ((this->actor.colChkInfo.damageEffect != BIGSLIME_DMGEFF_STUN) && (this->itemDropTimer == 0)) {
-                    f32 randFloat = Rand_ZeroOne();
+                    f32 randFloat = fqrand();
 
                     if (randFloat < 0.15f) {
                         Item_DropCollectible(play, &this->actor.world.pos, ITEM00_ARROWS_10);
@@ -2703,9 +2703,9 @@ void EnBigslime_AddIceShardEffect(EnBigslime* this, PlayState* play) {
             iceShardEffect->pos.x = (targetVtx->n.ob[0] * this->actor.scale.x) + this->actor.world.pos.x;
             iceShardEffect->pos.y = (targetVtx->n.ob[1] * this->actor.scale.y) + this->actor.world.pos.y;
             iceShardEffect->pos.z = (targetVtx->n.ob[2] * this->actor.scale.z) + this->actor.world.pos.z;
-            iceShardEffect->rot.x = (s32)Rand_Next() >> 0x10;
-            iceShardEffect->rot.y = (s32)Rand_Next() >> 0x10;
-            iceShardEffect->rot.z = (s32)Rand_Next() >> 0x10;
+            iceShardEffect->rot.x = (s32)qrand() >> 0x10;
+            iceShardEffect->rot.y = (s32)qrand() >> 0x10;
+            iceShardEffect->rot.z = (s32)qrand() >> 0x10;
             iceShardEffect->isEnabled = true;
             randPitch = Rand_S16Offset(0x1000, 0x3000);
             vtxZ = targetVtx->n.ob[2];
@@ -2745,9 +2745,9 @@ void EnBigslime_UpdateEffects(EnBigslime* this) {
             if (iceShardEffect->pos.y < (GBT_ROOM_5_MIN_Y - 20.0f)) {
                 iceShardEffect->isEnabled = false;
             }
-            iceShardEffect->rot.x += (s16)((Rand_Next() >> 0x17) + 0x700);
-            iceShardEffect->rot.y += (s16)((Rand_Next() >> 0x17) + 0x900);
-            iceShardEffect->rot.z += (s16)((Rand_Next() >> 0x17) + 0xB00);
+            iceShardEffect->rot.x += (s16)((qrand() >> 0x17) + 0x700);
+            iceShardEffect->rot.y += (s16)((qrand() >> 0x17) + 0x900);
+            iceShardEffect->rot.z += (s16)((qrand() >> 0x17) + 0xB00);
         }
     }
 

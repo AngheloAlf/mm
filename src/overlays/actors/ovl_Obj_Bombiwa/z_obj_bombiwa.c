@@ -193,7 +193,7 @@ void ObjBombiwa_Init(Actor* thisx, PlayState* play) {
 
     if (sp34 == OBJBOMBIWA_100_0) {
         if (this->actor.shape.rot.y == 0) {
-            this->actor.shape.rot.y = this->actor.world.rot.y = Rand_Next() >> 0x10;
+            this->actor.shape.rot.y = this->actor.world.rot.y = qrand() >> 0x10;
         }
         func_80939594(this, play);
     }
@@ -220,13 +220,13 @@ void func_80939794(ObjBombiwa* this, PlayState* play) {
     s32 i;
 
     for (i = 0; i < ARRAY_COUNT(D_8093A9D0); i++) {
-        spB4.x = ((Rand_ZeroOne() - 0.5f) * 10.0f) + this->actor.home.pos.x;
-        spB4.y = (Rand_ZeroOne() * 5.0f) + this->actor.home.pos.y + 8.0f;
-        spB4.z = ((Rand_ZeroOne() - 0.5f) * 10.0f) + this->actor.home.pos.z;
+        spB4.x = ((fqrand() - 0.5f) * 10.0f) + this->actor.home.pos.x;
+        spB4.y = (fqrand() * 5.0f) + this->actor.home.pos.y + 8.0f;
+        spB4.z = ((fqrand() - 0.5f) * 10.0f) + this->actor.home.pos.z;
 
-        spA8.x = (Rand_ZeroOne() - 0.5f) * 15.0f;
-        spA8.y = (Rand_ZeroOne() * 16.0f) + 5.0f;
-        spA8.z = (Rand_ZeroOne() - 0.5f) * 15.0f;
+        spA8.x = (fqrand() - 0.5f) * 15.0f;
+        spA8.y = (fqrand() * 16.0f) + 5.0f;
+        spA8.z = (fqrand() - 0.5f) * 15.0f;
 
         if (D_8093A9D0[i] > 10) {
             phi_v1 = 0x25;
@@ -248,13 +248,13 @@ void func_80939994(PlayState* play, Vec3f* arg1) {
     s32 i;
 
     for (i = 0; i < 16; i++) {
-        spAC.x = (Rand_ZeroOne() - 0.5f) * 80.0f;
-        spAC.y = Rand_ZeroOne() * 120.0f;
-        spAC.z = (Rand_ZeroOne() - 0.5f) * 80.0f;
+        spAC.x = (fqrand() - 0.5f) * 80.0f;
+        spAC.y = fqrand() * 120.0f;
+        spAC.z = (fqrand() - 0.5f) * 80.0f;
 
-        spA0.x = ((Rand_ZeroOne() - 0.5f) * 3.0f) + (spAC.x * 0.2f);
-        spA0.y = (Rand_ZeroOne() * 16.0f) + 5.0f;
-        spA0.z = ((Rand_ZeroOne() - 0.5f) * 3.0f) + (spAC.z * 0.2f);
+        spA0.x = ((fqrand() - 0.5f) * 3.0f) + (spAC.x * 0.2f);
+        spA0.y = (fqrand() * 16.0f) + 5.0f;
+        spA0.z = ((fqrand() - 0.5f) * 3.0f) + (spAC.z * 0.2f);
 
         spAC.x += arg1->x;
         spAC.y += arg1->y;
@@ -268,7 +268,7 @@ void func_80939994(PlayState* play, Vec3f* arg1) {
             life = 60;
         } else {
             life = 40;
-            if (Rand_ZeroOne() < 0.7f) {
+            if (fqrand() < 0.7f) {
                 phi_v0 = 64;
             } else {
                 phi_v0 = 32;
@@ -295,13 +295,13 @@ void func_80939C50(PlayState* play, Vec3f* arg1) {
     s32 i;
 
     for (i = 0; i < ARRAY_COUNT(D_8093A9E0); i++) {
-        spBC.x = (Rand_ZeroOne() - 0.5f) * 15.0f;
-        spBC.y = (Rand_ZeroOne() - 0.2f) * 10.0f;
-        spBC.z = (Rand_ZeroOne() - 0.5f) * 15.0f;
+        spBC.x = (fqrand() - 0.5f) * 15.0f;
+        spBC.y = (fqrand() - 0.2f) * 10.0f;
+        spBC.z = (fqrand() - 0.5f) * 15.0f;
 
-        spB0.x = ((Rand_ZeroOne() - 0.5f) * 3.0f) + (spBC.x * 0.85f);
-        spB0.y = (Rand_ZeroOne() * 15.0f) + 8.0f;
-        spB0.z = ((Rand_ZeroOne() - 0.5f) * 3.0f) + (spBC.z * 0.85f);
+        spB0.x = ((fqrand() - 0.5f) * 3.0f) + (spBC.x * 0.85f);
+        spB0.y = (fqrand() * 15.0f) + 8.0f;
+        spB0.z = ((fqrand() - 0.5f) * 3.0f) + (spBC.z * 0.85f);
 
         spBC.x += arg1->x;
         spBC.y += arg1->y;
@@ -315,7 +315,7 @@ void func_80939C50(PlayState* play, Vec3f* arg1) {
             phi_s0 = 60;
         } else {
             phi_s0 = 40;
-            if (Rand_ZeroOne() < 0.7f) {
+            if (fqrand() < 0.7f) {
                 phi_v0 = 64;
             } else {
                 phi_v0 = 32;
@@ -382,7 +382,7 @@ void func_8093A080(ObjBombiwa* this) {
     for (i = 0, phi_s2 = 0; i < ARRAY_COUNT(this->unk_190); i++, phi_s2 += 0x4000) {
         ptr = &this->unk_190[i];
 
-        ptr->unk_00 = (Rand_ZeroOne() * 0.1f) + 0.05f;
+        ptr->unk_00 = (fqrand() * 0.1f) + 0.05f;
 
         ptr->unk_04.x = (Math_SinS(phi_s2) * 50.0f) + this->actor.world.pos.x;
         ptr->unk_04.y = ((i + 1) * 31.0f) + this->actor.world.pos.y;
@@ -390,7 +390,7 @@ void func_8093A080(ObjBombiwa* this) {
 
         ptr->unk_10 = i + 3.0f;
         ptr->unk_14.x = phi_s2;
-        ptr->unk_14.y = Rand_Next() >> 0x10;
+        ptr->unk_14.y = qrand() >> 0x10;
         ptr->unk_14.z = 0;
         ptr->unk_1A = 0;
     }

@@ -315,13 +315,13 @@ void func_80B509A8(EnGk* this, PlayState* play) {
     Vec3f sp4C;
     s16 phi_s1 = 0;
 
-    this->unk_300.x += 2.0f * Rand_Centered();
-    this->unk_300.y += Rand_ZeroOne();
-    this->unk_300.z += 2.0f * Rand_Centered();
+    this->unk_300.x += 2.0f * fqrand2();
+    this->unk_300.y += fqrand();
+    this->unk_300.z += 2.0f * fqrand2();
 
-    this->unk_30C.x += 2.0f * Rand_Centered();
-    this->unk_30C.y += Rand_ZeroOne();
-    this->unk_30C.z += 2.0f * Rand_Centered();
+    this->unk_30C.x += 2.0f * fqrand2();
+    this->unk_30C.y += fqrand();
+    this->unk_30C.z += 2.0f * fqrand2();
 
     if (this->animIndex == ENGK_ANIM_0) {
         sp4C.x = 0.0f;
@@ -380,7 +380,7 @@ void func_80B50B38(EnGk* this, PlayState* play) {
                 this->unk_2E2 = temp;
             } else if (temp == 0) {
                 this->unk_2E0 = 2;
-                this->unk_2E2 = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+                this->unk_2E2 = (s32)(fqrand() * 60.0f) + 20;
             } else {
                 this->unk_2E0 = 1;
                 this->unk_2E2 = temp;

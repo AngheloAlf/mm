@@ -2011,7 +2011,7 @@ void Environment_DrawLensFlare(PlayState* play, EnvironmentContext* envCtx, View
 }
 
 f32 Environment_RandCentered(void) {
-    return Rand_ZeroOne() - 0.5f;
+    return fqrand() - 0.5f;
 }
 
 void Environment_DrawRainImpl(PlayState* play, View* view, GraphicsContext* gfxCtx) {
@@ -2080,8 +2080,8 @@ void Environment_DrawRainImpl(PlayState* play, View* view, GraphicsContext* gfxC
     yaw = Math_Vec3f_Yaw(&gZeroVec3f, &spD4) + 0x8000;
 
     for (i = 0; i < precip; i++) {
-        Matrix_Translate(((Rand_ZeroOne() - 0.7f) * 100.0f) + spF0, ((Rand_ZeroOne() - 0.7f) * 100.0f) + spEC,
-                         ((Rand_ZeroOne() - 0.7f) * 100.0f) + spE8, MTXMODE_NEW);
+        Matrix_Translate(((fqrand() - 0.7f) * 100.0f) + spF0, ((fqrand() - 0.7f) * 100.0f) + spEC,
+                         ((fqrand() - 0.7f) * 100.0f) + spE8, MTXMODE_NEW);
         gSPMatrix(POLY_XLU_DISP++, &D_01000000, G_MTX_NOPUSH | G_MTX_MUL | G_MTX_MODELVIEW);
         Matrix_RotateYS(yaw + (s16)(i << 5), MTXMODE_APPLY);
         Matrix_RotateXS(pitch + (s16)(i << 5), MTXMODE_APPLY);
@@ -2101,7 +2101,7 @@ void Environment_DrawRainImpl(PlayState* play, View* view, GraphicsContext* gfxC
             }
             Matrix_Translate((Environment_RandCentered() * 220.0f) + spE4, player->actor.floorHeight + 2.0f,
                              (Environment_RandCentered() * 220.0f) + spE0, MTXMODE_NEW);
-            scale = (Rand_ZeroOne() * 0.05f) + 0.05f;
+            scale = (fqrand() * 0.05f) + 0.05f;
             Matrix_Scale(scale, scale, scale, MTXMODE_APPLY);
             gSPMatrix(POLY_XLU_DISP++, Matrix_NewMtx(gfxCtx), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
             gSPDisplayList(POLY_XLU_DISP++, gEffShockwaveDL);
@@ -2214,11 +2214,11 @@ void Environment_UpdateLightningStrike(PlayState* play) {
         switch (gLightningStrike.state) {
             case LIGHTNING_STRIKE_WAIT:
                 // every frame theres a 10% chance of the timer advancing 10 units
-                if (Rand_ZeroOne() < 0.1f) {
+                if (fqrand() < 0.1f) {
                     gLightningStrike.delayTimer += 10.0f;
                 }
 
-                gLightningStrike.delayTimer += Rand_ZeroOne();
+                gLightningStrike.delayTimer += fqrand();
 
                 if (gLightningStrike.delayTimer > 500.0f) {
                     gLightningStrike.flashRed = 200;
@@ -2228,7 +2228,7 @@ void Environment_UpdateLightningStrike(PlayState* play) {
 
                     gLightningStrike.delayTimer = 0.0f;
                     Environment_AddLightningBolts(
-                        play, (u8)((Rand_ZeroOne() * (ARRAY_COUNT(sLightningBolts) - 0.1f)) + 1.0f));
+                        play, (u8)((fqrand() * (ARRAY_COUNT(sLightningBolts) - 0.1f)) + 1.0f));
                     sLightningFlashAlpha = 0;
                     gLightningStrike.state++;
                 }
@@ -2332,16 +2332,16 @@ void Environment_DrawLightning(PlayState* play, s32 unused) {
                 z = dz / sqrtf(SQ(dx) + SQ(dz));
 
                 sLightningBolts[i].pos.x = play->view.eye.x + x * 9500.0f;
-                sLightningBolts[i].pos.y = Rand_ZeroOne() * 1000.0f + 4000.0f;
+                sLightningBolts[i].pos.y = fqrand() * 1000.0f + 4000.0f;
                 sLightningBolts[i].pos.z = play->view.eye.z + z * 9500.0f;
 
-                sLightningBolts[i].offset.x = (Rand_ZeroOne() - 0.5f) * 5000.0f;
+                sLightningBolts[i].offset.x = (fqrand() - 0.5f) * 5000.0f;
                 sLightningBolts[i].offset.y = 0.0f;
-                sLightningBolts[i].offset.z = (Rand_ZeroOne() - 0.5f) * 5000.0f;
+                sLightningBolts[i].offset.z = (fqrand() - 0.5f) * 5000.0f;
 
                 sLightningBolts[i].textureIndex = 0;
-                sLightningBolts[i].pitch = (Rand_ZeroOne() - 0.5f) * 40.0f;
-                sLightningBolts[i].roll = (Rand_ZeroOne() - 0.5f) * 40.0f;
+                sLightningBolts[i].pitch = (fqrand() - 0.5f) * 40.0f;
+                sLightningBolts[i].roll = (fqrand() - 0.5f) * 40.0f;
                 sLightningBolts[i].delayTimer = 3 * (i + 1);
                 sLightningBolts[i].state++;
                 break;
@@ -3187,18 +3187,18 @@ void Environment_DrawSkyboxStarsImpl(PlayState* play, Gfx** gfxP) {
             f32 temp_f4;
             f32 temp_f2;
 
-            // temp_f4 = Rand_ZeroOne_Variable(&randInt);
+            // temp_f4 = fqrand_r(&randInt);
             randInt = (randInt * RAND_MULTIPLIER) + RAND_INCREMENT;
-            gRandFloat.i = (randInt >> 9) | 0x3F800000;
-            temp = gRandFloat.f;
+            __qrand_itemp.i = (randInt >> 9) | 0x3F800000;
+            temp = __qrand_itemp.f;
             temp_f4 = temp - 1.0f;
 
-            // temp_f20 = Rand_ZeroOne_Variable(&randInt);
+            // temp_f20 = fqrand_r(&randInt);
             randInt = (randInt * RAND_MULTIPLIER) + RAND_INCREMENT;
-            gRandFloat.i = (randInt >> 9) | 0x3F800000;
-            temp_f20 = ((gRandFloat.f - 1.0f) + temp_f4) * 0.5f;
+            __qrand_itemp.i = (randInt >> 9) | 0x3F800000;
+            temp_f20 = ((__qrand_itemp.f - 1.0f) + temp_f4) * 0.5f;
 
-            // Rand_Next_Variable(&randInt);
+            // qrand_r(&randInt);
             randInt = (randInt * RAND_MULTIPLIER) + RAND_INCREMENT;
 
             // Set random position
@@ -3206,10 +3206,10 @@ void Environment_DrawSkyboxStarsImpl(PlayState* play, Gfx** gfxP) {
             pos.x = play->view.eye.x + (Math_SinS(randInt) * (1.2f - temp_f20) * SQ(128.0f));
             pos.z = play->view.eye.z + (Math_CosS(randInt) * (1.2f - temp_f20) * SQ(128.0f));
 
-            // temp_f2 = Rand_ZeroOne_Variable(&randInt);
+            // temp_f2 = fqrand_r(&randInt);
             randInt = (randInt * RAND_MULTIPLIER) + RAND_INCREMENT;
-            gRandFloat.i = ((randInt >> 9) | 0x3F800000);
-            temp_f2 = gRandFloat.f - 1.0f;
+            __qrand_itemp.i = ((randInt >> 9) | 0x3F800000);
+            temp_f2 = __qrand_itemp.f - 1.0f;
 
             // Set random width
             imgWidth = (u32)((SQ(temp_f2) * 8.0f) + 2.0f);

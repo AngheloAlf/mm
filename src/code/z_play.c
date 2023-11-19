@@ -2270,7 +2270,7 @@ void Play_Init(GameState* thisx) {
     D_801D0D54 = false;
 
     FrameAdvance_Init(&this->frameAdvCtx);
-    Rand_Seed(osGetTime());
+    sqrand(osGetTime());
     Matrix_Init(&this->state);
 
     this->state.main = Play_Main;

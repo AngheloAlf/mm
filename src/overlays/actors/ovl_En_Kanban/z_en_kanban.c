@@ -380,7 +380,7 @@ void EnKanban_Update(Actor* thisx, PlayState* play) {
 
                         piece->spinVel.y = Rand_CenteredFloat(0x1800);
 
-                        if (Rand_ZeroOne() < 0.5f) {
+                        if (fqrand() < 0.5f) {
                             piece->direction = 1;
                         } else {
                             piece->direction = -1;
@@ -586,7 +586,7 @@ void EnKanban_Update(Actor* thisx, PlayState* play) {
                                     }
                                 }
 
-                                if (Rand_ZeroOne() < 0.5f) {
+                                if (fqrand() < 0.5f) {
                                     this->spinXFlag = 1;
                                 } else {
                                     this->spinXFlag = 0;
@@ -610,7 +610,7 @@ void EnKanban_Update(Actor* thisx, PlayState* play) {
                                     }
                                 }
 
-                                if (Rand_ZeroOne() < 0.5f) {
+                                if (fqrand() < 0.5f) {
                                     this->spinZFlag = 1;
                                 } else {
                                     this->spinZFlag = 0;
@@ -774,7 +774,7 @@ void EnKanban_Update(Actor* thisx, PlayState* play) {
 
                 this->spinVel.y = Rand_CenteredFloat(0x1800);
 
-                if (Rand_ZeroOne() < 0.5f) {
+                if (fqrand() < 0.5f) {
                     this->direction = 1;
                 } else {
                     this->direction = -1;
@@ -819,7 +819,7 @@ void EnKanban_Update(Actor* thisx, PlayState* play) {
 
                         this->spinVel.y = Rand_CenteredFloat(0x1800);
 
-                        if (Rand_ZeroOne() < 0.5f) {
+                        if (fqrand() < 0.5f) {
                             this->direction = 1;
                         } else {
                             this->direction = -1;

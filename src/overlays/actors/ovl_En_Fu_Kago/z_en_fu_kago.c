@@ -197,16 +197,16 @@ void func_80ACFA78(EnFuKago* this, PlayState* play) {
         ptr->unk_30 = sp88;
 
         ptr->unk_0C.x = (Math_CosS(y) * D_80AD0634[i].x) + (Math_SinS(y) * D_80AD0634[i].z);
-        ptr->unk_0C.y = D_80AD0634[i].y + Rand_Centered();
+        ptr->unk_0C.y = D_80AD0634[i].y + fqrand2();
         ptr->unk_0C.z = (Math_CosS(y) * D_80AD0634[i].z) - (Math_SinS(y) * D_80AD0634[i].x);
 
         ptr->unk_18.x = (Math_CosS(y) * D_80AD067C[i].x) + (Math_SinS(y) * D_80AD067C[i].z);
         ptr->unk_18.y = D_80AD067C[i].y;
         ptr->unk_18.z = (Math_CosS(y) * D_80AD067C[i].z) - (Math_SinS(y) * D_80AD067C[i].x);
 
-        ptr->unk_36.x = (s16)Rand_Next() >> 5;
+        ptr->unk_36.x = (s16)qrand() >> 5;
         ptr->unk_36.y = 0;
-        ptr->unk_36.z = (s16)Rand_Next() >> 5;
+        ptr->unk_36.z = (s16)qrand() >> 5;
 
         ptr->unk_24.x = D_80AD06C4[i].x;
         ptr->unk_24.y = D_80AD06C4[i].y;

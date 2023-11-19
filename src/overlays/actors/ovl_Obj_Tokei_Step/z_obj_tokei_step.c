@@ -88,8 +88,8 @@ void ObjTokeiStep_SpawnDust(ObjTokeiStep* this, ObjTokeiStepPanel* panel, PlaySt
         dustSpawnPos.x += panel->pos.x;
         dustSpawnPos.y += panel->pos.y;
         dustSpawnPos.z += panel->pos.z;
-        func_800B1210(play, &dustSpawnPos, &gZeroVec3f, &sDustEffectAccel, (s32)((Rand_ZeroOne() * 40.0f) + 80.0f),
-                      (s32)((Rand_ZeroOne() * 20.0f) + 50.0f));
+        func_800B1210(play, &dustSpawnPos, &gZeroVec3f, &sDustEffectAccel, (s32)((fqrand() * 40.0f) + 80.0f),
+                      (s32)((fqrand() * 20.0f) + 50.0f));
     }
 }
 

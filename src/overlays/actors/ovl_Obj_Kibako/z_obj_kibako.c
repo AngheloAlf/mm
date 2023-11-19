@@ -179,15 +179,15 @@ void ObjKibako_AirBreak(ObjKibako* this, PlayState* play) {
         s16 phi_s0;
 
         pos.x = sn * 16.0f;
-        pos.y = (Rand_ZeroOne() * 5.0f) + 2.0f;
+        pos.y = (fqrand() * 5.0f) + 2.0f;
         pos.z = cs * 16.0f;
         velocity.x = pos.x * 0.2f;
-        velocity.y = (Rand_ZeroOne() * 6.0f) + 2.0f;
+        velocity.y = (fqrand() * 6.0f) + 2.0f;
         velocity.z = pos.z * 0.2f;
         pos.x += worldPos->x;
         pos.y += worldPos->y;
         pos.z += worldPos->z;
-        temp_rand = Rand_ZeroOne();
+        temp_rand = fqrand();
         if (temp_rand < 0.1f) {
             phi_s0 = 0x60;
         } else if (temp_rand < 0.7f) {
@@ -196,7 +196,7 @@ void ObjKibako_AirBreak(ObjKibako* this, PlayState* play) {
             phi_s0 = 0x20;
         }
 
-        EffectSsKakera_Spawn(play, &pos, &velocity, worldPos, -200, phi_s0, 20, 0, 0, (Rand_ZeroOne() * 38.0f) + 10.0f,
+        EffectSsKakera_Spawn(play, &pos, &velocity, worldPos, -200, phi_s0, 20, 0, 0, (fqrand() * 38.0f) + 10.0f,
                              0, 0, 60, -1, sObjectIds[KIBAKO_BANK_INDEX(&this->actor)],
                              sKakeraDisplayLists[KIBAKO_BANK_INDEX(&this->actor)]);
     }
@@ -214,8 +214,8 @@ void ObjKibako_WaterBreak(ObjKibako* this, PlayState* play) {
 
     pos.y = worldPos->y + this->actor.depthInWater;
     for (angle = 0, i = 0; i < 5; i++, angle += 0x3333) {
-        pos.x = (Math_SinS(((s32)(Rand_ZeroOne() * 6000.0f)) + angle) * 15.0f) + worldPos->x;
-        pos.z = (Math_CosS(((s32)(Rand_ZeroOne() * 6000.0f)) + angle) * 15.0f) + worldPos->z;
+        pos.x = (Math_SinS(((s32)(fqrand() * 6000.0f)) + angle) * 15.0f) + worldPos->x;
+        pos.z = (Math_CosS(((s32)(fqrand() * 6000.0f)) + angle) * 15.0f) + worldPos->z;
         EffectSsGSplash_Spawn(play, &pos, NULL, NULL, 0, 350);
     }
     pos.x = worldPos->x;
@@ -229,18 +229,18 @@ void ObjKibako_WaterBreak(ObjKibako* this, PlayState* play) {
         s16 phi_s0;
 
         pos.x = sn * 16.0f;
-        pos.y = (Rand_ZeroOne() * 5.0f) + 2.0f;
+        pos.y = (fqrand() * 5.0f) + 2.0f;
         pos.z = cs * 16.0f;
         velocity.x = pos.x * 0.18f;
-        velocity.y = (Rand_ZeroOne() * 4.0f) + 2.0f;
+        velocity.y = (fqrand() * 4.0f) + 2.0f;
         velocity.z = pos.z * 0.18f;
         pos.x += worldPos->x;
         pos.y += worldPos->y;
         pos.z += worldPos->z;
-        temp_rand = Rand_ZeroOne();
+        temp_rand = fqrand();
         phi_s0 = (temp_rand < 0.2f) ? 0x40 : 0x20;
 
-        EffectSsKakera_Spawn(play, &pos, &velocity, worldPos, -180, phi_s0, 50, 5, 0, (Rand_ZeroOne() * 35.0f) + 10.0f,
+        EffectSsKakera_Spawn(play, &pos, &velocity, worldPos, -180, phi_s0, 50, 5, 0, (fqrand() * 35.0f) + 10.0f,
                              0, 0, 70, -1, sObjectIds[KIBAKO_BANK_INDEX(&this->actor)],
                              sKakeraDisplayLists[KIBAKO_BANK_INDEX(&this->actor)]);
     }
@@ -366,9 +366,9 @@ void ObjKibako_SetupThrown(ObjKibako* this) {
     f32 temp;
 
     D_80927380 = 0;
-    temp = (Rand_ZeroOne() - 0.5f) * 1000.0f;
+    temp = (fqrand() - 0.5f) * 1000.0f;
     D_80927388 = temp;
-    D_80927384 = (Rand_ZeroOne() - 2.0f) * 1500.0f;
+    D_80927384 = (fqrand() - 2.0f) * 1500.0f;
     D_8092738C = temp * 3.0f;
     this->timer = 80;
     this->actionFunc = ObjKibako_Thrown;

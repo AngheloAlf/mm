@@ -5,24 +5,24 @@
  *
  * Original name: __qrand_idum
  */
-u32 sRandInt = 1;
+u32 __qrand_idum = 1;
 
 /**
  * Space to store a value to be re-interpreted as a float.
  *
  * Orignal name: __qrand_itemp
  */
-fu gRandFloat;
+fu __qrand_itemp;
 
 /**
  * Generates the next pseudo-random integer.
  *
  * Original name: qrand
  */
-u32 Rand_Next(void) {
-    sRandInt = (sRandInt * RAND_MULTIPLIER) + RAND_INCREMENT;
+u32 qrand(void) {
+    __qrand_idum = (__qrand_idum * RAND_MULTIPLIER) + RAND_INCREMENT;
 
-    return sRandInt;
+    return __qrand_idum;
 }
 
 /**
@@ -30,8 +30,8 @@ u32 Rand_Next(void) {
  *
  * Original name: sqrand
  */
-void Rand_Seed(u32 seed) {
-    sRandInt = seed;
+void sqrand(u32 seed) {
+    __qrand_idum = seed;
 }
 
 /**
@@ -44,45 +44,45 @@ void Rand_Seed(u32 seed) {
  *
  * Original name: fqrand
  */
-f32 Rand_ZeroOne(void) {
-    sRandInt = (sRandInt * RAND_MULTIPLIER) + RAND_INCREMENT;
-    gRandFloat.i = ((sRandInt >> 9) | 0x3F800000);
-    return gRandFloat.f - 1.0f;
+f32 fqrand(void) {
+    __qrand_idum = (__qrand_idum * RAND_MULTIPLIER) + RAND_INCREMENT;
+    __qrand_itemp.i = ((__qrand_idum >> 9) | 0x3F800000);
+    return __qrand_itemp.f - 1.0f;
 }
 
 /**
- * Returns a pseudo-random float between -0.5f and 0.5f in the same way as Rand_ZeroOne().
+ * Returns a pseudo-random float between -0.5f and 0.5f in the same way as fqrand().
  *
  * Original name: fqrand2
  */
-f32 Rand_Centered(void) {
-    sRandInt = (sRandInt * RAND_MULTIPLIER) + RAND_INCREMENT;
-    gRandFloat.i = ((sRandInt >> 9) | 0x3F800000);
-    return gRandFloat.f - 1.5f;
+f32 fqrand2(void) {
+    __qrand_idum = (__qrand_idum * RAND_MULTIPLIER) + RAND_INCREMENT;
+    __qrand_itemp.i = ((__qrand_idum >> 9) | 0x3F800000);
+    return __qrand_itemp.f - 1.5f;
 }
 
 //! All functions below are unused variants of the above four, that use a provided random number variable instead of the
-//! internal `sRandInt`
+//! internal `__qrand_idum`
 
 /**
  * Seeds a provided pseudo-random number with a provided starting value.
  *
- * @see Rand_Seed
+ * @see sqrand
  *
  * Original name: sqrand_r
  */
-void Rand_Seed_Variable(u32* rndNum, u32 seed) {
+void sqrand_r(u32* rndNum, u32 seed) {
     *rndNum = seed;
 }
 
 /**
  * Generates the next pseudo-random number from the provided rndNum.
  *
- * @see Rand_Next
+ * @see qrand
  *
  * Original name: qrand_r
  */
-u32 Rand_Next_Variable(u32* rndNum) {
+u32 qrand_r(u32* rndNum) {
     u32 t = (*rndNum * RAND_MULTIPLIER) + RAND_INCREMENT;
 
     *rndNum = t;
@@ -92,27 +92,27 @@ u32 Rand_Next_Variable(u32* rndNum) {
 /**
  * Generates the next pseudo-random float between 0.0f and 1.0f from the provided rndNum.
  *
- * @see Rand_ZeroOne
+ * @see fqrand
  *
  * Original name: fqrand_r
  */
-f32 Rand_ZeroOne_Variable(u32* rndNum) {
+f32 fqrand_r(u32* rndNum) {
     u32 next = (*rndNum * RAND_MULTIPLIER) + RAND_INCREMENT;
 
-    gRandFloat.i = ((*rndNum = next) >> 9) | 0x3F800000;
-    return gRandFloat.f - 1.0f;
+    __qrand_itemp.i = ((*rndNum = next) >> 9) | 0x3F800000;
+    return __qrand_itemp.f - 1.0f;
 }
 
 /**
  * Generates the next pseudo-random float between -0.5f and 0.5f from the provided rndNum.
  *
- * @see Rand_ZeroOne, Rand_Centered
+ * @see fqrand, fqrand2
  *
  * Original name: fqrand2_r
  */
-f32 Rand_Centered_Variable(u32* rndNum) {
+f32 fqrand2_r(u32* rndNum) {
     u32 next = (*rndNum * RAND_MULTIPLIER) + RAND_INCREMENT;
 
-    gRandFloat.i = ((*rndNum = next) >> 9) | 0x3F800000;
-    return gRandFloat.f - 1.5f;
+    __qrand_itemp.i = ((*rndNum = next) >> 9) | 0x3F800000;
+    return __qrand_itemp.f - 1.5f;
 }

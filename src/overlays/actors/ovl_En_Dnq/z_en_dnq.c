@@ -169,7 +169,7 @@ s32 func_80A52648(EnDnq* this, PlayState* play) {
 s32 func_80A526F8(EnDnq* this) {
     if (this->unk_386 == 0) {
         EnDnq_ChangeAnim(this, DEKU_KING_ANIM_WAIL);
-        this->unk_38C = ((s32)(Rand_ZeroOne() * 100.0f) % 4) + 3;
+        this->unk_38C = ((s32)(fqrand() * 100.0f) % 4) + 3;
         this->unk_388 = 0;
         this->unk_386 = 1;
     } else if (Animation_OnFrame(&this->skelAnime, this->skelAnime.endFrame)) {
@@ -182,7 +182,7 @@ s32 func_80A526F8(EnDnq* this) {
 
             case DEKU_KING_ANIM_FOOT_STAMP_START:
                 EnDnq_ChangeAnim(this, DEKU_KING_ANIM_FOOT_STAMP_ONCE);
-                this->unk_38C = ((s32)(Rand_ZeroOne() * 100.0f) % 3) + 2;
+                this->unk_38C = ((s32)(fqrand() * 100.0f) % 3) + 2;
                 break;
 
             case DEKU_KING_ANIM_FOOT_STAMP_ONCE:
@@ -199,7 +199,7 @@ s32 func_80A526F8(EnDnq* this) {
 
             case DEKU_KING_ANIM_WAIL_START:
                 EnDnq_ChangeAnim(this, DEKU_KING_ANIM_WAIL);
-                this->unk_38C = ((s32)(Rand_ZeroOne() * 100.0f) % 4) + 3;
+                this->unk_38C = ((s32)(fqrand() * 100.0f) % 4) + 3;
                 break;
 
             case DEKU_KING_ANIM_LAUGH_ONCE:

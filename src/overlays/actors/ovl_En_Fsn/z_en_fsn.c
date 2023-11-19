@@ -1462,7 +1462,7 @@ void EnFsn_Blink(EnFsn* this) {
         this->blinkTimer = decr;
     } else if (decr == 0) {
         this->eyeTexIndex = 2;
-        this->blinkTimer = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->blinkTimer = (s32)(fqrand() * 60.0f) + 20;
     } else {
         this->eyeTexIndex = 1;
         this->blinkTimer = decr;

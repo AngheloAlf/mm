@@ -134,18 +134,18 @@ void BgKin2Picture_SpawnDust(BgKin2Picture* this, PlayState* play) {
     accel.y = 0.2f;
 
     for (i = 0, baseAngle = 0; i < DUST_COUNT; i++, baseAngle += (0x10000 / DUST_COUNT)) {
-        angle = (s32)(Rand_ZeroOne() * (0x10000 / DUST_COUNT)) + baseAngle;
-        offset = (Rand_ZeroOne() * 14.0f) + 4.0f;
+        angle = (s32)(fqrand() * (0x10000 / DUST_COUNT)) + baseAngle;
+        offset = (fqrand() * 14.0f) + 4.0f;
         pos.x = Math_SinS(angle) * offset;
         pos.z = Math_CosS(angle) * offset;
-        velocity.x = (Rand_ZeroOne() - 0.5f) + (pos.x * (1.0f / 6.0f));
-        velocity.z = (Rand_ZeroOne() - 0.5f) + (pos.z * (1.0f / 6.0f));
+        velocity.x = (fqrand() - 0.5f) + (pos.x * (1.0f / 6.0f));
+        velocity.z = (fqrand() - 0.5f) + (pos.z * (1.0f / 6.0f));
         pos.x += basePos.x;
         pos.z += basePos.z;
         accel.x = velocity.x * -0.09f;
         accel.z = velocity.z * -0.09f;
-        scale = (s32)(Rand_ZeroOne() * 10.0f) + 10;
-        scaleStep = (s32)(Rand_ZeroOne() * 10.0f) + 15;
+        scale = (s32)(fqrand() * 10.0f) + 10;
+        scaleStep = (s32)(fqrand() * 10.0f) + 15;
         func_800B1210(play, &pos, &velocity, &accel, scale, scaleStep);
     }
 }
@@ -209,7 +209,7 @@ void BgKin2Picture_Wait(BgKin2Picture* this, PlayState* play) {
             if (this->skulltulaNoiseTimer == 0) {
                 Actor_PlaySfx(&this->dyna.actor, NA_SE_EN_STALGOLD_ROLL);
 
-                if (Rand_ZeroOne() < 0.1f) {
+                if (fqrand() < 0.1f) {
                     this->skulltulaNoiseTimer = Rand_S16Offset(40, 80);
                 } else {
                     this->skulltulaNoiseTimer = 8;

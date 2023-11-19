@@ -165,56 +165,56 @@ void EnTest6_SetupCutscene(EnTest6* this, PlayState* play) {
 
             if (CHECK_EVENTINF(EVENTINF_THREEDAYRESET_LOST_RUPEES)) {
                 for (i = 0; i < 6; i++) {
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
                         SOTCS_AMMO_DROP_RUPEE_GREEN;
                 }
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
                     SOTCS_AMMO_DROP_RUPEE_GREEN;
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_RUPEE_BLUE;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_RUPEE_BLUE;
                 ammoFlags |= SOTCS_AMMO_FLAG_RUPEE;
             }
 
             if (CHECK_EVENTINF(EVENTINF_THREEDAYRESET_LOST_ARROW_AMMO)) {
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
                 if (!(ammoFlags & SOTCS_AMMO_FLAG_RUPEE)) {
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_ARROWS;
                 }
                 ammoFlags |= SOTCS_AMMO_FLAG_ARROW;
             }
 
             if (CHECK_EVENTINF(EVENTINF_THREEDAYRESET_LOST_BOMB_AMMO)) {
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
                 if (!(ammoFlags & SOTCS_AMMO_FLAG_RUPEE)) {
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_BOMB;
                 }
                 ammoFlags |= SOTCS_AMMO_FLAG_BOMB;
             }
 
             if (CHECK_EVENTINF(EVENTINF_THREEDAYRESET_LOST_NUT_AMMO)) {
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_DEKU_NUT;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_DEKU_NUT;
                 if (!(ammoFlags & (SOTCS_AMMO_FLAG_ARROW | SOTCS_AMMO_FLAG_BOMB | SOTCS_AMMO_FLAG_RUPEE))) {
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
                         SOTCS_AMMO_DROP_DEKU_NUT;
                 }
                 ammoFlags |= SOTCS_AMMO_FLAG_NUT;
             }
 
             if (CHECK_EVENTINF(EVENTINF_THREEDAYRESET_LOST_STICK_AMMO)) {
-                sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_DEKU_STICK;
+                sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type = SOTCS_AMMO_DROP_DEKU_STICK;
                 if (!(ammoFlags & (SOTCS_AMMO_FLAG_ARROW | SOTCS_AMMO_FLAG_BOMB | SOTCS_AMMO_FLAG_RUPEE))) {
-                    sSoTCsAmmoDrops[(s32)(Rand_ZeroOne() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
+                    sSoTCsAmmoDrops[(s32)(fqrand() * ARRAY_COUNT(sSoTCsAmmoDrops))].type =
                         SOTCS_AMMO_DROP_DEKU_STICK;
                 }
             }
 
             for (i = 0; i < ARRAY_COUNT(sSoTCsAmmoDrops); i++) {
-                sSoTCsAmmoDrops[i].pos.x = ((2.0f * Rand_ZeroOne()) - 1.0f) * 80.0f;
-                sSoTCsAmmoDrops[i].pos.z = ((2.0f * Rand_ZeroOne()) - 1.0f) * 80.0f;
-                sSoTCsAmmoDrops[i].pos.y = (((2.0f * Rand_ZeroOne()) - 1.0f) * 40.0f) + yOffset;
+                sSoTCsAmmoDrops[i].pos.x = ((2.0f * fqrand()) - 1.0f) * 80.0f;
+                sSoTCsAmmoDrops[i].pos.z = ((2.0f * fqrand()) - 1.0f) * 80.0f;
+                sSoTCsAmmoDrops[i].pos.y = (((2.0f * fqrand()) - 1.0f) * 40.0f) + yOffset;
                 sSoTCsAmmoDrops[i].scale = -10.0f;
                 if (sSoTCsAmmoDrops[i].type <= SOTCS_AMMO_DROP_DEKU_STICK) {
                     sSoTCsAmmoDrops[i].draw = EnTest6_DrawAmmoDropDefault;
@@ -518,11 +518,11 @@ void EnTest6_InvertedSoTCutscene(EnTest6* this, PlayState* play) {
                 this->invSoTParticles = ZeldaArena_Malloc(sizeof(Vec3f) * SOTCS_NUM_PARTICLES);
                 if (this->invSoTParticles != NULL) {
                     for (i = 0; i < ARRAY_COUNT(this->invSoTParticles[0]); i++) {
-                        (*this->invSoTParticles)[i].x = (((2.0f * Rand_ZeroOne()) - 1.0f) * 40.0f) + subCam->eye.x +
+                        (*this->invSoTParticles)[i].x = (((2.0f * fqrand()) - 1.0f) * 40.0f) + subCam->eye.x +
                                                         ((subCam->at.x - subCam->eye.x) * 0.2f);
-                        (*this->invSoTParticles)[i].y = (((2.0f * Rand_ZeroOne()) - 1.0f) * 120.0f) + subCam->eye.y +
+                        (*this->invSoTParticles)[i].y = (((2.0f * fqrand()) - 1.0f) * 120.0f) + subCam->eye.y +
                                                         ((subCam->at.y - subCam->eye.y) * 0.2f) + temp;
-                        (*this->invSoTParticles)[i].z = (((2.0f * Rand_ZeroOne()) - 1.0f) * 40.0f) + subCam->eye.z +
+                        (*this->invSoTParticles)[i].z = (((2.0f * fqrand()) - 1.0f) * 40.0f) + subCam->eye.z +
                                                         ((subCam->at.z - subCam->eye.z) * 0.2f);
                     }
                 }
@@ -574,7 +574,7 @@ void EnTest6_InvertedSoTCutscene(EnTest6* this, PlayState* play) {
             if (this->invSoTParticles != NULL) {
                 for (i = 0; i < ARRAY_COUNT(this->invSoTParticles[0]); i++) {
                     // Wiggle in the x-direction
-                    (*this->invSoTParticles)[i].x += 2.0f * ((2.0f * Rand_ZeroOne()) - 1.0f);
+                    (*this->invSoTParticles)[i].x += 2.0f * ((2.0f * fqrand()) - 1.0f);
 
                     // Fall or rise depending on slow-down or speed-up
                     if (SOTCS_GET_OCARINA_MODE(&this->actor) == OCARINA_MODE_APPLY_INV_SOT_FAST) {
@@ -585,7 +585,7 @@ void EnTest6_InvertedSoTCutscene(EnTest6* this, PlayState* play) {
                         (*this->invSoTParticles)[i].y -= 1.0f;
                     }
                     // Wiggle in the z-direction
-                    (*this->invSoTParticles)[i].z += 2.0f * ((2.0f * Rand_ZeroOne()) - 1.0f);
+                    (*this->invSoTParticles)[i].z += 2.0f * ((2.0f * fqrand()) - 1.0f);
                 }
             }
 
@@ -1176,8 +1176,8 @@ void EnTest6_SharedSoTCutscene(EnTest6* this, PlayState* play) {
 
     if (this->drawType == SOTCS_DRAW_RESET_CYCLE_SOT) {
         for (i = 0; i < ARRAY_COUNT(sSoTCsAmmoDrops); i++) {
-            sSoTCsAmmoDrops[i].pos.x += 2.0f * ((2.0f * Rand_ZeroOne()) - 1.0f);
-            sSoTCsAmmoDrops[i].pos.z += 2.0f * ((2.0f * Rand_ZeroOne()) - 1.0f);
+            sSoTCsAmmoDrops[i].pos.x += 2.0f * ((2.0f * fqrand()) - 1.0f);
+            sSoTCsAmmoDrops[i].pos.z += 2.0f * ((2.0f * fqrand()) - 1.0f);
             sSoTCsAmmoDrops[i].pos.y += 3.0f;
 
             if (player->actor.world.pos.y < sSoTCsAmmoDrops[i].pos.y) {
@@ -1389,7 +1389,7 @@ void EnTest6_DrawInvertedSoTCutscene(EnTest6* this, PlayState* play2) {
             // Draw black particles
             if (this->invSoTParticles != NULL) {
                 for (i = 0; i < SOTCS_NUM_PARTICLES; i++) {
-                    flashScale = Rand_ZeroOne() * 0.0025f;
+                    flashScale = fqrand() * 0.0025f;
                     Matrix_Translate((*this->invSoTParticles)[i].x, (*this->invSoTParticles)[i].y,
                                      (*this->invSoTParticles)[i].z, MTXMODE_NEW);
                     Matrix_Scale(flashScale, flashScale, flashScale, MTXMODE_APPLY);

@@ -365,7 +365,7 @@ void func_80C014E4(EnBomjimb* this, PlayState* play) {
                 if (BgCheck_EntityLineTest1(&play->colCtx, &this->actor.world.pos, &sp54, &sp60, &colPoly, true, false,
                                             false, true, &sp44)) {
                     this->unk_2AE = 0;
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         EnBomjimb_ChangeAnim(this, ENBOMJIMB_ANIM_20, 1.0f);
                     } else {
                         EnBomjimb_ChangeAnim(this, ENBOMJIMB_ANIM_0, 1.0f);

@@ -436,7 +436,7 @@ void EnPametfrog_RearOnSnapper(EnPametfrog* this, PlayState* play) {
     s32 pad;
 
     if (SkelAnime_Update(&this->skelAnime)) {
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             Animation_PlayOnce(&this->skelAnime, &gGekkoQuickFistPumpAnim);
         } else {
             Animation_PlayOnce(&this->skelAnime, &gGekkoStandingIdleAnim);
@@ -640,7 +640,7 @@ void EnPametfrog_WallCrawl(EnPametfrog* this, PlayState* play) {
             Actor_PlaySfx(&this->actor, NA_SE_EN_BOMCHU_WALK);
         }
 
-        if (((play->gameplayFrames % 60) == 0) && (Rand_ZeroOne() < 0.8f)) {
+        if (((play->gameplayFrames % 60) == 0) && (fqrand() < 0.8f)) {
             Actor_PlaySfx(&this->actor, NA_SE_EN_FROG_REAL);
         }
 
@@ -666,7 +666,7 @@ void EnPametfrog_SetupWallPause(EnPametfrog* this) {
         this->wallRotation = this->unk_2E8.y > 0.0f ? (M_PI / 30) : (-M_PI / 30);
     } else {
         randFloat = Rand_ZeroFloat(0x2000);
-        this->wallRotation = (Rand_ZeroOne() < 0.5f ? -1 : 1) * (0x1000 + randFloat) * (M_PI / (15 * 0x8000));
+        this->wallRotation = (fqrand() < 0.5f ? -1 : 1) * (0x1000 + randFloat) * (M_PI / (15 * 0x8000));
     }
     this->timer = 15;
     Actor_PlaySfx(&this->actor, NA_SE_EN_FROG_RUNAWAY2);
@@ -686,7 +686,7 @@ void EnPametfrog_WallPause(EnPametfrog* this, PlayState* play) {
         Math_Vec3f_Copy(&this->unk_2D0, &vec);
         Math3D_CrossProduct(&this->unk_2DC, &this->unk_2D0, &this->unk_2E8);
         func_8086A238(this);
-        if (((play->gameplayFrames % 60) == 0) && (Rand_ZeroOne() < 0.8f)) {
+        if (((play->gameplayFrames % 60) == 0) && (fqrand() < 0.8f)) {
             Actor_PlaySfx(&this->actor, NA_SE_EN_FROG_REAL);
         }
 

@@ -231,7 +231,7 @@ void EnHonotrap_InitFlame(EnHonotrap* this, PlayState* play) {
     this->actor.shape.shadowAlpha = 128;
     this->targetPos = GET_PLAYER(play)->actor.world.pos;
     this->targetPos.y += 10.0f;
-    this->flameScroll = Rand_ZeroOne() * 511.0f;
+    this->flameScroll = fqrand() * 511.0f;
     Actor_PlaySfx(&this->actor, NA_SE_EV_FLAME_IGNITION);
     if (params == HONOTRAP_TYPE_FLAME_DROP) {
         this->actor.room = -1;
@@ -252,7 +252,7 @@ void EnHonotrap_InitFlameGroup(EnHonotrap* this, PlayState* play) {
     Collider_SetCylinder(play, &this->collider.cyl, &this->actor, &sCylinderInit);
     CollisionCheck_SetInfo(&this->actor.colChkInfo, NULL, &sColChkInfoInit);
 
-    flameScroll = Rand_ZeroOne() * 511.0f;
+    flameScroll = fqrand() * 511.0f;
     flameGroup = &this->flameGroup;
     for (i = 0; i < ARRAY_COUNT(flameGroup->flameList); i++) {
         flameGroup->flameList[i].flameScroll = flameScroll;

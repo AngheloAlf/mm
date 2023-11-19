@@ -107,20 +107,20 @@ void func_80B38EFC(ObjSnowball2* this, PlayState* play) {
     f32 sp88 = this->actor.world.pos.y + (this->actor.shape.yOffset * this->actor.scale.y);
 
     for (i = 0; i < 2; i++) {
-        sp8C.x = ((Rand_ZeroOne() * 30.0f) - 15.0f) + this->actor.world.pos.x;
-        sp8C.y = ((Rand_ZeroOne() * 20.0f) - 10.0f) + sp88;
-        sp8C.z = ((Rand_ZeroOne() * 30.0f) - 15.0f) + this->actor.world.pos.z;
+        sp8C.x = ((fqrand() * 30.0f) - 15.0f) + this->actor.world.pos.x;
+        sp8C.y = ((fqrand() * 20.0f) - 10.0f) + sp88;
+        sp8C.z = ((fqrand() * 30.0f) - 15.0f) + this->actor.world.pos.z;
 
-        sp98.x = (Rand_ZeroOne() - 0.5f) * 1.6f;
+        sp98.x = (fqrand() - 0.5f) * 1.6f;
         sp98.y = -1.5f;
-        sp98.z = (Rand_ZeroOne() - 0.5f) * 1.6f;
+        sp98.z = (fqrand() - 0.5f) * 1.6f;
 
         spA4.x = sp98.x * -0.06f;
         spA4.y = sp98.y * -0.06f;
         spA4.z = sp98.z * -0.06f;
 
-        func_800B0E48(play, &sp8C, &sp98, &spA4, &D_80B3A914, &D_80B3A918, (s32)(Rand_ZeroOne() * 40.0f) + 10,
-                      (s32)(Rand_ZeroOne() * 30.0f) + 10);
+        func_800B0E48(play, &sp8C, &sp98, &spA4, &D_80B3A914, &D_80B3A918, (s32)(fqrand() * 40.0f) + 10,
+                      (s32)(fqrand() * 30.0f) + 10);
     }
 }
 
@@ -142,9 +142,9 @@ void func_80B39108(ObjSnowball2* this, PlayState* play) {
     f32 temp_f24;
 
     for (i = 0, phi_s5 = 0; i < 11; i++, phi_s5 += (0x10000 / 11)) {
-        temp_s3 = (s32)(Rand_ZeroOne() * 5957.0f) + phi_s5;
+        temp_s3 = (s32)(fqrand() * 5957.0f) + phi_s5;
 
-        if ((Rand_Next() >> 0x1E) == 0) {
+        if ((qrand() >> 0x1E) == 0) {
             phi_s1 = 0x20;
         } else {
             phi_s1 = 0x40;
@@ -154,11 +154,11 @@ void func_80B39108(ObjSnowball2* this, PlayState* play) {
             phi_s1 |= 1;
         }
 
-        temp_f0 = Rand_ZeroOne();
+        temp_f0 = fqrand();
         temp_f20 = (1.0f - SQ(temp_f0)) * 12.0f;
         temp_f22 = Math_SinS(temp_s3);
         temp_f24 = Math_CosS(temp_s3);
-        temp_f12 = (Rand_ZeroOne() * 1.6f) - 0.8f;
+        temp_f12 = (fqrand() * 1.6f) - 0.8f;
         temp_f2 = fabsf(temp_f12) * temp_f12;
 
         spDC.x = temp_f22 * 4.0f;
@@ -168,7 +168,7 @@ void func_80B39108(ObjSnowball2* this, PlayState* play) {
         spD0.x = (temp_f22 * temp_f20) + this->actor.world.pos.x;
         spD0.y = (temp_f2 * temp_f20) + spC8;
         spD0.z = (temp_f24 * temp_f20) + this->actor.world.pos.z;
-        temp = Rand_Next();
+        temp = qrand();
 
         if ((i & 3) == 0) {
             phi_v0 = 1;
@@ -179,12 +179,12 @@ void func_80B39108(ObjSnowball2* this, PlayState* play) {
         EffectSsKakera_Spawn(play, &spD0, &spDC, &spD0, -300, phi_s1, 30, 0, 0, (temp >> 0x1D) + 8, phi_v0, 0, 50, -1,
                              OBJECT_GOROIWA, D_80B3A91C[i & 3]);
 
-        spD0.x += (Rand_ZeroOne() - 0.5f) * 40.0f;
-        spD0.y += (Rand_ZeroOne() - 0.3f) * 45.0f;
-        spD0.z += (Rand_ZeroOne() - 0.5f) * 40.0f;
+        spD0.x += (fqrand() - 0.5f) * 40.0f;
+        spD0.y += (fqrand() - 0.3f) * 45.0f;
+        spD0.z += (fqrand() - 0.5f) * 40.0f;
 
         func_800B0E48(play, &spD0, &gZeroVec3f, &D_80B3A92C, &D_80B3A914, &D_80B3A918,
-                      (s32)(Rand_ZeroOne() * 70.0f) + 10, (s32)(Rand_ZeroOne() * 100.0f) + 10);
+                      (s32)(fqrand() * 70.0f) + 10, (s32)(fqrand() * 100.0f) + 10);
     }
     spD0.y = (temp_f2 * temp_f20) + spC8;
 }
@@ -198,8 +198,8 @@ void func_80B39470(Actor* thisx, PlayState* play) {
     sp58.y = this->actor.world.pos.y + this->actor.depthInWater;
 
     for (phi_s0 = 0, i = 0; i < 5; i++, phi_s0 += (0x10000 / 5)) {
-        sp58.x = (Math_SinS((s32)(Rand_ZeroOne() * 7200.0f) + phi_s0) * 15.0f) + this->actor.world.pos.x;
-        sp58.z = (Math_CosS((s32)(Rand_ZeroOne() * 7200.0f) + phi_s0) * 15.0f) + this->actor.world.pos.z;
+        sp58.x = (Math_SinS((s32)(fqrand() * 7200.0f) + phi_s0) * 15.0f) + this->actor.world.pos.x;
+        sp58.z = (Math_CosS((s32)(fqrand() * 7200.0f) + phi_s0) * 15.0f) + this->actor.world.pos.z;
         EffectSsGSplash_Spawn(play, &sp58, NULL, NULL, 0, 200);
     }
 
@@ -233,13 +233,13 @@ void func_80B39638(PlayState* play, Vec3f* arg1) {
     f32 temp_f2;
     s32 i;
 
-    D_80B3A938 += (s16)(Rand_Next() >> 0x11);
+    D_80B3A938 += (s16)(qrand() >> 0x11);
 
     for (i = 0; i < 2; i++) {
         D_80B3A938 += 0x8000;
-        temp_f20 = Rand_ZeroOne();
+        temp_f20 = fqrand();
         temp_f22 = Math_SinS(D_80B3A938) * temp_f20;
-        temp_f24 = Rand_ZeroOne();
+        temp_f24 = fqrand();
         temp_f2 = Math_CosS(D_80B3A938) * temp_f20;
 
         sp98.x = arg1->x + (temp_f22 * 5.0f);
@@ -254,7 +254,7 @@ void func_80B39638(PlayState* play, Vec3f* arg1) {
         sp80.y = sp8C.y * -0.025f;
         sp80.z = sp8C.z * -0.02f;
 
-        EffectSsIceSmoke_Spawn(play, &sp98, &sp8C, &sp80, (s32)(Rand_ZeroOne() * 30.0f) + 68);
+        EffectSsIceSmoke_Spawn(play, &sp98, &sp8C, &sp80, (s32)(fqrand() * 30.0f) + 68);
     }
 }
 
@@ -263,7 +263,7 @@ void func_80B39834(Actor* thisx, PlayState* play) {
     s32 i;
 
     for (i = 0; i < 3; i++) {
-        EffectSsBubble_Spawn(play, &this->actor.world.pos, 0.0f, 20.0f, 30.0f, (Rand_ZeroOne() * 0.11f) + 0.03f);
+        EffectSsBubble_Spawn(play, &this->actor.world.pos, 0.0f, 20.0f, 30.0f, (fqrand() * 0.11f) + 0.03f);
     }
 }
 
@@ -277,20 +277,20 @@ void func_80B39908(ObjSnowball2* this, PlayState* play) {
         Vec3s* hitPos = &this->collider.elements[0].info.bumper.hitPos;
 
         for (i = 0; i < 4; i++) {
-            sp94.x = ((Rand_ZeroOne() * 14.0f) - 7.0f) + hitPos->x;
-            sp94.y = ((Rand_ZeroOne() * 14.0f) - 7.0f) + hitPos->y;
-            sp94.z = ((Rand_ZeroOne() * 14.0f) - 7.0f) + hitPos->z;
+            sp94.x = ((fqrand() * 14.0f) - 7.0f) + hitPos->x;
+            sp94.y = ((fqrand() * 14.0f) - 7.0f) + hitPos->y;
+            sp94.z = ((fqrand() * 14.0f) - 7.0f) + hitPos->z;
 
-            spA0.x = (Rand_ZeroOne() - 0.5f) * 1.6f;
+            spA0.x = (fqrand() - 0.5f) * 1.6f;
             spA0.y = -0.8f;
-            spA0.z = (Rand_ZeroOne() - 0.5f) * 1.6f;
+            spA0.z = (fqrand() - 0.5f) * 1.6f;
 
             spAC.x = spA0.x * -0.06f;
             spAC.y = spA0.y * -0.06f;
             spAC.z = spA0.z * -0.06f;
 
-            func_800B0E48(play, &sp94, &spA0, &spAC, &D_80B3A914, &D_80B3A918, (s32)(Rand_ZeroOne() * 40.0f) + 10,
-                          (s32)(Rand_ZeroOne() * 30.0f) + 10);
+            func_800B0E48(play, &sp94, &spA0, &spAC, &D_80B3A914, &D_80B3A918, (s32)(fqrand() * 40.0f) + 10,
+                          (s32)(fqrand() * 30.0f) + 10);
         }
     }
 }
@@ -318,7 +318,7 @@ void ObjSnowball2_Init(Actor* thisx, PlayState* play) {
     Collider_InitJntSph(play, &this->collider);
     this->actor.shape.rot.x = 0;
     this->actor.shape.rot.z = 0;
-    this->actor.shape.rot.y = Rand_Next() >> 0x10;
+    this->actor.shape.rot.y = qrand() >> 0x10;
     ActorShape_Init(&this->actor.shape, 200.0f, NULL, 12.5f);
     this->actor.shape.shadowAlpha = 130;
     Collider_SetJntSph(play, &this->collider, &this->actor, &sJntSphInit, this->colliderElements);
@@ -483,7 +483,7 @@ void func_80B3A13C(ObjSnowball2* this, PlayState* play) {
             if (this->actor.bgCheckFlags & BGCHECKFLAG_WATER_TOUCH) {
                 Actor_PlaySfx(&this->actor, NA_SE_EV_BOMB_DROP_WATER);
             }
-        } else if ((((play->gameplayFrames % 16) == 0) || ((Rand_Next() >> 0x10) == 0)) &&
+        } else if ((((play->gameplayFrames % 16) == 0) || ((qrand() >> 0x10) == 0)) &&
                    (this->actor.depthInWater < (1200.0f * this->actor.scale.y))) {
             func_80B395EC(&this->actor, play);
         }
@@ -571,7 +571,7 @@ void func_80B3A500(ObjSnowball2* this, PlayState* play) {
     this->actor.velocity.y += this->actor.gravity;
     this->actor.world.pos.y += this->actor.velocity.y;
 
-    if (((play->gameplayFrames % 16) == 0) || ((Rand_Next() >> 0x10) == 0)) {
+    if (((play->gameplayFrames % 16) == 0) || ((qrand() >> 0x10) == 0)) {
         func_80B395C4(play, &this->actor.home.pos);
     }
 

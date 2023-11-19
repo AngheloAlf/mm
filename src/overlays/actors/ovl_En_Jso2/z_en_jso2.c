@@ -957,7 +957,7 @@ void EnJso2_DashAttack(EnJso2* this, PlayState* play) {
     }
 
     if ((this->actor.velocity.y < 0.0f) && (this->actor.bgCheckFlags & BGCHECKFLAG_GROUND)) {
-        if (Rand_ZeroOne() < ((BREG(22) * 0.1f) + 0.7f)) {
+        if (fqrand() < ((BREG(22) * 0.1f) + 0.7f)) {
             this->actor.velocity.y = 13.0f;
         } else {
             AudioSfx_SetChannelIO(&this->actor.projectedPos, NA_SE_EN_ANSATSUSYA_DASH_2, 0);

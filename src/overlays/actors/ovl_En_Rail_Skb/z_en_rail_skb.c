@@ -838,18 +838,18 @@ void func_80B72430(EnRailSkb* this, PlayState* play, s32 arg2) {
     s32 pad;
 
     if ((play->gameplayFrames & arg2) == 0) {
-        sp42 = Rand_Next();
+        sp42 = qrand();
 
         sp5C.x += 15.0f * Math_SinS(sp42);
         sp5C.y = this->actor.floorHeight;
         sp5C.z += 15.0f * Math_CosS(sp42);
 
-        sp44.x = Rand_Centered();
-        sp44.z = Rand_Centered();
+        sp44.x = fqrand2();
+        sp44.z = fqrand2();
 
-        sp50.y += Rand_Centered() * 4.0f;
+        sp50.y += fqrand2() * 4.0f;
 
-        EffectSsHahen_Spawn(play, &sp5C, &sp50, &sp44, 0, (Rand_Next() & 7) + 10, HAHEN_OBJECT_DEFAULT, 10, NULL);
+        EffectSsHahen_Spawn(play, &sp5C, &sp50, &sp44, 0, (qrand() & 7) + 10, HAHEN_OBJECT_DEFAULT, 10, NULL);
         func_800BBFB0(play, &sp5C, 10.0f, 1, 150, 0, 1);
     }
 }
@@ -895,7 +895,7 @@ void func_80B726B4(EnRailSkb* this, PlayState* play) {
 
         sp84.x = Math_SinS(yaw) * 3.0f;
         sp84.z = Math_CosS(yaw) * 3.0f;
-        sp84.y = (Rand_ZeroOne() * 4.0f) + 4.0f;
+        sp84.y = (fqrand() * 4.0f) + 4.0f;
 
         EffectSsEnIce_Spawn(play, &this->bodyPartsPos[i], 0.6f, &sp84, &D_80B734B8, &D_80B734B0, &D_80B734B4, 30);
     }

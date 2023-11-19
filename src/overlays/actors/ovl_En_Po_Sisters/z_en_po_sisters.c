@@ -276,7 +276,7 @@ void EnPoSisters_MatchPlayerY(EnPoSisters* this, PlayState* play) {
     DECR(this->floatingBobbingTimer);
 
     // random float/flying wobble
-    this->actor.world.pos.y += (2.0f + (0.5f * Rand_ZeroOne())) * Math_SinS(this->floatingBobbingTimer * 0x800);
+    this->actor.world.pos.y += (2.0f + (0.5f * fqrand())) * Math_SinS(this->floatingBobbingTimer * 0x800);
 
     // fully opaque
     if ((this->color.a == 255) && (this->actionFunc != EnPoSisters_SpinAttack) &&
@@ -916,7 +916,7 @@ void EnPoSisters_CheckCollision(EnPoSisters* this, PlayState* play) {
             ((EnPoSisters*)this->actor.parent)->megClonesRemaining--;
             Actor_PlaySfx(&this->actor, NA_SE_EN_PO_LAUGH2);
             EnPoSisters_MegCloneVanish(this, play);
-            if (Rand_ZeroOne() < 0.2f) {
+            if (fqrand() < 0.2f) {
                 pos.x = this->actor.world.pos.x;
                 pos.y = this->actor.world.pos.y;
                 pos.z = this->actor.world.pos.z;

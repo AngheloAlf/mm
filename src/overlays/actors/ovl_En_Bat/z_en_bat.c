@@ -133,7 +133,7 @@ void EnBat_Init(Actor* thisx, PlayState* play) {
     CollisionCheck_SetInfo(&thisx->colChkInfo, &sDamageTable, &sColChkInfoInit);
     ActorShape_Init(&thisx->shape, 2000.0f, ActorShadow_DrawCircle, 25.0f);
 
-    this->animationFrame = Rand_ZeroOne() * 9.0f;
+    this->animationFrame = fqrand() * 9.0f;
 
     this->paramFlags = BAD_BAT_GET_PARAMFLAGS(thisx);
     this->switchFlag = BAD_BAT_GET_SWITCH_FLAG(thisx);
@@ -164,7 +164,7 @@ void EnBat_Init(Actor* thisx, PlayState* play) {
             Actor_SpawnAsChildAndCutscene(
                 &play->actorCtx, play, ACTOR_EN_BAT, thisx->world.pos.x + Rand_CenteredFloat(200.0f),
                 thisx->world.pos.y + Rand_CenteredFloat(100.0f), thisx->world.pos.z + Rand_CenteredFloat(200.0f),
-                Rand_CenteredFloat(0x2000), 0xFFFF * Rand_ZeroOne(), 0,
+                Rand_CenteredFloat(0x2000), 0xFFFF * fqrand(), 0,
                 BAD_BAT_PARAMS(this->switchFlag, this->paramFlags, 0), CS_ID_NONE, thisx->halfDaysBits, NULL);
             BAD_BAT_GET_NUMBER_TO_SPAWN(thisx)--;
         }
@@ -231,9 +231,9 @@ void EnBat_FlyIdle(EnBat* this, PlayState* play) {
     } else if (Math3D_XZDistanceSquared(this->actor.world.pos.x, this->actor.world.pos.z, this->actor.home.pos.x,
                                         this->actor.home.pos.z) > SQ(300.0f)) {
         this->yawTarget = Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos);
-    } else if (finishedRotStep && (Rand_ZeroOne() < 0.015f)) {
+    } else if (finishedRotStep && (fqrand() < 0.015f)) {
         this->yawTarget =
-            this->actor.shape.rot.y + (((s32)(0x1000 * Rand_ZeroOne()) + 0x1000) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1));
+            this->actor.shape.rot.y + (((s32)(0x1000 * fqrand()) + 0x1000) * ((fqrand() < 0.5f) ? -1 : 1));
     }
 
     finishedRotStep = Math_ScaledStepToS(&this->actor.shape.rot.x, this->pitchTarget, 0x100);
@@ -241,11 +241,11 @@ void EnBat_FlyIdle(EnBat* this, PlayState* play) {
     if ((this->actor.bgCheckFlags & BGCHECKFLAG_GROUND) || (this->actor.depthInWater > -40.0f)) {
         this->pitchTarget = -0x1000;
     } else if (this->actor.world.pos.y < (this->actor.home.pos.y - 100.0f)) {
-        this->pitchTarget = -((s32)(0x800 * Rand_ZeroOne()) + 0x800);
+        this->pitchTarget = -((s32)(0x800 * fqrand()) + 0x800);
     } else if ((this->actor.home.pos.y + 100.0f) < this->actor.world.pos.y) {
-        this->pitchTarget = (s32)(0x800 * Rand_ZeroOne()) + 0x800;
-    } else if ((finishedRotStep) && (Rand_ZeroOne() < 0.015f)) {
-        this->pitchTarget += (s16)(((s32)(0x400 * Rand_ZeroOne()) + 0x400) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1));
+        this->pitchTarget = (s32)(0x800 * fqrand()) + 0x800;
+    } else if ((finishedRotStep) && (fqrand() < 0.015f)) {
+        this->pitchTarget += (s16)(((s32)(0x400 * fqrand()) + 0x400) * ((fqrand() < 0.5f) ? -1 : 1));
         this->pitchTarget = CLAMP(this->pitchTarget, -0x1000, 0x1000);
     }
 

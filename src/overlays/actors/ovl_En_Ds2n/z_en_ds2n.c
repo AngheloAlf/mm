@@ -60,7 +60,7 @@ void EnDs2n_UpdateEyes(EnDs2n* this) {
         this->blinkTimer = nextBlinkTime;
     } else if (nextBlinkTime == 0) {
         this->blinkState = 2;
-        this->blinkTimer = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->blinkTimer = (s32)(fqrand() * 60.0f) + 20;
     } else {
         this->blinkState = 1;
         this->blinkTimer = nextBlinkTime;

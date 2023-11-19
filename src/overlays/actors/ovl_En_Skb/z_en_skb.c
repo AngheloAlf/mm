@@ -162,7 +162,7 @@ void func_809947B0(PlayState* play, EnSkb* this, Vec3f* inPos) {
     Vec3f pos;
     Vec3f velocity = { 0.0f, 8.0f, 0.0f };
     Vec3f accel = { 0.0f, -1.5f, 0.0f };
-    f32 sp40 = (Rand_ZeroOne() - 0.5f) * 6.28f;
+    f32 sp40 = (fqrand() - 0.5f) * 6.28f;
     s32 pad;
 
     pos.y = this->actor.floorHeight;
@@ -170,8 +170,8 @@ void func_809947B0(PlayState* play, EnSkb* this, Vec3f* inPos) {
     pos.z = (Math_CosF(sp40) * 15.0f) + inPos->z;
     accel.x = Rand_CenteredFloat(1.0f);
     accel.z = Rand_CenteredFloat(1.0f);
-    velocity.y += (Rand_ZeroOne() - 0.5f) * 4.0f;
-    EffectSsHahen_Spawn(play, &pos, &velocity, &accel, 0, ((Rand_ZeroOne() * 5.0f) + 12.0f) * 0.8f,
+    velocity.y += (fqrand() - 0.5f) * 4.0f;
+    EffectSsHahen_Spawn(play, &pos, &velocity, &accel, 0, ((fqrand() * 5.0f) + 12.0f) * 0.8f,
                         HAHEN_OBJECT_DEFAULT, 10, NULL);
     func_800BBFB0(play, &pos, 10.0f, 1, 150, 0, 1);
 }
@@ -478,7 +478,7 @@ void func_8099556C(EnSkb* this, PlayState* play) {
     }
 
     if (Animation_OnFrame(&this->skelAnime, 22.5f)) {
-        this->unk_3D4 = Rand_Next() % 0x7D0;
+        this->unk_3D4 = qrand() % 0x7D0;
     }
 
     this->actor.shape.rot.x = Math_SinS(this->unk_3D4 * sp26) * 20000.0f;
@@ -1023,7 +1023,7 @@ void func_80996BEC(EnSkb* this, PlayState* play) {
         yaw = Math_Vec3f_Yaw(&this->actor.world.pos, &this->bodyPartsPos[i]);
         sp84.x = Math_SinS(yaw) * 3.0f;
         sp84.z = Math_CosS(yaw) * 3.0f;
-        sp84.y = (Rand_ZeroOne() * 4.0f) + 4.0f;
+        sp84.y = (fqrand() * 4.0f) + 4.0f;
         EffectSsEnIce_Spawn(play, &this->bodyPartsPos[i], 0.6f, &sp84, &D_80997558, &D_80997550, &D_80997554, 30);
     }
 }

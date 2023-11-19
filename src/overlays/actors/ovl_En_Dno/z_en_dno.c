@@ -131,7 +131,7 @@ static InitChainEntry sInitChain[] = {
 };
 
 void func_80A711D0(EnDno* this, PlayState* play, Vec3f* vec) {
-    f32 rand = Rand_ZeroOne() * 0.5f;
+    f32 rand = fqrand() * 0.5f;
 
     Lights_PointGlowSetInfo(&this->lightInfo, vec->x, vec->y, vec->z, (127.5f * rand) + 127.5f,
                             (100.0f * rand) + 100.0f, (40.0f * rand) + 40.0f, 320);

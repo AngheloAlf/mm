@@ -156,7 +156,7 @@ void ObjGrassUnit_Init(Actor* this, PlayState* play2) {
         tmp = grassElem->pos.y - this->home.pos.y;
         if ((fabsf(tmp) < 80.0f) && (grassElem->pos.y > BGCHECK_Y_MIN)) {
             grassGroup->count++;
-            grassElem->rotY = (s16)(Rand_Next() >> 0x10);
+            grassElem->rotY = (s16)(qrand() >> 0x10);
             grassElem->dropTable = dropTable;
             if (ObjGrassUnit_IsUnderwater(play, &grassElem->pos)) {
                 grassElem->flags |= OBJ_GRASS_ELEM_UNDERWATER;

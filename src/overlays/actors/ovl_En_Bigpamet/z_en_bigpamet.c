@@ -174,7 +174,7 @@ void func_80A2768C(EnBigpamet* this) {
         if (this->unk_29C == 4) {
             this->unk_29C = 0;
         }
-    } else if (Rand_ZeroOne() < 0.05f) {
+    } else if (fqrand() < 0.05f) {
         this->unk_29C = 1;
     }
 }
@@ -202,7 +202,7 @@ void func_80A2778C(EnBigpamet* this) {
     this->unk_2A2 = 40;
 
     for (ptr = &this->unk_2FC[0], i = 0; i < ARRAY_COUNT(this->unk_2FC); i++, ptr++) {
-        temp_s2 = (s32)Rand_Next() >> 0x10;
+        temp_s2 = (s32)qrand() >> 0x10;
         temp_s1 = Rand_S16Offset(0x1800, 0x2800);
         temp_fs1 = Rand_ZeroFloat(5.0f) + 7.0f;
 
@@ -210,9 +210,9 @@ void func_80A2778C(EnBigpamet* this) {
         ptr->unk_0C.y = (temp_fs1 * Math_SinS(temp_s1)) + 3.0f;
         ptr->unk_0C.z = (temp_fs1 * Math_CosS(temp_s1)) * Math_CosS(temp_s2);
 
-        ptr->unk_18.x = (s32)Rand_Next() >> 0x10;
-        ptr->unk_18.y = (s32)Rand_Next() >> 0x10;
-        ptr->unk_18.z = (s32)Rand_Next() >> 0x10;
+        ptr->unk_18.x = (s32)qrand() >> 0x10;
+        ptr->unk_18.y = (s32)qrand() >> 0x10;
+        ptr->unk_18.z = (s32)qrand() >> 0x10;
 
         ptr->unk_00.x = (Math_SinS(temp_s2) * 40.0f) + this->actor.world.pos.x;
         ptr->unk_00.y = this->actor.floorHeight;
@@ -236,7 +236,7 @@ void func_80A27970(EnBigpamet* this, PlayState* play2) {
 
     for (i = 0; i < 2; i++) {
         temp_fs0 = Rand_ZeroFloat(30.0f) + 30.0f;
-        temp_s0 = Rand_Next() >> 0x10;
+        temp_s0 = qrand() >> 0x10;
 
         sp9C.x = (Math_SinS(temp_s0) * temp_fs0) + this->actor.world.pos.x;
         sp9C.y = Rand_ZeroFloat(10.0f) + this->actor.floorHeight + 8.0f;
@@ -280,9 +280,9 @@ void func_80A27B58(EnBigpamet* this) {
         ptr->unk_0C.y = (temp_fs0 * temp_fs2) + 3.0f;
         ptr->unk_0C.z = Math_CosS(temp_s1) * (temp_fs0 * temp_fs3);
 
-        ptr->unk_18.x = (s32)Rand_Next() >> 0x10;
-        ptr->unk_18.y = (s32)Rand_Next() >> 0x10;
-        ptr->unk_18.z = (s32)Rand_Next() >> 0x10;
+        ptr->unk_18.x = (s32)qrand() >> 0x10;
+        ptr->unk_18.y = (s32)qrand() >> 0x10;
+        ptr->unk_18.z = (s32)qrand() >> 0x10;
 
         if ((s16)(temp_s1 - this->actor.wallYaw) > 0) {
             var_s1 = this->actor.wallYaw + 0x4000;
@@ -321,7 +321,7 @@ void func_80A27DD8(EnBigpamet* this, PlayState* play) {
 
     for (i = 0; i < 4; i++) {
         temp_fs0 = Rand_ZeroFloat(60.0f) + 50.0f;
-        temp_s0 = Rand_Next() >> 0x11;
+        temp_s0 = qrand() >> 0x11;
 
         pos.x = (Math_CosS(temp_s0) * temp_fs0 * temp_fs4) + sp8C.x;
         pos.y = (Math_SinS(temp_s0) * temp_fs0) + sp8C.y;
@@ -670,8 +670,8 @@ void func_80A28D80(EnBigpamet* this) {
 }
 
 void func_80A28DC0(EnBigpamet* this, PlayState* play) {
-    this->actor.shape.rot.x = (s32)Rand_Next() >> 0x16;
-    this->actor.shape.rot.z = (s32)Rand_Next() >> 0x16;
+    this->actor.shape.rot.x = (s32)qrand() >> 0x16;
+    this->actor.shape.rot.z = (s32)qrand() >> 0x16;
     if ((this->actor.parent->params == GEKKO_RETURN_TO_SNAPPER) ||
         (this->actor.parent->params == GEKKO_JUMP_ON_SNAPPER)) {
         func_80A28A28(this);
@@ -701,8 +701,8 @@ void func_80A28EE8(EnBigpamet* this, PlayState* play) {
     Vec3f pos;
     s16 sp3A;
 
-    this->actor.shape.rot.x = (s32)Rand_Next() >> 0x16;
-    this->actor.shape.rot.z = (s32)Rand_Next() >> 0x16;
+    this->actor.shape.rot.x = (s32)qrand() >> 0x16;
+    this->actor.shape.rot.z = (s32)qrand() >> 0x16;
 
     if (Math_StepToF(&this->actor.scale.x, 0.0f, 0.00075f)) {
         sp3A = BINANG_ROT180(Camera_GetCamDirYaw(GET_ACTIVE_CAM(play)));
@@ -739,9 +739,9 @@ void func_80A29094(EnBigpamet* this) {
 
         Math_Vec3f_Sum(&ptr->unk_00, &ptr->unk_0C, &ptr->unk_00);
 
-        ptr->unk_18.x += (s16)((Rand_Next() >> 0x17) + 0x700);
-        ptr->unk_18.y += (s16)((Rand_Next() >> 0x17) + 0x900);
-        ptr->unk_18.z += (s16)((Rand_Next() >> 0x17) + 0xB00);
+        ptr->unk_18.x += (s16)((qrand() >> 0x17) + 0x700);
+        ptr->unk_18.y += (s16)((qrand() >> 0x17) + 0x900);
+        ptr->unk_18.z += (s16)((qrand() >> 0x17) + 0xB00);
     }
 }
 

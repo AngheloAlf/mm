@@ -337,12 +337,12 @@ void EnBaguo_CheckForDetonation(EnBaguo* this, PlayState* play) {
                 this->actor.shape.shadowScale = 0.0f;
 
                 for (i = 0; i < ARRAY_COUNT(this->effects); i++) {
-                    accel.x = (Rand_ZeroOne() - 0.5f) * 8.0f;
+                    accel.x = (fqrand() - 0.5f) * 8.0f;
                     accel.y = -1.0f;
-                    accel.z = (Rand_ZeroOne() - 0.5f) * 8.0f;
-                    velocity.x = (Rand_ZeroOne() - 0.5f) * 14.0f;
-                    velocity.y = Rand_ZeroOne() * 30.0f;
-                    velocity.z = (Rand_ZeroOne() - 0.5f) * 14.0f;
+                    accel.z = (fqrand() - 0.5f) * 8.0f;
+                    velocity.x = (fqrand() - 0.5f) * 14.0f;
+                    velocity.y = fqrand() * 30.0f;
+                    velocity.z = (fqrand() - 0.5f) * 14.0f;
                     EnBaguo_InitializeEffect(this, &this->actor.focus.pos, &velocity, &accel,
                                              (Rand_ZeroFloat(1.0f) * 0.01f) + 0.003f, 90);
                 }

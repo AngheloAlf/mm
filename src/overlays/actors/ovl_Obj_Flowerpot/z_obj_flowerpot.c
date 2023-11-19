@@ -229,19 +229,19 @@ void func_80A1BA44(ObjFlowerpot* this, PlayState* play) {
     spD0.z = this->actor.world.pos.z;
 
     for (i = 0, phi_s3 = 0; i < 18; i++, phi_s3 += 0xE38) {
-        temp_f20 = (Rand_ZeroOne() * 8.0f) + 2.0f;
+        temp_f20 = (fqrand() * 8.0f) + 2.0f;
 
-        spC4.x = Math_SinS((s32)(Rand_ZeroOne() * 3640.0f) + phi_s3) * temp_f20;
-        spC4.y = Rand_ZeroOne() * 30.0f;
-        spC4.z = Math_CosS((s32)(Rand_ZeroOne() * 3640.0f) + phi_s3) * temp_f20;
+        spC4.x = Math_SinS((s32)(fqrand() * 3640.0f) + phi_s3) * temp_f20;
+        spC4.y = fqrand() * 30.0f;
+        spC4.z = Math_CosS((s32)(fqrand() * 3640.0f) + phi_s3) * temp_f20;
 
         spB8.x = spC4.x * 0.27f;
-        spB8.y = (Rand_ZeroOne() * 6.0f) + 2.6f + ((30.0f - spC4.y) * 0.2f);
+        spB8.y = (fqrand() * 6.0f) + 2.6f + ((30.0f - spC4.y) * 0.2f);
         spB8.z = spC4.z * 0.27f;
 
         Math_Vec3f_Sum(&spC4, &spD0, &spC4);
 
-        temp_f0 = Rand_ZeroOne();
+        temp_f0 = fqrand();
         if (temp_f0 < 0.2f) {
             phi_s0 = 32;
             phi_s1 = 0;
@@ -253,7 +253,7 @@ void func_80A1BA44(ObjFlowerpot* this, PlayState* play) {
             phi_s1 = 0;
         }
 
-        EffectSsKakera_Spawn(play, &spC4, &spB8, &spC4, -600, phi_s0, 30, 0, 0, (Rand_ZeroOne() * 12.0f) + 16.6f,
+        EffectSsKakera_Spawn(play, &spC4, &spB8, &spC4, -600, phi_s0, 30, 0, 0, (fqrand() * 12.0f) + 16.6f,
                              phi_s1, 0, 35, -1, OBJECT_FLOWERPOT, object_flowerpot_DL_0015B0);
     }
 
@@ -278,33 +278,33 @@ void func_80A1BD80(ObjFlowerpot* this, PlayState* play) {
     spC8.z = this->actor.world.pos.z;
 
     for (i = 0, phi_s1 = 0; i < 14; i++, phi_s1 += 0x1249) {
-        temp_f20 = (Rand_ZeroOne() * 8.0f) + 2.0f;
+        temp_f20 = (fqrand() * 8.0f) + 2.0f;
 
-        spBC.x = Math_SinS((s32)(Rand_ZeroOne() * 4681.0f) + phi_s1) * temp_f20;
-        spBC.y = Rand_ZeroOne() * 20.0f;
-        spBC.z = Math_CosS((s32)(Rand_ZeroOne() * 4681.0f) + phi_s1) * temp_f20;
+        spBC.x = Math_SinS((s32)(fqrand() * 4681.0f) + phi_s1) * temp_f20;
+        spBC.y = fqrand() * 20.0f;
+        spBC.z = Math_CosS((s32)(fqrand() * 4681.0f) + phi_s1) * temp_f20;
 
         spB0.x = spBC.x * 0.17f;
-        spB0.y = (Rand_ZeroOne() * 5.0f) + 1.4f;
+        spB0.y = (fqrand() * 5.0f) + 1.4f;
         spB0.z = spBC.z * 0.17f;
 
         Math_Vec3f_Sum(&spBC, &spC8, &spBC);
 
-        if (Rand_ZeroOne() < 0.2f) {
+        if (fqrand() < 0.2f) {
             phi_s0 = 64;
         } else {
             phi_s0 = 32;
         }
 
-        EffectSsKakera_Spawn(play, &spBC, &spB0, &spBC, -240, phi_s0, 40, 0, 0, (Rand_ZeroOne() * 20.0f) + 10.6f, 0, 0,
+        EffectSsKakera_Spawn(play, &spBC, &spB0, &spBC, -240, phi_s0, 40, 0, 0, (fqrand() * 20.0f) + 10.6f, 0, 0,
                              42, -1, OBJECT_FLOWERPOT, object_flowerpot_DL_0015B0);
     }
 
     spBC.y = this->actor.world.pos.y + this->actor.depthInWater;
 
     for (phi_s1 = 0, i = 0; i < 4; i++, phi_s1 += 0x4000) {
-        spBC.x = (Math_SinS((s32)(Rand_ZeroOne() * 7200.0f) + phi_s1) * 15.0f) + this->actor.world.pos.x;
-        spBC.z = (Math_CosS((s32)(Rand_ZeroOne() * 7200.0f) + phi_s1) * 15.0f) + this->actor.world.pos.z;
+        spBC.x = (Math_SinS((s32)(fqrand() * 7200.0f) + phi_s1) * 15.0f) + this->actor.world.pos.x;
+        spBC.z = (Math_CosS((s32)(fqrand() * 7200.0f) + phi_s1) * 15.0f) + this->actor.world.pos.z;
         EffectSsGSplash_Spawn(play, &spBC, NULL, NULL, 0, 200);
     }
 
@@ -325,18 +325,18 @@ void func_80A1C0FC(ObjFlowerpot* this, PlayState* play) {
     func_80A1BA04(this, &spC4);
 
     for (i = 0, phi_s0 = 0; i < 10; i++, phi_s0 += 0x1999) {
-        temp_f20 = (Rand_ZeroOne() * 18.0f) + 2.0f;
+        temp_f20 = (fqrand() * 18.0f) + 2.0f;
 
-        spB8.x = Math_SinS((s32)(Rand_ZeroOne() * 6553.0f) + phi_s0) * temp_f20;
-        spB8.y = Rand_ZeroOne() * 15.0f;
-        spB8.z = Math_CosS((s32)(Rand_ZeroOne() * 6553.0f) + phi_s0) * temp_f20;
+        spB8.x = Math_SinS((s32)(fqrand() * 6553.0f) + phi_s0) * temp_f20;
+        spB8.y = fqrand() * 15.0f;
+        spB8.z = Math_CosS((s32)(fqrand() * 6553.0f) + phi_s0) * temp_f20;
 
         spAC.x = spB8.x * 0.23f;
-        spAC.y = (Rand_ZeroOne() * 8.0f) + 1.5f;
+        spAC.y = (fqrand() * 8.0f) + 1.5f;
         spAC.z = spB8.z * 0.23f;
 
         Math_Vec3f_Sum(&spB8, &spC4, &spB8);
-        EffectSsKakera_Spawn(play, &spB8, &spAC, &spB8, -100, 64, 40, 0, 0, (Rand_ZeroOne() * 16.0f) + 14.0f, 0, 0, 80,
+        EffectSsKakera_Spawn(play, &spB8, &spAC, &spB8, -100, 64, 40, 0, 0, (fqrand() * 16.0f) + 14.0f, 0, 0, 80,
                              -1, OBJECT_FLOWERPOT, object_flowerpot_DL_0014F0);
     }
 }
@@ -352,18 +352,18 @@ void func_80A1C328(ObjFlowerpot* this, PlayState* play) {
     func_80A1BA04(this, &spC4);
 
     for (i = 0, phi_s0 = 0; i < 10; i++, phi_s0 += 0x1999) {
-        temp_f20 = (Rand_ZeroOne() * 18.0f) + 2.0f;
+        temp_f20 = (fqrand() * 18.0f) + 2.0f;
 
-        spB8.x = Math_SinS((s32)(Rand_ZeroOne() * 6553.0f) + phi_s0) * temp_f20;
-        spB8.y = Rand_ZeroOne() * 15.0f;
-        spB8.z = Math_CosS((s32)(Rand_ZeroOne() * 6553.0f) + phi_s0) * temp_f20;
+        spB8.x = Math_SinS((s32)(fqrand() * 6553.0f) + phi_s0) * temp_f20;
+        spB8.y = fqrand() * 15.0f;
+        spB8.z = Math_CosS((s32)(fqrand() * 6553.0f) + phi_s0) * temp_f20;
 
         spAC.x = spB8.x * 0.18f;
-        spAC.y = (Rand_ZeroOne() * 4.0f) + 1.2f;
+        spAC.y = (fqrand() * 4.0f) + 1.2f;
         spAC.z = spB8.z * 0.18f;
 
         Math_Vec3f_Sum(&spB8, &spC4, &spB8);
-        EffectSsKakera_Spawn(play, &spB8, &spAC, &spB8, -80, 64, 44, 0, 0, (Rand_ZeroOne() * 16.0f) + 14.0f, 0, 0, 80,
+        EffectSsKakera_Spawn(play, &spB8, &spAC, &spB8, -80, 64, 44, 0, 0, (fqrand() * 16.0f) + 14.0f, 0, 0, 80,
                              -1, OBJECT_FLOWERPOT, object_flowerpot_DL_0014F0);
     }
 }
@@ -400,7 +400,7 @@ void ObjFlowerpot_Init(Actor* thisx, PlayState* play) {
     Actor_ProcessInitChain(&this->actor, sInitChain);
 
     if (this->actor.shape.rot.y == 0) {
-        this->actor.shape.rot.y = this->actor.world.rot.y = Rand_Next() >> 0x10;
+        this->actor.shape.rot.y = this->actor.world.rot.y = qrand() >> 0x10;
     }
 
     Collider_InitJntSph(play, &this->collider);
@@ -416,11 +416,11 @@ void ObjFlowerpot_Init(Actor* thisx, PlayState* play) {
     func_80A1C818(this);
 
     if (D_80A1D404) {
-        D_80A1DA38 = Rand_Next() >> 0x10;
-        D_80A1DA3A = Rand_Next() >> 0x10;
-        D_80A1DA3C = Rand_Next() >> 0x10;
-        D_80A1DA3E = Rand_Next() >> 0x10;
-        D_80A1DA40 = Rand_Next() >> 0x10;
+        D_80A1DA38 = qrand() >> 0x10;
+        D_80A1DA3A = qrand() >> 0x10;
+        D_80A1DA3C = qrand() >> 0x10;
+        D_80A1DA3E = qrand() >> 0x10;
+        D_80A1DA40 = qrand() >> 0x10;
         D_80A1D404 = false;
         func_80A1B3D0();
         D_80A1D830 = play->gameplayFrames;
@@ -566,23 +566,23 @@ void func_80A1CD10(ObjFlowerpot* this) {
     this->unk_1E8 = 64;
 
     if (this->unk_1EA & 2) {
-        sp1C = (Rand_ZeroOne() * 1.2f) - 1.1f;
+        sp1C = (fqrand() * 1.2f) - 1.1f;
         if (sp1C < -0.9f) {
             sp1C = -0.9f;
         }
         D_80A1D3F8 = sp1C * 8000.0f;
-        D_80A1D3FC = ((Rand_ZeroOne() - 0.5f) * 3800.0f) * (fabsf(sp1C) + 0.1f);
+        D_80A1D3FC = ((fqrand() - 0.5f) * 3800.0f) * (fabsf(sp1C) + 0.1f);
         this->actor.shape.yOffset = -71.5f;
         this->actor.world.pos.y += 7.15f;
     } else {
-        sp1C = (Rand_ZeroOne() - 0.78f) * 1.3f;
+        sp1C = (fqrand() - 0.78f) * 1.3f;
         if (sp1C < -0.78f) {
             sp1C = -0.78f;
         } else if (sp1C > 0.22000003f) {
             sp1C = 0.22000003f;
         }
         D_80A1D3F8 = sp1C * 6200.0f;
-        D_80A1D3FC = (Rand_ZeroOne() - 0.5f) * 4200.0f;
+        D_80A1D3FC = (fqrand() - 0.5f) * 4200.0f;
         this->actor.shape.yOffset = -110.0f;
         this->actor.world.pos.y += 11.0f;
     }

@@ -1298,9 +1298,9 @@ void EnWiz_UpdateDamage(EnWiz* this, PlayState* play) {
                         velocity.z = 0.0f;
                         scaleStep = Rand_S16Offset(20, 10);
                         Math_Vec3f_Copy(&pos, &this->ghostPos[i]);
-                        pos.x += (f32)Rand_S16Offset(20, 20) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1);
+                        pos.x += (f32)Rand_S16Offset(20, 20) * ((fqrand() < 0.5f) ? -1 : 1);
                         pos.y += 70.0f + Rand_CenteredFloat(30.0f);
-                        pos.z += (f32)Rand_S16Offset(20, 20) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1);
+                        pos.z += (f32)Rand_S16Offset(20, 20) * ((fqrand() < 0.5f) ? -1 : 1);
                         func_800B0DE0(play, &pos, &velocity, &accel, &sDustPrimColor, &sDustEnvTimer,
                                       Rand_S16Offset(350, 100), scaleStep);
                     }

@@ -222,7 +222,7 @@ void func_809438F8(EnDaiku* this, PlayState* play) {
     }
 
     if ((this->unk_278 == ENDAIKU_PARAM_FF_2) && (curFrame >= this->animEndFrame)) {
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             EnDaiku_ChangeAnim(this, ENDAIKU_ANIM_7);
         } else {
             EnDaiku_ChangeAnim(this, ENDAIKU_ANIM_8);
@@ -271,7 +271,7 @@ void func_80943BDC(EnDaiku* this, PlayState* play) {
     f32 curFrame = this->skelAnime.curFrame;
 
     if ((this->unk_278 == ENDAIKU_PARAM_FF_2) && (curFrame >= this->animEndFrame)) {
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             EnDaiku_ChangeAnim(this, ENDAIKU_ANIM_7);
         } else {
             EnDaiku_ChangeAnim(this, ENDAIKU_ANIM_8);

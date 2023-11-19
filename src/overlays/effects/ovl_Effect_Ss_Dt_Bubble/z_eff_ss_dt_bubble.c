@@ -48,7 +48,7 @@ u32 EffectSsDtBubble_Init(PlayState* play, u32 index, EffectSs* this, void* init
     EffectSsDtBubbleInitParams* initParams = PARAMS;
 
     {
-        TexturePtr tex = (Rand_ZeroOne() < 0.5f) ? gEffBubble1Tex : gEffBubble2Tex;
+        TexturePtr tex = (fqrand() < 0.5f) ? gEffBubble1Tex : gEffBubble2Tex;
 
         this->gfx = (void*)OS_K0_TO_PHYSICAL(SEGMENTED_TO_K0(tex));
     }
@@ -110,7 +110,7 @@ void EffectSsDtBubble_Draw(PlayState* play, u32 index, EffectSs* this) {
 
 void EffectSsDtBubble_Update(PlayState* play, u32 index, EffectSs* this) {
     if (this->rRandXZ == true) {
-        this->pos.x += (Rand_ZeroOne() * 2.0f) - 1.0f;
-        this->pos.z += (Rand_ZeroOne() * 2.0f) - 1.0f;
+        this->pos.x += (fqrand() * 2.0f) - 1.0f;
+        this->pos.z += (fqrand() * 2.0f) - 1.0f;
     }
 }

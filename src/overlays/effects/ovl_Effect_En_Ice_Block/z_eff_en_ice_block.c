@@ -42,8 +42,8 @@ u32 EffectEnIceBlock_Init(PlayState* play, u32 index, EffectSs* this, void* init
     Math_Vec3f_Copy(&this->velocity, &params->velocity);
     Math_Vec3f_Copy(&this->accel, &params->accel);
     this->rScale = params->scale;
-    this->rRot = Rand_ZeroOne() * 65535.0f;
-    this->rRotVel = (s32)(Rand_ZeroOne() * 512.0f) + 0x400;
+    this->rRot = fqrand() * 65535.0f;
+    this->rRotVel = (s32)(fqrand() * 512.0f) + 0x400;
     this->life = 40;
 
     this->draw = EffectEnIceBlock_Draw;

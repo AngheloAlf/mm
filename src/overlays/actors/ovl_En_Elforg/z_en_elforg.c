@@ -177,7 +177,7 @@ void EnElforg_SpawnSparkles(EnElforg* this, PlayState* play, s32 life) {
     s32 index;
 
     pos.x = Rand_CenteredFloat(6.0f) + this->actor.world.pos.x;
-    pos.y = (Rand_ZeroOne() * 6.0f) + this->actor.world.pos.y + (this->actor.shape.yOffset * this->actor.scale.y);
+    pos.y = (fqrand() * 6.0f) + this->actor.world.pos.y + (this->actor.shape.yOffset * this->actor.scale.y);
     pos.z = Rand_CenteredFloat(6.0f) + this->actor.world.pos.z;
     index = (this->area < STRAY_FAIRY_AREA_CLOCK_TOWN || this->area >= STRAY_FAIRY_AREA_MAX)
                 ? STRAY_FAIRY_AREA_CLOCK_TOWN

@@ -75,8 +75,8 @@ void func_80ACB6A0(ObjAqua* this, PlayState* play) {
 
     sp58.y = this->actor.world.pos.y + this->actor.depthInWater;
     for (i = 0; i < 4; i++) {
-        sp58.x = this->actor.world.pos.x + Math_SinS((s32)(Rand_ZeroOne() * 7200.0f) + angleOffset) * 8.0f;
-        sp58.z = this->actor.world.pos.z + Math_CosS((s32)(Rand_ZeroOne() * 7200.0f) + angleOffset) * 8.0f;
+        sp58.x = this->actor.world.pos.x + Math_SinS((s32)(fqrand() * 7200.0f) + angleOffset) * 8.0f;
+        sp58.z = this->actor.world.pos.z + Math_CosS((s32)(fqrand() * 7200.0f) + angleOffset) * 8.0f;
         EffectSsGSplash_Spawn(play, &sp58, NULL, NULL, 0, 120);
         angleOffset += 0x4000;
     }
@@ -93,8 +93,8 @@ void func_80ACB7F4(ObjAqua* this, PlayState* play) {
 
     effectPos.y = this->actor.floorHeight;
     for (i = 0; i < 4; i++) {
-        effectPos.x = (this->actor.world.pos.x + Math_SinS((s32)(Rand_ZeroOne() * 7200.0f) + angleOffset) * 8.0f);
-        effectPos.z = (this->actor.world.pos.z + Math_CosS((s32)(Rand_ZeroOne() * 7200.0f) + angleOffset) * 8.0f);
+        effectPos.x = (this->actor.world.pos.x + Math_SinS((s32)(fqrand() * 7200.0f) + angleOffset) * 8.0f);
+        effectPos.z = (this->actor.world.pos.z + Math_CosS((s32)(fqrand() * 7200.0f) + angleOffset) * 8.0f);
         EffectSsGSplash_Spawn(play, &effectPos, NULL, NULL, 0, 120);
         angleOffset += 0x4000;
     }
@@ -108,13 +108,13 @@ void func_80ACB940(ObjAqua* this, PlayState* play) {
     Vec3f effectPos;
     Vec3f effectVel;
 
-    effectVel.x = Rand_ZeroOne() - 0.5f;
+    effectVel.x = fqrand() - 0.5f;
     effectVel.y = 2.0f;
-    effectVel.z = Rand_ZeroOne() - 0.5f;
+    effectVel.z = fqrand() - 0.5f;
     effectPos.x = this->actor.world.pos.x + (effectVel.x * 40.0f);
     effectPos.y = this->actor.world.pos.y;
     effectPos.z = this->actor.world.pos.z + (effectVel.z * 40.0f);
-    EffectSsIceSmoke_Spawn(play, &effectPos, &effectVel, &gZeroVec3f, (s32)(Rand_ZeroOne() * 24.0f) + 70);
+    EffectSsIceSmoke_Spawn(play, &effectPos, &effectVel, &gZeroVec3f, (s32)(fqrand() * 24.0f) + 70);
 }
 
 void func_80ACBA10(ObjAqua* this) {
@@ -159,7 +159,7 @@ void ObjAqua_Init(Actor* thisx, PlayState* play) {
     this->alpha = 255;
     if (func_80ACBA60(this, play)) {
         for (i = 0; i < 8; i++) {
-            EffectSsBubble_Spawn(play, &this->actor.world.pos, -4.0f, 4.0f, 4.0f, (Rand_ZeroOne() * 0.09f) + 0.03f);
+            EffectSsBubble_Spawn(play, &this->actor.world.pos, -4.0f, 4.0f, 4.0f, (fqrand() * 0.09f) + 0.03f);
         }
         func_80ACBDCC(this);
     } else {
@@ -232,7 +232,7 @@ void func_80ACBDFC(ObjAqua* this, PlayState* play) {
         f32 temp_f2 = this->actor.scale.x * 10000.0f;
 
         EffectSsBubble_Spawn(play, &this->actor.world.pos, temp_f2 * -0.5f, temp_f2, temp_f2,
-                             (Rand_ZeroOne() * 0.1f) + 0.03f);
+                             (fqrand() * 0.1f) + 0.03f);
     }
     if (this->counter <= 0) {
         Actor_Kill(&this->actor);

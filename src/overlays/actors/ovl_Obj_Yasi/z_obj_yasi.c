@@ -65,7 +65,7 @@ void ObjYasi_Update(Actor* thisx, PlayState* play) {
 
     if (this->dyna.actor.home.rot.z != 0) {
         if (CAN_DROP_NUT(thisx)) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 dropPos.x = this->dyna.actor.world.pos.x;
                 dropPos.y = this->dyna.actor.world.pos.y + 280.0f;
                 dropPos.z = this->dyna.actor.world.pos.z;

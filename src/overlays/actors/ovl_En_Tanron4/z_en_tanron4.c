@@ -148,7 +148,7 @@ void EnTanron4_FlyNearHome(EnTanron4* this, PlayState* play) {
             break;
 
         case SEAGULL_FLY_GLIDE:
-            if (((this->randRollTimer % 8) == 0) && (Rand_ZeroOne() < 0.5f)) {
+            if (((this->randRollTimer % 8) == 0) && (fqrand() < 0.5f)) {
                 this->rollTarget = Rand_CenteredFloat(3000.0f + KREG(44));
             }
 
@@ -226,7 +226,7 @@ void EnTanron4_FlyNearActor(EnTanron4* this, PlayState* play) {
             break;
 
         case SEAGULL_FLY_GLIDE:
-            if (((this->randRollTimer % 8) == 0) && (Rand_ZeroOne() < 0.5f)) {
+            if (((this->randRollTimer % 8) == 0) && (fqrand() < 0.5f)) {
                 this->rollTarget = Rand_CenteredFloat(3000.0f + KREG(44));
             }
 

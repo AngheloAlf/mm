@@ -1043,7 +1043,7 @@ void EnPp_Dead(EnPp* this, PlayState* play) {
                 Math_Vec3f_Copy(&splashPos, &this->actor.world.pos);
                 splashPos.x += Rand_CenteredFloat(10 + (5 * i));
                 splashPos.z += Rand_CenteredFloat(40 + (5 * i));
-                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (Rand_ZeroOne() * 100.0f) + 400.0f);
+                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (fqrand() * 100.0f) + 400.0f);
             }
 
             SoundSource_PlaySfxAtFixedWorldPos(play, &this->actor.world.pos, 50, NA_SE_EV_BOMB_DROP_WATER);
@@ -1210,7 +1210,7 @@ void EnPp_BodyPart_Move(EnPp* this, PlayState* play) {
                 Math_Vec3f_Copy(&splashPos, &this->actor.world.pos);
                 splashPos.x += Rand_CenteredFloat(10 + (5 * i));
                 splashPos.z += Rand_CenteredFloat(40 + (5 * i));
-                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (Rand_ZeroOne() * 100.0f) + 400.0f);
+                EffectSsGSplash_Spawn(play, &splashPos, NULL, NULL, 0, (fqrand() * 100.0f) + 400.0f);
             }
         } else {
             EffectSsGSplash_Spawn(play, &this->actor.world.pos, NULL, NULL, 0, 400);

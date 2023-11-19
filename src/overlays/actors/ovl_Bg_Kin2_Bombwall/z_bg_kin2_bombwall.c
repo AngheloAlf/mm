@@ -95,12 +95,12 @@ void BgKin2Bombwall_SpawnEffects(BgKin2Bombwall* this, PlayState* play) {
             k++;
             k &= 7;
 
-            spD8.x = sRandomYOffsets[j] + (s32)(Rand_Next() >> 0x1C);
-            spD8.y = ((Rand_ZeroOne() - 0.5f) * 15.0f) + temp_a0;
-            spD8.z = (Rand_ZeroOne() * 20.0f) - 10.0f;
+            spD8.x = sRandomYOffsets[j] + (s32)(qrand() >> 0x1C);
+            spD8.y = ((fqrand() - 0.5f) * 15.0f) + temp_a0;
+            spD8.z = (fqrand() * 20.0f) - 10.0f;
 
-            spCC.x = (2.0f * (Rand_ZeroOne() - 0.5f)) + (spD8.x * (6.0f / 325.0f));
-            spCC.y = (Rand_ZeroOne() * 7.0f) + 4.0f;
+            spCC.x = (2.0f * (fqrand() - 0.5f)) + (spD8.x * (6.0f / 325.0f));
+            spCC.y = (fqrand() * 7.0f) + 4.0f;
             spCC.z = spD8.z * 0.3f;
 
             Matrix_MultVec3f(&spD8, &pos);
@@ -110,17 +110,17 @@ void BgKin2Bombwall_SpawnEffects(BgKin2Bombwall* this, PlayState* play) {
             pos.y += this->dyna.actor.world.pos.y;
             pos.z += this->dyna.actor.world.pos.z;
 
-            if (Rand_Next() % 4 == 0) {
+            if (qrand() % 4 == 0) {
                 phi_s0 = 0x20;
             } else {
                 phi_s0 = 0x40;
             }
 
-            if (k < 2 || (s32)Rand_Next() > 0) {
+            if (k < 2 || (s32)qrand() > 0) {
                 phi_s0 |= 1;
                 phi_s1 = 1;
-                func_800B0E48(play, &pos, &gZeroVec3f, &sDustAccel, &sPrimColor, &sEnvColor, (Rand_Next() >> 0x1B) + 70,
-                              (Rand_Next() >> 0x1A) + 60); // for dust spawn
+                func_800B0E48(play, &pos, &gZeroVec3f, &sDustAccel, &sPrimColor, &sEnvColor, (qrand() >> 0x1B) + 70,
+                              (qrand() >> 0x1A) + 60); // for dust spawn
             } else {
                 phi_s1 = 0;
             }

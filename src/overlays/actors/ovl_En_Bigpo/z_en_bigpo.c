@@ -510,7 +510,7 @@ void EnBigpo_WarpingOut(EnBigpo* this, PlayState* play) {
 void EnBigpo_SetupWarpIn(EnBigpo* this, PlayState* play) {
     Player* player = GET_PLAYER(play);
     f32 distance = CLAMP_MIN(this->actor.xzDistToPlayer, 200.0f);
-    s16 randomYaw = ((s32)Rand_Next() >> 0x14) + this->actor.yawTowardsPlayer;
+    s16 randomYaw = ((s32)qrand() >> 0x14) + this->actor.yawTowardsPlayer;
 
     Actor_PlaySfx(&this->actor, NA_SE_EN_STALKIDS_APPEAR);
     Animation_PlayLoop(&this->skelAnime, &gBigPoeAwakenStretchAnim);
@@ -569,8 +569,8 @@ void EnBigpo_IdleFlying(EnBigpo* this, PlayState* play) {
         this->unk208 = Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos);
     }
 
-    if (Math_ScaledStepToS(&this->actor.shape.rot.y, this->unk208, 0x200) && (Rand_ZeroOne() < 0.075f)) {
-        this->unk208 += (s16)(((Rand_Next() >> 0x14) + 0x1000) * ((Rand_ZeroOne() < 0.5f) ? -1 : 1));
+    if (Math_ScaledStepToS(&this->actor.shape.rot.y, this->unk208, 0x200) && (fqrand() < 0.075f)) {
+        this->unk208 += (s16)(((qrand() >> 0x14) + 0x1000) * ((fqrand() < 0.5f) ? -1 : 1));
     }
     this->actor.world.rot.y = this->actor.shape.rot.y;
 
@@ -1112,7 +1112,7 @@ void EnBigpo_UpdateColor(EnBigpo* this) {
 }
 
 void EnBigpo_FlickerLanternLight(EnBigpo* this) {
-    f32 rand = Rand_ZeroOne();
+    f32 rand = fqrand();
 
     this->lanternColor.r = ((s32)(rand * 30.0f)) + 225;
     this->lanternColor.g = ((s32)(rand * 100.0f)) + 155;

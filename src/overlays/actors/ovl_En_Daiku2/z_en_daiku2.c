@@ -288,9 +288,9 @@ void func_80BE66E4(EnDaiku2* this, PlayState* play) {
 
             sp88.y = -1.0f;
 
-            sp7C.x = (Rand_ZeroOne() - 0.5f) * 4.0f;
-            sp7C.y = (Rand_ZeroOne() * 10.0f) + 4.0f;
-            sp7C.z = (Rand_ZeroOne() - 0.5f) * 4.0f;
+            sp7C.x = (fqrand() - 0.5f) * 4.0f;
+            sp7C.y = (fqrand() * 10.0f) + 4.0f;
+            sp7C.z = (fqrand() - 0.5f) * 4.0f;
 
             func_80BE7504(this, &sp70, &sp7C, &sp88, 0.01f - (Rand_ZeroFloat(1.0f) * 0.005f), 40);
         }

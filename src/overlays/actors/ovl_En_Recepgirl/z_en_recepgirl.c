@@ -79,7 +79,7 @@ void EnRecepgirl_UpdateEyes(EnRecepgirl* this) {
         if (this->eyeTexIndex == 4) {
             this->eyeTexIndex = 0;
         }
-    } else if (Rand_ZeroOne() < 0.02f) {
+    } else if (fqrand() < 0.02f) {
         this->eyeTexIndex++;
     }
 }

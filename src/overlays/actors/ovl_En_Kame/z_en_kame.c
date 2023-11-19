@@ -185,7 +185,7 @@ void EnKame_Blink(EnKame* this) {
         if (this->eyeIndex == EN_KAME_EYE_MAX) {
             this->eyeIndex = EN_KAME_EYE_OPEN;
         }
-    } else if (Rand_ZeroOne() < 0.05f) {
+    } else if (fqrand() < 0.05f) {
         this->eyeIndex = EN_KAME_EYE_HALF_CLOSING;
     }
 }
@@ -267,7 +267,7 @@ void EnKame_Walk(EnKame* this, PlayState* play) {
         Math_ScaledStepToS(&this->actor.shape.rot.y, this->targetRotY, 0x100);
         this->actor.world.rot.y = this->actor.shape.rot.y;
     } else if (Actor_WorldDistXZToPoint(&this->actor, &this->actor.home.pos) > 40.0f) {
-        this->targetRotY = Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos) + ((s32)Rand_Next() >> 0x14);
+        this->targetRotY = Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos) + ((s32)qrand() >> 0x14);
     }
 
     this->timer--;
@@ -579,7 +579,7 @@ void EnKame_Struggle(EnKame* this, PlayState* play) {
     if (this->timer > 0) {
         this->timer--;
         if (SkelAnime_Update(&this->snapperSkelAnime)) {
-            if (Rand_ZeroOne() > 0.5f) {
+            if (fqrand() > 0.5f) {
                 Animation_PlayOnce(&this->snapperSkelAnime, &gSnapperWiggleLegsAnim);
             } else {
                 Animation_PlayOnce(&this->snapperSkelAnime, &gSnapperFailToFlipUprightAnim);

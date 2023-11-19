@@ -168,11 +168,11 @@ void func_80ACE51C(EnFuMato* this, PlayState* play) {
 void func_80ACE680(EnFuMato* this) {
     this->dyna.actor.gravity = -0.5f;
     this->dyna.actor.velocity.y = 1.0f;
-    this->dyna.actor.velocity.x = 2.0f * Rand_Centered();
-    this->dyna.actor.velocity.z = 2.0f * Rand_Centered();
-    this->unk_2FC.x = Rand_Next() & 0xFFF;
-    this->unk_2FC.y = Rand_Next() & 0xFFF;
-    this->unk_2FC.z = Rand_Next() & 0xFFF;
+    this->dyna.actor.velocity.x = 2.0f * fqrand2();
+    this->dyna.actor.velocity.z = 2.0f * fqrand2();
+    this->unk_2FC.x = qrand() & 0xFFF;
+    this->unk_2FC.y = qrand() & 0xFFF;
+    this->unk_2FC.z = qrand() & 0xFFF;
     this->unk_302 = 3;
     Actor_PlaySfx(&this->dyna.actor, NA_SE_EV_WOODPLATE_BOUND);
     this->actionFunc = func_80ACE718;
@@ -203,10 +203,10 @@ void func_80ACE850(EnFuMato* this, PlayState* play) {
     s32 phi_s2;
     s32 i;
 
-    this->unk_308 = Rand_Next() % ARRAY_COUNT(this->unk_1B8);
+    this->unk_308 = qrand() % ARRAY_COUNT(this->unk_1B8);
     this->unk_302 = 1;
     this->dyna.actor.gravity = -1.0f;
-    this->dyna.actor.velocity.y = Rand_ZeroOne();
+    this->dyna.actor.velocity.y = fqrand();
 
     phi_s2 = this->unk_308;
 
@@ -217,9 +217,9 @@ void func_80ACE850(EnFuMato* this, PlayState* play) {
         ptr->unk_0C.y = D_80ACF654[phi_s2].z;
         ptr->unk_0C.z = -Math_SinS(temp_s4) * D_80ACF654[phi_s2].x;
 
-        ptr->unk_0C.x += Rand_Centered();
-        ptr->unk_0C.y += Rand_ZeroOne() * 0.5f;
-        ptr->unk_0C.z += Rand_Centered();
+        ptr->unk_0C.x += fqrand2();
+        ptr->unk_0C.y += fqrand() * 0.5f;
+        ptr->unk_0C.z += fqrand2();
 
         ptr->unk_18.x = 0.0f;
         ptr->unk_18.y = -1.0f;
@@ -231,9 +231,9 @@ void func_80ACE850(EnFuMato* this, PlayState* play) {
 
         ptr->unk_24 = this->dyna.actor.shape.rot;
 
-        ptr->unk_2A.x = (s16)Rand_Next() >> 6;
-        ptr->unk_2A.y = (s16)Rand_Next() >> 6;
-        ptr->unk_2A.z = (s16)Rand_Next() >> 6;
+        ptr->unk_2A.x = (s16)qrand() >> 6;
+        ptr->unk_2A.y = (s16)qrand() >> 6;
+        ptr->unk_2A.z = (s16)qrand() >> 6;
         ptr->unk_30 = 1;
 
         phi_s2 = (phi_s2 + 3) % ARRAY_COUNT(this->unk_1B8);
@@ -318,12 +318,12 @@ void func_80ACECFC(EnFuMato* this, PlayState* play) {
                 ptr->unk_0C.y = ptr->unk_0C.y;
             }
             ptr->unk_0C.y *= 0.5f;
-            ptr->unk_0C.x *= (Rand_Centered() * 1.5f) + 2.0f;
-            ptr->unk_0C.z *= (Rand_Centered() * 1.5f) + 2.0f;
+            ptr->unk_0C.x *= (fqrand2() * 1.5f) + 2.0f;
+            ptr->unk_0C.z *= (fqrand2() * 1.5f) + 2.0f;
 
-            ptr->unk_2A.x = (s16)Rand_Next() >> 5;
-            ptr->unk_2A.y = (s16)Rand_Next() >> 5;
-            ptr->unk_2A.z = (s16)Rand_Next() >> 5;
+            ptr->unk_2A.x = (s16)qrand() >> 5;
+            ptr->unk_2A.y = (s16)qrand() >> 5;
+            ptr->unk_2A.z = (s16)qrand() >> 5;
 
             ptr->unk_30 = 0;
         }

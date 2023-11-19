@@ -32,17 +32,17 @@ u32 EffectSsBubble_Init(PlayState* play, u32 index, EffectSs* this, void* initPa
     EffectSsBubbleInitParams* initParams = (EffectSsBubbleInitParams*)initParamsx;
 
     {
-        TexturePtr tex = (Rand_ZeroOne() < 0.5f) ? gEffBubble1Tex : gEffBubble2Tex;
+        TexturePtr tex = (fqrand() < 0.5f) ? gEffBubble1Tex : gEffBubble2Tex;
 
         this->gfx = (void*)OS_K0_TO_PHYSICAL(SEGMENTED_TO_K0(tex));
     }
 
-    this->pos.x = ((Rand_ZeroOne() - 0.5f) * initParams->xzPosRandScale) + initParams->pos.x;
-    this->pos.y = (((Rand_ZeroOne() - 0.5f) * initParams->yPosRandScale) + initParams->yPosOffset) + initParams->pos.y;
-    this->pos.z = ((Rand_ZeroOne() - 0.5f) * initParams->xzPosRandScale) + initParams->pos.z;
+    this->pos.x = ((fqrand() - 0.5f) * initParams->xzPosRandScale) + initParams->pos.x;
+    this->pos.y = (((fqrand() - 0.5f) * initParams->yPosRandScale) + initParams->yPosOffset) + initParams->pos.y;
+    this->pos.z = ((fqrand() - 0.5f) * initParams->xzPosRandScale) + initParams->pos.z;
     Math_Vec3f_Copy(&this->vec, &this->pos);
     this->life = 1;
-    this->rScale = (((Rand_ZeroOne() * 0.5f) + 1.0f) * initParams->scale) * 100.0f;
+    this->rScale = (((fqrand() * 0.5f) + 1.0f) * initParams->scale) * 100.0f;
     this->draw = EffectSsBubble_Draw;
     this->update = EffectSsBubble_Update;
 
@@ -105,8 +105,8 @@ void EffectSsBubble_Update(PlayState* play2, u32 index, EffectSs* this) {
     }
     this->vec.x += this->rVecAdjX / 100.0f;
     this->vec.z += this->rVecAdjZ / 100.0f;
-    this->pos.x = ((Rand_ZeroOne() * 0.5f) - 0.25f) + this->vec.x;
-    this->accel.y = (Rand_ZeroOne() - 0.3f) * 0.2f;
-    this->pos.z = (Rand_ZeroOne() * 0.5f - 0.25f) + this->vec.z;
+    this->pos.x = ((fqrand() * 0.5f) - 0.25f) + this->vec.x;
+    this->accel.y = (fqrand() - 0.3f) * 0.2f;
+    this->pos.z = (fqrand() * 0.5f - 0.25f) + this->vec.z;
     this->life++;
 }

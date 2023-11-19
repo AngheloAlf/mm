@@ -84,7 +84,7 @@ void func_80AF0838(EnTest7Struct2* arg0) {
 }
 
 void func_80AF0984(EnTest7Struct2* arg0, Vec3f* arg1, s32 arg2) {
-    s16 sp26 = Rand_ZeroOne() * 0xFFFF;
+    s16 sp26 = fqrand() * 0xFFFF;
     f32 sp20;
     f32 temp_f0;
     f32 temp_f0_2;
@@ -96,31 +96,31 @@ void func_80AF0984(EnTest7Struct2* arg0, Vec3f* arg1, s32 arg2) {
     if (arg2 != 0) {
         Math_CosS(sp26);
         arg0->unk_08.x = arg0->unk_08.x;
-        arg0->unk_08.y += (Rand_ZeroOne() * 100.0f) - 20.0f;
+        arg0->unk_08.y += (fqrand() * 100.0f) - 20.0f;
         Math_SinS(sp26);
         arg0->unk_08.z = arg0->unk_08.z;
     }
 
-    sp20 = (Rand_ZeroOne() * 4.0f) + 2.0f;
+    sp20 = (fqrand() * 4.0f) + 2.0f;
 
     arg0->unk_14 = Math_CosS(sp26) * sp20;
-    arg0->unk_18 = Rand_ZeroOne();
+    arg0->unk_18 = fqrand();
     arg0->unk_1C = Math_SinS(sp26) * sp20;
 
     arg0->unk_20 = 0.0f;
     arg0->unk_24 = 0.0f;
     arg0->unk_28 = 0.0f;
     arg0->unk_2C = 0.25f;
-    arg0->unk_30.x = Rand_ZeroOne() * 0x10000;
-    arg0->unk_30.y = Rand_ZeroOne() * 0x10000;
-    arg0->unk_30.z = Rand_ZeroOne() * 0x10000;
+    arg0->unk_30.x = fqrand() * 0x10000;
+    arg0->unk_30.y = fqrand() * 0x10000;
+    arg0->unk_30.z = fqrand() * 0x10000;
     arg0->unk_04 = 60;
 
-    if (Rand_ZeroOne() < 0.9f) {
+    if (fqrand() < 0.9f) {
         arg0->unk_00 = 1;
-        arg0->unk_30.x = Rand_ZeroOne() * 0x10000;
-        arg0->unk_30.y = Rand_ZeroOne() * 0x10000;
-        arg0->unk_30.z = Rand_ZeroOne() * 0x10000;
+        arg0->unk_30.x = fqrand() * 0x10000;
+        arg0->unk_30.y = fqrand() * 0x10000;
+        arg0->unk_30.z = fqrand() * 0x10000;
         arg0->unk_36 = 0;
         arg0->unk_38 = 0;
         arg0->unk_3A = 0;
@@ -128,10 +128,10 @@ void func_80AF0984(EnTest7Struct2* arg0, Vec3f* arg1, s32 arg2) {
         arg0->unk_00 = 2;
         arg0->unk_30.x = 0;
         arg0->unk_30.y = 0;
-        arg0->unk_30.z = Rand_ZeroOne() * 5000.0f;
+        arg0->unk_30.z = fqrand() * 5000.0f;
         arg0->unk_36 = 0;
-        arg0->unk_38 = (Rand_ZeroOne() * 8000.0f) + 2000.0f;
-        if (Rand_ZeroOne() > 0.5f) {
+        arg0->unk_38 = (fqrand() * 8000.0f) + 2000.0f;
+        if (fqrand() > 0.5f) {
             arg0->unk_38 = -arg0->unk_38;
         }
         arg0->unk_3A = 0;
@@ -234,9 +234,9 @@ void func_80AF0CDC(PlayState* play, EnTest7Struct2* arg1) {
 void func_80AF10D8(PlayState* play, EnTest7Struct2* arg1) {
     arg1->unk_30.y += arg1->unk_38;
 
-    arg1->unk_20 = Rand_Centered();
-    arg1->unk_24 = Rand_Centered() + -0.01f;
-    arg1->unk_28 = Rand_Centered();
+    arg1->unk_20 = fqrand2();
+    arg1->unk_24 = fqrand2() + -0.01f;
+    arg1->unk_28 = fqrand2();
 
     arg1->unk_14 += arg1->unk_20;
     arg1->unk_18 += arg1->unk_24;
@@ -514,10 +514,10 @@ void func_80AF1CA0(EnTest7* this, PlayState* play) {
             Audio_PlaySfx_AtPos(&this->actor.projectedPos, NA_SE_PL_WARP_WING_ROLL);
         }
 
-        if (Rand_ZeroOne() < 0.3f) {
+        if (fqrand() < 0.3f) {
             Camera* subCam =
                 Play_GetCamera(play, CutsceneManager_GetCurrentSubCamId(play->playerCsIds[PLAYER_CS_ID_SONG_WARP]));
-            f32 rand = Rand_ZeroOne();
+            f32 rand = fqrand();
 
             sp34.x = ((subCam->eye.x - this->actor.world.pos.x) * rand) + this->actor.world.pos.x;
             sp34.y = ((subCam->eye.y - this->actor.world.pos.y) * rand) + this->actor.world.pos.y;
@@ -538,9 +538,9 @@ void func_80AF1E44(EnTest7* this, PlayState* play) {
 
     func_80AF1B68(this, play);
 
-    if (Rand_ZeroOne() < 0.3f) {
+    if (fqrand() < 0.3f) {
         subCam = Play_GetCamera(play, CutsceneManager_GetCurrentSubCamId(play->playerCsIds[PLAYER_CS_ID_SONG_WARP]));
-        rand = Rand_ZeroOne();
+        rand = fqrand();
         sp34.x = ((subCam->eye.x - this->actor.world.pos.x) * rand) + this->actor.world.pos.x;
         sp34.y = ((subCam->eye.y - this->actor.world.pos.y) * rand) + this->actor.world.pos.y;
         sp34.z = ((subCam->eye.z - this->actor.world.pos.z) * rand) + this->actor.world.pos.z;
@@ -654,7 +654,7 @@ void func_80AF2350(EnTest7* this, PlayState* play) {
 
     Math_Vec3f_Copy(&sp2C, &this->actor.world.pos);
 
-    if (Rand_ZeroOne() < 0.1f) {
+    if (fqrand() < 0.1f) {
         func_80AF0C30(this->unk_15C, &sp2C, 1);
     }
 
@@ -950,7 +950,7 @@ s32 func_80AF31D0(PlayState* play, SkeletonInfo* skeletonInfo, s32 limbIndex, Gf
     EnTest7* this = THIS;
     Vec3f sp18;
 
-    if ((*dList != NULL) && (Rand_ZeroOne() < 0.03f)) {
+    if ((*dList != NULL) && (fqrand() < 0.03f)) {
         Matrix_MultVec3f(&gZeroVec3f, &sp18);
         func_80AF0C30(this->unk_15C, &sp18, 0);
     }

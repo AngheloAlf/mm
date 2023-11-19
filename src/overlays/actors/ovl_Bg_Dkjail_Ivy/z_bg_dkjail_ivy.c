@@ -80,27 +80,27 @@ void BgDkjailIvy_IvyCutEffects(BgDkjailIvy* this, PlayState* play) {
         }
 
         spD4.x = Math_SinS(angle) * 40.0f * phi_fs0;
-        spD4.z = (Rand_ZeroOne() * 6.0f) - 3.0f;
+        spD4.z = (fqrand() * 6.0f) - 3.0f;
 
         Matrix_MultVec3f(&spD4, &pos);
 
-        vel.x = (Rand_ZeroOne() - 0.5f) + (pos.x * 0.075f);
-        vel.y = 2.0f * Rand_ZeroOne();
-        vel.z = (Rand_ZeroOne() - 0.5f) + (pos.z * 0.075f);
+        vel.x = (fqrand() - 0.5f) + (pos.x * 0.075f);
+        vel.y = 2.0f * fqrand();
+        vel.z = (fqrand() - 0.5f) + (pos.z * 0.075f);
 
         pos.x += this->dyna.actor.world.pos.x;
         pos.y += this->dyna.actor.world.pos.y;
         pos.z += this->dyna.actor.world.pos.z;
 
         EffectSsKakera_Spawn(play, &pos, &vel, &pos, -0x82, 0x40, 0x28, 0, 0, sLeafScales[i & 3], 0, 0, 44, -1,
-                             GAMEPLAY_KEEP, sLeafDlists[(s32)Rand_Next() > 0]);
+                             GAMEPLAY_KEEP, sLeafDlists[(s32)qrand() > 0]);
 
         if ((i > 20) && ((i % 2) != 0)) {
-            accel.x = (Rand_ZeroOne() - 0.5f) * 0.2f;
-            accel.y = (Rand_ZeroOne() * 0.02f) - 0.1f;
-            accel.z = (Rand_ZeroOne() - 0.5f) * 0.2f;
+            accel.x = (fqrand() - 0.5f) * 0.2f;
+            accel.y = (fqrand() * 0.02f) - 0.1f;
+            accel.z = (fqrand() - 0.5f) * 0.2f;
 
-            func_800B12F0(play, &pos, &gZeroVec3f, &accel, ((Rand_Next() >> 26) + 10), (Rand_Next() >> 28), 50);
+            func_800B12F0(play, &pos, &gZeroVec3f, &accel, ((qrand() >> 26) + 10), (qrand() >> 28), 50);
         }
     }
 }

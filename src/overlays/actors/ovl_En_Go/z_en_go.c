@@ -365,7 +365,7 @@ EnGoEffect* EnGo_InitSteam(EnGoEffect effect[ENGO_OTHER_EFFECT_COUNT], Vec3f pos
         }
 
         effect->type = ENGO_EFFECT_STEAM;
-        effect->alphaDenom = (Rand_ZeroOne() * (2.0f * (maxFrames / 3.0f))) + (maxFrames / 3.0f);
+        effect->alphaDenom = (fqrand() * (2.0f * (maxFrames / 3.0f))) + (maxFrames / 3.0f);
         effect->alphaNumer = effect->alphaDenom;
         effect->pos = pos;
         effect->accel = accel;
@@ -447,7 +447,7 @@ void EnGo_InitDust(EnGoEffect effect[ENGO_OTHER_EFFECT_COUNT], Vec3f pos, Vec3f 
         }
 
         effect->type = parentEffectType + ENGO_EFFECT_DUST_MIN;
-        effect->alphaDenom = (Rand_ZeroOne() * (2.0f * (maxFrames / 3.0f))) + (maxFrames / 3.0f);
+        effect->alphaDenom = (fqrand() * (2.0f * (maxFrames / 3.0f))) + (maxFrames / 3.0f);
         effect->alphaNumer = effect->alphaDenom;
         effect->pos = pos;
         effect->accel = accel;
@@ -552,15 +552,15 @@ void EnGo_InitSnow(EnGoEffect effect[ENGO_SNOW_EFFECT_COUNT], Vec3f pos) {
         effect->pos.y += 56.0f;
 
         // Generate a +-15 degree rotational velocity
-        effect->rotVelocity.x = (Rand_ZeroOne() - 0.5f) * (f32)0x1554;
-        effect->rotVelocity.y = (Rand_ZeroOne() - 0.5f) * (f32)0x1554;
-        effect->rotVelocity.z = (Rand_ZeroOne() - 0.5f) * (f32)0x1554;
+        effect->rotVelocity.x = (fqrand() - 0.5f) * (f32)0x1554;
+        effect->rotVelocity.y = (fqrand() - 0.5f) * (f32)0x1554;
+        effect->rotVelocity.z = (fqrand() - 0.5f) * (f32)0x1554;
 
         // Generate a radially outward velocity for each of the effects
-        velMagnitude = (Rand_ZeroOne() * 4.0f) + 6.0f;
+        velMagnitude = (fqrand() * 4.0f) + 6.0f;
         effect->velocity.x = Math_SinS(i * (0x10000 / ENGO_SNOW_EFFECT_COUNT)) * velMagnitude;
         effect->velocity.z = Math_CosS(i * (0x10000 / ENGO_SNOW_EFFECT_COUNT)) * velMagnitude;
-        effect->velocity.y = (Rand_ZeroOne() * 3.0f) + 6.0f;
+        effect->velocity.y = (fqrand() * 3.0f) + 6.0f;
 
         // No acceleration on the X,Z axis, negative acceleration on the Y axis
         effect->accel = gZeroVec3f;
@@ -573,12 +573,12 @@ void EnGo_InitSnow(EnGoEffect effect[ENGO_SNOW_EFFECT_COUNT], Vec3f pos) {
         effect->type = sEffectIndexToSnowEffectTable[i];
 
         // Initialize the parameters for the paired element
-        randRelativeToWorldPos.x = ((Rand_ZeroOne() - 0.5f) * 80.0f) + effect->pos.x;
-        randRelativeToWorldPos.y = ((Rand_ZeroOne() - 0.5f) * 40.0f) + effect->pos.y;
-        randRelativeToWorldPos.z = ((Rand_ZeroOne() - 0.5f) * 80.0f) + effect->pos.z;
+        randRelativeToWorldPos.x = ((fqrand() - 0.5f) * 80.0f) + effect->pos.x;
+        randRelativeToWorldPos.y = ((fqrand() - 0.5f) * 40.0f) + effect->pos.y;
+        randRelativeToWorldPos.z = ((fqrand() - 0.5f) * 80.0f) + effect->pos.z;
 
         randYOneToFour = gZeroVec3f;
-        randYOneToFour.y = (Rand_ZeroOne() * 3.0f) + 1.0f;
+        randYOneToFour.y = (fqrand() * 3.0f) + 1.0f;
 
         // Initialize the paired element.
         EnGo_InitDust(dustEffects, randRelativeToWorldPos, gZeroVec3f, randYOneToFour, 0.6f, 0.2f,
@@ -609,11 +609,11 @@ void EnGo_UpdateSnow(EnGoEffect* effect, f32 dustConversionHeight) {
         effect->pos.y = dustConversionHeight;
 
         effect->type = ENGO_EFFECT_DUST1;
-        effect->alphaDenom = (Rand_ZeroOne() * 8.0f) + 4.0f;
+        effect->alphaDenom = (fqrand() * 8.0f) + 4.0f;
         effect->alphaNumer = effect->alphaDenom;
 
         effect->velocity = gZeroVec3f;
-        effect->velocity.y = (Rand_ZeroOne() * 3.0f) + 1.0f;
+        effect->velocity.y = (fqrand() * 3.0f) + 1.0f;
 
         effect->scaleXY = 0.4f;
         effect->scaleXYDelta = 0.1f;
@@ -1428,12 +1428,12 @@ void EnGo_MakeSteam(EnGo* this) {
     static Vec3f sAccel = { 0.0f, 0.06f, 0.0f };
     Vec3f tempPos;
     Vec3f effectPos;
-    s16 rotAngle = Rand_ZeroOne() * 360.0f * 182.0f;
+    s16 rotAngle = fqrand() * 360.0f * 182.0f;
 
     Math_Vec3f_Copy(&tempPos, &gZeroVec3f);
     tempPos.z = 28.0f;
     Lib_Vec3f_TranslateAndRotateY(&this->actor.world.pos, rotAngle, &tempPos, &effectPos);
-    effectPos.y = (Rand_ZeroOne() * 10.0f) + 4.0f;
+    effectPos.y = (fqrand() * 10.0f) + 4.0f;
     effectPos.y += this->actor.floorHeight;
     EnGo_InitSteam(&this->effectTable[ENGO_SNOW_EFFECT_COUNT], effectPos, sAccel, gZeroVec3f, ENGO_NORMAL_SCALE,
                    (0.2f * ENGO_NORMAL_SCALE), ENGO_DUST_STEAM_LIFETIME);
@@ -1679,7 +1679,7 @@ void EnGo_ChangeToSpectatingAnimation(EnGo* this, PlayState* play) {
     s16 animFrame;
 
     EnGo_ChangeAnim(this, play, sSubtypeToAnimIndex[ENGO_GET_SUBTYPE(&this->actor) % 2]);
-    animFrame = Rand_ZeroOne() * this->skelAnime.endFrame;
+    animFrame = fqrand() * this->skelAnime.endFrame;
     this->skelAnime.curFrame = animFrame;
 
     this->actor.flags &= ~ACTOR_FLAG_TARGETABLE;

@@ -93,7 +93,7 @@ void func_8098CEAC(ObjComb* this, PlayState* play) {
 
     for (i = 0; i < 31; i++) {
         temp_s2 += 0x4E20;
-        temp_f20 = Rand_ZeroOne() * 10.0f;
+        temp_f20 = fqrand() * 10.0f;
 
         spDC.x = Math_SinS(temp_s2) * temp_f20;
         spDC.y = (i - 15) * 0.7f;
@@ -101,11 +101,11 @@ void func_8098CEAC(ObjComb* this, PlayState* play) {
 
         Math_Vec3f_Sum(&spDC, &this->actor.world.pos, &spD0);
 
-        spC4.x = (Rand_ZeroOne() - 0.5f) + (spDC.x * 0.5f);
-        spC4.y = (Rand_ZeroOne() - 0.5f) + (spDC.y * 0.6f);
-        spC4.z = (Rand_ZeroOne() - 0.5f) + (spDC.z * 0.5f);
+        spC4.x = (fqrand() - 0.5f) + (spDC.x * 0.5f);
+        spC4.y = (fqrand() - 0.5f) + (spDC.y * 0.6f);
+        spC4.z = (fqrand() - 0.5f) + (spDC.z * 0.5f);
 
-        temp_f10 = (Rand_ZeroOne() * 72.0f) + 25.0f;
+        temp_f10 = (fqrand() * 72.0f) + 25.0f;
 
         if (temp_f10 < 40) {
             phi_s0 = -200;
@@ -118,7 +118,7 @@ void func_8098CEAC(ObjComb* this, PlayState* play) {
             phi_s1 = 20;
         }
 
-        temp_f20 = Rand_ZeroOne();
+        temp_f20 = fqrand();
         if (temp_f20 < 0.1f) {
             phi_v0 = 0x60;
         } else if (temp_f20 < 0.8f) {
@@ -151,7 +151,7 @@ void func_8098D19C(ObjComb* this, PlayState* play) {
 
     for (i = 0; i < 31; i++) {
         temp_s2 += 0x4E20;
-        temp_f20 = Rand_ZeroOne() * 10.0f;
+        temp_f20 = fqrand() * 10.0f;
 
         spDC.x = Math_SinS(temp_s2) * temp_f20;
         spDC.y = i * 0.7f;
@@ -159,11 +159,11 @@ void func_8098D19C(ObjComb* this, PlayState* play) {
 
         Math_Vec3f_Sum(&spDC, &this->actor.world.pos, &spD0);
 
-        spC4.x = (Rand_ZeroOne() - 0.5f) + (spDC.x * 0.5f);
-        spC4.y = (Rand_ZeroOne() * 0.5f) + (spDC.y * 0.5f);
-        spC4.z = (Rand_ZeroOne() - 0.5f) + (spDC.z * 0.5f);
+        spC4.x = (fqrand() - 0.5f) + (spDC.x * 0.5f);
+        spC4.y = (fqrand() * 0.5f) + (spDC.y * 0.5f);
+        spC4.z = (fqrand() - 0.5f) + (spDC.z * 0.5f);
 
-        temp_f8 = (Rand_ZeroOne() * 72.0f) + 25.0f;
+        temp_f8 = (fqrand() * 72.0f) + 25.0f;
         if (temp_f8 < 40) {
             phi_s0 = -200;
             phi_s1 = 40;
@@ -175,7 +175,7 @@ void func_8098D19C(ObjComb* this, PlayState* play) {
             phi_s1 = 20;
         }
 
-        temp_f20 = Rand_ZeroOne();
+        temp_f20 = fqrand();
         if (temp_f20 < 0.1f) {
             phi_v0 = 0x60;
         } else if (temp_f20 < 0.8f) {
@@ -208,7 +208,7 @@ void func_8098D47C(ObjComb* this, PlayState* play) {
 
     for (i = 0; i < 21; i++) {
         temp_s1 += 0x4E20;
-        temp_f20 = Rand_ZeroOne() * 10.0f;
+        temp_f20 = fqrand() * 10.0f;
 
         spD4.x = Math_SinS(temp_s1) * temp_f20;
         spD4.y = i * 0.25f;
@@ -216,11 +216,11 @@ void func_8098D47C(ObjComb* this, PlayState* play) {
 
         Math_Vec3f_Sum(&spD4, &this->actor.world.pos, &spC8);
 
-        spBC.x = (Rand_ZeroOne() - 0.5f) + (spD4.x * 0.5f);
-        spBC.y = Rand_ZeroOne() + (spD4.y * 0.6f) + 6.0f;
-        spBC.z = (Rand_ZeroOne() - 0.5f) + (spD4.z * 0.5f);
+        spBC.x = (fqrand() - 0.5f) + (spD4.x * 0.5f);
+        spBC.y = fqrand() + (spD4.y * 0.6f) + 6.0f;
+        spBC.z = (fqrand() - 0.5f) + (spD4.z * 0.5f);
 
-        temp_f10 = (Rand_ZeroOne() * 72.0f) + 25.0f;
+        temp_f10 = (fqrand() * 72.0f) + 25.0f;
         if (temp_f10 < 40) {
             phi_s0 = -100;
         } else if (temp_f10 < 70) {
@@ -229,7 +229,7 @@ void func_8098D47C(ObjComb* this, PlayState* play) {
             phi_s0 = -240;
         }
 
-        if (Rand_ZeroOne() < 0.2f) {
+        if (fqrand() < 0.2f) {
             phi_v0 = 0x40;
         } else {
             phi_v0 = 0x20;
@@ -250,10 +250,10 @@ void func_8098D6E0(ObjComb* this, PlayState* play) {
     sp70.y = this->actor.world.pos.y + this->actor.depthInWater;
 
     for (temp = 0, i = 0; i < 8; i++, temp += 0x2000) {
-        temp_f0 = Rand_ZeroOne();
+        temp_f0 = fqrand();
         temp_f20 = ((1.0f - SQ(temp_f0)) * 14.0f) + 4.0f;
-        sp70.x = (Math_SinS((s32)(Rand_ZeroOne() * 8000.0f) + temp) * temp_f20) + this->actor.world.pos.x;
-        sp70.z = (Math_CosS((s32)(Rand_ZeroOne() * 8000.0f) + temp) * temp_f20) + this->actor.world.pos.z;
+        sp70.x = (Math_SinS((s32)(fqrand() * 8000.0f) + temp) * temp_f20) + this->actor.world.pos.x;
+        sp70.z = (Math_CosS((s32)(fqrand() * 8000.0f) + temp) * temp_f20) + this->actor.world.pos.z;
         EffectSsGSplash_Spawn(play, &sp70, NULL, NULL, 0, 200);
     }
 
@@ -407,7 +407,7 @@ void func_8098DC60(ObjComb* this, PlayState* play) {
         if (this->unk_1B8 >= 0) {
             if (this->unk_1B8 == 0) {
                 Actor_PlaySfx(&this->actor, NA_SE_EN_STALGOLD_ROLL);
-                if (Rand_ZeroOne() < 0.1f) {
+                if (fqrand() < 0.1f) {
                     this->unk_1B8 = Rand_S16Offset(40, 80);
                 } else {
                     this->unk_1B8 = 8;

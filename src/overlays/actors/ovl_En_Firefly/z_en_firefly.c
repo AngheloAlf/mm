@@ -274,7 +274,7 @@ s32 EnFirefly_SeekTorch(EnFirefly* this, PlayState* play) {
 
 void EnFirefly_SetupFlyIdle(EnFirefly* this) {
     this->timer = Rand_S16Offset(70, 100);
-    this->actor.speed = (Rand_ZeroOne() * 1.5f) + 1.5f;
+    this->actor.speed = (fqrand() * 1.5f) + 1.5f;
     Math_ScaledStepToS(&this->actor.shape.rot.y, Actor_WorldYawTowardPoint(&this->actor, &this->actor.home.pos), 0x300);
     this->pitchTarget = ((this->maxAltitude < this->actor.world.pos.y) ? 0xC00 : -0xC00) + 0x1554;
     this->skelAnime.playSpeed = 1.0f;
@@ -291,11 +291,11 @@ void EnFirefly_FlyIdle(EnFirefly* this, PlayState* play) {
     }
 
     onAnimFirstFrame = Animation_OnFrame(&this->skelAnime, 0.0f);
-    this->actor.speed = (Rand_ZeroOne() * 1.5f) + 1.5f;
+    this->actor.speed = (fqrand() * 1.5f) + 1.5f;
 
     if (!EnFirefly_ReturnToPerch(this, play) && !EnFirefly_SeekTorch(this, play)) {
         if (onAnimFirstFrame) {
-            rand = Rand_ZeroOne();
+            rand = fqrand();
 
             if (rand < 0.5f) {
                 Math_ScaledStepToS(&this->actor.shape.rot.y,
@@ -311,7 +311,7 @@ void EnFirefly_FlyIdle(EnFirefly* this, PlayState* play) {
             } else if (this->maxAltitude < this->actor.world.pos.y) {
                 this->pitchTarget = 0x2154;
                 // Otherwise ascend or descend at random, biased towards ascending
-            } else if (Rand_ZeroOne() > 0.35f) {
+            } else if (fqrand() > 0.35f) {
                 this->pitchTarget = 0x954;
             } else {
                 this->pitchTarget = 0x2154;
@@ -598,7 +598,7 @@ void EnFirefly_Perch(EnFirefly* this, PlayState* play) {
         if (Animation_OnFrame(&this->skelAnime, 6.0f)) {
             this->timer--;
         }
-    } else if (Rand_ZeroOne() < 0.02f) {
+    } else if (fqrand() < 0.02f) {
         this->timer = 1;
     }
 

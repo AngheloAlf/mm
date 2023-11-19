@@ -118,9 +118,9 @@ void func_80BCAC40(EnScopenuts* this, PlayState* play) {
     sp60.y += 100.0f;
 
     for (i = 0; i < 36; i++) {
-        sp54.x = Rand_Centered() * 10.0f;
-        sp54.y = 2.0f * Rand_Centered();
-        sp54.z = Rand_Centered() * 10.0f;
+        sp54.x = fqrand2() * 10.0f;
+        sp54.y = 2.0f * fqrand2();
+        sp54.z = fqrand2() * 10.0f;
         EffectSsHahen_Spawn(play, &sp60, &sp54, &D_80BCCCE4, 0, 150, GAMEPLAY_KEEP, 16, D_80BCCCDC[i & 1]);
     }
 }
@@ -271,7 +271,7 @@ void func_80BCB230(EnScopenuts* this, PlayState* play) {
             SubS_ChangeAnimationByInfoS(&this->skelAnime, sAnimationInfo, 16);
         } else if (this->unk_348 == 17) {
             if (DECR(this->unk_34E) == 0) {
-                this->unk_34E = Rand_ZeroOne() * 10.0f;
+                this->unk_34E = fqrand() * 10.0f;
                 this->unk_348 = 2;
                 this->collider.dim.height = 32;
                 SubS_ChangeAnimationByInfoS(&this->skelAnime, sAnimationInfo, 2);

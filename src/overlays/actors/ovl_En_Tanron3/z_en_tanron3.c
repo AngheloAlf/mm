@@ -204,7 +204,7 @@ void EnTanron3_Live(EnTanron3* this, PlayState* play) {
 
                 Math_Vec3f_Copy(&this->targetPos, &player->actor.world.pos);
                 if (!(this->timer & 0xF)) {
-                    if ((Rand_ZeroOne() < 0.5f) && (this->actor.xzDistToPlayer <= 200.0f)) {
+                    if ((fqrand() < 0.5f) && (this->actor.xzDistToPlayer <= 200.0f)) {
                         Actor_PlaySfx(&this->actor, NA_SE_EN_PIRANHA_ATTACK);
                     }
                 }
@@ -295,15 +295,15 @@ void EnTanron3_Live(EnTanron3* this, PlayState* play) {
                     // Fish is still touching land, so it's still beached. Randomly flop around
                     this->actor.velocity.y = Rand_ZeroFloat(5.0f) + 5.0f;
                     this->actor.speed = Rand_ZeroFloat(2.0f) + 2.0f;
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         this->targetShapeRotation.x =
                             (s16)(s32)Rand_CenteredFloat(0x1F4) + this->targetShapeRotation.x + 0x8000;
                     }
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         this->targetShapeRotation.z =
                             (s16)(s32)Rand_CenteredFloat(0x1F4) + this->targetShapeRotation.z + 0x8000;
                     }
-                    if (Rand_ZeroOne() < 0.5f) {
+                    if (fqrand() < 0.5f) {
                         this->targetShapeRotation.y = (s16)Rand_ZeroFloat(0x10000);
                     }
                     this->actor.world.rot.y = Math_Atan2S_XY(this->actor.world.pos.z, this->actor.world.pos.x) +
@@ -313,7 +313,7 @@ void EnTanron3_Live(EnTanron3* this, PlayState* play) {
                 Math_ApproachS(&this->actor.shape.rot.y, this->targetShapeRotation.y, 3, 0x500);
                 Math_ApproachS(&this->actor.shape.rot.x, this->targetShapeRotation.x, 3, 0xC00);
                 Math_ApproachS(&this->actor.shape.rot.z, this->targetShapeRotation.z, 3, 0xC00);
-                if ((Rand_ZeroOne() < 0.5f) & !(this->timer & 0x3)) {
+                if ((fqrand() < 0.5f) & !(this->timer & 0x3)) {
                     Vec3f effectPos;
 
                     effectPos.x = Rand_CenteredFloat(30.0f) + this->actor.world.pos.x;
@@ -357,7 +357,7 @@ void EnTanron3_Die(EnTanron3* this, PlayState* play) {
     if (this->workTimer[WORK_TIMER_DIE] == 0) {
         EnTanron3_SpawnBubbles(this, play);
         Actor_Kill(&this->actor);
-        if (Rand_ZeroOne() < 0.3f) {
+        if (fqrand() < 0.3f) {
             Item_DropCollectibleRandom(play, NULL, &this->actor.world.pos, 0x60);
         }
     }

@@ -729,9 +729,9 @@ void func_80BB2B1C(EnGeg* this, PlayState* play) {
         temp_f20 = this->unk_4E0 * 0.005f;
         sp68 = this->unk_4E0 * 0.07f;
 
-        sp74.x = Rand_Centered() * temp_f20;
-        sp74.y = Rand_Centered() * temp_f20;
-        sp74.z = Rand_Centered() * temp_f20;
+        sp74.x = fqrand2() * temp_f20;
+        sp74.y = fqrand2() * temp_f20;
+        sp74.z = fqrand2() * temp_f20;
 
         this->actor.child->scale.x *= 0.98f;
         this->actor.child->scale.y *= 0.98f;
@@ -1009,13 +1009,13 @@ void EnGeg_PostLimbDraw(PlayState* play, s32 limbIndex, Gfx** dList, Vec3s* rot,
             CLOSE_DISPS(play->state.gfxCtx);
         }
 
-        sp38.x += Rand_Centered();
-        sp38.y += 2.0f * Rand_Centered();
-        sp38.z += Rand_Centered();
+        sp38.x += fqrand2();
+        sp38.y += 2.0f * fqrand2();
+        sp38.z += fqrand2();
 
-        sp2C.x += Rand_Centered();
-        sp2C.y += 2.0f * Rand_Centered();
-        sp2C.z += Rand_Centered();
+        sp2C.x += fqrand2();
+        sp2C.y += 2.0f * fqrand2();
+        sp2C.z += fqrand2();
 
         Matrix_MultVec3f(&D_80BB407C, &this->unk_4B4);
         Matrix_Push();

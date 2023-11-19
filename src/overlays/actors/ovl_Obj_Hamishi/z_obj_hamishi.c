@@ -102,16 +102,16 @@ void func_809A10F4(ObjHamishi* this, PlayState* play) {
 
     for (i = 0; i < ARRAY_COUNT(D_809A1AD4); i++) {
         temp_s0 += 0x4E20;
-        temp_f20 = Rand_ZeroOne() * 10.0f;
+        temp_f20 = fqrand() * 10.0f;
 
         spBC.x = (Math_SinS(temp_s0) * temp_f20) + this->actor.world.pos.x;
-        spBC.y = (Rand_ZeroOne() * 40.0f) + this->actor.world.pos.y + 5.0f;
+        spBC.y = (fqrand() * 40.0f) + this->actor.world.pos.y + 5.0f;
         spBC.z = (Math_CosS(temp_s0) * temp_f20) + this->actor.world.pos.z;
 
-        temp_f20 = (Rand_ZeroOne() * 10.0f) + 2.0f;
+        temp_f20 = (fqrand() * 10.0f) + 2.0f;
         spC8.x = Math_SinS(temp_s0) * temp_f20;
 
-        spC8.y = (Rand_ZeroOne() * 15.0f) + (Rand_ZeroOne() * i * 2.5f);
+        spC8.y = (fqrand() * 15.0f) + (fqrand() * i * 2.5f);
         spC8.z = Math_CosS(temp_s0) * temp_f20;
 
         if (i == 0) {
@@ -170,7 +170,7 @@ void ObjHamishi_Init(Actor* thisx, PlayState* play) {
     }
 
     if (this->actor.shape.rot.y == 0) {
-        this->actor.shape.rot.y = Rand_Next() >> 0x10;
+        this->actor.shape.rot.y = qrand() >> 0x10;
         this->actor.world.rot.y = this->actor.shape.rot.y;
         this->actor.home.rot.y = this->actor.shape.rot.y;
     }

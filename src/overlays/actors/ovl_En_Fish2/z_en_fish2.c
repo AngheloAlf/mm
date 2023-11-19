@@ -372,7 +372,7 @@ void func_80B28C14(EnFish2* this, PlayState* play) {
         if (this->unk_2B4 == 0) {
             this->unk_2B4 = (s32)Rand_ZeroFloat(20.0f) + 10;
         } else if (this->unk_2B4 == 1) {
-            if ((this->unk_348 == 0) || (Rand_ZeroOne() < 0.6f)) {
+            if ((this->unk_348 == 0) || (fqrand() < 0.6f)) {
                 this->unk_348 = Rand_CenteredFloat(0x2000);
             } else {
                 this->unk_348 = Math_Vec3f_Pitch(&this->actor.world.pos, &this->unk_324);
@@ -477,7 +477,7 @@ void func_80B29194(EnFish2* this) {
     }
 
     this->unk_34A = 0;
-    this->unk_340 = (s32)Rand_ZeroOne() & 1;
+    this->unk_340 = (s32)fqrand() & 1;
     EnFish2_ChangeAnim(this, FISH2_ANIM_1);
     this->actionFunc = func_80B29250;
 }
@@ -1114,7 +1114,7 @@ void func_80B2ADB0(EnFish2* this, Vec3f* vec, s16 arg2) {
         if (!ptr->unk_00) {
             TexturePtr texture;
 
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 texture = gEffBubble2Tex;
             } else {
                 texture = gEffBubble1Tex;
@@ -1150,9 +1150,9 @@ void func_80B2AF80(EnFish2* this, PlayState* play) {
             }
 
             if (ptr->unk_00) {
-                ptr->unk_04.x += (0.3f + (Rand_ZeroOne() * 0.5f)) - 0.55f;
-                ptr->unk_04.y += 1.0f + ((Rand_ZeroOne() - 0.3f) * 1.2f);
-                ptr->unk_04.z += (0.3f + (Rand_ZeroOne() * 0.5f)) - 0.55f;
+                ptr->unk_04.x += (0.3f + (fqrand() * 0.5f)) - 0.55f;
+                ptr->unk_04.y += 1.0f + ((fqrand() - 0.3f) * 1.2f);
+                ptr->unk_04.z += (0.3f + (fqrand() * 0.5f)) - 0.55f;
                 sp8C = ptr->unk_04.y;
                 if (!WaterBox_GetSurface1(play, &play->colCtx, ptr->unk_04.x, ptr->unk_04.z, &sp8C, &sp90)) {
                     ptr->unk_00 = 0;

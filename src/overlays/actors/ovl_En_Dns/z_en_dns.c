@@ -299,7 +299,7 @@ s32 func_8092CCEC(EnDns* this, PlayState* play) {
     this->unk_2EC = Math_Vec3f_DistXZ(&sp30, &gZeroVec3f);
     sp2E = Math_Vec3f_Yaw(&gZeroVec3f, &sp3C);
     sp2E -= Math_Vec3f_Yaw(&gZeroVec3f, &sp30);
-    this->unk_2D8 = (Rand_ZeroOne() * 182.0f) + 182.0f;
+    this->unk_2D8 = (fqrand() * 182.0f) + 182.0f;
     this->unk_2D8 = (sp2E > 0) ? this->unk_2D8 : -this->unk_2D8;
     this->unk_2D0 = 0x28;
     this->actor.shape.shadowDraw = ActorShadow_DrawCircle;

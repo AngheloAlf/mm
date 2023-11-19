@@ -242,18 +242,18 @@ void func_80931A38(ObjIcePoly* this, PlayState* play) {
         }
     }
 
-    if (Rand_ZeroOne() < 0.05f) {
-        sp58 = Rand_ZeroOne();
-        if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.05f) {
+        sp58 = fqrand();
+        if (fqrand() < 0.5f) {
             phi_v0 = -1;
         } else {
             phi_v0 = 1;
         }
         sp6C.x = (phi_v0 * (15.0f + (sp58 * 15.0f)) * this->actor.scale.x) + this->actor.world.pos.x;
-        sp6C.y = (((Rand_ZeroOne() * 90.0f) + 10.0f) * this->actor.scale.y) + this->actor.world.pos.y;
+        sp6C.y = (((fqrand() * 90.0f) + 10.0f) * this->actor.scale.y) + this->actor.world.pos.y;
 
-        sp58 = Rand_ZeroOne();
-        if (Rand_ZeroOne() < 0.5f) {
+        sp58 = fqrand();
+        if (fqrand() < 0.5f) {
             phi_v0 = -1;
         } else {
             phi_v0 = 1;
@@ -298,17 +298,17 @@ void func_80931EEC(ObjIcePoly* this, PlayState* play) {
     spA0.z = 0.0f;
 
     for (i = 0; i < 2; i++) {
-        temp_f20 = Rand_ZeroOne();
-        if (Rand_ZeroOne() < 0.5f) {
+        temp_f20 = fqrand();
+        if (fqrand() < 0.5f) {
             phi_v0 = -1;
         } else {
             phi_v0 = 1;
         }
         sp94.x = (phi_v0 * (20.0f + (20.0f * temp_f20)) * this->actor.scale.x) + this->actor.world.pos.x;
-        sp94.y = (Rand_ZeroOne() * this->actor.scale.y * 50.0f) + this->actor.world.pos.y;
+        sp94.y = (fqrand() * this->actor.scale.y * 50.0f) + this->actor.world.pos.y;
 
-        temp_f20 = Rand_ZeroOne();
-        if (Rand_ZeroOne() < 0.5f) {
+        temp_f20 = fqrand();
+        if (fqrand() < 0.5f) {
             phi_v0 = -1;
         } else {
             phi_v0 = 1;
@@ -316,7 +316,7 @@ void func_80931EEC(ObjIcePoly* this, PlayState* play) {
         sp94.z = (phi_v0 * (20.0f + (20.0f * temp_f20)) * this->actor.scale.x) + this->actor.world.pos.z;
 
         func_800B0DE0(play, &sp94, &spA0, &spAC, &D_80932378, &D_8093237C,
-                      ((Rand_ZeroOne() * 100.0f) + 350.0f) * this->actor.scale.x, this->actor.scale.x * 20.0f);
+                      ((fqrand() * 100.0f) + 350.0f) * this->actor.scale.x, this->actor.scale.x * 20.0f);
     }
 
     if (this->unk_14A != 0) {

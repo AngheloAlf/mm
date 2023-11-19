@@ -106,8 +106,8 @@ void func_80A2311C(Vec3f* arg0, Vec3f* arg1, s16 arg2) {
 
 void func_80A2319C(ObjIceblock* this, f32 arg1) {
     s32 i;
-    s16 temp_s1 = Rand_Next() >> 0x10;
-    s16 temp_s2 = Rand_Next() >> 0x10;
+    s16 temp_s1 = qrand() >> 0x10;
+    s16 temp_s2 = qrand() >> 0x10;
     ObjIceBlockUnkStruct* ptr;
 
     for (i = 0; i < ARRAY_COUNT(this->unk_1B4); i++) {
@@ -116,9 +116,9 @@ void func_80A2319C(ObjIceblock* this, f32 arg1) {
         temp_s2 += Rand_S16Offset(2700, 10000);
         ptr->unk_00 = temp_s1;
         ptr->unk_02 = temp_s2;
-        ptr->unk_04 = ((Rand_ZeroOne() * 0.2f) + 0.9f) * arg1;
-        ptr->unk_08 = ((Rand_ZeroOne() * 0.2f) + 0.9f) * arg1;
-        ptr->unk_0C = ((Rand_ZeroOne() * 0.2f) + 0.9f) * arg1;
+        ptr->unk_04 = ((fqrand() * 0.2f) + 0.9f) * arg1;
+        ptr->unk_08 = ((fqrand() * 0.2f) + 0.9f) * arg1;
+        ptr->unk_0C = ((fqrand() * 0.2f) + 0.9f) * arg1;
     }
 }
 
@@ -163,22 +163,22 @@ void func_80A2339C(PlayState* play, Vec3f* arg1, f32 arg2, f32 arg3, s32 arg4) {
 
     spA4.z = 0.0f;
     spA4.x = 0.0f;
-    temp_f24 = ((Rand_ZeroOne() * 0.1656f) + 0.3312f) * arg3;
+    temp_f24 = ((fqrand() * 0.1656f) + 0.3312f) * arg3;
     sp88 = 10.0f * arg3;
 
     for (i = 0, phi_s0 = 0; i < arg4; i++, phi_s0 += temp) {
         temp = 0x10000 / arg4;
 
-        temp_f20 = ((Rand_ZeroOne() * 0.4f) + 0.6f) * (arg2 * 3.5f);
+        temp_f20 = ((fqrand() * 0.4f) + 0.6f) * (arg2 * 3.5f);
         temp_s4 = temp_f20 * 100.0f;
-        temp_f22 = ((Rand_ZeroOne() * 0.7f) + 0.3f) * arg2 * 300.0f;
+        temp_f22 = ((fqrand() * 0.7f) + 0.3f) * arg2 * 300.0f;
 
         spBC.x = Math_SinS(Rand_S16Offset(phi_s0, temp)) * temp_f22;
-        spBC.y = (Rand_ZeroOne() - 0.5f) * (600.0f * arg2);
+        spBC.y = (fqrand() - 0.5f) * (600.0f * arg2);
         spBC.z = Math_CosS(Rand_S16Offset(phi_s0, temp)) * temp_f22;
 
         spB0.x = spBC.x * temp_f24;
-        spB0.y = ((Rand_ZeroOne() * 1.2f) + 0.3f + (temp_f20 * 4.0f)) * sp88;
+        spB0.y = ((fqrand() * 1.2f) + 0.3f + (temp_f20 * 4.0f)) * sp88;
         spB0.z = spBC.z * temp_f24;
 
         spBC.x += arg1->x;
@@ -693,10 +693,10 @@ void func_80A24BDC(ObjIceblock* this, PlayState* play, f32 arg2, f32 arg3, s32 a
         temp_f22 = 0x10000 / arg4;
 
         for (i = 0, phi_s0 = 0; i < arg4; i++, phi_s0 += temp_f22) {
-            temp_f20 = ((Rand_ZeroOne() * 5.0f) + 40.0f) * arg2;
-            sp88.x = (Math_SinS((s32)(Rand_ZeroOne() * temp_f22) + phi_s0) * temp_f20) + this->dyna.actor.world.pos.x;
-            sp88.z = (Math_CosS((s32)(Rand_ZeroOne() * temp_f22) + phi_s0) * temp_f20) + this->dyna.actor.world.pos.z;
-            EffectSsGSplash_Spawn(play, &sp88, NULL, NULL, 0, ((Rand_ZeroOne() * 60.0f) + 320.0f) * arg3);
+            temp_f20 = ((fqrand() * 5.0f) + 40.0f) * arg2;
+            sp88.x = (Math_SinS((s32)(fqrand() * temp_f22) + phi_s0) * temp_f20) + this->dyna.actor.world.pos.x;
+            sp88.z = (Math_CosS((s32)(fqrand() * temp_f22) + phi_s0) * temp_f20) + this->dyna.actor.world.pos.z;
+            EffectSsGSplash_Spawn(play, &sp88, NULL, NULL, 0, ((fqrand() * 60.0f) + 320.0f) * arg3);
         }
     }
 }
@@ -733,11 +733,11 @@ void func_80A24DD0(ObjIceblock* this, PlayState* play) {
         sp9C.y = 12.0f;
 
         for (i = 0; i < 2; i++) {
-            if (phi_f22 < (Rand_ZeroOne() * 1.2f)) {
+            if (phi_f22 < (fqrand() * 1.2f)) {
                 continue;
             }
 
-            this->unk_2A4 += Rand_ZeroOne();
+            this->unk_2A4 += fqrand();
             if (this->unk_2A4 > 1.0f) {
                 this->unk_2A4 -= 1.0f;
             }
@@ -751,9 +751,9 @@ void func_80A24DD0(ObjIceblock* this, PlayState* play) {
             spA8.y += this->dyna.actor.world.pos.y;
             spA8.z += this->dyna.actor.world.pos.z;
 
-            temp_f20 = ((Rand_ZeroOne() * 800.0f) + (1600.0f * this->dyna.actor.scale.x)) * phi_f22;
+            temp_f20 = ((fqrand() * 800.0f) + (1600.0f * this->dyna.actor.scale.x)) * phi_f22;
             func_800B0E48(play, &spA8, &gZeroVec3f, &D_80A26F90, &D_80A26F9C, &D_80A26FA0, temp_f20,
-                          (Rand_ZeroOne() * 20.0f) + 30.0f);
+                          (fqrand() * 20.0f) + 30.0f);
         }
     }
 }
@@ -773,9 +773,9 @@ void func_80A2508C(ObjIceblock* this, PlayState* play) {
 
         if (this->unk_2AC >= 10) {
             this->unk_2AC = 0;
-            sp34.x = (Rand_ZeroOne() * 600.0f) - 300.0f;
+            sp34.x = (fqrand() * 600.0f) - 300.0f;
             sp34.y = 600.0f;
-            sp34.z = (Rand_ZeroOne() * 600.0f) - 300.0f;
+            sp34.z = (fqrand() * 600.0f) - 300.0f;
 
             temp_f0 = sqrtf(this->dyna.actor.scale.y + 0.01f);
             sp40.x = sp34.x * 0.006935f * temp_f0;
@@ -1363,8 +1363,8 @@ void func_80A265C0(ObjIceblock* this, PlayState* play) {
         this->stateTimer = Rand_S16Offset(30, 60);
         ptr->unk_0C = Rand_S16Offset(300, 300);
         ptr->unk_0E = Rand_S16Offset(900, 600);
-        ptr->unk_04 = (2.0f * Rand_ZeroOne()) + 1.0f;
-        ptr->unk_14 = Rand_Next() >> 0x10;
+        ptr->unk_04 = (2.0f * fqrand()) + 1.0f;
+        ptr->unk_14 = qrand() >> 0x10;
         func_80A24B74(this, play);
     }
 

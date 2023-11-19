@@ -41,7 +41,7 @@ void FireObj_InitWithParams(PlayState* play, FireObj* fire, FireObjInitParams* i
     fire->xScale = 0.0f;
     fire->yScale = 0.0f;
     fire->dynamicSize = 0.0f;
-    fire->timer = Rand_ZeroOne() * 20.0f;
+    fire->timer = fqrand() * 20.0f;
     fire->ignitionDelay = -1;
 }
 
@@ -188,9 +188,9 @@ void FireObj_UpdateLight(PlayState* play, FireObjLight* light, FireObj* fire) {
 
         Lights_PointGlowSetInfo(&light->lightInfo, fire->position.x, (fire->position.y + (fire->yScale * 6500.0f)),
                                 fire->position.z,
-                                ((s32)(Rand_ZeroOne() * lightParams->maxColorAdj.r) + lightParams->color.r),
-                                ((s32)(Rand_ZeroOne() * lightParams->maxColorAdj.g) + lightParams->color.g),
-                                ((s32)(Rand_ZeroOne() * lightParams->maxColorAdj.b) + lightParams->color.b), radius);
+                                ((s32)(fqrand() * lightParams->maxColorAdj.r) + lightParams->color.r),
+                                ((s32)(fqrand() * lightParams->maxColorAdj.g) + lightParams->color.g),
+                                ((s32)(fqrand() * lightParams->maxColorAdj.b) + lightParams->color.b), radius);
     }
 }
 

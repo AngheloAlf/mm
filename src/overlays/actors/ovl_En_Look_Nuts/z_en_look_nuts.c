@@ -177,7 +177,7 @@ void EnLookNuts_Patrol(EnLookNuts* this, PlayState* play) {
             if (this->waypointIndex >= this->path->count) {
                 this->waypointIndex = 0;
             }
-            if (Rand_ZeroOne() < 0.6f) {
+            if (fqrand() < 0.6f) {
                 EnLookNuts_SetupStandAndWait(this);
                 return;
             }
@@ -194,7 +194,7 @@ void EnLookNuts_SetupStandAndWait(EnLookNuts* this) {
     this->waitTimer = Rand_S16Offset(1, 3);
     this->headRotTarget.y = 10000.0f;
 
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         this->headRotTarget.y = -10000.0f;
     }
     this->eventTimer = 10;

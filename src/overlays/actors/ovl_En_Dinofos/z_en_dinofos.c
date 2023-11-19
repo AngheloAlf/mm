@@ -318,7 +318,7 @@ void func_8089A900(EnDinofos* this) {
         if (this->unk_289 == 4) {
             this->unk_289 = 0;
         }
-    } else if (Rand_ZeroOne() < 0.05f) {
+    } else if (fqrand() < 0.05f) {
         this->unk_289 = 1;
     }
 }
@@ -336,25 +336,25 @@ void func_8089A9B0(EnDinofos* this, PlayState* play) {
     if (func_8089A968(this)) {
         if (this->actor.xzDistToPlayer < 100.0f) {
             if (!Actor_OtherIsTargeted(play, &this->actor) &&
-                (((this->actionFunc != func_8089C56C) && (Rand_ZeroOne() > 0.35f)) ||
-                 ((this->actionFunc == func_8089C56C) && (Rand_ZeroOne() > 0.8f)))) {
+                (((this->actionFunc != func_8089C56C) && (fqrand() > 0.35f)) ||
+                 ((this->actionFunc == func_8089C56C) && (fqrand() > 0.8f)))) {
                 func_8089C4F8(this);
             } else {
                 func_8089BBB4(this, play);
             }
         } else if ((this->actor.xzDistToPlayer < 260.0f) && (this->actor.xzDistToPlayer > 180.0f)) {
-            if (((this->actionFunc != func_8089C44C) && (Rand_ZeroOne() < 0.1f)) ||
-                ((this->actionFunc == func_8089C44C) && (Rand_ZeroOne() < 0.05f))) {
+            if (((this->actionFunc != func_8089C44C) && (fqrand() < 0.1f)) ||
+                ((this->actionFunc == func_8089C44C) && (fqrand() < 0.05f))) {
                 func_8089C024(this, 0);
             } else {
                 func_8089BBB4(this, play);
             }
-        } else if (Rand_ZeroOne() < 0.8f) {
+        } else if (fqrand() < 0.8f) {
             func_8089B8B0(this, play);
         } else {
             func_8089BBB4(this, play);
         }
-    } else if (Rand_ZeroOne() < 0.6f) {
+    } else if (fqrand() < 0.6f) {
         func_8089BAC0(this);
     } else {
         func_8089B7B0(this);
@@ -439,9 +439,9 @@ s32 func_8089AE00(EnDinofos* this, PlayState* play) {
     }
 
     if ((this->actor.xzDistToPlayer < 100.0f) && (player->meleeWeaponState != PLAYER_MELEE_WEAPON_STATE_0) &&
-        this->actor.isLockedOn && (Rand_ZeroOne() < 0.5f) && func_8089A968(this) &&
+        this->actor.isLockedOn && (fqrand() < 0.5f) && func_8089A968(this) &&
         Player_IsFacingActor(&this->actor, 0x2000, play)) {
-        if (Rand_ZeroOne() < 0.5f) {
+        if (fqrand() < 0.5f) {
             func_8089C024(this, 2);
         } else {
             func_8089C024(this, 3);
@@ -700,7 +700,7 @@ void func_8089BBB4(EnDinofos* this, PlayState* play) {
     if (this->actionFunc != func_8089BD28) {
         s16 rotY = player->actor.shape.rot.y - this->actor.shape.rot.y;
         if (ABS_ALT(rotY) > 0x7800) {
-            if (Rand_ZeroOne() < 0.5f) {
+            if (fqrand() < 0.5f) {
                 this->actor.speed = 6.0f;
             } else {
                 this->actor.speed = -6.0f;
@@ -895,7 +895,7 @@ void func_8089C398(EnDinofos* this) {
 void func_8089C44C(EnDinofos* this, PlayState* play) {
     if (SkelAnime_Update(&this->skelAnime)) {
         if ((this->unk_290 == 1) && (this->actor.xzDistToPlayer < 280.0f) && func_8089A968(this) &&
-            (Rand_ZeroOne() < 0.6f)) {
+            (fqrand() < 0.6f)) {
             func_8089CA14(this);
         } else {
             func_8089A9B0(this, play);

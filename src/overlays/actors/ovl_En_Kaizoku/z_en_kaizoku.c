@@ -914,13 +914,13 @@ void func_80B872F4(EnKaizoku* this, PlayState* play) {
             func_80B88CD8(this);
         } else if (Actor_IsFacingPlayer(&this->picto.actor, 0xBB8)) {
             if ((this->picto.actor.xzDistToPlayer < 400.0f && this->picto.actor.xzDistToPlayer > 150.0f) &&
-                (Rand_ZeroOne() < 0.7f)) {
-                if ((Rand_ZeroOne() > 0.5f) || (ABS_ALT(yawDiff) < 0x3000)) {
+                (fqrand() < 0.7f)) {
+                if ((fqrand() > 0.5f) || (ABS_ALT(yawDiff) < 0x3000)) {
                     func_80B88214(this);
                 } else {
                     func_80B88910(this);
                 }
-            } else if (Rand_ZeroOne() > 0.1f) {
+            } else if (fqrand() > 0.1f) {
                 func_80B8833C(this);
             } else {
                 func_80B88CD8(this);
@@ -939,7 +939,7 @@ void func_80B874D8(EnKaizoku* this, PlayState* play) {
         this->picto.actor.speed = -10.0f;
     } else if (Math_SinS(player->actor.shape.rot.y - this->picto.actor.shape.rot.y) < 0.0f) {
         this->picto.actor.speed = 10.0f;
-    } else if (Rand_ZeroOne() > 0.5f) {
+    } else if (fqrand() > 0.5f) {
         this->picto.actor.speed = 10.0f;
     } else {
         this->picto.actor.speed = -10.0f;
@@ -1080,7 +1080,7 @@ void func_80B8798C(EnKaizoku* this, PlayState* play) {
             func_80B874D8(this, play);
         } else if (!func_80B85858(this, play)) {
             if (!(play->gameplayFrames & 1)) {
-                if (this->picto.actor.xzDistToPlayer < 100.0f && Rand_ZeroOne() > 0.7f) {
+                if (this->picto.actor.xzDistToPlayer < 100.0f && fqrand() > 0.7f) {
                     this->bodyCollider.base.acFlags &= ~AC_HARD;
                     func_80B87C7C(this);
                 } else {
@@ -1159,7 +1159,7 @@ void func_80B87E9C(EnKaizoku* this, PlayState* play) {
     this->unk_2D8 = 0;
     if (curFrame >= this->animEndFrame) {
         if ((this->picto.actor.xzDistToPlayer < 170.0f) && (this->picto.actor.xzDistToPlayer > 140.0f) &&
-            (Rand_ZeroOne() < 0.2f)) {
+            (fqrand() < 0.2f)) {
             func_80B88910(this);
         } else {
             func_80B87900(this);
@@ -1215,14 +1215,14 @@ void func_80B87FDC(EnKaizoku* this, PlayState* play2) {
                 this->lookTimer = 20;
             }
         } else {
-            if (Rand_ZeroOne() > 0.7f || this->picto.actor.xzDistToPlayer >= 120.0f) {
+            if (fqrand() > 0.7f || this->picto.actor.xzDistToPlayer >= 120.0f) {
                 func_80B872A4(this);
                 return;
             }
 
             this->picto.actor.world.rot.y = this->picto.actor.yawTowardsPlayer;
 
-            if (BREG(12) * 0.1f + 0.01f * 40.0f < Rand_ZeroOne()) {
+            if (BREG(12) * 0.1f + 0.01f * 40.0f < fqrand()) {
                 func_80B87900(this);
             } else if (sp2E <= 0x2710) {
                 if (sp2C > 0x4000) {
@@ -1256,7 +1256,7 @@ void func_80B88278(EnKaizoku* this, PlayState* play) {
         this->picto.actor.speed = 0.0f;
         if (!Actor_IsFacingPlayer(&this->picto.actor, 0x1554)) {
             func_80B872A4(this);
-            this->unk_2B2 = Rand_ZeroOne() * 5.0f + 5.0f;
+            this->unk_2B2 = fqrand() * 5.0f + 5.0f;
         } else {
             func_80B87F70(this);
         }
@@ -1294,7 +1294,7 @@ void func_80B88378(EnKaizoku* this, PlayState* play) {
         if ((this->picto.actor.xzDistToPlayer < 150.0f) && (player->meleeWeaponState != PLAYER_MELEE_WEAPON_STATE_0) &&
             (sp2A >= 0x2000)) {
             this->picto.actor.shape.rot.y = this->picto.actor.world.rot.y = this->picto.actor.yawTowardsPlayer;
-            if (Rand_ZeroOne() > 0.7f) {
+            if (fqrand() > 0.7f) {
                 func_80B88CD8(this);
                 return;
             }
@@ -1303,15 +1303,15 @@ void func_80B88378(EnKaizoku* this, PlayState* play) {
         sp30 = this->skelAnime.curFrame - this->skelAnime.playSpeed;
         sp2C = this->skelAnime.curFrame + this->skelAnime.playSpeed;
         if (!Actor_IsFacingPlayer(&this->picto.actor, 0x11C7)) {
-            if (Rand_ZeroOne() > 0.5f) {
+            if (fqrand() > 0.5f) {
                 func_80B88CD8(this);
             } else {
                 func_80B872A4(this);
             }
         } else if (this->picto.actor.xzDistToPlayer < 90.0f) {
-            if ((Rand_ZeroOne() > 0.03f) || ((this->picto.actor.xzDistToPlayer <= 65.0f) && (sp2A < 0x4000))) {
+            if ((fqrand() > 0.03f) || ((this->picto.actor.xzDistToPlayer <= 65.0f) && (sp2A < 0x4000))) {
                 func_80B87F70(this);
-            } else if (Actor_OtherIsTargeted(play, &this->picto.actor) && (Rand_ZeroOne() > 0.5f)) {
+            } else if (Actor_OtherIsTargeted(play, &this->picto.actor) && (fqrand() > 0.5f)) {
                 func_80B87E28(this);
             } else {
                 func_80B88CD8(this);
@@ -1322,7 +1322,7 @@ void func_80B88378(EnKaizoku* this, PlayState* play) {
             if ((this->picto.actor.xzDistToPlayer < 210.0f) && (this->picto.actor.xzDistToPlayer > 150.0f) &&
                 Actor_IsFacingPlayer(&this->picto.actor, 0x1388)) {
                 if (Actor_IsTargeted(play, &this->picto.actor)) {
-                    if (Rand_ZeroOne() > 0.5f) {
+                    if (fqrand() > 0.5f) {
                         func_80B88214(this);
                     } else {
                         func_80B88910(this);
@@ -1366,7 +1366,7 @@ void func_80B887AC(EnKaizoku* this, PlayState* play) {
         this->skelAnime.playSpeed = 1.0f;
 
         if (Actor_IsFacingPlayer(&this->picto.actor, 0x1388)) {
-            if (Rand_ZeroOne() > 0.8f) {
+            if (fqrand() > 0.8f) {
                 func_80B88CD8(this);
             } else {
                 func_80B8833C(this);
@@ -1420,7 +1420,7 @@ void func_80B88964(EnKaizoku* this, PlayState* play) {
     if ((curFrame >= this->animEndFrame) && (this->unk_2D0 < 2)) {
         if (!Actor_IsFacingPlayer(&this->picto.actor, 0x1554)) {
             func_80B872A4(this);
-            this->unk_2B2 = Rand_ZeroOne() * 5.0f + 5.0f;
+            this->unk_2B2 = fqrand() * 5.0f + 5.0f;
             this->lookTimer = 46;
             return;
         }
@@ -1430,14 +1430,14 @@ void func_80B88964(EnKaizoku* this, PlayState* play) {
             return;
         }
 
-        if ((Rand_ZeroOne() > 0.7f) || (this->picto.actor.xzDistToPlayer >= 120.0f)) {
+        if ((fqrand() > 0.7f) || (this->picto.actor.xzDistToPlayer >= 120.0f)) {
             func_80B872A4(this);
-            this->unk_2B2 = Rand_ZeroOne() * 5.0f + 5.0f;
+            this->unk_2B2 = fqrand() * 5.0f + 5.0f;
             return;
         }
 
         this->picto.actor.world.rot.y = this->picto.actor.yawTowardsPlayer;
-        if (BREG(12) * 0.1f + 0.01f * 40.0f < Rand_ZeroOne()) {
+        if (BREG(12) * 0.1f + 0.01f * 40.0f < fqrand()) {
             func_80B87900(this);
             return;
         }
@@ -1463,7 +1463,7 @@ void func_80B88CD8(EnKaizoku* this) {
     this->picto.actor.speed = Rand_CenteredFloat(12.0f);
     this->skelAnime.playSpeed = 1.0f;
     this->picto.actor.world.rot.y = this->picto.actor.shape.rot.y;
-    this->unk_2B2 = Rand_ZeroOne() * 30.0f + 30.0f;
+    this->unk_2B2 = fqrand() * 30.0f + 30.0f;
     this->action = KAIZOKU_ACTION_3;
     this->actionFunc = func_80B88D6C;
     this->unk_2E0 = 0.0f;
@@ -1546,7 +1546,7 @@ void func_80B88D6C(EnKaizoku* this, PlayState* play) {
         if (this->picto.actor.xzDistToPlayer <= 65.0f) {
             func_80B87F70(this);
         } else if (this->unk_2B2 == 0) {
-            if (Actor_OtherIsTargeted(play, &this->picto.actor) && (Rand_ZeroOne() > 0.5f)) {
+            if (Actor_OtherIsTargeted(play, &this->picto.actor) && (fqrand() > 0.5f)) {
                 func_80B87E28(this);
             } else {
                 func_80B872A4(this);

@@ -73,7 +73,7 @@ void EnGamelupy_Init(Actor* thisx, PlayState* play) {
     Collider_InitCylinder(play, &this->collider);
     Collider_SetCylinder(play, &this->collider, &this->actor, &sCylinderInit);
     this->actor.gravity = -0.5f;
-    this->actor.shape.rot.y = Rand_Next();
+    this->actor.shape.rot.y = qrand();
     this->collectedTimer = 0;
     this->sparklesAngle = 0;
     this->sparklesAngleStep = 0x7D0;

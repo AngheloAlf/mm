@@ -227,8 +227,8 @@ void func_8088A594(EnArrow* this, PlayState* play) {
 void func_8088A7D8(PlayState* play, EnArrow* this) {
     this->actionFunc = func_8088B6B0;
     Animation_PlayOnce(&this->arrow.skelAnime, &gameplay_keep_Anim_012860);
-    this->actor.world.rot.y += (s32)(0x6000 * (Rand_ZeroOne() - 0.5f)) + 0x8000;
-    this->actor.speed *= 0.02f + (0.02f * Rand_ZeroOne());
+    this->actor.world.rot.y += (s32)(0x6000 * (fqrand() - 0.5f)) + 0x8000;
+    this->actor.speed *= 0.02f + (0.02f * fqrand());
     this->actor.gravity = -1.5f;
     this->unk_260 = 50;
     this->unk_263 = 1;

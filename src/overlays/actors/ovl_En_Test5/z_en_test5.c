@@ -90,9 +90,9 @@ void EnTest5_Update(Actor* thisx, PlayState* play2) {
 
     // If it's the hot spring variant, generate steam clouds
     if (ENTEST5_IS_HOT_SPRING(&this->actor) && ((play->state.frames % 4) == 0)) {
-        steamPos.x = this->minPos.x + (Rand_ZeroOne() * this->xLength);
+        steamPos.x = this->minPos.x + (fqrand() * this->xLength);
         steamPos.y = this->minPos.y + 100.0f;
-        steamPos.z = this->minPos.z + (Rand_ZeroOne() * this->zLength);
+        steamPos.z = this->minPos.z + (fqrand() * this->zLength);
 
         if ((BgCheck_EntityRaycastFloor2(play, &play->colCtx, &poly, &steamPos) + 10.0f) < this->minPos.y) {
             Vec3f steamVel;
@@ -102,7 +102,7 @@ void EnTest5_Update(Actor* thisx, PlayState* play2) {
             steamVel.x = 0.0f;
             steamVel.z = 0.0f;
 
-            EffectSsIceSmoke_Spawn(play, &steamPos, &steamVel, &gZeroVec3f, -200 - (s32)(Rand_ZeroOne() * 50.0f));
+            EffectSsIceSmoke_Spawn(play, &steamPos, &steamVel, &gZeroVec3f, -200 - (s32)(fqrand() * 50.0f));
         }
     }
 }

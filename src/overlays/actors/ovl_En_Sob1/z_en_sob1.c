@@ -1336,7 +1336,7 @@ void EnSob1_Blink(EnSob1* this) {
     eyeTextureIndexTemp = this->eyeTexIndex + 1;
     if (eyeTextureIndexTemp > 2) {
         this->eyeTexIndex = 0;
-        this->blinkTimer = (s32)(Rand_ZeroOne() * 60.0f) + 20;
+        this->blinkTimer = (s32)(fqrand() * 60.0f) + 20;
         this->blinkFunc = EnSob1_WaitForBlink;
     } else {
         this->eyeTexIndex = eyeTextureIndexTemp;

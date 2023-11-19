@@ -288,7 +288,7 @@ void EnAz_Init(Actor* thisx, PlayState* play2) {
         this->unk_376 |= 0x100;
     }
     Animation_Change(&this->skelAnime, sAnimationSpeedInfo[BEAVER_ANIM_IDLE].animation, 1.0f,
-                     Animation_GetLastFrame(sAnimationSpeedInfo[BEAVER_ANIM_IDLE].animation) * Rand_ZeroOne(),
+                     Animation_GetLastFrame(sAnimationSpeedInfo[BEAVER_ANIM_IDLE].animation) * fqrand(),
                      Animation_GetLastFrame(sAnimationSpeedInfo[BEAVER_ANIM_IDLE].animation),
                      sAnimationSpeedInfo[BEAVER_ANIM_IDLE].mode, sAnimationSpeedInfo[BEAVER_ANIM_IDLE].morphFrames);
     this->unk_37E = 0;
@@ -297,7 +297,7 @@ void EnAz_Init(Actor* thisx, PlayState* play2) {
     this->actor.gravity = -1.0f;
     this->unk_376 = this->unk_374;
     SubS_ChangeAnimationBySpeedInfo(&this->skelAnime, sAnimationSpeedInfo, BEAVER_ANIM_IDLE, &this->animIndex);
-    this->skelAnime.curFrame = Rand_ZeroOne() * this->skelAnime.endFrame;
+    this->skelAnime.curFrame = fqrand() * this->skelAnime.endFrame;
 
     switch (gSaveContext.save.entrance) {
         case ENTRANCE(WATERFALL_RAPIDS, 0):
@@ -1673,7 +1673,7 @@ void func_80A97F9C(EnAz* this, PlayState* play) {
             }
             if ((DECR(this->unk_37A) == 0) && (this->actor.flags & ACTOR_FLAG_40)) {
                 EffectSsBubble_Spawn(play, &this->actor.world.pos, 0.0f, 20.0f, 20.0f, 0.35f);
-                this->unk_37A = (Rand_ZeroOne() * 70.0f) + 10.0f;
+                this->unk_37A = (fqrand() * 70.0f) + 10.0f;
             }
         }
         if (this->actor.depthInWater > 8.0f) {

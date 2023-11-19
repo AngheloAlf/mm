@@ -55,8 +55,8 @@ u32 EffectSsHahen_Init(PlayState* play, u32 index, EffectSs* this, void* initPar
     this->update = EffectSsHahen_Update;
     this->rFlags = initParams->flags;
     this->rScale = initParams->scale;
-    this->rPitch = Rand_ZeroOne() * 314.0f;
-    this->rYaw = Rand_ZeroOne() * 314.0f;
+    this->rPitch = fqrand() * 314.0f;
+    this->rYaw = fqrand() * 314.0f;
     this->rMinLife = 200 - initParams->life;
 
     return 1;

@@ -175,9 +175,9 @@ void func_800B139C(PlayState* play, Vec3f* pos, Vec3f* velocity, Vec3f* accel, C
 
 void func_800B13D8(Vec3f* srcPos, f32 randScale, Vec3f* newPos, Vec3f* velocity, Vec3f* accel) {
     s16 randAngle;
-    f32 rand = Rand_ZeroOne() * randScale;
+    f32 rand = fqrand() * randScale;
 
-    randAngle = (Rand_ZeroOne() * 65536.0f);
+    randAngle = (fqrand() * 65536.0f);
 
     *newPos = *srcPos;
 
@@ -235,13 +235,13 @@ void EffectSsKirakira_SpawnDispersed(PlayState* play, Vec3f* pos, Vec3f* velocit
 
     Math_Vec3f_Copy(&initParams.pos, pos);
     Math_Vec3f_Copy(&initParams.velocity, velocity);
-    initParams.velocity.y = ((Rand_ZeroOne() * initParams.velocity.y) + initParams.velocity.y) * 0.5f;
+    initParams.velocity.y = ((fqrand() * initParams.velocity.y) + initParams.velocity.y) * 0.5f;
     Math_Vec3f_Copy(&initParams.accel, accel);
-    initParams.accel.y = ((Rand_ZeroOne() * initParams.accel.y) + initParams.accel.y) * 0.5f;
+    initParams.accel.y = ((fqrand() * initParams.accel.y) + initParams.accel.y) * 0.5f;
     initParams.life = life;
     initParams.updateMode = 0;
     initParams.rotSpeed = 0x1518;
-    initParams.yaw = Rand_ZeroOne() * 16384.0f;
+    initParams.yaw = fqrand() * 16384.0f;
     initParams.scale = scale;
     initParams.primColor = *primColor;
     initParams.envColor = *envColor;
@@ -260,7 +260,7 @@ void EffectSsKirakira_SpawnFocused(PlayState* play, Vec3f* pos, Vec3f* velocity,
     initParams.life = life;
     initParams.updateMode = 1;
     initParams.rotSpeed = 0x1518;
-    initParams.yaw = Rand_ZeroOne() * 16384.0f;
+    initParams.yaw = fqrand() * 16384.0f;
     initParams.scale = scale;
     Color_RGBA8_Copy(&initParams.primColor, primColor);
     Color_RGBA8_Copy(&initParams.envColor, envColor);
@@ -383,7 +383,7 @@ void EffectSsGSpk_SpawnRandColor(PlayState* play, Actor* actor, Vec3f* pos, Vec3
                                  s16 scaleStep) {
     Color_RGBA8 primColor = { 255, 255, 150, 255 };
     Color_RGBA8 envColor = { 255, 0, 0, 0 };
-    s32 randOffset = (Rand_ZeroOne() * 20.0f) - 10.0f;
+    s32 randOffset = (fqrand() * 20.0f) - 10.0f;
 
     primColor.r += randOffset;
     primColor.g += randOffset;
@@ -577,9 +577,9 @@ void EffectSsHahen_SpawnBurst(PlayState* play, Vec3f* pos, f32 burstScale, s16 f
     accel.x = accel.z = 0.0f;
 
     for (i = 0; i < count; i++) {
-        velocity.x = (Rand_ZeroOne() - 0.5f) * burstScale;
-        velocity.z = (Rand_ZeroOne() - 0.5f) * burstScale;
-        velocity.y = ((Rand_ZeroOne() * 0.5f) + 0.5f) * burstScale;
+        velocity.x = (fqrand() - 0.5f) * burstScale;
+        velocity.z = (fqrand() - 0.5f) * burstScale;
+        velocity.y = ((fqrand() * 0.5f) + 0.5f) * burstScale;
 
         EffectSsHahen_Spawn(play, pos, &velocity, &accel, flags, Rand_S16Offset(scale, randScaleRange), objectId, life,
                             dList);
@@ -626,7 +626,7 @@ void EffectSsSibuki_Spawn(PlayState* play, Vec3f* pos, Vec3f* velocity, Vec3f* a
 void EffectSsSibuki_SpawnBurst(PlayState* play, Vec3f* pos) {
     s16 i;
     Vec3f zeroVec = { 0.0f, 0.0f, 0.0f };
-    s16 randDirection = Rand_ZeroOne() * 1.99f;
+    s16 randDirection = fqrand() * 1.99f;
 
     for (i = 0; i < KREG(19) + 30; i++) {
         EffectSsSibuki_Spawn(play, pos, &zeroVec, &zeroVec, i / (KREG(27) + 6), randDirection, KREG(18) + 40);

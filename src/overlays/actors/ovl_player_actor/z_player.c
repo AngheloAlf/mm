@@ -8715,9 +8715,9 @@ void func_8083BF54(PlayState* play, Player* this) {
             this->unk_AEC += var_ft4_2;
             if (this->unk_AEC > 15.0f) {
                 this->unk_AEC = 0.0f;
-                sp84.x = (Rand_ZeroOne() * 10.0f) + this->actor.world.pos.x;
+                sp84.x = (fqrand() * 10.0f) + this->actor.world.pos.x;
                 sp84.y = this->actor.world.pos.y + this->actor.depthInWater;
-                sp84.z = (Rand_ZeroOne() * 10.0f) + this->actor.world.pos.z;
+                sp84.z = (fqrand() * 10.0f) + this->actor.world.pos.z;
 
                 EffectSsGRipple_Spawn(play, &sp84, 100, 500, 0);
 
@@ -8757,7 +8757,7 @@ void func_8083BF54(PlayState* play, Player* this) {
 
             if ((var_fv1 > -1.0f) || ((this->currentBoots == PLAYER_BOOTS_ZORA_UNDERWATER) &&
                                       (this->actor.bgCheckFlags & BGCHECKFLAG_GROUND))) {
-                if (Rand_ZeroOne() < 0.2f) {
+                if (fqrand() < 0.2f) {
                     numBubbles = 1;
                 }
             } else {
@@ -9657,7 +9657,7 @@ void Player_ChooseIdleAnim(PlayState* play, Player* this) {
                     animIndex = 8;
                 }
             } else {
-                rand = Rand_ZeroOne() * 5.0f;
+                rand = fqrand() * 5.0f;
                 if (rand < 4) {
                     if (((rand != 0) && (rand != 3)) ||
                         ((this->rightHandType == PLAYER_MODELTYPE_RH_SHIELD) &&
@@ -11611,7 +11611,7 @@ void func_808442D8(PlayState* play, Player* this) {
         func_800B0EB0(play, &this->meleeWeaponInfo[0].tip, &D_8085D364, &D_8085D370, &D_8085D37C, &D_8085D380,
                       (var_fa0 * 200.0f), 0, 8);
         if (play->roomCtx.curRoom.enablePosLights || (MREG(93) != 0)) {
-            temp_fv1 = (Rand_ZeroOne() * 30.0f) + 225.0f;
+            temp_fv1 = (fqrand() * 30.0f) + 225.0f;
             Lights_PointSetColorAndRadius(&this->lightInfo, temp_fv1, temp_fv1 * 0.7f, 0, var_fa0 * 300.0f);
         }
     }
@@ -11901,7 +11901,7 @@ void func_80844D80(PlayState* play, Player* this) {
     Math_Vec3f_SumScaled(&this->meleeWeaponInfo[0].base, &sp7C, 0.3f, &spA0);
 
     for (i = 0; i < 2; i++) {
-        Math_Vec3f_SumScaled(&this->meleeWeaponInfo[0].base, &sp7C, Rand_ZeroOne(), &pos);
+        Math_Vec3f_SumScaled(&this->meleeWeaponInfo[0].base, &sp7C, fqrand(), &pos);
         Math_Vec3f_AddRand(&pos, 15.0f, &pos);
         Math_Vec3f_DistXYZAndStoreNormDiff(&spA0, &pos, 1.7f, &velocity);
         Math_Vec3f_ScaleAndStore(&velocity, 0.01f, &accel);
@@ -16051,7 +16051,7 @@ void Player_Action_52(Player* this, PlayState* play) {
             s32 animIndex = rideActor->animIndex;
 
             if (animIndex < ENHORSE_ANIM_STOPPING) {
-                f32 temp_fv0 = Rand_ZeroOne();
+                f32 temp_fv0 = fqrand();
                 s32 index = 0;
 
                 animIndex = ENHORSE_ANIM_WHINNY;
@@ -18425,7 +18425,7 @@ void func_808566C0(PlayState* play, Player* this, PlayerBodyPart bodyPartIndex, 
     f32 sp34;
     Vec3f* temp_v0;
 
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         sp34 = -1.0f;
     } else {
         sp34 = 1.0f;
@@ -18433,7 +18433,7 @@ void func_808566C0(PlayState* play, Player* this, PlayerBodyPart bodyPartIndex, 
 
     D_8085D940.x = (Rand_ZeroFloat(arg4) + arg3) * sp34;
     D_8085D94C.x = arg5 * sp34;
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         sp34 = -1.0f;
     } else {
         sp34 = 1.0f;
@@ -18445,7 +18445,7 @@ void func_808566C0(PlayState* play, Player* this, PlayerBodyPart bodyPartIndex, 
     pos.x = temp_v0->x;
     pos.y = Rand_ZeroFloat(15.0f) + temp_v0->y;
     pos.z = temp_v0->z;
-    if (Rand_ZeroOne() < 0.5f) {
+    if (fqrand() < 0.5f) {
         scale = 2000;
     } else {
         scale = -150;

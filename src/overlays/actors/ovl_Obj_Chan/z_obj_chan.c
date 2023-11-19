@@ -342,12 +342,12 @@ void ObjChan_CreateSmashEffects(ObjChan* this, PlayState* play) {
         f32 cos = Math_CosS(temp_s1);
 
         spDC.x = sin * 8.0f;
-        spDC.y = Rand_ZeroOne() * 12.0f + 2.0f;
+        spDC.y = fqrand() * 12.0f + 2.0f;
         spDC.z = cos * 8.0f;
         spD0.x = spDC.x * 0.23f;
-        spD0.y = Rand_ZeroOne() * 5.0f + 2.5f;
+        spD0.y = fqrand() * 5.0f + 2.5f;
         spD0.z = spDC.z * 0.23f;
-        temp_f0 = Rand_ZeroOne();
+        temp_f0 = fqrand();
         if (temp_f0 < 0.2f) {
             phi_s0 = 0x60;
         } else if (temp_f0 < 0.6f) {
@@ -355,7 +355,7 @@ void ObjChan_CreateSmashEffects(ObjChan* this, PlayState* play) {
         } else {
             phi_s0 = 0x20;
         }
-        new_var2 = spA4 * Rand_ZeroOne();
+        new_var2 = spA4 * fqrand();
         EffectSsKakera_Spawn(play, &spDC, &spD0, &this->actor.world.pos, -260, phi_s0, 20, 0, 0, spA8 + new_var2, 0, 0,
                              50, -1, OBJECT_TSUBO, gPotShardDL);
     }

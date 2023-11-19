@@ -308,7 +308,7 @@ void EnMaYto_ChooseAction(EnMaYto* this, PlayState* play) {
         case MA_YTO_TYPE_AFTERMILKRUN:
             this->unk310 = 0;
             if ((INV_CONTENT(ITEM_MASK_ROMANI) == ITEM_MASK_ROMANI) &&
-                CHECK_WEEKEVENTREG(WEEKEVENTREG_ESCORTED_CREMIA) && (Rand_Next() & 0x80)) {
+                CHECK_WEEKEVENTREG(WEEKEVENTREG_ESCORTED_CREMIA) && (qrand() & 0x80)) {
                 EnMaYto_SetupBeginWarmFuzzyFeelingCs(this);
             } else {
                 EnMaYto_SetupAfterMilkRunInit(this);

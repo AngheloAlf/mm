@@ -314,7 +314,7 @@ void func_808B7914(BgBreakwall* this, PlayState* play) {
         sp24.y = 0.5f;
         sp24.z = 0.0f;
 
-        EffectSsIceSmoke_Spawn(play, &sp30, &sp24, &gZeroVec3f, -200 - (s32)(Rand_ZeroOne() * 50.0f));
+        EffectSsIceSmoke_Spawn(play, &sp30, &sp24, &gZeroVec3f, -200 - (s32)(fqrand() * 50.0f));
     }
 }
 

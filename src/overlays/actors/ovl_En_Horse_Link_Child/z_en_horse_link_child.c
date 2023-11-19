@@ -147,7 +147,7 @@ void EnHorseLinkChild_PlaySound(EnHorseLinkChild* this) {
         if ((this->animIndex == OOT_CHILD_EPONA_ANIM_TROT) || (this->animIndex == OOT_CHILD_EPONA_ANIM_GALLOP)) {
             Audio_PlaySfx_AtPos(&this->actor.projectedPos, NA_SE_EV_KID_HORSE_RUN);
         } else if (this->animIndex == OOT_CHILD_EPONA_ANIM_WHINNY) {
-            if (Rand_ZeroOne() > 0.5f) {
+            if (fqrand() > 0.5f) {
                 Audio_PlaySfx_AtPos(&this->actor.projectedPos, NA_SE_EV_KID_HORSE_GROAN);
             } else {
                 Audio_PlaySfx_AtPos(&this->actor.projectedPos, NA_SE_EV_KID_HORSE_NEIGH);
@@ -471,7 +471,7 @@ void EnHorseLinkChild_LonLonIdle(EnHorseLinkChild* this, PlayState* play) {
 void EnHorseLinkChild_SetupActionFunc5(EnHorseLinkChild* this) {
     this->action = OOT_CHILD_EPONA_ACTION_5;
 
-    if (Rand_ZeroOne() > 0.5f) {
+    if (fqrand() > 0.5f) {
         this->animIndex = OOT_CHILD_EPONA_ANIM_IDLE;
     } else {
         this->animIndex = OOT_CHILD_EPONA_ANIM_WHINNY;
@@ -599,7 +599,7 @@ void EnHorseLinkChild_Update(Actor* thisx, PlayState* play) {
     this->actor.focus.pos = this->actor.world.pos;
     this->actor.focus.pos.y += 70.0f;
 
-    if ((Rand_ZeroOne() < 0.025f) && (this->eyeTexIndex == 0)) {
+    if ((fqrand() < 0.025f) && (this->eyeTexIndex == 0)) {
         this->eyeTexIndex++;
     } else if (this->eyeTexIndex > 0) {
         this->eyeTexIndex++;

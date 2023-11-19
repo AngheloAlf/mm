@@ -32,7 +32,7 @@ u32 EffectSsFhgFlash_Init(PlayState* play, u32 index, EffectSs* this, void* init
     this->actor = initParams->actor;
     Math_Vec3f_Copy(&this->velocity, &gZeroVec3f);
     Math_Vec3f_Copy(&this->accel, &gZeroVec3f);
-    this->life = (s32)(Rand_ZeroOne() * 10.0f) + 111;
+    this->life = (s32)(fqrand() * 10.0f) + 111;
     this->rScale = (s32)Rand_ZeroFloat(initParams->scale) + initParams->scale;
     this->rAlpha = 255;
     this->draw = EffectSsFhgFlash_Draw;
@@ -83,7 +83,7 @@ void EffectSsFhgFlash_Draw(PlayState* play, u32 index, EffectSs* this) {
 
 void EffectSsFhgFlash_Update(PlayState* play, u32 index, EffectSs* this) {
     s16 randBodyPart;
-    s16 rand = Rand_ZeroOne() * 20000.0f;
+    s16 rand = fqrand() * 20000.0f;
 
     this->rXZRot = (this->rXZRot + rand) + 0x4000;
     if (this->rParams == FHGFLASH_SHOCK_PLAYER) {

@@ -70,17 +70,17 @@ void func_8093D3C0(ObjLift* this, PlayState* play) {
         pos.z = (D_8093DD60[i].z * this->dyna.actor.scale.z) + actorPos->z;
 
         vel.x = D_8093DD60[i].x * this->dyna.actor.scale.x * 0.8f;
-        vel.y = (Rand_ZeroOne() * 10.0f) + 6.0f;
+        vel.y = (fqrand() * 10.0f) + 6.0f;
         vel.z = D_8093DD60[i].z * this->dyna.actor.scale.z * 0.8f;
 
-        if ((s32)Rand_Next() > 0) {
+        if ((s32)qrand() > 0) {
             rand = 0x40;
         } else {
             rand = 0x20;
         }
 
         EffectSsKakera_Spawn(play, &pos, &vel, actorPos, -0x100, rand, 15, 15, 0,
-                             ((Rand_ZeroOne() * 50.0f) + 50.0f) * this->dyna.actor.scale.x, 0, 32, 50, -1,
+                             ((fqrand() * 50.0f) + 50.0f) * this->dyna.actor.scale.x, 0, 32, 50, -1,
                              OBJECT_D_LIFT, gDampeGraveBrownElevatorDL);
     }
     if (OBJLIFT_GET_1(&this->dyna.actor) == 0) {
@@ -107,9 +107,9 @@ void ObjLift_Init(Actor* thisx, PlayState* play) {
     }
 
     DynaPolyActor_LoadMesh(play, &this->dyna, &gDampeGraveBrownElevatorCol);
-    this->unk_160 = Rand_Next() >> 0x10;
-    this->unk_162 = Rand_Next() >> 0x10;
-    this->unk_164 = Rand_Next() >> 0x10;
+    this->unk_160 = qrand() >> 0x10;
+    this->unk_162 = qrand() >> 0x10;
+    this->unk_164 = qrand() >> 0x10;
     func_8093D760(this);
 }
 
