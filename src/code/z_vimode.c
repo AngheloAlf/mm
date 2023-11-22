@@ -1,5 +1,5 @@
 #include "global.h"
-#include "debug.h"
+#include "libu64/debug.h"
 #include "z64vimode.h"
 #include "PR/viint.h"
 

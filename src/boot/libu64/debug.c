@@ -1,4 +1,6 @@
-#include "global.h"
+#include "libu64/debug.h"
+
+#include "ultra64.h"
 #include "fault.h"
 
 void _dbg_hungup(const char* file, int lineNum) {

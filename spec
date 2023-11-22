@@ -25,17 +25,21 @@ beginseg
     include "build/src/boot/syncprintf.o"
     include "build/src/boot/fault.o"
     include "build/src/boot/fault_drawer.o"
+
     include "build/src/boot/O2/rcp_utils.o"
     include "build/src/boot/O2/loadfragment.o"
     include "build/src/boot/O2/loadfragment2.o"
+
     include "build/src/boot/O2/padutils.o"
     include "build/src/boot/O2/stackcheck.o"
     include "build/src/boot/O2/gfxprint.o"
     include "build/data/boot/gfxprint.data.o"
     include "build/src/boot/O2/mtxuty-cvt.o"
-    include "build/src/boot/O2/debug.o"
+    include "build/src/boot/libu64/debug.o"
+
     include "build/src/boot/O2/system_heap.o"
     include "build/src/boot/O2/padsetup.o"
+
     include "build/src/boot/O2/math64.o"
     include "build/asm/boot/fp.text.o"
     include "build/data/boot/fp.data.o"
