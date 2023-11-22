@@ -60,9 +60,6 @@ s8 PadUtils_GetRelX(Input* input);
 s8 PadUtils_GetRelY(Input* input);
 void PadUtils_UpdateRelXY(Input* input);
 
-void MtxConv_F2L(Mtx* mtx, MtxF* mf);
-void MtxConv_L2F(MtxF* mtx, Mtx* mf);
-
 s32 func_80086620(OSMesgQueue* param_1, PadMgr* param_2, OSContStatus* param_3);
 
 s32 PrintUtils_VPrintf(PrintCallback* pfn, const char* fmt, va_list args);

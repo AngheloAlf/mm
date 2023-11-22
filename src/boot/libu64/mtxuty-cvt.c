@@ -1,12 +1,12 @@
-#include "global.h"
+#include "libu64/mtxuty-cvt.h"
 
-void MtxConv_F2L(Mtx* mtx, MtxF* mf) {
+void MtxConv_F2L(Mtx* mtx, f32 mf[4][4]) {
     s32 i;
     s32 j;
 
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 4; j++) {
-            s32 value = (mf->mf[i][j] * 0x10000);
+            s32 value = (mf[i][j] * 0x10000);
 
             mtx->intPart[i][j] = value >> 16;
             mtx->fracPart[i][j] = value;
@@ -14,6 +14,6 @@ void MtxConv_F2L(Mtx* mtx, MtxF* mf) {
     }
 }
 
-void MtxConv_L2F(MtxF* mtx, Mtx* mf) {
-    guMtxL2F(mtx->mf, mf);
+void MtxConv_L2F(f32 mf[4][4], Mtx* mtx) {
+    guMtxL2F(mf, mtx);
 }

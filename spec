@@ -34,7 +34,7 @@ beginseg
     include "build/src/boot/O2/stackcheck.o"
     include "build/src/boot/O2/gfxprint.o"
     include "build/data/boot/gfxprint.data.o"
-    include "build/src/boot/O2/mtxuty-cvt.o"
+    include "build/src/boot/libu64/mtxuty-cvt.o"
     include "build/src/boot/libu64/debug.o"
 
     include "build/src/boot/O2/system_heap.o"
