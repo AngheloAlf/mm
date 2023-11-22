@@ -3,7 +3,7 @@
 #include "carthandle.h"
 #include "fault.h"
 #include "stack.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 #include "z64dma.h"
 #include "z64thread.h"
 

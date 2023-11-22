@@ -1,4 +1,5 @@
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
+
 #include "libc/stdbool.h"
 #include "libc/stdint.h"
 

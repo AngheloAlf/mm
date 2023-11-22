@@ -46,7 +46,7 @@
 #include "prevent_bss_reordering2.h"
 #include "vt.h"
 #include "PR/osint.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 #include "z64thread.h"
 #include "main.h"
 #include "macros.h"

@@ -2,7 +2,7 @@
 #include "carthandle.h"
 #include "idle.h"
 #include "stack.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 #include "CIC6105.h"
 #include "z64thread.h"
 

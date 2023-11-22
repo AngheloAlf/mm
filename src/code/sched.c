@@ -15,7 +15,7 @@ u32 gAudioSPDataSize;
 
 #include "functions.h"
 #include "variables.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 #include "z64speed_meter.h"
 #include "z64thread.h"
 

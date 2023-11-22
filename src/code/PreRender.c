@@ -15,7 +15,7 @@
 #include "macros.h"
 #include "slowly.h"
 #include "stack.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 
 /**
  * Assigns the "save" values in PreRender

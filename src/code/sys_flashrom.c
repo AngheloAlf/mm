@@ -2,7 +2,7 @@
 #include "global.h"
 #include "fault.h"
 #include "stack.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 #include "system_malloc.h"
 #include "z64thread.h"
 #include "sys_flashrom.h"

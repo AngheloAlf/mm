@@ -1,5 +1,5 @@
 #include "global.h"
-#include "stackcheck.h"
+#include "libu64/stackcheck.h"
 #include "z64thread.h"
 
 vs32 gIrqMgrResetStatus = 0;
