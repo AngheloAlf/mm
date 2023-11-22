@@ -182,146 +182,146 @@ void KaleidoScope_DrawInventoryEditorText(Gfx** gfxp) {
     GfxPrint printer;
     s32 pad[2];
 
-    GfxPrint_Init(&printer);
-    GfxPrint_Open(&printer, *gfxp);
+    gfxprint_init(&printer);
+    gfxprint_open(&printer, *gfxp);
 
     // Rupees
-    GfxPrint_SetPos(&printer, 4, 2);
-    GfxPrint_SetColor(&printer, 255, 60, 0, 255);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾙﾋﾟｰ");
+    gfxprint_locate8x8(&printer, 4, 2);
+    gfxprint_color(&printer, 255, 60, 0, 255);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾙﾋﾟｰ");
 
     // Hearts
-    GfxPrint_SetPos(&printer, 15, 2);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾊｰﾄ");
-    GfxPrint_SetPos(&printer, 15, 3);
-    GfxPrint_Printf(&printer, "%s", "MAX");
-    GfxPrint_SetPos(&printer, 21, 3);
-    GfxPrint_Printf(&printer, "%s", "NOW");
-    GfxPrint_SetPos(&printer, 28, 3);
-    GfxPrint_Printf(&printer, "%s", "/4");
+    gfxprint_locate8x8(&printer, 15, 2);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾊｰﾄ");
+    gfxprint_locate8x8(&printer, 15, 3);
+    gfxprint_printf(&printer, "%s", "MAX");
+    gfxprint_locate8x8(&printer, 21, 3);
+    gfxprint_printf(&printer, "%s", "NOW");
+    gfxprint_locate8x8(&printer, 28, 3);
+    gfxprint_printf(&printer, "%s", "/4");
 
     // Items
-    GfxPrint_SetPos(&printer, 4, 5);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｱ");
-    GfxPrint_SetPos(&printer, 4, 6);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｲ");
-    GfxPrint_SetPos(&printer, 4, 7);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾃ");
-    GfxPrint_SetPos(&printer, 4, 8);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾑ");
+    gfxprint_locate8x8(&printer, 4, 5);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｱ");
+    gfxprint_locate8x8(&printer, 4, 6);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｲ");
+    gfxprint_locate8x8(&printer, 4, 7);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾃ");
+    gfxprint_locate8x8(&printer, 4, 8);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾑ");
 
     // Masks
-    GfxPrint_SetPos(&printer, 24, 5);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾏ");
-    GfxPrint_SetPos(&printer, 24, 6);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｽ");
-    GfxPrint_SetPos(&printer, 24, 7);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｸ");
+    gfxprint_locate8x8(&printer, 24, 5);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾏ");
+    gfxprint_locate8x8(&printer, 24, 6);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｽ");
+    gfxprint_locate8x8(&printer, 24, 7);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｸ");
 
     // Boss (Remains)
-    GfxPrint_SetPos(&printer, 4, 13);
-    GfxPrint_Printf(&printer, "%s", "BOSS");
+    gfxprint_locate8x8(&printer, 4, 13);
+    gfxprint_printf(&printer, "%s", "BOSS");
 
     // Sword
-    GfxPrint_SetPos(&printer, 13, 13);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｹ");
-    GfxPrint_SetPos(&printer, 13, 14);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾝ");
+    gfxprint_locate8x8(&printer, 13, 13);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｹ");
+    gfxprint_locate8x8(&printer, 13, 14);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾝ");
 
     // Shield
-    GfxPrint_SetPos(&printer, 17, 13);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾀ");
-    GfxPrint_SetPos(&printer, 17, 14);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾃ");
+    gfxprint_locate8x8(&printer, 17, 13);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾀ");
+    gfxprint_locate8x8(&printer, 17, 14);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾃ");
 
     // Ocarina (Songs)
-    GfxPrint_SetPos(&printer, 21, 13);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｵｶ");
-    GfxPrint_SetPos(&printer, 21, 14);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾘﾅ");
+    gfxprint_locate8x8(&printer, 21, 13);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｵｶ");
+    gfxprint_locate8x8(&printer, 21, 14);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾘﾅ");
 
     // Schedule (Bombers Notebook)
-    GfxPrint_SetPos(&printer, 4, 17);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｽｹｼﾞｭｰﾙ");
+    gfxprint_locate8x8(&printer, 4, 17);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｽｹｼﾞｭｰﾙ");
 
     // Quiver
-    GfxPrint_SetPos(&printer, 12, 17);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾔ");
-    GfxPrint_SetPos(&printer, 12, 18);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾀﾃ");
+    gfxprint_locate8x8(&printer, 12, 17);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾔ");
+    gfxprint_locate8x8(&printer, 12, 18);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾀﾃ");
 
     // Bomb Bag
-    GfxPrint_SetPos(&printer, 16, 17);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾎﾞﾑ");
-    GfxPrint_SetPos(&printer, 16, 18);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾌｸﾛ");
+    gfxprint_locate8x8(&printer, 16, 17);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾎﾞﾑ");
+    gfxprint_locate8x8(&printer, 16, 18);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾌｸﾛ");
 
     // Gold Skulls
-    GfxPrint_SetPos(&printer, 22, 17);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｷﾝ");
-    GfxPrint_SetPos(&printer, 22, 18);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｽﾀ");
+    gfxprint_locate8x8(&printer, 22, 17);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｷﾝ");
+    gfxprint_locate8x8(&printer, 22, 18);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｽﾀ");
 
     // Heart Pieces
-    GfxPrint_SetPos(&printer, 29, 17);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ﾊｰﾄ");
-    GfxPrint_SetPos(&printer, 29, 18);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｶｹﾗ");
-    GfxPrint_SetPos(&printer, 34, 18);
-    GfxPrint_Printf(&printer, "%s", "/4");
+    gfxprint_locate8x8(&printer, 29, 17);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ﾊｰﾄ");
+    gfxprint_locate8x8(&printer, 29, 18);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｶｹﾗ");
+    gfxprint_locate8x8(&printer, 34, 18);
+    gfxprint_printf(&printer, "%s", "/4");
 
     // Keys
-    GfxPrint_SetPos(&printer, 4, 21);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｶ");
-    GfxPrint_SetPos(&printer, 4, 22);
-    GfxPrint_Printf(&printer, "%s", GFXP_KATAKANA "ｷﾞ");
+    gfxprint_locate8x8(&printer, 4, 21);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｶ");
+    gfxprint_locate8x8(&printer, 4, 22);
+    gfxprint_printf(&printer, "%s", GFXP_KATAKANA "ｷﾞ");
 
     // Map/Compass
-    GfxPrint_SetPos(&printer, 12, 21);
-    GfxPrint_Printf(&printer, "%s", "MAP");
-    GfxPrint_SetPos(&printer, 12, 22);
-    GfxPrint_Printf(&printer, "%s", "ｺﾝﾊﾟ");
+    gfxprint_locate8x8(&printer, 12, 21);
+    gfxprint_printf(&printer, "%s", "MAP");
+    gfxprint_locate8x8(&printer, 12, 22);
+    gfxprint_printf(&printer, "%s", "ｺﾝﾊﾟ");
 
     // Fairies
-    GfxPrint_SetPos(&printer, 23, 21);
-    GfxPrint_Printf(&printer, "%s", "ﾖｳ");
-    GfxPrint_SetPos(&printer, 23, 22);
-    GfxPrint_Printf(&printer, "%s", "ｾｲ");
+    gfxprint_locate8x8(&printer, 23, 21);
+    gfxprint_printf(&printer, "%s", "ﾖｳ");
+    gfxprint_locate8x8(&printer, 23, 22);
+    gfxprint_printf(&printer, "%s", "ｾｲ");
 
     // Life (double defense)
-    GfxPrint_SetPos(&printer, 4, 25);
-    GfxPrint_Printf(&printer, "%s", "ｲ");
-    GfxPrint_SetPos(&printer, 4, 26);
-    GfxPrint_Printf(&printer, "%s", "ﾉ");
-    GfxPrint_SetPos(&printer, 4, 27);
-    GfxPrint_Printf(&printer, "%s", "ﾁ");
+    gfxprint_locate8x8(&printer, 4, 25);
+    gfxprint_printf(&printer, "%s", "ｲ");
+    gfxprint_locate8x8(&printer, 4, 26);
+    gfxprint_printf(&printer, "%s", "ﾉ");
+    gfxprint_locate8x8(&printer, 4, 27);
+    gfxprint_printf(&printer, "%s", "ﾁ");
 
     // Magic
-    GfxPrint_SetPos(&printer, 8, 25);
-    GfxPrint_Printf(&printer, "%s", "ﾏ");
-    GfxPrint_SetPos(&printer, 8, 26);
-    GfxPrint_Printf(&printer, "%s", "ﾎ");
-    GfxPrint_SetPos(&printer, 8, 27);
-    GfxPrint_Printf(&printer, "%s", "ｳ");
+    gfxprint_locate8x8(&printer, 8, 25);
+    gfxprint_printf(&printer, "%s", "ﾏ");
+    gfxprint_locate8x8(&printer, 8, 26);
+    gfxprint_printf(&printer, "%s", "ﾎ");
+    gfxprint_locate8x8(&printer, 8, 27);
+    gfxprint_printf(&printer, "%s", "ｳ");
 
     // Lottery
-    GfxPrint_SetPos(&printer, 13, 25);
-    GfxPrint_Printf(&printer, "%s", "ﾀｶﾗ");
-    GfxPrint_SetPos(&printer, 13, 26);
-    GfxPrint_Printf(&printer, "%s", "ｸｼﾞ");
+    gfxprint_locate8x8(&printer, 13, 25);
+    gfxprint_printf(&printer, "%s", "ﾀｶﾗ");
+    gfxprint_locate8x8(&printer, 13, 26);
+    gfxprint_printf(&printer, "%s", "ｸｼﾞ");
 
     // Gold Color (Oceanside Spider House Mask Order)
-    GfxPrint_SetPos(&printer, 23, 24);
-    GfxPrint_Printf(&printer, "%s", "ｷﾝｲﾛ");
+    gfxprint_locate8x8(&printer, 23, 24);
+    gfxprint_printf(&printer, "%s", "ｷﾝｲﾛ");
 
     // Bombers (code)
-    GfxPrint_SetPos(&printer, 23, 26);
-    GfxPrint_Printf(&printer, "%s", "ﾎﾞﾝ");
-    GfxPrint_SetPos(&printer, 23, 27);
-    GfxPrint_Printf(&printer, "%s", "ﾊﾞｰｽﾞ");
+    gfxprint_locate8x8(&printer, 23, 26);
+    gfxprint_printf(&printer, "%s", "ﾎﾞﾝ");
+    gfxprint_locate8x8(&printer, 23, 27);
+    gfxprint_printf(&printer, "%s", "ﾊﾞｰｽﾞ");
 
-    *gfxp = GfxPrint_Close(&printer);
-    GfxPrint_Destroy(&printer);
+    *gfxp = gfxprint_close(&printer);
+    gfxprint_cleanup(&printer);
 }
 
 void KaleidoScope_DrawDigit(PlayState* play, s32 digit, s32 rectLeft, s32 rectTop) {

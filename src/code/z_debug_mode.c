@@ -73,10 +73,10 @@ void Debug_DrawScreenText(GfxPrint* printer) {
 
     entry = sDebugTextBuffer;
     for (y = 20; y < 20 + ARRAY_COUNT(sDebugTextBuffer); y++) {
-        GfxPrint_SetPos(printer, 26, y);
+        gfxprint_locate8x8(printer, 26, y);
         color = &sDebugTextColors[entry->colorIndex];
-        GfxPrint_SetColor(printer, color->r, color->g, color->b, color->a);
-        GfxPrint_Printf(printer, "%s", entry->text);
+        gfxprint_color(printer, color->r, color->g, color->b, color->a);
+        gfxprint_printf(printer, "%s", entry->text);
         *entry->text = '\0';
         entry++;
     }
@@ -118,9 +118,9 @@ void DebugCamera_DrawScreenText(GfxPrint* printer) {
         entry = &sDebugCamTextBuffer[i];
         color = &sDebugCamTextColors[entry->colorIndex];
 
-        GfxPrint_SetColor(printer, color->r, color->g, color->b, color->a);
-        GfxPrint_SetPos(printer, entry->x, entry->y);
-        GfxPrint_Printf(printer, "%s", entry->text);
+        gfxprint_color(printer, color->r, color->g, color->b, color->a);
+        gfxprint_locate8x8(printer, entry->x, entry->y);
+        gfxprint_printf(printer, "%s", entry->text);
     }
 }
 
@@ -130,7 +130,7 @@ void Debug_DrawText(GraphicsContext* gfxCtx) {
     GfxPrint printer;
 
     if (THGA_GetRemaining(&gfxCtx->polyOpa) >= 0x2800) {
-        GfxPrint_Init(&printer);
+        gfxprint_init(&printer);
 
         OPEN_DISPS(gfxCtx);
 
@@ -138,7 +138,7 @@ void Debug_DrawText(GraphicsContext* gfxCtx) {
         gfx = Graph_GfxPlusOne(gfxHead);
         gSPDisplayList(DEBUG_DISP++, gfx);
 
-        GfxPrint_Open(&printer, gfx);
+        gfxprint_open(&printer, gfx);
 
         if (sDebugTextDrawFlags & DEBUG_TEXT_DRAW_CAM_TEXT) {
             DebugCamera_DrawScreenText(&printer);
@@ -149,13 +149,13 @@ void Debug_DrawText(GraphicsContext* gfxCtx) {
             Debug_DrawScreenText(&printer);
         }
 
-        gfx = GfxPrint_Close(&printer);
+        gfx = gfxprint_close(&printer);
         gSPEndDisplayList(gfx++);
         Graph_BranchDlist(gfxHead, gfx);
         POLY_OPA_DISP = gfx;
 
         CLOSE_DISPS(gfxCtx);
 
-        GfxPrint_Destroy(&printer);
+        gfxprint_cleanup(&printer);
     }
 }

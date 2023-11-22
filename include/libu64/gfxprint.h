@@ -30,21 +30,21 @@ typedef struct GfxPrint {
     /* 0x14 */ UNK_TYPE1 unk_14[0x1C]; // unused
 } GfxPrint; // size = 0x30
 
-void GfxPrint_Setup(GfxPrint* this);
-void GfxPrint_SetColor(GfxPrint* this, u32 r, u32 g, u32 b, u32 a);
-void GfxPrint_SetPosPx(GfxPrint* this, s32 x, s32 y);
-void GfxPrint_SetPos(GfxPrint* this, s32 x, s32 y);
-void GfxPrint_SetBasePosPx(GfxPrint* this, s32 x, s32 y);
-void GfxPrint_PrintCharImpl(GfxPrint* this, u8 c);
-void GfxPrint_PrintChar(GfxPrint* this, u8 c);
-void GfxPrint_PrintStringWithSize(GfxPrint* this, const void* buffer, size_t charSize, size_t charCount);
-void GfxPrint_PrintString(GfxPrint* this, const char* str);
-void* GfxPrint_Callback(void* arg, const char* str, size_t size);
-void GfxPrint_Init(GfxPrint* this);
-void GfxPrint_Destroy(GfxPrint* printer);
-void GfxPrint_Open(GfxPrint* this, Gfx* dList);
-Gfx* GfxPrint_Close(GfxPrint* this);
-s32 GfxPrint_VPrintf(GfxPrint* this, const char* fmt, va_list args);
-s32 GfxPrint_Printf(GfxPrint* this, const char* fmt, ...);
+void gfxprint_setup(GfxPrint* this);
+void gfxprint_color(GfxPrint* this, u32 r, u32 g, u32 b, u32 a);
+void gfxprint_locate(GfxPrint* this, s32 x, s32 y);
+void gfxprint_locate8x8(GfxPrint* this, s32 x, s32 y);
+void gfxprint_setoffset(GfxPrint* this, s32 x, s32 y);
+void gfxprint_putc1(GfxPrint* this, u8 c);
+void gfxprint_putc(GfxPrint* this, u8 c);
+void gfxprint_write(GfxPrint* this, const void* buffer, size_t charSize, size_t charCount);
+void gfxprint_puts(GfxPrint* this, const char* str);
+void* gfxprint_prout(void* arg, const char* str, size_t size);
+void gfxprint_init(GfxPrint* this);
+void gfxprint_cleanup(GfxPrint* printer);
+void gfxprint_open(GfxPrint* this, Gfx* dList);
+Gfx* gfxprint_close(GfxPrint* this);
+s32 gfxprint_vprintf(GfxPrint* this, const char* fmt, va_list args);
+s32 gfxprint_printf(GfxPrint* this, const char* fmt, ...);
 
 #endif

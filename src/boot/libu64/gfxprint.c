@@ -15,7 +15,7 @@ extern u16 sGfxPrintRainbowTLUT[16];
 extern u8 sGfxPrintRainbowData[8];
 extern u8 sGfxPrintFontData[2048];
 
-void GfxPrint_Setup(GfxPrint* this) {
+void gfxprint_setup(GfxPrint* this) {
     s32 width = 16;
     s32 height = 256;
     s32 i;
@@ -50,7 +50,7 @@ void GfxPrint_Setup(GfxPrint* this) {
     }
 }
 
-void GfxPrint_SetColor(GfxPrint* this, u32 r, u32 g, u32 b, u32 a) {
+void gfxprint_color(GfxPrint* this, u32 r, u32 g, u32 b, u32 a) {
     this->color.r = r;
     this->color.g = g;
     this->color.b = b;
@@ -59,21 +59,21 @@ void GfxPrint_SetColor(GfxPrint* this, u32 r, u32 g, u32 b, u32 a) {
     gDPSetColor(this->dList++, G_SETPRIMCOLOR, this->color.rgba);
 }
 
-void GfxPrint_SetPosPx(GfxPrint* this, s32 x, s32 y) {
+void gfxprint_locate(GfxPrint* this, s32 x, s32 y) {
     this->posX = this->baseX + (x << 2);
     this->posY = this->baseY + (y << 2);
 }
 
-void GfxPrint_SetPos(GfxPrint* this, s32 x, s32 y) {
-    GfxPrint_SetPosPx(this, x << 3, y << 3);
+void gfxprint_locate8x8(GfxPrint* this, s32 x, s32 y) {
+    gfxprint_locate(this, x << 3, y << 3);
 }
 
-void GfxPrint_SetBasePosPx(GfxPrint* this, s32 x, s32 y) {
+void gfxprint_setoffset(GfxPrint* this, s32 x, s32 y) {
     this->baseX = x << 2;
     this->baseY = y << 2;
 }
 
-void GfxPrint_PrintCharImpl(GfxPrint* this, u8 c) {
+void gfxprint_putc1(GfxPrint* this, u8 c) {
     u32 tile = (c & 0xFF) * 2;
     u16 s = c & 4;
     u16 t = c >> 3;
@@ -110,11 +110,11 @@ void GfxPrint_PrintCharImpl(GfxPrint* this, u8 c) {
     this->posX += 32;
 }
 
-void GfxPrint_PrintChar(GfxPrint* this, u8 c) {
+void gfxprint_putc(GfxPrint* this, u8 c) {
     if (c == ' ') {
         this->posX += 32;
     } else if (c > ' ' && c < 0x7F) {
-        GfxPrint_PrintCharImpl(this, c);
+        gfxprint_putc1(this, c);
     } else if (c >= 0xA0 && c < 0xE0) {
         if (this->flags & GFXP_FLAG_HIRAGANA) {
             if (c < 0xC0) {
@@ -123,35 +123,43 @@ void GfxPrint_PrintChar(GfxPrint* this, u8 c) {
                 c += 0x20;
             }
         }
-        GfxPrint_PrintCharImpl(this, c);
+        gfxprint_putc1(this, c);
     } else {
         switch (c) {
             case '\0':
                 break;
+
             case '\n':
                 this->posY += 32;
+
             case '\r':
                 this->posX = this->baseX;
                 break;
+
             case '\t':
                 do {
-                    GfxPrint_PrintCharImpl(this, ' ');
+                    gfxprint_putc1(this, ' ');
                 } while ((this->posX - this->baseX) % 256);
                 break;
+
             case GFXP_HIRAGANA_CHAR:
                 this->flags |= GFXP_FLAG_HIRAGANA;
                 break;
+
             case GFXP_KATAKANA_CHAR:
                 this->flags &= ~GFXP_FLAG_HIRAGANA;
                 break;
+
             case GFXP_RAINBOW_ON_CHAR:
                 this->flags |= GFXP_FLAG_RAINBOW;
                 this->flags |= GFXP_FLAG_UPDATE;
                 break;
+
             case GFXP_RAINBOW_OFF_CHAR:
                 this->flags &= ~GFXP_FLAG_RAINBOW;
                 this->flags |= GFXP_FLAG_UPDATE;
                 break;
+
             case GFXP_UNUSED_CHAR:
             default:
                 break;
@@ -159,34 +167,34 @@ void GfxPrint_PrintChar(GfxPrint* this, u8 c) {
     }
 }
 
-void GfxPrint_PrintStringWithSize(GfxPrint* this, const void* buffer, size_t charSize, size_t charCount) {
+void gfxprint_write(GfxPrint* this, const void* buffer, size_t charSize, size_t charCount) {
     const char* str = (const char*)buffer;
     size_t count = charSize * charCount;
 
     while (count != 0) {
-        GfxPrint_PrintChar(this, *str++);
+        gfxprint_putc(this, *str++);
         count--;
     }
 }
 
-void GfxPrint_PrintString(GfxPrint* this, const char* str) {
+void gfxprint_puts(GfxPrint* this, const char* str) {
     while (*str != '\0') {
-        GfxPrint_PrintChar(this, *str++);
+        gfxprint_putc(this, *str++);
     }
 }
 
-void* GfxPrint_Callback(void* arg, const char* str, size_t size) {
+void* gfxprint_prout(void* arg, const char* str, size_t size) {
     GfxPrint* this = arg;
 
-    GfxPrint_PrintStringWithSize(this, str, sizeof(char), size);
+    gfxprint_write(this, str, sizeof(char), size);
 
     return this;
 }
 
-void GfxPrint_Init(GfxPrint* this) {
+void gfxprint_init(GfxPrint* this) {
     this->flags &= ~GFXP_FLAG_OPEN;
 
-    this->callback = GfxPrint_Callback;
+    this->callback = gfxprint_prout;
     this->dList = NULL;
     this->posX = 0;
     this->posY = 0;
@@ -200,18 +208,18 @@ void GfxPrint_Init(GfxPrint* this) {
     this->flags |= GFXP_FLAG_UPDATE;
 }
 
-void GfxPrint_Destroy(GfxPrint* this) {
+void gfxprint_cleanup(GfxPrint* this) {
 }
 
-void GfxPrint_Open(GfxPrint* this, Gfx* dList) {
+void gfxprint_open(GfxPrint* this, Gfx* dList) {
     if (!(this->flags & GFXP_FLAG_OPEN)) {
         this->flags |= GFXP_FLAG_OPEN;
         this->dList = dList;
-        GfxPrint_Setup(this);
+        gfxprint_setup(this);
     }
 }
 
-Gfx* GfxPrint_Close(GfxPrint* this) {
+Gfx* gfxprint_close(GfxPrint* this) {
     Gfx* ret;
 
     this->flags &= ~GFXP_FLAG_OPEN;
@@ -221,16 +229,16 @@ Gfx* GfxPrint_Close(GfxPrint* this) {
     return ret;
 }
 
-s32 GfxPrint_VPrintf(GfxPrint* this, const char* fmt, va_list args) {
+s32 gfxprint_vprintf(GfxPrint* this, const char* fmt, va_list args) {
     return PrintUtils_VPrintf(&this->callback, fmt, args);
 }
 
-s32 GfxPrint_Printf(GfxPrint* this, const char* fmt, ...) {
+s32 gfxprint_printf(GfxPrint* this, const char* fmt, ...) {
     s32 ret;
     va_list args;
     va_start(args, fmt);
 
-    ret = GfxPrint_VPrintf(this, fmt, args);
+    ret = gfxprint_vprintf(this, fmt, args);
 
     va_end(args);
 

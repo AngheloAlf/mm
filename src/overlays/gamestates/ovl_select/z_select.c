@@ -740,33 +740,33 @@ void MapSelect_UpdateMenu(MapSelectState* this) {
 void MapSelect_PrintMenu(MapSelectState* this, GfxPrint* printer) {
     s32 i;
 
-    GfxPrint_SetColor(printer, 255, 155, 150, 255);
-    GfxPrint_SetPos(printer, 12, 2);
-    GfxPrint_Printf(printer, "ZELDA MAP SELECT");
-    GfxPrint_SetColor(printer, 255, 255, 255, 255);
+    gfxprint_color(printer, 255, 155, 150, 255);
+    gfxprint_locate8x8(printer, 12, 2);
+    gfxprint_printf(printer, "ZELDA MAP SELECT");
+    gfxprint_color(printer, 255, 255, 255, 255);
 
     for (i = 0; i < 20; i++) {
         s32 sceneIndex;
         char* sceneName;
 
-        GfxPrint_SetPos(printer, 9, i + 4);
+        gfxprint_locate8x8(printer, 9, i + 4);
         sceneIndex = (this->topDisplayedScene + i + this->count) % this->count;
         if (sceneIndex == this->currentScene) {
-            GfxPrint_SetColor(printer, 255, 20, 20, 255);
+            gfxprint_color(printer, 255, 20, 20, 255);
         } else {
-            GfxPrint_SetColor(printer, 200, 200, 55, 255);
+            gfxprint_color(printer, 200, 200, 55, 255);
         }
 
         sceneName = this->scenes[sceneIndex].name;
         if (sceneName == NULL) {
             sceneName = "**Null**";
         }
-        GfxPrint_Printf(printer, "%s", sceneName);
+        gfxprint_printf(printer, "%s", sceneName);
     }
 
-    GfxPrint_SetColor(printer, 155, 55, 150, 255);
-    GfxPrint_SetPos(printer, 20, 26);
-    GfxPrint_Printf(printer, "OPT=%d", this->opt);
+    gfxprint_color(printer, 155, 55, 150, 255);
+    gfxprint_locate8x8(printer, 20, 26);
+    gfxprint_printf(printer, "OPT=%d", this->opt);
 }
 
 static const char* sLoadingMessages[] = {
@@ -799,11 +799,11 @@ static const char* sLoadingMessages[] = {
 void MapSelect_PrintLoadingMessage(MapSelectState* this, GfxPrint* printer) {
     s32 randomMsg;
 
-    GfxPrint_SetPos(printer, 10, 15);
-    GfxPrint_SetColor(printer, 255, 255, 255, 255);
+    gfxprint_locate8x8(printer, 10, 15);
+    gfxprint_color(printer, 255, 255, 255, 255);
 
     randomMsg = Rand_ZeroOne() * ARRAY_COUNT(sLoadingMessages);
-    GfxPrint_Printf(printer, "%s", sLoadingMessages[randomMsg]);
+    gfxprint_printf(printer, "%s", sLoadingMessages[randomMsg]);
 }
 
 // Second column is unused
@@ -845,13 +845,13 @@ void MapSelect_PrintAgeSetting(MapSelectState* this, GfxPrint* printer, s32 play
         age = NULL;
     }
 
-    GfxPrint_SetPos(printer, 4, 26);
-    GfxPrint_SetColor(printer, 255, 255, 55, 255);
+    gfxprint_locate8x8(printer, 4, 26);
+    gfxprint_color(printer, 255, 255, 55, 255);
     if (age != NULL) {
-        GfxPrint_Printf(printer, "Age:%s", age);
+        gfxprint_printf(printer, "Age:%s", age);
     } else {
         // clang-format off
-        GfxPrint_Printf(printer, "Age:???" "(%d)", playerForm);
+        gfxprint_printf(printer, "Age:???" "(%d)", playerForm);
         // clang-format on
     }
 }
@@ -860,8 +860,8 @@ void MapSelect_PrintCutsceneSetting(MapSelectState* this, GfxPrint* printer, u16
     const char* stage;
     const char* day;
 
-    GfxPrint_SetPos(printer, 4, 25);
-    GfxPrint_SetColor(printer, 255, 255, 55, 255);
+    gfxprint_locate8x8(printer, 4, 25);
+    gfxprint_color(printer, 255, 255, 55, 255);
 
     // "-jara" used in these strings is a Kokiri speech quirk word
     switch (csIndex) {
@@ -947,10 +947,10 @@ void MapSelect_PrintCutsceneSetting(MapSelectState* this, GfxPrint* printer, u16
             break;
     }
     gSaveContext.skyboxTime = gSaveContext.save.time;
-    GfxPrint_Printf(printer, "Stage:" GFXP_KATAKANA "%s", stage);
+    gfxprint_printf(printer, "Stage:" GFXP_KATAKANA "%s", stage);
 
-    GfxPrint_SetPos(printer, 23, 25);
-    GfxPrint_SetColor(printer, 255, 255, 55, 255);
+    gfxprint_locate8x8(printer, 23, 25);
+    gfxprint_color(printer, 255, 255, 55, 255);
 
     switch (gSaveContext.save.day) {
         case 1:
@@ -980,7 +980,7 @@ void MapSelect_PrintCutsceneSetting(MapSelectState* this, GfxPrint* printer, u16
             break;
     }
 
-    GfxPrint_Printf(printer, "Day:" GFXP_HIRAGANA "%s", day);
+    gfxprint_printf(printer, "Day:" GFXP_HIRAGANA "%s", day);
 }
 
 void MapSelect_DrawMenu(MapSelectState* this) {
@@ -992,15 +992,15 @@ void MapSelect_DrawMenu(MapSelectState* this) {
     Gfx_SetupDL28_Opa(gfxCtx);
 
     printer = alloca(sizeof(GfxPrint));
-    GfxPrint_Init(printer);
-    GfxPrint_Open(printer, POLY_OPA_DISP);
+    gfxprint_init(printer);
+    gfxprint_open(printer, POLY_OPA_DISP);
 
     MapSelect_PrintMenu(this, printer);
     MapSelect_PrintAgeSetting(this, printer, GET_PLAYER_FORM);
     MapSelect_PrintCutsceneSetting(this, printer, ((void)0, gSaveContext.save.cutsceneIndex));
 
-    POLY_OPA_DISP = GfxPrint_Close(printer);
-    GfxPrint_Destroy(printer);
+    POLY_OPA_DISP = gfxprint_close(printer);
+    gfxprint_cleanup(printer);
 
     CLOSE_DISPS(gfxCtx);
 }
@@ -1013,13 +1013,13 @@ void MapSelect_DrawLoadingScreen(MapSelectState* this) {
 
     Gfx_SetupDL28_Opa(gfxCtx);
 
-    GfxPrint_Init(&printer);
-    GfxPrint_Open(&printer, POLY_OPA_DISP);
+    gfxprint_init(&printer);
+    gfxprint_open(&printer, POLY_OPA_DISP);
 
     MapSelect_PrintLoadingMessage(this, &printer);
 
-    POLY_OPA_DISP = GfxPrint_Close(&printer);
-    GfxPrint_Destroy(&printer);
+    POLY_OPA_DISP = gfxprint_close(&printer);
+    gfxprint_cleanup(&printer);
 
     CLOSE_DISPS(gfxCtx);
 }

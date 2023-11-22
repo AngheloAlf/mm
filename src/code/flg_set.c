@@ -283,37 +283,37 @@ void FlagSet_Draw(GameState* gameState) {
     gfx = Graph_GfxPlusOne(polyOpa);
     gSPDisplayList(OVERLAY_DISP++, gfx);
 
-    GfxPrint_Init(&printer);
-    GfxPrint_Open(&printer, gfx);
-    GfxPrint_SetColor(&printer, 250, 50, 50, 255);
-    GfxPrint_SetPos(&printer, 8, 13);
-    GfxPrint_Printf(&printer, sFlagEntries[sEntryIndex].name);
-    GfxPrint_SetPos(&printer, 12, 15);
+    gfxprint_init(&printer);
+    gfxprint_open(&printer, gfx);
+    gfxprint_color(&printer, 250, 50, 50, 255);
+    gfxprint_locate8x8(&printer, 8, 13);
+    gfxprint_printf(&printer, sFlagEntries[sEntryIndex].name);
+    gfxprint_locate8x8(&printer, 12, 15);
 
     // Print the flag bits in the current byte, largest to smallest
     for (sFlagBitIndex = 7; sFlagBitIndex >= 0; sFlagBitIndex--) {
         // Highlight current flag bit in white, rest in grey
         if (sFlagBitIndex == sCurrentBit) {
-            GfxPrint_SetColor(&printer, 200, 200, 200, 255);
+            gfxprint_color(&printer, 200, 200, 200, 255);
         } else {
-            GfxPrint_SetColor(&printer, 100, 100, 100, 255);
+            gfxprint_color(&printer, 100, 100, 100, 255);
         }
 
         // Display 1 if flag set and 0 if not
         if (*sFlagEntries[sEntryIndex].value & (1 << sFlagBitIndex)) {
-            GfxPrint_Printf(&printer, "1");
+            gfxprint_printf(&printer, "1");
         } else {
-            GfxPrint_Printf(&printer, "0");
+            gfxprint_printf(&printer, "0");
         }
 
         // Add a space after each group of 4
         if ((sFlagBitIndex % 4) == 0) {
-            GfxPrint_Printf(&printer, " ");
+            gfxprint_printf(&printer, " ");
         }
     }
 
-    gfx = GfxPrint_Close(&printer);
-    GfxPrint_Destroy(&printer);
+    gfx = gfxprint_close(&printer);
+    gfxprint_cleanup(&printer);
 
     gSPEndDisplayList(gfx++);
     Graph_BranchDlist(polyOpa, gfx);
