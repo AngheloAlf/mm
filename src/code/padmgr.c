@@ -703,7 +703,7 @@ void PadMgr_GetInputNoLock(Input* inputs, s32 gameRequest) {
             buttonDiff = inputOut->prev.button ^ inputOut->cur.button;
             inputOut->press.button = inputOut->cur.button & buttonDiff;
             inputOut->rel.button = inputOut->prev.button & buttonDiff;
-            PadUtils_UpdateRelXY(inputOut);
+            pad_correct_stick(inputOut);
         }
         input++;
         inputOut++;
