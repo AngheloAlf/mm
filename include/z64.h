@@ -22,7 +22,6 @@
 #include "message_data_static.h"
 
 #include "gfx.h"
-#include "gfxprint.h"
 #include "padutils.h"
 #include "rand.h"
 #include "sys_matrix.h"

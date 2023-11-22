@@ -1,4 +1,6 @@
-#include "global.h"
+#include "libu64/gfxprint.h"
+
+#include "functions.h" // for PrintUtils_VPrintf
 
 #define GFXP_FLAG_HIRAGANA (1 << 0)
 #define GFXP_FLAG_RAINBOW (1 << 1)

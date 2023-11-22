@@ -8,6 +8,8 @@
 #include "z64shrink_window.h"
 #include "z64view.h"
 #include "libc/alloca.h"
+#include "libu64/gfxprint.h"
+
 #include "overlays/gamestates/ovl_title/z_title.h"
 
 void MapSelect_LoadConsoleLogo(MapSelectState* this) {

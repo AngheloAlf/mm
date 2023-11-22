@@ -1,5 +1,6 @@
 #include "z64debug_text.h"
 #include "global.h"
+#include "libu64/gfxprint.h"
 
 typedef struct {
     /* 0x0 */ u8 colorIndex;
