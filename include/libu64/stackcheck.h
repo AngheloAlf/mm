@@ -15,12 +15,12 @@ typedef struct StackEntry {
     /* 0x08 */ void* head;
     /* 0x0C */ void* tail;
     /* 0x10 */ u32 initValue;
-    /* 0x14 */ s32 minSpace;
+    /* 0x14 */ size_t minSpace;
     /* 0x18 */ const char* name;
 } StackEntry; // size = 0x1C
 
-void StackCheck_Init(StackEntry* entry, void* stackBottom, void* stackTop, u32 initValue, s32 minSpace, const char* name);
+void StackCheck_Init(StackEntry* entry, void* stackBottom, void* stackTop, u32 initValue, size_t minSpace, const char* name);
 void StackCheck_Cleanup(StackEntry* entry);
-u32 StackCheck_Check(StackEntry* entry);
+StackStatus StackCheck_Check(StackEntry* entry);
 
 #endif
