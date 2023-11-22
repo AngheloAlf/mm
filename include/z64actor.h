@@ -3,7 +3,7 @@
 
 #include "PR/ultratypes.h"
 #include "color.h"
-#include "padutils.h"
+#include "libu64/pad.h"
 #include "z64math.h"
 #include "z64animation.h"
 #include "z64collision_check.h"

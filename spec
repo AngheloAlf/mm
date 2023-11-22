@@ -30,7 +30,7 @@ beginseg
     include "build/src/boot/O2/loadfragment.o"
     include "build/src/boot/O2/loadfragment2.o"
 
-    include "build/src/boot/O2/padutils.o"
+    include "build/src/boot/libu64/pad.o"
     include "build/src/boot/libu64/stackcheck.o"
     include "build/src/boot/libu64/gfxprint.o"
     include "build/data/boot/gfxprint.data.o"

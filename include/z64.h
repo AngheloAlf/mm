@@ -22,7 +22,7 @@
 #include "message_data_static.h"
 
 #include "gfx.h"
-#include "padutils.h"
+#include "libu64/pad.h"
 #include "rand.h"
 #include "sys_matrix.h"
 #include "tha.h"

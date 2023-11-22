@@ -3,7 +3,6 @@
 
 #include "PR/controller.h"
 
-
 typedef struct Input {
     /* 0x00 */ OSContPad cur;
     /* 0x06 */ OSContPad prev;

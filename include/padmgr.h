@@ -4,7 +4,7 @@
 #include "libc/stdbool.h"
 #include "ultra64.h"
 #include "irqmgr.h"
-#include "padutils.h"
+#include "libu64/pad.h"
 
 typedef enum {
     /*  0 */ PADMGR_CONT_NONE,
