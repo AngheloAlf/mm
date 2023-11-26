@@ -223,7 +223,8 @@ TEXTURE_FILES_OUT := $(foreach f,$(TEXTURE_FILES_PNG:.png=.inc.c),build/$f) \
 
 C_FILES       := $(foreach dir,$(SRC_DIRS) $(ASSET_BIN_DIRS_C_FILES),$(wildcard $(dir)/*.c))
 S_FILES       := $(shell grep -F "build/asm" spec | sed 's/.*build\/// ; s/\.o\".*/.s/') \
-                 $(shell grep -F "build/data" spec | sed 's/.*build\/// ; s/\.o\".*/.s/')
+                 $(shell grep -F "build/data" spec | sed 's/.*build\/// ; s/\.o\".*/.s/') \
+                 $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.s))
 BASEROM_FILES := $(shell grep -F "build/baserom" spec | sed 's/.*build\/// ; s/\.o\".*//')
 ARCHIVES_O    := $(shell grep -F ".yar.o" spec | sed 's/.*include "// ; s/\.o\".*/.o/')
 O_FILES       := $(foreach f,$(S_FILES:.s=.o),build/$f) \
@@ -389,7 +390,7 @@ build/$(SPEC): $(SPEC)
 build/ldscript.txt: build/$(SPEC)
 	$(MKLDSCRIPT) $< $@
 
-build/asm/%.o: asm/%.s
+build/%.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
 build/assets/%.o: assets/%.c
@@ -403,9 +404,6 @@ build/%.yar.o: build/%.o
 
 build/baserom/%.o: baserom/%
 	$(OBJCOPY) -I binary -O elf32-big $< $@
-
-build/data/%.o: data/%.s
-	$(AS) $(ASFLAGS) $< -o $@
 
 build/src/overlays/%.o: src/overlays/%.c
 	$(CC_CHECK) $<

@@ -6,7 +6,7 @@ beginseg
     name "makerom"
     include "build/asm/makerom/rom_header.o"
     include "build/asm/makerom/ipl3.o"
-    include "build/asm/makerom/entry.o"
+    include "build/src/makerom/entry.o"
 endseg
 
 beginseg
