@@ -18,6 +18,7 @@ endseg
 
 beginseg
     name "boot"
+    address 0x80080060
     include "build/src/boot/boot_main.o"
     include "build/data/boot/rspboot.data.o"
     include "build/src/boot/idle.o"
