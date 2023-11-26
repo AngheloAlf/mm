@@ -1,10 +1,10 @@
 src/audio/code_8019AF00.c: In function 'AudioOcarina_PlaybackSong':
-src/audio/code_8019AF00.c:2862:32: warning: 'nextNoteTimerStep' may be used uninitialized in this function [-Wmaybe-uninitialized]
- 2862 |             sPlaybackNoteTimer -= nextNoteTimerStep;
+src/audio/code_8019AF00.c:2863:32: warning: 'nextNoteTimerStep' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 2863 |             sPlaybackNoteTimer -= nextNoteTimerStep;
       |                                ^~
 src/audio/code_8019AF00.c: In function 'AudioSfx_SetProperties':
-src/audio/code_8019AF00.c:4035:26: warning: 'behindScreenZ' may be used uninitialized in this function [-Wmaybe-uninitialized]
- 4035 |                 filter = AudioSfx_ComputeSurroundSoundFilter(behindScreenZ, entry, panSigned);
+src/audio/code_8019AF00.c:4036:26: warning: 'behindScreenZ' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 4036 |                 filter = AudioSfx_ComputeSurroundSoundFilter(behindScreenZ, entry, panSigned);
       |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In file included from include/z64.h:23,
                  from include/global.h:4,
@@ -13,9 +13,21 @@ src/audio/code_8019AF00.c: In function 'Audio_SetFileSelectSettings':
 include/seqcmd.h:490:100: warning: 'soundMode' may be used uninitialized in this function [-Wmaybe-uninitialized]
   490 |     AudioSeq_QueueSeqCmd((SEQCMD_OP_GLOBAL_CMD << 28) | (SEQCMD_SUB_OP_GLOBAL_SET_SOUND_MODE << 8) | (soundMode))
       |                                                                                                    ^
-src/audio/code_8019AF00.c:6024:8: note: 'soundMode' was declared here
- 6024 |     s8 soundMode;
+src/audio/code_8019AF00.c:6025:8: note: 'soundMode' was declared here
+ 6025 |     s8 soundMode;
       |        ^~~~~~~~~
+src/audio/voice_internal.c: In function 'func_801A541C':
+src/audio/voice_internal.c:159:1: warning: control reaches end of non-void function [-Wreturn-type]
+  159 | }
+      | ^
+src/audio/voice_internal.c: In function 'AudioVoice_InitWordImplAlt':
+src/audio/voice_internal.c:217:12: warning: 'errorCode' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  217 |     return errorCode;
+      |            ^~~~~~~~~
+src/audio/voice_internal.c: In function 'AudioVoice_InitWordImpl':
+src/audio/voice_internal.c:260:12: warning: 'errorCode' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  260 |     return errorCode;
+      |            ^~~~~~~~~
 src/audio/lib/heap.c: In function 'AudioHeap_PopPersistentCache':
 src/audio/lib/heap.c:314:15: warning: 'loadStatus' may be used uninitialized in this function [-Wmaybe-uninitialized]
   314 |     loadStatus[persistent->entries[persistent->numEntries - 1].id] = LOAD_STATUS_NOT_LOADED;
@@ -34,6 +46,10 @@ src/audio/lib/heap.c: In function 'AudioHeap_SearchRegularCaches':
 src/audio/lib/heap.c:700:42: warning: 'loadedCache' may be used uninitialized in this function [-Wmaybe-uninitialized]
   700 |             return persistent->entries[i].addr;
       |                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~
+src/audio/lib/load.c: In function 'AudioLoad_Init':
+src/audio/lib/load.c:1328:11: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 1328 |         *((u32*)&gAudioHeapInitSizes.permanentPoolSize) = 0;
+      |          ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 src/audio/lib/load.c: In function 'AudioLoad_SyncLoadSample':
 src/audio/lib/load.c:443:1: warning: control reaches end of non-void function [-Wreturn-type]
   443 | }
@@ -110,8 +126,8 @@ In file included from include/variables.h:6,
                  from src/overlays/actors/ovl_En_Egol/z_en_egol.h:4,
                  from src/overlays/actors/ovl_En_Egol/z_en_egol.c:7:
 src/overlays/actors/ovl_En_Egol/z_en_egol.c: In function 'EnEgol_Stop':
-include/macros.h:89:36: warning: 'angleToHome' may be used uninitialized in this function [-Wmaybe-uninitialized]
-   89 | #define ABS_ALT(x) ((x) < 0 ? -(x) : (x))
+include/macros.h:69:36: warning: 'angleToHome' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   69 | #define ABS_ALT(x) ((x) < 0 ? -(x) : (x))
       |                                    ^
 src/overlays/actors/ovl_En_Egol/z_en_egol.c:864:9: note: 'angleToHome' was declared here
   864 |     s16 angleToHome;
@@ -143,47 +159,41 @@ src/libultra/libc/xprintf.c:177:18: warning: dereferencing type-punned pointer w
   177 |             if (*(u16*)&px->v.ll & 0x8000) {
       |                  ^~~~~~~~~~~~~~~
 src/libultra/gu/cosf.c: In function '__cosf':
-src/libultra/gu/cosf.c:38:15: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-   38 |     s32 ix = *(s32*)&x;   // Type-pun x into an s32, i.e. its IEEE-754 hex representation
+src/libultra/gu/cosf.c:39:15: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   39 |     s32 ix = *(s32*)&x;   // Type-pun x into an s32, i.e. its IEEE-754 hex representation
       |               ^~~~~~~~
 src/libultra/gu/sinf.c: In function '__sinf':
-src/libultra/gu/sinf.c:36:15: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
-   36 |     s32 ix = *(s32*)&x;   // Type-pun x into an s32, i.e. its IEEE-754 hex representation
+src/libultra/gu/sinf.c:37:15: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+   37 |     s32 ix = *(s32*)&x;   // Type-pun x into an s32, i.e. its IEEE-754 hex representation
       |               ^~~~~~~~
 src/code/z_actor.c: In function 'Actor_GetClosestPosOnPath':
-src/code/z_actor.c:4154:13: warning: 'closestPointPrev.z' may be used uninitialized in this function [-Wmaybe-uninitialized]
- 4154 |             Math3D_PointDistToLine2D(srcPos->x, srcPos->z, closestPointPrev.x, closestPointPrev.z, closestPoint.x,
+src/code/z_actor.c:4163:13: warning: 'closestPointPrev.z' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 4163 |             Math3D_PointDistToLine2D(srcPos->x, srcPos->z, closestPointPrev.x, closestPointPrev.z, closestPoint.x,
       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 4155 |                                      closestPoint.z, &closestPos[0].x, &closestPos[0].z, &distSq);
+ 4164 |                                      closestPoint.z, &closestPos[0].x, &closestPos[0].z, &distSq);
       |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/code/z_actor.c:4154:13: warning: 'closestPointPrev.x' may be used uninitialized in this function [-Wmaybe-uninitialized]
+src/code/z_actor.c:4163:13: warning: 'closestPointPrev.x' may be used uninitialized in this function [-Wmaybe-uninitialized]
 src/code/z_camera.c: In function 'Camera_Fixed1':
-src/code/z_camera.c:4837:26: warning: 'bgCamFuncData' may be used uninitialized in this function [-Wmaybe-uninitialized]
- 4837 |         if (bgCamFuncData->unk_0E != (s32)negOne) {
+src/code/z_camera.c:4807:26: warning: 'bgCamFuncData' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 4807 |         if (bgCamFuncData->unk_0E != (s32)negOne) {
       |             ~~~~~~~~~~~~~^~~~~~~~
 src/code/z_kankyo.c: In function 'Environment_DrawSkyboxStarsImpl':
-src/code/z_kankyo.c:3193:22: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
- 3193 |             temp = *((f32*)&gRandFloat);
+src/code/z_kankyo.c:3230:22: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 3230 |             temp = *((f32*)&gRandFloat);
       |                     ~^~~~~~~~~~~~~~~~~~
-src/code/z_kankyo.c:3199:28: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
- 3199 |             temp_f20 = ((*((f32*)&gRandFloat) - 1.0f) + temp_f4) * 0.5f;
+src/code/z_kankyo.c:3236:28: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 3236 |             temp_f20 = ((*((f32*)&gRandFloat) - 1.0f) + temp_f4) * 0.5f;
       |                           ~^~~~~~~~~~~~~~~~~~
-src/code/z_kankyo.c:3212:25: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
- 3212 |             temp_f2 = *((f32*)&gRandFloat) - 1.0f;
+src/code/z_kankyo.c:3249:25: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+ 3249 |             temp_f2 = *((f32*)&gRandFloat) - 1.0f;
       |                        ~^~~~~~~~~~~~~~~~~~
-src/code/z_message.c: In function 'Message_Decode':
-src/code/z_message.c:2726:31: warning: iteration 4 invokes undefined behavior [-Waggressive-loop-optimizations]
- 2726 |                     digits[i] = gSaveContext.save.saveInfo.bomberCode[i];
-      |                     ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-src/code/z_message.c:2725:17: note: within this loop
- 2725 |                 for (i = 0; i < 5; i++) {
-      |                 ^~~
 In file included from include/z64camera.h:6,
-                 from include/z64.h:40,
+                 from include/z64.h:42,
                  from include/global.h:4,
                  from src/code/z_message.c:1:
-include/z64save.h:533:64: warning: array subscript 770 is above array bounds of 'u32[7]' {aka 'unsigned int[7]'} [-Warray-bounds]
-  533 | #define HIGH_SCORE(type) (gSaveContext.save.saveInfo.highScores[(type)])
+src/code/z_message.c: In function 'Message_Decode':
+include/z64save.h:534:64: warning: array subscript 770 is above array bounds of 'u32[7]' {aka 'long unsigned int[7]'} [-Warray-bounds]
+  534 | #define HIGH_SCORE(type) (gSaveContext.save.saveInfo.highScores[(type)])
       |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
 src/code/z_message.c:2784:40: note: in expansion of macro 'HIGH_SCORE'
  2784 |                         value = (s16)((HIGH_SCORE(font->msgBuf.wchar[msgCtx->msgBufPos]) & 0xFF000000) >> 0x18) & 0x7F;
@@ -191,12 +201,6 @@ src/code/z_message.c:2784:40: note: in expansion of macro 'HIGH_SCORE'
 include/z64save.h:303:21: note: while referencing 'highScores'
   303 |     /* 0xEB8 */ u32 highScores[HS_MAX];
       |                     ^~~~~~~~~~
-src/code/z_message.c:2293:42: warning: iteration 1 invokes undefined behavior [-Waggressive-loop-optimizations]
- 2293 |                     if ((i == 1) || (spAC[i + 3] != 0)) {
-      |                                      ~~~~^~~~~~~
-src/code/z_message.c:2292:17: note: within this loop
- 2292 |                 for (i = 0; i < 5; i++) {
-      |                 ^~~
 src/code/z_message.c: In function 'Message_DrawMain':
 src/code/z_message.c:4715:57: warning: array subscript 23 is above array bounds of 's16[15]' {aka 'short int[15]'} [-Warray-bounds]
  4715 |                     Item_Give(play, (gOcarinaSongItemMap[msgCtx->ocarinaStaff->state] + ITEM_SONG_SONATA) & 0xFF);
@@ -212,11 +216,11 @@ src/code/z_message_nes.c:1576:13: note: within this loop
  1576 |             for (i = 0; i < 5; i++) {
       |             ^~~
 In file included from include/z64camera.h:6,
-                 from include/z64.h:40,
+                 from include/z64.h:42,
                  from include/global.h:4,
                  from src/code/z_message_nes.c:1:
-include/z64save.h:533:64: warning: array subscript 242 is above array bounds of 'u32[7]' {aka 'unsigned int[7]'} [-Warray-bounds]
-  533 | #define HIGH_SCORE(type) (gSaveContext.save.saveInfo.highScores[(type)])
+include/z64save.h:534:64: warning: array subscript 242 is above array bounds of 'u32[7]' {aka 'long unsigned int[7]'} [-Warray-bounds]
+  534 | #define HIGH_SCORE(type) (gSaveContext.save.saveInfo.highScores[(type)])
       |                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
 src/code/z_message_nes.c:1645:36: note: in expansion of macro 'HIGH_SCORE'
  1645 |                     value = (s16)((HIGH_SCORE((u8)font->msgBuf.schar[msgCtx->msgBufPos]) & 0xFF000000) >> 0x18) & 0x7F;
@@ -225,8 +229,8 @@ include/z64save.h:303:21: note: while referencing 'highScores'
   303 |     /* 0xEB8 */ u32 highScores[HS_MAX];
       |                     ^~~~~~~~~~
 src/code/z_sram_NES.c: In function 'Sram_OpenSave':
-src/code/z_sram_NES.c:1251:80: warning: 'phi_t1' may be used uninitialized in this function [-Wmaybe-uninitialized]
- 1251 |             SysFlashrom_ReadData(sramCtx->saveBuf, gFlashSaveStartPages[phi_t1 + 1], gFlashSaveNumPages[phi_t1 + 1]);
+src/code/z_sram_NES.c:1252:80: warning: 'phi_t1' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1252 |             SysFlashrom_ReadData(sramCtx->saveBuf, gFlashSaveStartPages[phi_t1 + 1], gFlashSaveNumPages[phi_t1 + 1]);
       |                                                                         ~~~~~~~^~~
 src/boot/O2/rand.c: In function 'Rand_ZeroOne':
 src/boot/O2/rand.c:35:14: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
