@@ -971,11 +971,7 @@
         <DList Name="gSwordBeamDL" Offset="0x27CA0" />
 
         <Blob Name="gameplay_keep_Blob_027DD0" Size="0x32C" Offset="0x27DD0" />
-        <Blob Name="gameplay_keep_Blob_0281DC" Size="0x10" Offset="0x281DC" />
-
-        <Array Name="gameplay_keepVtx_0281F0" Count="14" Offset="0x281F0">
-            <Vtx/>
-        </Array>
+        <Blob Name="gameplay_keep_Blob_0281DC" Size="0x14" Offset="0x281DC" />
 
         <DList Name="gameplay_keep_DL_0282D0" Offset="0x282D0" />
         <Texture Name="gameplay_keep_Tex_0283B8" OutName="tex_0283B8" Format="i4" Width="64" Height="64" Offset="0x283B8" />
@@ -1339,11 +1335,7 @@
         <TextureAnimation Name="gameplay_keep_Matanimheader_06B730" Offset="0x6B730" />
 
         <Blob Name="gameplay_keep_Blob_06B750" Size="0x3BC" Offset="0x6B750" />
-        <Blob Name="gameplay_keep_Blob_06BB0C" Size="0x10" Offset="0x6BB0C" />
-
-        <Array Name="gameplay_keepVtx_06BB20" Count="76" Offset="0x6BB20">
-            <Vtx/>
-        </Array>
+        <Blob Name="gameplay_keep_Blob_06BB0C" Size="0x14" Offset="0x6BB0C" />
 
         <DList Name="gameplay_keep_DL_06BFE0" Offset="0x6BFE0" />
         <DList Name="gameplay_keep_DL_06C098" Offset="0x6C098" />
@@ -1456,12 +1448,9 @@
         <DList Name="gameplay_keep_DL_081620" Offset="0x81620" />
         <DList Name="gameplay_keep_DL_081628" Offset="0x81628" />
         <Texture Name="gameplay_keep_Tex_0816C0" OutName="tex_0816C0" Format="rgba16" Width="16" Height="32" Offset="0x816C0" />
-        <Blob Name="gameplay_keep_Blob_081AC0" Size="0x1A74" Offset="0x81AC0" />
-        <Blob Name="gameplay_keep_Blob_083534" Size="0x10" Offset="0x83534" />
 
-        <Array Name="gameplay_keepVtx_083550" Count="292" Offset="0x83550">
-            <Vtx/>
-        </Array>
+        <Blob Name="gameplay_keep_Blob_081AC0" Size="0x1A74" Offset="0x81AC0" />
+        <Blob Name="gameplay_keep_Blob_083534" Size="0x1C" Offset="0x83534" />
 
         <DList Name="gameplay_keep_DL_084790" Offset="0x84790" />
         <DList Name="gameplay_keep_DL_0847E0" Offset="0x847E0" />
@@ -1495,10 +1484,6 @@
         <DList Name="gameplay_keep_DL_085490" Offset="0x85490" />
         <Blob Name="gameplay_keep_Blob_085510" Size="0x130" Offset="0x85510" />
         <Blob Name="gameplay_keep_Blob_085640" Size="0x10" Offset="0x85640" />
-
-        <Array Name="gameplay_keepVtx_085650" Count="930" Offset="0x85650">
-            <Vtx/>
-        </Array>
 
         <!-- Zora Elegy of Emptiness Shell -->
         <DList Name="gElegyShellZoraDL" Offset="0x89070" /> <!-- Original name is "pzs_zo_model" -->

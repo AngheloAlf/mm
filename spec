@@ -4,15 +4,20 @@
 
 beginseg
     name "makerom"
-    address 0x8007F000
     include "build/asm/makerom/rom_header.o"
     include "build/asm/makerom/ipl3.o"
     include "build/asm/makerom/entry.o"
 endseg
 
 beginseg
+    name "framebuffer_lo"
+    address 0x80000500
+    flags NOLOAD
+    include "build/src/buffers/framebuffer_lo.o"
+endseg
+
+beginseg
     name "boot"
-    address 0x80080060
     include "build/src/boot/boot_main.o"
     include "build/data/boot/rspboot.data.o"
     include "build/src/boot/idle.o"
@@ -597,10 +602,7 @@ beginseg
     include "build/asm/code/code_8019AEC0.text.o" // handwritten
     include "build/src/audio/code_8019AF00.o"
     include "build/src/audio/voice_external.o"
-    include "build/data/code/voice_external.data.o"
     include "build/src/audio/voice_internal.o"
-    include "build/data/code/voice_internal.data.o"
-    include "build/data/code/voice_internal.bss.o"
     pad_text
     include "build/src/audio/sfx_params.o"
     include "build/src/audio/sfx.o"
@@ -618,6 +620,8 @@ beginseg
     include "build/data/code/njpgdspMain.rodata.o"
 endseg
 
+// The game expects all the segments after the `code` segment and before the first overlay to be `NOLOAD` ones
+
 beginseg
     name "buffers"
     flags NOLOAD
@@ -630,15 +634,16 @@ endseg
 beginseg
     name "system_heap"
     flags NOLOAD
-    // This segment is a just a dummy that is used to know where the other buffers (non framebuffers) end
+    // This segment is just a dummy that is used to know where the other buffers (non framebuffers) end
     include "build/src/buffers/system_heap.o"
 endseg
 
 beginseg
-    name "framebuffers"
+    name "framebuffer_hi"
     flags NOLOAD
-    address 0x80780000 // this is a fixed location
-    include "build/data/code/framebuffers.bss.o"
+    // This has to be fixed location in VRAM. See the FRAMEBUFFERS_START_ADDR define on `buffers.h` for a more in-depth explanation
+    address 0x80780000
+    include "build/src/buffers/framebuffer_hi.o"
 endseg
 
 beginseg
@@ -2360,13 +2365,7 @@ beginseg
     name "ovl_Boss_05"
     compress
     include "build/src/overlays/actors/ovl_Boss_05/z_boss_05.o"
-    include "build/data/ovl_Boss_05/ovl_Boss_05.data.o"
-    include "build/data/ovl_Boss_05/ovl_Boss_05.bss.o"
-#ifdef NON_MATCHING
     include "build/src/overlays/actors/ovl_Boss_05/ovl_Boss_05_reloc.o"
-#else
-    include "build/data/ovl_Boss_05/ovl_Boss_05.reloc.o"
-#endif
 endseg
 
 beginseg
@@ -2911,12 +2910,7 @@ beginseg
     name "ovl_En_Jso2"
     compress
     include "build/src/overlays/actors/ovl_En_Jso2/z_en_jso2.o"
-    include "build/data/ovl_En_Jso2/ovl_En_Jso2.data.o"
-#ifdef NON_MATCHING
     include "build/src/overlays/actors/ovl_En_Jso2/ovl_En_Jso2_reloc.o"
-#else
-    include "build/data/ovl_En_Jso2/ovl_En_Jso2.reloc.o"
-#endif
 endseg
 
 beginseg

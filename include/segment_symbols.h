@@ -39,6 +39,8 @@
 #define ROM_FILE_UNSET \
     { 0 }
 
+DECLARE_SEGMENT(framebuffer_lo)
+
 DECLARE_SEGMENT(boot)
 DECLARE_ROM_SEGMENT(boot)
 
