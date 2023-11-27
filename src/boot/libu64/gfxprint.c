@@ -1,6 +1,6 @@
 #include "libu64/gfxprint.h"
 
-#include "functions.h" // for PrintUtils_VPrintf
+#include "libc64/aprintf.h"
 
 #define GFXP_FLAG_HIRAGANA (1 << 0)
 #define GFXP_FLAG_RAINBOW (1 << 1)
@@ -230,7 +230,7 @@ Gfx* gfxprint_close(GfxPrint* this) {
 }
 
 s32 gfxprint_vprintf(GfxPrint* this, const char* fmt, va_list args) {
-    return PrintUtils_VPrintf(&this->callback, fmt, args);
+    return vaprintf(&this->callback, fmt, args);
 }
 
 s32 gfxprint_printf(GfxPrint* this, const char* fmt, ...) {

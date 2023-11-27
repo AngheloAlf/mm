@@ -2,8 +2,8 @@
 #include "global.h"
 #include "fault.h"
 #include "stack.h"
+#include "libc64/malloc.h"
 #include "libu64/stackcheck.h"
-#include "system_malloc.h"
 #include "z64thread.h"
 #include "sys_flashrom.h"
 #include "PR/os_internal_flash.h"
@@ -172,7 +172,7 @@ s32 SysFlashrom_WriteData(void* addr, u32 pageNum, u32 pageCount) {
         return -1;
     }
     size = pageCount * FLASH_BLOCK_SIZE;
-    data = SystemArena_Malloc(size);
+    data = malloc(size);
     if (data == NULL) {
         ret = SysFlashrom_AttemptWrite(addr, pageNum, pageCount);
     } else {
@@ -195,7 +195,7 @@ s32 SysFlashrom_WriteData(void* addr, u32 pageNum, u32 pageCount) {
                 }
             }
         }
-        SystemArena_Free(data);
+        free(data);
     }
     return ret;
 }
