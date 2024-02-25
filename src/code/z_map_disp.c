@@ -45,21 +45,19 @@ static u32 sLoadTextureBlock_siz_LINE_BYTES[4] = {
     G_IM_SIZ_32b_LINE_BYTES,
 };
 
-#define gDPLoadTextureBlock_TEST(pkt, timg, fmt, siz, width, height, pal, cms, cmt, masks, maskt, shifts, shiftt)      \
-    _DW({                                                                                                              \
-        gDPSetTextureImage(pkt, fmt, sLoadTextureBlock_siz_LOAD_BLOCK[siz], 1, timg);                                  \
-        gDPSetTile(pkt, fmt, sLoadTextureBlock_siz_LOAD_BLOCK[siz], 0, 0, G_TX_LOADTILE, 0, cmt, maskt, shiftt, cms,   \
-                   masks, shifts);                                                                                     \
-        gDPLoadSync(pkt);                                                                                              \
-        gDPLoadBlock(pkt, G_TX_LOADTILE, 0, 0,                                                                         \
-                     (((width) * (height) + sLoadTextureBlock_siz_INCR[siz]) >> sLoadTextureBlock_siz_SHIFT[siz]) - 1, \
-                     CALC_DXT(width, sLoadTextureBlock_siz_BYTES[siz]));                                               \
-        gDPPipeSync(pkt);                                                                                              \
-        gDPSetTile(pkt, fmt, sLoadTextureBlock_siz[siz], (((width)*sLoadTextureBlock_siz_LINE_BYTES[siz]) + 7) >> 3,   \
-                   0, G_TX_RENDERTILE, pal, cmt, maskt, shiftt, cms, masks, shifts);                                   \
-        gDPSetTileSize(pkt, G_TX_RENDERTILE, 0, 0, ((width)-1) << G_TEXTURE_IMAGE_FRAC,                                \
-                       ((height)-1) << G_TEXTURE_IMAGE_FRAC);                                                          \
-    })
+#define G_IM_SIZ_MARK_8b             sLoadTextureBlock_siz[G_IM_SIZ_8b]
+#define G_IM_SIZ_MARK_8b_LOAD_BLOCK  sLoadTextureBlock_siz_LOAD_BLOCK[G_IM_SIZ_8b]
+#define G_IM_SIZ_MARK_8b_INCR        sLoadTextureBlock_siz_INCR[G_IM_SIZ_8b]
+#define G_IM_SIZ_MARK_8b_SHIFT       sLoadTextureBlock_siz_SHIFT[G_IM_SIZ_8b]
+#define G_IM_SIZ_MARK_8b_BYTES       sLoadTextureBlock_siz_BYTES[G_IM_SIZ_8b]
+#define G_IM_SIZ_MARK_8b_LINE_BYTES  sLoadTextureBlock_siz_LINE_BYTES[G_IM_SIZ_8b]
+
+#define G_IM_SIZ_MARK_16b             sLoadTextureBlock_siz[G_IM_SIZ_16b]
+#define G_IM_SIZ_MARK_16b_LOAD_BLOCK  sLoadTextureBlock_siz_LOAD_BLOCK[G_IM_SIZ_16b]
+#define G_IM_SIZ_MARK_16b_INCR        sLoadTextureBlock_siz_INCR[G_IM_SIZ_16b]
+#define G_IM_SIZ_MARK_16b_SHIFT       sLoadTextureBlock_siz_SHIFT[G_IM_SIZ_16b]
+#define G_IM_SIZ_MARK_16b_BYTES       sLoadTextureBlock_siz_BYTES[G_IM_SIZ_16b]
+#define G_IM_SIZ_MARK_16b_LINE_BYTES  sLoadTextureBlock_siz_LINE_BYTES[G_IM_SIZ_16b]
 
 static UNK_TYPE4 D_801BEB30[2] = { 0, 0 };
 
@@ -358,7 +356,7 @@ void MapDisp_Minimap_DrawActorIcon(PlayState* play, Actor* actor) {
             gDPSetEnvColor(OVERLAY_DISP++, 0, 0, 0, play->interfaceCtx.minimapAlpha);
             gDPPipeSync(OVERLAY_DISP++);
 
-            gDPLoadTextureBlock_TEST(OVERLAY_DISP++, gMapChestIconTex, G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 8, 0,
+            gDPLoadTextureBlock(OVERLAY_DISP++, gMapChestIconTex, G_IM_FMT_RGBA, G_IM_SIZ_MARK_16b, 8, 8, 0,
                                      G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMASK, G_TX_NOMASK,
                                      G_TX_NOLOD, G_TX_NOLOD);
 
@@ -1454,7 +1452,7 @@ void MapDisp_DrawChests(PlayState* play, s32 viewX, s32 viewY, s32 viewWidth, s3
     gDPSetEnvColor(POLY_OPA_DISP++, 0, 0, 0, 255);
     gDPPipeSync(POLY_OPA_DISP++);
 
-    gDPLoadTextureBlock_TEST(POLY_OPA_DISP++, gMapChestIconTex, G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 8, 0,
+    gDPLoadTextureBlock(POLY_OPA_DISP++, gMapChestIconTex, G_IM_FMT_RGBA, G_IM_SIZ_MARK_16b, 8, 8, 0,
                              G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMASK, G_TX_NOMASK, G_TX_NOLOD,
                              G_TX_NOLOD);
 
@@ -1594,7 +1592,7 @@ void MapDisp_DrawBossIcon(PlayState* play, s32 viewX, s32 viewY, s32 viewWidth, 
     gDPPipeSync(POLY_OPA_DISP++);
 
     if (CHECK_DUNGEON_ITEM(DUNGEON_COMPASS, dungeonIndex)) {
-        gDPLoadTextureBlock_TEST(POLY_OPA_DISP++, gMapBossIconTex, G_IM_FMT_IA, G_IM_SIZ_8b, 8, 8, 0,
+        gDPLoadTextureBlock(POLY_OPA_DISP++, gMapBossIconTex, G_IM_FMT_IA, G_IM_SIZ_MARK_8b, 8, 8, 0,
                                  G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMIRROR | G_TX_WRAP, G_TX_NOMASK, G_TX_NOMASK,
                                  G_TX_NOLOD, G_TX_NOLOD);
 
