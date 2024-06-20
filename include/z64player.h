@@ -1423,6 +1423,12 @@ s32 func_80128640(struct PlayState* play, Player* player, Gfx* dList);
 void Player_SetFeetPos(struct PlayState* play, Player* player, s32 limbIndex);
 void Player_PostLimbDrawGameplay(struct PlayState* play, s32 limbIndex, Gfx** dList1, Gfx** dList2, Vec3s* rot, Actor* actor);
 
+s32 Actor_TalkOfferAccepted(Actor* actor, struct GameState* gameState);
+s32 Actor_OfferTalkExchange(Actor* actor, struct PlayState* play, f32 xzRange, f32 yRange, PlayerItemAction exchangeItemAction);
+s32 Actor_OfferTalkExchangeEquiCylinder(Actor* actor, struct PlayState* play, f32 radius, PlayerItemAction exchangeItemAction);
+s32 Actor_OfferTalk(Actor* actor, struct PlayState* play, f32 radius);
+s32 Actor_OfferTalkNearColChkInfoCylinder(Actor* actor, struct PlayState* play);
+
 extern FlexSkeletonHeader* gPlayerSkeletons[PLAYER_FORM_MAX];
 extern PlayerModelIndices gPlayerModelTypes[];
 extern struct_80124618 D_801C03A0[];

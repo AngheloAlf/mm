@@ -1,8 +1,13 @@
 #ifndef Z64ITEM_H
 #define Z64ITEM_H
 
+#include "PR/ultratypes.h"
+
 #define DROP_TABLE_SIZE 16
 #define DROP_TABLE_NUMBER 17
+
+struct Actor;
+struct PlayState;
 
 // TODO fill out these enums
 
@@ -671,5 +676,10 @@ typedef enum GetItemDrawId {
     /* 0x75 */ GID_MASK_FIERCE_DEITY,
     /* 0x76 */ GID_MAX
 } GetItemDrawId;
+
+s32 Actor_OfferGetItem(struct Actor* actor, struct PlayState* play, GetItemId getItemId, f32 xzRange, f32 yRange);
+s32 Actor_OfferGetItemNearby(struct Actor* actor, struct PlayState* play, GetItemId getItemId);
+s32 Actor_OfferCarry(struct Actor* actor, struct PlayState* play);
+s32 Actor_OfferGetItemFar(struct Actor* actor, struct PlayState* play, GetItemId getItemId);
 
 #endif
