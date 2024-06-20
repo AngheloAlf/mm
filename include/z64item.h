@@ -2,12 +2,14 @@
 #define Z64ITEM_H
 
 #include "PR/ultratypes.h"
+#include "stdbool.h"
 
 #define DROP_TABLE_SIZE 16
 #define DROP_TABLE_NUMBER 17
 
 struct Actor;
 struct PlayState;
+struct Vec3f;
 
 // TODO fill out these enums
 
@@ -676,6 +678,15 @@ typedef enum GetItemDrawId {
     /* 0x75 */ GID_MASK_FIERCE_DEITY,
     /* 0x76 */ GID_MAX
 } GetItemDrawId;
+
+struct Actor* Item_DropCollectible(struct PlayState* play, struct Vec3f* spawnPos, u32 params);
+struct Actor* Item_DropCollectible2(struct PlayState* play, struct Vec3f* spawnPos, s32 params);
+void Item_DropCollectibleRandom(struct PlayState* play, struct Actor* fromActor, struct Vec3f* spawnPos, s16 params);
+s32 func_800A8150(s32 index);
+s32 func_800A817C(s32 index);
+bool Item_CanDropBigFairy(struct PlayState* play, s32 index, s32 collectibleFlag);
+
+void GetItem_Draw(struct PlayState* play, s16 drawId);
 
 s32 Actor_OfferGetItem(struct Actor* actor, struct PlayState* play, GetItemId getItemId, f32 xzRange, f32 yRange);
 s32 Actor_OfferGetItemNearby(struct Actor* actor, struct PlayState* play, GetItemId getItemId);

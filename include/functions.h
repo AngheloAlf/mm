@@ -3,15 +3,6 @@
 
 #include "z64.h"
 
-Actor* Item_DropCollectible(PlayState* play, Vec3f* spawnPos, u32 params);
-Actor* Item_DropCollectible2(PlayState* play, Vec3f* spawnPos, s32 params);
-void Item_DropCollectibleRandom(PlayState* play, Actor* fromActor, Vec3f* spawnPos, s16 params);
-s32 func_800A8150(s32 index);
-s32 func_800A817C(s32 index);
-bool Item_CanDropBigFairy(PlayState* play, s32 index, s32 collectibleFlag);
-
-void GetItem_Draw(PlayState* play, s16 drawId);
-
 f32 OLib_Vec3fDist(Vec3f* a, Vec3f* b);
 f32 OLib_Vec3fDistOutDiff(Vec3f* a, Vec3f* b, Vec3f* dest);
 f32 OLib_Vec3fDistXZ(Vec3f* a, Vec3f* b);
