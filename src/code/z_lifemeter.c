@@ -1,6 +1,6 @@
+#include "prevent_bss_reordering.h"
 #include "z64lifemeter.h"
 
-#include "global.h"
 #include "su_mtx.h"
 
 #include "overlays/kaleido_scope/ovl_kaleido_scope/z_kaleido_scope.h"

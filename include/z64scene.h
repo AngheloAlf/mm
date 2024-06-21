@@ -9,6 +9,7 @@
 
 struct GameState;
 struct PlayState;
+struct Input;
 
 #define ROOM_MAX 32 // maximum number of rooms in a scene
 #define ROOM_TRANSITION_MAX 48 // maximum number of transition actors in a scene
@@ -979,13 +980,13 @@ s32 Entrance_GetSceneIdAbsolute(u16 entrance);
 s32 Entrance_GetSpawnNum(u16 entrance);
 s32 Entrance_GetTransitionFlags(u16 entrance);
 
-void Room_Noop(PlayState* play, Room* room, Input* input, s32 arg3);
-void Room_Init(PlayState* play, RoomContext* roomCtx);
-size_t Room_AllocateAndLoad(PlayState* play, RoomContext* roomCtx);
-s32 Room_StartRoomTransition(PlayState* play, RoomContext* roomCtx, s32 index);
-s32 Room_HandleLoadCallbacks(PlayState* play, RoomContext* roomCtx);
-void Room_Draw(PlayState* play, Room* room, u32 flags);
-void func_8012EBF8(PlayState* play, RoomContext* roomCtx);
+void Room_Noop(struct PlayState* play, Room* room, struct Input* input, s32 arg3);
+void Room_Init(struct PlayState* play, RoomContext* roomCtx);
+size_t Room_AllocateAndLoad(struct PlayState* play, RoomContext* roomCtx);
+s32 Room_StartRoomTransition(struct PlayState* play, RoomContext* roomCtx, s32 index);
+s32 Room_HandleLoadCallbacks(struct PlayState* play, RoomContext* roomCtx);
+void Room_Draw(struct PlayState* play, Room* room, u32 flags);
+void func_8012EBF8(struct PlayState* play, RoomContext* roomCtx);
 
 extern SceneTableEntry gSceneTable[SCENE_MAX];
 
