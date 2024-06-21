@@ -3,15 +3,6 @@
 
 #include "z64.h"
 
-void Room_Noop(PlayState* play, Room* room, Input* input, s32 arg3);
-void Room_Init(PlayState* play, RoomContext* roomCtx);
-size_t Room_AllocateAndLoad(PlayState* play, RoomContext* roomCtx);
-s32 Room_StartRoomTransition(PlayState* play, RoomContext* roomCtx, s32 index);
-s32 Room_HandleLoadCallbacks(PlayState* play, RoomContext* roomCtx);
-void Room_Draw(PlayState* play, Room* room, u32 flags);
-
-void func_8012EBF8(PlayState* play, RoomContext* roomCtx);
-
 void Play_SetMotionBlurAlpha(u32 alpha);
 void Play_EnableMotionBlur(u32 alpha);
 void Play_DisableMotionBlur(void);
