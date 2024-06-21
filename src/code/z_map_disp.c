@@ -1,6 +1,9 @@
+#include "z64map.h"
+
 #include "global.h"
 #include "gfx.h"
 #include "sys_cmpdma.h"
+
 #include "assets/interface/icon_item_dungeon_static/icon_item_dungeon_static.h"
 #include "assets/interface/parameter_static/parameter_static.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"

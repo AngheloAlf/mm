@@ -1,5 +1,7 @@
-#include "global.h"
 #include "z64map.h"
+
+#include "global.h"
+
 #include "assets/objects/gameplay_dangeon_keep/gameplay_dangeon_keep.h"
 
 typedef struct {

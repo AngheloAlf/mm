@@ -1,9 +1,12 @@
 #ifndef Z64MAP_H
 #define Z64MAP_H
-#include "ultra64.h"
-#include "z64scene.h"
 
+#include "ultra64.h"
+
+struct Color_RGBA8;
+struct MapDataScene;
 struct PlayState;
+struct TransitionActorEntry;
 
 /*
 Handles the minimap and pause screen dungeon map system.
@@ -21,6 +24,14 @@ mapCompactId
 0x000-0x039 fetches dungeon map sprite data from map_i_static
 0x03A-0x09B fetches minimap sprite data from map_grand_static
 */
+
+#define ROOM_MAX 32 // maximum number of rooms in a scene
+#define ROOM_TRANSITION_MAX 48 // maximum number of transition actors in a scene
+
+#define MAP_DATA_NO_MAP 0xFFFF
+#define MAP_DATA_ROOM_FLIP_X 1
+#define MAP_DATA_ROOM_FLIP_Y 2
+#define MAP_DATA_ROOM_GET_EXTRA_STOREYS(mapDataRoom) ((((mapDataRoom)->flags) >> 2) & 7)
 
 #define FLOOR_INDEX_MAX 4
 #define FLOOR_MIN_Y -32767
@@ -48,7 +59,7 @@ mapCompactId
 
 /* z_map_disp */
 typedef struct {
-    /* 0x00 */ MapDataScene* mapDataScene;
+    /* 0x00 */ struct MapDataScene* mapDataScene;
     /* 0x04 */ s32 curRoom;
     /* 0x08 */ s16 minimapBaseX;
     /* 0x0A */ s16 minimapBaseY;
@@ -76,7 +87,7 @@ typedef struct {
     /* 0x48 */ s16* storeyYList; // list of min Ys for each storey
     /* 0x4C */ s16 timer;
     /* 0x50 */ s32 numChests;
-    /* 0x54 */ MapDataChest* mapDataChests;
+    /* 0x54 */ struct MapDataChest* mapDataChests;
     /* 0x58 */ s16 bossRoomStorey;
     /* 0x5A */ s16 unk5A;
 } MapDisp; // size = 0x5C
@@ -98,7 +109,7 @@ s32 MapDisp_GetBossIconY(void);
 s16 MapDisp_GetBossRoomStorey(void);
 void MapDisp_InitMapData(struct PlayState* play, void* segmentAddress);
 void MapDisp_InitChestData(struct PlayState* play, s32 num, void* segmentAddress);
-void MapDisp_InitTransitionActorData(struct PlayState* play, s32 num, TransitionActorEntry* transitionActorList);
+void MapDisp_InitTransitionActorData(struct PlayState* play, s32 num, struct TransitionActorEntry* transitionActorList);
 void MapDisp_Destroy(struct PlayState* play);
 void MapDisp_Update(struct PlayState* play);
 void MapDisp_SwapRooms(s16 nextRoom);
@@ -112,7 +123,7 @@ void MapDisp_DrawDungeonMap(struct PlayState* play);
 void MapDisp_UpdateDungeonMap(struct PlayState* play);
 
 /* z_map_data */
-void MapData_GetMapColor(s32 colorIndex, Color_RGBA8* color);
+void MapData_GetMapColor(s32 colorIndex, struct Color_RGBA8* color);
 TexturePtr MapData_GetMapTexGameplayDangeonKeep(s32);
 s32 MapData_GetMapCompactId(s32);
 s32 MapData_MID_GetType(s32);

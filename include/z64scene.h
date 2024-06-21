@@ -11,9 +11,6 @@ struct GameState;
 struct PlayState;
 struct Input;
 
-#define ROOM_MAX 32 // maximum number of rooms in a scene
-#define ROOM_TRANSITION_MAX 48 // maximum number of transition actors in a scene
-
 #define SPAWN_ROT_FLAGS(rotation, flags) (((rotation) << 7) | (flags))
 
 #define ROOM_DRAW_OPA (1 << 0)
@@ -485,17 +482,12 @@ typedef struct {
     /* 0x8 */ u16 flags;
 } MapDataRoom; // size = 0xA
 
-#define MAP_DATA_NO_MAP 0xFFFF
-#define MAP_DATA_ROOM_FLIP_X 1
-#define MAP_DATA_ROOM_FLIP_Y 2
-#define MAP_DATA_ROOM_GET_EXTRA_STOREYS(mapDataRoom) ((((mapDataRoom)->flags) >> 2) & 7)
-
-typedef struct {
+typedef struct MapDataScene {
     /* 0x0 */ MapDataRoom* rooms;
     /* 0x4 */ s16 scale;
 } MapDataScene; // size  = 0x8
 
-typedef struct {
+typedef struct MapDataChest {
     /* 0x0 */ s16 room;
     /* 0x2 */ s16 chestFlagId;
     /* 0x4 */ s16 x;
