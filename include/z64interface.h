@@ -46,7 +46,7 @@
 #define WEEK_STATIC_TEX_HEIGHT 27
 #define WEEK_STATIC_TEX_SIZE ((WEEK_STATIC_TEX_WIDTH * WEEK_STATIC_TEX_HEIGHT))
 
-typedef enum {
+typedef enum EquipSlot {
     /* -1 */ EQUIP_SLOT_NONE = -1,
     /*  0 */ EQUIP_SLOT_B,
     /*  1 */ EQUIP_SLOT_C_LEFT,
@@ -55,7 +55,7 @@ typedef enum {
     /*  4 */ EQUIP_SLOT_A
 } EquipSlot;
 
-typedef enum {
+typedef enum AButtonState {
     /* 0 */ A_BTN_STATE_IDLE,               // Uses ACTIVE slot
     /* 1 */ A_BTN_STATE_CHANGE_1_UNPAUSED,  // Uses ACTIVE slot
     /* 2 */ A_BTN_STATE_CHANGE_2_UNPAUSED,  // Uses NEXT slot
@@ -63,7 +63,7 @@ typedef enum {
     /* 4 */ A_BTN_STATE_CHANGE_2_PAUSED     // Uses NEXT slot
 } AButtonState;
 
-typedef enum {
+typedef enum DoAction {
     /* 0x00 */ DO_ACTION_ATTACK,
     /* 0x01 */ DO_ACTION_CHECK,
     /* 0x02 */ DO_ACTION_ENTER,
@@ -112,7 +112,7 @@ typedef enum {
     /* 0x2C */ TATL_STATE_2C
 } DoAction;
 
-typedef enum {
+typedef enum MinigameState {
     /*  0 */ MINIGAME_STATE_NONE,
     /*  1 */ MINIGAME_STATE_COUNTDOWN_SETUP_3,
     /*  2 */ MINIGAME_STATE_COUNTDOWN_3,
@@ -127,14 +127,14 @@ typedef enum {
     /* 30 */ MINIGAME_STATE_PLAYING = 30
 } MinigameState;
 
-typedef enum {
+typedef enum PerfectLettersType {
     /* 0 */ PERFECT_LETTERS_TYPE_OFF,
     /* 1 */ PERFECT_LETTERS_TYPE_1,
     /* 2 */ PERFECT_LETTERS_TYPE_2,
     /* 3 */ PERFECT_LETTERS_TYPE_3
 } PerfectLettersType;
 
-typedef enum {
+typedef enum PerfectLettersState {
     /* 0 */ PERFECT_LETTERS_STATE_OFF,
     /* 1 */ PERFECT_LETTERS_STATE_INIT,
     /* 2 */ PERFECT_LETTERS_STATE_ENTER,
@@ -147,13 +147,13 @@ typedef enum {
 #define PERFECT_LETTERS_NUM_LETTERS 8
 #define PERFECT_LETTERS_ANGLE_PER_LETTER (0x10000 / PERFECT_LETTERS_NUM_LETTERS)
 
-typedef enum {
+typedef enum StoryLoadStatus {
     /* 0 */ STORY_DMA_IDLE,
     /* 1 */ STORY_DMA_LOADING,
     /* 2 */ STORY_DMA_DONE
 } StoryLoadStatus;
 
-typedef enum {
+typedef enum StoryState {
     /* 0 */ STORY_STATE_OFF,
     /* 1 */ STORY_STATE_INIT,
     /* 2 */ STORY_STATE_IDLE,
@@ -163,12 +163,12 @@ typedef enum {
     /* 6 */ STORY_STATE_FADE_IN
 } StoryState;
 
-typedef enum {
+typedef enum StoryType {
     /* 0 */ STORY_TYPE_MASK_FESTIVAL,
     /* 1 */ STORY_TYPE_GIANTS_LEAVING
 } StoryType;
 
-typedef struct {
+typedef struct InterfaceContext {
     /* 0x000 */ View view;
     /* 0x168 */ Vtx* actionVtx;
     /* 0x16C */ Vtx* beatingHeartVtx;
