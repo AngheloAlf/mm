@@ -93,7 +93,7 @@ typedef enum {
     /*  8 */ DUNGEON_FLOOR_INDEX_0 // Bottom Floor
 } DungeonItem;
 
-typedef enum {
+typedef enum InventorySlot {
     /* 0x00 */ SLOT_OCARINA,
     /* 0x01 */ SLOT_BOW,
     /* 0x02 */ SLOT_ARROW_FIRE,

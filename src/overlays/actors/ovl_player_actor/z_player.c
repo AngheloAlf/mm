@@ -501,6 +501,9 @@ typedef struct struct_8085D200 {
     /* 0x9 */ u8 unk_9;
 } struct_8085D200; // size = 0xC
 
+#if MM_VERSION < N64_US
+u8 B_80862F40_jp_11[ALIGN16(sizeof(PlayerAnimationFrame))];
+#endif
 f32 sControlStickMagnitude;
 s16 sControlStickAngle;
 s16 sControlStickWorldYaw;
@@ -523,7 +526,7 @@ Input* sPlayerControlInput;
 s32 sPlayerUseHeldItem;              // When true, the current held item is used. Is reset to false every frame.
 s32 sPlayerHeldItemButtonIsHeldDown; // Indicates if the button for the current held item is held down.
 AdjLightSettings D_80862B50;         // backup of lay->envCtx.adjLightSettings
-s32 D_80862B6C;                      // this->skelAnime.movementFlags // sPlayerSkelMoveFlags?
+u32 D_80862B6C;                      // this->skelAnime.movementFlags // sPlayerSkelMoveFlags?
 
 const char RO_STR_8085E7F0_unknown[] = "-----  pass %d in %s\n";
 const char RO_STR_8085E808_unknown[] = "../z_player_action.inc";
@@ -3079,19 +3082,57 @@ s8 sItemItemActions[] = {
     PLAYER_IA_BOTTLE_ZORA_EGG,         // ITEM_ZORA_EGG,
     PLAYER_IA_BOTTLE_GOLD_DUST,        // ITEM_GOLD_DUST,
     PLAYER_IA_BOTTLE_MUSHROOM,         // ITEM_MUSHROOM,
+#if MM_VERSION < N64_US
+    ITEM_ZORA_EGG, // ITEM_24_JP,
+    ITEM_ZORA_EGG, // ITEM_25_JP,
+#endif
     PLAYER_IA_BOTTLE_SEAHORSE,         // ITEM_SEA_HORSE,
     PLAYER_IA_BOTTLE_CHATEAU,          // ITEM_CHATEAU,
     PLAYER_IA_BOTTLE_HYLIAN_LOACH,     // ITEM_HYLIAN_LOACH,
+#if MM_VERSION < N64_US
+    ITEM_ZORA_EGG, // ITEM_29_JP,
+    ITEM_ZORA_EGG, // ITEM_2A_JP,
+    ITEM_ZORA_EGG, // ITEM_2B_JP,
+    ITEM_ZORA_EGG, // ITEM_2C_JP,
+    ITEM_ZORA_EGG, // ITEM_2D_JP,
+    ITEM_ZORA_EGG, // ITEM_2E_JP,
+#endif
     PLAYER_IA_BOTTLE_POE,              // ITEM_OBABA_DRINK, // !
     PLAYER_IA_MOONS_TEAR,              // ITEM_MOONS_TEAR,
     PLAYER_IA_DEED_LAND,               // ITEM_DEED_LAND,
     PLAYER_IA_DEED_SWAMP,              // ITEM_DEED_SWAMP,
     PLAYER_IA_DEED_MOUNTAIN,           // ITEM_DEED_MOUNTAIN,
     PLAYER_IA_DEED_OCEAN,              // ITEM_DEED_OCEAN,
+#if MM_VERSION < N64_US
+    PLAYER_IA_34, // ITEM_35_JP,
+    PLAYER_IA_35, // ITEM_36_JP,
+    PLAYER_IA_PENDANT_OF_MEMORIES, // ITEM_37_JP,
+    PLAYER_IA_37, // ITEM_38_JP,
+    PLAYER_IA_38, // ITEM_39_JP,
+#endif
     PLAYER_IA_ROOM_KEY,                // ITEM_ROOM_KEY,
     PLAYER_IA_LETTER_MAMA,             // ITEM_LETTER_MAMA,
+#if MM_VERSION < N64_US
+    PLAYER_IA_38, // ITEM_3C_JP,
+    PLAYER_IA_38, // ITEM_3D_JP,
+    PLAYER_IA_38, // ITEM_3E_JP,
+    PLAYER_IA_38, // ITEM_3F_JP,
+    PLAYER_IA_38, // ITEM_40_JP,
+    PLAYER_IA_38, // ITEM_41_JP,
+    PLAYER_IA_38, // ITEM_42_JP,
+    PLAYER_IA_38, // ITEM_43_JP,
+#endif
     PLAYER_IA_LETTER_TO_KAFEI,         // ITEM_LETTER_TO_KAFEI,
-    PLAYER_IA_PENDANT_OF_MEMORIES,     // ITEM_PENDANT_MEMORIES,
+    PLAYER_IA_PENDANT_OF_MEMORIES,     // ITEM_PENDANT_OF_MEMORIES,
+#if MM_VERSION < N64_US
+    PLAYER_IA_38, // ITEM_46_JP,
+    PLAYER_IA_38, // ITEM_47_JP,
+    PLAYER_IA_38, // ITEM_48_JP,
+    PLAYER_IA_38, // ITEM_49_JP,
+    PLAYER_IA_38, // ITEM_4A_JP,
+    PLAYER_IA_38, // ITEM_4B_JP,
+    PLAYER_IA_38, // ITEM_4C_JP,
+#endif
     PLAYER_IA_38,                      // ITEM_TINGLE_MAP, // !
     PLAYER_IA_MASK_DEKU,               // ITEM_MASK_DEKU,
     PLAYER_IA_MASK_GORON,              // ITEM_MASK_GORON,
@@ -3120,6 +3161,11 @@ s8 sItemItemActions[] = {
     PLAYER_IA_BOW_FIRE,                // ITEM_BOW_FIRE,
     PLAYER_IA_BOW_ICE,                 // ITEM_BOW_ICE,
     PLAYER_IA_BOW_LIGHT,               // ITEM_BOW_LIGHT,
+#if MM_VERSION < N64_US
+    PLAYER_IA_OCARINA, // ITEM_69_JP,
+    PLAYER_IA_OCARINA, // ITEM_6A_JP,
+    PLAYER_IA_OCARINA, // ITEM_6B_JP,
+#endif
     PLAYER_IA_SWORD_KOKIRI,            // ITEM_SWORD_KOKIRI,
     PLAYER_IA_SWORD_RAZOR,             // ITEM_SWORD_RAZOR,
     PLAYER_IA_SWORD_GILDED,            // ITEM_SWORD_GILDED,
@@ -3518,7 +3564,6 @@ void Player_InitItemAction(PlayState* play, Player* this, PlayerItemAction itemA
     Player_SetModelGroup(this, this->modelGroup);
 }
 
-// AttackAnimInfo sMeleeAttackAnimInfo
 AttackAnimInfo sMeleeAttackAnimInfo[PLAYER_MWA_MAX] = {
     // PLAYER_MWA_FORWARD_SLASH_1H
     { &gPlayerAnim_link_fighter_normal_kiru, &gPlayerAnim_link_fighter_normal_kiru_end,
@@ -8019,7 +8064,7 @@ s32 Player_ActionHandler_13(Player* this, PlayState* play) {
                                 Player_AnimReplace_Setup(play, this,
                                                          ANIM_FLAG_1 | ANIM_FLAG_ENABLE_MOVEMENT | ANIM_FLAG_NOMOVE);
                             } else {
-                                Player_Anim_PlayOnceMorph(play, this, D_8085BE84[31][this->modelAnimType]);
+                                Player_Anim_PlayOnceMorph(play, this, D_8085BE84[PLAYER_ANIMGROUP_check][this->modelAnimType]);
                             }
                             this->stateFlags1 |= PLAYER_STATE1_20000000;
                             this->av2.actionVar2 = 80;
@@ -16308,7 +16353,6 @@ void Player_Action_37(Player* this, PlayState* play) {
 
 #if MM_VERSION < N64_US
 extern PlayerAnimationHeader D_0400DD00_unknown;
-extern AnimSfxEntry D_8085DAA0_unknown[];
 
 void func_8084E530_nj1(Player* this, PlayState* play) {
     if (PlayerAnimation_Update(play, &this->skelAnime) && (this->av2.actionVar2++ > 20)) {
@@ -16330,6 +16374,11 @@ void func_8084E530_nj1(Player* this, PlayState* play) {
         heldActor->terminalVelocity = -30.0f;
         Player_DetachHeldActor(play, this);
     } else {
+        static AnimSfxEntry D_8085DAA0_unknown[] = {
+            ANIMSFX(ANIMSFX_TYPE_FLOOR, 3, NA_SE_PL_SLIP, CONTINUE),
+            ANIMSFX(ANIMSFX_TYPE_FLOOR, 21, NA_SE_PL_SLIP, STOP),
+        };
+
         Player_PlayAnimSfx(this, D_8085DAA0_unknown);
     }
 }
@@ -18029,20 +18078,6 @@ void Player_Action_64(Player* this, PlayState* play) {
     }
 }
 
-AnimSfxEntry D_8085D73C[] = {
-    ANIMSFX(ANIMSFX_TYPE_FLOOR_JUMP, 87, NA_SE_NONE, CONTINUE),
-    ANIMSFX(ANIMSFX_TYPE_VOICE, 87, NA_SE_VO_LI_CLIMB_END, CONTINUE),
-    ANIMSFX(ANIMSFX_TYPE_VOICE, 69, NA_SE_VO_LI_AUTO_JUMP, CONTINUE),
-    ANIMSFX(ANIMSFX_TYPE_FLOOR_LAND, 123, NA_SE_NONE, STOP),
-};
-
-AnimSfxEntry D_8085D74C[] = {
-    ANIMSFX(ANIMSFX_TYPE_VOICE, 13, NA_SE_VO_LI_AUTO_JUMP, CONTINUE),
-    ANIMSFX(ANIMSFX_TYPE_FLOOR_JUMP, 13, NA_SE_NONE, CONTINUE),
-    ANIMSFX(ANIMSFX_TYPE_FLOOR_LAND, 73, NA_SE_NONE, CONTINUE),
-    ANIMSFX(ANIMSFX_TYPE_FLOOR_LAND, 120, NA_SE_NONE, STOP),
-};
-
 void Player_Action_65(Player* this, PlayState* play) {
     func_8083249C(this);
 
@@ -18117,10 +18152,24 @@ void Player_Action_65(Player* this, PlayState* play) {
         }
     } else if (this->av2.actionVar2 == 0) {
         if (this->transformation == PLAYER_FORM_HUMAN) {
+            static AnimSfxEntry D_8085D73C[] = {
+                ANIMSFX(ANIMSFX_TYPE_FLOOR_JUMP, 87, NA_SE_NONE, CONTINUE),
+                ANIMSFX(ANIMSFX_TYPE_VOICE, 87, NA_SE_VO_LI_CLIMB_END, CONTINUE),
+                ANIMSFX(ANIMSFX_TYPE_VOICE, 69, NA_SE_VO_LI_AUTO_JUMP, CONTINUE),
+                ANIMSFX(ANIMSFX_TYPE_FLOOR_LAND, 123, NA_SE_NONE, STOP),
+            };
+
             Player_PlayAnimSfx(this, D_8085D73C);
         }
         #if MM_VERSION >= N64_US
         else if (this->transformation == PLAYER_FORM_DEKU) {
+            static AnimSfxEntry D_8085D74C[] = {
+                ANIMSFX(ANIMSFX_TYPE_VOICE, 13, NA_SE_VO_LI_AUTO_JUMP, CONTINUE),
+                ANIMSFX(ANIMSFX_TYPE_FLOOR_JUMP, 13, NA_SE_NONE, CONTINUE),
+                ANIMSFX(ANIMSFX_TYPE_FLOOR_LAND, 73, NA_SE_NONE, CONTINUE),
+                ANIMSFX(ANIMSFX_TYPE_FLOOR_LAND, 120, NA_SE_NONE, STOP),
+            };
+
             Player_PlayAnimSfx(this, D_8085D74C);
         }
         #endif
@@ -19383,7 +19432,6 @@ extern PlayerAnimationHeader D_0400D9A8_unknown;
 extern PlayerAnimationHeader D_0400D9D0_unknown;
 extern PlayerAnimationHeader D_0400D9B8_unknown;
 extern PlayerAnimationHeader D_0400D9B8_unknown;
-extern s32 B_80862F40_unknown;
 
 void func_80856204_nj1(Player* this, PlayState* play) {
     if ((this->av2.actionVar2 != 0) && ((this->unk_B08 != 0.0f) || (this->unk_B0C != 0.0f))) {
@@ -19394,7 +19442,7 @@ void func_80856204_nj1(Player* this, PlayState* play) {
         }
 
         PlayerAnimation_BlendToJoint(play, &this->skelAnime, &D_0400D9E0_unknown, this->skelAnime.curFrame, (this->unk_B08 < 0.0f) ? &D_0400D9C0_unknown : &D_0400D9C8_unknown, 5.0f, fabsf(this->unk_B08), this->blendTableBuffer);
-        PlayerAnimation_BlendToMorph(play, &this->skelAnime, &D_0400D9E0_unknown, this->skelAnime.curFrame, (this->unk_B0C < 0.0f) ? &D_0400D9D0_unknown : &D_0400D9B8_unknown, 5.0f, fabsf(this->unk_B0C), &B_80862F40_unknown);
+        PlayerAnimation_BlendToMorph(play, &this->skelAnime, &D_0400D9E0_unknown, this->skelAnime.curFrame, (this->unk_B0C < 0.0f) ? &D_0400D9D0_unknown : &D_0400D9B8_unknown, 5.0f, fabsf(this->unk_B0C), &B_80862F40_jp_11);
         PlayerAnimation_InterpJointMorph(play, &this->skelAnime, 0.5f);
     } else if (PlayerAnimation_Update(play, &this->skelAnime)) {
         this->unk_B28 = 2;
