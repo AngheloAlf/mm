@@ -502,7 +502,8 @@ typedef struct struct_8085D200 {
 } struct_8085D200; // size = 0xC
 
 #if MM_VERSION < N64_US
-u8 B_80862F40_jp_11[ALIGN16(sizeof(PlayerAnimationFrame))];
+// TODO: in-function static?
+u64 B_80862F40_jp_11[ALIGN16(sizeof(PlayerAnimationFrame)) / sizeof(u64)];
 #endif
 f32 sControlStickMagnitude;
 s16 sControlStickAngle;
@@ -12527,7 +12528,7 @@ s8 sPlayerCueToCsActionMap[PLAYER_CUEID_MAX] = {
     PLAYER_CSACTION_8,    // PLAYER_CUEID_6
     PLAYER_CSACTION_NONE, // PLAYER_CUEID_7
     PLAYER_CSACTION_NONE, // PLAYER_CUEID_8
-    PLAYER_CSACTION_135,  // PLAYER_CUEID_9
+    -PLAYER_CSACTION_121, // PLAYER_CUEID_9
     PLAYER_CSACTION_21,   // PLAYER_CUEID_10
     PLAYER_CSACTION_61,   // PLAYER_CUEID_11
     PLAYER_CSACTION_62,   // PLAYER_CUEID_12
@@ -12769,6 +12770,12 @@ void func_80844D80(PlayState* play, Player* this) {
 
 f32 D_8085D3FC[] = { 0.005f, 0.05f };
 
+#if MM_VERSION < N64_US
+Vec3f D_8085D854_jp_11 = {
+0.0f,0.0f,200.0f
+};
+#endif
+
 f32 sWaterConveyorSpeeds[CONVEYOR_SPEED_MAX - 1] = {
     2.0f,  // CONVEYOR_SPEED_SLOW
     4.0f,  // CONVEYOR_SPEED_MEDIUM
@@ -12779,6 +12786,9 @@ f32 sFloorConveyorSpeeds[CONVEYOR_SPEED_MAX - 1] = {
     1.0f, // CONVEYOR_SPEED_MEDIUM
     3.0f, // CONVEYOR_SPEED_FAST
 };
+
+
+extern s32 D_801B8B70_unknown;
 
 void Player_UpdateCommon(Player* this, PlayState* play, Input* input) {
     f32 temp_fv0;
@@ -12873,7 +12883,7 @@ void Player_UpdateCommon(Player* this, PlayState* play, Input* input) {
         f32 temp_fa0;
         f32 var_fv1_2;
         s32 var_v1;
-        s32 pad;
+        Actor* rideActor;
 
         if (this->currentBoots != this->prevBoots) {
             if (this->currentBoots == PLAYER_BOOTS_ZORA_UNDERWATER) {
@@ -12940,10 +12950,36 @@ void Player_UpdateCommon(Player* this, PlayState* play, Input* input) {
         } else {
             sPlayerFloorType = FLOOR_TYPE_0;
             this->floorProperty = FLOOR_PROPERTY_0;
+
+            #if MM_VERSION >= N64_US
             if (this->stateFlags1 & PLAYER_STATE1_800000) {
-                this->actor.floorPoly = this->rideActor->floorPoly;
-                this->actor.floorBgId = this->rideActor->floorBgId;
+                rideActor = this->rideActor;
+                this->actor.floorPoly = rideActor->floorPoly;
+                this->actor.floorBgId = rideActor->floorBgId;
             }
+            #else
+            if (!(this->stateFlags1 & PLAYER_STATE1_1) && (this->stateFlags1 & PLAYER_STATE1_800000)) {
+                CollisionPoly* sp68;
+                s32 sp64;
+                Vec3f sp58;
+
+                rideActor = this->rideActor;
+                if (!(rideActor->bgCheckFlags & BGCHECKFLAG_GROUND)) {
+                    func_80835CD8(play, this, &D_8085D854_jp_11, &sp58, &sp68, &sp64);
+                } else {
+                    sp68 = rideActor->floorPoly;
+                    sp64 = rideActor->floorBgId;
+                }
+                if ((sp68 != NULL) && Player_HandleExitsAndVoids(play, this, sp68, sp64)) {
+                    if (D_801B8B70_unknown != 0) {
+                        D_801B8B70_unknown = 0;
+                    } else {
+                        gHorseIsMounted = true;
+                    }
+                }
+            }
+            #endif
+
             sPlayerConveyorSpeedIndex = CONVEYOR_SPEED_DISABLED;
             this->pushedSpeed = 0.0f;
         }
@@ -13838,33 +13874,29 @@ Vec3f D_8085D5B8[] = {
 Vec3f D_8085D5D0 = { 0.0f, 0.0f, -30.0f };
 
 // related to mounting/unmounting the horse
-s32 func_80847A94(PlayState* play, Player* this, s32 arg2, f32* arg3) {
+int func_80847A94(PlayState* play, Player* this, s32 arg2, f32* arg3) {
     Actor* rideActor = this->rideActor;
     f32 sp60 = rideActor->world.pos.y + 20.0f;
     f32 sp5C = rideActor->world.pos.y - 20.0f;
     Vec3f sp50;
     Vec3f sp44;
     CollisionPoly* wallPoly;
+
+    #if MM_VERSION >= N64_US
     CollisionPoly* floorPoly;
     s32 wallBgId;
     s32 floorBgId;
 
-    #if MM_VERSION >= N64_US
     *arg3 = func_80835CD8(play, this, &D_8085D588[arg2], &sp50, &floorPoly, &floorBgId);
-    #else
-    *arg3 = func_80835D2C(play, this, &D_8085D588[arg2], &sp50);
-    #endif
 
     if ((sp5C < *arg3) && (*arg3 < sp60)) {
         if (!Player_PosVsWallLineTest(play, this, &D_8085D5A0[arg2], &wallPoly, &wallBgId, &sp44)) {
             if (!Player_PosVsWallLineTest(play, this, &D_8085D5B8[arg2], &wallPoly, &wallBgId, &sp44)) {
-                #if MM_VERSION >= N64_US
                 this->actor.floorPoly = floorPoly;
                 //! @note: no poly is assigned to `wallBgId` when `Player_PosVsWallLineTest` fails.
                 //! Therefore, the default value `BGCHECK_SCENE` is assigned.
                 this->actor.floorBgId = wallBgId;
                 this->floorSfxOffset = SurfaceType_GetSfxOffset(&play->colCtx, floorPoly, floorBgId);
-                #endif
 
                 return true;
             }
@@ -13872,6 +13904,15 @@ s32 func_80847A94(PlayState* play, Player* this, s32 arg2, f32* arg3) {
     }
 
     return false;
+    #else
+    s32 wallBgId;
+
+    *arg3 = func_80835D2C(play, this, &D_8085D588[arg2], &sp50);
+
+    return (sp5C < *arg3) && (*arg3 < sp60) &&
+           !Player_PosVsWallLineTest(play, this, &D_8085D5A0[arg2], &wallPoly, &wallBgId, &sp44) &&
+           !Player_PosVsWallLineTest(play, this, &D_8085D5B8[arg2], &wallPoly, &wallBgId, &sp44);
+    #endif
 }
 
 s32 func_80847BF0(Player* this, PlayState* play) {
@@ -17457,9 +17498,7 @@ void Player_Action_56(Player* this, PlayState* play) {
             if (this->skelAnime.curFrame >= 8.0f)
             #endif
             {
-                if (
-                    (this->skelAnime.curFrame >= 13.0f)
-                    ) {
+                if (this->skelAnime.curFrame >= 13.0f) {
                     speedTarget = 12.0f;
 
                     if (PlayerAnimation_OnFrame(&this->skelAnime, 13.0f)) {
@@ -19435,7 +19474,9 @@ extern PlayerAnimationHeader D_0400D9B8_unknown;
 
 void func_80856204_nj1(Player* this, PlayState* play) {
     if ((this->av2.actionVar2 != 0) && ((this->unk_B08 != 0.0f) || (this->unk_B0C != 0.0f))) {
-        this->skelAnime.curFrame += this->skelAnime.playSpeed * (SREG(30) / 2.0f);
+        f32 updateScale = R_UPDATE_RATE / 2.0f;
+
+        this->skelAnime.curFrame += this->skelAnime.playSpeed * updateScale;
 
         if (this->skelAnime.curFrame >= this->skelAnime.animLength) {
             this->skelAnime.curFrame -= this->skelAnime.animLength;
