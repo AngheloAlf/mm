@@ -7550,7 +7550,9 @@ s32 func_80837DEC(Player* this, PlayState* play) {
         //! walking off of a steep enough slope.
         if ((ABS_ALT(this->floorPitch) < 0xAAA) && (ABS_ALT(this->floorPitchAlt) < 0xAAA)) {
             CollisionPoly* entityPoly;
+#if MM_VERSION >= N64_US
             CollisionPoly* sp90;
+#endif
             s32 entityBgId;
             s32 sp88;
             Vec3f sp7C;
@@ -12308,7 +12310,8 @@ void Player_ProcessSceneCollision(PlayState* play, Player* this) {
 
 void Player_UpdateCamAndSeqModes(PlayState* play, Player* this) {
     u8 seqMode;
-    s32 pad[2];
+    s32 pad;
+    Actor *focusActor;
 
 #if MM_VERSION >= N64_US
     Camera* camera;
@@ -12350,7 +12353,7 @@ void Player_UpdateCamAndSeqModes(PlayState* play, Player* this) {
                 }
             } else if (this->stateFlags2 & PLAYER_STATE2_100) {
                 camMode = CAM_MODE_PUSHPULL;
-            } else if (this->focusActor != NULL) {
+            } else if ((focusActor = this->focusActor) != NULL) {
                 if (CHECK_FLAG_ALL(this->actor.flags, ACTOR_FLAG_TALK)) {
                     camMode = CAM_MODE_TALK;
                 } else if (this->stateFlags1 & PLAYER_STATE1_FRIENDLY_ACTOR_FOCUS) {
@@ -12362,7 +12365,7 @@ void Player_UpdateCamAndSeqModes(PlayState* play, Player* this) {
                 } else {
                     camMode = CAM_MODE_BATTLE;
                 }
-                Camera_SetViewParam(CAMERA_TEMP, CAM_VIEW_TARGET, this->focusActor);
+                Camera_SetViewParam(CAMERA_TEMP, CAM_VIEW_TARGET, focusActor);
             } else if (this->stateFlags1 & PLAYER_STATE1_CHARGING_SPIN_ATTACK) {
                 camMode = CAM_MODE_CHARGE;
             } else if (this->stateFlags3 & PLAYER_STATE3_100) {
@@ -17429,10 +17432,6 @@ void func_80850D20(PlayState* play, Player* this) {
 void Player_Action_56(Player* this, PlayState* play) {
     f32 speedTarget;
     s16 sp42;
-    s16 yawTarget;
-    s16 sp3E;
-    s16 sp3C;
-    s16 sp3A;
 
     this->stateFlags2 |= PLAYER_STATE2_20;
 
@@ -17471,13 +17470,15 @@ void Player_Action_56(Player* this, PlayState* play) {
             }
         } else {
 #if MM_VERSION >= N64_US
+            s16 yawTarget;
+
             Player_GetMovementSpeedAndYaw(this, &speedTarget, &yawTarget, SPEED_MODE_LINEAR, play);
             Math_ScaledStepToS(&this->yaw, yawTarget, 0x640);
 #endif
 
 // wtf is this check?
-#if MM_VERSION >= N64_US
-            if (this->skelAnime.curFrame >= 8.0f)
+#if MM_VERSION < N64_US
+            if (this->skelAnime.curFrame >= 8.0f) 
 #endif
             {
                 if (this->skelAnime.curFrame >= 13.0f) {
@@ -17501,6 +17502,10 @@ void Player_Action_56(Player* this, PlayState* play) {
         Math_SmoothStepToS(&this->unk_B86[1], sPlayerControlInput->rel.stick_x * 0xC8, 0xA, 0x3E8, 0x64);
         Math_SmoothStepToS(&this->unk_B8E, this->unk_B86[1], IREG(40) + 1, IREG(41), IREG(42));
     } else if (this->unk_B86[0] == 0) {
+        s16 sp3E;
+        s16 sp3C;
+        s16 sp3A;
+
         PlayerAnimation_Update(play, &this->skelAnime);
 
         if ((!func_8082DA90(play) && !CHECK_BTN_ALL(sPlayerControlInput->cur.button, BTN_A)) ||
@@ -17950,7 +17955,7 @@ void func_80852290(PlayState* play, Player* this) {
         this->unk_B86[1] += TRUNCF_BINANG(this->upperLimbRot.y * 3.0f);
 #else
         this->unk_B86[0] += TRUNCF_BINANG((f32)this->upperLimbRot.x * (f32)(IREG(50) + 0xFA) / 100.0f);
-        this->unk_B86[1] += TRUNCF_BINANG((f32)this->upperLimbRot.x * (f32)(IREG(51) + 0x12C) / 100.0f);
+        this->unk_B86[1] += TRUNCF_BINANG((f32)this->upperLimbRot.y * (f32)(IREG(51) + 0x12C) / 100.0f);
 #endif
     } else {
         this->unk_B86[0] = 0;
@@ -18036,6 +18041,10 @@ void Player_Action_63(Player* this, PlayState* play) {
                 } else {
                     Actor* actor;
 
+#if MM_VERSION < N64_US
+                    if (0) {}
+#endif
+
                     play->interfaceCtx.bButtonInterfaceDoActionActive = false;
                     CutsceneManager_Stop(play->playerCsIds[PLAYER_CS_ID_ITEM_OCARINA]);
                     this->actor.flags &= ~ACTOR_FLAG_OCARINA_INTERACTION;
@@ -18057,8 +18066,8 @@ void Player_Action_63(Player* this, PlayState* play) {
                        (play->msgCtx.lastPlayedSong == OCARINA_SONG_ELEGY)) {
                 play->interfaceCtx.bButtonInterfaceDoActionActive = false;
                 CutsceneManager_Stop(play->playerCsIds[PLAYER_CS_ID_ITEM_OCARINA]);
-
                 this->actor.flags &= ~ACTOR_FLAG_OCARINA_INTERACTION;
+
                 Player_SetAction_PreserveItemAction(play, this, Player_Action_88, 0);
                 this->stateFlags1 |= PLAYER_STATE1_10000000 | PLAYER_STATE1_20000000;
             } else if (this->unk_AA5 == PLAYER_UNKAA5_4) {
