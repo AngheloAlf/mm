@@ -438,6 +438,7 @@
         <PlayerAnimation Name="gPlayerAnim_link_fighter_walk_endL_long" Offset="0xD990" /> <!-- Original name is "link_fighter_walk_endL_long" -->
         <PlayerAnimation Name="gPlayerAnim_link_fighter_walk_endR_long" Offset="0xD998" /> <!-- Original name is "link_fighter_walk_endR_long" -->
         <PlayerAnimation Name="gPlayerAnim_link_fighter_walk_long" Offset="0xD9A0" /> <!-- Original name is "link_fighter_walk_long" -->
+        <!-- JP-1.1: 8 `PlayerAnimation`s -->
         <PlayerAnimation Name="gPlayerAnim_link_hammer_long2free" Offset="0xD9A8" /> <!-- Original name is "link_hammer_long2free" -->
         <PlayerAnimation Name="gPlayerAnim_link_hammer_long2long" Offset="0xD9B0" /> <!-- Original name is "link_hammer_long2long" -->
         <PlayerAnimation Name="gPlayerAnim_link_hammer_normal2long" Offset="0xD9B8" /> <!-- Original name is "link_hammer_normal2long" -->
@@ -536,6 +537,7 @@
         <PlayerAnimation Name="gPlayerAnim_link_normal_front_shit" Offset="0xDCA0" /> <!-- Original name is "link_normal_front_shit" -->
         <PlayerAnimation Name="gPlayerAnim_link_normal_give_other" Offset="0xDCA8" /> <!-- Original name is "link_normal_give_other" -->
         <PlayerAnimation Name="gPlayerAnim_link_normal_hang_up_down" Offset="0xDCB0" /> <!-- Original name is "link_normal_hang_up_down" -->
+        <!-- JP-1.1: 2 `PlayerAnimation`s -->
         <PlayerAnimation Name="gPlayerAnim_link_normal_hip_down" Offset="0xDCB8" /> <!-- Original name is "link_normal_hip_down" -->
         <PlayerAnimation Name="gPlayerAnim_link_normal_hip_down_free" Offset="0xDCC0" /> <!-- Original name is "link_normal_hip_down_free" -->
         <PlayerAnimation Name="gPlayerAnim_link_normal_hip_down_long" Offset="0xDCC8" /> <!-- Original name is "link_normal_hip_down_long" -->

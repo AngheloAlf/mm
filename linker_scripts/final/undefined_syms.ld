@@ -10,6 +10,17 @@ D_01000000 = 0x01000000;
 
 // segment 0x04
 
+gameplay_keep_Linkanim_00D9A8 = 0x0400D9A8;
+gameplay_keep_Linkanim_00D9B0 = 0x0400D9B0;
+gameplay_keep_Linkanim_00D9B8 = 0x0400D9B8;
+gameplay_keep_Linkanim_00D9C0 = 0x0400D9C0;
+gameplay_keep_Linkanim_00D9C8 = 0x0400D9C8;
+gameplay_keep_Linkanim_00D9D0 = 0x0400D9D0;
+gameplay_keep_Linkanim_00D9D8 = 0x0400D9D8;
+gameplay_keep_Linkanim_00D9E0 = 0x0400D9E0;
+gameplay_keep_Linkanim_00DCF8 = 0x0400DCF8;
+gameplay_keep_Linkanim_00DD00 = 0x0400DD00;
+
 // segment 0x05
 
 // segment 0x06

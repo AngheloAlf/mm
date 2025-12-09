@@ -53,6 +53,22 @@
 
 #pragma increment_block_number "n64-us:128"
 
+// TODO: remove when JP-1.1 gameplay_keep is being extracted.
+#if MM_VERSION < N64_US
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9A8;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9B0;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9B8;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9C0;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9C8;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9D0;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9D8;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9E0;
+
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00DCF8;
+extern PlayerAnimationHeader gameplay_keep_Linkanim_00DD00;
+#endif
+
+
 void Player_Init(Actor* thisx, PlayState* play);
 void Player_Destroy(Actor* thisx, PlayState* play);
 void Player_Update(Actor* thisx, PlayState* play);
@@ -7436,7 +7452,6 @@ bool func_8083798C(Player* this) {
 }
 
 #if MM_VERSION < N64_US
-extern PlayerAnimationHeader D_0400DCF8_unknown;
 void func_8084E530_nj1(Player* this, PlayState* play);
 #endif
 
@@ -7448,7 +7463,7 @@ void func_808379C0(PlayState* play, Player* this) {
         #if MM_VERSION < N64_US
         if (interactRangeActor->id == ACTOR_BG_HEAVY_BLOCK) {
             Player_SetAction(play, this, func_8084E530_nj1, 0);
-            anim = &D_0400DCF8_unknown;
+            anim = &gameplay_keep_Linkanim_00DCF8;
             this->stateFlags1 |= PLAYER_STATE1_20000000;
         } else
         #endif
@@ -8702,7 +8717,6 @@ struct_8085D200 D_8085D200[] = {
 };
 
 #if MM_VERSION < N64_US
-extern PlayerAnimationHeader D_0400D9D8_unknown;
 void func_80856204_nj1(Player* this, PlayState* play);
 #endif
 
@@ -8731,7 +8745,7 @@ s32 func_8083A6C0(PlayState* play, Player* this) {
             Player_SetAction(play, this, func_80856204_nj1, 0);
             this->unk_B28 = 1;
             Player_StopHorizontalMovement(this);
-            Player_Anim_PlayOnce(play, this, &D_0400D9D8_unknown);
+            Player_Anim_PlayOnce(play, this, &gameplay_keep_Linkanim_00D9D8);
             return true;
         }
         #endif
@@ -12787,9 +12801,6 @@ f32 sFloorConveyorSpeeds[CONVEYOR_SPEED_MAX - 1] = {
     3.0f, // CONVEYOR_SPEED_FAST
 };
 
-
-extern s32 D_801B8B70_unknown;
-
 void Player_UpdateCommon(Player* this, PlayState* play, Input* input) {
     f32 temp_fv0;
     f32 temp_fv1;
@@ -12971,8 +12982,8 @@ void Player_UpdateCommon(Player* this, PlayState* play, Input* input) {
                     sp64 = rideActor->floorBgId;
                 }
                 if ((sp68 != NULL) && Player_HandleExitsAndVoids(play, this, sp68, sp64)) {
-                    if (D_801B8B70_unknown != 0) {
-                        D_801B8B70_unknown = 0;
+                    if (D_801BDAA0) {
+                        D_801BDAA0 = false;
                     } else {
                         gHorseIsMounted = true;
                     }
@@ -16393,12 +16404,10 @@ void Player_Action_37(Player* this, PlayState* play) {
 }
 
 #if MM_VERSION < N64_US
-extern PlayerAnimationHeader D_0400DD00_unknown;
-
 void func_8084E530_nj1(Player* this, PlayState* play) {
     if (PlayerAnimation_Update(play, &this->skelAnime) && (this->av2.actionVar2++ > 20)) {
         if (!Player_ActionHandler_13(this, play)) {
-            func_80836A98(this, &D_0400DD00_unknown, play);
+            func_80836A98(this, &gameplay_keep_Linkanim_00DD00, play);
         }
     } else if (PlayerAnimation_OnFrame(&this->skelAnime, 41.0f)) {
         BgHeavyBlock* heavyBlock = (BgHeavyBlock*)this->interactRangeActor;
@@ -19463,15 +19472,6 @@ void Player_Action_HookshotFly(Player* this, PlayState* play) {
 #if MM_VERSION < N64_US
 void func_80856420_nj1(Player* this, PlayState* play);
 
-extern PlayerAnimationHeader D_0400D9C8_unknown;
-extern PlayerAnimationHeader D_0400D9C0_unknown;
-extern PlayerAnimationHeader D_0400D9E0_unknown;
-extern PlayerAnimationHeader D_0400D9B0_unknown;
-extern PlayerAnimationHeader D_0400D9A8_unknown;
-extern PlayerAnimationHeader D_0400D9D0_unknown;
-extern PlayerAnimationHeader D_0400D9B8_unknown;
-extern PlayerAnimationHeader D_0400D9B8_unknown;
-
 void func_80856204_nj1(Player* this, PlayState* play) {
     if ((this->av2.actionVar2 != 0) && ((this->unk_B08 != 0.0f) || (this->unk_B0C != 0.0f))) {
         f32 updateScale = R_UPDATE_RATE / 2.0f;
@@ -19482,12 +19482,12 @@ void func_80856204_nj1(Player* this, PlayState* play) {
             this->skelAnime.curFrame -= this->skelAnime.animLength;
         }
 
-        PlayerAnimation_BlendToJoint(play, &this->skelAnime, &D_0400D9E0_unknown, this->skelAnime.curFrame, (this->unk_B08 < 0.0f) ? &D_0400D9C0_unknown : &D_0400D9C8_unknown, 5.0f, fabsf(this->unk_B08), this->blendTableBuffer);
-        PlayerAnimation_BlendToMorph(play, &this->skelAnime, &D_0400D9E0_unknown, this->skelAnime.curFrame, (this->unk_B0C < 0.0f) ? &D_0400D9D0_unknown : &D_0400D9B8_unknown, 5.0f, fabsf(this->unk_B0C), &B_80862F40_jp_11);
+        PlayerAnimation_BlendToJoint(play, &this->skelAnime, &gameplay_keep_Linkanim_00D9E0, this->skelAnime.curFrame, (this->unk_B08 < 0.0f) ? &gameplay_keep_Linkanim_00D9C0 : &gameplay_keep_Linkanim_00D9C8, 5.0f, fabsf(this->unk_B08), this->blendTableBuffer);
+        PlayerAnimation_BlendToMorph(play, &this->skelAnime, &gameplay_keep_Linkanim_00D9E0, this->skelAnime.curFrame, (this->unk_B0C < 0.0f) ? &gameplay_keep_Linkanim_00D9D0 : &gameplay_keep_Linkanim_00D9B8, 5.0f, fabsf(this->unk_B0C), &B_80862F40_jp_11);
         PlayerAnimation_InterpJointMorph(play, &this->skelAnime, 0.5f);
     } else if (PlayerAnimation_Update(play, &this->skelAnime)) {
         this->unk_B28 = 2;
-        Player_Anim_PlayLoop(play, this, &D_0400D9E0_unknown);
+        Player_Anim_PlayLoop(play, this, &gameplay_keep_Linkanim_00D9E0);
         this->av2.actionVar2 = 1;
     }
 
@@ -19497,13 +19497,13 @@ void func_80856204_nj1(Player* this, PlayState* play) {
         func_8085B384(this, play);
     } else if (this->unk_B28 == 3) {
         Player_SetAction(play, this, func_80856420_nj1, 0);
-        Player_Anim_PlayOnceMorph(play, this, &D_0400D9A8_unknown);
+        Player_Anim_PlayOnceMorph(play, this, &gameplay_keep_Linkanim_00D9A8);
     }
 }
 
 void func_80856420_nj1(Player* this, PlayState* play) {
     if ((PlayerAnimation_Update(play, &this->skelAnime) != 0) && (this->unk_B28 == 0)) {
-        func_80836A98(this, &D_0400D9B0_unknown, play);
+        func_80836A98(this, &gameplay_keep_Linkanim_00D9B0, play);
     }
 }
 #endif
