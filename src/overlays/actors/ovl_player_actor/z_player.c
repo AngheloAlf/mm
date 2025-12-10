@@ -544,10 +544,12 @@ s32 sPlayerHeldItemButtonIsHeldDown; // Indicates if the button for the current 
 AdjLightSettings D_80862B50;         // backup of lay->envCtx.adjLightSettings
 u32 D_80862B6C;                      // this->skelAnime.movementFlags // sPlayerSkelMoveFlags?
 
+#if MM_VERSION < N64_US
 const char RO_STR_8085E7F0_unknown[] = "-----  pass %d in %s\n";
 const char RO_STR_8085E808_unknown[] = "../z_player_action.inc";
 const char RO_STR_8085E820_unknown[] = "TOOL MODE=%d <X=%f Y=%f Z=%f>\n";
 const char RO_STR_8085E840_unknown[] = "DEMO MODE=%d\n";
+#endif
 
 bool func_8082DA90(PlayState* play) {
     return (play->transitionTrigger != TRANS_TRIGGER_OFF) || (play->transitionMode != TRANS_MODE_OFF);
