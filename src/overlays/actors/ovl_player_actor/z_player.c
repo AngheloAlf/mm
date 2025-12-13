@@ -11886,7 +11886,9 @@ void Player_UpdateInterface(PlayState* play, Player* this) {
             static u8 D_8085D354[] = { DO_ACTION_1, DO_ACTION_2 };
             s32 var_v0;
 
-            var_v0 = ((120.0f - this->actor.depthInWater) / 40.0f);
+            if (sp38) {} //! FAKE
+
+            var_v0 = (120.0f - this->actor.depthInWater) / 40.0f;
             var_v0 = CLAMP(var_v0, 0, ARRAY_COUNT(D_8085D354) - 1);
 
             doActionA = D_8085D354[var_v0];
@@ -11938,6 +11940,10 @@ void Player_UpdateInterface(PlayState* play, Player* this) {
                             ((this->stateFlags2 & PLAYER_STATE2_100000) &&
                              (play->actorCtx.attention.tatlHoverActor == NULL)))) {
                     doActionA = DO_ACTION_PUTAWAY;
+
+#if MM_VERSION >= N64_US
+                    if (play->msgCtx.currentTextId == 0) {} //! FAKE
+#endif
                 }
             }
         }
