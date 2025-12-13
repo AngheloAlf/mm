@@ -7556,16 +7556,11 @@ s32 func_80837DEC(Player* this, PlayState* play) {
             CollisionPoly* sp90;
 #endif
             s32 entityBgId;
+#if MM_VERSION >= N64_US
             s32 sp88;
+#endif
             Vec3f sp7C;
             Vec3f sp70;
-#if MM_VERSION >= N64_US
-            f32 temp_fv1_2;
-#endif
-            f32 entityNormalX;
-            f32 entityNormalY;
-            f32 entityNormalZ;
-            f32 temp_fv0_2;
             f32 var_fv1;
 
             sp7C.x = this->actor.prevPos.x - this->actor.world.pos.x;
@@ -7585,11 +7580,14 @@ s32 func_80837DEC(Player* this, PlayState* play) {
             if (BgCheck_EntityLineTest2(&play->colCtx, &this->actor.world.pos, &sp7C, &sp70, &entityPoly, true, false,
                                         false, true, &entityBgId, &this->actor)) {
                 if (ABS_ALT(entityPoly->normal.y) < 0x258) {
+                    f32 entityNormalX = COLPOLY_GET_NORMAL(entityPoly->normal.x);
+                    f32 entityNormalY = COLPOLY_GET_NORMAL(entityPoly->normal.y);
+                    f32 entityNormalZ = COLPOLY_GET_NORMAL(entityPoly->normal.z);
+                    f32 temp_fv0_2;
+#if MM_VERSION >= N64_US
+                    f32 temp_fv1_2;
+#endif
                     s32 var_v1_2; // sp54
-
-                    entityNormalX = COLPOLY_GET_NORMAL(entityPoly->normal.x);
-                    entityNormalY = COLPOLY_GET_NORMAL(entityPoly->normal.y);
-                    entityNormalZ = COLPOLY_GET_NORMAL(entityPoly->normal.z);
 
                     temp_fv0_2 = Math3D_UDistPlaneToPos(entityNormalX, entityNormalY, entityNormalZ, entityPoly->dist,
                                                         &this->actor.world.pos);
@@ -11940,8 +11938,6 @@ void Player_UpdateInterface(PlayState* play, Player* this) {
                             ((this->stateFlags2 & PLAYER_STATE2_100000) &&
                              (play->actorCtx.attention.tatlHoverActor == NULL)))) {
                     doActionA = DO_ACTION_PUTAWAY;
-
-                    if (play->msgCtx.currentTextId == 0) {} //! FAKE
                 }
             }
         }
@@ -12313,7 +12309,7 @@ void Player_ProcessSceneCollision(PlayState* play, Player* this) {
 void Player_UpdateCamAndSeqModes(PlayState* play, Player* this) {
     u8 seqMode;
     s32 pad;
-    Actor *focusActor;
+    Actor* focusActor;
 
 #if MM_VERSION >= N64_US
     Camera* camera;
@@ -17480,7 +17476,7 @@ void Player_Action_56(Player* this, PlayState* play) {
 
 // wtf is this check?
 #if MM_VERSION < N64_US
-            if (this->skelAnime.curFrame >= 8.0f) 
+            if (this->skelAnime.curFrame >= 8.0f)
 #endif
             {
                 if (this->skelAnime.curFrame >= 13.0f) {
