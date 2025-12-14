@@ -53,7 +53,7 @@
 
 #pragma increment_block_number "n64-us:128"
 
-// TODO: remove when JP-1.1 gameplay_keep is being extracted.
+// TODO: remove when JP-1.1 gameplay_keep is actually being extracted.
 #if MM_VERSION < N64_US
 extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9A8;
 extern PlayerAnimationHeader gameplay_keep_Linkanim_00D9B0;
@@ -517,7 +517,6 @@ typedef struct struct_8085D200 {
 } struct_8085D200; // size = 0xC
 
 #if MM_VERSION < N64_US
-// TODO: in-function static?
 u64 B_80862F40_jp_11[ALIGN16(sizeof(PlayerAnimationFrame)) / sizeof(u64)];
 #endif
 f32 sControlStickMagnitude;
@@ -547,8 +546,6 @@ u32 D_80862B6C;                      // this->skelAnime.movementFlags // sPlayer
 #if MM_VERSION < N64_US
 const char RO_STR_8085E7F0_unknown[] = "-----  pass %d in %s\n";
 const char RO_STR_8085E808_unknown[] = "../z_player_action.inc";
-const char RO_STR_8085E820_unknown[] = "TOOL MODE=%d <X=%f Y=%f Z=%f>\n";
-const char RO_STR_8085E840_unknown[] = "DEMO MODE=%d\n";
 #endif
 
 bool func_8082DA90(PlayState* play) {
@@ -4068,7 +4065,6 @@ s32 func_808305BC(PlayState* play, Player* this, ItemId* item, ArrowType* typePa
     }
 
     if (this->transformation == PLAYER_FORM_DEKU) {
-        // TODO: version check
         return ((gSaveContext.save.saveInfo.playerData.magic >= 2)
 #if MM_VERSION >= N64_US
                 || (CHECK_WEEKEVENTREG(WEEKEVENTREG_08_01) && (play->sceneId == SCENE_BOWLING))
@@ -4669,22 +4665,27 @@ void Player_UseItem(PlayState* play, Player* this, ItemId item) {
                 this->unk_AA5 = PLAYER_UNKAA5_5;
             }
         } else if (
-// TODO: version mess
+#define OUT_OF_STICKS(itemAction) (((itemAction) == PLAYER_IA_DEKU_STICK) && (AMMO(ITEM_DEKU_STICK) == 0))
+#define PLAYING_HONEY_DARLING(play) (((play)->unk_1887D != 0) || ((play)->unk_1887E != 0))
+// returns true if no ammo left for current explosive or if there are more than 3 explosives at the same time
+#define OUT_OF_EXPLOSIVES(this, itemAction, play, explosiveType)                                   \
+    ((((explosiveType) = Player_ExplosiveFromIA((this), (itemAction))) > PLAYER_EXPLOSIVE_NONE) && \
+     ((AMMO(sPlayerExplosiveInfo[(explosiveType)].itemId) == 0) ||                                 \
+      ((play)->actorCtx.actorLists[ACTORCAT_EXPLOSIVES].length) >= 3))
+
 #if MM_VERSION >= N64_US
-            ((itemAction == PLAYER_IA_DEKU_STICK) && (AMMO(ITEM_DEKU_STICK) == 0)) ||
-            (((play->unk_1887D != 0) || (play->unk_1887E != 0)) &&
-             (play->actorCtx.actorLists[ACTORCAT_EXPLOSIVES].length >= 5)) ||
-            ((play->unk_1887D == 0) && (play->unk_1887E == 0) &&
-             ((explosiveType = Player_ExplosiveFromIA(this, itemAction)) > PLAYER_EXPLOSIVE_NONE) &&
-             ((AMMO(sPlayerExplosiveInfo[explosiveType].itemId) == 0) ||
-              (play->actorCtx.actorLists[ACTORCAT_EXPLOSIVES].length >= 3)))
+            // Check sticks first and allow 5 explosives in Honey & Darling minigame
+            OUT_OF_STICKS(itemAction) ||
+            (PLAYING_HONEY_DARLING(play) && (play->actorCtx.actorLists[ACTORCAT_EXPLOSIVES].length) >= 5) ||
+            (!PLAYING_HONEY_DARLING(play) && OUT_OF_EXPLOSIVES(this, itemAction, play, explosiveType))
 #else
-            (play->unk_1887D == 0) && (play->unk_1887E == 0) &&
-            (((itemAction == PLAYER_IA_DEKU_STICK) && (AMMO(ITEM_DEKU_STICK) == 0)) ||
-             ((explosiveType = Player_ExplosiveFromIA(this, itemAction), (explosiveType >= 0)) &&
-              ((AMMO(sPlayerExplosiveInfo[explosiveType].itemId) == 0) ||
-               (play->actorCtx.actorLists[ACTORCAT_EXPLOSIVES].length >= 3))))
+            !PLAYING_HONEY_DARLING(play) &&
+            (OUT_OF_STICKS(itemAction) || OUT_OF_EXPLOSIVES(this, itemAction, play, explosiveType))
 #endif
+
+#undef OUT_OF_EXPLOSIVES
+#undef PLAYING_HONEY_DARLING
+#undef OUT_OF_STICKS
         ) {
             // Prevent some items from being used if player is out of ammo.
             // Also prevent explosives from being used if too many are active
@@ -7645,9 +7646,8 @@ void func_808381A0(Player* this, PlayerAnimationHeader* anim, PlayState* play) {
 }
 
 #if MM_VERSION >= N64_US
-Vec3f D_8085D148 = { 0.0f, 50.0f, 0.0f };
-
 s32 func_808381F8(PlayState* play, Player* this) {
+    static Vec3f D_8085D148 = { 0.0f, 50.0f, 0.0f };
     CollisionPoly* poly;
     s32 bgId;
     Vec3f pos;
@@ -8595,56 +8595,76 @@ s32 Player_ActionHandler_6(Player* this, PlayState* play) {
 }
 
 s32 Player_ActionHandler_11(Player* this, PlayState* play) {
-    if (CHECK_BTN_ALL(sPlayerControlInput->cur.button, BTN_R)
+    if (!CHECK_BTN_ALL(sPlayerControlInput->cur.button, BTN_R)) {
+        goto unable;
+    }
+
 #if MM_VERSION >= N64_US
-        && (this->unk_AA5 == PLAYER_UNKAA5_0)
+    if ((this->unk_AA5 != PLAYER_UNKAA5_0)) {
+        goto unable;
+    }
 #endif
-        && (play->bButtonAmmoPlusOne == 0)) {
-        if (Player_IsGoronOrDeku(this) ||
-            ((((this->transformation == PLAYER_FORM_ZORA) &&
-               !(this->stateFlags1 & PLAYER_STATE1_ZORA_BOOMERANG_THROWN)) ||
-              ((this->transformation == PLAYER_FORM_HUMAN) && (this->currentShield != PLAYER_SHIELD_NONE))) &&
-             !Player_FriendlyLockOnOrParallel(this) && (this->focusActor == NULL))) {
-            func_8082DC38(this);
-            Player_DetachHeldActor(play, this);
-            if (Player_SetAction(play, this, Player_Action_18, 0)) {
-                this->stateFlags1 |= PLAYER_STATE1_400000;
-                if (this->transformation != PLAYER_FORM_GORON) {
-                    PlayerAnimationHeader* anim;
-                    f32 endFrame;
 
-                    if (!Player_IsGoronOrDeku(this)) {
-                        Player_SetModelsForHoldingShield(this);
-                        anim = D_8085BE84[PLAYER_ANIMGROUP_defense][this->modelAnimType];
-                    } else {
-                        anim = (this->transformation == PLAYER_FORM_DEKU) ? &gPlayerAnim_pn_gurd
-                                                                          : &gPlayerAnim_clink_normal_defense_ALL;
-                    }
+    if (play->bButtonAmmoPlusOne != 0) {
+        goto unable;
+    }
 
-                    if (anim != this->skelAnime.animation) {
-                        if (Player_CheckHostileLockOn(this)) {
-                            this->unk_B3C = 1.0f;
-                        } else {
-                            this->unk_B3C = 0.0f;
-                            func_8082FC60(this);
-                        }
-                        this->upperLimbRot.x = 0;
-                        this->upperLimbRot.y = 0;
-                        this->upperLimbRot.z = 0;
-                    }
-
-                    endFrame = Animation_GetLastFrame(anim);
-                    PlayerAnimation_Change(play, &this->skelAnime, anim, PLAYER_ANIM_ADJUSTED_SPEED,
-                                           (anim == &gPlayerAnim_pn_gurd) ? 0.0f : endFrame, endFrame, ANIMMODE_ONCE,
-                                           0.0f);
-                }
-                func_80830AE8(this);
+    if (!Player_IsGoronOrDeku(this)) {
+        if ((this->transformation != PLAYER_FORM_ZORA) || (this->stateFlags1 & PLAYER_STATE1_ZORA_BOOMERANG_THROWN)) {
+            if ((this->transformation != PLAYER_FORM_HUMAN) || (this->currentShield == PLAYER_SHIELD_NONE)) {
+                goto unable;
             }
+        }
 
-            return true;
+        if (Player_FriendlyLockOnOrParallel(this)) {
+            goto unable;
+        }
+
+        if (this->focusActor != NULL) {
+            goto unable;
         }
     }
 
+    func_8082DC38(this);
+    Player_DetachHeldActor(play, this);
+
+    if (Player_SetAction(play, this, Player_Action_18, 0)) {
+        this->stateFlags1 |= PLAYER_STATE1_400000;
+
+        if (this->transformation != PLAYER_FORM_GORON) {
+            PlayerAnimationHeader* anim;
+            f32 endFrame;
+
+            if (!Player_IsGoronOrDeku(this)) {
+                Player_SetModelsForHoldingShield(this);
+                anim = D_8085BE84[PLAYER_ANIMGROUP_defense][this->modelAnimType];
+            } else {
+                anim = (this->transformation == PLAYER_FORM_DEKU) ? &gPlayerAnim_pn_gurd
+                                                                  : &gPlayerAnim_clink_normal_defense_ALL;
+            }
+
+            if (anim != this->skelAnime.animation) {
+                if (Player_CheckHostileLockOn(this)) {
+                    this->unk_B3C = 1.0f;
+                } else {
+                    this->unk_B3C = 0.0f;
+                    func_8082FC60(this);
+                }
+                this->upperLimbRot.x = 0;
+                this->upperLimbRot.y = 0;
+                this->upperLimbRot.z = 0;
+            }
+
+            endFrame = Animation_GetLastFrame(anim);
+            PlayerAnimation_Change(play, &this->skelAnime, anim, PLAYER_ANIM_ADJUSTED_SPEED,
+                                   (anim == &gPlayerAnim_pn_gurd) ? 0.0f : endFrame, endFrame, ANIMMODE_ONCE, 0.0f);
+        }
+        func_80830AE8(this);
+    }
+
+    return true;
+
+unable:;
     return false;
 }
 
@@ -8721,7 +8741,7 @@ s32 func_8083A6C0(PlayState* play, Player* this) {
         }
 
 #if MM_VERSION < N64_US
-        if (this->heldItemAction == 2) {
+        if (this->heldItemAction == PLAYER_IA_FISHING_ROD) {
             Vec3f sp24 = this->actor.world.pos;
 
             sp24.y += 50.0f;
@@ -9162,14 +9182,17 @@ void func_8083B930(PlayState* play, Player* this) {
 
         if (Player_Action_28 == this->actionFunc) {
             func_8083B850(play, this);
+
 #if MM_VERSION >= N64_US
             this->stateFlags3 |= PLAYER_STATE3_8000;
 #endif
         } else if ((this->transformation == PLAYER_FORM_ZORA) && (Player_Action_27 == this->actionFunc)) {
             func_8083B850(play, this);
+
 #if MM_VERSION >= N64_US
             this->stateFlags3 |= PLAYER_STATE3_8000;
 #endif
+
             Player_Anim_PlayLoopAdjusted(play, this, &gPlayerAnim_pz_fishswim);
         } else if ((this->currentBoots < PLAYER_BOOTS_ZORA_UNDERWATER) && (this->stateFlags2 & PLAYER_STATE2_400)) {
             this->stateFlags2 &= ~PLAYER_STATE2_400;
@@ -12324,6 +12347,7 @@ void Player_UpdateCamAndSeqModes(PlayState* play, Player* this) {
 #else
 #define CAMERA_TEMP Play_GetCamera(play, CAM_ID_MAIN)
 #endif
+
     s32 camMode;
 
     if (this == GET_PLAYER(play)) {
@@ -16112,6 +16136,7 @@ void Player_Action_WaitForPutAway(Player* this, PlayState* play) {
     PlayerAnimation_Update(play, &this->skelAnime);
     func_8083249C(this);
 
+#if MM_VERSION >= N64_US
     // Wait for the held item put away process to complete.
     // Determining if the put away process is complete is a bit complicated:
     // `Player_UpdateUpperBody` will only return false if the current UpperAction returns false.
@@ -16127,7 +16152,6 @@ void Player_Action_WaitForPutAway(Player* this, PlayState* play) {
     // This is necessary because the UpperAction for carrying actors will always return true while holding
     // the actor, so `!upperBodyIsBusy` could never pass.
 
-#if MM_VERSION >= N64_US
     upperBodyIsBusy = Player_UpdateUpperBody(this, play);
 
     if (((this->stateFlags1 & PLAYER_STATE1_CARRYING_ACTOR) && (this->heldActor != NULL) &&
@@ -21671,6 +21695,9 @@ void Player_CsAction_48(PlayState* play, Player* this, CsCmdActorCue* cue) {
         D_80862B6C = this->skelAnime.movementFlags;
 
         Player_Anim_ResetMove(this);
+#if MM_VERSION < N64_US
+        (void)"TOOL MODE=%d <X=%f Y=%f Z=%f>\n";
+#endif
         func_8085AD5C(play, this, ABS_ALT(csAction));
         func_8085AC9C(play, this, playerCue, &sPlayerCsActionInitFuncs[ABS_ALT(csAction)]);
 
@@ -21694,6 +21721,9 @@ void Player_Action_CsAction(Player* this, PlayState* play) {
         Player_Anim_ResetMove(this);
 
         this->prevCsAction = this->csAction;
+#if MM_VERSION < N64_US
+        (void)"DEMO MODE=%d\n";
+#endif
         func_8085AD5C(play, this, this->csAction);
         func_8085AC9C(play, this, NULL, &sPlayerCsActionInitFuncs[this->csAction]);
     }
