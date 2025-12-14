@@ -282,9 +282,18 @@ s32 func_80A3E884(EnTest3* this, PlayState* play) {
 s32 func_80A3E898(EnTest3* this, PlayState* play) {
     u16 textId = this->unk_D78->textId;
 
-    if ((this->unk_D78->unk_0 == 4) && CHECK_WEEKEVENTREG(WEEKEVENTREG_51_08)) {
-        Message_BombersNotebookQueueEvent(play, BOMBERS_NOTEBOOK_EVENT_MET_KAFEI);
+    if ((this->unk_D78->unk_0 == 4)) {
+#if MM_VERSION >= N64_US
+        if (CHECK_WEEKEVENTREG(WEEKEVENTREG_51_08))
+#else
+        //! @bug: Setting a weekeventreg flag inside an if instead of just checking it.
+        if (SET_WEEKEVENTREG(WEEKEVENTREG_51_08))
+#endif
+        {
+            Message_BombersNotebookQueueEvent(play, BOMBERS_NOTEBOOK_EVENT_MET_KAFEI);
+        }
     }
+
     if (textId == 0xFFFF) {
         Message_CloseTextbox(play);
     } else if ((u32)textId != 0) {
@@ -481,6 +490,13 @@ void EnTest3_Destroy(Actor* thisx, PlayState* play2) {
     Collider_DestroyQuad(play, &this->player.meleeWeaponQuads[1]);
     Collider_DestroyQuad(play, &this->player.shieldQuad);
     ZeldaArena_Free(this->player.maskObjectSegment);
+
+#if MM_VERSION < N64_US
+    if (play->actorCtx.flags & ACTORCTX_FLAG_6) {
+        SET_WEEKEVENTREG(WEEKEVENTREG_ESCAPED_SAKONS_HIDEOUT);
+    }
+#endif
+
     Environment_StartTime();
 }
 
@@ -631,8 +647,17 @@ s32 func_80A3F73C(EnTest3* this, PlayState* play) {
         this->player.focusActor = &GET_PLAYER(play)->actor;
         this->player.stateFlags2 &= ~PLAYER_STATE2_40000;
         D_80A41D5C = true;
-        if ((this->unk_D78->unk_0 == 4) && CHECK_WEEKEVENTREG(WEEKEVENTREG_51_08)) {
-            Message_BombersNotebookQueueEvent(play, BOMBERS_NOTEBOOK_EVENT_MET_KAFEI);
+
+        if ((this->unk_D78->unk_0 == 4)) {
+#if MM_VERSION >= N64_US
+            if (CHECK_WEEKEVENTREG(WEEKEVENTREG_51_08))
+#else
+            //! @bug: Setting a weekeventreg flag inside an if instead of just checking it.
+            if (SET_WEEKEVENTREG(WEEKEVENTREG_51_08))
+#endif
+            {
+                Message_BombersNotebookQueueEvent(play, BOMBERS_NOTEBOOK_EVENT_MET_KAFEI);
+            }
         }
     } else {
         if (play->actorCtx.flags & ACTORCTX_FLAG_4) {
@@ -743,9 +768,17 @@ s32 func_80A3FBE8(EnTest3* this, PlayState* play) {
             }
         } else if ((play->actorCtx.flags & ACTORCTX_FLAG_6) || (play->actorCtx.flags & ACTORCTX_FLAG_5)) {
             this->csId = CutsceneManager_GetAdditionalCsId(this->player.actor.csId);
+
+#if MM_VERSION >= N64_US
             SET_WEEKEVENTREG(WEEKEVENTREG_90_02);
+#endif
+
             if (play->actorCtx.flags & ACTORCTX_FLAG_5) {
                 this->csId = CutsceneManager_GetAdditionalCsId(this->csId);
+
+#if MM_VERSION < N64_US
+                SET_WEEKEVENTREG(WEEKEVENTREG_90_02);
+#endif
             }
             SEQCMD_STOP_SEQUENCE(SEQ_PLAYER_BGM_MAIN, 1);
             D_80A41D20 = 2;
@@ -758,10 +791,14 @@ s32 func_80A3FBE8(EnTest3* this, PlayState* play) {
         if (CURRENT_TIME > CLOCK_TIME(6, 0)) {
             Environment_SetTimeJump(TIME_TO_MINUTES_ALT_F(fabsf((s16)-CURRENT_TIME)));
         }
+
+#if MM_VERSION >= N64_US
         if (play->actorCtx.flags & ACTORCTX_FLAG_6) {
             SET_WEEKEVENTREG(WEEKEVENTREG_ESCAPED_SAKONS_HIDEOUT);
             CLEAR_WEEKEVENTREG(WEEKEVENTREG_90_02);
         }
+#endif
+
         D_80A41D20 = 3;
     }
     return false;
@@ -779,8 +816,14 @@ s32 func_80A3FE20(EnTest3* this, PlayState* play) {
     if (D_80A41D64 == 0) {
         if (func_80A3E9DC(this, play)) {
             sp2C.unk_1_0 = 2;
+
             scheduleOutput.time0 = (u16)SCRIPT_TIME_NOW;
+#if MM_VERSION >= N64_US
             scheduleOutput.time1 = (u16)(scheduleOutput.time0 + 1000);
+#else
+            scheduleOutput.time1 = (u16)(scheduleOutput.time0 + IREG(8) + 600);
+#endif
+
             func_80A40098(this, play, &sp2C, &scheduleOutput);
             D_80A41D64 = 1;
             return false;
@@ -872,7 +915,10 @@ s32 func_80A40230(EnTest3* this, PlayState* play) {
     s32 sp68 = 0;
     s32 pad1;
     f32 dx;
+#if MM_VERSION < N64_US
     f32 dy;
+#endif
+    f32 dz;
     s32 ret = false;
 
     SubS_TimePathing_FillKnots(knots, 3, this->unk_D7C->count + 3);
@@ -916,16 +962,29 @@ s32 func_80A40230(EnTest3* this, PlayState* play) {
         this->unk_D98 = sp70;
     }
     dx = this->player.actor.world.pos.x - this->player.actor.prevPos.x;
-    dy = this->player.actor.world.pos.z - this->player.actor.prevPos.z;
+    dz = this->player.actor.world.pos.z - this->player.actor.prevPos.z;
     if (!Math_StepToF(&this->unk_D84, 1.0f, 0.1f)) {
         this->player.actor.world.pos.x = this->player.actor.prevPos.x + (dx * this->unk_D84);
-        this->player.actor.world.pos.z = this->player.actor.prevPos.z + (dy * this->unk_D84);
+        this->player.actor.world.pos.z = this->player.actor.prevPos.z + (dz * this->unk_D84);
     }
     Math_Vec3f_Copy(&D_80A41D50, &this->player.actor.world.pos);
+
     dx = this->player.actor.world.pos.x - this->player.actor.prevPos.x;
-    dy = this->player.actor.world.pos.z - this->player.actor.prevPos.z;
-    this->player.speedXZ = sqrtf(SQ(dx) + SQ(dy));
+#if MM_VERSION < N64_US
+    dy = this->player.actor.world.pos.y - this->player.actor.prevPos.y;
+#endif
+    dz = this->player.actor.world.pos.z - this->player.actor.prevPos.z;
+
+    this->player.speedXZ = sqrtf(SQ(dx) + SQ(dz));
+
+#if MM_VERSION >= N64_US
     this->player.speedXZ *= 1.0f + (1.05f * fabsf(Math_SinS(this->player.floorPitch)));
+#else
+    if (dy > 0.0f) {
+        this->player.speedXZ = dy / 2.0f;
+    }
+#endif
+
     sKafeiControlStickMagnitude = (this->player.speedXZ * 10.0f) + 20.0f;
     sKafeiControlStickMagnitude = CLAMP_MAX(sKafeiControlStickMagnitude, 60.0f);
     sKafeiControlStickAngle = this->player.actor.world.rot.y;
@@ -962,6 +1021,12 @@ void func_80A40678(EnTest3* this, PlayState* play) {
             }
         }
     } else {
+        // I have no real reason to believe this is the correct place to put this besides vibes.
+#if MM_VERSION < N64_US
+        // "The schedule data is strange! (By Kafei Kid)\n"
+        (void)"------ スケジュールデータがおかしい！！（Ｂｙカーフェイ子供）\n";
+#endif
+
         scheduleOutput.result = 0;
     }
     this->scheduleResult = scheduleOutput.result;
