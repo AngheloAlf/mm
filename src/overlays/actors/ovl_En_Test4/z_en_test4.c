@@ -7,7 +7,9 @@
  */
 
 #include "z_en_test4.h"
+
 #include "z64horse.h"
+
 #include "overlays/gamestates/ovl_daytelop/z_daytelop.h"
 #include "overlays/actors/ovl_En_Horse/z_en_horse.h"
 
@@ -37,6 +39,7 @@ static s32 sIsLoaded = false;
 static s16 sCsIdList[THREEDAY_DAYTIME_MAX];
 static s16 sCurCsId;
 
+#if MM_VERSION >= N64_US
 /**
  * Handles the transition from day-night and night-day.
  * This does not handle DayTelop transitions.
@@ -98,6 +101,70 @@ void EnTest4_HandleDayNightSwapFromInit(EnTest4* this, PlayState* play) {
         this->prevTime = CURRENT_TIME;
     }
 }
+#endif
+
+#if MM_VERSION < N64_US
+const char RO_STR_80A46240_unknown[] =
+    "framescale_scale=%f  time_change_event_ID=%d, TELESCOPE=%d, Day_Of_The_Week=%d, zelda_time=%x(%x)->  ";
+const char RO_STR_80A462A8_unknown[] = "framescale_scale=%f\n";
+
+// "Player & Enemy Stop Player & Enemy Stop Player & Enemy Stop\n"
+const char RO_STR_80A462C0_unknown[] = "プレイヤー＆敵停止 プレイヤー＆敵停止 プレイヤー＆敵停止\n";
+
+// "Check the screen scale!!!!!!!!!!!!!!!\n"
+const char RO_STR_80A462FC_unknown[] = "画面スケールチェック！！！！！！！！！！！！！！！\n";
+
+const char RO_STR_80A46330_unknown[] =
+    "framescale_flag=%d  framescale_scale=%d  time_change_event_ID=%d  notice_time=%x\n";
+
+// "Check the screen scale!!!!!!!!!!!!!!!\n"
+const char RO_STR_80A46384_unknown[] = "画面スケールチェック！！！！！！！！！！！！！！！\n";
+
+const char RO_STR_80A463B8_unknown[] = "framescale_flag=%d  framescale_scale=%d\n";
+const char RO_STR_80A463E4_unknown[] = "\n↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n";
+const char RO_STR_80A4640C_unknown[] = "zelda_time=%x  check_time=%x  old_time=%x\n";
+const char RO_STR_80A46438_unknown[] = "now_time_dist=%x  old_time_dist=%x  check_time_ID=%x\n";
+const char RO_STR_80A46470_unknown[] = "↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑\n\n";
+
+// "To the weekend demo To the weekend demo To the weekend demo\n"
+const char RO_STR_80A46498_unknown[] = "週末デモへ 週末デモへ 週末デモへ\n";
+const char RO_STR_80A464BC_unknown[] = "週末デモへ 週末デモへ 週末デモへ\n";
+const char RO_STR_80A464E0_unknown[] = "週末デモへ 週末デモへ 週末デモへ\n";
+const char RO_STR_80A46504_unknown[] = "週末デモへ 週末デモへ 週末デモへ\n";
+const char RO_STR_80A46528_unknown[] = "週末デモへ 週末デモへ 週末デモへ\n";
+const char RO_STR_80A4654C_unknown[] = "週末デモへ 週末デモへ 週末デモへ\n";
+
+// "Player & Enemy Stop  time_change_event_ID[%d]=%d\n"
+const char RO_STR_80A46570_unknown[] = "プレイヤー＆敵停止  time_change_event_ID[%d]=%d\n";
+
+// "Next check time set time_change_event_ID[%d]=%d\n"
+const char RO_STR_80A465A4_unknown[] = "次のチェック時刻セットtime_change_event_ID[%d]=%d\n";
+
+// "last day last day last day last day last day last day last day\n"
+const char RO_STR_80A465D8_unknown[] = "最後の日 最後の日 最後の日 最後の日 最後の日 最後の日 最後の日\n";
+
+const char RO_STR_80A46618_unknown[] = "notice_time=%x(%x)  scene_data_ID=%d(%d)\n";
+
+// "Clock Tower Transformation Demo  Clock Tower Transformation Demo  Clock Tower Transformation Demo"
+const char RO_STR_80A46644_unknown[] = "時計塔変形デモへ 時計塔変形デモへ 時計塔変形デモへ\n";
+
+const char RO_STR_80A46678_unknown[] = "!!!!!!!!!  notice_time=%x\n";
+
+// "Bell sound   this->notice_time = %x\n"
+const char RO_STR_80A46694_unknown[] = "鐘の音   this->notice_time = %x\n";
+const char RO_STR_80A466B8_unknown[] = "=======\n";
+const char RO_STR_80A466C4_unknown[] = "=======\n";
+const char RO_STR_80A466D0_unknown[] = "=======\n";
+const char RO_STR_80A466DC_unknown[] = "=======\n";
+
+// "Next check time set  zelda_time=%x\n"
+const char RO_STR_80A466E8_unknown[] = "次のチェック時刻セット  zelda_time=%x\n";
+
+const char RO_STR_80A46710_unknown[] = "=======\n";
+const char RO_STR_80A4671C_unknown[] = "=======\n";
+const char RO_STR_80A46728_unknown[] = "=======\n";
+const char RO_STR_80A46734_unknown[] = "=======\n";
+#endif
 
 /**
  * Handles the transition from day-night and night-day.
@@ -268,6 +335,12 @@ void EnTest4_GetBellTimeOnDay3(EnTest4* this) {
     }
 }
 
+#if MM_VERSION >= N64_US
+#define SCREEN_SCALE_FACTOR 50.0f
+#else
+#define SCREEN_SCALE_FACTOR 100.0f
+#endif
+
 /**
  * Get the next bell time and shrinks screen near the end of the day on days 1 and 2
  */
@@ -295,16 +368,16 @@ void EnTest4_GetBellTimeAndShrinkScreenBeforeDay3(EnTest4* this, PlayState* play
             this->nextBellTime = CLOCK_TIME(5, 36);
         } else if (CURRENT_TIME < CLOCK_TIME(5, 42)) {
             this->nextBellTime = CLOCK_TIME(5, 42);
-            gSaveContext.screenScale -= 50.0f;
+            gSaveContext.screenScale -= 1 * SCREEN_SCALE_FACTOR;
         } else if (CURRENT_TIME < CLOCK_TIME(5, 48)) {
             this->nextBellTime = CLOCK_TIME(5, 48);
-            gSaveContext.screenScale -= 100.0f;
+            gSaveContext.screenScale -= 2 * SCREEN_SCALE_FACTOR;
         } else if (CURRENT_TIME < CLOCK_TIME(5, 54)) {
             this->nextBellTime = CLOCK_TIME(5, 54);
-            gSaveContext.screenScale -= 150.0f;
+            gSaveContext.screenScale -= 3 * SCREEN_SCALE_FACTOR;
         } else if (CURRENT_TIME < CLOCK_TIME(6, 0)) {
             this->nextBellTime = CLOCK_TIME(17, 30);
-            gSaveContext.screenScale -= 200.0f;
+            gSaveContext.screenScale -= 4 * SCREEN_SCALE_FACTOR;
         } else {
             this->nextBellTime = CLOCK_TIME(17, 30);
         }
@@ -336,7 +409,16 @@ void EnTest4_Init(Actor* thisx, PlayState* play) {
         sCsIdList[THREEDAY_DAYTIME_DAY] = sCsIdList[THREEDAY_DAYTIME_NIGHT];
     }
 
-    if (sIsLoaded || CHECK_EVENTINF(EVENTINF_TRIGGER_DAYTELOP)) {
+    if (sIsLoaded
+#if MM_VERSION >= N64_US
+        || CHECK_EVENTINF(EVENTINF_TRIGGER_DAYTELOP)
+#endif
+    ) {
+
+#if MM_VERSION < N64_US
+        //! FAKE
+        if (((&gSaveContext.save) && (&gSaveContext.save)) && (&gSaveContext.save)) {}
+#endif
         Actor_Kill(&this->actor);
     } else {
         sIsLoaded = true;
@@ -363,7 +445,13 @@ void EnTest4_Init(Actor* thisx, PlayState* play) {
             }
         } else if (CURRENT_TIME == CLOCK_TIME(6, 0)) {
             this->daytimeIndex = THREEDAY_DAYTIME_NIGHT;
+
+#if MM_VERSION >= N64_US
             EnTest4_HandleDayNightSwapFromInit(this, play);
+#else
+            EnTest4_HandleDayNightSwap(this, play);
+#endif
+
             if ((gSaveContext.cutsceneTrigger == 0) && (sCsIdList[this->daytimeIndex] > CS_ID_NONE) &&
                 !(play->actorCtx.flags & ACTORCTX_FLAG_TELESCOPE_ON)) {
                 player->stateFlags1 |= PLAYER_STATE1_200;
@@ -427,6 +515,10 @@ void EnTest4_HandleEvents(EnTest4* this, PlayState* play) {
         // `prevTimeUntilTransition` will be slightly negative (behind transition time)
         // Only when the signs are different will this condition pass
         if ((curTimeUntilTransition * prevTimeUntilTransition) <= 0) {
+#if MM_VERSION < N64_US
+            if (1) {}
+#endif
+
             // day-night transition is occurring
             gSaveContext.unk_3CA7 = 1;
             if (play->actorCtx.flags & ACTORCTX_FLAG_PICTO_BOX_ON) {
@@ -510,8 +602,15 @@ void EnTest4_HandleEvents(EnTest4* this, PlayState* play) {
                         playerParams = PLAYER_PARAMS(0xFF, PLAYER_START_MODE_B);
                     }
 
+                    // if (1) { }
+                    // if (1) { }
+                    // if (1) { }
+                    // if (1) { }
+
                     Play_SetRespawnData(play, RESPAWN_MODE_RETURN, entrance, player->unk_3CE, playerParams,
                                         &player->unk_3C0, player->unk_3CC);
+
+                    // if (1) { }
 
                     if ((play->sceneId == SCENE_TENMON_DAI) || (play->sceneId == SCENE_00KEIKOKU)) {
                         play->nextEntrance = ENTRANCE(TERMINA_FIELD, 0);
@@ -558,6 +657,12 @@ void EnTest4_HandleCutscene(EnTest4* this, PlayState* play) {
 
             gSaveContext.save.time += CLOCK_TIME_MINUTE;
             this->prevTime = CURRENT_TIME;
+
+#if MM_VERSION < N64_US
+            //! FAKE
+            if (!(&gSaveContext)) {}
+#endif
+
             play->numSetupActors = -play->numSetupActors;
             player->stateFlags1 &= ~PLAYER_STATE1_200;
         }
@@ -573,9 +678,12 @@ void EnTest4_HandleCutscene(EnTest4* this, PlayState* play) {
             CutsceneManager_Stop(sCurCsId);
         }
 
-        gSaveContext.hudVisibility = HUD_VISIBILITY_IDLE;
         CLEAR_EVENTINF(EVENTINF_17);
+
+#if MM_VERSION >= N64_US
+        gSaveContext.hudVisibility = HUD_VISIBILITY_IDLE;
         Interface_SetHudVisibility(HUD_VISIBILITY_ALL);
+#endif
     }
 }
 
